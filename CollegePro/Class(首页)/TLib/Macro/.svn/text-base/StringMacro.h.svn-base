@@ -1,0 +1,133 @@
+//
+//  StringMacro.h
+//  QianfengSchool
+//
+//  Created by AlicePan on 16/5/31.
+//  Copyright © 2016年 Combanc. All rights reserved.
+//
+
+#ifndef StringMacro_h
+#define StringMacro_h
+
+#pragma mark - fir
+#define FIR_AppId @"57620d1e00fc741fb6000027"
+#define FIR_Token @"7c4c33d420712cbf647d7d819377608e"
+
+#pragma mark - UM
+#define UMkey @"5761f95e67e58ec2d2000ae4"
+
+#pragma mark - 公共CellIdentiifer
+//新增左label 右textfield
+#define ADD_LABELANDTEXTFIELD_CELL_ID (@"AddTableViewCellWithLabelAndTextFieldIdentifier")
+//新增只有textfield
+#define ADD_TEXTFIELD_CELL_ID (@"AddTableViewCellWithTextFieldIdentifier")
+//新增左右两个label
+#define ADD_LABEL_CELL_ID (@"AddTableViewCellWithLabelIdentifier")
+//新增带展开收回按钮
+#define ADD_FLEXTBTN_CELL_ID (@"AddTableViewCellWithFlexButtonIdentifier")
+//新增左右两个label 左右两个imageView
+#define ADD_LABELANDIMGV_CELL_ID (@"AddTableViewCellWithLeftRightLabelAndRightImgVIdentifier")
+
+//家校互动 、投票、荐书、通知列表“全部”和“我的”Cell，作业列表“我的”Cell
+#define WORKLIST_ALL_CELLID (@"WorkListAllTableViewCellIdentifier")
+#define WORKLIST_MINE_CELLID (@"WorkListMineTableViewIdentifier")
+
+#pragma mark - 网络请求宏
+//网络请求提示宏
+#define KREQUESTLOADING @"加载中..."
+#define KREQUESTSUCCESS @"请求成功"
+#define KREQUESTERROR @"网络异常 请稍后再试"
+#define KREQUESTNODATA @"暂无数据"
+#define KREQUESTNOACCESS @"无权限"
+#define KREQUESTOVERTIME @"请求超时"
+#define KREQUESTLOGINERROR @"登录失败"
+#define KREQUESTADDSUCCESS @"添加成功"
+#define KREQUESTADDFAILED @"添加失败"
+#define KREQUESTOPERATESUCCESS @"操作成功"
+#define KREQUESTOPERATEFAILED @"操作失败"
+#define KREQUESTCONTAINILLEGALSTRING @"包含非法字符 请重新输入"
+#define KREQUESTPLEASEINPUTALLINFO @"请填写完整信息"
+#define KREQUESTLIMITCOUNT @"标题最多输入100字"
+#define KCONTENTLIMITCOUNT @"内容最多输入100字"
+#define KTHMELIMITCOUNT @"主题最多输入100字"
+#define KALBUMNAMELIMITCOUNT @"相册名称最多输入100字"
+#define KNAMELIMITCOUNT @"名称最多输入100字"
+#define KDESCRIPTIONLIMITCOUNT @"描述最多输入100字"
+#define KCOMMENTLIMITCOUNT @"评论最多输入100字"
+#define KREQUESTADDING @"提交中..."
+#define KREQUESTATLEASTONECONDITION @"至少选择一个搜索条件"
+#define KREQUESTDURATIONHALFSECOND 0.5
+#define KREQUESTDURATION 1.0
+#define KREQUESTONEANDHALFSECOND 1.5
+
+/**
+ *  请输入文字描述宏
+ */
+#define INPUTDESCRIPTION @"请输入文字描述"
+#define KPLEASEINPUT (@"请输入文字")
+#define KPLAEASECHOOSE (@"请选择")
+#define KDEVELOPING @"此模块正在开发中，下一版即将上线"
+#define KDOWNLOADALREADY @"此文件已下载，请在已下载中查看"
+#define KCHOOSEWRONGTIME @"您选择的结束时间不对，请重新选择"
+#define KONLYINPUTNUMBER @"您只能输入整数哦~"
+#define KINPUTUNZERO @"您不能输入0开头的数字哦~"
+#define KDOWNLOADSUCCESS @"下载成功"
+#define KREPAIRSTILLHAVENOTCOMMENT @"您还有报修未评价，请评价后再添加"
+#define KCANNOTDELETETHISCOMMENT (@"您不能删除此评论哟")
+
+#pragma mark - 用车和资料印制
+//监听用车列表刷新的通知名称
+#define Car_BeginRefreshing @"CarBeginRefreshing"
+//监听资料印制列表刷新的通知名称
+#define DataPrinting_BeginRefreshing @"DataPrintingBeginRefreshing"
+
+
+#pragma mark - 发短信
+#define KGO_SELECT (@"去选择")
+#define KALREADY_SELECT (@"已选择")
+#define KMESSAGE_PLEASE_INPUT (@"请输入...")
+#define KMESSAGE_INPUTDESCRIPTION (@"请输入要发送的短信内容")
+#define KMESSAGE_DOT (@",")
+#define KMESSAGE_NOTINPUTCONTENT_TIP (@"您还没有输入短信内容哦~")
+
+//以下是前锋学校发短信默认的用户名、密码和短信内容拼接名称
+#define KMESSAGE_DEFAULT_USERNAME (@"KBGJH")
+#define KMESSAGE_DEFAULT_PASSWORD (@"KBGJH666")
+#define KMESSAGE_DEFAULT_SCHOOLNAME (@"【前锋学校】")
+
+
+#pragma mark - 虚拟教室
+
+//#define KVIRTUALCLASS_NOPERMISSTION_ROLE (@"没有权限")
+//#define KVIRTUALCLASS_TEACHER_ROLE (@"老师")
+//#define KVIRTUALCLASS_SENIORLEADER_ROLE (@"年级组长")
+//#define KVIRTUALCLASS_HEADMASTER_ROLE (@"校长")
+//#define KVIRTUALCLASS_TEAMLEADER_ROLE (@"教研组长")
+//#define KVIRTUALCLASS_ADMINISTRATOR_ROLE (@"超级管理员")
+//#define KVIRTUALCLASS_AUDITOR_ROLE (@"虚拟班级审核员")
+//班级信息改变的通知
+#define KVIRTUALCLASS_CLASSINFO_NOTICE (@"kVirtualClassClassInfoNotice")
+//资料是否有权限增加删除的通知,并且将文件名名字传过来，用于判断是否有重复文件夹
+#define KVIRTUALCLASS_RESOURCE_ISUPLOAD_NOTICE (@"kVirtualClassResourceIsUploadNotice")
+//记录在学生进入群组之前班级的通知
+#define KVIRTUALCLASS_STUDENT_GOGROUP_NOTICE (@"kVirtualClassStudentGoGroupNotice")
+
+#pragma mark -附件下载的文件夹路径
+//门户
+#define K_NOTIFY_PATH (@"notify") //门户通知
+#define K_SCHOOKCALENDAR_PATH (@"schoolCalendar") //校历
+#define K_SCHEDULE_PATH (@"schedule") //时间表
+
+//家校互动
+#define K_NOTICE_PATH (@"notice") //家校互动通知模块
+#define K_WORK_PATH (@"work") //作业模块
+#define K_VOTE_PATH (@"vote") //投票模块
+#define K_ACTIVITY_PATH (@"activity") //活动模块
+#define K_BOOK_PATH (@"book") //荐书模块
+#define K_ALBUM_PATH (@"album") //相册模块
+#define K_RESOURCE_PATH (@"resource") //资料模块
+#define K_SHARE_PATH (@"share") //分享模块
+#define K_ASK_PATH (@"ask") //提问模块
+
+
+#endif /* StringMacro_h */

@@ -1,0 +1,31 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, "6.1"
+
+target "shiku" do
+    pod 'SDWebImage'
+    pod 'AFNetworking', '~> 2.4.1'
+    pod 'CocoaLumberjack'
+    pod 'SVPullToRefresh'
+    pod 'SWTableViewCell'
+    pod 'ReactiveCocoa'
+    pod 'CocoaSecurity'
+    pod 'Masonry'
+    pod 'DKCarouselView'
+    pod 'ZWIntroductionViewController'
+    pod 'MZTimerLabel'
+	pod 'BaiduMapAPI', '~> 2.8.1'
+	#pod 'BaiduMapKit', '~> 3.1.0'
+    pod 'Mantle', '~> 1.5.4'
+#    pod 'WebViewJavascriptBridge', '~> 4.1.4'
+#    pod 'SBJson', :git => 'https://github.com/stig/json-framework/downloads'
+#    pod 'DKFilterView', :git => 'https://github.com/drinking/DKFilterView.git'
+
+    
+end
+
+target "shikuTests" do
+    pod 'AFNetworking', '~> 2.4.1'
+    pod 'ReactiveCocoa'
+    pod 'Specta'
+    pod 'Expecta'
+end

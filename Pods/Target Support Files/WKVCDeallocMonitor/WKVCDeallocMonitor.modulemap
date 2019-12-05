@@ -1,0 +1,6 @@
+framework module WKVCDeallocMonitor {
+  umbrella header "WKVCDeallocMonitor-umbrella.h"
+
+  export *
+  module * { export * }
+}

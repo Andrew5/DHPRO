@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GradeSelectListViewController">
+            <connections>
+                <outlet property="collectionView" destination="yc3-lj-QBg" id="8WZ-L8-uEZ"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="yc3-lj-QBg">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RHP-eV-Eed">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="yc3-lj-QBg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0hK-bS-Wy5"/>
+                <constraint firstAttribute="trailing" secondItem="yc3-lj-QBg" secondAttribute="trailing" id="Fby-Wq-Qoy"/>
+                <constraint firstItem="yc3-lj-QBg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Idi-K3-hRv"/>
+                <constraint firstAttribute="bottom" secondItem="yc3-lj-QBg" secondAttribute="bottom" id="JrY-F9-b4G"/>
+                <constraint firstAttribute="bottom" secondItem="yc3-lj-QBg" secondAttribute="bottom" id="xof-nJ-cI1"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="yc3-lj-QBg"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="0hK-bS-Wy5"/>
+                    <exclude reference="Fby-Wq-Qoy"/>
+                    <exclude reference="Idi-K3-hRv"/>
+                    <exclude reference="JrY-F9-b4G"/>
+                    <exclude reference="xof-nJ-cI1"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="yc3-lj-QBg"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="0hK-bS-Wy5"/>
+                    <include reference="Fby-Wq-Qoy"/>
+                    <include reference="Idi-K3-hRv"/>
+                    <exclude reference="JrY-F9-b4G"/>
+                    <include reference="xof-nJ-cI1"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>

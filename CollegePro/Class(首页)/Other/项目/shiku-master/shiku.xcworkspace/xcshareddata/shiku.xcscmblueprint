@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "5C7A9699C02A5C3158CB6D1635219590733F4B96",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "40930624ACFC7C1CD4D04166C8BC0E96A75D3F2A" : 0,
+    "5C7A9699C02A5C3158CB6D1635219590733F4B96" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "AB41E23C-88E9-4B8F-8CA8-7943AE3F5420",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "40930624ACFC7C1CD4D04166C8BC0E96A75D3F2A" : "ShiKuPro",
+    "5C7A9699C02A5C3158CB6D1635219590733F4B96" : "ios_shiku"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "shiku",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 203,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "shiku.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/git.oschina.net\/insuny\/shiku-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "40930624ACFC7C1CD4D04166C8BC0E96A75D3F2A"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/git.oschina.net\/jabraknights\/ShiKu.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5C7A9699C02A5C3158CB6D1635219590733F4B96"
+    }
+  ]
+}

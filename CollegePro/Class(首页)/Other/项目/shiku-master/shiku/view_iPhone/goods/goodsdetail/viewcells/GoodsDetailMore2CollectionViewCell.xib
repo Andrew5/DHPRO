@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="GoodsDetailMore2CollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="420" height="160"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="420" height="160"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon8-03.png" translatesAutoresizingMaskIntoConstraints="NO" id="yfh-w6-ONp">
+                        <rect key="frame" x="10" y="10" width="400" height="140"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="yfh-w6-ONp" secondAttribute="bottom" constant="10" id="1OJ-xq-Wbp"/>
+                <constraint firstAttribute="trailing" secondItem="yfh-w6-ONp" secondAttribute="trailing" constant="10" id="Esu-mF-czJ"/>
+                <constraint firstItem="yfh-w6-ONp" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="L1n-pf-U7X"/>
+                <constraint firstItem="yfh-w6-ONp" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="R5K-Z9-6Ie"/>
+            </constraints>
+            <size key="customSize" width="420" height="160"/>
+            <connections>
+                <outlet property="coverImageView" destination="yfh-w6-ONp" id="x2n-Py-eRw"/>
+            </connections>
+            <point key="canvasLocation" x="260" y="313"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="icon8-03.png" width="42" height="42"/>
+    </resources>
+</document>

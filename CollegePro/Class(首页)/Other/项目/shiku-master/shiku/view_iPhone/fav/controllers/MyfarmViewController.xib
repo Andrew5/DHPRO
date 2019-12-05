@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyfarmViewController">
+            <connections>
+                <outlet property="myTableView" destination="tuW-JJ-u0k" id="7cP-n9-BJc"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="tuW-JJ-u0k">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <variation key="widthClass=compact" misplaced="YES">
+                        <rect key="frame" x="48" y="0.0" width="400" height="600"/>
+                    </variation>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="qm9-Mb-uP1"/>
+                        <outlet property="delegate" destination="-1" id="dwG-qf-1Xx"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="tuW-JJ-u0k" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BTX-Am-WYK"/>
+                <constraint firstAttribute="trailing" secondItem="tuW-JJ-u0k" secondAttribute="trailing" id="NH8-bj-bct"/>
+                <constraint firstAttribute="bottom" secondItem="tuW-JJ-u0k" secondAttribute="bottom" id="bFu-Xx-fCm"/>
+                <constraint firstItem="tuW-JJ-u0k" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="wWf-3W-xcJ"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="tuW-JJ-u0k"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="BTX-Am-WYK"/>
+                    <exclude reference="NH8-bj-bct"/>
+                    <exclude reference="bFu-Xx-fCm"/>
+                    <exclude reference="wWf-3W-xcJ"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="tuW-JJ-u0k"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="BTX-Am-WYK"/>
+                    <include reference="NH8-bj-bct"/>
+                    <include reference="bFu-Xx-fCm"/>
+                    <include reference="wWf-3W-xcJ"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>

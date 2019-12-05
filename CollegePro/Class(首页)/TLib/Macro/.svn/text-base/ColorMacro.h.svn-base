@@ -1,0 +1,106 @@
+//
+//  ColorMacro.h
+//  Ssdfz
+//
+//  Created by 王楠 on 16/1/19.
+//  Copyright © 2016年 Combanc. All rights reserved.
+//  颜色宏
+
+#ifndef ColorMacro_h
+#define ColorMacro_h
+
+
+#define WHITECOLOR [UIColor whiteColor]
+/**
+ *  50中分橙色
+ */
+#define OrangeColor RGBA(235, 124, 16, 1)
+
+/**
+ *  50中分七彩颜色
+ */
+//红
+#define F_RED RGBA(229, 71, 37, 1)
+//橙
+#define F_ORANGER RGBA(236, 124, 15, 1)
+//黄
+#define F_YELLOW RGBA(250, 167, 15, 1)
+//绿
+#define F_GREEN RGBA(189, 189, 62, 1)
+//青
+#define F_CYAN RGBA(53, 178, 195, 1)
+//蓝
+#define F_BLUE RGBA(57, 116, 191, 1)
+//紫
+#define F_PURPLE RGBA(125, 106, 173, 1)
+//粉
+#define F_PINK RGBA(240, 157, 160, 1)
+
+//前锋学校 导航条蓝色 一般出现的蓝色
+#define QF_BLUE (RGBA(31, 142, 225, 1))
+//前锋学校 原来带图片现在改成这个背景颜色
+#define QF_BG_COLOR (RGBA(242, 243, 247, 1))
+
+//前锋学校 状态红色
+#define STATE_RED (RGBA(234, 95, 57, 1))
+//状态橙色
+#define STATE_ORANGE (RGBA(239, 142, 41, 1))
+//状态黄色
+#define STATE_YELLOW (RGBA(253, 180, 47, 1))
+//状态绿色
+#define STATE_GREEN (RGBA(201, 198, 87, 1))
+//状态蓝色
+#define STATE_BLUE (RGBA(71, 187, 202, 1))
+
+
+//textField、textView的placeholder颜色
+#define PLACEHOLDER_COLOR RGBA(219, 219, 223, 1)
+//section颜色
+#define SECTION_COLOR RGBA(245, 245, 245, 1)
+
+//周安排选中日期颜色
+#define WEEKPLAN_SELECTED_COLOR (RGBA(87, 201, 245, 1))
+
+
+///Title颜色
+#define TITLE_COLOR RGBA(0, 0, 0, 1)
+///subTitle颜色
+#define SUBTITLE_COLOR RGBA(207, 207, 207, 1)
+///绿色
+#define GREEN_COLOR RGBA(30, 180, 20, .75)
+
+//文字颜色
+#define TEXT_COLOR_GRAY [UIColor grayColor]
+
+#define TEXT_COLOR_LIGHTGRAY [UIColor lightGrayColor]
+
+#define TEXT_COLOR_DARKGRAY [UIColor darkGrayColor]
+
+#define TEXT_COLOR_BLACK [UIColor blackColor]
+
+//门户课表颜色
+//周一到周五的字体Color
+#define TIME_TITLE_COLOR ([UIColor colorWithHex:@"#2eaae5"])
+#define MON_TITLE_COLOR ([UIColor colorWithHex:@"#f39800"])
+#define TUS_TITLE_COLOR ([UIColor colorWithHex:@"#f19149"])
+#define WED_TITLE_COLOR ([UIColor colorWithHex:@"#2eaae5"])
+#define THU_TITLE_COLOR ([UIColor colorWithHex:@"#F29C9F"])
+#define FRI_TITLE_COLOR ([UIColor colorWithHex:@"#8957a1"])
+//周一到周五色块color
+//([UIColor colorWithHex:@"#30aa2f32"])
+#define TIME_BG_COLOR RGBA(204, 225, 152, 0.3)
+//([UIColor colorWithHex:@"#30f39800"])
+#define MON_BG_COLOR RGBA(243, 152, 0, 0.3)
+//([UIColor colorWithHex:@"#302eaae5"])
+#define TUS_BG_COLOR RGBA(242, 156, 159, 0.3)
+//([UIColor colorWithHex:@"#302eaae5"])
+#define WED_BG_COLOR RGBA(46, 170, 229, 0.3)
+//([UIColor colorWithHex:@"#3045a992"])
+#define THU_BG_COLOR RGBA(69, 169, 146, 0.3)
+//([UIColor colorWithHex:@"#308957a1"])
+#define FRI_BG_COLOR RGBA(137, 87, 161, 0.3)
+
+
+
+
+#endif /* ColorMacro_h */

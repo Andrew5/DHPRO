@@ -1,0 +1,25 @@
+//
+// Prefix header for all source files of the 'RDVTabBarController' target in the 'RDVTabBarController' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#endif
+#define CELLFONT [UIFont systemFontOfSize:14]
+#define iOS8 ([[UIDevice currentDevice].systemVersion doubleValue] >= 8.0)
+#define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)
+#define iOS6 ([[UIDevice currentDevice].systemVersion doubleValue] < 7.0)
+#define BA_SCREEN_WIDTH ((([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait) || ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortraitUpsideDown)) ? [[UIScreen mainScreen] bounds].size.width : [[UIScreen mainScreen] bounds].size.height)
+#define BA_Red_Color            [UIColor redColor]
+#define BA_Custom_Color            [UIColor colorWithRed:51/255 green:197/255 blue:188/255 alpha:1.000]
+#define BA_White_Color          [UIColor whiteColor]
+#define BA_FontSize(fontSize) [UIFont systemFontOfSize:fontSize]
+
+

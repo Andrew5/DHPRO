@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PaymentSuccessViewController">
+            <connections>
+                <outlet property="orderIdLabel" destination="GvA-jy-NSO" id="scE-Bu-JEq"/>
+                <outlet property="orderInfoContainer" destination="5kH-UI-hIc" id="jnM-5u-hsk"/>
+                <outlet property="orderTimeLabel" destination="2cL-YA-V8T" id="vFu-8I-bja"/>
+                <outlet property="paySnLabel" destination="GT9-Bi-XMf" id="jr5-Uy-lYe"/>
+                <outlet property="payTimeLabel" destination="3Cf-1O-zF0" id="43a-ST-GvN"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5kH-UI-hIc">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="订单编号：7146713647617" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GvA-jy-NSO">
+                            <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支付交易号：sn34781738974" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GT9-Bi-XMf">
+                            <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="成交时间：2015-09-09 19:00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2cL-YA-V8T">
+                            <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="付款时间：2015-09-20 19:00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Cf-1O-zF0">
+                            <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="centerY" secondItem="GT9-Bi-XMf" secondAttribute="centerY" id="BAX-G8-0zO"/>
+                        <constraint firstItem="GT9-Bi-XMf" firstAttribute="top" secondItem="GvA-jy-NSO" secondAttribute="bottom" constant="5" id="DUj-bI-wjV">
+                            <variation key="widthClass=compact" constant="2"/>
+                        </constraint>
+                        <constraint firstItem="3Cf-1O-zF0" firstAttribute="top" secondItem="GT9-Bi-XMf" secondAttribute="bottom" constant="5" id="QJD-dG-Qdi"/>
+                        <constraint firstItem="GvA-jy-NSO" firstAttribute="leading" secondItem="GT9-Bi-XMf" secondAttribute="leading" id="Qq5-cJ-p6a"/>
+                        <constraint firstItem="GvA-jy-NSO" firstAttribute="leading" secondItem="2cL-YA-V8T" secondAttribute="leading" id="RqS-KQ-QxF"/>
+                        <constraint firstItem="2cL-YA-V8T" firstAttribute="top" secondItem="GT9-Bi-XMf" secondAttribute="bottom" constant="5" id="SYW-6M-c6Z">
+                            <variation key="widthClass=compact" constant="2"/>
+                        </constraint>
+                        <constraint firstItem="GT9-Bi-XMf" firstAttribute="leading" secondItem="5kH-UI-hIc" secondAttribute="leading" constant="10" id="VnF-zv-grv"/>
+                        <constraint firstItem="GvA-jy-NSO" firstAttribute="leading" secondItem="3Cf-1O-zF0" secondAttribute="leading" id="cKh-gn-bef"/>
+                        <constraint firstItem="3Cf-1O-zF0" firstAttribute="top" secondItem="2cL-YA-V8T" secondAttribute="bottom" constant="5" id="jga-AV-hxX">
+                            <variation key="widthClass=compact" constant="2"/>
+                        </constraint>
+                        <constraint firstAttribute="height" constant="80" id="k1p-Iy-fhu">
+                            <variation key="widthClass=compact" constant="95"/>
+                        </constraint>
+                        <constraint firstItem="3Cf-1O-zF0" firstAttribute="top" secondItem="2cL-YA-V8T" secondAttribute="bottom" constant="5" id="u6A-lC-uxx"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="subviews">
+                            <exclude reference="GvA-jy-NSO"/>
+                            <exclude reference="GT9-Bi-XMf"/>
+                            <exclude reference="2cL-YA-V8T"/>
+                            <exclude reference="3Cf-1O-zF0"/>
+                        </mask>
+                        <mask key="constraints">
+                            <exclude reference="k1p-Iy-fhu"/>
+                            <exclude reference="SYW-6M-c6Z"/>
+                            <exclude reference="QJD-dG-Qdi"/>
+                            <exclude reference="jga-AV-hxX"/>
+                            <exclude reference="u6A-lC-uxx"/>
+                            <exclude reference="BAX-G8-0zO"/>
+                            <exclude reference="DUj-bI-wjV"/>
+                            <exclude reference="VnF-zv-grv"/>
+                            <exclude reference="Qq5-cJ-p6a"/>
+                            <exclude reference="RqS-KQ-QxF"/>
+                            <exclude reference="cKh-gn-bef"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="subviews">
+                            <include reference="GvA-jy-NSO"/>
+                            <include reference="GT9-Bi-XMf"/>
+                            <include reference="2cL-YA-V8T"/>
+                            <include reference="3Cf-1O-zF0"/>
+                        </mask>
+                        <mask key="constraints">
+                            <include reference="k1p-Iy-fhu"/>
+                            <include reference="SYW-6M-c6Z"/>
+                            <exclude reference="QJD-dG-Qdi"/>
+                            <include reference="jga-AV-hxX"/>
+                            <exclude reference="u6A-lC-uxx"/>
+                            <include reference="BAX-G8-0zO"/>
+                            <include reference="DUj-bI-wjV"/>
+                            <include reference="VnF-zv-grv"/>
+                            <include reference="Qq5-cJ-p6a"/>
+                            <include reference="RqS-KQ-QxF"/>
+                            <include reference="cKh-gn-bef"/>
+                        </mask>
+                    </variation>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon6-s.png" translatesAutoresizingMaskIntoConstraints="NO" id="OlW-L7-bay">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="120" id="9f1-mj-2M4"/>
+                        <constraint firstAttribute="height" constant="120" id="yP8-bU-kYP"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="9f1-mj-2M4"/>
+                            <exclude reference="yP8-bU-kYP"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="9f1-mj-2M4"/>
+                            <include reference="yP8-bU-kYP"/>
+                        </mask>
+                    </variation>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="恭喜您支付成功，请随时关注物流信息" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEn-a7-e6u">
+                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="5kH-UI-hIc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="2Tv-KF-6iE">
+                    <variation key="widthClass=compact" constant="0.0"/>
+                </constraint>
+                <constraint firstItem="hEn-a7-e6u" firstAttribute="top" secondItem="OlW-L7-bay" secondAttribute="bottom" constant="20" id="3AM-WY-sOD"/>
+                <constraint firstItem="5kH-UI-hIc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="84F-EB-8N5"/>
+                <constraint firstItem="hEn-a7-e6u" firstAttribute="centerX" secondItem="OlW-L7-bay" secondAttribute="centerX" id="FPK-E6-QoY"/>
+                <constraint firstAttribute="trailing" secondItem="5kH-UI-hIc" secondAttribute="trailing" id="aE4-bf-uRP"/>
+                <constraint firstAttribute="centerX" secondItem="OlW-L7-bay" secondAttribute="centerX" id="ixY-vN-6R6"/>
+                <constraint firstAttribute="centerY" secondItem="OlW-L7-bay" secondAttribute="centerY" id="tly-od-ZXW"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="5kH-UI-hIc"/>
+                    <exclude reference="OlW-L7-bay"/>
+                    <exclude reference="hEn-a7-e6u"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="3AM-WY-sOD"/>
+                    <exclude reference="FPK-E6-QoY"/>
+                    <exclude reference="ixY-vN-6R6"/>
+                    <exclude reference="tly-od-ZXW"/>
+                    <exclude reference="2Tv-KF-6iE"/>
+                    <exclude reference="84F-EB-8N5"/>
+                    <exclude reference="aE4-bf-uRP"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="5kH-UI-hIc"/>
+                    <include reference="OlW-L7-bay"/>
+                    <include reference="hEn-a7-e6u"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="3AM-WY-sOD"/>
+                    <include reference="FPK-E6-QoY"/>
+                    <include reference="ixY-vN-6R6"/>
+                    <include reference="tly-od-ZXW"/>
+                    <include reference="2Tv-KF-6iE"/>
+                    <include reference="84F-EB-8N5"/>
+                    <include reference="aE4-bf-uRP"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="266" y="148"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon6-s.png" width="262" height="262"/>
+    </resources>
+</document>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="registerInterface">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ContactOne" translatesAutoresizingMaskIntoConstraints="NO" id="2ch-Vq-brD">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kXh-uT-KMa">
+                    <rect key="frame" x="15" y="44" width="22" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="22" id="43j-Ce-Yx2"/>
+                        <constraint firstAttribute="height" constant="22" id="hjH-uZ-j88"/>
+                    </constraints>
+                    <state key="normal" image="back"/>
+                    <connections>
+                        <action selector="BtnAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="dDJ-YS-cRs"/>
+                    </connections>
+                </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Please enter the E-mail" textAlignment="center" minimumFontSize="17" background="Input" translatesAutoresizingMaskIntoConstraints="NO" id="pJN-Be-TtZ">
+                    <rect key="frame" x="53" y="210" width="213" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="bUJ-ZC-gLC"/>
+                        <constraint firstAttribute="width" constant="213" id="dbd-jS-bAM"/>
+                    </constraints>
+                    <color key="textColor" white="0.96999999999999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                            <color key="value" red="0.9909326424870466" green="0.9909326424870466" blue="0.9909326424870466" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Please input a password" textAlignment="center" minimumFontSize="17" background="Input" translatesAutoresizingMaskIntoConstraints="NO" id="WW4-CT-i8i">
+                    <rect key="frame" x="53" y="274" width="213" height="44"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                            <color key="value" red="0.99097312176165808" green="0.99097312176165808" blue="0.99097312176165808" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Please confirm password" textAlignment="center" minimumFontSize="17" background="Input" translatesAutoresizingMaskIntoConstraints="NO" id="6fn-PO-YUn">
+                    <rect key="frame" x="53" y="338" width="213" height="44"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                            <color key="value" red="0.9784245466321243" green="0.9784245466321243" blue="0.9784245466321243" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Om-Lc-xgS">
+                    <rect key="frame" x="53" y="422" width="213" height="44"/>
+                    <state key="normal" image="Register"/>
+                    <connections>
+                        <action selector="BtnAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Ekw-LU-Poo"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="9Om-Lc-xgS" firstAttribute="width" secondItem="6fn-PO-YUn" secondAttribute="width" id="1d6-3f-31d"/>
+                <constraint firstItem="kXh-uT-KMa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="1mP-Mk-514"/>
+                <constraint firstItem="6fn-PO-YUn" firstAttribute="top" secondItem="WW4-CT-i8i" secondAttribute="bottom" constant="20" id="8Cb-0U-83D"/>
+                <constraint firstItem="2ch-Vq-brD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="9Js-9k-fIn"/>
+                <constraint firstItem="6fn-PO-YUn" firstAttribute="height" secondItem="WW4-CT-i8i" secondAttribute="height" id="A79-5b-H20"/>
+                <constraint firstItem="6fn-PO-YUn" firstAttribute="centerX" secondItem="WW4-CT-i8i" secondAttribute="centerX" id="IWQ-ge-cIT"/>
+                <constraint firstItem="WW4-CT-i8i" firstAttribute="width" secondItem="pJN-Be-TtZ" secondAttribute="width" id="IcK-Rl-l6s"/>
+                <constraint firstItem="6fn-PO-YUn" firstAttribute="width" secondItem="WW4-CT-i8i" secondAttribute="width" id="JLX-f4-tRg"/>
+                <constraint firstItem="kXh-uT-KMa" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="44" id="Ka7-NG-HEe"/>
+                <constraint firstItem="9Om-Lc-xgS" firstAttribute="top" secondItem="6fn-PO-YUn" secondAttribute="bottom" constant="40" id="Kx7-Xo-wtY"/>
+                <constraint firstItem="WW4-CT-i8i" firstAttribute="centerX" secondItem="pJN-Be-TtZ" secondAttribute="centerX" id="ORI-EG-Obd"/>
+                <constraint firstItem="pJN-Be-TtZ" firstAttribute="centerX" secondItem="2ch-Vq-brD" secondAttribute="centerX" id="QdD-BZ-awm"/>
+                <constraint firstItem="2ch-Vq-brD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="RIK-j7-zzM"/>
+                <constraint firstItem="9Om-Lc-xgS" firstAttribute="centerX" secondItem="6fn-PO-YUn" secondAttribute="centerX" id="T4q-f0-ebq"/>
+                <constraint firstAttribute="bottom" secondItem="2ch-Vq-brD" secondAttribute="bottom" id="Ti0-6w-Wki"/>
+                <constraint firstItem="WW4-CT-i8i" firstAttribute="top" secondItem="pJN-Be-TtZ" secondAttribute="bottom" constant="20" id="c1d-HT-Yfc"/>
+                <constraint firstItem="pJN-Be-TtZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="210" id="eWk-hS-4sc"/>
+                <constraint firstAttribute="trailing" secondItem="2ch-Vq-brD" secondAttribute="trailing" id="iVO-uC-gfi"/>
+                <constraint firstItem="WW4-CT-i8i" firstAttribute="height" secondItem="pJN-Be-TtZ" secondAttribute="height" id="uxL-JK-j9C"/>
+                <constraint firstItem="9Om-Lc-xgS" firstAttribute="height" secondItem="6fn-PO-YUn" secondAttribute="height" id="zkh-Z4-PMh"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+            <connections>
+                <outlet property="accountTF" destination="pJN-Be-TtZ" id="NAP-z0-MbU"/>
+                <outlet property="backBtn" destination="kXh-uT-KMa" id="je9-6d-fPe"/>
+                <outlet property="confirmPasswordTF" destination="6fn-PO-YUn" id="EtE-nI-fDZ"/>
+                <outlet property="passwordTF" destination="WW4-CT-i8i" id="oJC-KI-ffr"/>
+                <outlet property="registerBtn" destination="9Om-Lc-xgS" id="oHF-Uo-2Cb"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="ContactOne" width="375" height="667"/>
+        <image name="Input" width="213" height="44"/>
+        <image name="Register" width="213" height="44"/>
+        <image name="back" width="22" height="22"/>
+    </resources>
+</document>

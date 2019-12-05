@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="OrderDetailTableViewCellHeader">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hea-oh-pWp">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon1_06.png" translatesAutoresizingMaskIntoConstraints="NO" id="hLP-RC-Lgs">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="U69-wB-skA"/>
+                                <constraint firstAttribute="width" constant="20" id="loq-7m-3mc"/>
+                            </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="U69-wB-skA"/>
+                                    <exclude reference="loq-7m-3mc"/>
+                                </mask>
+                            </variation>
+                            <variation key="widthClass=compact">
+                                <mask key="constraints">
+                                    <include reference="U69-wB-skA"/>
+                                    <include reference="loq-7m-3mc"/>
+                                </mask>
+                            </variation>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="菜园子" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aob-JU-d9f">
+                            <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcd-Yp-peK">
+                            <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="centerY" secondItem="hLP-RC-Lgs" secondAttribute="centerY" id="4OF-Js-kZH"/>
+                        <constraint firstItem="aob-JU-d9f" firstAttribute="leading" secondItem="hLP-RC-Lgs" secondAttribute="trailing" constant="10" id="Qfe-67-CXt"/>
+                        <constraint firstItem="hLP-RC-Lgs" firstAttribute="leading" secondItem="Hea-oh-pWp" secondAttribute="leading" constant="10" id="XVA-3R-VwM">
+                            <variation key="widthClass=compact" constant="15"/>
+                        </constraint>
+                        <constraint firstAttribute="trailing" secondItem="xcd-Yp-peK" secondAttribute="trailing" constant="10" id="hDr-o8-OB1"/>
+                        <constraint firstItem="hLP-RC-Lgs" firstAttribute="centerY" secondItem="xcd-Yp-peK" secondAttribute="centerY" id="km1-Qz-F50"/>
+                        <constraint firstItem="hLP-RC-Lgs" firstAttribute="centerY" secondItem="aob-JU-d9f" secondAttribute="centerY" id="qgC-Al-jdM"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="subviews">
+                            <exclude reference="hLP-RC-Lgs"/>
+                            <exclude reference="aob-JU-d9f"/>
+                            <exclude reference="xcd-Yp-peK"/>
+                        </mask>
+                        <mask key="constraints">
+                            <exclude reference="Qfe-67-CXt"/>
+                            <exclude reference="hDr-o8-OB1"/>
+                            <exclude reference="4OF-Js-kZH"/>
+                            <exclude reference="XVA-3R-VwM"/>
+                            <exclude reference="km1-Qz-F50"/>
+                            <exclude reference="qgC-Al-jdM"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="subviews">
+                            <include reference="hLP-RC-Lgs"/>
+                            <include reference="aob-JU-d9f"/>
+                            <include reference="xcd-Yp-peK"/>
+                        </mask>
+                        <mask key="constraints">
+                            <include reference="Qfe-67-CXt"/>
+                            <include reference="hDr-o8-OB1"/>
+                            <include reference="4OF-Js-kZH"/>
+                            <include reference="XVA-3R-VwM"/>
+                            <include reference="km1-Qz-F50"/>
+                            <include reference="qgC-Al-jdM"/>
+                        </mask>
+                    </variation>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.89411764709999997" green="0.89411764709999997" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="Hea-oh-pWp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="J4G-qm-hf5"/>
+                <constraint firstAttribute="trailing" secondItem="Hea-oh-pWp" secondAttribute="trailing" id="StK-im-knj"/>
+                <constraint firstAttribute="bottom" secondItem="Hea-oh-pWp" secondAttribute="bottom" id="fge-0v-2CZ"/>
+                <constraint firstAttribute="bottom" secondItem="Hea-oh-pWp" secondAttribute="bottom" constant="1" id="ftP-Z7-au6"/>
+                <constraint firstItem="Hea-oh-pWp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="sOm-hz-ipj"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="Hea-oh-pWp"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="J4G-qm-hf5"/>
+                    <exclude reference="StK-im-knj"/>
+                    <exclude reference="fge-0v-2CZ"/>
+                    <exclude reference="ftP-Z7-au6"/>
+                    <exclude reference="sOm-hz-ipj"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="Hea-oh-pWp"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="J4G-qm-hf5"/>
+                    <include reference="StK-im-knj"/>
+                    <exclude reference="fge-0v-2CZ"/>
+                    <include reference="ftP-Z7-au6"/>
+                    <include reference="sOm-hz-ipj"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="nameLabel" destination="aob-JU-d9f" id="U88-5y-LaW"/>
+                <outlet property="statusLabel" destination="xcd-Yp-peK" id="aD0-2Y-FoG"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon1_06.png" width="42" height="42"/>
+    </resources>
+</document>

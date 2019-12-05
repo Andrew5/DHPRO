@@ -1,0 +1,6 @@
+framework module MBProgressHUD_JDragon {
+  umbrella header "MBProgressHUD+JDragon-umbrella.h"
+
+  export *
+  module * { export * }
+}

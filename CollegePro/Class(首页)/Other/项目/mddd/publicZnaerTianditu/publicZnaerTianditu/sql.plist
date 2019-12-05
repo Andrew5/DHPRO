@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>DB_TABLE_CONTACT</key>
+	<string>TB_CONTACT</string>
+	<key>DB_TABLE_TEMP_AUDIT</key>
+	<string>TB_TEMP_AUDIT</string>
+</dict>
+</plist>

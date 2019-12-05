@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E5952400-B76C-4B42-B121-ADBE96D8B2C6</string>
+	<key>IDESourceControlProjectName</key>
+	<string>shiku</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>40930624ACFC7C1CD4D04166C8BC0E96A75D3F2A</key>
+		<string>https://git.oschina.net/insuny/shiku-ios.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>shiku.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>40930624ACFC7C1CD4D04166C8BC0E96A75D3F2A</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://git.oschina.net/insuny/shiku-ios.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>40930624ACFC7C1CD4D04166C8BC0E96A75D3F2A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>40930624ACFC7C1CD4D04166C8BC0E96A75D3F2A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>shiku-ios</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -1,0 +1,6 @@
+framework module XZFramework {
+  umbrella header "XZFramework.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,13 @@
+{"vecMapService":"http://mobsv2.chinaonmap.com.cn",
+"noticeService":"http://mobile.tianditu.com/mobileversionandmessage/sendm.action",
+ "layerService":"http://download.tianditu.com/download/mobile/layers201.xml",
+ "offlinemapService":"http://download.tianditu.com/download/mobile/download_v23.xml",
+ "tileService":"http://t6.tianditu.cn/DataServer?",
+ "categoryService":"http://download.tianditu.com/download/mobile/category.xml",
+ "updateService":"http://mobile.tianditu.com/mobileversionandmessage/mobilev.action?",
+ "feedbackService":"http://mobile.tianditu.com/mobileservice/bases.action",
+ "uploadService":"http://mobile.tianditu.com/mobileservice/bases.action",
+ "searchService":"http://www.tianditu.com/query.shtml",
+ "drivingService":"http://mobile.tianditu.com/phoneService/route.do?",
+ "weathercityService":"http://www.tianditu.cn/mobile_url/weathercode",
+ "jsonURL":"http://www.tianditu.com/mobile_url/v223"}

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserSettingViewController">
+            <connections>
+                <outlet property="btnLoginOut" destination="fvF-5n-cul" id="tpX-h8-Ud8"/>
+                <outlet property="tableView" destination="2uG-yF-I9p" id="Cbe-e6-Yuo"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="2uG-yF-I9p">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="342" id="C7m-ce-0M2">
+                            <variation key="widthClass=compact" constant="300"/>
+                        </constraint>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="C7m-ce-0M2"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="C7m-ce-0M2"/>
+                        </mask>
+                    </variation>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvF-5n-cul">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <color key="backgroundColor" red="1" green="0.0" blue="0.074020686490000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="34c-Cc-QSK"/>
+                    </constraints>
+                    <state key="normal" title="退出登录">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="34c-Cc-QSK"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="34c-Cc-QSK"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="btnLoginOutTapped:" destination="-1" eventType="touchUpInside" id="xpg-Mh-ogF"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="fvF-5n-cul" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="B0o-kh-oYO"/>
+                <constraint firstAttribute="trailing" secondItem="2uG-yF-I9p" secondAttribute="trailing" id="Ggk-Ux-pCy"/>
+                <constraint firstItem="fvF-5n-cul" firstAttribute="top" secondItem="2uG-yF-I9p" secondAttribute="bottom" constant="56" id="KUU-HV-e7o">
+                    <variation key="widthClass=compact" constant="20"/>
+                </constraint>
+                <constraint firstAttribute="bottom" secondItem="2uG-yF-I9p" secondAttribute="bottom" id="RAZ-4d-56f"/>
+                <constraint firstItem="2uG-yF-I9p" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="SUv-Ae-Q6u"/>
+                <constraint firstItem="2uG-yF-I9p" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Twh-aE-sQK"/>
+                <constraint firstAttribute="trailing" secondItem="fvF-5n-cul" secondAttribute="trailing" constant="10" id="wTt-Dg-bDf"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="2uG-yF-I9p"/>
+                    <exclude reference="fvF-5n-cul"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="B0o-kh-oYO"/>
+                    <exclude reference="KUU-HV-e7o"/>
+                    <exclude reference="wTt-Dg-bDf"/>
+                    <exclude reference="Ggk-Ux-pCy"/>
+                    <exclude reference="RAZ-4d-56f"/>
+                    <exclude reference="SUv-Ae-Q6u"/>
+                    <exclude reference="Twh-aE-sQK"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="2uG-yF-I9p"/>
+                    <include reference="fvF-5n-cul"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="B0o-kh-oYO"/>
+                    <include reference="KUU-HV-e7o"/>
+                    <include reference="wTt-Dg-bDf"/>
+                    <include reference="Ggk-Ux-pCy"/>
+                    <exclude reference="RAZ-4d-56f"/>
+                    <include reference="SUv-Ae-Q6u"/>
+                    <include reference="Twh-aE-sQK"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>

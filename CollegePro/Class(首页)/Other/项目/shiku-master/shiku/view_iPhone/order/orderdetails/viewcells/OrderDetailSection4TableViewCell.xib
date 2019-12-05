@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="145" id="KGk-i7-Jjw" customClass="OrderDetailSection4TableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="355" height="145"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="成交时间：2015-09-10 19：00：00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F96-QI-rna">
+                        <rect key="frame" x="8" y="65" width="194" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支付交易号：347389749871389" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yf-f9-ghg">
+                        <rect key="frame" x="8" y="40" width="176" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="订单编号：7146781634489" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7HR-kG-C2y">
+                        <rect key="frame" x="8" y="15" width="150" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="付款时间：2015-09-10 19：00：00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="etK-h9-UjO">
+                        <rect key="frame" x="8" y="90" width="194" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="确认时间：2015-09-10 19：00：00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iyb-fA-2bC">
+                        <rect key="frame" x="8" y="115" width="194" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="9yf-f9-ghg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="0hU-m6-Tbf"/>
+                    <constraint firstItem="Iyb-fA-2bC" firstAttribute="leading" secondItem="F96-QI-rna" secondAttribute="leading" id="2Uf-zV-Fxm"/>
+                    <constraint firstItem="Iyb-fA-2bC" firstAttribute="leading" secondItem="7HR-kG-C2y" secondAttribute="leading" id="2rz-Hf-oBd"/>
+                    <constraint firstItem="Iyb-fA-2bC" firstAttribute="top" secondItem="etK-h9-UjO" secondAttribute="bottom" constant="10" id="6Qs-te-eSn"/>
+                    <constraint firstItem="Iyb-fA-2bC" firstAttribute="leading" secondItem="etK-h9-UjO" secondAttribute="leading" id="9QG-Te-kIE"/>
+                    <constraint firstItem="Iyb-fA-2bC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="BCZ-3t-UbT"/>
+                    <constraint firstItem="F96-QI-rna" firstAttribute="top" secondItem="9yf-f9-ghg" secondAttribute="bottom" constant="10" id="Dmw-Z6-1hl"/>
+                    <constraint firstItem="Iyb-fA-2bC" firstAttribute="leading" secondItem="9yf-f9-ghg" secondAttribute="leading" id="OH9-IJ-l3F"/>
+                    <constraint firstItem="etK-h9-UjO" firstAttribute="top" secondItem="F96-QI-rna" secondAttribute="bottom" constant="10" id="WRz-V2-7Vt"/>
+                    <constraint firstItem="F96-QI-rna" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Xut-53-hlM"/>
+                    <constraint firstItem="9yf-f9-ghg" firstAttribute="top" secondItem="7HR-kG-C2y" secondAttribute="bottom" constant="10" id="Xye-Pj-qLz"/>
+                    <constraint firstItem="7HR-kG-C2y" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="ZQ5-O7-Bxc"/>
+                    <constraint firstAttribute="centerY" secondItem="F96-QI-rna" secondAttribute="centerY" id="kz3-o6-CSh"/>
+                    <constraint firstItem="etK-h9-UjO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="mza-YF-bhk"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="ZQ5-O7-Bxc"/>
+                        <exclude reference="0hU-m6-Tbf"/>
+                        <exclude reference="mza-YF-bhk"/>
+                        <exclude reference="BCZ-3t-UbT"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="checkTimeLabel" destination="Iyb-fA-2bC" id="uI2-0O-xCK"/>
+                <outlet property="orderTimeLabel" destination="F96-QI-rna" id="rXZ-w9-F5n"/>
+                <outlet property="orderidLabel" destination="7HR-kG-C2y" id="7lY-Dd-Ynk"/>
+                <outlet property="payTimeLabel" destination="etK-h9-UjO" id="DiA-x6-Ycg"/>
+                <outlet property="paysnLabel" destination="9yf-f9-ghg" id="IGV-Ua-IFf"/>
+            </connections>
+            <point key="canvasLocation" x="323.5" y="303.5"/>
+        </tableViewCell>
+    </objects>
+</document>

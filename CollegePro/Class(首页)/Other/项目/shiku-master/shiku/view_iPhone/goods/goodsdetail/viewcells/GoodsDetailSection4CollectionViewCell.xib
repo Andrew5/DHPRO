@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="GoodsDetailSection4CollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="87" height="92"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="87" height="92"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gi4-ze-RbM">
+                        <rect key="frame" x="0.0" y="46" width="86" height="1"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="4zF-T5-CoH"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C0s-Rd-3X0">
+                        <rect key="frame" x="86" y="10" width="1" height="72"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="VXE-cd-sIZ"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="88" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUG-7T-xXb">
+                        <rect key="frame" x="32" y="17" width="22" height="24"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="全部商品" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SmA-8j-JlM">
+                        <rect key="frame" x="17" y="52" width="52" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="C0s-Rd-3X0" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="57I-1Z-YZb"/>
+                <constraint firstItem="C0s-Rd-3X0" firstAttribute="leading" secondItem="gi4-ze-RbM" secondAttribute="trailing" id="99O-CW-gdc"/>
+                <constraint firstAttribute="trailing" secondItem="C0s-Rd-3X0" secondAttribute="trailing" id="O4m-Rs-Atf"/>
+                <constraint firstItem="SmA-8j-JlM" firstAttribute="top" secondItem="gi4-ze-RbM" secondAttribute="bottom" constant="5" id="aEg-FN-5Z2"/>
+                <constraint firstItem="SmA-8j-JlM" firstAttribute="centerX" secondItem="SUG-7T-xXb" secondAttribute="centerX" id="bzQ-Qn-osM"/>
+                <constraint firstAttribute="centerY" secondItem="gi4-ze-RbM" secondAttribute="centerY" id="d6r-eA-CUj"/>
+                <constraint firstAttribute="bottom" secondItem="C0s-Rd-3X0" secondAttribute="bottom" constant="10" id="dmx-99-JdX"/>
+                <constraint firstAttribute="centerX" secondItem="SUG-7T-xXb" secondAttribute="centerX" id="nTV-bh-u9V"/>
+                <constraint firstItem="gi4-ze-RbM" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="yCK-BE-ew5"/>
+                <constraint firstItem="gi4-ze-RbM" firstAttribute="top" secondItem="SUG-7T-xXb" secondAttribute="bottom" constant="5" id="yIt-SN-cCC"/>
+            </constraints>
+            <size key="customSize" width="87" height="92"/>
+            <connections>
+                <outlet property="label1" destination="SUG-7T-xXb" id="jqF-eA-1Jm"/>
+                <outlet property="label2" destination="SmA-8j-JlM" id="zsJ-D3-pV7"/>
+            </connections>
+            <point key="canvasLocation" x="292.5" y="274"/>
+        </collectionViewCell>
+    </objects>
+</document>

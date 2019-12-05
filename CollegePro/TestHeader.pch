@@ -1,0 +1,122 @@
+//
+//  TestHeader.pch
+//  Test
+//
+//  Created by Rillakkuma on 16/7/21.
+//  Copyright © 2016年 Rillakkuma. All rights reserved.
+//
+#ifdef __OBJC__
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+//导航push
+#define pushVC(vc)\
+\
+[self.navigationController pushViewController:vc animated:YES]
+//导航pop
+#define popVC [self.navigationController popViewControllerAnimated:YES];
+//dis
+#define disVC [self dismissViewControllerAnimated:YES completion:nil];
+//pre
+#define present(vc)\
+\
+[self presentViewController:vc animated:YES completion:nil]
+
+#define kUserSwitchState @"USER_SWITCH_STATE"
+
+#define DH_Notifica [NSNotificationCenter defaultCenter]
+#define DH_USERDEFAULTS [NSUserDefaults standardUserDefaults]
+#define DH_DeviceWidth  [UIScreen mainScreen].bounds.size.width
+#define DH_DeviceHeight [UIScreen mainScreen].bounds.size.height
+#define DH_FontSize(fontSize) [UIFont systemFontOfSize:fontSize]
+//weakSelf
+#define DH_WEAKSELF typeof(self) __weak weakSelf = self
+#define DH_WeakSelf(type)  __weak typeof(type) weak##type = type;
+/**
+ 弱引用
+ */
+#define LHWeakSelf __weak typeof(self) weakSelf = self;
+// strongSelf
+#define DH_StrongSelf(type)  __strong typeof(type) type = weak##type;
+
+#define SETUSERDEFAULT(value,key)  [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%@",value] forKey:key];\
+[[NSUserDefaults standardUserDefaults] synchronize];
+
+#define GETUSERDEFAULT(a)   [[NSUserDefaults standardUserDefaults] objectForKey:a]
+/**
+ *  沙盒Cache路径
+ */
+#define LHCachePath ([NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject])
+//图片
+#define DH_ImageName(imageName) [UIImage imageNamed:imageName]
+//获取图片资源
+#define DH_GetImage(imageName) [UIImage imageNamed:[NSString stringWithFormat:@"%@",imageName]]
+
+#define DH_ImageNameWithBundle(bundleName,imgName) [UIImage imageNamed:[NSString stringWithFormat:@"%@.bundle/%@.png",bundleName,imgName]]
+
+//颜色管理
+#define DHColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+#define RGBCOLORV(rgbValue) [UIColor \
+colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
+green:((float)((rgbValue & 0x00FF00) >> 8))/255.0 \
+blue:((float)(rgbValue & 0x0000FF))/255.0 \
+alpha:1.0]
+#define DHColorHex(value) [UIColor colorWithHexString:value]
+
+#define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
+
+//#define IS_IPHONE_4_0 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )500 ) < DBL_EPSILON )
+
+#define kUseScreenShotGesture 1
+#define KNotificationActionIdentifileStar @"knotificationActionIdentifileStar"
+#define KNotificationActionIdentifileComment @"kNotificationActionIdentifileComment"
+#define KNotificationCategoryIdentifile @"KNOtificationCategoryIdentifile"
+
+#define kScreenW  [UIScreen mainScreen].bounds.size.width
+#define kScreenH  [UIScreen mainScreen].bounds.size.height
+#define kFont(x)    [UIFont systemFontOfSize:x]
+//设备型号
+#define IS_IPAD     [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad
+#define IS_IPHONE   [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone
+#define IS_IPHONE_3_5 (fabs((double)[[UIScreen mainScreen] bounds].size.height - (double )480) < DBL_EPSILON )
+#define IS_IPHONE_4_0 (fabs((double)[[UIScreen mainScreen] bounds].size.height - (double )568) < DBL_EPSILON )
+#define IS_IPHONE_4_7 (fabs((double)[[UIScreen mainScreen] bounds].size.height - (double )667) < DBL_EPSILON )
+#define IS_IPHONE_5_5 (fabs((double)[[UIScreen mainScreen] bounds].size.height - (double )736) < DBL_EPSILON )
+#define IS_IPHONE_5_8 (fabs((double)[[UIScreen mainScreen] bounds].size.height - (double )812) < DBL_EPSILON )
+//打印调试
+#ifdef DEBUG
+#define LHLog(format, ...) printf("[%s] %s [第%d行] %s\n", __TIME__, __FUNCTION__, __LINE__, [[NSString stringWithFormat:format, ## __VA_ARGS__] UTF8String]);
+#else
+#define LHLog(format, ...) nil
+#endif
+
+#if kUseScreenShotGesture
+#import "ScreenShotView.h"
+#endif
+
+#import "UIView+Layout.h"
+#import "Masonry.h"
+#import "MJExtension.h"
+#import "DHTool.h"
+#import "LHKeyChain.h"
+#import "IQKeyboardManager.h"
+#import "IQUIView+Hierarchy.h"
+#import "AFNetworking.h"
+#import "SVProgressHUD.h"
+#import "MBProgressHUD.h"
+#import "MBProgressHUD+JDragon.h"
+#import "UIView+Extension.h"
+#import "UIView+SDAutoLayout.h"
+#import "UITableView+SDAutoTableViewCellHeight.h"
+//#import <BaiduMapAPI_Map/BMKMapView.h>//只引入所需的单个头文件
+//#import <BaiduMapAPI_Location/BMKLocationComponent.h>//引入定位功能所有的头文件
+#import <BaiduMapAPI_Base/BMKBaseComponent.h>
+//#import <BaiduMapAPI_Map/BMKMapComponent.h>
+//#import <BMKLocationKit/BMKLocationComponent.h>
+
+#import <SDWebImage/SDImageCache.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "TZImagePickerController.h"
+#import "BaseViewController.h"
+
+#endif

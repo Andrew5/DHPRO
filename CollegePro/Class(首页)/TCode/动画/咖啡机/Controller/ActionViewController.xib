@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ActionViewController">
+            <connections>
+                <outlet property="body" destination="eXb-BU-4En" id="fdv-gB-kqb"/>
+                <outlet property="capacity" destination="ry3-z1-Obv" id="hOj-32-kCO"/>
+                <outlet property="money" destination="Xgo-FQ-JFU" id="wfD-XZ-XhY"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="巧克力粉-拷贝.png" translatesAutoresizingMaskIntoConstraints="NO" id="3Sz-mA-722">
+                    <frame key="frameInset" minX="278" minY="165" width="50" height="28"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="奶粉.png" translatesAutoresizingMaskIntoConstraints="NO" id="eVe-Kz-j6N">
+                    <frame key="frameInset" minX="201" minY="165" width="50" height="28"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="title.png" translatesAutoresizingMaskIntoConstraints="NO" id="TjN-p3-pLX">
+                    <frame key="frameInset" minX="118" width="139" height="80"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="咖啡豆.png" translatesAutoresizingMaskIntoConstraints="NO" id="p6J-Vm-iZW">
+                    <frame key="frameInset" minX="48" minY="165" width="50" height="28"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="原料糖-拷贝.png" translatesAutoresizingMaskIntoConstraints="NO" id="iCf-go-PRA">
+                    <frame key="frameInset" minX="124" minY="165" width="50" height="28"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="body.png" translatesAutoresizingMaskIntoConstraints="NO" id="eXb-BU-4En">
+                    <frame key="frameInset" minX="31" minY="80" width="313" height="487"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="杯子.png" translatesAutoresizingMaskIntoConstraints="NO" id="0Q2-3a-dgi">
+                    <frame key="frameInset" minX="155" minY="468" width="65" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="门光效.png" translatesAutoresizingMaskIntoConstraints="NO" id="yQz-xw-bZ7">
+                    <frame key="frameInset" minX="130" minY="422" width="114" height="122"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Lk-mU-tdE">
+                    <frame key="frameInset" minX="30" minY="10" width="30" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="91C66392-6472-445C-BC3F-49428EE7F260"/>
+                    <connections>
+                        <action selector="back:" destination="-1" eventType="touchUpInside" id="XxC-XH-Oub"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ry3-z1-Obv">
+                    <frame key="frameInset" minX="296" minY="361" width="42" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xgo-FQ-JFU">
+                    <frame key="frameInset" minX="296" minY="449" width="42" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.9882352941176471" green="0.98431372549019602" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <point key="canvasLocation" x="-17" y="-62"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="91C66392-6472-445C-BC3F-49428EE7F260" width="32" height="32">
+            <mutableData key="keyedArchiveRepresentation">
+YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
+GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
+c1dOU0NvbG9ygAKADRIgwAAAgAOAC1h7MzIsIDMyfdIVChYYWk5TLm9iamVjdHOhF4AEgArSFQoaHaIb
+HIAFgAaACRAA0iAKISJfEBROU1RJRkZSZXByZXNlbnRhdGlvboAHgAhPERieTU0AKgAAEAgAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoKCigZGRllKioprDc3NuA+Pj77Pj4+
++zc3NuAqKimsGRkZZQoKCigAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgICChYWFVgtLS23Ozs67kFBQf8+Pj3/PDw7
+/zo6Of86Ojn/PDw7/z4+Pf9BQUH/Ozs67i0tLbcWFhVYAgICCgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEREUcxMTDGQUFA/z8/Pv87Ozr/QUFA
+/1VUU/9lZWT/bm1s/25tbP9lZWT/VVRT/0FBQP87Ozr/Pz8+/0FBQP8xMTDGERERRwAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAICAgkhISCHPz8++UBAP/87Ozv/V1dW
+/5ORj//Ny8j/6Obk//r49P////z////8//r49P/o5uT/zcvI/5ORj/9XV1b/Ozs7/0BAP/8/Pz75ISEg
+hwICAgkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADBAMPKiopqUNDQf88PDv/TU1N
+/6Cfnf/t7On////8///++v/++/f//Pr2//v59f/7+fX//Pr2//779////vr////8/+3s6f+hn53/TU1N
+/zw8O/9CQ0H/KiopqQMEAw8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgICCSoqKalCQkH/Ozs6
+/2loZv/a2db////8//779//7+fX/+/n1//v59f/7+fX/+/n1//v59f/7+fX/+/n1//v59f/7+fX//vv3
+/////P/a2db/aWhn/zs7Ov9CQkH/KiopqQICAgkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhISGGQkJB
+/zs7Ov91dHL/8e/s////+//7+fX/+/n1//v59f/7+fX/+/n1//v59f/7+fX/+/n1//v59f/7+fX/+/n1
+//v59f/7+fX/+/n1////+//x7+z/dXRy/zs7Ov9CQkH/ICAghwAAAAAAAAAAAAAAAAAAAAAAAAAAEREQ
+RT4+Pfo8PDv/aWhn//Du6////vr/+/n1//v59f/7+fX/+/n1//v59f/7+fX/+/n1//v59f///fn//Pr2
+///9+f/7+fX/+/n1//v59f/7+fX/+/n1///++v/w7uv/aWhn/zw8O/8+Pj36EREQRQAAAAAAAAAAAAAA
+AAICAgkxMTDHQEA//01NTP/b2db////7//v59f/7+fX/+/n1//v59f/7+fX/+/n1//v59f/8+vb///76
+/6yrp/9hYWD/tbSx//779//7+fX/+/n1//v59f/7+fX/+/n1////+//b2db/TU1M/0BAP/8xMTDHAgIC
+CQAAAAAAAAAAFRUVV0FBQP88PDv/oqCe/////P/7+fX/+/n1//v59f/7+fX/+/n1//v59f/7+fX//Pr2
+////+/+rqqf/QUFA/zk5OP9MTEv/7Orm//779v/7+fX/+/n1//v59f/7+fX/+/n1/////P+ioJ7/PDw7
+/0FBQP8VFRVXAAAAAAAAAAMuLi26Pz8+/1hYV//v7On//v33//v59f/7+fX/+/n1//v59f/7+fX/+/n1
+//z69v////v/q6qm/0FBQP8+Pj3/Ojo5/3NycP/29fH//Pr2//v59f/7+fX/+/n1//v59f/7+fX//v33
+/+/s6f9YWFf/Pz8+/y4uLboAAAADCQkJJz09PPA7Ozr/kpGQ/////P/7+fX/+/n1//v59f/7+fX/+/n1
+//v59f/7+fX////7/6uqpv9BQUD/Pj49/zo6Of9ubWz/7ezp//779//7+fX/+/n1//v59f/7+fX/+/n1
+//v59f/7+fX////8/5OSkP87Ozr/PDw78QkJCScZGRhmQUFB/0FBQP/Nysj////7//v59f/7+fX/+/n1
+//v59f/7+fX/+/n1////+/+rqKb/QUFA/z4+Pf86Ojn/bm1s/+/s6f///fn/+/n1//v59f/7+fX/+/n1
+//v59f/7+fX/+/n1//v59f////v/zcrI/0FBQP9BQUH/GRkZZysrK7E+Pj3/VVRT/+rn5P///fn/+/n1
+//v59f/7+fX/+/n1//v59f////v/q6qm/0FBQP8+Pj3/Ojo5/2pqaP/t7Or///35//v59f/7+fX/+/n1
+//v59f/7+fX/+/n1//v59f/7+fX/+/n1///9+f/q5+T/VVRT/z4+Pf8rKyuxNzc24jw8O/9lZWP/+fb0
+//z69v/7+fX/+/n1//v59f/7+fX///35/6uqp/9BQUD/Pj49/zs7Ov9qamj/7Ovn///9+f/7+fX/+/n1
+//v59f/7+fX/+/n1//v59f/7+fX/+/n1//v59f/7+fX//Pr2//n29P9lZWP/PDw7/zc3NuA+Pj37Ojo5
+/25tbP////v/+/n1//v59f/7+fX/+/n1///++v/KycX/QUJB/z09PP89PTz/a2pp/+/u6v///fn/+/n1
+//v59f/7+fX/+/n1//v59f/7+fX/+/n1//v59f/7+fX/+/n1//v59f/7+fX///76/21sav86Ojn/PT09
+9z4+Pfs6Ojn/bm1s////+//7+fX/+/n1//v59f/7+fX///76/8rJxf9BQkH/PT08/z09PP9ramn/7+7q
+///9+f/7+fX/+/n1//v59f/7+fX/+/n1//v59f/7+fX/+/n1//v59f/7+fX/+/n1//v59f///vr/bWxq
+/zo6Of89PT33Nzc24jw8O/9lZWP/+fb0//z69v/7+fX/+/n1//v59f/7+fX///35/6uqp/9BQUD/Pj49
+/zs7Ov9qamj/7Ovn///9+f/7+fX/+/n1//v59f/7+fX/+/n1//v59f/7+fX/+/n1//v59f/7+fX//Pr2
+//n29P9lZWP/PDw7/zc3NuArKyuxPj49/1VVU//q5+T///35//v59f/7+fX/+/n1//v59f/7+fX////7
+/6uqpv9BQUD/Pj49/zo6Of9qamj/7ezq///9+f/7+fX/+/n1//v59f/7+fX/+/n1//v59f/7+fX/+/n1
+//v59f///fn/6ufk/1VVU/8+Pj3/KysrsRkZGWdBQUH/QUFA/83KyP////v/+/n1//v59f/7+fX/+/n1
+//v59f/7+fX////7/6uopv9BQUD/Pj49/zo6Of9ubWz/7+zp///9+f/7+fX/+/n1//v59f/7+fX/+/n1
+//v59f/7+fX/+/n1////+//Nysj/QUFA/0FBQf8ZGRlnCQkJJzw8O/E7Ozr/k5KQ/////P/7+fX/+/n1
+//v59f/7+fX/+/n1//v59f/7+fX////7/6uqpv9BQUD/Pj49/zo6Of9ubWz/7ezp//779//7+fX/+/n1
+//v59f/7+fX/+/n1//v59f/7+fX////8/5OSkP87Ozr/PDw78QkJCScAAAAELi4tuj8/Pv9YWFf/7+7q
+//779//7+fX/+/n1//v59f/7+fX/+/n1//v59f/8+vb////7/6uqpv9BQUD/Pj49/zo6Of9zcnD/9vXx
+//z69v/7+fX/+/n1//v59f/7+fX/+/n1//779//v7ur/WFhX/z8/Pv8uLi26AAAAAwAAAAAVFRVXQUFA
+/zw8O/+ioJ7////8//v59f/7+fX/+/n1//v59f/7+fX/+/n1//v59f/8+vb////7/6uqp/9BQUD/OTk4
+/01MS//t6+f//Pr2//v59f/7+fX/+/n1//v59f/7+fX////8/6Kgnv88PDv/QUFA/xUVFVcAAAAAAAAA
+AAICAgkxMTDHQEA//01NTP/b2db////7//v59f/7+fX/+/n1//v59f/7+fX/+/n1//v59f/8+vb///76
+/6yrp/9iYWD/trWx//779//7+fX/+/n1//v59f/7+fX/+/n1////+//b2db/TU1M/0BAP/8xMTDIAgIC
+CgAAAAAAAAAAAAAAABEREEU+Pj36PDw7/2loZ//w7uv///76//v59f/7+fX/+/n1//v59f/7+fX/+/n1
+//v59f/7+fX///35//z69v///fn/+/n1//v59f/7+fX/+/n1//v59f///vr/8O7r/2loZ/88PDv/Pj49
++hEREEUAAAAAAAAAAAAAAAAAAAAAAAAAACAgIIdCQkH/Ozs6/3V0cv/x8Oz////7//v59f/7+fX/+/n1
+//v59f/7+fX/+/n1//v59f/7+fX/+/n1//v59f/7+fX/+/n1//v59f/7+fX////7//Hw7P91dHL/Ozs6
+/0JCQf8hISCHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgICCSoqKalCQkH/Ozs6/2loZ//a2tb////+
+//779//7+fX/+/n1//v59f/7+fX/+/n1//v59f/7+fX/+/n1//v59f/7+fX//vv3/////v/b2tb/aWhn
+/zs7Ov9CQkH/KiopqQICAgkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwQDDyoqKalCQkH/PDw7
+/01NTf+ko6D/7+zp/////P///vr//vv3//z69v/7+fX/+/n1//z69v/++/f///76/////P/v7On/pKOg
+/01NTf88PDv/QkJB/yoqKakDBAMPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgIC
+CSEhIIc/Pz75QEA//zs8O/9XV1b/k5GQ/87Nyf/q5+T/+vj0////+/////v/+fb0/+rn5P/Ozcn/k5GQ
+/1dXVv87PDv/QEA//z8/PvkhISCHAgICCQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAABEREUcxMTDGQUFA/z8/Pv87Ozr/QUFA/1VVU/9lZWT/bm1r/21sa/9lZWP/VVVU
+/0FBQP87Ozr/Pz8+/0FBQP8xMTDGERERRwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAICAgoWFhVYLS0ttzs7O+9BQkD/Pj49/zw8O/86Ojn/Ojo6
+/zw8O/8+Pj3/QUJA/zs7O+8tLS23FhYVWAICAgoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgoKKRkZGWUqKiqsNzc2
+4T4+Pvs9PTz4Nzc23ioqKqwZGRllCgoKKQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAA4BAAADAAAAAQAgAAABAQADAAAAAQAgAAABAgADAAAABAAAELYBAwADAAAAAQABAAAB
+BgADAAAAAQACAAABEQAEAAAAAQAAAAgBEgADAAAAAQABAAABFQADAAAAAQAEAAABFgADAAAAAQAgAAAB
+FwAEAAAAAQAAEAABHAADAAAAAQABAAABUgADAAAAAQABAAABUwADAAAABAAAEL6HcwAHAAAH2AAAEMYA
+AAAAAAgACAAIAAgAAQABAAEAAQAAB9hhcHBsAiAAAG1udHJSR0IgWFlaIAfZAAIAGQALABoAC2Fjc3BB
+UFBMAAAAAGFwcGwAAAAAAAAAAAAAAAAAAAAAAAD21gABAAAAANMtYXBwbAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC2Rlc2MAAAEIAAAAb2RzY20AAAF4AAAFnGNwcnQA
+AAcUAAAAOHd0cHQAAAdMAAAAFHJYWVoAAAdgAAAAFGdYWVoAAAd0AAAAFGJYWVoAAAeIAAAAFHJUUkMA
+AAecAAAADmNoYWQAAAesAAAALGJUUkMAAAecAAAADmdUUkMAAAecAAAADmRlc2MAAAAAAAAAFEdlbmVy
+aWMgUkdCIFByb2ZpbGUAAAAAAAAAAAAAABRHZW5lcmljIFJHQiBQcm9maWxlAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABtbHVjAAAAAAAAAB8AAAAMc2tTSwAAACgA
+AAGEZGFESwAAAC4AAAGsY2FFUwAAACQAAAHadmlWTgAAACQAAAH+cHRCUgAAACYAAAIidWtVQQAAACoA
+AAJIZnJGVQAAACgAAAJyaHVIVQAAACgAAAKaemhUVwAAABYAAALCbmJOTwAAACYAAALYY3NDWgAAACIA
+AAL+aGVJTAAAAB4AAAMgaXRJVAAAACgAAAM+cm9STwAAACQAAANmZGVERQAAACwAAAOKa29LUgAAABYA
+AAO2c3ZTRQAAACYAAALYemhDTgAAABYAAAPMamFKUAAAABoAAAPiZWxHUgAAACIAAAP8cHRQTwAAACYA
+AAQebmxOTAAAACgAAAREZXNFUwAAACYAAAQedGhUSAAAACQAAARsdHJUUgAAACIAAASQZmlGSQAAACgA
+AASyaHJIUgAAACgAAATacGxQTAAAACwAAAUCcnVSVQAAACIAAAUuYXJFRwAAACYAAAVQZW5VUwAAACYA
+AAV2AFYBYQBlAG8AYgBlAGMAbgD9ACAAUgBHAEIAIABwAHIAbwBmAGkAbABHAGUAbgBlAHIAZQBsACAA
+UgBHAEIALQBiAGUAcwBrAHIAaQB2AGUAbABzAGUAUABlAHIAZgBpAGwAIABSAEcAQgAgAGcAZQBuAOgA
+cgBpAGMAQx6lAHUAIABoAOwAbgBoACAAUgBHAEIAIABDAGgAdQBuAGcAUABlAHIAZgBpAGwAIABSAEcA
+QgAgAEcAZQBuAOkAcgBpAGMAbwQXBDAEMwQwBDsETAQ9BDgEOQAgBD8EQAQ+BEQEMAQ5BDsAIABSAEcA
+QgBQAHIAbwBmAGkAbAAgAGcA6QBuAOkAcgBpAHEAdQBlACAAUgBWAEIAwQBsAHQAYQBsAOEAbgBvAHMA
+IABSAEcAQgAgAHAAcgBvAGYAaQBskBp1KAAgAFIARwBCACCCcl9pY8+P8ABHAGUAbgBlAHIAaQBzAGsA
+IABSAEcAQgAtAHAAcgBvAGYAaQBsAE8AYgBlAGMAbgD9ACAAUgBHAEIAIABwAHIAbwBmAGkAbAXkBegF
+1QXkBdkF3AAgAFIARwBCACAF2wXcBdwF2QBQAHIAbwBmAGkAbABvACAAUgBHAEIAIABnAGUAbgBlAHIA
+aQBjAG8AUAByAG8AZgBpAGwAIABSAEcAQgAgAGcAZQBuAGUAcgBpAGMAQQBsAGwAZwBlAG0AZQBpAG4A
+ZQBzACAAUgBHAEIALQBQAHIAbwBmAGkAbMd8vBgAIABSAEcAQgAg1QS4XNMMx3xmbpAaACAAUgBHAEIA
+IGPPj/Blh072TgCCLAAgAFIARwBCACAw1zDtMNUwoTCkMOsDkwO1A70DuQO6A8wAIAPAA8EDvwPGA68D
+uwAgAFIARwBCAFAAZQByAGYAaQBsACAAUgBHAEIAIABnAGUAbgDpAHIAaQBjAG8AQQBsAGcAZQBtAGUA
+ZQBuACAAUgBHAEIALQBwAHIAbwBmAGkAZQBsDkIOGw4jDkQOHw4lDkwAIABSAEcAQgAgDhcOMQ5IDicO
+RA4bAEcAZQBuAGUAbAAgAFIARwBCACAAUAByAG8AZgBpAGwAaQBZAGwAZQBpAG4AZQBuACAAUgBHAEIA
+LQBwAHIAbwBmAGkAaQBsAGkARwBlAG4AZQByAGkBDQBrAGkAIABSAEcAQgAgAHAAcgBvAGYAaQBsAFUA
+bgBpAHcAZQByAHMAYQBsAG4AeQAgAHAAcgBvAGYAaQBsACAAUgBHAEIEHgQxBEkEOAQ5ACAEPwRABD4E
+RAQ4BDsETAAgAFIARwBCBkUGRAZBACAGKgY5BjEGSgZBACAAUgBHAEIAIAYnBkQGOQYnBkUARwBlAG4A
+ZQByAGkAYwAgAFIARwBCACAAUAByAG8AZgBpAGwAZXRleHQAAAAAQ29weXJpZ2h0IDIwMDcgQXBwbGUg
+SW5jLiwgYWxsIHJpZ2h0cyByZXNlcnZlZC4AWFlaIAAAAAAAAPNSAAEAAAABFs9YWVogAAAAAAAAdE0A
+AD3uAAAD0FhZWiAAAAAAAABadQAArHMAABc0WFlaIAAAAAAAACgaAAAVnwAAuDZjdXJ2AAAAAAAAAAEB
+zQAAc2YzMgAAAAAAAQxCAAAF3v//8yYAAAeSAAD9kf//+6L///2jAAAD3AAAwGzSJSYnKFokY2xhc3Nu
+YW1lWCRjbGFzc2VzXxAQTlNCaXRtYXBJbWFnZVJlcKMnKSpaTlNJbWFnZVJlcFhOU09iamVjdNIlJiwt
+V05TQXJyYXmiLCrSJSYvMF5OU011dGFibGVBcnJheaMvLCrTMjMKNDU2V05TV2hpdGVcTlNDb2xvclNw
+YWNlRDAgMAAQA4AM0iUmODlXTlNDb2xvcqI4KtIlJjs8V05TSW1hZ2WiOypfEA9OU0tleWVkQXJjaGl2
+ZXLRP0BUcm9vdIABAAgAEQAaACMALQAyADcARgBMAFcAXgBlAHIAeQCBAIMAhQCKAIwAjgCXAJwApwCp
+AKsArQCyALUAtwC5ALsAvQDCANkA2wDdGX8ZhBmPGZgZqxmvGboZwxnIGdAZ0xnYGecZ6xnyGfoaBxoM
+Gg4aEBoVGh0aIBolGi0aMBpCGkUaSgAAAAAAAAIBAAAAAAAAAEEAAAAAAAAAAAAAAAAAABpMA
+</mutableData>
+        </image>
+        <image name="body.png" width="330" height="514"/>
+        <image name="title.png" width="111" height="69"/>
+        <image name="原料糖-拷贝.png" width="72" height="91"/>
+        <image name="咖啡豆.png" width="72" height="45"/>
+        <image name="奶粉.png" width="72" height="91"/>
+        <image name="巧克力粉-拷贝.png" width="68" height="91"/>
+        <image name="杯子.png" width="218" height="156"/>
+        <image name="门光效.png" width="110" height="120"/>
+    </resources>
+</document>

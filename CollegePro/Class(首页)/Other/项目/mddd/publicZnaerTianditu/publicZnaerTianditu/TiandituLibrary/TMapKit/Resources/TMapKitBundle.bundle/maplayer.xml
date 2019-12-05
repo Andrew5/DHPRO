@@ -1,0 +1,499 @@
+)��﻿<?xml version="1.0" encoding="UTF-8"?>
+<root count="3">
+	<MapType name="矢量" type="2" minlevel="1" maxlevel="18" isSelect="地名">
+		<Level level="1" count="2">
+			<Layer index="0" type="1" name="背景"> 
+				vec_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cva_w
+			</Layer>
+		</Level>
+		<Level level="2" count="2">
+			<Layer index="0" type="1" name="背景"> 
+				vec_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cva_w
+			</Layer>
+		</Level>
+		<Level level="3" count="2">
+			<Layer index="0" type="1" name="背景"> 
+				vec_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cva_w
+			</Layer>
+		</Level>
+		<Level level="4" count="2">
+			<Layer index="0" type="1" name="背景"> 
+				vec_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cva_w
+			</Layer>
+		</Level>
+		<Level level="5" count="2">
+			<Layer index="0" type="1" name="背景"> 
+				vec_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cva_w
+			</Layer>
+		</Level>
+		<Level level="6" count="2">
+			<Layer index="0" type="1" name="背景"> 
+				vec_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cva_w
+			</Layer>
+		</Level>
+		<Level level="7" count="2">
+			<Layer index="0" type="1" name="背景"> 
+				vec_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cva_w
+			</Layer>
+		</Level>
+		<Level level="8" count="2">
+			<Layer index="0" type="1" name="背景"> 
+				vec_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cva_w
+			</Layer>
+		</Level>
+		<Level level="9" count="2">
+			<Layer index="0" type="1" name="背景"> 
+				vec_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cva_w
+			</Layer>
+		</Level>
+		<Level level="10" count="2">
+			<Layer index="0" type="1" name="背景"> 
+				vec_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cva_w
+			</Layer>
+		</Level>
+		<Level level="11" count="2">
+			<Layer index="0" type="1" name="背景"> 
+				vec_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cva_w
+			</Layer>
+		</Level>
+		<Level level="12" count="2">
+			<Layer index="0" type="1" name="背景"> 
+				vec_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cva_w
+			</Layer>
+		</Level>
+		<Level level="13" count="2">
+			<Layer index="0" type="1" name="背景"> 
+				vec_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cva_w
+			</Layer>
+		</Level>
+		<Level level="14" count="2">
+			<Layer index="0" type="1" name="背景"> 
+				vec_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cva_w
+			</Layer>
+		</Level>
+		<Level level="15" count="2">
+			<Layer index="0" type="1" name="背景"> 
+				vec_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cva_w
+			</Layer>
+		</Level>
+		<Level level="16" count="2">
+			<Layer index="0" type="1" name="背景"> 
+				vec_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cva_w
+			</Layer>
+		</Level>
+		<Level level="17" count="2">
+			<Layer index="0" type="1" name="背景"> 
+				vec_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cva_w
+			</Layer>
+		</Level>
+		<Level level="18" count="2">
+			<Layer index="0" type="1" name="背景"> 
+				vec_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cva_w
+			</Layer>
+		</Level>
+	</MapType>
+	<MapType name="影像" type="1" minlevel="1" maxlevel="18" isSelect="地名,水系,铁路">
+		<Level level="1" count="2">
+			<Layer index="0" type="1" name="背景"> 
+				img_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cia_w
+			</Layer>
+		</Level>
+		<Level level="2" count="3">
+			<Layer index="0" type="1" name="背景"> 
+				img_w
+			</Layer>
+			<Layer index="0" type="6" name="水系"> 
+				wat_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cia_w
+			</Layer>
+		</Level>
+		<Level level="3" count="3">
+			<Layer index="0" type="1" name="背景"> 
+				img_w
+			</Layer>
+			<Layer index="0" type="6" name="水系"> 
+				wat_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cia_w
+			</Layer>
+		</Level>
+		<Level level="4" count="3">
+			<Layer index="0" type="1" name="背景"> 
+				img_w
+			</Layer>
+			<Layer index="0" type="6" name="水系"> 
+				wat_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cia_w
+			</Layer>
+		</Level>
+		<Level level="5" count="3">
+			<Layer index="0" type="1" name="背景"> 
+				img_w
+			</Layer>
+			<Layer index="0" type="6" name="水系"> 
+				wat_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cia_w
+			</Layer>
+		</Level>
+		<Level level="6" count="3">
+			<Layer index="0" type="1" name="背景"> 
+				img_w
+			</Layer>
+			<Layer index="0" type="6" name="水系"> 
+				wat_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cia_w
+			</Layer>
+		</Level>
+		<Level level="7" count="3">
+			<Layer index="0" type="1" name="背景"> 
+				img_w
+			</Layer>
+			<Layer index="0" type="6" name="水系"> 
+				wat_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cia_w
+			</Layer>
+		</Level>
+		<Level level="8" count="3">
+			<Layer index="0" type="1" name="背景"> 
+				img_w
+			</Layer>
+			<Layer index="0" type="6" name="水系"> 
+				wat_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cia_w
+			</Layer>
+		</Level>
+		<Level level="9" count="4">
+			<Layer index="0" type="1" name="背景"> 
+				img_w
+			</Layer>
+			<Layer index="0" type="6" name="水系"> 
+				wat_w
+			</Layer>
+			<Layer index="0" type="7" name="铁路"> 
+				raw_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cia_w
+			</Layer>
+		</Level>
+		<Level level="10" count="4">
+			<Layer index="0" type="1" name="背景"> 
+				img_w
+			</Layer>
+			<Layer index="0" type="6" name="水系"> 
+				wat_w
+			</Layer>
+			<Layer index="0" type="7" name="铁路"> 
+				raw_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cia_w
+			</Layer>
+		</Level>
+		<Level level="11" count="4">
+			<Layer index="0" type="1" name="背景"> 
+				img_w
+			</Layer>
+			<Layer index="0" type="6" name="水系"> 
+				wat_w
+			</Layer>
+			<Layer index="0" type="7" name="铁路"> 
+				raw_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cia_w
+			</Layer>
+		</Level>
+		<Level level="12" count="4">
+			<Layer index="0" type="1" name="背景"> 
+				img_w
+			</Layer>
+			<Layer index="0" type="6" name="水系"> 
+				wat_w
+			</Layer>
+			<Layer index="0" type="7" name="铁路"> 
+				raw_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cia_w
+			</Layer>
+		</Level>
+		<Level level="13" count="2">
+			<Layer index="0" type="1" name="背景"> 
+				img_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cia_w
+			</Layer>
+		</Level>
+		<Level level="14" count="2">
+			<Layer index="0" type="1" name="背景"> 
+				img_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cia_w
+			</Layer>
+		</Level>
+		<Level level="15" count="2">
+			<Layer index="0" type="1" name="背景"> 
+				img_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cia_w
+			</Layer>
+		</Level>
+		<Level level="16" count="2">
+			<Layer index="0" type="1" name="背景"> 
+				img_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cia_w
+			</Layer>
+		</Level>
+		<Level level="17" count="2">
+			<Layer index="0" type="1" name="背景"> 
+				img_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cia_w
+			</Layer>
+		</Level>
+		<Level level="18" count="2">
+			<Layer index="0" type="1" name="背景"> 
+				img_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cia_w
+			</Layer>
+		</Level>
+	</MapType>
+	<MapType name="地形" type="3" minlevel="1" maxlevel="14" isSelect="地名,水系,铁路">
+		<Level level="1" count="2">
+			<Layer index="0" type="1" name="背景"> 
+				ter_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cia_w
+			</Layer>
+		</Level>
+		<Level level="2" count="3">
+			<Layer index="0" type="1" name="背景"> 
+				ter_w
+			</Layer>
+			<Layer index="0" type="6" name="水系"> 
+				wat_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cia_w
+			</Layer>
+		</Level>
+		<Level level="3" count="3">
+			<Layer index="0" type="1" name="背景"> 
+				ter_w
+			</Layer>
+			<Layer index="0" type="6" name="水系"> 
+				wat_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cia_w
+			</Layer>
+		</Level>
+		<Level level="4" count="3">
+			<Layer index="0" type="1" name="背景"> 
+				ter_w
+			</Layer>
+			<Layer index="0" type="6" name="水系"> 
+				wat_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cia_w
+			</Layer>
+		</Level>
+		<Level level="5" count="3">
+			<Layer index="0" type="1" name="背景"> 
+				ter_w
+			</Layer>
+			<Layer index="0" type="6" name="水系"> 
+				wat_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cia_w
+			</Layer>
+		</Level>
+		<Level level="6" count="3">
+			<Layer index="0" type="1" name="背景"> 
+				ter_w
+			</Layer>
+			<Layer index="0" type="6" name="水系"> 
+				wat_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cia_w
+			</Layer>
+		</Level>
+		<Level level="7" count="3">
+			<Layer index="0" type="1" name="背景"> 
+				ter_w
+			</Layer>
+			<Layer index="0" type="6" name="水系"> 
+				wat_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cia_w
+			</Layer>
+		</Level>
+		<Level level="8" count="3">
+			<Layer index="0" type="1" name="背景"> 
+				ter_w
+			</Layer>
+			<Layer index="0" type="6" name="水系"> 
+				wat_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cia_w
+			</Layer>
+		</Level>
+		<Level level="9" count="4">
+			<Layer index="0" type="1" name="背景"> 
+				ter_w
+			</Layer>
+			<Layer index="0" type="6" name="水系"> 
+				wat_w
+			</Layer>
+			<Layer index="0" type="7" name="铁路"> 
+				raw_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cia_w
+			</Layer>
+		</Level>
+		<Level level="10" count="4">
+			<Layer index="0" type="1" name="背景"> 
+				ter_w
+			</Layer>
+			<Layer index="0" type="6" name="水系"> 
+				wat_w
+			</Layer>
+			<Layer index="0" type="7" name="铁路"> 
+				raw_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cia_w
+			</Layer>
+		</Level>
+		<Level level="11" count="4">
+			<Layer index="0" type="1" name="背景"> 
+				ter_w
+			</Layer>
+			<Layer index="0" type="6" name="水系"> 
+				wat_w
+			</Layer>
+			<Layer index="0" type="7" name="铁路"> 
+				raw_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cia_w
+			</Layer>
+		</Level>
+		<Level level="12" count="4">
+			<Layer index="0" type="1" name="背景"> 
+				ter_w
+			</Layer>
+			<Layer index="0" type="6" name="水系"> 
+				wat_w
+			</Layer>
+			<Layer index="0" type="7" name="铁路"> 
+				raw_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cia_w
+			</Layer>
+		</Level>
+		<Level level="13" count="2">
+			<Layer index="0" type="1" name="背景"> 
+				ter_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cia_w
+			</Layer>
+		</Level>
+		<Level level="14" count="2">
+			<Layer index="0" type="1" name="背景"> 
+				ter_w
+			</Layer>
+			<Layer index="0" type="2" name="地名"> 
+				cia_w
+			</Layer>
+		</Level>
+	</MapType>
+</root>

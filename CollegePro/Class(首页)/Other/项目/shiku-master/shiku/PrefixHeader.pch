@@ -1,0 +1,59 @@
+//
+//  PrefixHeader.pch
+//  shiku
+//
+//  Created by txj on 15/4/2.
+//  Copyright (c) 2015年 txj. All rights reserved.
+//
+
+#ifndef shiku_PrefixHeader_pch
+#define shiku_PrefixHeader_pch
+
+//#ifdef DEBUG
+//#define DMLog(...) NSLog(@"%s %@", __PRETTY_FUNCTION__, [NSString stringWithFormat:__VA_ARGS__])
+//#else
+//#define DMLog(...) do { } while (0)
+
+#import <Foundation/Foundation.h>
+#import <ReactiveCocoa/ReactiveCocoa.h>
+#import <ReactiveCocoa/RACEXTScope.h>
+#import <AFNetworking/AFNetworking.h>
+#import <CocoaLumberjack/CocoaLumberjack.h>
+#import <SDWebImage/SDImageCache.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "SVPullToRefresh.h"
+#import "Masonry.h"
+//
+#import <BaiduMapAPI/BMapKit.h>//引入所有的头文件
+//#import "BMapKit.h"
+#import <BaiduMapAPI/BMKMapView.h>//只引入所需的单个头文件
+#import <XZFramework/TabBarController.h>
+
+#import <XZFramework/Utility.h>
+#import <XZFramework/UIView+Extension.h>
+#import <XZFramework/UIImage+Resize.h>
+#import <XZFramework/TConfig.h>
+#import <XZFramework/UIPlaceHolderTextView.h>
+
+
+#import "App.h"
+#import "Public.h"
+#import "TBaseUIViewController.h"
+#import "Backend.h"
+#import "Models.h"
+#import "SBJson.h"
+#import "BackendAssembler.h"
+#import "EmptyViewController.h"
+#import "SWTableViewCell.h"
+#import "TUITableViewCell.h"
+#import "TUICollectionViewCell.h"
+#import "TUITableViewHeaderFooterView.h"
+#import <XZFramework/TLabel.h>
+#import <XZFramework/MBProgressHUD.h>
+#import "UDNavigationController.h"
+#import "AllProject.h"
+#import "Helper.h"
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif

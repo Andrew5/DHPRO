@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="84" id="KGk-i7-Jjw" customClass="ViewLogisticsTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="323" height="84"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="卖家已发货" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="waF-4t-RrF">
+                        <rect key="frame" x="18" y="8" width="85" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="订单金额（含运费）：￥999.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2Q-FI-VxX">
+                        <rect key="frame" x="18" y="31" width="170" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="运费：￥12.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBv-Xv-7ef">
+                        <rect key="frame" x="18" y="48" width="80" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="f2Q-FI-VxX" firstAttribute="leading" secondItem="waF-4t-RrF" secondAttribute="leading" id="GOl-12-sFb"/>
+                    <constraint firstItem="f2Q-FI-VxX" firstAttribute="top" secondItem="waF-4t-RrF" secondAttribute="bottom" constant="2" id="QE2-iG-uSq"/>
+                    <constraint firstItem="waF-4t-RrF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="jo9-1k-W0l"/>
+                    <constraint firstItem="waF-4t-RrF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="jxs-z7-rF6"/>
+                    <constraint firstItem="BBv-Xv-7ef" firstAttribute="leading" secondItem="waF-4t-RrF" secondAttribute="leading" id="mpz-li-k6J"/>
+                    <constraint firstItem="BBv-Xv-7ef" firstAttribute="top" secondItem="f2Q-FI-VxX" secondAttribute="bottom" constant="2" id="vpU-qr-2AJ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="freight" destination="BBv-Xv-7ef" id="2DZ-4i-uX6"/>
+                <outlet property="freightStatus" destination="waF-4t-RrF" id="Zwr-hp-ZHD"/>
+                <outlet property="orderPrice" destination="f2Q-FI-VxX" id="B7i-N1-C04"/>
+            </connections>
+            <point key="canvasLocation" x="489.5" y="267"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -1,0 +1,1774 @@
+//
+//  InterfaceMacro.h
+//  QianfengSchool
+//
+//  Created by AlicePan on 16/5/30.
+//  Copyright © 2016年 Combanc. All rights reserved.
+//
+
+#ifndef InterfaceMacro_h
+#define InterfaceMacro_h
+
+#define isNilOrNull(obj) (obj == nil || [obj isEqual:[NSNull null]])
+
+#define setObjectForKey(object) \
+do { \
+[dictionary setObject:object forKey:@#object]; \
+} while (0)
+
+
+#define setOptionalObjectForKey(object) \
+do { \
+isNilOrNull(object) ?: [dictionary setObject:object forKey:@#object]; \
+} while (0)
+
+#define appendXMLNode(tag) \
+do { \
+[parameterStr appendString:[NSString stringWithFormat:@"<%@>%@</%@>\n", @#tag, tag, @#tag]]; \
+} while (0)
+
+
+//原家校互动地址 http://192.168.50.61:8089
+//韩世明服务器地址 http://192.168.130.73:8080
+
+//前锋学校默认的门户地址
+#define DEFAULT_MH_URL @"http://117.117.232.11:8080"
+//马鸥本地服务器地址
+#define TEST_MH_URLst @"http://192.168.170.238:8081"
+
+////前锋学校默认家校互动地址
+//#define SOAPURL @"http://117.117.232.16"
+//#define K_UPLOAD_URL @"ftp://117.117.232.16"
+//#define FTP_USERNAME @"root"
+//#define FTP_PASSWORD @"combanc"
+
+//内网服务器
+#define SOAPURL @"http://192.168.50.61:8089"
+#define K_UPLOAD_URL @"ftp://192.168.50.61"
+#define FTP_USERNAME @"user"
+#define FTP_PASSWORD @"combanc"
+
+////测试韩世明本地服务器
+//#define SOAPURL @"http://192.168.130.73"
+//#define K_UPLOAD_URL @"ftp://192.168.130.73"
+//#define FTP_USERNAME @"root"
+//#define FTP_PASSWORD @"combanc"
+
+
+#pragma mark - 信息门户的请求
+#pragma mark - 1 用户信息
+// 1.1 登录
+#define QF_LOGIN(userName, passWord) [NSString stringWithFormat:@"%@/UserInfo-portlet/UserInfo/userlogin/%@/%@/checkinfo.json",KUSERDEFAULT_OBJ4KEY(kServerUrl),userName,passWord]
+NS_INLINE NSDictionary *QF_GetLoginParameter(NSString *name,NSString *pwd){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(pwd);
+    return dictionary.copy;
+}
+
+// 1.2 获取门户用户信息
+#define QF_GETUSERINFO [NSString stringWithFormat:@"%@/UserInfo-portlet/UserInfo/getUserInfo.json",KUSERDEFAULT_OBJ4KEY(kServerUrl)]
+
+NS_INLINE NSDictionary *QF_GetUserInfoParameter(NSString *name,NSString *handshakePassword){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    return dictionary.copy;
+}
+
+#pragma mark - 2 OA办公
+#pragma mark - 2.1 电教、总务报修
+// 2.1.1 申请权限(电教、总务)
+#define QF_GETAPPLYAUTHORITY(type) [NSString stringWithFormat:@"%@/repair-work-portlet/RepairWork/repair/%@/getApplyAuthority.json",KUSERDEFAULT_OBJ4KEY(kServerUrl),type]
+// 保修类型:1.电教报修 2.总务报修
+NS_INLINE NSDictionary *QF_GetApplyAuthorityParameter(NSString *name,NSString *handshakePassword,NSString *type){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    setObjectForKey(type);
+    return dictionary.copy;
+}
+
+// 2.1.2 报修申请
+#define QF_APPLYREPAIR(type,reason,applyTime,place,phone,note) [NSString stringWithFormat:@"%@/repair-work-portlet/RepairWork/repair/%@/%@/%@/%@/%@/%@/applyRepair.json",KUSERDEFAULT_OBJ4KEY(kServerUrl),type,reason,applyTime,place,phone,note]
+// 保修类型:1.电教报修 2.总务报修
+NS_INLINE NSDictionary *QF_GetApplyRepairParameter(NSString *name,NSString *handshakePassword,NSString *type,NSString *reason,NSString *applyTime,NSString *place,NSString *phone,NSString *note){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    setObjectForKey(type);
+    setObjectForKey(reason);
+    setObjectForKey(applyTime);
+    setObjectForKey(place);
+    setObjectForKey(phone);
+    setObjectForKey(note);
+    return dictionary.copy;
+}
+
+// 2.1.3 获取报修列表
+#define QF_GETREPAIRLIST(pageSize,pageNum,typeId,startDate,endDate,state) [NSString stringWithFormat:@"%@/repair-work-portlet/RepairWork/repair/%@/%@/%@/%@/%@/%@/getRepairList.json",KUSERDEFAULT_OBJ4KEY(kServerUrl),pageSize,pageNum,typeId,startDate,endDate,state]
+// typeId:1.电教报修 2.总务报修
+// state: 0：全部 1: 待审批 2：待维修 3：待评价 4：评价完成 6：已撤销 7：委外处理 8：采购中 其他：异常
+// 时间格式：yyyy-mm-dd
+NS_INLINE NSDictionary *QF_GetRepairListParameter(NSString *name,NSString *handshakePassword,NSString *state,NSString *startDate,NSString *endDate,NSString *pageSize,NSString *pageNum){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    setObjectForKey(state);
+    setObjectForKey(startDate);
+    setObjectForKey(endDate);
+    setObjectForKey(pageSize);
+    setObjectForKey(pageNum);
+    return dictionary.copy;
+}
+
+// 2.1.4 获取报修详情
+#define QF_GETREPAIRDETAILINFO(repairId) [NSString stringWithFormat:@"%@/repair-work-portlet/RepairWork/repair/%@/getDetailInfo.json",KUSERDEFAULT_OBJ4KEY(kServerUrl),repairId]
+NS_INLINE NSDictionary *QF_GetRepairDetailInfoParameter(NSString *name,NSString *handshakePassword,NSString *repairId){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    setObjectForKey(repairId);
+    return dictionary.copy;
+}
+
+//2.1.5 获取维修人员列表
+#define QF_GETREPAIRER [NSString stringWithFormat:@"%@/repair-work-portlet/RepairWork/repair/getRepairer.json",KUSERDEFAULT_OBJ4KEY(kServerUrl)]
+NS_INLINE NSDictionary *QF_GetRepairerParameter(NSString *name,NSString *handshakePassword){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    return dictionary.copy;
+}
+
+
+
+// 2.1.6 报修审批/维修/后续维修/评价
+#define QF_APPROVEREPAIR(repairId,repairLinks,repairLinksContents,chooseRepair) [NSString stringWithFormat:@"%@/repair-work-portlet/RepairWork/repair/%@/%@/%@/%@/approveRepair.json",KUSERDEFAULT_OBJ4KEY(kServerUrl),repairId,repairLinks,repairLinksContents,chooseRepair]
+// repairLinks: 审批环节： T：通过 F：未通过 或者： 维修环节 T：完成 F：委托处理 B：采购中 或者： 评价环节 1：满意 2：一般 3：不满意
+// repairtLinksContent: 审批/维修/评价环节说明
+// chooseRepair: 维修人员必须，如果是维修/评价环节则可传空
+
+NS_INLINE NSDictionary *QF_ApproveRepairParameter(NSString *name,NSString *handshakePassword,NSString *repairId,NSString *repairLinks,NSString *repairtLinksContent,NSString *chooseRepair){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    setObjectForKey(repairId);
+    setObjectForKey(repairLinks);
+    setObjectForKey(repairtLinksContent);
+    setObjectForKey(chooseRepair);
+    return dictionary.copy;
+}
+
+
+
+
+#pragma mark - 2.2打印服务
+//2.2 打印服务
+//2.2.1 打印申请权限
+#define QF_GETDATAPRINT_APPLYATHORITY [NSString stringWithFormat:@"%@/data-print-portlet/DataPrint/print/getApplyAuthority.json",KUSERDEFAULT_OBJ4KEY(kServerUrl)]
+
+NS_INLINE NSDictionary *QF_GetDataPrintAthorityParameter(NSString *name, NSString *handshakePassword){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    return dictionary.copy;
+}
+
+//2.2.2 印制类型
+#define QF_GETPRINTTYPE [NSString stringWithFormat:@"%@/data-print-portlet/DataPrint/print/getPrintType.json",KUSERDEFAULT_OBJ4KEY(kServerUrl)]
+
+NS_INLINE NSDictionary *QF_GetPrintTypeParameter(NSString *name, NSString *handshakePassword){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    return dictionary.copy;
+}
+
+//2.2.3 打印申请
+#define QF_APPLYPRINT(paperType, copyCounts, printType, useTime, isPublic, note) [NSString stringWithFormat:@"%@/data-print-portlet/DataPrint/print/%@/%@/%@/%@/%@/%@/applyPrint.json",KUSERDEFAULT_OBJ4KEY(kServerUrl), paperType, copyCounts, printType, useTime, isPublic, note]
+
+//paperType 纸张类型 A3:1 A4:2 B5:3 8K:4 16K:5
+//printType 印刷类型 油印：1 打印：2 复印：3 打印+油印：4 打印+复印：5
+//isPublic 是否公开 1：是  0：否
+NS_INLINE NSDictionary *QF_GetApplyPrintParameter(NSString *name, NSString *handshakePassword, NSString *paperType, NSString *copyCounts, NSString *printType, NSString *useTime, NSString *isPublic, NSString *note){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    setObjectForKey(paperType);
+    setObjectForKey(copyCounts);
+    setObjectForKey(printType);
+    setObjectForKey(useTime);
+    setObjectForKey(isPublic);
+    setObjectForKey(note);
+    return dictionary.copy;
+}
+
+//2.2.4 获取打印申请列表
+#define QF_GETPRINTLIST(applyUserCn, type, startTime, endTime, state, pageSize, pageNum) [NSString stringWithFormat:@"%@/data-print-portlet/DataPrint/print/%@/%@/%@/%@/%@/%@/%@/getPrintList.json",KUSERDEFAULT_OBJ4KEY(kServerUrl), applyUserCn, type, startTime, endTime, state, pageSize, pageNum]
+//type 查询条件：资料类型 油印：1 打印：2 复印：3 打印+油印：4 打印+复印：5
+//state 查询条件：审批状态 全部：0 待审批：1 待打印：2 待评价：3 评价完成：4 未通过审批：5
+NS_INLINE NSDictionary *QF_GetPrintListParameter(NSString *name, NSString *handshakePassword, NSString *applyUserCn, NSString *type, NSString *startTime, NSString *endTime, NSString *state, NSString *pageSize, NSString *pageNum){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    setObjectForKey(applyUserCn);
+    setObjectForKey(type);
+    setObjectForKey(startTime);
+    setObjectForKey(endTime);
+    setObjectForKey(state);
+    setObjectForKey(pageSize);
+    setObjectForKey(pageNum);
+    return dictionary.copy;
+}
+
+//2.2.5 获取打印申请详情
+#define QF_GETPRINTDETAIL(printId) [NSString stringWithFormat:@"%@/data-print-portlet/DataPrint/print/%@/getPrintDetail.json",KUSERDEFAULT_OBJ4KEY(kServerUrl),printId]
+
+NS_INLINE NSDictionary *QF_GetPrintDetailParameter(NSString *name, NSString *handshakePassword, NSString *printId){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    setObjectForKey(printId);
+    return dictionary.copy;
+}
+
+//2.2.6 获取打印人员列表
+#define QF_GETPRINTER [NSString stringWithFormat:@"%@/data-print-portlet/DataPrint/print/getPrinter.json",KUSERDEFAULT_OBJ4KEY(kServerUrl)]
+
+NS_INLINE NSDictionary *QF_GetPrinterParameter(NSString *name, NSString *handshakePassword){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    return dictionary.copy;
+}
+
+//2.2.7 打印审批环节 2.2.8打印环节 2.2.9打印评价 都调用这一个接口
+#define QF_GETAPPROVEAPPLYPRINT(id, approveLinksContent, approveLinks, assignPrinter) [NSString stringWithFormat:@"%@/data-print-portlet/DataPrint/print/%@/%@/%@/%@/approveApplyPrint.json",KUSERDEFAULT_OBJ4KEY(kServerUrl), id, approveLinksContent, approveLinks, assignPrinter]
+
+NS_INLINE NSDictionary *QF_GetApproveApplyPrintParameter(NSString *name, NSString *handshakePassword, NSString *id, NSString *approveLinksContent, NSString *approveLinks, NSString *assignPrinter){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    setObjectForKey(id);
+    setObjectForKey(approveLinksContent);
+    setObjectForKey(approveLinks);
+    setObjectForKey(assignPrinter);
+    return dictionary.copy;
+}
+
+
+
+
+
+
+
+#pragma mark - 2.3 用车申请
+//2.3.1 申请用车服务
+#define QF_GETAPPLYCAR(useDate, startTime, endTime, reason, count, destination) [NSString stringWithFormat:@"%@/office-app-portlet/Car/car/%@/%@/%@/%@/%@/%@/applycar.json",KUSERDEFAULT_OBJ4KEY(kServerUrl), useDate, startTime, endTime, reason, count, destination]
+
+NS_INLINE NSDictionary *QF_GetApplyCarParameter(NSString *name, NSString *handshakePassword, NSString *useDate, NSString *startTime, NSString *endTime, NSString *reason, NSString *count, NSString *destination){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    setObjectForKey(useDate);
+    setObjectForKey(startTime);
+    setObjectForKey(endTime);
+    setObjectForKey(reason);
+    setObjectForKey(count);
+    setObjectForKey(destination);
+    return dictionary.copy;
+}
+
+//2.3.2 获取用车申请列表
+#define QF_GETCARAPPLYLIST(applyUserCn, startDate, endDate, state, pageSize, pageNum) [NSString stringWithFormat:@"%@/office-app-portlet/Car/car/%@/%@/%@/%@/%@/%@/getCarApplyList.json",KUSERDEFAULT_OBJ4KEY(kServerUrl), applyUserCn, startDate, endDate, state, pageSize, pageNum]
+
+
+NS_INLINE NSDictionary *QF_GetCarApplyListParameter(NSString *name, NSString *handshakePassword, NSString *applyUserCn, NSString *startDate, NSString *endDate, NSString *state, NSString *pageSize, NSString * pageNum){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    setObjectForKey(applyUserCn);
+    setObjectForKey(startDate);
+    setObjectForKey(endDate);
+    setObjectForKey(state);
+    setObjectForKey(pageSize);
+    setObjectForKey(pageNum);
+    return dictionary.copy;
+}
+
+//2.3.3 获取用车申请详情
+#define QF_GETCARDETAIL(carId) [NSString stringWithFormat:@"%@/office-app-portlet/Car/car/%@/getCarDetail.json",KUSERDEFAULT_OBJ4KEY(kServerUrl), carId]
+
+NS_INLINE NSDictionary *QF_GetCarDetailParameter(NSString *name, NSString *handshakePassword, NSString *carId){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    setObjectForKey(carId);
+    return dictionary.copy;
+}
+
+
+//2.3.4 获取司机列表
+#define QF_GETDRIVER [NSString stringWithFormat:@"%@/office-app-portlet/Car/car/getDriver.json",KUSERDEFAULT_OBJ4KEY(kServerUrl)]
+
+NS_INLINE NSDictionary *QF_GetDiverParameter(NSString *name, NSString *handshakePassword){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    return dictionary.copy;
+}
+
+//2.3.5 用车审批
+#define QF_GETAPPROVECARAPPLY(carId, carApprovalLinks, carApprovalLinksContent, assignPrinter)  [NSString stringWithFormat:@"%@/office-app-portlet/Car/%@/%@/%@/%@/approveCarApply.json",KUSERDEFAULT_OBJ4KEY(kServerUrl), carId, carApprovalLinks, carApprovalLinksContent, assignPrinter]
+
+NS_INLINE NSDictionary *QF_GetApproveCarApplyParameter(NSString *name, NSString *handshakePassword, NSString *carId, NSString *carApprovalLinks, NSString *carApprovalLinksContent, NSString *assignPrinter){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    setObjectForKey(carId);
+    setObjectForKey(carApprovalLinks);
+    setObjectForKey(carApprovalLinksContent);
+    setObjectForKey(assignPrinter);
+    return dictionary.copy;
+}
+
+
+
+#pragma mark - 2.4 工资信息
+//2.4.1获取工资列表
+#define QF_GETSALARYLIST(pageSize, pageNum) [NSString stringWithFormat:@"%@/salary-portlet/Salary/%@/%@/getSalaryList.json",KUSERDEFAULT_OBJ4KEY(kServerUrl), pageSize, pageNum]
+
+NS_INLINE NSDictionary *QF_GetSalaryListParameter(NSString *name, NSString *handshakePassword) {
+    
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    return dictionary.copy;
+}
+
+//2.4.2获取工资详情
+#define QF_GETSALARYDETAIL(salaryId) [NSString stringWithFormat:@"%@/salary-portlet/Salary/%@/getSalaryDetail.json",KUSERDEFAULT_OBJ4KEY(kServerUrl), salaryId]
+
+NS_INLINE NSDictionary *QF_GetSalaryDetailParameter(NSString *name, NSString *handshakePassword) {
+    
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    return dictionary.copy;
+}
+
+#pragma mark - 2.5 场地预约
+//2.5 场地预约
+//2.5.1 获取场地预约列表
+#define QF_GETAPPLYMAININFOS(pageSize, pageNum, applyUserCn, siteName, startDate, endDate) [NSString stringWithFormat:@"%@/application-site-portlet/ApplicationSite/%@/%@/%@/%@/%@/%@/getApplyMainInfos.json",KUSERDEFAULT_OBJ4KEY(kServerUrl), pageSize, pageNum, applyUserCn, siteName, startDate, endDate]
+
+NS_INLINE NSDictionary *QF_GetApplyMainInfosParameter(NSString *name, NSString *handshakePassword, NSString *pageSize, NSString *pageNum, NSString *applyUserCn, NSString *siteName, NSString *startDate, NSString * endDate){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    setObjectForKey(pageSize);
+    setObjectForKey(pageNum);
+    setObjectForKey(applyUserCn);
+    setObjectForKey(siteName);
+    setObjectForKey(startDate);
+    setObjectForKey(endDate);
+    return dictionary.copy;
+}
+
+
+//2.5.2 场地预约详情
+
+#define QF_GETCLASSROOMAPPLYDETAIL(ApplyId) [NSString stringWithFormat:@"%@/application-site-portlet/ApplicationSite/%@/getClassroomApplyDetail.json",KUSERDEFAULT_OBJ4KEY(kServerUrl), ApplyId]
+
+NS_INLINE NSDictionary *QF_GetClassroomApplyDetailParameter(NSString *name, NSString *handshakePassword, NSString *ApplyId){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    setObjectForKey(ApplyId);
+    return dictionary.copy;
+}
+
+//2.5.3 获取场地预约场地列表
+#define QF_GETSITEINFOS [NSString stringWithFormat:@"%@/application-site-portlet/ApplicationSite/siteInfos.json",KUSERDEFAULT_OBJ4KEY(kServerUrl)]
+
+NS_INLINE NSDictionary *QF_GetSiteInfosParameter(NSString *name, NSString *handshakePassword){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    return dictionary.copy;
+}
+
+//2.5.4 获取场地预约时间列表
+#define QF_GETCLASSROOMUSELIST(siteId, useDate) [NSString stringWithFormat:@"%@/application-site-portlet/ApplicationSite/%@/%@/getClassroomUseList.json",KUSERDEFAULT_OBJ4KEY(kServerUrl), siteId, useDate]
+
+NS_INLINE NSDictionary *QF_GetClassroomUseListParameter(NSString *name, NSString *handshakePassword){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    return dictionary.copy;
+}
+//2.5.5 场地申请
+#define QF_GETAPPLYCLASSROOM(siteId, applyDate, useTime, device, reason) [NSString stringWithFormat:@"%@/application-site-portlet/ApplicationSite/%@/%@/%@/%@/%@/applyClassroom.json",KUSERDEFAULT_OBJ4KEY(kServerUrl), siteId, applyDate, useTime, device, reason]
+
+NS_INLINE NSDictionary *QF_GetApplyClassroomParameter(NSString *name, NSString *handshakePassword, NSString *siteId, NSString *applyDate, NSString *useTime, NSString *device, NSString *reason){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    setObjectForKey(siteId);
+    setObjectForKey(applyDate);
+    setObjectForKey(useTime);
+    setObjectForKey(device);
+    setObjectForKey(reason);
+    return dictionary.copy;
+}
+
+
+//2.5.6 场地预约审批
+#define QF_GETAPPLYCLASSROOMDEAL(applyId, approveLinks, view) [NSString stringWithFormat:@"%@/application-site-portlet/ApplicationSite/%@/%@/%@/ApplyDeal.json",KUSERDEFAULT_OBJ4KEY(kServerUrl), applyId, approveLinks, view]
+
+NS_INLINE NSDictionary *QF_GetApplyClassroomDealParameter(NSString *name, NSString *handshakePassword, NSString *applyId, NSString *approveLinks, NSString *view, NSString *device, NSString *reason){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    setObjectForKey(applyId);
+    setObjectForKey(approveLinks);
+    setObjectForKey(view);
+    return dictionary.copy;
+}
+#pragma mark - 2.6 支票申请
+
+#pragma mark - 3 周安排
+
+//3 周安排
+//3.1 获取周安排列表
+#define QF_GETWEEKPLANLIST(pageSize, pageNum) [NSString stringWithFormat:@"%@/weekPlan-portlet/WeekPlan/%@/%@/getWeekPlanList.json",KUSERDEFAULT_OBJ4KEY(kServerUrl), pageSize, pageNum]
+
+NS_INLINE NSDictionary *QF_GetWeekPlanListParameter(NSString *name, NSString *handshakePassword, NSString *pageSize, NSString *pageNum){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    setObjectForKey(pageSize);
+    setObjectForKey(pageNum);
+    return dictionary.copy;
+}
+
+//3.2 获取周安排详情
+#define QF_GETWEEKPLANDETAIL(weekId) [NSString stringWithFormat:@"%@/weekPlan-portlet/WeekPlan/%@/getWeekPlanDetail.json",KUSERDEFAULT_OBJ4KEY(kServerUrl), weekId]
+
+NS_INLINE NSDictionary *QF_GetWeekPlanDetailParameter(NSString *name, NSString *handshakePassword, NSString *weekId){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    setObjectForKey(weekId);
+    return dictionary.copy;
+}
+
+#pragma mark - 4 校历
+//4 校历
+#define QF_GETSCHOOLCALENDAR [NSString stringWithFormat:@"%@/xtsCourse-portlet/Calendar/getSchoolCanlendar.json",KUSERDEFAULT_OBJ4KEY(kServerUrl)]
+
+NS_INLINE NSDictionary *QF_GetSchoolCalendarParameter(NSString *name, NSString *handshakePassword){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    return dictionary.copy;
+}
+
+#pragma mark - 5 公告信息
+//5 公告信息
+// 5.1 获取公告列表
+#define QF_GETNOTICEINFOLIST(pageSize, pageNum, title, startTime, endTime) [NSString stringWithFormat:@"%@/MessageInfo-portlet/NoticeInfo/noticeInfo/%@/%@/%@/%@/%@/getNoticeInfoList.json",KUSERDEFAULT_OBJ4KEY(kServerUrl), pageSize, pageNum, title, startTime, endTime]
+
+NS_INLINE NSDictionary *QF_GetNoticeInfoListParameter(NSString *name, NSString *handshakePassword, NSString *pageSize, NSString *pageNum, NSString *title, NSString *startTime, NSString *endTime){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    setObjectForKey(pageSize);
+    setObjectForKey(pageNum);
+    setObjectForKey(title);
+    setObjectForKey(startTime);
+    setObjectForKey(endTime);
+    return dictionary.copy;
+}
+
+// 5.2 获取公告详情
+#define QF_GETNOTICEINFODETAIL(infoId) [NSString stringWithFormat:@"%@/MessageInfo-portlet/NoticeInfo/noticeInfo/%@/getNoticeInfoDetail.json",KUSERDEFAULT_OBJ4KEY(kServerUrl), infoId]
+
+NS_INLINE NSDictionary *QF_GetNoticeInfoDetailParameter(NSString *name, NSString *handshakePassword, NSString *infoId){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    setObjectForKey(infoId);
+    return dictionary.copy;
+}
+
+#pragma mark - 6 作息时间表
+// 6 作息时间表
+#define QF_GETSCHEDULE [NSString stringWithFormat:@"%@/schedule-portlet/Schedule/getSchedule.json",KUSERDEFAULT_OBJ4KEY(kServerUrl)]
+
+NS_INLINE NSDictionary *QF_GetScheduleParameter(NSString *name, NSString *handshakePassword){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    return dictionary.copy;
+}
+
+#pragma mark - 7课表
+//获取课表
+#define QF_GETSCHEDULEINFO(type, gradeName, className, weekNum) [NSString stringWithFormat:@"%@/hzSchedule-portlet/hzSchedule/%@/%@/%@/%@/getScheduleInfo.json", KUSERDEFAULT_OBJ4KEY(kServerUrl), type, gradeName, className, weekNum]
+
+NS_INLINE NSDictionary *QF_GetSchedulInfoParameter(NSString *name, NSString *handshakePassword, NSString *type, NSString *gradeName, NSString *className, NSString *weekNum){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    setObjectForKey(type);
+    setObjectForKey(gradeName);
+    setObjectForKey(className);
+    setObjectForKey(weekNum);
+    return dictionary.copy;
+}
+
+//获取班级
+#define QF_GETCLASSINFO [NSString stringWithFormat:@"%@/hzSchedule-portlet/hzSchedule/getClassInfo.json",KUSERDEFAULT_OBJ4KEY(kServerUrl)]
+
+NS_INLINE NSDictionary *QF_GetClassInfoParameter(NSString *name, NSString *handshakePassword){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    return dictionary.copy;
+}
+
+//获取年级
+#define QF_GETGRADEINFO [NSString stringWithFormat:@"%@/hzSchedule-portlet/hzSchedule/getGradeInfo.json",KUSERDEFAULT_OBJ4KEY(kServerUrl)]
+
+NS_INLINE NSDictionary *QF_GetGradeInfoParameter(NSString *name, NSString *handshakePassword){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    return dictionary.copy;
+}
+
+//获取周次
+#define QF_GETWEEKNUMINFO [NSString stringWithFormat:@"%@/hzSchedule-portlet/hzSchedule/getWeekNumInfo.json",KUSERDEFAULT_OBJ4KEY(kServerUrl)]
+NS_INLINE NSDictionary *QF_GetWeekInfoParameter(NSString *name, NSString *handshakePassword){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    return dictionary.copy;
+}
+
+#pragma mark - 7 代办
+//7 代办事宜
+#define QF_GETTODOLIST [NSString stringWithFormat:@"%@/notice-work-portlet/NoticeWork/news/getTodoList.json",KUSERDEFAULT_OBJ4KEY(kServerUrl)]
+
+NS_INLINE NSDictionary *QF_GetToDoListParameter(NSString *name, NSString *handshakePassword){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(name);
+    setObjectForKey(handshakePassword);
+    return dictionary.copy;
+}
+
+#pragma mark - 10 发短信
+//10.1 获取部门联系人 //
+#define QF_GETORGANDUSERS(parentId) [NSString stringWithFormat:@"%@/UserInfo-portlet/UserInfo/%@/getOrgAndUsers.json",KUSERDEFAULT_OBJ4KEY(kServerUrl), parentId]
+
+NS_INLINE NSDictionary *QF_GetOrgAndUsersParameter(NSString *handshakePassword, NSString *name){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(handshakePassword);
+    setObjectForKey(name);
+    return dictionary.copy;
+}
+
+//短信业务文档 主要调用里面的2.1 和2.5接口（但请亲不要一直实验，这个是花钱的哟） http://sms.ydqxt.com/api/xml.jsp
+//10.2 发送短信
+#define QF_SENDMESSAGE (@"http://139.129.107.247/sms/xml/send")
+NS_INLINE NSDictionary *QF_SendMessageParameter(NSString *username, NSString *password, NSString *mobile, NSString *message){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(username);
+    setObjectForKey(password);
+    setObjectForKey(mobile);
+    setObjectForKey(message);
+    return dictionary.copy;
+}
+
+// 10.3 获取状态报告
+#define QF_SENDMESSAGESTATE (@"http://139.129.107.247/sms/xml/rpt/acquire")
+NS_INLINE NSDictionary *QF_SendMessageStateParameter(NSString *username, NSString *password){
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    setObjectForKey(username);
+    setObjectForKey(password);
+    return dictionary.copy;
+}
+
+
+
+
+
+#pragma mark - 虚拟教室接口
+#pragma mark - 1、班级课程信息
+//1.1	获取班级列表信息
+#define JXHD_GETCLASS (@"getclass")
+NS_INLINE NSMutableString *JXHD_GetClassParameter(NSString *token, NSString *userId, NSString *userType) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    return parameterStr.copy;
+}
+
+//1.2	获取课程列表
+#define JXHD_GETLESSONLIST (@"getLessonList")
+NS_INLINE NSMutableString *JXHD_GetLessonListParameter(NSString *token, NSString *userId, NSString *userType, NSString *type, NSString *classId) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(type);
+    appendXMLNode(classId);
+    return parameterStr.copy;
+}
+
+//1.3	获取学生列表
+#define JXHD_GETSTUDENTLIST (@"getStudentList")
+NS_INLINE NSMutableString *JXHD_GetStudentListParameter(NSString *token, NSString *userId, NSString *userType, NSString *classid) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(classid);
+    return parameterStr.copy;
+}
+
+//1.4	权限获取
+#define JXHD_GETAUTHORITY (@"getauthority")
+NS_INLINE NSMutableString *JXHD_GetAuthorityParameter(NSString *token, NSString *userId, NSString *userType) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    return parameterStr.copy;
+}
+
+//1.5	获取各模块的类型   moduleId模块ID(1.通知 3.投票 4.活动 5.荐书)
+#define JXHD_GETTYPELIST (@"getTypeList")
+NS_INLINE NSMutableString *JXHD_GetTypeListParameter(NSString *token, NSString *userId, NSString *classid, NSString *moduleId) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(classid);
+    appendXMLNode(moduleId);
+    return parameterStr.copy;
+}
+
+//1.6   获取家长列表
+#define JXHD_GETPAREMTLIST (@"getParentList")
+NS_INLINE NSMutableString *JXHD_GetParentListParameter(NSString *token, NSString *userId, NSString *classid) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(classid);
+    return parameterStr.copy;
+}
+
+
+//1.7	获取年级
+#define JXHD_GETGRADELIST (@"getGradelist")
+NS_INLINE NSMutableString *JXHD_GetGradeListParameter(NSString *token, NSString *userId, NSString *type) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(type);
+    return parameterStr.copy;
+}
+
+//1.8	根据年级获取班级
+#define JXHD_GETCLASSLIST (@"getClasslist")
+NS_INLINE NSMutableString *JXHD_GetClassListParameter(NSString *token, NSString *userId, NSString *gradeId) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(gradeId);
+    return parameterStr.copy;
+}
+
+//1.9	获取班级信息
+#define JXHD_GETCLASSINFO (@"getclassinfo")
+NS_INLINE NSMutableString *JXHD_GetClassInfoParameter(NSString *token, NSString *userId, NSString *userType, NSString *classId) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(classId);
+    return parameterStr.copy;
+}
+
+//1.10	班级logo上传
+#define JXHD_UPLOADCLASSLOGO (@"uploadclasslogo")
+NS_INLINE NSMutableString *JXHD_UploadClassLogoParameter(NSString *token, NSString *userId, NSString *userType, NSString *classId, NSString *fileName, NSString *useName) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(classId);
+    appendXMLNode(fileName);
+    appendXMLNode(useName);
+    return parameterStr.copy;
+}
+
+//1.11	获取全校班级/虚拟班级
+#define JXHD_GETALLCLASSES (@"getAllClasses")
+NS_INLINE NSMutableString *JXHD_GetAllClassesParameter(NSString *token, NSString *userId, NSString *classtype, NSString *gradeid) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(classtype);
+    appendXMLNode(gradeid);
+    return parameterStr.copy;
+}
+
+#pragma mark - 2、添加删除接口
+//2.1	添加班级作业
+#define JXHD_CREATEWORK (@"creatework")
+NS_INLINE NSMutableString *JXHD_CreateWorkParameter(NSString *token, NSString *userId, NSString *userType, NSString *classid, NSString *lessonid, NSString *title, NSString *content, NSString *usename) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(classid);
+    appendXMLNode(lessonid);
+    appendXMLNode(title);
+    appendXMLNode(content);
+    appendXMLNode(usename);
+    return parameterStr.copy;
+}
+
+//2.2	添加班级通知
+#define JXHD_CREATENOTICE (@"createnotice")
+NS_INLINE NSMutableString *JXHD_CreateNoticeParameter(NSString *token, NSString *userId, NSString *userType, NSString *classid, NSString *noticeType, NSString *title, NSString *content, NSString *studentid, NSString *parentid, NSString *usename) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(classid);
+    appendXMLNode(noticeType);
+    appendXMLNode(title);
+    appendXMLNode(content);
+    appendXMLNode(studentid);
+    appendXMLNode(parentid);
+    appendXMLNode(usename);
+    return parameterStr.copy;
+}
+
+//2.4	图片、资源、附件上传     uploadtype上传类型((1照片 2资源 3附件 4动态图片5头像 6、封面 7分享)
+#define JXHD_FILEUPLOAD (@"fileupload")
+NS_INLINE NSMutableString *JXHD_FileUploadParameter(NSString *token, NSString *filename, NSString *usename, NSString *userid, NSString *classid, NSString *uploadtype, NSString *affixtype, NSString *fileSize,  NSString *classType, NSString *folderId, NSString *courseId, NSString *isshare) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(filename);
+    appendXMLNode(usename);
+    appendXMLNode(userid);
+    appendXMLNode(classid);
+    appendXMLNode(uploadtype);
+    appendXMLNode(affixtype);
+    appendXMLNode(fileSize);
+    appendXMLNode(classType);
+    appendXMLNode(folderId);
+    appendXMLNode(courseId);
+    appendXMLNode(isshare);
+    return parameterStr.copy;
+}
+
+//2.5	通知、作业、图片、资源等删除
+#define JXHD_DELETEFILE (@"deletefile")
+NS_INLINE NSMutableString *JXHD_DeleteFileParameter(NSString *token, NSString *moduleId, NSString *userid, NSString *deleteId, NSString *deleteType) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(moduleId);
+    appendXMLNode(userid);
+    appendXMLNode(deleteId);
+    appendXMLNode(deleteType);
+    return parameterStr.copy;
+}
+
+#pragma mark - 3、作业
+//3.1	获取作业列表
+#define JXHD_GETHOMEWORKLIST (@"gethomeworklist")
+NS_INLINE NSMutableString *JXHD_GetHomeworkListParameter(NSString *token, NSString *userId, NSString *userType, NSString *classid, NSString *page, NSString *pagesize, NSString *searchContent, NSString *lessonId, NSString *satticType, NSString *worktype) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(classid);
+    appendXMLNode(page);
+    appendXMLNode(pagesize);
+    appendXMLNode(searchContent);
+    appendXMLNode(lessonId);
+    appendXMLNode(satticType);
+    appendXMLNode(worktype);
+    return parameterStr.copy;
+}
+
+//3.2	获取作业内容
+#define JXHD_GETHOMEWORK (@"gethomework")
+NS_INLINE NSMutableString *JXHD_GetHomeworkParameter(NSString *token, NSString *userId, NSString *workId) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(workId);
+    return parameterStr.copy;
+}
+
+//3.3	获取未读人列表
+#define JXHD_GETHOMEWORKNOREAD (@"gethomeworkNoRead")
+NS_INLINE NSMutableString *JXHD_GetHomeworkNoReadParameter(NSString *token, NSString *userId, NSString *workId) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(workId);
+    return parameterStr.copy;
+}
+
+//3.4	添加评价
+#define JXHD_ADDHOMEWORKREMARK (@"addhomeworkremark")
+NS_INLINE NSMutableString *JXHD_AddHomeworkRemarkParameter(NSString *token, NSString *userId, NSString *workId, NSString *remark) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(workId);
+    appendXMLNode(remark);
+    return parameterStr.copy;
+}
+
+
+#pragma mark - 4、通知
+//4.1	获取通知列表    satticType1：来自班级页面2：来自统计信息
+#define JXHD_GETNOTICELIST (@"getnoticelist")
+NS_INLINE NSMutableString *JXHD_GetNoticeListParameter(NSString *token, NSString *userId, NSString *userType, NSString *classid, NSString *page, NSString *pagesize, NSString *searchContent, NSString *satticType) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(classid);
+    appendXMLNode(page);
+    appendXMLNode(pagesize);
+    appendXMLNode(searchContent);
+    appendXMLNode(satticType);
+    return parameterStr.copy;
+}
+
+//4.2	查看通知详情
+#define JXHD_GETNOTICE (@"getnotice")
+NS_INLINE NSMutableString *JXHD_GetNoticeParameter(NSString *token, NSString *userId, NSString *noticeid) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(noticeid);
+    return parameterStr.copy;
+}
+
+//4.3	获取未读人列表
+#define JXHD_GETNOTICENOREAD (@"getnoticeNoRead")
+NS_INLINE NSMutableString *JXHD_GetNoticeNoReadParameter(NSString *token, NSString *userId, NSString *noticeid) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(noticeid);
+    return parameterStr.copy;
+}
+
+#pragma mark - 5、动态
+//5.1   获取动态列表    type:0：全部 1：通知 2：作业
+#define JXHD_GETDYNAMICLIST (@"getdynamiclist")
+NS_INLINE NSMutableString *JXHD_GetDynamicListParameter(NSString *token, NSString *userId, NSString *userType, NSString *page, NSString *pagesize, NSString *type) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(page);
+    appendXMLNode(pagesize);
+    appendXMLNode(type);
+    return parameterStr.copy;
+}
+
+//5.2	获取动态详情
+#define JXHD_GETDYNAMIC (@"getdynamic")
+NS_INLINE NSMutableString *JXHD_GetDynamicParameter(NSString *token, NSString *userId, NSString *dynamicId) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(dynamicId);
+    return parameterStr.copy;
+}
+
+//5.3	获取评论列表（添加评论人头像信息）
+#define JXHD_GETCOMMENTLIST (@"getcommentlist")
+NS_INLINE NSMutableString *JXHD_GetCommentListParameter(NSString *token, NSString *userId, NSString *userTye, NSString *dynamicId, NSString *page, NSString *pagesize) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userTye);
+    appendXMLNode(dynamicId);
+    appendXMLNode(page);
+    appendXMLNode(pagesize);
+    return parameterStr.copy;
+}
+
+//5.4	设置动态好/坏
+#define JXHD_SETPRAISE (@"setpraise")
+NS_INLINE NSMutableString *JXHD_SetPraiseParameter(NSString *token, NSString *userId, NSString *userTye, NSString *dynamicId, NSString *status) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userTye);
+    appendXMLNode(dynamicId);
+    appendXMLNode(status);
+    return parameterStr.copy;
+}
+
+//5.5	发表评论
+#define JXHD_SETCOMMENT (@"setcomment")
+//提问：是否公开0公开 1不公开提问 其他传空值
+NS_INLINE NSMutableString *JXHD_SetCommentParameter(NSString *token, NSString *userId, NSString *userTye, NSString *dynamicId, NSString *comment, NSString *state) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userTye);
+    appendXMLNode(dynamicId);
+    appendXMLNode(comment);
+    appendXMLNode(state);
+    return parameterStr.copy;
+}
+
+
+
+
+#pragma mark - 6、个人信息
+//6.2	获取个人信息（添加要查询人的用户id）
+#define JXHD_GETUSERINFO (@"getuserinfo")
+NS_INLINE NSMutableString *JXHD_GetUserinfoParameter(NSString *token, NSString *userId, NSString *queryuserid) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(queryuserid);
+    return parameterStr.copy;
+}
+
+//6.3	获取角色信息
+#define JXHD_GETROLEINFO (@"getroleinfo")
+NS_INLINE NSMutableString *JXHD_GetRoleInfoParameter(NSString *token, NSString *userId, NSString *userType) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    return parameterStr.copy;
+}
+
+
+#pragma mark - 7、投票
+//7.1	获取投票列表
+#define JXHD_GETVOTELIST (@"getVoteList")
+NS_INLINE NSMutableString *JXHD_GetVoteListParameter(NSString *token, NSString *userId, NSString *userType, NSString *searchContent, NSString *classId, NSString *page, NSString *pagesize, NSString *satticType, NSString *type) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(searchContent);
+    appendXMLNode(classId);
+    appendXMLNode(page);
+    appendXMLNode(pagesize);
+    appendXMLNode(satticType);
+    appendXMLNode(type);
+    return parameterStr.copy;
+}
+
+//7.2	获取投票详情
+#define JXHD_GETVOTEDESC (@"getVoteDesc")
+NS_INLINE NSMutableString *JXHD_GetVoteDescParameter(NSString *token, NSString *userId, NSString *userType, NSString *voteId) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(voteId);
+    return parameterStr.copy;
+}
+
+//7.3	获取投票参与人员
+#define JXHD_GETVOTEPEOPLE (@"getVotePeople")
+NS_INLINE NSMutableString *JXHD_GetVotePeopleParameter(NSString *token, NSString *userId, NSString *voteId) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(voteId);
+    return parameterStr.copy;
+}
+
+//7.4	添加投票评论
+#define JXHD_CREATEVOTECOMMENT (@"createVoteComment")
+NS_INLINE NSMutableString *JXHD_CreateVoteCommentParameter(NSString *token, NSString *userId, NSString *userType, NSString *voteId, NSString *commentContent) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(voteId);
+    appendXMLNode(commentContent);
+    return parameterStr.copy;
+}
+
+//7.5	我要投票
+#define JXHD_STARTVOTE (@"startVote")
+NS_INLINE NSMutableString *JXHD_StartVoteParameter(NSString *token, NSString *userId, NSString *userType, NSString *voteId, NSString *optionId) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(voteId);
+    appendXMLNode(optionId);
+    return parameterStr.copy;
+}
+
+//7.6	获取投票类型列表
+#define JXHD_GETVOTETYPE (@"getVoteType")
+NS_INLINE NSMutableString *JXHD_GetVoteTypeParameter(NSString *token, NSString *userId) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    return parameterStr.copy;
+}
+
+//7.7	新建投票
+#define JXHD_CREATEVOTE (@"createVote")
+NS_INLINE NSMutableString *JXHD_CreateVoteParameter(NSString *token, NSString *userId, NSString *classId, NSString *voteTitle, NSString *typeName, NSString *voteOption, NSString *votePerson, NSString *voteEndTime, NSString *voteType, NSString *voteParent) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(classId);
+    appendXMLNode(voteTitle);
+    appendXMLNode(typeName);
+    appendXMLNode(voteOption);
+    appendXMLNode(votePerson);
+    appendXMLNode(voteEndTime);
+    appendXMLNode(voteType);
+    appendXMLNode(voteParent);
+    return parameterStr.copy;
+}
+
+#pragma mark - 8、活动
+//8.1	获取活动列表   satticType1：来自班级页面 2：来自统计信息   type:1：班级 2：我的
+#define JXHD_GETACTIVITYLIST (@"getActivityList")
+NS_INLINE NSMutableString *JXHD_GetActivityListParameter(NSString *token, NSString *userId, NSString *userType, NSString *classId, NSString *searchContent, NSString *page, NSString *pageSize, NSString *satticType, NSString *type) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(classId);
+    appendXMLNode(searchContent);
+    appendXMLNode(page);
+    appendXMLNode(pageSize);
+    appendXMLNode(satticType);
+    appendXMLNode(type);
+    return parameterStr.copy;
+}
+
+//8.2	获取活动详情
+#define JXHD_GETACTIVITYDESC (@"getActivityDesc")
+NS_INLINE NSMutableString *JXHD_GetActivityDescParameter(NSString *token, NSString *userId, NSString *userType, NSString *activityId) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(activityId);
+    return parameterStr.copy;
+}
+
+//8.3   获取活动参与人员
+#define JXHD_GETACTIVITYPEOPLE (@"getActivityPeople")
+NS_INLINE NSMutableString *JXHD_GetActivityPeopleParameter(NSString *token, NSString *userId, NSString *activityId) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(activityId);
+    return parameterStr.copy;
+}
+
+//8.4	添加活动评论
+#define JXHD_CREATEACTIVITYCOMMENT (@"createActivityComment")
+NS_INLINE NSMutableString *JXHD_CreateFActivityCommentParameter(NSString *token, NSString *userId, NSString *userType, NSString *activityId, NSString *commentContent) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(activityId);
+    appendXMLNode(commentContent);
+    return parameterStr.copy;
+}
+
+//8.5	我要报名
+#define JXHD_STARTACTIVITY (@"startActivity")
+NS_INLINE NSMutableString *JXHD_StartActivityParameter(NSString *token, NSString *userId, NSString *userType, NSString *activityId) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(activityId);
+    return parameterStr.copy;
+}
+
+//8.7	获取活动类型列表
+#define JXHD_GETACTIVITYTYPE (@"getActivityType")
+NS_INLINE NSMutableString *JXHD_GetActivityTypeParameter(NSString *token, NSString *userId) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    return parameterStr.copy;
+}
+
+//8.7	新建活动
+#define JXHD_CREATEACTIVITY (@"createActivity")
+NS_INLINE NSMutableString *JXHD_CreateActivityParameter(NSString *token, NSString *userId, NSString *classId, NSString *activityPerson, NSString *typeName, NSString *endTime, NSString *activityTitle, NSString *activityContent) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(classId);
+    appendXMLNode(activityPerson);
+    appendXMLNode(typeName);
+    appendXMLNode(endTime);
+    appendXMLNode(activityTitle);
+    appendXMLNode(activityContent);
+    return parameterStr.copy;
+}
+
+#pragma mark - 9、图书
+//9.1	获取图书列表
+#define JXHD_GETBOOKLIST (@"getBookList")
+NS_INLINE NSMutableString *JXHD_GetBookListParameter(NSString *token, NSString *userId, NSString *userType, NSString *classId, NSString *pagesize, NSString *page, NSString *satticType, NSString *type, NSString *keyword) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(classId);
+    appendXMLNode(pagesize);
+    appendXMLNode(page);
+    appendXMLNode(satticType);
+    appendXMLNode(type);
+    appendXMLNode(keyword);
+    return parameterStr.copy;
+}
+
+//9.2	获取图书详情
+#define JXHD_GETBOOKDESC (@"getBookDesc")
+NS_INLINE NSMutableString *JXHD_GetBookDescParameter(NSString *token, NSString *userId, NSString *book_id) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(book_id);
+    return parameterStr.copy;
+}
+
+//9.3	添加图书评论
+#define JXHD_CREATEBOOKCOMMENT (@"createBookComment")
+NS_INLINE NSMutableString *JXHD_CreateBookCommentParameter(NSString *token, NSString *userId, NSString *bookId, NSString *commentContent) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(bookId);
+    appendXMLNode(commentContent);
+    return parameterStr.copy;
+}
+
+//9.4	获取图书类型列表
+#define JXHD_GETBOOKTYPE (@"getBookType")
+NS_INLINE NSMutableString *JXHD_GetBookTypeParameter(NSString *token, NSString *userId) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    return parameterStr.copy;
+}
+
+//9.5	新增图书
+#define JXHD_CREATEBOOK (@"createBook")
+NS_INLINE NSMutableString *JXHD_CreateBookParameter(NSString *token, NSString *userId, NSString *classid, NSString *typeName, NSString *book_title, NSString *book_author, NSString *book_company, NSString *book_suggestion, NSString *book_content, NSString *book_image) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(classid);
+    appendXMLNode(typeName);
+    appendXMLNode(book_title);
+    appendXMLNode(book_author);
+    appendXMLNode(book_company);
+    appendXMLNode(book_suggestion);
+    appendXMLNode(book_content);
+    appendXMLNode(book_image);
+    return parameterStr.copy;
+}
+
+//9.6   推荐图书
+#define JXHD_STARTRECOMMEND (@"startRecommed")
+NS_INLINE NSMutableString *JXHD_StartRecommendParameter(NSString *token, NSString *userId, NSString *bookId) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(bookId);
+    return parameterStr.copy;
+}
+
+//9.7	获取推荐人员列表
+#define JXHD_GETBOOKPEOPLE (@"getBookPeople")
+NS_INLINE NSMutableString *JXHD_GetBookPeopleParameter(NSString *token, NSString *userId, NSString *bookId) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(bookId);
+    return parameterStr.copy;
+}
+
+#pragma mark - 10、相册
+
+//10.1	获取相册列表
+#define JXHD_GETALBUMLIST (@"getAlbumList")
+//NS_INLINE NSMutableString *JXHD_GetAlbumListParameter(NSString *token, NSString *userId, NSString *userType, NSString *classId, NSString *page, NSString *pagesize, NSString *type) {
+//    NSMutableString *parameterStr = [NSMutableString string];
+//    appendXMLNode(token);
+//    appendXMLNode(userId);
+//    appendXMLNode(userType);
+//    appendXMLNode(classId);
+//    appendXMLNode(page);
+//    appendXMLNode(pagesize);
+//    appendXMLNode(type);
+//    return parameterStr.copy;
+//}
+
+NS_INLINE NSMutableString *JXHD_GetAlbumListParameter(NSString *token, NSString *userId, NSString *userType, NSString *classId,NSString *type, NSString *page, NSString *pagesize) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(classId);
+    appendXMLNode(type);
+    appendXMLNode(page);
+    appendXMLNode(pagesize);
+    return parameterStr.copy;
+}
+
+//10.2	获取相册图片
+#define JXHD_GETPHOTOLIST (@"getPhotoList")
+NS_INLINE NSMutableString *JXHD_GetPhotoListParameter(NSString *token, NSString *userId, NSString *userType, NSString *albumId, NSString *classid, NSString *page, NSString *pagesize) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(albumId);
+    appendXMLNode(classid);
+    appendXMLNode(page);
+    appendXMLNode(pagesize);
+    return parameterStr.copy;
+}
+
+//10.3	新建相册
+#define JXHD_CREATEALBUM (@"createAlbum")
+NS_INLINE NSMutableString *JXHD_CreateAlbumParameter(NSString *token, NSString *userId, NSString *classId, NSString *albumName, NSString *albumDesc) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(classId);
+    appendXMLNode(albumName);
+    appendXMLNode(albumDesc);
+    return parameterStr.copy;
+}
+
+//10.4	添加图片   0个人相册 1班级相册  fileSize 单位是kb photoName和useName都是xxx.png 而不是xxx
+#define JXHD_ADDPHOTO (@"addPhoto")
+NS_INLINE NSMutableString *JXHD_AddPhotoParameter(NSString *token, NSString *userId, NSString *classId, NSString *albumId, NSString *photoName, NSString *usename, NSString *filetype, NSString *fileSize) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(classId);
+    appendXMLNode(albumId);
+    appendXMLNode(photoName);
+    appendXMLNode(usename);
+    appendXMLNode(filetype);
+    appendXMLNode(fileSize);
+    return parameterStr.copy;
+}
+
+
+//10.5	分享相册
+#define JXHD_SHAREPHOTO (@"sharePhoto")
+NS_INLINE NSMutableString *JXHD_SharePhotoParameter(NSString *token, NSString *userId, NSString *userType, NSString *classId, NSString *albumId, NSString *photoIds) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(classId);
+    appendXMLNode(albumId);
+    appendXMLNode(photoIds);
+    return parameterStr.copy;
+}
+
+//10.6  设置相册封面
+#define JXHD_COVERPHOTO (@"coverPhoto")
+NS_INLINE NSMutableString *JXHD_CoverPhotoParameter(NSString *token, NSString *userId, NSString *usename, NSString *albumId) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(usename);
+    appendXMLNode(albumId);
+    return parameterStr.copy;
+}
+
+#pragma mark - 11、资源
+
+//11.1	获取班级学科文件夹
+#define JXHD_GETRESOURCEFOLDERLIST (@"getResourceFolderList")
+NS_INLINE NSMutableString *JXHD_GetResourceFolderListParameter(NSString *token, NSString *userId, NSString *userType, NSString *classId, NSString *classType, NSString *page, NSString *pagesize) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(classId);
+    appendXMLNode(classType);
+    appendXMLNode(page);
+    appendXMLNode(pagesize);
+    return parameterStr.copy;
+}
+
+//11.2	获取资源列表
+#define JXHD_CREATERESOURCELIST (@"getResourceList")
+NS_INLINE NSMutableString *JXHD_CreateResourceListParameter(NSString *token, NSString *userId, NSString *userType, NSString *classType, NSString *classId, NSString *type, NSString *keyword, NSString *searchType, NSString *folderid, NSString *courseid) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(classType);
+    appendXMLNode(classId);
+    appendXMLNode(type);
+    appendXMLNode(keyword);
+    appendXMLNode(searchType);
+    appendXMLNode(folderid);
+    appendXMLNode(courseid);
+    return parameterStr.copy;
+}
+
+//11.3	新建文件夹
+#define JXHD_CREATEFOLDER (@"createFolder")
+NS_INLINE NSMutableString *JXHD_CreateFolderParameter(NSString *token, NSString *userId, NSString *userType, NSString *classId, NSString *classType, NSString *folderName, NSString *folderDesc, NSString *parentId, NSString *courseId) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(classId);
+    appendXMLNode(classType);
+    appendXMLNode(folderName);
+    appendXMLNode(folderDesc);
+    appendXMLNode(parentId);
+    appendXMLNode(courseId);
+    return parameterStr.copy;
+}
+
+#pragma mark - 12、统计
+//12.1	校长/年级组长统计
+#define JXHD_GETSTATISTICS (@"getStatistics")
+NS_INLINE NSMutableString *JXHD_GetStatisticsParameter(NSString *token, NSString *userId, NSString *pageNum, NSString *pageSize, NSString *gradeid, NSString *classid) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(pageNum);
+    appendXMLNode(pageSize);
+    appendXMLNode(gradeid);
+    appendXMLNode(classid);
+    return parameterStr.copy;
+}
+
+//12.2	教研组长统计
+#define JXHD_GETCOURSESTATISTICS (@"getCourseStatistics")
+NS_INLINE NSMutableString *JXHD_GetCourseStatisticsParameter(NSString *token, NSString *userId, NSString *pageNum, NSString *pageSize, NSString *gradeid, NSString *classid) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(pageNum);
+    appendXMLNode(pageSize);
+    appendXMLNode(gradeid);
+    appendXMLNode(classid);
+    return parameterStr.copy;
+}
+
+#pragma mark - 13、标记已读
+#define JXHD_SETREAD (@"setRead")
+NS_INLINE NSMutableString *JXHD_SetReadParameter(NSString *token, NSString *userId, NSString *moduleId, NSString *subjectid) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(moduleId);
+    appendXMLNode(subjectid);
+    return parameterStr.copy;
+}
+
+#pragma mark - 14、审核信息
+//14.1	获取审核信息列表
+#define JXHD_GETCHECKINFO (@"getCheckInfo")
+NS_INLINE NSMutableString *JXHD_GetCheckInfoParameter(NSString *token, NSString *userId, NSString *classId, NSString *moduleId, NSString *pageNum, NSString *pageSize) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(classId);
+    appendXMLNode(moduleId);
+    appendXMLNode(pageNum);
+    appendXMLNode(pageSize);
+    return parameterStr.copy;
+}
+
+//14.2	审核信息
+#define JXHD_STARCHECKINFO (@"starCheckInfo")
+NS_INLINE NSMutableString *JXHD_StarCheckInfoParameter(NSString *token, NSString *userId, NSString *moduleId, NSString *infoIds, NSString *type) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(moduleId);
+    appendXMLNode(infoIds);
+    appendXMLNode(type);
+    return parameterStr.copy;
+}
+
+//14.3	审核信息数量
+#define JXHD_GETCHECKINFONUM (@"getcheckinfonum")
+NS_INLINE NSMutableString *JXHD_GetCheckInfoNumParameter(NSString *token, NSString *userId) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    return parameterStr.copy;
+}
+
+#pragma mark - 15、分享
+//15.1	分享列表
+#define JXHD_SHARELIST (@"shareList")
+NS_INLINE NSMutableString *JXHD_ShareListParameter(NSString *token, NSString *userId, NSString *userType, NSString *classId, NSString *satticType, NSString *type, NSString *page, NSString *pageSize, NSString *groupId) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(classId);
+    appendXMLNode(satticType);
+    appendXMLNode(type);
+    appendXMLNode(page);
+    appendXMLNode(pageSize);
+    appendXMLNode(groupId);
+    return parameterStr.copy;
+}
+
+//15.3	新增分享
+#define JXHD_ADDSHARE (@"addShare")
+NS_INLINE NSMutableString *JXHD_AddShareParameter(NSString *token, NSString *userId, NSString *userType, NSString *classId, NSString *content, NSString *fileName, NSString *fileUsename, NSString *groupid) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(classId);
+    appendXMLNode(content);
+    appendXMLNode(fileName);
+    appendXMLNode(fileUsename);
+    appendXMLNode(groupid);
+    return parameterStr.copy;
+}
+
+//15.4	点赞
+#define JXHD_PLUSONE (@"plusone")
+NS_INLINE NSMutableString *JXHD_PlusOneParameter(NSString *token, NSString *userId, NSString *userType, NSString *shareId) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(shareId);
+    return parameterStr.copy;
+}
+
+////15.5 新增评论 STATE
+//#define JXHD_SETCOMMENT (@"setcomment")
+//
+//NS_INLINE NSMutableString *JXHD_SETCOMMENTParameter(NSString *token, NSString *userId, NSString *userType, NSString *dynamicid, NSString *comment, NSString *state) {
+//    NSMutableString *parameterStr = [NSMutableString string];
+//    appendXMLNode(token);
+//    appendXMLNode(userId);
+//    appendXMLNode(userType);
+//    appendXMLNode(dynamicid);
+//    appendXMLNode(comment);
+//    appendXMLNode(state);
+//    return parameterStr.copy;
+//}
+
+
+
+#pragma mark - 16、提问
+//16.1	获取提问列表   type (1:待我回答 2我发起的 3已回答的)   satticType(1：来自班级页面 2：来自统计信息)
+#define JXHD_GETASKLIST (@"getAskList")
+NS_INLINE NSMutableString *JXHD_GetAskListParameter(NSString *token, NSString *userId, NSString *userType, NSString *classId, NSString *satticType, NSString *type, NSString *page, NSString *pageSize) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(classId);
+    appendXMLNode(satticType);
+    appendXMLNode(type);
+    appendXMLNode(page);
+    appendXMLNode(pageSize);
+    return parameterStr.copy;
+}
+
+//16.2	分享详情(提问详情)
+#define JXHD_GETASKDESC (@"getAskDesc")
+NS_INLINE NSMutableString *JXHD_GetAskDescParameter(NSString *token, NSString *userId, NSString *userType, NSString *askId) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(askId);
+    return parameterStr.copy;
+}
+
+//16.3	新增提问   askType(是否公开 1公开 2不公开)
+#define JXHD_ADDASK (@"addAsk")
+NS_INLINE NSMutableString *JXHD_AddAskParameter(NSString *token, NSString *userId, NSString *userType, NSString *classId, NSString *askType, NSString *title, NSString *content, NSString *studentid, NSString *fileName, NSString *fileUsename) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(classId);
+    appendXMLNode(askType);
+    appendXMLNode(title);
+    appendXMLNode(content);
+    appendXMLNode(studentid);
+    appendXMLNode(fileName);
+    appendXMLNode(fileUsename);
+    return parameterStr.copy;
+}
+
+//16.4	获取班级
+//接口调用 提问详情的，这里重新命名为了和提问详情做出区分
+#define JXHD_GETCLASSES (@"getClasses")
+NS_INLINE NSMutableString *JXHD_GetClassesParameter(NSString *token, NSString *userId, NSString *userType) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    return parameterStr.copy;
+}
+
+//16.5	获取人员
+#define JXHD_GETUSER (@"getUser")
+NS_INLINE NSMutableString *JXHD_GetUserParameter(NSString *token, NSString *userId, NSString *userType, NSString *classid, NSString *classtype, NSString *type, NSString *searchContent) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(classid);
+    appendXMLNode(classtype);
+    appendXMLNode(type);
+    appendXMLNode(searchContent);
+    return parameterStr.copy;
+}
+
+//16.6 获取提问评论
+#define JXHD_GETASKCOMMENT (@"getAskComment")
+NS_INLINE NSMutableString *JXHD_GetAskCommentParameter(NSString *token, NSString *userId, NSString *userType, NSString *askId, NSString *page, NSString *pageSize) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(askId);
+    appendXMLNode(page);
+    appendXMLNode(pageSize);
+    return parameterStr.copy;
+}
+
+//16.7 删除评论
+#define JXHD_DELREPLY (@"delReply")
+NS_INLINE NSMutableString *JXHD_DelReplyParameter(NSString *token, NSString *userId, NSString *replyId) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(replyId);
+    return parameterStr.copy;
+}
+
+#pragma mark 17、虚拟班级
+//17.1	获取班级列表
+#define JXHD_GETVIRTUALCLASSLIST (@"getVirtualclassList")
+NS_INLINE NSMutableString *JXHD_GetVirtualClassListParameter(NSString *token, NSString *userId, NSString *userType) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    return parameterStr.copy;
+}
+
+//17.2	加入班级
+#define JXHD_JOINCLASS (@"joinClass")
+NS_INLINE NSMutableString *JXHD_JoinClassParameter(NSString *token, NSString *userId, NSString *userType, NSString *classId) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(classId);
+    return parameterStr.copy;
+}
+
+//17.3	退出班级
+#define JXHD_LEAVECLASS (@"leaveClass")
+NS_INLINE NSMutableString *JXHD_LeaveClassParameter(NSString *token, NSString *userId, NSString *userType, NSString *classId) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(classId);
+    return parameterStr.copy;
+}
+
+//17.4	获取待审核班级列表
+#define JXHD_GETCHECKLIST (@"getCheckList")
+NS_INLINE NSMutableString *JXHD_GetCheckListParameter(NSString *token, NSString *userId, NSString *page, NSString *pageSize) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(page);
+    appendXMLNode(pageSize);
+    return parameterStr.copy;
+}
+
+//17.5	审核
+#define JXHD_STARCHECK (@"starCheck")
+NS_INLINE NSMutableString *JXHD_StarCheckParameter(NSString *token, NSString *userId, NSString *classIds, NSString *type) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(classIds);
+    appendXMLNode(type);
+    return parameterStr.copy;
+}
+
+//17.6	待审核班级数量
+#define JXHD_GETNUM (@"getNum")
+NS_INLINE NSMutableString *JXHD_GetNumParameter(NSString *token, NSString *userId) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    return parameterStr.copy;
+}
+
+#pragma mark - 18、群组
+//18.1	获取群组列表
+#define JXHD_GETCROUPLIST (@"getGroupList")
+NS_INLINE NSMutableString *JXHD_GetGroupListParameter(NSString *token, NSString *userId, NSString *userType, NSString *classId) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(classId);
+    return parameterStr.copy;
+}
+
+//18.2	加入群组
+#define JXHD_JOINGROUP (@"joinGroup")
+NS_INLINE NSMutableString *JXHD_JoinGroupParameter(NSString *token, NSString *userId, NSString *userType, NSString *groupId) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(groupId);
+    return parameterStr.copy;
+}
+
+//18.3	退出群组
+#define JXHD_LEAVEGROUP (@"leaveGroup")
+NS_INLINE NSMutableString *JXHD_LeaveGroupParameter(NSString *token, NSString *userId, NSString *userType, NSString *groupId) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(groupId);
+    return parameterStr.copy;
+}
+
+//18.4	解散群组
+#define JXHD_DELGROUP (@"delGroup")
+NS_INLINE NSMutableString *JXHD_DelGroupParameter(NSString *token, NSString *userId, NSString *userType, NSString *groupId) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(groupId);
+    return parameterStr.copy;
+}
+
+//18.5  创建群组
+#define JXHD_ADDGROUP (@"addGroup")
+NS_INLINE NSMutableString *JXHD_AddGroupParameter(NSString *token, NSString *userId, NSString *userType, NSString *groupname, NSString *description, NSString *studensid) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(userType);
+    appendXMLNode(groupname);
+    appendXMLNode(description);
+    appendXMLNode(studensid);
+    return parameterStr.copy;
+}
+
+#pragma mark - 19 登录
+//19.1  登录
+#define JXHD_LOGIN (@"login")
+NS_INLINE NSMutableString *JXHD_LoginParameter(NSString *token, NSString *userId, NSString *passWord) {
+    NSMutableString *parameterStr = [NSMutableString string];
+    appendXMLNode(token);
+    appendXMLNode(userId);
+    appendXMLNode(passWord);
+    return parameterStr.copy;
+}
+
+#endif /* InterfaceMacro_h */
+
+
+#pragma mark - 家校互动code表
+/*  家校互动code表
+ 000	成功
+ 001	未登录
+ 002	失败
+ 003	请选择班级
+ 004	请选择课程
+ 005	请填写内容
+ 006	请填写标题
+ 007	请选择接收人
+ 008	已赞
+ 009	文件名(原名)为空
+ 010	使用名(重命名)为空
+ 011	上传类型为空
+ 012	附件类型为空
+ 013	用户信息为空
+ 014	请选择类型
+ 015	至少填写两个选项
+ 016	请填写名称
+ 017	请填写作者
+ 018	请填写出版社
+ 019	请填写推荐理由
+ 020	请上传封面
+ 021    文件夹名字重复
+ */
+
+#pragma mark - 门户的code表
+/*
+ 门户的code表
+ Code错误码    错误码说明
+ 000    成功
+ 001    未登录
+ 002    密码错误
+ 003    用户不存在
+ 004    操作超时
+ 005    操作失败
+ 006    系统错误
+ 007    令牌无效
+ 008    分类名称为空
+ 009    分类不能删除
+ 010    该用户下已经存在同名分类
+ 011    无法获得参数/参数为空
+ 012    参数不合法/非有效参数
+ 013    没有数据
+ 014    没有下一页
+ 500    服务器出错
+ */

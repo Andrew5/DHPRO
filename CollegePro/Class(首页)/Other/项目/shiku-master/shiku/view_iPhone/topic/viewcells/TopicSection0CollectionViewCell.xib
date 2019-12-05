@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="TopicSection0CollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="352" height="178"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="352" height="178"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="product2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="fOw-Zw-Th0">
+                        <rect key="frame" x="0.0" y="0.0" width="352" height="141"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="141" id="eZJ-IR-owI"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="阿里房间阿里空间打开房间爱空间的付款就看得见风科技开发静静地看积分卡打发打发空间发卡机看来" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mcq-EO-BBs">
+                        <rect key="frame" x="5" y="141" width="342" height="37"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="mcq-EO-BBs" secondAttribute="bottom" id="CbD-zW-h6N"/>
+                <constraint firstItem="mcq-EO-BBs" firstAttribute="top" secondItem="fOw-Zw-Th0" secondAttribute="bottom" id="HuW-zp-Aj3"/>
+                <constraint firstItem="mcq-EO-BBs" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="PdL-al-16V"/>
+                <constraint firstItem="fOw-Zw-Th0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="eCC-f5-EVM"/>
+                <constraint firstAttribute="trailing" secondItem="fOw-Zw-Th0" secondAttribute="trailing" id="iuj-yB-Qze"/>
+                <constraint firstAttribute="trailing" secondItem="mcq-EO-BBs" secondAttribute="trailing" constant="5" id="wkN-vf-wPf"/>
+                <constraint firstItem="fOw-Zw-Th0" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="y7R-a4-Rbs"/>
+            </constraints>
+            <size key="customSize" width="352" height="178"/>
+            <connections>
+                <outlet property="coverImageView" destination="fOw-Zw-Th0" id="OpT-NB-M4V"/>
+                <outlet property="coverImageViewHeight" destination="eZJ-IR-owI" id="eyq-Lp-QmI"/>
+                <outlet property="titleLabel1" destination="mcq-EO-BBs" id="ZaZ-X4-OXo"/>
+            </connections>
+            <point key="canvasLocation" x="213" y="271"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="product2.jpg" width="461" height="227"/>
+    </resources>
+</document>

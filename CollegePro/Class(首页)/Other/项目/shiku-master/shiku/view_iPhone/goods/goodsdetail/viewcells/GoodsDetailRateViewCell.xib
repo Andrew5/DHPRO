@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Rj4-NG-M2T" customClass="GoodsDetailRateViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="295" height="46"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="295" height="46"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="io0-2b-AYt">
+                        <rect key="frame" x="9" y="14.5" width="28" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w2i-UX-p8V">
+                        <rect key="frame" x="47" y="17" width="1" height="12"/>
+                        <color key="backgroundColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="12" id="5zj-Pr-YZf"/>
+                            <constraint firstAttribute="width" constant="1" id="kY0-Ow-v2Z"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="io0-2b-AYt" firstAttribute="leading" secondItem="Rj4-NG-M2T" secondAttribute="leading" constant="9" id="EN0-fh-H9p"/>
+                <constraint firstItem="w2i-UX-p8V" firstAttribute="leading" secondItem="io0-2b-AYt" secondAttribute="trailing" constant="10" id="Trq-Z9-eKW"/>
+                <constraint firstAttribute="centerY" secondItem="w2i-UX-p8V" secondAttribute="centerY" id="rMM-P6-4hx"/>
+                <constraint firstAttribute="centerY" secondItem="io0-2b-AYt" secondAttribute="centerY" id="tgS-cu-XXc"/>
+            </constraints>
+            <size key="customSize" width="295" height="46"/>
+            <connections>
+                <outlet property="hSplitView" destination="w2i-UX-p8V" id="to9-lR-zYf"/>
+                <outlet property="title" destination="io0-2b-AYt" id="HWe-QD-mEA"/>
+            </connections>
+            <point key="canvasLocation" x="563.5" y="264"/>
+        </collectionViewCell>
+    </objects>
+</document>

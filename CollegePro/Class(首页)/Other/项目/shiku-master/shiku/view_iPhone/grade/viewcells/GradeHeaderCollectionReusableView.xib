@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR" customClass="GradeHeaderCollectionReusableView">
+            <rect key="frame" x="0.0" y="0.0" width="334" height="129"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4JM-ME-nvm">
+                    <rect key="frame" x="20" y="55" width="40" height="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AfY-Bw-9ex">
+                    <rect key="frame" x="0.0" y="128" width="334" height="1"/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="y5S-xY-zSR"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="AfY-Bw-9ex" secondAttribute="trailing" id="LZd-zt-Smd"/>
+                <constraint firstItem="4JM-ME-nvm" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="20" id="MlU-8m-9KZ"/>
+                <constraint firstItem="AfY-Bw-9ex" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="Zgi-kh-iuL"/>
+                <constraint firstAttribute="bottom" secondItem="AfY-Bw-9ex" secondAttribute="bottom" id="mmS-Ev-tgY"/>
+                <constraint firstAttribute="centerY" secondItem="4JM-ME-nvm" secondAttribute="centerY" id="vLL-Xh-mGe"/>
+            </constraints>
+            <connections>
+                <outlet property="titleLabel1" destination="4JM-ME-nvm" id="8yX-R2-qwZ"/>
+            </connections>
+            <point key="canvasLocation" x="147" y="403.5"/>
+        </collectionReusableView>
+    </objects>
+</document>

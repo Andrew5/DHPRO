@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CartTableViewCellHeader">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon1_06.png" translatesAutoresizingMaskIntoConstraints="NO" id="hLP-RC-Lgs">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="U69-wB-skA"/>
+                        <constraint firstAttribute="width" constant="20" id="loq-7m-3mc"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="U69-wB-skA"/>
+                            <exclude reference="loq-7m-3mc"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="U69-wB-skA"/>
+                            <include reference="loq-7m-3mc"/>
+                        </mask>
+                    </variation>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="菜园子" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aob-JU-d9f">
+                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerY" secondItem="hLP-RC-Lgs" secondAttribute="centerY" id="BBb-0j-TZi"/>
+                <constraint firstItem="aob-JU-d9f" firstAttribute="leading" secondItem="hLP-RC-Lgs" secondAttribute="trailing" constant="10" id="S3D-2X-gEg"/>
+                <constraint firstItem="hLP-RC-Lgs" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="45" id="hAW-Nt-26r"/>
+                <constraint firstAttribute="centerY" secondItem="aob-JU-d9f" secondAttribute="centerY" id="kjt-De-Z14"/>
+                <constraint firstAttribute="centerY" secondItem="hLP-RC-Lgs" secondAttribute="centerY" id="kvc-M3-NBM">
+                    <variation key="widthClass=compact" constant="267"/>
+                </constraint>
+                <constraint firstItem="hLP-RC-Lgs" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="45" id="mNC-EG-Y1m">
+                    <variation key="widthClass=compact" constant="15"/>
+                </constraint>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="hLP-RC-Lgs"/>
+                    <exclude reference="aob-JU-d9f"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="S3D-2X-gEg"/>
+                    <exclude reference="kjt-De-Z14"/>
+                    <exclude reference="BBb-0j-TZi"/>
+                    <exclude reference="hAW-Nt-26r"/>
+                    <exclude reference="kvc-M3-NBM"/>
+                    <exclude reference="mNC-EG-Y1m"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="hLP-RC-Lgs"/>
+                    <include reference="aob-JU-d9f"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="S3D-2X-gEg"/>
+                    <include reference="kjt-De-Z14"/>
+                    <include reference="BBb-0j-TZi"/>
+                    <include reference="hAW-Nt-26r"/>
+                    <exclude reference="kvc-M3-NBM"/>
+                    <exclude reference="mNC-EG-Y1m"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="nameLabel" destination="aob-JU-d9f" id="U88-5y-LaW"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon1_06.png" width="42" height="42"/>
+    </resources>
+</document>

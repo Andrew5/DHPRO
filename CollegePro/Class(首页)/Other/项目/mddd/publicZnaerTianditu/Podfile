@@ -1,0 +1,13 @@
+
+platform :ios, '8.0'
+
+target "publicZnaerTianditu" do
+    
+pod 'AFNetworking', '~> 2.0'
+pod 'Reachability', '~> 3.1.1'
+pod 'SVProgressHUD', '~> 1.0'
+pod 'FMDB', '~> 2.3'
+pod 'APAddressBook', '~> 0.1.5'
+pod 'UMengAnalytics-NO-IDFA'
+
+end

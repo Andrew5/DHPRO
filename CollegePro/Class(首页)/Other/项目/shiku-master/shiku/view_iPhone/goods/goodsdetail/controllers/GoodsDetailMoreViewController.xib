@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GoodsDetailMoreViewController">
+            <connections>
+                <outlet property="collectionView1" destination="a7v-6C-Me8" id="sm9-4p-NIb"/>
+                <outlet property="collectionView2" destination="FOs-WU-ZdM" id="XNF-RP-tlt"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="a7v-6C-Me8">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="2Jd-n3-fig">
+                            <variation key="widthClass=compact" constant="75"/>
+                        </constraint>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KMO-V5-v0J">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="2Jd-n3-fig"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="2Jd-n3-fig"/>
+                        </mask>
+                    </variation>
+                </collectionView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="FOs-WU-ZdM">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tnb-2b-hgz">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="FOs-WU-ZdM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="4SW-iq-bFL"/>
+                <constraint firstAttribute="trailing" secondItem="a7v-6C-Me8" secondAttribute="trailing" id="8ac-oO-ko4"/>
+                <constraint firstAttribute="trailing" secondItem="FOs-WU-ZdM" secondAttribute="trailing" id="GtA-6f-Zj8"/>
+                <constraint firstItem="FOs-WU-ZdM" firstAttribute="top" secondItem="a7v-6C-Me8" secondAttribute="bottom" constant="10" id="ZoK-Sh-8fJ">
+                    <variation key="widthClass=compact" constant="5"/>
+                </constraint>
+                <constraint firstAttribute="bottom" secondItem="FOs-WU-ZdM" secondAttribute="bottom" id="bbR-xX-90x">
+                    <variation key="widthClass=compact" constant="0.0"/>
+                </constraint>
+                <constraint firstItem="a7v-6C-Me8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mqd-Dr-V5z"/>
+                <constraint firstItem="a7v-6C-Me8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="zy1-qO-NQR"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="a7v-6C-Me8"/>
+                    <exclude reference="FOs-WU-ZdM"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="4SW-iq-bFL"/>
+                    <exclude reference="GtA-6f-Zj8"/>
+                    <exclude reference="ZoK-Sh-8fJ"/>
+                    <exclude reference="bbR-xX-90x"/>
+                    <exclude reference="8ac-oO-ko4"/>
+                    <exclude reference="mqd-Dr-V5z"/>
+                    <exclude reference="zy1-qO-NQR"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="a7v-6C-Me8"/>
+                    <include reference="FOs-WU-ZdM"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="4SW-iq-bFL"/>
+                    <include reference="GtA-6f-Zj8"/>
+                    <include reference="ZoK-Sh-8fJ"/>
+                    <include reference="bbR-xX-90x"/>
+                    <include reference="8ac-oO-ko4"/>
+                    <include reference="mqd-Dr-V5z"/>
+                    <include reference="zy1-qO-NQR"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="84" y="183"/>
+        </view>
+    </objects>
+</document>

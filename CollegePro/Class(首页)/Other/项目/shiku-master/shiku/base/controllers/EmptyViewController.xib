@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EmptyViewController">
+            <connections>
+                <outlet property="actionButton" destination="qBA-ik-FWu" id="3xq-jm-8nT"/>
+                <outlet property="iconLable" destination="rfK-GC-oBc" id="lmV-ub-btn"/>
+                <outlet property="subTitleLabel" destination="HqJ-NK-OVr" id="2lH-lr-OXW"/>
+                <outlet property="titleLabel" destination="gF4-i7-tvz" id="aNt-Nt-2np"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="购物车快饿瘪了T.T" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gF4-i7-tvz">
+                    <rect key="frame" x="229" y="290" width="142" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="主人快给我挑点宝贝吧" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HqJ-NK-OVr">
+                    <rect key="frame" x="230" y="331" width="140" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qBA-ik-FWu">
+                    <rect key="frame" x="278" y="368" width="45" height="30"/>
+                    <state key="normal" title="去逛逛">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="tapGoHome:" destination="-1" eventType="touchUpInside" id="nxa-NV-1X1"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rfK-GC-oBc">
+                    <rect key="frame" x="250" y="170" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="WxH-J9-6IR"/>
+                        <constraint firstAttribute="height" constant="100" id="sjc-eR-4MH"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerY" secondItem="gF4-i7-tvz" secondAttribute="centerY" id="3co-WU-NDJ"/>
+                <constraint firstAttribute="centerX" secondItem="gF4-i7-tvz" secondAttribute="centerX" id="5bZ-aR-IRB"/>
+                <constraint firstAttribute="centerX" secondItem="qBA-ik-FWu" secondAttribute="centerX" id="O3y-wn-bx3"/>
+                <constraint firstItem="gF4-i7-tvz" firstAttribute="top" secondItem="rfK-GC-oBc" secondAttribute="bottom" constant="20" id="QnI-et-0BM"/>
+                <constraint firstAttribute="centerX" secondItem="HqJ-NK-OVr" secondAttribute="centerX" id="VHZ-RF-UnW"/>
+                <constraint firstItem="qBA-ik-FWu" firstAttribute="top" secondItem="HqJ-NK-OVr" secondAttribute="bottom" constant="20" id="eqp-hU-jIw"/>
+                <constraint firstItem="HqJ-NK-OVr" firstAttribute="top" secondItem="gF4-i7-tvz" secondAttribute="bottom" constant="20" id="nOw-2f-qRh"/>
+                <constraint firstAttribute="centerX" secondItem="rfK-GC-oBc" secondAttribute="centerX" id="vnj-bx-EfT"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+</document>

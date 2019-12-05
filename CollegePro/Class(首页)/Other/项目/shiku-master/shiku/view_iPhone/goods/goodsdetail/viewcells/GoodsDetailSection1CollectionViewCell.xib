@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="GoodsDetailSection1CollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="574" height="123"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="574" height="123"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="￥3999.98" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ipi-QW-E9u">
+                        <rect key="frame" x="6" y="54" width="119.5" height="31.5"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="规格:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eaq-xL-MtF">
+                        <rect key="frame" x="10" y="87" width="32.5" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="LfA-S1-W9g"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥88" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Wj-zA-J7b" customClass="UICustomLineLabel">
+                        <rect key="frame" x="139" y="66" width="21" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8.8折" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkS-jh-2la">
+                        <rect key="frame" x="170" y="67" width="25" height="12"/>
+                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vge-43-7VP">
+                        <rect key="frame" x="0.0" y="89" width="612" height="1"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="MDz-2z-xWj"/>
+                            <constraint firstAttribute="width" constant="287" id="jUc-oK-xvN"/>
+                            <constraint firstAttribute="width" constant="612" id="sA8-EM-JUL"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="jUc-oK-xvN"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大家都看房间爱空间看到房间卡接口积分卡接口的解放空间按快捷键的空间啊" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ty4-vM-biJ">
+                        <rect key="frame" x="10" y="6" width="564" height="43"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="Ty4-vM-biJ" firstAttribute="leading" secondItem="Eaq-xL-MtF" secondAttribute="leading" id="1bC-ZH-ebB"/>
+                <constraint firstItem="3Wj-zA-J7b" firstAttribute="leading" secondItem="Ipi-QW-E9u" secondAttribute="trailing" constant="14" id="5qT-4D-dgX"/>
+                <constraint firstItem="Vge-43-7VP" firstAttribute="top" secondItem="Ipi-QW-E9u" secondAttribute="bottom" constant="4" id="69m-2o-fiE"/>
+                <constraint firstItem="Eaq-xL-MtF" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="87" id="Igr-Bb-8VL"/>
+                <constraint firstItem="Ipi-QW-E9u" firstAttribute="bottom" secondItem="3Wj-zA-J7b" secondAttribute="bottom" constant="5" id="JxQ-EV-pBT"/>
+                <constraint firstItem="Ty4-vM-biJ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="Kc5-dT-zjJ"/>
+                <constraint firstItem="bkS-jh-2la" firstAttribute="leading" secondItem="3Wj-zA-J7b" secondAttribute="trailing" constant="10" id="Ke3-c6-mfX"/>
+                <constraint firstItem="Eaq-xL-MtF" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="NcW-jV-dDm"/>
+                <constraint firstItem="Ipi-QW-E9u" firstAttribute="bottom" secondItem="bkS-jh-2la" secondAttribute="bottom" constant="6" id="OOZ-QN-ZjV"/>
+                <constraint firstItem="Vge-43-7VP" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="68" id="QWa-th-u3H"/>
+                <constraint firstItem="Vge-43-7VP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="WZU-Fj-JnQ"/>
+                <constraint firstItem="Eaq-xL-MtF" firstAttribute="top" secondItem="Ipi-QW-E9u" secondAttribute="bottom" constant="5" id="dwy-xa-lt1"/>
+                <constraint firstItem="Eaq-xL-MtF" firstAttribute="top" secondItem="Ipi-QW-E9u" secondAttribute="bottom" constant="11" id="eWX-Qs-MNc"/>
+                <constraint firstItem="Ipi-QW-E9u" firstAttribute="top" secondItem="Ty4-vM-biJ" secondAttribute="bottom" constant="5" id="fli-nM-4i5"/>
+                <constraint firstAttribute="trailing" secondItem="Ty4-vM-biJ" secondAttribute="trailing" id="mbY-Pw-6Im"/>
+                <constraint firstItem="Ty4-vM-biJ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="6" id="rlN-v1-eFL"/>
+                <constraint firstAttribute="bottom" secondItem="Eaq-xL-MtF" secondAttribute="bottom" constant="10" id="sDZ-vB-JsV"/>
+                <constraint firstItem="Eaq-xL-MtF" firstAttribute="top" secondItem="Vge-43-7VP" secondAttribute="bottom" constant="19" id="sKQ-C3-fyQ"/>
+                <constraint firstItem="Ty4-vM-biJ" firstAttribute="leading" secondItem="Ipi-QW-E9u" secondAttribute="leading" constant="4" id="utb-ri-I9G"/>
+            </constraints>
+            <size key="customSize" width="574" height="123"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="dwy-xa-lt1"/>
+                    <exclude reference="eWX-Qs-MNc"/>
+                    <exclude reference="sDZ-vB-JsV"/>
+                    <exclude reference="sKQ-C3-fyQ"/>
+                    <exclude reference="QWa-th-u3H"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="discountLabel" destination="bkS-jh-2la" id="Lb2-C5-kdo"/>
+                <outlet property="marketPriceLabel" destination="3Wj-zA-J7b" id="zuL-cr-ke1"/>
+                <outlet property="nameLabel" destination="Ty4-vM-biJ" id="WA9-1v-35e"/>
+                <outlet property="priceLabel" destination="Ipi-QW-E9u" id="IC9-aP-r3G"/>
+                <outlet property="splitView" destination="Vge-43-7VP" id="2Fw-E3-bJy"/>
+            </connections>
+            <point key="canvasLocation" x="291" y="205.5"/>
+        </collectionViewCell>
+    </objects>
+</document>

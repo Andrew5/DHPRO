@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8121.20" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.16"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserEditViewController">
+            <connections>
+                <outlet property="btnLoginOut" destination="ZoV-Yc-Kgu" id="IeX-zn-gKo"/>
+                <outlet property="tableView" destination="vQ4-IN-Ste" id="4aR-Oz-vsT"/>
+                <outlet property="tableViewHeight" destination="Kzx-8w-ufC" id="t49-sC-Ula"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZoV-Yc-Kgu">
+                    <rect key="frame" x="10" y="617" width="355" height="40"/>
+                    <color key="backgroundColor" red="1" green="0.0" blue="0.074020686490546161" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="2eO-WX-CYv"/>
+                        <constraint firstAttribute="height" constant="40" id="BS2-NF-mX6"/>
+                    </constraints>
+                    <state key="normal" title="退出登录">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="2eO-WX-CYv"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="2eO-WX-CYv"/>
+                            <exclude reference="BS2-NF-mX6"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="btnLoginOutTapped:" destination="-1" eventType="touchUpInside" id="Q8I-Jk-mZC"/>
+                    </connections>
+                </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="vQ4-IN-Ste">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
+                    <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="400" id="Kzx-8w-ufC"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="Kzx-8w-ufC"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <exclude reference="Kzx-8w-ufC"/>
+                        </mask>
+                    </variation>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="vQ4-IN-Ste" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="1Fq-Ub-4v4"/>
+                <constraint firstAttribute="bottom" secondItem="ZoV-Yc-Kgu" secondAttribute="bottom" constant="10" id="58A-Pf-05X"/>
+                <constraint firstAttribute="bottom" secondItem="ZoV-Yc-Kgu" secondAttribute="bottom" constant="10" id="853-hC-GNf"/>
+                <constraint firstItem="ZoV-Yc-Kgu" firstAttribute="top" secondItem="vQ4-IN-Ste" secondAttribute="bottom" id="A0N-jw-vi8"/>
+                <constraint firstAttribute="trailing" secondItem="vQ4-IN-Ste" secondAttribute="trailing" id="NbC-Vx-tFr"/>
+                <constraint firstAttribute="bottom" secondItem="vQ4-IN-Ste" secondAttribute="bottom" id="PuW-R9-BJe"/>
+                <constraint firstItem="ZoV-Yc-Kgu" firstAttribute="top" secondItem="vQ4-IN-Ste" secondAttribute="bottom" id="RRK-ud-ECF"/>
+                <constraint firstAttribute="trailing" secondItem="vQ4-IN-Ste" secondAttribute="trailing" id="SWc-qG-WK0"/>
+                <constraint firstItem="vQ4-IN-Ste" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="XPO-Sh-bWz"/>
+                <constraint firstItem="vQ4-IN-Ste" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="eSy-Hi-RPM"/>
+                <constraint firstItem="ZoV-Yc-Kgu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="mga-IO-eDa"/>
+                <constraint firstItem="vQ4-IN-Ste" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="tAr-oN-Tsi"/>
+                <constraint firstAttribute="trailing" secondItem="ZoV-Yc-Kgu" secondAttribute="trailing" constant="10" id="w8S-Yg-H0w"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="1Fq-Ub-4v4"/>
+                    <exclude reference="NbC-Vx-tFr"/>
+                    <exclude reference="PuW-R9-BJe"/>
+                    <exclude reference="tAr-oN-Tsi"/>
+                    <exclude reference="58A-Pf-05X"/>
+                    <exclude reference="RRK-ud-ECF"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="constraints">
+                    <exclude reference="1Fq-Ub-4v4"/>
+                    <include reference="NbC-Vx-tFr"/>
+                    <exclude reference="PuW-R9-BJe"/>
+                    <include reference="tAr-oN-Tsi"/>
+                    <include reference="58A-Pf-05X"/>
+                    <exclude reference="853-hC-GNf"/>
+                    <exclude reference="A0N-jw-vi8"/>
+                    <include reference="RRK-ud-ECF"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>

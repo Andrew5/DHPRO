@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="loginInterface">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ContactOne" translatesAutoresizingMaskIntoConstraints="NO" id="0dU-Sj-rKi">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                </imageView>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Account number" textAlignment="center" minimumFontSize="17" background="Input" translatesAutoresizingMaskIntoConstraints="NO" id="taj-SB-7qe">
+                    <rect key="frame" x="54" y="198" width="213" height="44"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                            <color key="value" red="0.99708549222797926" green="0.99708549222797926" blue="0.99708549222797926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" background="Input" translatesAutoresizingMaskIntoConstraints="NO" id="HU8-jd-AQH" userLabel="passwordTF">
+                    <rect key="frame" x="54" y="262" width="213" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="DV2-bb-3Jr"/>
+                        <constraint firstAttribute="width" constant="213" id="aqw-dV-tPz"/>
+                    </constraints>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                            <color key="value" red="0.99728788860103623" green="0.99728788860103623" blue="0.99728788860103623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mNm-tk-Oco">
+                    <rect key="frame" x="54" y="336" width="213" height="44"/>
+                    <state key="normal" image="Login"/>
+                    <connections>
+                        <action selector="BtnClickedAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="cMG-Nz-cWh"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kLo-dx-wY3" userLabel="line">
+                    <rect key="frame" x="160" y="395" width="1" height="20"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="K5e-7g-DFR"/>
+                        <constraint firstAttribute="width" constant="1" id="UXN-pM-RWj"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Kr-Pu-3OM">
+                    <rect key="frame" x="83" y="395" width="57" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="57" id="8lJ-Tr-OeP"/>
+                        <constraint firstAttribute="height" constant="20" id="vR3-Kb-3qg"/>
+                    </constraints>
+                    <state key="normal" title="Register">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="BtnClickedAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="vuJ-km-bE4"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6cO-R0-goQ">
+                    <rect key="frame" x="181" y="395" width="46" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="aeD-B1-nzH"/>
+                        <constraint firstAttribute="width" constant="46" id="d1S-jy-Dii"/>
+                    </constraints>
+                    <state key="normal" title="Forget">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="BtnClickedAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="cuP-Ub-Doj"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GJJ-He-3zJ" userLabel="Facebook">
+                    <rect key="frame" x="119" y="445" width="32" height="27"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="27" id="Kw5-fF-Ui7"/>
+                        <constraint firstAttribute="width" constant="32" id="OQP-tZ-mLR"/>
+                    </constraints>
+                    <state key="normal" image="Facebook"/>
+                    <connections>
+                        <action selector="BtnClickedAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Mvy-xp-bUc"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E7Z-9X-TyQ" userLabel="Google">
+                    <rect key="frame" x="169" y="445" width="32" height="27"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="27" id="3V6-OC-FsR"/>
+                        <constraint firstAttribute="width" constant="32" id="W4D-TC-NLX"/>
+                    </constraints>
+                    <state key="normal" image="Google"/>
+                    <connections>
+                        <action selector="BtnClickedAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="o33-hO-hPu"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4K4-jy-rPi">
+                    <rect key="frame" x="115" y="518" width="90" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="90" id="44i-mo-QzF"/>
+                        <constraint firstAttribute="height" constant="30" id="LDi-hK-ru4"/>
+                    </constraints>
+                    <state key="normal" title="Skip for now">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="BtnClickedAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="CQM-bb-7AZ"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="0dU-Sj-rKi" secondAttribute="bottom" id="1fq-B1-RRJ"/>
+                <constraint firstItem="6cO-R0-goQ" firstAttribute="leading" secondItem="kLo-dx-wY3" secondAttribute="trailing" constant="20" id="2SY-z5-Xm5"/>
+                <constraint firstItem="GJJ-He-3zJ" firstAttribute="centerX" secondItem="0dU-Sj-rKi" secondAttribute="centerX" constant="-25" id="3hH-Lx-ifm"/>
+                <constraint firstItem="3Kr-Pu-3OM" firstAttribute="centerY" secondItem="kLo-dx-wY3" secondAttribute="centerY" id="3mN-NR-uNu"/>
+                <constraint firstItem="6cO-R0-goQ" firstAttribute="centerY" secondItem="kLo-dx-wY3" secondAttribute="centerY" id="8VL-Ti-4Df"/>
+                <constraint firstItem="E7Z-9X-TyQ" firstAttribute="centerY" secondItem="GJJ-He-3zJ" secondAttribute="centerY" id="CX9-cq-FtM"/>
+                <constraint firstItem="HU8-jd-AQH" firstAttribute="top" secondItem="taj-SB-7qe" secondAttribute="bottom" constant="20" id="DsK-06-osk"/>
+                <constraint firstAttribute="bottom" secondItem="4K4-jy-rPi" secondAttribute="bottom" constant="20" id="FaU-3K-TLa"/>
+                <constraint firstItem="mNm-tk-Oco" firstAttribute="width" secondItem="HU8-jd-AQH" secondAttribute="width" id="HNU-AF-Ncg"/>
+                <constraint firstItem="mNm-tk-Oco" firstAttribute="centerX" secondItem="HU8-jd-AQH" secondAttribute="centerX" id="HjB-0K-v1i"/>
+                <constraint firstItem="HU8-jd-AQH" firstAttribute="centerY" secondItem="0dU-Sj-rKi" secondAttribute="centerY" id="Ksi-wk-C0x"/>
+                <constraint firstItem="kLo-dx-wY3" firstAttribute="top" secondItem="mNm-tk-Oco" secondAttribute="bottom" constant="15" id="LBv-cK-Ocd"/>
+                <constraint firstItem="mNm-tk-Oco" firstAttribute="height" secondItem="HU8-jd-AQH" secondAttribute="height" id="QAQ-vR-bjq"/>
+                <constraint firstItem="taj-SB-7qe" firstAttribute="width" secondItem="HU8-jd-AQH" secondAttribute="width" id="Rda-Lx-Twa"/>
+                <constraint firstItem="GJJ-He-3zJ" firstAttribute="top" secondItem="3Kr-Pu-3OM" secondAttribute="bottom" constant="30" id="S2J-U8-ghQ"/>
+                <constraint firstItem="taj-SB-7qe" firstAttribute="centerX" secondItem="HU8-jd-AQH" secondAttribute="centerX" id="Vm8-gz-HCO"/>
+                <constraint firstItem="4K4-jy-rPi" firstAttribute="centerX" secondItem="0dU-Sj-rKi" secondAttribute="centerX" id="b7n-i0-90z"/>
+                <constraint firstItem="0dU-Sj-rKi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="bfE-vv-MjG"/>
+                <constraint firstItem="0dU-Sj-rKi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="c0s-cD-bx9"/>
+                <constraint firstItem="taj-SB-7qe" firstAttribute="height" secondItem="HU8-jd-AQH" secondAttribute="height" id="emK-Dk-FMp"/>
+                <constraint firstAttribute="trailing" secondItem="0dU-Sj-rKi" secondAttribute="trailing" id="f94-sS-BdX"/>
+                <constraint firstItem="kLo-dx-wY3" firstAttribute="leading" secondItem="3Kr-Pu-3OM" secondAttribute="trailing" constant="20" id="fCF-L5-MMV"/>
+                <constraint firstItem="E7Z-9X-TyQ" firstAttribute="centerX" secondItem="0dU-Sj-rKi" secondAttribute="centerX" constant="25" id="ijE-IG-Yhk"/>
+                <constraint firstItem="kLo-dx-wY3" firstAttribute="centerX" secondItem="mNm-tk-Oco" secondAttribute="centerX" id="l0O-zt-bJj"/>
+                <constraint firstItem="HU8-jd-AQH" firstAttribute="centerX" secondItem="0dU-Sj-rKi" secondAttribute="centerX" id="rKa-Ip-aYm"/>
+                <constraint firstItem="mNm-tk-Oco" firstAttribute="top" secondItem="HU8-jd-AQH" secondAttribute="bottom" constant="30" id="shg-JE-cWO"/>
+            </constraints>
+            <connections>
+                <outlet property="accountTF" destination="taj-SB-7qe" id="wsE-R2-r4I"/>
+                <outlet property="facebook" destination="GJJ-He-3zJ" id="WoS-MF-BE5"/>
+                <outlet property="forgetBtn" destination="6cO-R0-goQ" id="XJv-QB-f9Z"/>
+                <outlet property="google" destination="E7Z-9X-TyQ" id="Ce9-DS-H3R"/>
+                <outlet property="loginBtn" destination="mNm-tk-Oco" id="yhk-rc-c2t"/>
+                <outlet property="passwordTF" destination="HU8-jd-AQH" id="EQf-1x-kaA"/>
+                <outlet property="registerBtn" destination="3Kr-Pu-3OM" id="wPz-SD-It1"/>
+                <outlet property="skip" destination="4K4-jy-rPi" id="DHp-Tu-Qr5"/>
+            </connections>
+            <point key="canvasLocation" x="24.5" y="52.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ContactOne" width="375" height="667"/>
+        <image name="Facebook" width="32" height="27"/>
+        <image name="Google" width="32" height="27"/>
+        <image name="Input" width="213" height="44"/>
+        <image name="Login" width="213" height="44"/>
+    </resources>
+</document>

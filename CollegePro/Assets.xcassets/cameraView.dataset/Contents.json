@@ -1,0 +1,20 @@
+{
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  },
+  "data" : [
+    {
+      "idiom" : "universal",
+      "filename" : "cameraView.png"
+    }
+  ],
+  "images":[
+      {
+          "idiom" : "universal",
+          "filename" : "cameraView.png",
+          "scale" : "2x"
+      }
+  ]
+  
+}

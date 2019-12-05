@@ -1,0 +1,64 @@
+//
+//  SpaceMacro.h
+//  Ssdfz
+//
+//  Created by 王楠 on 16/1/20.
+//  Copyright © 2016年 Combanc. All rights reserved.
+//  间隔和固定大小的宏
+
+#ifndef SpaceMacro_h
+#define SpaceMacro_h
+
+#define LIST_LEFT 20
+
+#define LIST_TOP 20
+
+#define LIST_BOTTOM 20
+
+#define LIST_RIGHT 20
+
+//导航条两个按钮时按钮宽
+#define NAVGATIONBAR_TWO_BTN_WIDTH 25
+//导航条一个按钮时按钮宽
+#define NAVGATIONBAR_BTN_WIDTH 36
+
+//前锋section间距
+#define QF_SECTION_SPACE 10
+
+//前锋状态label的宽
+#define STATE_WIDTH 60
+//状态label高
+#define STATE_HEIGHT 26
+
+//悬浮按钮宽   pageViewcontroller的menuHeight
+#define ADD_BTN_WIDTH 50
+
+//底部button高度
+#define BOTTOM_BTN_HEIGHT 40
+
+//pageViewcontroller的menuHeight
+#define PAGEVC_MENU_HEIGHT 50
+
+//搜索框高度
+#define SEARCH_BAR_HEIGHT 50
+
+//新增和搜索 时间小图标的宽和高
+#define TIME_ICON_WIDTH 25
+#define TIME_ICON_HEIGHT 25
+#define TIME_ICON_RIGHT 40
+
+
+
+#pragma mark - 虚拟教室
+//侧滑抽屉的相差的宽
+#define K_RIGHT_WIDTH_WHEN_DRAWER_OPENED 70
+//虚拟教室首页virtualclassHeaderView的高
+#define VIRTUALCLASS_HEADERVIEW_HEIGHT 260
+//虚拟教室选择班级collectionView的高度
+#define VIRTUALCLASS_CLASSCHOSEN_COLLECTIONVIEW_HEIGHT 170
+
+///Section的间距
+#define SECTION_SPACE 20
+
+
+#endif /* SpaceMacro_h */

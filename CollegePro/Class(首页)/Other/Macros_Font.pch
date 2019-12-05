@@ -1,0 +1,29 @@
+//
+//  TestHeader.pch
+//  Test
+//
+//  Created by Rillakkuma on 16/7/21.
+//  Copyright © 2016年 Rillakkuma. All rights reserved.
+//
+
+#ifdef __OBJC__
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+
+#import "Macros_UIAdapter.h"
+#import "Macros_Font.h"
+#import "Macros_Color.h"
+#import <Masonry.h>
+#import "SDAutoLayout.h"
+#import "Macros_Font.h"
+#import "UIView+AdjustFrame.h"
+#import "AFNetworking.h"
+#import "SVProgressHUD.h"
+#import "UIView+SDAutoLayout.h"
+#import "UITableView+SDAutoTableViewCellHeight.h"
+#import <BaiduMapAPI_Map/BMKMapView.h>//只引入所需的单个头文件
+#import <BaiduMapAPI_Location/BMKLocationComponent.h>//引入定位功能所有的头文件
+#import <SDWebImage/SDImageCache.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+#endif

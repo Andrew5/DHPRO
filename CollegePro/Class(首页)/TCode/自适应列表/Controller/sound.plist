@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>1000</key>
+	<string>1000 new-mail.caf 	MailReceived </string>
+	<key>1001</key>
+	<string>1001 mail-sent.caf 	MailSent </string>
+	<key>1002</key>
+	<string>1002 Voicemail.caf 	VoicemailReceived </string>
+	<key>1003</key>
+	<string>1003 ReceivedMessage.caf 	SMSReceived</string>
+	<key>1004</key>
+	<string>1004 SentMessage.caf 	SMSSent </string>
+	<key>1005</key>
+	<string>1005 sq_alarm.caf 	CalendarAlert </string>
+	<key>1006</key>
+	<string>1006 low_power.caf 	LowPower </string>
+	<key>1007</key>
+	<string>1007 sms-received1.caf 	SMSReceived_Alert </string>
+	<key>1008</key>
+	<string>1008 sms-received2.caf 	SMSReceived_Alert </string>
+	<key>1009</key>
+	<string>1009 sms-received3.caf 	SMSReceived_Alert </string>
+	<key>1010</key>
+	<string>1010 sms-received4.caf 	SMSReceived_Alert </string>
+	<key>1012</key>
+	<string>1012 sms-received1.caf 	SMSReceived_Alert </string>
+	<key>1013</key>
+	<string>1013 sms-received5.caf 	SMSReceived_Alert </string>
+	<key>1014</key>
+	<string>1014 sms-received6.caf 	SMSReceived_Alert </string>
+	<key>1015</key>
+	<string>1015 Voicemail.caf </string>
+	<key>1016</key>
+	<string>1016 tweet_sent.caf 	SMSSent </string>
+	<key>1020</key>
+	<string>1020 Anticipate.caf 	SMSReceived_Alert </string>
+	<key>1021</key>
+	<string>1021 Bloom.caf 	SMSReceived_Alert </string>
+	<key>1022</key>
+	<string>1022 Calypso.caf 	SMSReceived_Alert </string>
+	<key>1023</key>
+	<string>1023 Choo_Choo.caf 	SMSReceived_Alert </string>
+	<key>1024</key>
+	<string>1024 Descent.caf 	SMSReceived_Alert </string>
+	<key>1025</key>
+	<string>1025 Fanfare.caf 	SMSReceived_Alert </string>
+	<key>1026</key>
+	<string>1026 Ladder.caf 	SMSReceived_Alert </string>
+	<key>1027</key>
+	<string>1027 Minuet.caf 	SMSReceived_Alert </string>
+	<key>1028</key>
+	<string>1028 News_Flash.caf 	SMSReceived_Alert </string>
+	<key>1029</key>
+	<string>1029 Noir.caf 	SMSReceived_Alert </string>
+	<key>1030</key>
+	<string>1030 Sherwood_Forest.caf 	SMSReceived_Alert</string>
+	<key>1031</key>
+	<string>1031 Spell.caf 	SMSReceived_Alert </string>
+	<key>1032</key>
+	<string>1032 Suspense.caf 	SMSReceived_Alert </string>
+	<key>1033</key>
+	<string>1033 Telegraph.caf 	SMSReceived_Alert </string>
+	<key>1034</key>
+	<string>1034 Tiptoes.caf 	SMSReceived_Alert </string>
+	<key>1035</key>
+	<string>1035 Typewriters.caf 	SMSReceived_Alert </string>
+	<key>1036</key>
+	<string>1036 Update.caf 	SMSReceived_Alert </string>
+	<key>1050</key>
+	<string>1050 ussd.caf	 USSDAlert</string>
+	<key>1051</key>
+	<string>1051 SIMToolkitCallDropped.caf	 SIMToolkitTone</string>
+	<key>1052</key>
+	<string>1052 SIMToolkitGeneralBeep.caf	 SIMToolkitTone	</string>
+	<key>1053</key>
+	<string>1053 SIMToolkitGeneralBeep.caf	 SIMToolkitTone	</string>
+	<key>1054</key>
+	<string>1054 SIMToolkitPositiveACK.caf	 SIMToolkitTone</string>
+	<key>1055</key>
+	<string>1055 SIMToolkitSMS.caf	 SIMToolkitTone</string>
+	<key>1057</key>
+	<string>1057 Tink.caf	 PINKeyPressed</string>
+	<key>1070</key>
+	<string>1070 ct-busy.caf	 AudioToneBusy</string>
+	<key>1071</key>
+	<string>1071 ct-congestion.caf	 AudioToneCongestion</string>
+	<key>1072</key>
+	<string>1072 ct-path-ack.caf	 AudioTonePathAcknowledge</string>
+	<key>1073</key>
+	<string>1073 ct-error.caf	 AudioToneError</string>
+	<key>1074</key>
+	<string>1074 ct-call-waiting.caf	 AudioToneCallWaiting</string>
+	<key>1075</key>
+	<string>1075 ct-keytone2.caf	 AudioToneKey2	</string>
+	<key>1100</key>
+	<string>1100 sq_lock.caf	 ScreenLocked</string>
+	<key>1101</key>
+	<string>1101 sq_lock.caf	 ScreenUnLocked</string>
+	<key>1103</key>
+	<string>1103 sq_tock.caf	 KeyPressed</string>
+	<key>1104</key>
+	<string>1104 sq_tock.caf	 KeyPressed</string>
+	<key>1105</key>
+	<string>1105 sq_tock.caf	 KeyPressed</string>
+	<key>1106</key>
+	<string>1106 sq_beep-beep.caf	 ConnectedToPower	</string>
+	<key>1107</key>
+	<string>1107 RingerChanged.caf	 RingerSwitchIndication</string>
+	<key>1108</key>
+	<string>1108 photoShutter.caf	 CameraShutter</string>
+	<key>1109</key>
+	<string>1109 shake.caf	 ShakeToShuffle</string>
+	<key>1110</key>
+	<string>1110 jbl_begin.caf	 JBL_Begin	</string>
+	<key>1111</key>
+	<string>1111 jbl_confirm.caf	 JBL_Confirm</string>
+	<key>1112</key>
+	<string>1112 jbl_cancel.caf	 JBL_Cancel</string>
+	<key>1113</key>
+	<string>1113 begin_record.caf	 BeginRecording</string>
+	<key>1114</key>
+	<string>1114 end_record.caf	 EndRecording</string>
+	<key>1115</key>
+	<string>1115 jbl_ambiguous.caf	 JBL_Ambiguous</string>
+	<key>1116</key>
+	<string>1116 jbl_no_match.caf	 JBL_NoMatch</string>
+	<key>1117</key>
+	<string>1117 begin_video_record.caf	 BeginVideoRecording	</string>
+	<key>1118</key>
+	<string>1118 end_video_record.caf	 EndVideoRecording	</string>
+	<key>1150</key>
+	<string>1150 vc~invitation-accepted.caf	 VCInvitationAccepted	</string>
+	<key>1151</key>
+	<string>1151 vc~ringing.caf	 VCRinging</string>
+	<key>1152</key>
+	<string>1152 vc~ended.caf	 VCEnded</string>
+	<key>1153</key>
+	<string>1153 ct-call-waiting.caf	 VCCallWaiting	</string>
+	<key>1154</key>
+	<string>1154 vc~ringing.caf	 VCCallUpgrade</string>
+	<key>1200</key>
+	<string>1200 dtmf-0.caf	 TouchTone</string>
+	<key>1201</key>
+	<string>1201 dtmf-1.caf	 TouchTone</string>
+	<key>1202</key>
+	<string>1202 dtmf-2.caf	 TouchTone</string>
+	<key>1203</key>
+	<string>1203 dtmf-3.caf	 TouchTone</string>
+	<key>1204</key>
+	<string>1204 dtmf-4.caf	 TouchTone</string>
+	<key>1205</key>
+	<string>1205 dtmf-5.caf	 TouchTone</string>
+	<key>1206</key>
+	<string>1206 dtmf-6.caf	 TouchTone</string>
+	<key>1207</key>
+	<string>1207 dtmf-7.caf	 TouchTone</string>
+	<key>1208</key>
+	<string>1208 dtmf-8.caf	 TouchTone</string>
+	<key>1209</key>
+	<string>1209 dtmf-9.caf	 TouchTone</string>
+	<key>1210</key>
+	<string>1210 dtmf-star.caf	 TouchTone</string>
+	<key>1211</key>
+	<string>1211 dtmf-pound.caf	 TouchTone</string>
+	<key>1254</key>
+	<string>1254 long_low_short_high.caf	 Headset_StartCall	</string>
+	<key>1255</key>
+	<string>1255 short_double_high.caf	 Headset_Redial	</string>
+	<key>1256</key>
+	<string>1256 short_low_high.caf	 Headset_AnswerCall</string>
+	<key>1257</key>
+	<string>1257 short_double_low.caf	 Headset_EndCall	</string>
+	<key>1258</key>
+	<string>1258 short_double_low.caf	 Headset_CallWaitingActions</string>
+	<key>1259</key>
+	<string>1259 middle_9_short_double_low.caf	 Headset_TransitionEnd	</string>
+	<key>1300</key>
+	<string>1230 Voicemail.caf	 SystemSoundPreview	</string>
+	<key>1301</key>
+	<string>1301 ReceivedMessage.caf	 SystemSoundPreview	</string>
+	<key>1302</key>
+	<string>1302 new-mail.caf	 SystemSoundPreview</string>
+	<key>1303</key>
+	<string>1303 mail-sent.caf	 SystemSoundPreview</string>
+	<key>1304</key>
+	<string>1304 sq_alarm.caf	 SystemSoundPreview</string>
+	<key>1305</key>
+	<string>1305 sq_lock.caf	 SystemSoundPreview</string>
+	<key>1306</key>
+	<string>1306 sq_tock.caf	 KeyPressClickPreview</string>
+	<key>1307</key>
+	<string>1307 sms-received1.caf	 SMSReceived_Selection</string>
+	<key>1308</key>
+	<string>1308 sms-received2.caf	 SMSReceived_Selection</string>
+	<key>1309</key>
+	<string>1309 sms-received3.caf	 SMSReceived_Selection</string>
+	<key>1310</key>
+	<string>1310 sms-received4.caf	 SMSReceived_Selection</string>
+	<key>1312</key>
+	<string>1312 sms-received1.caf	 SMSReceived_Selection</string>
+	<key>1313</key>
+	<string>1313 sms-received5.caf	 SMSReceived_Selection</string>
+	<key>1314</key>
+	<string>1314 sms-received6.caf	 SMSReceived_Selection</string>
+	<key>1315</key>
+	<string>1315 Voicemail.caf	 SystemSoundPreview</string>
+	<key>1320</key>
+	<string>1320 Anticipate.caf	 SMSReceived_Selection</string>
+	<key>1321</key>
+	<string>1321 Bloom.caf	 SMSReceived_Selection</string>
+	<key>1322</key>
+	<string>1322 Bloom.caf	 SMSReceived_Selection</string>
+	<key>1323</key>
+	<string>1323 Choo_Choo.caf	 SMSReceived_Selection	</string>
+	<key>1324</key>
+	<string>1324 Descent.caf	 SMSReceived_Selection</string>
+	<key>1325</key>
+	<string>1325 Fanfare.caf	 SMSReceived_Selection	</string>
+	<key>1326</key>
+	<string>1326 Ladder.caf	 SMSReceived_Selection</string>
+	<key>1327</key>
+	<string>1327 Minuet.caf	 SMSReceived_Selection	</string>
+	<key>1328</key>
+	<string>1328 News_Flash.caf	 SMSReceived_Selection</string>
+	<key>1329</key>
+	<string>1329 Noir.caf	 SMSReceived_Selection</string>
+	<key>1330</key>
+	<string>1330 Sherwood_Forest.caf	 SMSReceived_Selection</string>
+	<key>1331</key>
+	<string>1331 Spell.caf	 SMSReceived_Selection</string>
+	<key>1332</key>
+	<string>1332 Suspense.caf	 SMSReceived_Selection	</string>
+	<key>1333</key>
+	<string>1333 Telegraph.caf	 SMSReceived_Selection	</string>
+	<key>1334</key>
+	<string>1334 Tiptoes.caf	 SMSReceived_Selection</string>
+	<key>1335</key>
+	<string>1335 Typewriters.caf	 SMSReceived_Selection	</string>
+	<key>1336</key>
+	<string>1336 Update.caf	 SMSReceived_Selection	</string>
+</dict>
+</plist>

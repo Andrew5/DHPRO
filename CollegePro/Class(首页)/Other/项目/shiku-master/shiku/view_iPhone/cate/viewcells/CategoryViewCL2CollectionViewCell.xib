@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CategoryViewCL2CollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="91" height="70"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="91" height="70"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bag8_male.png" translatesAutoresizingMaskIntoConstraints="NO" id="f3Z-pX-S6j">
+                        <rect key="frame" x="0.0" y="0.0" width="91" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="a1R-e1-nty"/>
+                            <constraint firstAttribute="width" constant="50" id="guO-ST-232"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="guO-ST-232"/>
+                            </mask>
+                        </variation>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="服饰" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xx-87-wmb">
+                        <rect key="frame" x="34" y="55" width="24" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="f3Z-pX-S6j" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="2g4-AH-htO"/>
+                <constraint firstItem="1xx-87-wmb" firstAttribute="top" secondItem="f3Z-pX-S6j" secondAttribute="bottom" constant="5" id="9oE-EZ-xDD"/>
+                <constraint firstAttribute="bottom" secondItem="1xx-87-wmb" secondAttribute="bottom" constant="10" id="SVv-eJ-k8Q"/>
+                <constraint firstItem="1xx-87-wmb" firstAttribute="top" secondItem="f3Z-pX-S6j" secondAttribute="bottom" constant="3" id="VjA-NU-DcP"/>
+                <constraint firstAttribute="trailing" secondItem="f3Z-pX-S6j" secondAttribute="trailing" id="YSV-Pa-zm0"/>
+                <constraint firstAttribute="centerX" secondItem="1xx-87-wmb" secondAttribute="centerX" id="dRg-Ty-fIw"/>
+                <constraint firstAttribute="centerX" secondItem="f3Z-pX-S6j" secondAttribute="centerX" id="f2N-Xe-Bp0"/>
+                <constraint firstItem="f3Z-pX-S6j" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="xPW-cK-dmS"/>
+            </constraints>
+            <size key="customSize" width="91" height="70"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="SVv-eJ-k8Q"/>
+                    <exclude reference="VjA-NU-DcP"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="coverImage" destination="f3Z-pX-S6j" id="Hre-vB-AdA"/>
+                <outlet property="coverImageHeight" destination="a1R-e1-nty" id="QBn-3u-bpv"/>
+                <outlet property="nameLabel" destination="1xx-87-wmb" id="iDR-D3-Uba"/>
+            </connections>
+            <point key="canvasLocation" x="159.5" y="257"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="bag8_male.png" width="100" height="100"/>
+    </resources>
+</document>
