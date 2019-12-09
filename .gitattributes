@@ -1,9 +1,0 @@
-*.mp3 filter=lfs diff=lfs merge=lfs -text
-CollegePro/Class(首页)/TLib/AliRTCSdk/AliRTCSdk.framework/AliRTCSdk filter=lfs diff=lfs merge=lfs -text
-CollegePro/Class(首页)/TLib/AliRTCSdk/AliRTCSdk.framework/* filter=lfs diff=lfs merge=lfs -text
-CollegePro/Class(首页)/TLib/opencv/opencv2.framework/Versions/A/opencv2 filter=lfs diff=lfs merge=lfs -text
-首页/)/TLib/opencv/opencv2.framework/*(CollegePro/Class/ filter=lfs diff=lfs merge=lfs -text
-*.zip filter=lfs diff=lfs merge=lfs -text
-git lfs track "* .zip"
-DHPRO/CollegePro/CollegePro/Class(首页)/TLib/opencv/opencv2.framework/Versions/A/opencv2 filter=lfs diff=lfs merge=lfs -text
-/Users/jabraknight/Desktop/综合项目/ColligateDHPro/DHPRO/CollegePro/Class(首页)/TLib/opencv/opencv2.framework/Versions/A/opencv2 filter=lfs diff=lfs merge=lfs -text
