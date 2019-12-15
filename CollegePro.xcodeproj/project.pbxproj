@@ -5465,9 +5465,9 @@
 		38C847FE227827F000BCAD87 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				38C847FF227827F000BCAD87 /* PayViewController.m */,
 				38C84800227827F000BCAD87 /* 支付密码输入 */,
 				38C84808227827F000BCAD87 /* PayViewController.h */,
+				38C847FF227827F000BCAD87 /* PayViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -5476,12 +5476,12 @@
 			isa = PBXGroup;
 			children = (
 				38C84801227827F000BCAD87 /* ZSDPaymentForm.h */,
-				38C84802227827F000BCAD87 /* ZSDSetPasswordView.m */,
+				38C84806227827F000BCAD87 /* ZSDPaymentForm.m */,
 				38C84803227827F000BCAD87 /* ZSDPaymentView.h */,
+				38C84807227827F000BCAD87 /* ZSDPaymentView.m */,
 				38C84804227827F000BCAD87 /* ZSDPaymentView.xib */,
 				38C84805227827F000BCAD87 /* ZSDSetPasswordView.h */,
-				38C84806227827F000BCAD87 /* ZSDPaymentForm.m */,
-				38C84807227827F000BCAD87 /* ZSDPaymentView.m */,
+				38C84802227827F000BCAD87 /* ZSDSetPasswordView.m */,
 			);
 			path = "支付密码输入";
 			sourceTree = "<group>";

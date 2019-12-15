@@ -57,6 +57,19 @@
 	[tableViewMy reloadData];
     NSString *htmlString = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"https://blog.csdn.net/qq_29480617/article/details/79791462"] encoding:NSUTF8StringEncoding error:nil];
     NSString *contentStr = [self getZZwithString:htmlString];
+    
+}
+- (void)btnAddData{
+    // 添加一个Model，在追加到Tableview中
+    CustomerTitleModel *model = [[CustomerTitleModel alloc] init];
+    model.newsTitle = @"皮皮：";
+    model.newsDocSubject = @"安师大公司的嘎斯大时代安师大嘎斯高大上撒旦嘎嘎就是打闪光灯";
+    [chatArray addObject:model];
+    
+    // 插入到tableView中
+    [tableViewMy insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:chatArray.count-1 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+    // 再滚动到最底部
+    [tableViewMy scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:chatArray.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
 - (void)loadUI{
 	tableViewMy = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:(UITableViewStylePlain)];
@@ -68,6 +81,27 @@
 	//分割线Inset
 	tableViewMy.separatorInset = UIEdgeInsetsZero;
 	[self.view addSubview:tableViewMy];
+    
+    [tableViewMy mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsZero);
+        //等同于
+//        make.top.offset(20);
+//        make.left.offset(20);
+//        make.right.offset(-20);
+//        make.bottom.offset(-20);
+
+        //        make.top.left.bottom.right.equalTo(self.view).with.insets(UIEdgeInsetsMake(20, 20, 20, 20));
+        //等价于
+//        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(20, 20, 20, 20));
+
+
+    }];
+    
+// 我们再创建一个按钮，点击可从后面追加一些数据进来
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 40, 100, 60)];
+    button.backgroundColor = [UIColor redColor];
+    [self.view addSubview:button];
+    [button addTarget:self action:@selector(btnAddData) forControlEvents:UIControlEventTouchUpInside];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
