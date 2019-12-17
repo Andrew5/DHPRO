@@ -1,23 +1,6 @@
 platform :ios, "8.0"
 target "CollegePro" do
-	use_frameworks!
-  
-  ##环队列
-  ##静态队列
-  ##内存分布
-  ##内存对齐
-    ##kvc 监听对象
-    ##runtime实现后台停留3分钟后执行任务
-    ##控制器生命周期
-    ##两个页面相互间的生命周期
-    ## 未来技术发展前沿：
-    ## REACT开发-> https://www.runoob.com/react/react-tutorial.html
-    ## Vue.js
-    ## flutter实战 -> https://flutterchina.club
-    ## react
-    ## element
-    ## rem+viewport
-    ## ReactorKit
+	use_frameworks! 
   pod 'AFNetworking'
   #自动布局界面库
   pod 'Masonry'

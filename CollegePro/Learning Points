@@ -12,6 +12,25 @@
 12、复杂动画包括贝塞尔曲线的使用 写实例
 13、组件化研究使用
 14、长时间不操作下的执行
+15、环队列
+16、静态队列
+17、内存分布
+18、内存对齐
+19、kvc 监听对象
+20、runtime实现后台停留3分钟后执行任务
+21、控制器生命周期
+22、两个页面相互间的生命周期
+23、未来技术发展前沿：
+24、REACT开发-> https://www.runoob.com/react/react-tutorial.html
+25、Vue.js
+26、flutter实战 -> https://flutterchina.club
+27、react
+28、element
+29、rem+viewport
+30、ReactorKit
+31、神器中的神器org-mode
+32、VIPER模式介绍
+33、iOS设计模式-21种设计模式
 bug:
 1、添加图片控件 查看以选图片未展示
 
