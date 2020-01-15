@@ -11,6 +11,27 @@
 #import "Persion.h"
 #import "KYDog.h"
 #import "SFTextView.h"
+#include <stdlib.h>
+#include <stdio.h>
+#import <malloc/malloc.h>
+#import <objc/message.h>
+#import <CommonCrypto/CommonCrypto.h>
+
+#pragma pack(2)//1 代表不进行内存对齐
+struct StructOne {
+    char a;         //1字节
+    double b;       //8字节
+    int c;          //4字节
+    short d;        //2字节
+} MyStruct1;
+
+struct StructTwo {
+    double b;       //8字节
+    char a;         //1字节
+    short d;        //2字节
+    int c;         //4字节
+} MyStruct2;
+
 //define this constant if you want to use Masonry without the 'mas_' prefix
 #define MAS_SHORTHAND
 //define this constant if you want to enable auto-boxing for default syntax
@@ -235,8 +256,8 @@
 //    [self testDataN];//KVO进阶
 //    [self testDataO];
 //    [self testDataT];//访问私有变量
-    [self testDataQ];
-//    [self testDataR];
+//    [self testDataQ];
+    [self testDataR];
 //    [self testDataSS];
 }
 
@@ -273,6 +294,11 @@
  @dynamic：告诉编译器不要自动创建实现属性所用的实例变量，也不要为其创建存取方法。即使编译器发现没有定义存取方法也不会报错，运行期会导致崩溃。
  @synthesize：在类的实现文件里可以通过 @synthesize 指定实例变量的名称。
  注意：在Xcode4.4之前，@property 配合 @synthesize使用，@property 负责声明属性，@synthesize 负责让编译器生成 带下划线的实例变量并且自动生成setter、getter方法。Xcode4.4 之后 @property 得到增强，直接一并替代了 @synthesize 的工作。
+ 
+ 函数参数是以数据结构:栈的形式存取,从右至左入栈。
+ 首先是参数的内存存放格式：参数存放在内存的堆栈段中，在执行函数的时候，从最后一个开始入栈。因此栈底高地址，栈顶低地址。
+ 举个例子如下：void func(int x, float y, char z);
+ 那么，调用函数的时候，实参 char z 先进栈，然后是 float y，最后是 int x，因此在内存中变量的存放次序是 x->y->z，因此，从理论上说，我们只要探测到任意一个变量的地址，并且知道其他变量的类型，通过指针移位运算，则总可以顺藤摸瓜找到其他的输入变量。
  */
 
 - (void)testDataA{
@@ -835,6 +861,63 @@ static UILabel *myLabel;
     //    数组会直接忽略掉，不会崩溃，不会删除，无任何反应，无效果，而且不会崩溃
     [tmpArray removeObject:dic2];
     [tmpArray removeObject:dic2];
+    
+    KYDog *person = [KYDog new];
+    NSLog(@"%zd", class_getInstanceSize([KYDog class])); // 输出为56
+        NSLog(@"%zd", malloc_size((__bridge const void *)(person))); // 输出为 64
+    //    NSLog(@"%zd",malloc(person));
+        NSLog(@"%ld",sizeof(person));
+    //malloc() 函数和calloc ()函数的主要区别是前者不能初始化所分配的内存空间，而后者能
+    NSLog(@"%zd", class_getInstanceSize([KYDog class])); // 输出为8
+    NSLog(@"%zd", malloc_size((__bridge const void *)(person))); // 输出为 16
+    NSLog(@"%lu",sizeof(person)); // 输出为8
+    [person loadNameValue:@"name"];
+
+    
+    unsigned int count = 0;
+    Ivar *ivars = class_copyIvarList([KYDog class], &count);
+    //对私有变量的更改
+    Ivar namevar = ivars[4];
+    object_setIvar(person, namevar, @"456");
+    NSString *privateName = object_getIvar(person, namevar);
+    NSLog(@"privateName : %@",privateName);
+    NSString *ivarName = [NSString stringWithUTF8String:ivar_getName(namevar)];
+    ivarName = [ivarName stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+    ivarName = [ivarName stringByReplacingOccurrencesOfString:@"@" withString:@""];
+    if ([ivarName containsString:@"privateName"]) {
+        object_setIvar(person, namevar, @"我的名字");
+        NSString *privateName = object_getIvar(person, namevar);
+        NSLog(@"privateName %@",privateName);
+    }
+//    UIViewController *vc = [UIViewController new];
+//    NSDictionary *dic = @{@"vc":vc,@"item":person};
+//    NSDictionary *dic1 = @{@"vc":vc,@"item":person};
+//    //    NSArray *dic1 = @[@"vcc",@"2"];
+//    NSDictionary *dic2 = @{@"vc":vc,@"item":person,@"vcc":@"3"};
+//    
+//    NSLog(@"%zd", class_getInstanceSize([KYDog class])); // 输出为8
+//    NSLog(@"%zd", malloc_size((__bridge const void *)(person))); // 输出为 16
+//    
+//    NSLog(@"dic %p",dic);
+//    NSLog(@"dic1 %p",dic1);
+//    NSMutableArray *tmpArray = [NSMutableArray new];
+//    [tmpArray addObject:dic];
+//    NSLog(@"tmpArray指针地址:%p,tmpArray指针指向的对象内存地址:%p",&tmpArray,tmpArray);
+//    //    数组会直接忽略掉，不会崩溃，不会删除，无任何反应，无效果，而且不会崩溃
+//    [tmpArray removeObject:dic2];
+//    NSLog(@"tmpArray指针地址:%p,tmpArray指针指向的对象内存地址:%p",&tmpArray,tmpArray);
+//    
+//    [tmpArray removeObject:dic2];
+//    NSLog(@"tmpArray指针地址:%p,tmpArray指针指向的对象内存地址:%p",&tmpArray,tmpArray);
+    
+    
+    NSString *name;
+    if ([name isEqualToString:@"走尼玛币"]) {
+        NSLog(@"此方法只执行一次");
+    }
+    else{
+        name = @"走尼玛币";
+    }
     
 }
 //手动实现键值观察时会用到

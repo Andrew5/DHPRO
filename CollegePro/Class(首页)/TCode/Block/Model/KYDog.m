@@ -92,6 +92,10 @@ typedef NS_ENUM(NSInteger, HLFontSize) {
     [self didChangeValueForKey:@"name"];
     
 }
+-(void)loadNameValue:(NSString *)na{
+    NSLog(@"name指针地址:%p,name指针指向的对象内存地址:%p",&na,na);
+
+}
 - (void)getIvars
 {
     unsigned int count = 0;

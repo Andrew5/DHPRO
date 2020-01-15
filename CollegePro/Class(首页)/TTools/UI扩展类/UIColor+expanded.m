@@ -352,7 +352,30 @@ static NSMutableDictionary *colorNameCache = nil;
 - (NSString *)hexStringFromColor {
 	return [NSString stringWithFormat:@"%0.6X", (int)self.rgbHex];
 }
+- (NSString *)hexValue
+{
+    if (self == [UIColor whiteColor])
+    {
+        // Special case, as white doesn't fall into the RGB color space
+        return @"ffffff";
+    }
+ 
+    CGFloat red;
+    CGFloat blue;
+    CGFloat green;
+    CGFloat alpha;
+    
+    [self getRed:&red green:&green blue:&blue alpha:&alpha];
+    
+    int redDec = (int)(red * 255);
+    int greenDec = (int)(green * 255);
+    int blueDec = (int)(blue * 255);
+    
+    NSString *returnString = [NSString stringWithFormat:@"%02x%02x%02x", (unsigned int)redDec, (unsigned int)greenDec, (unsigned int)blueDec];
 
+    return returnString;
+    
+}
 - (BOOL)isDark{
     CGFloat gray = self.red * 0.299 + self.green * 0.587 + self.blue * 0.114;//纯白为1，纯黑为0
     return gray < 186.f/255;

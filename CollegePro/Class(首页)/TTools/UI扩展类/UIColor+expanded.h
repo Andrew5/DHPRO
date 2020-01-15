@@ -19,6 +19,8 @@
 @property (nonatomic, readonly) CGFloat white; // Only valid if colorSpaceModel == kCGColorSpaceModelMonochrome
 @property (nonatomic, readonly) CGFloat alpha;
 @property (nonatomic, readonly) UInt32 rgbHex;
+@property (nonatomic, readonly) NSString *hexValue;
+
 
 - (NSString *)colorSpaceString;
 

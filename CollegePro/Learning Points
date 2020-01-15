@@ -12,6 +12,7 @@
 12、复杂动画包括贝塞尔曲线的使用 写实例
 13、组件化研究使用
 14、长时间不操作下的执行
+熟悉了OC对象的本质，对比 OC 和 Swift对象内存的占用区别
 15、环队列
 16、静态队列
 17、内存分布
@@ -25,12 +26,13 @@
 25、Vue.js
 26、flutter实战 -> https://flutterchina.club
 27、react
-28、element
-29、rem+viewport
-30、ReactorKit
-31、神器中的神器org-mode
-32、VIPER模式介绍
-33、iOS设计模式-21种设计模式
+28、RN
+29、element
+30、rem+viewport
+31、ReactorKit
+32、神器中的神器org-mode
+33、VIPER模式介绍
+34、iOS设计模式-21种设计模式
 bug:
 1、添加图片控件 查看以选图片未展示
 

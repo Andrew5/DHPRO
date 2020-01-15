@@ -25,6 +25,7 @@
 		381B6BDB22C0EF9E0018C0C2 /* NSURL+changProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 381B6BD922C0EF9E0018C0C2 /* NSURL+changProtocol.m */; };
 		38274D53229EB00F00185C09 /* DHSendRunObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 38274D52229EB00F00185C09 /* DHSendRunObject.m */; };
 		38274D56229EB80000185C09 /* DHTimeoutAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38274D55229EB80000185C09 /* DHTimeoutAppDelegate.m */; };
+		3828B66023ADE5CB008E4D04 /* NSDictionary+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 3828B65F23ADE5CB008E4D04 /* NSDictionary+Safe.m */; };
 		382B6F7523347CC100CD2497 /* DBSphereViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 382B6F7423347CC100CD2497 /* DBSphereViewController.m */; };
 		382B6F7B23347D0200CD2497 /* DBSphereView.m in Sources */ = {isa = PBXBuildFile; fileRef = 382B6F7A23347D0200CD2497 /* DBSphereView.m */; };
 		382B6F832334BFE900CD2497 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 382B6F822334BFE900CD2497 /* HealthKit.framework */; };
@@ -902,6 +903,7 @@
 		38D5CEF222965C6000323648 /* backgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D5CEF122965C6000323648 /* backgroundView.m */; };
 		38D5CEF5229661C400323648 /* ShowAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D5CEF4229661C400323648 /* ShowAnimationView.m */; };
 		38D9CEEF229D0B6200CDBA88 /* TodayTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D9CEEE229D0B6200CDBA88 /* TodayTableHeaderView.m */; };
+		38DBD7DC23B22E8C00E3F33C /* NSObject+Swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DBD7DA23B22E8C00E3F33C /* NSObject+Swizzling.m */; };
 		38E416AD2338800600FD84D8 /* HAMLogOutputWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E416AB2338800600FD84D8 /* HAMLogOutputWindow.m */; };
 		38E97EDB22D5CD8E00A70112 /* MQHButtonsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E97EDA22D5CD8D00A70112 /* MQHButtonsView.m */; };
 		38E97EDE22D5CD9B00A70112 /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E97EDC22D5CD9500A70112 /* PopoverView.m */; };
@@ -910,6 +912,7 @@
 		38EA8533228D57F300A28136 /* SFTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EA8532228D57F300A28136 /* SFTextView.m */; };
 		38EBA07D22CF24F400AAD44F /* FoodListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EBA07C22CF24F400AAD44F /* FoodListViewController.m */; };
 		38EE05B123853D8200718397 /* YHView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EE05B023853D8200718397 /* YHView.m */; };
+		38F0FBFA23C781F400B04343 /* CHLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F0FBF923C781F400B04343 /* CHLogger.m */; };
 		69231657234E31B400A92110 /* SphericaLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 69231653234E31B400A92110 /* SphericaLayout.m */; };
 		69231658234E31B400A92110 /* ThreeDimensionalSphericalLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 69231655234E31B400A92110 /* ThreeDimensionalSphericalLayout.m */; };
 		73869E513ABCF28AE9B6C239 /* Pods_CollegePro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CBC72DE2C175A4CF5A210DB /* Pods_CollegePro.framework */; };
@@ -988,6 +991,8 @@
 		38274D52229EB00F00185C09 /* DHSendRunObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHSendRunObject.m; sourceTree = "<group>"; };
 		38274D54229EB80000185C09 /* DHTimeoutAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHTimeoutAppDelegate.h; sourceTree = "<group>"; };
 		38274D55229EB80000185C09 /* DHTimeoutAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHTimeoutAppDelegate.m; sourceTree = "<group>"; };
+		3828B65E23ADE5CB008E4D04 /* NSDictionary+Safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Safe.h"; sourceTree = "<group>"; };
+		3828B65F23ADE5CB008E4D04 /* NSDictionary+Safe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Safe.m"; sourceTree = "<group>"; };
 		382B6F7323347CC100CD2497 /* DBSphereViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBSphereViewController.h; sourceTree = "<group>"; };
 		382B6F7423347CC100CD2497 /* DBSphereViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBSphereViewController.m; sourceTree = "<group>"; };
 		382B6F7723347D0200CD2497 /* DBPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPoint.h; sourceTree = "<group>"; };
@@ -2480,6 +2485,8 @@
 		38D5CEF4229661C400323648 /* ShowAnimationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowAnimationView.m; sourceTree = "<group>"; };
 		38D9CEED229D0B6100CDBA88 /* TodayTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodayTableHeaderView.h; sourceTree = "<group>"; };
 		38D9CEEE229D0B6200CDBA88 /* TodayTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodayTableHeaderView.m; sourceTree = "<group>"; };
+		38DBD7DA23B22E8C00E3F33C /* NSObject+Swizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Swizzling.m"; sourceTree = "<group>"; };
+		38DBD7DB23B22E8C00E3F33C /* NSObject+Swizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Swizzling.h"; sourceTree = "<group>"; };
 		38E416AB2338800600FD84D8 /* HAMLogOutputWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAMLogOutputWindow.m; sourceTree = "<group>"; };
 		38E416AC2338800600FD84D8 /* HAMLogOutputWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAMLogOutputWindow.h; sourceTree = "<group>"; };
 		38E97ED922D5CD8900A70112 /* MQHButtonsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQHButtonsView.h; sourceTree = "<group>"; };
@@ -2495,6 +2502,8 @@
 		38EBA07C22CF24F400AAD44F /* FoodListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoodListViewController.m; sourceTree = "<group>"; };
 		38EE05AF23853D8200718397 /* YHView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHView.h; sourceTree = "<group>"; };
 		38EE05B023853D8200718397 /* YHView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHView.m; sourceTree = "<group>"; };
+		38F0FBF823C781F000B04343 /* CHLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHLogger.h; sourceTree = "<group>"; };
+		38F0FBF923C781F400B04343 /* CHLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHLogger.m; sourceTree = "<group>"; };
 		5CBC72DE2C175A4CF5A210DB /* Pods_CollegePro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CollegePro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69231652234E31B400A92110 /* SphericaLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SphericaLayout.h; sourceTree = "<group>"; };
 		69231653234E31B400A92110 /* SphericaLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SphericaLayout.m; sourceTree = "<group>"; };
@@ -2647,6 +2656,8 @@
 				382FFA47231CB9380062080E /* QDExceptionTool.m */,
 				384017B823545C8E002A2FB4 /* DHUncaughtExceptionHandle.h */,
 				384017B923545C8E002A2FB4 /* DHUncaughtExceptionHandle.m */,
+				38F0FBF823C781F000B04343 /* CHLogger.h */,
+				38F0FBF923C781F400B04343 /* CHLogger.m */,
 			);
 			path = UncaughtException;
 			sourceTree = "<group>";
@@ -4280,6 +4291,10 @@
 				381B6BD922C0EF9E0018C0C2 /* NSURL+changProtocol.m */,
 				38C8460D227827EF00BCAD87 /* NSMutableArray+Util.h */,
 				38C845F0227827EF00BCAD87 /* NSMutableArray+Util.m */,
+				38DBD7DB23B22E8C00E3F33C /* NSObject+Swizzling.h */,
+				38DBD7DA23B22E8C00E3F33C /* NSObject+Swizzling.m */,
+				3828B65E23ADE5CB008E4D04 /* NSDictionary+Safe.h */,
+				3828B65F23ADE5CB008E4D04 /* NSDictionary+Safe.m */,
 				38C845EA227827EF00BCAD87 /* NSString+Extension.h */,
 				38C84601227827EF00BCAD87 /* NSString+Extension.m */,
 				38C84606227827EF00BCAD87 /* UIButton-touch */,
@@ -6707,6 +6722,7 @@
 				38C84A27227827F200BCAD87 /* NSString+Category.m in Sources */,
 				384C3FCE22887D7A00F01586 /* LMDataSource.m in Sources */,
 				38C84932227827F100BCAD87 /* SM3.cpp in Sources */,
+				38F0FBFA23C781F400B04343 /* CHLogger.m in Sources */,
 				38C84A42227827F200BCAD87 /* MLSelectPhotoPickerGroupViewController.m in Sources */,
 				386BBDC922DDA7FF005E6054 /* GPUImageScreenBlendFilter.m in Sources */,
 				38C848E0227827F100BCAD87 /* TZAssetModel.m in Sources */,
@@ -6816,6 +6832,7 @@
 				386BBD8922DDA7FE005E6054 /* GPUImageHarrisCornerDetectionFilter.m in Sources */,
 				382FFA42231CAFD00062080E /* MatrixDimensionalViewController.m in Sources */,
 				38C848E2227827F100BCAD87 /* UIView+Layout.m in Sources */,
+				38DBD7DC23B22E8C00E3F33C /* NSObject+Swizzling.m in Sources */,
 				38C84A4C227827F200BCAD87 /* MLSelectPhotoPickerGroupTableViewCell.m in Sources */,
 				385483DB234F4A450053AB46 /* BLEConnector.m in Sources */,
 				383AEB4222970F03002F3A22 /* MaskView.m in Sources */,
@@ -7136,6 +7153,7 @@
 				386BBDA322DDA7FF005E6054 /* GPUimageDirectionalSobelEdgeDetectionFilter.m in Sources */,
 				386BC05122DDABA7005E6054 /* DGActivityIndicatorLineScaleAnimation.m in Sources */,
 				38C84944227827F100BCAD87 /* YSYPreviewViewController.m in Sources */,
+				3828B66023ADE5CB008E4D04 /* NSDictionary+Safe.m in Sources */,
 				386BC04622DDABA7005E6054 /* DGActivityIndicatorAnimation.m in Sources */,
 				38C848E9227827F100BCAD87 /* TZImagePickerController.m in Sources */,
 				386BC04522DDABA7005E6054 /* DGActivityIndicatorTriplePulseAnimation.m in Sources */,

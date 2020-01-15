@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *city;
 
 @property (strong, nonatomic)   NSMutableData            *printerData;
+-(void)loadNameValue:(NSString *)na;
 - (void)changeName;
 - (void)getIvars;
 - (void)appendTitle:(NSString *)title value:(NSString *)value valueOffset:(NSInteger)offset;
@@ -31,6 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) KYDog *dog;
 /** 数组 */
 @property (nonatomic, strong) NSMutableArray *arr;
+
 @end
 
 NS_ASSUME_NONNULL_END
