@@ -47,6 +47,19 @@
 	timer7 = nil;
 	timer8 = nil;
 }
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+//    [self getdata];
+//    [self timer];
+//    _queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+//    [self asyncGlobalQueue];//异步
+//    [self asyncSerialQueue];//同步
+    [self asyncGroup];
+    dispatch
+    [self asyncSemaphore];
+    [self asyncBarrier];
+}
 static  BOOL y;
 - (void)test{
 
@@ -90,17 +103,7 @@ static  BOOL y;
     });
     
 }
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-//    [self getdata];
-//    [self timer];
-//    _queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-//    [self asyncGlobalQueue];//异步
-//	[self asyncSerialQueue];//同步
-    [self asyncGroup];
-    [self asyncSemaphore];
-}
+
 -(void)getdata{
 	NSString *URL = @"https://testapi.iuoooo.com/jrtc.api/Jinher.AMP.JRTC.RealTime.svc/GetChannelToken";
 	NSArray *UserId = @[@"f2622c2b-80fb-4e66-9280-66d4eb6053e4"];
@@ -108,7 +111,7 @@ static  BOOL y;
 
 
 	NSDictionary *param = NSDictionaryOfVariableBindings(UserId,PassWord);
-	[SFNetWorkManager requestWithType:HttpRequestTypePost withUrlString:URL withParaments:param withSuccessBlock:^(NSDictionary *object) {
+    [SFNetWorkManager requestWithType:HttpRequestTypePost withUrlString:URL withParaments:param withSuccessBlock:^(NSDictionary *obself->ject) {
 		
 		_dataSource = [DataModel mj_objectArrayWithKeyValuesArray:object[@"data"]];
 			
