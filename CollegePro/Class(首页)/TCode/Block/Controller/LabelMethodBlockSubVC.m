@@ -41,7 +41,6 @@ struct StructTwo {
 {
     //成员变量
     int numC;
-    int global_var;
     BOOL chooseState;
 }
 // 属性声明的block都是全局的__NSGlobalBlock__
@@ -353,7 +352,7 @@ static int numB = 100;
 
 
 // 静态全局变量
-//static int static_global_var = 5;
+static int global_var = 5;
 
 typedef void (^blockSave)(void);
 
@@ -371,9 +370,7 @@ void (^outFuncBlock)(void) = ^{
     //    };
     //    multiplier = 4;
     //    NSLog(@"result is %d", Block(2));
-    
     int var = 1;
-    global_var = 5;
     __unsafe_unretained id unsafe_obj = nil;
     __strong id strong_obj = nil;
     static int static_var = 3 ;
@@ -383,9 +380,9 @@ void (^outFuncBlock)(void) = ^{
         NSLog(@"局部变量<__unsafe_unretained 对象类型> var %@",unsafe_obj);
         NSLog(@"局部变量< __strong 对象类型> var %@",strong_obj);
         NSLog(@"静态局部变量 %d",static_var);
-        NSLog(@"全局变量 %d",self->global_var);
+        NSLog(@"全局变量 %d",global_var);
         self->chooseState = YES;
-        NSLog(@"静态全局变量 %d",self->global_var);
+        NSLog(@"静态全局变量 %d",global_var);
     };
     NSLog(@"外部调用 %@",block);
     

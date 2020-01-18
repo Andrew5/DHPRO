@@ -114,6 +114,32 @@ typedef void (^CustomEvent)(NSString* str);//本类测试
                                     NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle)
                                     };
     policyTextView.attributedText = attributedString;
+    
+//    NSString *urlurlurl = @"https://image.baidu.com/search/detail?ct=503316480&z=undefined&tn=baiduimagedetail&ipn=d&word=获取网络图片大小%20iOS&step_word=&ie=utf-8&in=&cl=2&lm=-1&st=undefined&hd=undefined&latest=undefined&copyright=undefined&cs=1956473801,2226886643&os=704432641,1656685615&simid=4200340769,741828620&pn=4&rn=1&di=91630&ln=1531&fr=&fmq=1579249421664_R&fm=&ic=undefined&s=undefined&se=&sme=&tab=0&width=undefined&height=undefined&face=undefined&is=0,0&istype=0&ist=&jit=&bdtype=0&spn=0&pi=0&gsm=0&objurl=http%3A%2F%2Faliyunzixunbucket.oss-cn-beijing.aliyuncs.com%2Fjpg%2F6f958960bb497cb10ebe3e71c5642e41.jpg%3Fx-oss-process%3Dimage%2Fresize%2Cp_100%2Fauto-orient%2C1%2Fquality%2Cq_90%2Fformat%2Cjpg%2Fwatermark%2Cimage_eXVuY2VzaGk%3D%2Ct_100&rpstart=0&rpnum=0&adpicid=0&force=undefined&ctd=1579249427449^3_1680X893%1";
+//    UIImageView *v1 = [[UIImageView alloc]init];
+//    [self.view addSubview:v1];
+//    [v1 sd_setImageWithURL:[NSURL URLWithString:urlurlurl] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+//        CGSize size = image.size;
+//    CGFloat w = size.width;
+//    CGFloat H = size.height;
+//    NSLog(@"%f",v1.intrinsicContentSize.width);
+//        printf("------");
+//    }];
+//    YYCache *cache = [YYCache cacheWithName:@"ResponseCache"];
+//    if ([cache containsObjectForKey:url] && networkErrow) {    // 如果有缓存且网络有问题
+//      id response = [cache objectForKey:url];
+//      success(response);
+//    return;
+//    }
+//    [[MNNetworkTool shareService] GET:url parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        if (mnnetSet.saveCache) {  // 如果需要缓存，进行缓存
+//            [cache setObject:dic forKey:url];
+//        }
+//        success(responseObject);
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        failed()；
+//    }];
+             
 //    [url systemLayoutSizeFittingSize:UILayoutFittingExpandedSize]
 }
 - (BOOL)textView:(UITextView *)textView shouldInteractWithURL:(nonnull NSURL *)URL inRange:(NSRange)characterRange interaction:(UITextItemInteraction)interaction API_AVAILABLE(ios(10.0)){

@@ -56,8 +56,9 @@
 //    [self asyncGlobalQueue];//异步
 //    [self asyncSerialQueue];//同步
     [self asyncGroup];
-    dispatch
-    [self asyncSemaphore];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self asyncSemaphore];
+    });
     [self asyncBarrier];
 }
 static  BOOL y;
@@ -110,8 +111,8 @@ static  BOOL y;
 	NSString *PassWord = @"59254df4adb4f537906cb9c436641dd95d276a202960cab55aa546873c12e9c0";
 
 
-	NSDictionary *param = NSDictionaryOfVariableBindings(UserId,PassWord);
-    [SFNetWorkManager requestWithType:HttpRequestTypePost withUrlString:URL withParaments:param withSuccessBlock:^(NSDictionary *obself->ject) {
+    NSDictionary *param = NSDictionaryOfVariableBindings(UserId,PassWord);
+    [SFNetWorkManager requestWithType:HttpRequestTypePost withUrlString:URL withParaments:param withSuccessBlock:^(NSDictionary *object) {
 		
 		_dataSource = [DataModel mj_objectArrayWithKeyValuesArray:object[@"data"]];
 			
