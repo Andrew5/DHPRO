@@ -150,6 +150,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     //方法二
     mach_timebase_info_data_t timebase;
     mach_timebase_info(&timebase);
@@ -259,7 +260,7 @@
     //    flowLayout.minimumLineSpacing = 0.0;//minimumLineSpacing cell上下之间的距离
     //    flowLayout.minimumInteritemSpacing = 5.0;//cell左右之间的距离
     //    flowLayout.headerReferenceSize = CGSizeMake(self.view.frame.size.width, 20);
-    _collectionView=[[UICollectionView alloc] initWithFrame:CGRectMake(15, 0, DH_DeviceWidth-30, DH_DeviceHeight-44) collectionViewLayout:flowLayout];
+    _collectionView=[[UICollectionView alloc] initWithFrame:CGRectMake(15, 0, DH_DeviceWidth-30, DH_DeviceHeight-64-34) collectionViewLayout:flowLayout];
     //    _collectionView=[[UICollectionView alloc] init];
     //    _collectionView.collectionViewLayout = flowLayout;
     
@@ -315,7 +316,7 @@
     [self addCell:@"storyboard" class:@"MenuViewController"];
     [self addCell:@"转盘" class:@"TurntableViewController"];
     [self addCell:@"联网游戏" class:@"Menu"];
-    [self addCell:@"下拉列表" class:@"ExpandTableVC"];
+    [self addCell:@"下拉列表" class:@"DHRefreshViewController"];//@"ExpandTableVC"];
     [self addCell:@"网络测试" class:@"NetTestViewController"];
     [self addCell:@"block" class:@"LabelMethodBlockVC"];
     [self addCell:@"block" class:@"LabelMethodBlockSubVC"];
@@ -327,7 +328,7 @@
     [self addCell:@"圆角设置" class:@"CornerViewController"];
     [self addCell:@"日历" class:@"DHMonthListlinkViewController"];
     [self addCell:@"美食菜单" class:@"FoodListViewController"];
-//    [self addCell:@"aliPhone" class:@"AliRTCViewController"];
+    [self addCell:@"富文本" class:@"CViewController"];
     [self addCell:@"侧边栏" class:@"SlideMenuViewController"];
     [self addCell:@"购物车" class:@"JPShopCarController"];
     [self addCell:@"图片找不同" class:@"FFKPViewController"];
@@ -359,12 +360,12 @@
     _lb_showinfo.layer.borderColor = [UIColor redColor].CGColor;
     _lb_showinfo.layer.borderWidth = 1.0;
     _lb_showinfo.frame = CGRectMake(0, DH_DeviceHeight-44-30, DH_DeviceWidth, 25);
-//    [self.view addSubview:_lb_showinfo];
-//    [_lb_showinfo mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.bottom.equalTo(self.view).offset(-88);
-//        make.left.with.right.equalTo(self.view);
-//        make.height.offset(25);
-//    }];
+    [self.view addSubview:_lb_showinfo];
+    [_lb_showinfo mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.view).offset(-88);
+        make.left.with.right.equalTo(self.view);
+        make.height.offset(25);
+    }];
 }
 - (void)addCell:(NSString *)title class:(NSString *)className {
     [self.titles addObject:title];
@@ -589,8 +590,6 @@
 }
 -(void)createAnnotationWithCoords:(CLLocationCoordinate2D)coords
 {
-    
-
     if (_annotation == nil) {
         _annotation = [[MKPointAnnotation alloc] init];
     }
@@ -680,16 +679,25 @@
 
 
 - (void)getinternet{
+    NSUserDefaults* userDefault = [[NSUserDefaults standardUserDefaults] initWithSuiteName:@"group.com.dhTool.selfpro.CollegeProExtension"];
     MeasurNetTools * meaurNet = [[MeasurNetTools alloc] initWithblock:^(float speed) {
         //        NSString* speedStr = [NSString stringWithFormat:@"%@/S", [QBTools formattedFileSize:speed]];
-        _lb_showinfo.text = @"";
+//        _lb_showinfo.text = @"";
+        NSLog(@"当前网速：%@",[DHTool getByteRate]);
+        //获取wifi信息
+        NSDictionary *WIFImessage = [DHTool fetchSSIDInfo];
+        //检测手机网络速度
+        NSMutableDictionary *WIFIspeed = [DHTool getDataCounters];
+        NSLog(@"获取wifi信息 = %@ ------------- 检测手机网络速度 = %@",WIFImessage,WIFIspeed);
         
     } finishMeasureBlock:^(float speed) {
         NSString* speedStr = [NSString stringWithFormat:@"%@/S", [QBTools formattedFileSize:speed]];
         NSLog(@"平均速度为：%@",speedStr);
         NSLog(@"相当于带宽：%@",[QBTools formatBandWidth:speed]);
-        _lb_showinfo.text = [NSString stringWithFormat:@"平均速度为： %@---相当于带宽：%@",speedStr,[QBTools formatBandWidth:speed]];
-        
+        _lb_showinfo.text = [NSString stringWithFormat:@"平均速度为： %@---相当于带宽：%@--%@",speedStr,[QBTools formatBandWidth:speed],[DHTool getByteRate]];
+        [userDefault setObject:speedStr forKey:@"network"];
+        [userDefault setObject:@"2我是数据" forKey:@"myShareData"];
+        [userDefault synchronize];
     } failedBlock:^(NSError *error) {
         
     }];

@@ -31,6 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     self.m_ContentArr = [NSArray array];
     /*
      设置哭鏖战

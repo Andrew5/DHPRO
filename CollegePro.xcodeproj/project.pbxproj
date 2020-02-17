@@ -22,6 +22,8 @@
 		380F9F8C227839EC00D515E3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 380F9F8B227839EC00D515E3 /* Security.framework */; };
 		380F9F8E227839F200D515E3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 380F9F8D227839F200D515E3 /* SystemConfiguration.framework */; };
 		380F9F902278475200D515E3 /* TabbarBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 380F9F8F2278475200D515E3 /* TabbarBundle.bundle */; };
+		3817212123EE8EBA00F8A9A0 /* DrawBezierPathView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3817212023EE8EBA00F8A9A0 /* DrawBezierPathView.m */; };
+		3817212423EE903000F8A9A0 /* BigSizeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3817212223EE903000F8A9A0 /* BigSizeButton.m */; };
 		381B6BDB22C0EF9E0018C0C2 /* NSURL+changProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 381B6BD922C0EF9E0018C0C2 /* NSURL+changProtocol.m */; };
 		38274D53229EB00F00185C09 /* DHSendRunObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 38274D52229EB00F00185C09 /* DHSendRunObject.m */; };
 		38274D56229EB80000185C09 /* DHTimeoutAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38274D55229EB80000185C09 /* DHTimeoutAppDelegate.m */; };
@@ -42,6 +44,8 @@
 		382FFA58231CDDAA0062080E /* CricleScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 382FFA57231CDDAA0062080E /* CricleScrollViewController.m */; };
 		38345BDA22B1207C00FBE78B /* SFHttpSessionReq.m in Sources */ = {isa = PBXBuildFile; fileRef = 38345BD922B1207C00FBE78B /* SFHttpSessionReq.m */; };
 		383AEB4222970F03002F3A22 /* MaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 383AEB4122970F03002F3A22 /* MaskView.m */; };
+		383DC22D23E4326B00B362EF /* DHRefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 383DC22C23E4326B00B362EF /* DHRefreshViewController.m */; };
+		383DC23023E4373100B362EF /* TopicItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 383DC22F23E4373100B362EF /* TopicItem.m */; };
 		383EAFE322981D1E00A2AA1E /* JHDownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 383EAFE222981D1D00A2AA1E /* JHDownButton.m */; };
 		383F11F823155966005F085F /* CreditNumView.m in Sources */ = {isa = PBXBuildFile; fileRef = 383F11F723155966005F085F /* CreditNumView.m */; };
 		383F11FC23155A37005F085F /* CreditNumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 383F11FB23155A37005F085F /* CreditNumViewController.m */; };
@@ -985,6 +989,10 @@
 		380F9F8F2278475200D515E3 /* TabbarBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TabbarBundle.bundle; sourceTree = "<group>"; };
 		380FDC2A22B24D29009E9D24 /* CollegePro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CollegePro.entitlements; sourceTree = "<group>"; };
 		380FDC2B22B24D44009E9D24 /* CollegeProExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CollegeProExtension.entitlements; sourceTree = "<group>"; };
+		3817211F23EE8EBA00F8A9A0 /* DrawBezierPathView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawBezierPathView.h; sourceTree = "<group>"; };
+		3817212023EE8EBA00F8A9A0 /* DrawBezierPathView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawBezierPathView.m; sourceTree = "<group>"; };
+		3817212223EE903000F8A9A0 /* BigSizeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BigSizeButton.m; sourceTree = "<group>"; };
+		3817212323EE903000F8A9A0 /* BigSizeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BigSizeButton.h; sourceTree = "<group>"; };
 		381B6BD922C0EF9E0018C0C2 /* NSURL+changProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+changProtocol.m"; sourceTree = "<group>"; };
 		381B6BDA22C0EF9E0018C0C2 /* NSURL+changProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+changProtocol.h"; sourceTree = "<group>"; };
 		38274D51229EB00F00185C09 /* DHSendRunObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHSendRunObject.h; sourceTree = "<group>"; };
@@ -1028,6 +1036,10 @@
 		38345BD922B1207C00FBE78B /* SFHttpSessionReq.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFHttpSessionReq.m; sourceTree = "<group>"; };
 		383AEB4022970F03002F3A22 /* MaskView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaskView.h; sourceTree = "<group>"; };
 		383AEB4122970F03002F3A22 /* MaskView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaskView.m; sourceTree = "<group>"; };
+		383DC22B23E4326B00B362EF /* DHRefreshViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHRefreshViewController.h; sourceTree = "<group>"; };
+		383DC22C23E4326B00B362EF /* DHRefreshViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHRefreshViewController.m; sourceTree = "<group>"; };
+		383DC22E23E4373100B362EF /* TopicItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TopicItem.h; path = "CollegePro/Class(首页)/TCode/下拉列表/Controller/TopicItem.h"; sourceTree = SOURCE_ROOT; };
+		383DC22F23E4373100B362EF /* TopicItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TopicItem.m; path = "CollegePro/Class(首页)/TCode/下拉列表/Controller/TopicItem.m"; sourceTree = SOURCE_ROOT; };
 		383EAFE122981D1D00A2AA1E /* JHDownButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHDownButton.h; sourceTree = "<group>"; };
 		383EAFE222981D1D00A2AA1E /* JHDownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHDownButton.m; sourceTree = "<group>"; };
 		383F11F623155966005F085F /* CreditNumView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreditNumView.h; sourceTree = "<group>"; };
@@ -1660,6 +1672,7 @@
 		3893F3A722CDF07F005C30AE /* HDMonthDetailCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDMonthDetailCollectionViewCell.m; sourceTree = "<group>"; };
 		3893F3AA22CDF547005C30AE /* NSDate+HDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+HDExtension.h"; sourceTree = "<group>"; };
 		3893F3AB22CDF548005C30AE /* NSDate+HDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+HDExtension.m"; sourceTree = "<group>"; };
+		38A38FAA23FAB19B00955318 /* CollegeProExtensionDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CollegeProExtensionDebug.entitlements; sourceTree = "<group>"; };
 		38A99B39229BD1C000D52230 /* CollegeProExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CollegeProExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		38A99B3A229BD1C000D52230 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		38A99B3D229BD1C000D52230 /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
@@ -2583,6 +2596,31 @@
 				38080AF8232D3B630073EFAC /* RoppleViewController.m */,
 			);
 			path = "水波纹";
+			sourceTree = "<group>";
+		};
+		3817211C23EE8E8100F8A9A0 /* DrawLine */ = {
+			isa = PBXGroup;
+			children = (
+				3817211D23EE8E8100F8A9A0 /* View */,
+				3817211E23EE8E8100F8A9A0 /* ViewController */,
+			);
+			path = DrawLine;
+			sourceTree = "<group>";
+		};
+		3817211D23EE8E8100F8A9A0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3817211F23EE8EBA00F8A9A0 /* DrawBezierPathView.h */,
+				3817212023EE8EBA00F8A9A0 /* DrawBezierPathView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3817211E23EE8E8100F8A9A0 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		382B6F7223347C9200CD2497 /* DBSphere */ = {
@@ -3801,6 +3839,8 @@
 		388C76BE22B4E9D20094773D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				383DC22E23E4373100B362EF /* TopicItem.h */,
+				383DC22F23E4373100B362EF /* TopicItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3891,6 +3931,7 @@
 		38A99B3C229BD1C000D52230 /* CollegeProExtension */ = {
 			isa = PBXGroup;
 			children = (
+				38A38FAA23FAB19B00955318 /* CollegeProExtensionDebug.entitlements */,
 				380FDC2B22B24D44009E9D24 /* CollegeProExtension.entitlements */,
 				3868BC4B22B51334003B643C /* 精灵球.png */,
 				38D9CEED229D0B6100CDBA88 /* TodayTableHeaderView.h */,
@@ -4002,6 +4043,8 @@
 		38C8454E227827EF00BCAD87 /* TLib */ = {
 			isa = PBXGroup;
 			children = (
+				3817212323EE903000F8A9A0 /* BigSizeButton.h */,
+				3817212223EE903000F8A9A0 /* BigSizeButton.m */,
 				38E416AC2338800600FD84D8 /* HAMLogOutputWindow.h */,
 				38E416AB2338800600FD84D8 /* HAMLogOutputWindow.m */,
 				38C84589227827EF00BCAD87 /* ALiAlertView.h */,
@@ -4388,6 +4431,7 @@
 		38C84631227827EF00BCAD87 /* TCode */ = {
 			isa = PBXGroup;
 			children = (
+				3817211C23EE8E8100F8A9A0 /* DrawLine */,
 				385483C7234F4A440053AB46 /* Bluetooth */,
 				69231650234E31B400A92110 /* ThreeDimensional */,
 				382B6F7223347C9200CD2497 /* DBSphere */,
@@ -5224,6 +5268,8 @@
 			children = (
 				38C84796227827F000BCAD87 /* ExpandTableVC.h */,
 				38C84797227827F000BCAD87 /* ExpandTableVC.m */,
+				383DC22B23E4326B00B362EF /* DHRefreshViewController.h */,
+				383DC22C23E4326B00B362EF /* DHRefreshViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -6770,6 +6816,7 @@
 				3893F3A022CDE492005C30AE /* DHMonthDetailViewController.m in Sources */,
 				3893F3AC22CDF549005C30AE /* NSDate+HDExtension.m in Sources */,
 				38C849B1227827F100BCAD87 /* ZLCollectionCell.m in Sources */,
+				3817212423EE903000F8A9A0 /* BigSizeButton.m in Sources */,
 				385483DC234F4A450053AB46 /* BLECentralManager.m in Sources */,
 				38C2D0C922D5E27700CF30CA /* ASIDataCompressor.m in Sources */,
 				382FFA49231CB9380062080E /* QDExceptionTool.m in Sources */,
@@ -6867,6 +6914,7 @@
 				385483DD234F4A450053AB46 /* BLEDataPack.m in Sources */,
 				386BBD9222DDA7FE005E6054 /* GPUImageDissolveBlendFilter.m in Sources */,
 				38C84981227827F100BCAD87 /* NetTestViewController.m in Sources */,
+				383DC23023E4373100B362EF /* TopicItem.m in Sources */,
 				38C8492D227827F100BCAD87 /* LHMD5.m in Sources */,
 				386BBDD522DDA7FF005E6054 /* GPUImageHighlightShadowFilter.m in Sources */,
 				386BBDD722DDA7FF005E6054 /* GPUImageSingleComponentGaussianBlurFilter.m in Sources */,
@@ -7094,6 +7142,7 @@
 				387F18F4233C674100C25F63 /* DHRadianLayerView.m in Sources */,
 				38C84A06227827F200BCAD87 /* EditNoteViewController.m in Sources */,
 				383F16E123169D2C005F085F /* indicatorCrView.m in Sources */,
+				383DC22D23E4326B00B362EF /* DHRefreshViewController.m in Sources */,
 				382FFA52231CBD710062080E /* anitimalViewController.m in Sources */,
 				38C84975227827F100BCAD87 /* THomeCollectionViewCell.m in Sources */,
 				386BBD9822DDA7FE005E6054 /* GPUImage3x3TextureSamplingFilter.m in Sources */,
@@ -7264,6 +7313,7 @@
 				386BBDDD22DDA7FF005E6054 /* GPUImageBulgeDistortionFilter.m in Sources */,
 				38C84913227827F100BCAD87 /* NSMutableArray+Util.m in Sources */,
 				386BBD8222DDA7FE005E6054 /* GPUImageHistogramGenerator.m in Sources */,
+				3817212123EE8EBA00F8A9A0 /* DrawBezierPathView.m in Sources */,
 				386BBD9D22DDA7FF005E6054 /* GLProgram.m in Sources */,
 				386BBBE022DD7D2A005E6054 /* JRSwizzle.m in Sources */,
 				386BBDAB22DDA7FF005E6054 /* GPUImageRGBFilter.m in Sources */,
@@ -7370,6 +7420,7 @@
 		38A99B48229BD1C000D52230 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = CollegeProExtension/CollegeProExtensionDebug.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 74W795UZRB;
@@ -7395,7 +7446,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZV477U5U2X;
+				DEVELOPMENT_TEAM = 74W795UZRB;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				INFOPLIST_FILE = CollegeProExtension/Info.plist;
@@ -7405,7 +7456,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dhTool.CollegePro.CollegeProExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dhTool.selfpro.CollegeProExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -7641,10 +7692,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_ENTITLEMENTS = CollegePro/CollegePro.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 74W795UZRB;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

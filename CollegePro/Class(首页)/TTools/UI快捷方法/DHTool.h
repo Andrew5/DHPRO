@@ -22,6 +22,10 @@
 /*获取网络流量信息*/
 + (NSString *)getByteRate;
 + (long long) getInterfaceBytes;
+//获取WiFi 信息，返回的字典中包含了WiFi的名称、路由器的Mac地址、还有一个Data(转换成字符串打印出来是wifi名称)
++(NSDictionary *)fetchSSIDInfo;
+//网速测试
++(NSMutableDictionary *)getDataCounters;
 //获得行高
 + (CGFloat)contentSizeWithText:(NSString *)text;
 /*!

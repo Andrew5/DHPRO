@@ -18,7 +18,7 @@
 
 @property (nonatomic, strong) UITableView *tableView;
 @property(nonatomic,strong) UILabel *textLabel;
-
+@property(nonatomic,strong) UILabel *labelNet;
 @property(nonatomic,strong) UILabel *labelTitleName;
 @property(nonatomic,strong) UILabel *labelUsedMemory;
 
@@ -52,8 +52,9 @@
     //设置extension的size
 //    self.preferredContentSize = CGSizeMake(0, 80);
     [self.view addSubview:self.tableView];
-    [self.view addSubview:self.labelUsedMemory];
     [self.view addSubview:self.labelTitleName];
+    [self.view addSubview:self.labelUsedMemory];
+    [self.view addSubview:self.labelNet];
 
     _labelUsedMemory.text = [NSString stringWithFormat:@"设备的已使用容量:%.1f, 当前任务所占用的内存:%.2fMB,可用内存:%f",[self getTotalDiskSpace],[self availableMemory],[self usedMemory]];
     _labelUsedMemory.frame  = CGRectMake(10, 20, 25*15, 40);
@@ -89,13 +90,10 @@
     }
 //    [self.tableView reloadData];
     
-    
-//    NSUserDefaults *userDefault = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.dhtest.CollegePro.CollegeProExtension"];
-//    [userDefault setObject:@"tips" forKey:@"com.dhtest.CollegePro.CollegeProExtension.tips"];
-//
-//    NSUserDefaults *userDefault = [[NSUserDefaults alloc] initWithSuiteName:@"group.DonYau.today"];
-//    NSString *textStr = [userDefault valueForKey:@"com.dhtest.CollegePro.CollegeProExtension.tips"];
-//    _textLabel.text = textStr;
+    NSUserDefaults *userDefault = [[NSUserDefaults standardUserDefaults] initWithSuiteName:@"group.com.dhTool.selfpro.CollegeProExtension"];
+    NSString *t = [userDefault valueForKey:@"network"];
+    self.labelNet.frame  = CGRectMake(10, 60, 15*15, 40);
+    self.labelNet.text = [NSString stringWithFormat:@"当前网速是：%@",t];
 }
 #pragma mark- lazy
 -(NSMutableArray *)dataArray{
@@ -169,7 +167,7 @@
     // If there's an update, use NCUpdateResultNewData
     
     // 取出数据
-    NSString * myData = [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.dhtest.CollegePro.CollegeProExtension"] valueForKey:@"myShareData"];
+    NSString * myData = [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.dhTool.selfpro.CollegeProExtension"] valueForKey:@"myShareData"];
     NSLog(@"草泥马的数据呢？ %@",myData);
     [self.tableView reloadData];
     completionHandler(NCUpdateResultNewData);
@@ -362,6 +360,15 @@
 //        [_labelUsedMemory sizeToFit];
     }
     return _labelUsedMemory;
+}
+- (UILabel *)labelNet {
+    if (!_labelNet) {
+        _labelNet = [[UILabel alloc]init];
+        _labelNet.layer.borderColor = [UIColor greenColor].CGColor;
+        _labelNet.layer.borderWidth = 1.0;
+        _labelNet.numberOfLines = 2;
+    }
+    return _labelNet;
 }
 
 @end
