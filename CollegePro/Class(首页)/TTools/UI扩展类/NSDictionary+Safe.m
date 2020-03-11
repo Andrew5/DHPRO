@@ -23,4 +23,11 @@
         [self setObjectObject:value forKey:defaultName];
     }
 }
+
+- (NSString *)dictToJson{
+    
+    NSData *dictData = [NSJSONSerialization dataWithJSONObject:self options:NSJSONWritingPrettyPrinted error:nil];
+    
+    return [[NSString alloc]initWithData:dictData encoding:NSUTF8StringEncoding];
+}
 @end

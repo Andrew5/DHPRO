@@ -70,7 +70,8 @@
     /*! 第二种：卡片式动画 */
     static CGFloat initialDelay = 0.2f;
     static CGFloat stutter = 0.06f;
-    
+    //usingSpringWithDamping的范围为0.0f到1.0f，数值越小「弹簧」的振动效果越明显。
+    //initialSpringVelocity则表示初始的速度，数值越大一开始移动越快。
     cell.contentView.transform =  CGAffineTransformMakeTranslation(BA_SCREEN_WIDTH, 0);
     [UIView animateWithDuration:1.0f delay:initialDelay + ((indexPath.row) * stutter) usingSpringWithDamping:0.6 initialSpringVelocity:1 options:0.5 animations:^{
         cell.contentView.transform = CGAffineTransformIdentity;

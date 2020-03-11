@@ -57,11 +57,6 @@ static const NSString *KEY_HIT_TEST_EDGE_INSETS = @"HitTestEdgeInsets";
 }
 
 
-
-
-
-
-
 -(void)setHitTestEdgeInsets:(UIEdgeInsets)hitTestEdgeInsets {
     NSValue *value = [NSValue value:&hitTestEdgeInsets withObjCType:@encode(UIEdgeInsets)];
     objc_setAssociatedObject(self, &KEY_HIT_TEST_EDGE_INSETS, value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -86,8 +81,6 @@ static const NSString *KEY_HIT_TEST_EDGE_INSETS = @"HitTestEdgeInsets";
     
     return CGRectContainsPoint(hitFrame, point);
 }
-
-
 
 - (void)setEnlargeEdge:(CGFloat)size {
     objc_setAssociatedObject(self, &topNameKey, [NSNumber numberWithFloat:size], OBJC_ASSOCIATION_COPY_NONATOMIC);

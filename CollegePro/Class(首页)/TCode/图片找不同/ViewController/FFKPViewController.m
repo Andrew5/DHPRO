@@ -18,7 +18,7 @@
     double progressValue;
     double gameTime;
 }
-@property (nonatomic, weak) NSTimer* timer;
+@property (nonatomic, strong) NSTimer* timer;
 - (void) pictureLayout;
 - (void) pictureRemoveAll;
 - (void) flipBack:(UIImageView *) imgView;

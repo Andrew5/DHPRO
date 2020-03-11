@@ -24,7 +24,6 @@
 
 @property (nonatomic, unsafe_unretained) UIBackgroundTaskIdentifier backgroundTaskIdentifier;
 
-
 @property (strong, nonatomic) UIWindow *window;
 
 #if kUseScreenShotGesture

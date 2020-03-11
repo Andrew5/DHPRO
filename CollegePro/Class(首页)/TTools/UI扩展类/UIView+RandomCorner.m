@@ -32,5 +32,12 @@
     self.layer.mask = maskLayer;
     
 }
-
+//webGL页面的截屏.具体是通过canvas getImageData()方法取得图片数据后返回base64格式的数据，客户端在需要截图的时候，调用这个JS接口获取base64字符串并转换成UIImage
+- (UIImage*)imageSnapshot {
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size,YES,self.contentScaleFactor);
+    [self drawViewHierarchyInRect:self.bounds afterScreenUpdates:YES];
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
 @end

@@ -17,6 +17,9 @@
 #import <objc/message.h>
 #import <CommonCrypto/CommonCrypto.h>
 
+#import "WeakProxy.h"
+#import "TempTarget.h"
+
 #pragma pack(2)//1 代表不进行内存对齐
 struct StructOne {
     char a;         //1字节
@@ -58,6 +61,12 @@ struct StructTwo {
 @property (nonatomic, strong)KYUser *user;
 
 @property(nonatomic,strong)Persion* p;
+
+//解除timer循环引用
+//@property (nonatomic, weak) NSTimer *timer;
+//GCD解除timer循环引用
+@property (nonatomic, strong) dispatch_source_t timer;
+
 @end
 
 @implementation LabelMethodBlockSubVC
@@ -228,17 +237,44 @@ struct StructTwo {
 	UIButton *pushNillButton = [UIButton buttonWithType:UIButtonTypeCustom];
 	[pushNillButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
 	[pushNillButton setFrame:CGRectMake(10.0 ,80.0 ,120.0 ,20.0)];
-	pushNillButton.backgroundColor = [UIColor colorWithRed:1.00 green:1.00 blue:1.00 alpha:0.00];       //背景颜
+	pushNillButton.backgroundColor = [UIColor colorWithRed:1.00 green:1.00 blue:1.00 alpha:0.00]; //背景颜
 	[pushNillButton setTitle:@"回去" forState:(UIControlStateNormal)];
 	[pushNillButton addTarget:self action:@selector(backBlockNilMetnod) forControlEvents:(UIControlEventTouchUpInside)];
 //    [self.view addSubview:pushNillButton];
     //函数式编程、链式编程优缺点
     //Block的底层实现原理
     [self baseBlock];
-    
+    //NSTimer循环引用解决方案
+    [self getquoteof];
 
 }
-
+///TODO:NSTimer
+- (void)getquoteof{
+    //    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:[WeakProxy proxyWithTarget:self] selector:@selector(timerStart:) userInfo:nil repeats:YES];
+    //    self.timer = [TempTarget scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerStart:) userInfo:nil repeats:YES];
+    //GCD解除
+    __weak typeof(self) ws = self;
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    self.timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
+    dispatch_source_set_timer(_timer, dispatch_time(DISPATCH_TIME_NOW, 0), 0.1*NSEC_PER_SEC, 0);
+    dispatch_source_set_event_handler(_timer, ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"timer执行了");
+            //结束计时
+            dispatch_source_cancel(ws.timer);
+        });
+    });
+    //开启计时器
+    dispatch_resume(_timer);
+    
+    //分类实现timer循环引用
+    //    self.timer = [NSTimer mxScheduledTimerWithTimeInterval:0.5 repeats:YES block:^(NSTimer *timer) {
+    //        NSLog(@"执行了");
+    //    }];
+}
+- (void)timerStart:(NSTimer *)ti{
+    
+}
 - (void)baseBlock{
     numC = 100;
 //    [self testDataA];
@@ -1189,7 +1225,6 @@ static UILabel *myLabel;
     
     //链式调用
     self.travel(@"重庆").travel(@"北京");
-    
     
     int (^myBlock)(void);
     int x;

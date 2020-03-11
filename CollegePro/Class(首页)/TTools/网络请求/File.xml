@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <soap:Body>
+    <LoginResponse xmlns="http://tempuri.org/">
+    <LoginResult>
+    {"Success":"1","CurUserGuid":"e3d14419-77ac-4756-8e79-bf45d06fd2b7","Isleader":"1","Name":"局机关管理员","CompName":"局机
+    关","CompID":"1","DeptName":"","DutyName":""}
+    </LoginResult>
+    </LoginResponse>
+    <GetCLYYInfoList xmlns="http://tempuri.org/">
+        <Guid>c9c72404-da88-4623-b724-ca1d7359a101</Guid>
+        <appCode>102</appCode>
+        <appSign>2D2097539F72EDF27A8AD78E20017955</appSign>
+    </GetCLYYInfoList>
+    </soap:Body>
+</soap:Envelope>
+

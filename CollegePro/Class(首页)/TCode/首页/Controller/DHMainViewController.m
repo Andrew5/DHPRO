@@ -180,6 +180,9 @@
     uint64_t end = mach_absolute_time();
     uint64_t cost = (end - start) * timebase.numer / timebase.denom;
     NSLog(@"二方法耗时: %f ms",(CGFloat)cost / NSEC_PER_SEC * 1000.0);
+    
+    NSLog(@"ceshi 内存 %@-%f-%f",[DHTool freeDiskSpace],[DHTool freeMemory],[DHTool appUsedMemory]);
+//648953856-280.953125-176.453125
 }
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];

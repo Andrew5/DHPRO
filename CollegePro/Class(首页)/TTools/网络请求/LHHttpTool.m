@@ -1,6 +1,7 @@
 #import "LHHttpTool.h"
 #import "LHMD5.h"
 #import <objc/runtime.h>
+#import "NSDictionary+Safe.h"
 
 @implementation LHCache
 
@@ -324,5 +325,114 @@ static char *NSErrorStatusCodeKey = "NSErrorStatusCodeKey";
         }
     }];
 }
+#pragma mark - Public
 
+/**  soap拼接*/
++ (nullable NSMutableString *)soapInvokeWithParams:(NSMutableArray *)params method:(NSString *)method{
+    NSMutableString * post = [[ NSMutableString alloc ] init] ;
+    [ post appendString:
+     @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+     "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\""
+     " xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\""
+     " xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n"
+     "<soap:Body>\n" ];
+    [ post appendString:@"<"];
+    [ post appendString:method];
+    [ post appendString:[NSString stringWithFormat:@" xmlns=\"http://tempuri.org/\">\n"]]; //根据需求自行更换
+    
+    for (NSDictionary *dict in params)
+    {
+        NSString *value = nil;
+        
+        NSString *key = [[dict keyEnumerator] nextObject];
+        
+        if (key != nil)
+        {
+            value = [dict valueForKey:key];
+            
+            [ post appendString:@"<"];
+            [ post appendString:key];
+            [ post appendString:@">"];
+            if( value != nil )
+            {
+                [ post appendString:value];
+            }
+            else
+            {
+                [ post appendString:@""];
+            }
+            
+            [ post appendString:@"</"];
+            [ post appendString:key];
+            [ post appendString:@">\n"];
+        }
+    }
+    
+    [ post appendString:@"</"];
+    [ post appendString:method];
+    [ post appendString:@">\n"];
+    
+    [ post appendString:
+     @"</soap:Body>\n"
+     "</soap:Envelope>\n"
+     ];
+    return post;
+}
+
+
++ (void)soapBody:(NSMutableArray *)soapBody
+          method:(NSString *)method
+         success:(void (^)(id responseObject, id jsonStr))success
+         failure:(void(^)(NSError *error))failure {
+             
+    NSString *soapUrl =  @"http://172.16.11.45:8204/Service/OAMobileService.asmx";
+    NSDictionary *appsign = @{@"appSign": @"appSign"};
+    NSDictionary *appcode = @{@"appCode": @"appCode"};
+    [soapBody addObject:appcode];
+    [soapBody addObject:appsign];
+    NSString *soapStr = [LHHttpTool soapInvokeWithParams:soapBody method:method];
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    // 设置请求超时时间
+    manager.requestSerializer.timeoutInterval = 30;
+    
+    // 返回NSData
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    // 设置请求头，也可以不设置
+    [manager.requestSerializer setValue:@"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    [manager.requestSerializer setValue:[NSString stringWithFormat:@"%zd", soapStr.length] forHTTPHeaderField:@"Content-Length"];
+    
+    // 设置HTTPBody
+    [manager.requestSerializer setQueryStringSerializationWithBlock:^NSString *(NSURLRequest *request, NSDictionary *parameters, NSError *__autoreleasing *error) {
+        return soapStr;
+    }];
+    
+ 
+    [manager POST:soapUrl parameters:soapStr success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        // 把返回的二进制数据转为字符串
+        NSString *result = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        
+        // 利用正则表达式取出<return></return>之间的字符串
+        NSString *pattern = [NSString stringWithFormat:@"(?<=%@Result\\>).*(?=</%@Result)",method,method];
+        NSRegularExpression *regular = [[NSRegularExpression alloc] initWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:nil];
+        
+        NSDictionary *dict = [NSDictionary dictionary];
+        for (NSTextCheckingResult *checkingResult in [regular matchesInString:result options:0 range:NSMakeRange(0, result.length)]) {
+            
+            // 得到字典
+            dict = [NSJSONSerialization JSONObjectWithData:[[result substringWithRange:checkingResult.range] dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableLeaves error:nil];
+        }
+
+        // 请求成功并且结果有值把结果传出去, 传Json出去的原因主要是因为个人习惯了用网页查看json, 不然觉得麻烦
+        if (success && dict) {
+            success(dict, [dict dictToJson]);
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (failure) {
+            failure(error);
+        }
+    }];
+}
 @end

@@ -10,7 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSDictionary (Safe)
-
+- (NSString *)dictToJson;
 @end
 
 NS_ASSUME_NONNULL_END

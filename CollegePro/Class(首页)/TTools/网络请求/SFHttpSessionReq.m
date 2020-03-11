@@ -10,15 +10,34 @@
 
 @implementation SFHttpSessionReq
 static SFHttpSessionReq *HttpSessionReq = nil;
-
+static dispatch_once_t onceToken;//成为全局的
 + (instancetype) shareInstance
 {
-    static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         HttpSessionReq = [[SFHttpSessionReq alloc] init];
     });
     return HttpSessionReq;
 }
+//重写allocWithZone,里面实现跟方法一,方法二一致就行.
++(id)allocWithZone:(struct _NSZone *)zone{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        if(HttpSessionReq == nil)
+            HttpSessionReq = [[SFHttpSessionReq alloc] init];
+    });
+    return HttpSessionReq;
+}
+//保证copy时相同
+-(id)copyWithZone:(NSZone *)zone{
+    return HttpSessionReq;
+}
+//单例释放
++(void)attempDealloc{
+    onceToken = 0; // 只有置成0,GCD才会认为它从未执行过.它默认为0.这样才能保证下次再次调用shareInstance的时候,再次创建对象.
+//    [HttpSessionReq release];
+    HttpSessionReq = nil;
+}
+
 - (void)POSTRequestWithUrl:(NSString *)url parameters:(NSDictionary *)parameters resHander:(ResponseHander) hander resError:(ResErrHander) errHander{
 //    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
 //    configuration.timeoutIntervalForRequest = 10;

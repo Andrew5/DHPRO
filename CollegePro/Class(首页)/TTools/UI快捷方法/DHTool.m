@@ -17,6 +17,7 @@
 #include <sys/socket.h>
 #import <dlfcn.h>
 #import <netinet/in.h>
+#import <mach/mach.h>
 
 @implementation DHTool
 
@@ -303,6 +304,45 @@
     }
 }
 
++ (NSNumber *) freeDiskSpace
+{
+    NSDictionary *fattributes = [[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:nil];
+    return [fattributes objectForKey:NSFileSystemFreeSize];
+}
+
++ (double)freeMemory
+{
+    vm_statistics_data_t vmStats;
+    mach_msg_type_number_t infoCount = HOST_VM_INFO_COUNT;
+    vm_size_t pageSize;
+    mach_port_t selfhost = mach_host_self();
+    host_page_size(selfhost, &pageSize);
+    kern_return_t kernReturn = host_statistics(selfhost,
+                                               HOST_VM_INFO,
+                                               (host_info_t)&vmStats,
+                                               &infoCount);
+    mach_port_deallocate(mach_task_self(), selfhost);
+    if (kernReturn != KERN_SUCCESS) {
+        return NSNotFound;
+    }
+    return ((vm_page_size *vmStats.free_count) / 1024.0) / 1024.0;
+}
+
++ (double)appUsedMemory
+{
+    mach_task_basic_info_data_t taskInfo;
+    unsigned infoCount = sizeof(taskInfo);
+    kern_return_t kernReturn = task_info(mach_task_self(),
+                                         MACH_TASK_BASIC_INFO,
+                                         (task_info_t)&taskInfo,
+                                         &infoCount);
+    
+    if (kernReturn != KERN_SUCCESS
+        ) {
+        return NSNotFound;
+    }
+    return taskInfo.resident_size / 1024.0 / 1024.0;
+}
 ///TODO: 获取网络流量信息
 + (NSString *)getByteRate {
     long long int currentBytes = [DHTool getInterfaceBytes];
