@@ -18,8 +18,9 @@
 	int count1,count2,count3,count4,count5,coun6,count7,count8;//为创建Timer计时器
 	NSTimer *timer1,*timer2,*timer3,*timer4,*timer5,*timer6,*timer7,*timer8;
 	
-	
 	NSString *_someString;
+    //GCD取消
+    BOOL gcdIsStope;
 }
 @property (nonatomic,assign)dispatch_queue_t queue ;
 @property (nonatomic,copy)NSString *someString;
@@ -50,6 +51,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    //GCD停止正在执行的任务
+    gcdIsStope = NO;
 //    [self getdata];
 //    [self timer];
 //    _queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
@@ -654,11 +657,18 @@ static  BOOL y;
 	 DISPATCH_QUEUE_PRIORITY_BACKGROUND:   QOS_CLASS_BACKGROUND
 	 
 	 为了对IOS7或8都使用，所以写0即可
+     设置一个停止的标记，当我们需要停止已经执行的任务时，可以根据标记直接return
 	 */
+    
+    
 	dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
 	// 异步执行任务
 	for (int i=0 ; i<10 ; i++) {
 		dispatch_async(queue, ^{
+            if (gcdIsStope) {
+                return ;
+            }
+            sleep(1);
 			NSLog(@"%@  %d", [NSThread currentThread], i);
 		});
 	}
