@@ -31,6 +31,7 @@
 		382B6F7523347CC100CD2497 /* DBSphereViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 382B6F7423347CC100CD2497 /* DBSphereViewController.m */; };
 		382B6F7B23347D0200CD2497 /* DBSphereView.m in Sources */ = {isa = PBXBuildFile; fileRef = 382B6F7A23347D0200CD2497 /* DBSphereView.m */; };
 		382B6F832334BFE900CD2497 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 382B6F822334BFE900CD2497 /* HealthKit.framework */; };
+		382BB5602428A928000A9CB7 /* CancelableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 382BB55F2428A928000A9CB7 /* CancelableObject.m */; };
 		382FFA39231CAEE30062080E /* YoungSphere.m in Sources */ = {isa = PBXBuildFile; fileRef = 382FFA37231CAEE30062080E /* YoungSphere.m */; };
 		382FFA3E231CAF2E0062080E /* ChildGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 382FFA3B231CAF2D0062080E /* ChildGestureRecognizer.m */; };
 		382FFA3F231CAF2E0062080E /* ChildLongPress.m in Sources */ = {isa = PBXBuildFile; fileRef = 382FFA3D231CAF2E0062080E /* ChildLongPress.m */; };
@@ -1003,6 +1004,8 @@
 		382B6F7923347D0200CD2497 /* DBMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBMatrix.h; sourceTree = "<group>"; };
 		382B6F7A23347D0200CD2497 /* DBSphereView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSphereView.m; sourceTree = "<group>"; };
 		382B6F822334BFE900CD2497 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		382BB55E2428A928000A9CB7 /* CancelableObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CancelableObject.h; sourceTree = "<group>"; };
+		382BB55F2428A928000A9CB7 /* CancelableObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CancelableObject.m; sourceTree = "<group>"; };
 		382FFA35231CAEDD0062080E /* YoungMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YoungMatrix.h; sourceTree = "<group>"; };
 		382FFA36231CAEDD0062080E /* YoungPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YoungPoint.h; sourceTree = "<group>"; };
 		382FFA37231CAEE30062080E /* YoungSphere.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YoungSphere.m; sourceTree = "<group>"; };
@@ -2865,6 +2868,8 @@
 				3886DD3E24162236004CCA21 /* WeakProxy.m */,
 				3886DD4024162314004CCA21 /* TempTarget.h */,
 				3886DD4124162314004CCA21 /* TempTarget.m */,
+				382BB55E2428A928000A9CB7 /* CancelableObject.h */,
+				382BB55F2428A928000A9CB7 /* CancelableObject.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -7050,6 +7055,7 @@
 				38C8498E227827F100BCAD87 /* HXTagCollectionViewFlowLayout.m in Sources */,
 				38C849C7227827F200BCAD87 /* ZLShowBigImage.m in Sources */,
 				386BBD9722DDA7FE005E6054 /* GPUImageTextureInput.m in Sources */,
+				382BB5602428A928000A9CB7 /* CancelableObject.m in Sources */,
 				386BC05C22DDABA7005E6054 /* DGActivityIndicatorTwoDotsAnimation.m in Sources */,
 				386BBC5322DD9C18005E6054 /* UIImage+Resize.m in Sources */,
 				38C848F0227827F100BCAD87 /* pinyin.c in Sources */,

@@ -19,7 +19,7 @@
 
 #import "WeakProxy.h"
 #import "TempTarget.h"
-
+#import "CancelableObject.h"
 #pragma pack(2)//1 代表不进行内存对齐
 struct StructOne {
     char a;         //1字节
@@ -246,6 +246,12 @@ struct StructTwo {
     [self baseBlock];
     //NSTimer循环引用解决方案
     [self getquoteof];
+    
+    void (^ MtTestBlock)(int,int)=^(int a,int b){
+        int v= a+b;
+        NSLog(@"%d",v);
+    };
+    MtTestBlock(10,20);
 
 }
 ///TODO:NSTimer
@@ -1182,7 +1188,6 @@ static UILabel *myLabel;
         // 判断值是否是数组
 //        if ([value isKindOfClass:[NSArray class]]) {
         // 判断对应类有没有实现字典数组转模型数组的协议, 协议名称自己可以随便定义, 返回的字典里key对应的类的名称字符串
-        　　　　　　
         // arrayContainModelClass 提供一个协议，只要遵守这个协议的类，都能把数组中的字典转模型
 //        　　　　　　if ([self respondsToSelector:@selector(arrayContainModelClass)]) {
 //            　　　　　　　　// 转换成id类型，就能调用任何对象的方法
