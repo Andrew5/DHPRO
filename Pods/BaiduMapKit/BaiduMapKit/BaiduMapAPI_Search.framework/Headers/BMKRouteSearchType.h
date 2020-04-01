@@ -292,6 +292,14 @@ typedef enum {
 @property (nonatomic, assign) BOOL hasTrafficsInfo;
 /// 路段的路况信息，成员为NSNumber。0：无数据；1：畅通；2：缓慢；3：拥堵
 @property (nonatomic, copy) NSArray <NSNumber *> *traffics;
+/**
+ 道路类型(Since 5.1.0)
+ 枚举值：返回0-9之间的值
+ 0：高速路  1：城市高速路  2:   国道  3：省道   4：县道    5：乡镇村道
+ 6：其他道路  7：九级路  8：航线(轮渡)  9：行人道路
+ */
+@property (nonatomic, assign) int roadLevel;
+
 @end
 
 
@@ -404,6 +412,9 @@ typedef enum {
 @property (nonatomic, assign) NSInteger congestionMetres;
 /// 路线预估打车费(元)，负数表示无打车费信息
 @property (nonatomic, assign) NSInteger taxiFares;
+/// since 5.2.0  此路线道路收费，单位：元(此高速费为预估价格，与实际高速收费并不完全一致)
+@property (nonatomic, assign) NSInteger toll;
+
 @end
 
 /// 此类表示一条步行路线

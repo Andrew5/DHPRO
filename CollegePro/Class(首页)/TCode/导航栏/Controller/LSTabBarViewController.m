@@ -11,12 +11,16 @@
 #import "ReleaseViewController.h"
 #import "DetailsDrawViewController.h"
 #import "YSYPreviewViewController.h"
+#import "TkTabBar.h"
+#import "UIImage+Extend.h"
+
 @interface LSTabBarViewController ()
+@property (nonatomic,strong)TkTabBar *tabBar;
 
 @end
 
 @implementation LSTabBarViewController
-
+@dynamic tabBar;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -26,13 +30,24 @@
 - (void)setTabBar
 {
 	
+//    TkTabBar *tabBar = [[TkTabBar alloc]initWithFrame:self.tabBar.frame];
+//    [self setValue:tabBar forKeyPath:@"tabBar"];
+    
+    self.tabBar.backgroundImage = [UIImage new];
+    self.tabBar.shadowImage = [UIImage new];
+
+    if(@available(iOS 13.0, *)){
+        UITabBarAppearance* tabbarAppearance =self.tabBar.standardAppearance; tabbarAppearance.backgroundImage = [UIImage imageWithColor:[UIColor clearColor] size:(CGSizeZero)];
+        tabbarAppearance.shadowImage = [UIImage imageWithColor:[UIColor clearColor] size:(CGSizeZero)];
+        self.tabBar.standardAppearance = tabbarAppearance;
+    }
+    
     AutoLayoutViewController *InforVC = [[AutoLayoutViewController alloc] init];
-    InforVC.title = @"aadh";
     [self setupChildViewController:InforVC title:@"消息" imageName:@"TabbarBundle.bundle/tabbar_mainframe" selectedImageName:@"TabbarBundle.bundle/tabbar_mainframeHL"];
 	
     ReleaseViewController *BrandVC = [[ReleaseViewController alloc] init];
     [self setupChildViewController:BrandVC title:@"品牌" imageName:@"soul3" selectedImageName:@"soul33"];
-    
+
 //    UIStoryboard *work = [UIStoryboard storyboardWithName:@"WorkRoot" bundle:nil];
 //    WorkRootViewController *workVC = [work instantiateViewControllerWithIdentifier:@"WorkRootViewController"];
     DetailsDrawViewController *details = [[DetailsDrawViewController alloc] init];
@@ -44,7 +59,6 @@
 	PostTableViewController*PostVC = [[PostTableViewController alloc] init];
 	[self setupChildViewController:PostVC title:@"设置" imageName:@"SettingN" selectedImageName:@"SettingS"];
     
-   
 }
 - (void)setupChildViewController:(UIViewController *)childVC title:(NSString *)title imageName:(NSString *)imageName selectedImageName:(NSString *)selectedImageName
 {

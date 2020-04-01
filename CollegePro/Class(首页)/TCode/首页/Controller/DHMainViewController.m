@@ -23,7 +23,7 @@
 #import <AVFoundation/AVFoundation.h>//音视频
 #import "ViewController.h"//主页
 #import "THomeCollectionViewCell.h"//主页列表样式
-#import "GKHScanQCodeViewController.h"//二维码
+//#import "GKHScanQCodeViewController.h"//二维码
 //功能展示
 //#import "T3DTouchViewController.h"//3DTouch
 //#import "ContentOffSetVC.h"//滑动
@@ -101,7 +101,7 @@
 //#import "AliRTCViewController.h"
 
 
-@interface DHMainViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,QRScanViewDelegate,UIAccelerometerDelegate,AVAudioPlayerDelegate,MKMapViewDelegate,CLLocationManagerDelegate>{
+@interface DHMainViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIAccelerometerDelegate,AVAudioPlayerDelegate,MKMapViewDelegate,CLLocationManagerDelegate>{
     NSMutableArray *valueArr;
     
     UICollectionView *_collectionView;
@@ -602,9 +602,9 @@
     _annotation.coordinate = coords;
     [_mapView addAnnotation:_annotation];
 }
-- (void)GKHScanQCodeViewController:(GKHScanQCodeViewController *)lhScanQCodeViewController readerScanResult:(NSString *)result {
-    NSLog(@"GKHScanQCodeViewController---%@",result);
-}
+//- (void)GKHScanQCodeViewController:(GKHScanQCodeViewController *)lhScanQCodeViewController readerScanResult:(NSString *)result {
+//    NSLog(@"GKHScanQCodeViewController---%@",result);
+//}
 - (void)updateFocusIfNeeded {
     
 }

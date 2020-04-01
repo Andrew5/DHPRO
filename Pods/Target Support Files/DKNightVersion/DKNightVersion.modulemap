@@ -1,0 +1,6 @@
+framework module DKNightVersion {
+  umbrella header "DKNightVersion-umbrella.h"
+
+  export *
+  module * { export * }
+}

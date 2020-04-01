@@ -111,6 +111,8 @@ extern CFAbsoluteTime StartTime;
     [self touch3D];
     /*! 写入数据  */
     [self writeFile];
+    self.name = @"kaishi";
+    NSLog(@"self.name %@",self.name);
 #pragma mark -极光推送⬇️
     //Required
     //notice: 3.0.0 及以后版本注册可以这样写，也可以继续用之前的注册方式

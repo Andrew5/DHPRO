@@ -23,6 +23,7 @@
 
 #import "IQUIView+Hierarchy.h"
 #import "IQUITextFieldView+Additions.h"
+#import "IQUIViewController+Additions.h"
 
 #import <UIKit/UICollectionView.h>
 #import <UIKit/UIAlertController.h>
@@ -248,10 +249,9 @@
         {
             [textFields addObject:textField];
         }
-        
         //Sometimes there are hidden or disabled views and textField inside them still recorded, so we added some more validations here (Bug ID: #458)
         //Uncommented else (Bug ID: #625)
-        if (textField.subviews.count && [textField isUserInteractionEnabled] && ![textField isHidden] && [textField alpha]!=0.0)
+        else if (textField.subviews.count && [textField isUserInteractionEnabled] && ![textField isHidden] && [textField alpha]!=0.0)
         {
             [textFields addObjectsFromArray:[textField deepResponderViews]];
         }
@@ -425,15 +425,6 @@
     }
     
     return isAlertViewTextField;
-}
-
-@end
-
-@implementation UIViewController (IQ_UIView_Hierarchy)
-
--(nullable UIViewController*)parentIQContainerViewController
-{
-    return self;
 }
 
 @end

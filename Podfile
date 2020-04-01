@@ -32,6 +32,8 @@ target "CollegePro" do
   pod 'WKVCDeallocMonitor'##内寸检测
   pod 'MLeaksFinder'
   pod 'AvoidCrash'
+  
+  pod "DKNightVersion"##暗黑模式
 #pod 'FDFullscreenPopGesture'
 #pod 'WechatOpenSDK'
 #pod 'FBRetainCycleDetector'

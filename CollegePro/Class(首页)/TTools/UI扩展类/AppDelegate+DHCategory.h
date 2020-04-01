@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 
 @interface AppDelegate (DHCategory)
+@property (nonatomic, copy) NSString *name;
 
 + (AppDelegate* )shareAppDelegate;
 /*! 版本  */

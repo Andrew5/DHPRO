@@ -32,6 +32,9 @@
 		382B6F7B23347D0200CD2497 /* DBSphereView.m in Sources */ = {isa = PBXBuildFile; fileRef = 382B6F7A23347D0200CD2497 /* DBSphereView.m */; };
 		382B6F832334BFE900CD2497 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 382B6F822334BFE900CD2497 /* HealthKit.framework */; };
 		382BB5602428A928000A9CB7 /* CancelableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 382BB55F2428A928000A9CB7 /* CancelableObject.m */; };
+		382BB5642434C3DC000A9CB7 /* TkTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 382BB5632434C3DC000A9CB7 /* TkTabBar.m */; };
+		382BB5682434E3E8000A9CB7 /* TableViewAnimationA.m in Sources */ = {isa = PBXBuildFile; fileRef = 382BB5672434E3E8000A9CB7 /* TableViewAnimationA.m */; };
+		382BB56C2434E5AA000A9CB7 /* UITableView+DHAnimationA.m in Sources */ = {isa = PBXBuildFile; fileRef = 382BB56B2434E5AA000A9CB7 /* UITableView+DHAnimationA.m */; };
 		382FFA39231CAEE30062080E /* YoungSphere.m in Sources */ = {isa = PBXBuildFile; fileRef = 382FFA37231CAEE30062080E /* YoungSphere.m */; };
 		382FFA3E231CAF2E0062080E /* ChildGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 382FFA3B231CAF2D0062080E /* ChildGestureRecognizer.m */; };
 		382FFA3F231CAF2E0062080E /* ChildLongPress.m in Sources */ = {isa = PBXBuildFile; fileRef = 382FFA3D231CAF2E0062080E /* ChildLongPress.m */; };
@@ -1006,6 +1009,13 @@
 		382B6F822334BFE900CD2497 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		382BB55E2428A928000A9CB7 /* CancelableObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CancelableObject.h; sourceTree = "<group>"; };
 		382BB55F2428A928000A9CB7 /* CancelableObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CancelableObject.m; sourceTree = "<group>"; };
+		382BB5622434C3DA000A9CB7 /* TkTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TkTabBar.h; sourceTree = "<group>"; };
+		382BB5632434C3DC000A9CB7 /* TkTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TkTabBar.m; sourceTree = "<group>"; };
+		382BB5662434E3E8000A9CB7 /* TableViewAnimationA.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewAnimationA.h; sourceTree = "<group>"; };
+		382BB5672434E3E8000A9CB7 /* TableViewAnimationA.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewAnimationA.m; sourceTree = "<group>"; };
+		382BB5692434E54A000A9CB7 /* TableViewAnimationKitConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewAnimationKitConfig.h; sourceTree = "<group>"; };
+		382BB56A2434E5AA000A9CB7 /* UITableView+DHAnimationA.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+DHAnimationA.h"; sourceTree = "<group>"; };
+		382BB56B2434E5AA000A9CB7 /* UITableView+DHAnimationA.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+DHAnimationA.m"; sourceTree = "<group>"; };
 		382FFA35231CAEDD0062080E /* YoungMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YoungMatrix.h; sourceTree = "<group>"; };
 		382FFA36231CAEDD0062080E /* YoungPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YoungPoint.h; sourceTree = "<group>"; };
 		382FFA37231CAEE30062080E /* YoungSphere.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YoungSphere.m; sourceTree = "<group>"; };
@@ -2647,6 +2657,18 @@
 				382B6F7A23347D0200CD2497 /* DBSphereView.m */,
 			);
 			path = DBSphereTagCloud;
+			sourceTree = "<group>";
+		};
+		382BB5652434E3BD000A9CB7 /* TableViewAnimationList */ = {
+			isa = PBXGroup;
+			children = (
+				382BB5662434E3E8000A9CB7 /* TableViewAnimationA.h */,
+				382BB5672434E3E8000A9CB7 /* TableViewAnimationA.m */,
+				382BB5692434E54A000A9CB7 /* TableViewAnimationKitConfig.h */,
+				382BB56A2434E5AA000A9CB7 /* UITableView+DHAnimationA.h */,
+				382BB56B2434E5AA000A9CB7 /* UITableView+DHAnimationA.m */,
+			);
+			path = TableViewAnimationList;
 			sourceTree = "<group>";
 		};
 		382FFA31231CAE440062080E /* YoungSphere */ = {
@@ -4684,6 +4706,9 @@
 		38C84677227827EF00BCAD87 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				382BB5652434E3BD000A9CB7 /* TableViewAnimationList */,
+				382BB5622434C3DA000A9CB7 /* TkTabBar.h */,
+				382BB5632434C3DC000A9CB7 /* TkTabBar.m */,
 				38C84678227827EF00BCAD87 /* XHSource */,
 			);
 			path = View;
@@ -4692,16 +4717,16 @@
 		38C84678227827EF00BCAD87 /* XHSource */ = {
 			isa = PBXGroup;
 			children = (
-				38C84679227827EF00BCAD87 /* XHIndicatorView.m */,
-				38C8467A227827EF00BCAD87 /* UIScrollView+XHVisibleCenterScroll.m */,
-				38C8467B227827EF00BCAD87 /* XHMenuButton.h */,
-				38C8467C227827EF00BCAD87 /* XHMenu.m */,
 				38C8467D227827EF00BCAD87 /* Resources */,
-				38C84682227827EF00BCAD87 /* XHScrollMenu.h */,
 				38C84683227827EF00BCAD87 /* UIScrollView+XHVisibleCenterScroll.h */,
+				38C8467A227827EF00BCAD87 /* UIScrollView+XHVisibleCenterScroll.m */,
 				38C84684227827EF00BCAD87 /* XHIndicatorView.h */,
-				38C84685227827EF00BCAD87 /* XHMenuButton.m */,
+				38C84679227827EF00BCAD87 /* XHIndicatorView.m */,
 				38C84686227827EF00BCAD87 /* XHMenu.h */,
+				38C8467C227827EF00BCAD87 /* XHMenu.m */,
+				38C8467B227827EF00BCAD87 /* XHMenuButton.h */,
+				38C84685227827EF00BCAD87 /* XHMenuButton.m */,
+				38C84682227827EF00BCAD87 /* XHScrollMenu.h */,
 				38C84687227827EF00BCAD87 /* XHScrollMenu.m */,
 			);
 			path = XHSource;
@@ -6819,6 +6844,7 @@
 				38C84A05227827F200BCAD87 /* DHNoteJoyViewController.m in Sources */,
 				38C8490D227827F100BCAD87 /* BaseNavigationController.m in Sources */,
 				38C8492A227827F100BCAD87 /* NetWork.m in Sources */,
+				382BB5642434C3DC000A9CB7 /* TkTabBar.m in Sources */,
 				38C849EA227827F200BCAD87 /* JPCarModel.m in Sources */,
 				38C84A20227827F200BCAD87 /* PayViewController.m in Sources */,
 				386BBDE122DDA7FF005E6054 /* GPUImageLightenBlendFilter.m in Sources */,
@@ -6878,6 +6904,7 @@
 				38C84A38227827F200BCAD87 /* CollectionImageView.m in Sources */,
 				38C8492B227827F100BCAD87 /* RSA.m in Sources */,
 				38C84A5F227827F200BCAD87 /* qrspec.c in Sources */,
+				382BB56C2434E5AA000A9CB7 /* UITableView+DHAnimationA.m in Sources */,
 				386BBD7E22DDA7FE005E6054 /* GPUImageHueFilter.m in Sources */,
 				386BBDC622DDA7FF005E6054 /* GPUImageMedianFilter.m in Sources */,
 				38C84A53227827F200BCAD87 /* QRCodeGenerator.m in Sources */,
@@ -7167,6 +7194,7 @@
 				386BBD9822DDA7FE005E6054 /* GPUImage3x3TextureSamplingFilter.m in Sources */,
 				38C84955227827F100BCAD87 /* XHMenuButton.m in Sources */,
 				38C848F3227827F100BCAD87 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
+				382BB5682434E3E8000A9CB7 /* TableViewAnimationA.m in Sources */,
 				38C84A49227827F200BCAD87 /* MLSelectPhotoPickerBrowserPhotoView.m in Sources */,
 				386BBD8D22DDA7FE005E6054 /* GPUImagePolarPixellateFilter.m in Sources */,
 				386BBDAE22DDA7FF005E6054 /* GPUImageGaussianBlurFilter.m in Sources */,

@@ -101,6 +101,10 @@ extern NSInteger const kIQPreviousNextButtonToolbarTag;
  */
 @property(nonatomic, assign, readonly) CGFloat movedDistance;
 
+/**
+ Will be called then movedDistance will be changed.
+ */
+@property(nullable, nonatomic, copy) void (^movedDistanceChanged)(CGFloat movedDistance);
 
 ///-------------------------
 /// @name IQToolbar handling
@@ -153,8 +157,11 @@ extern NSInteger const kIQPreviousNextButtonToolbarTag;
  Toolbar previous/next/done button text, If nothing is provided then system default 'UIBarButtonSystemItemDone' will be used.
  */
 @property(nullable, nonatomic, strong) NSString *toolbarPreviousBarButtonItemText;
+@property(nullable, nonatomic, strong) NSString *toolbarPreviousBarButtonItemAccessibilityLabel;
 @property(nullable, nonatomic, strong) NSString *toolbarNextBarButtonItemText;
+@property(nullable, nonatomic, strong) NSString *toolbarNextBarButtonItemAccessibilityLabel;
 @property(nullable, nonatomic, strong) NSString *toolbarDoneBarButtonItemText;
+@property(nullable, nonatomic, strong) NSString *toolbarDoneBarButtonItemAccessibilityLabel;
 
 /**
  If YES, then it add the textField's placeholder text on IQToolbar. Default is YES.
@@ -300,7 +307,7 @@ extern NSInteger const kIQPreviousNextButtonToolbarTag;
 ///-------------------------------------------
 
 /**
- Add/Remove customised Notification for third party customised TextField/TextView. Please be aware that the NSNotification object must be idential to UITextField/UITextView NSNotification objects and customised TextField/TextView support must be idential to UITextField/UITextView.
+ Add/Remove customised Notification for third party customised TextField/TextView. Please be aware that the NSNotification object must be identical to UITextField/UITextView NSNotification objects and customised TextField/TextView support must be identical to UITextField/UITextView.
  @param didBeginEditingNotificationName This should be identical to UITextViewTextDidBeginEditingNotification
  @param didEndEditingNotificationName This should be identical to UITextViewTextDidEndEditingNotification
  */
@@ -318,7 +325,7 @@ extern NSInteger const kIQPreviousNextButtonToolbarTag;
 @property(nonatomic, assign) BOOL enableDebugging;
 
 /**
- @warning Use these methods to completely enable/disable notifications registered by library internally. Please keep in mind that library is totally dependent on NSNotification of UITextField, UITextField, Keyboard etc. If you do unregisterAllNotifications then library will not work at all. You should only use below methods if you want to completedly disable all library functions. You should use below methods at your own risk.
+ @warning Use these methods to completely enable/disable notifications registered by library internally. Please keep in mind that library is totally dependent on NSNotification of UITextField, UITextField, Keyboard etc. If you do unregisterAllNotifications then library will not work at all. You should only use below methods if you want to completely disable all library functions. You should use below methods at your own risk.
  */
 -(void)registerAllNotifications;
 -(void)unregisterAllNotifications;

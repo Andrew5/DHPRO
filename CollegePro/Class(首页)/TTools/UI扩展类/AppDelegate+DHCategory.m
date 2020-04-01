@@ -8,10 +8,26 @@
 
 #import "AppDelegate+DHCategory.h"
 #import "showView.h"
+#import <objc/runtime.h> /*或者 #import <objc/message.h>*/
+static NSString *nameKey = @"nameKey"; //那么的key
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
 @implementation AppDelegate (DHCategory)
+/**
+ setter方法
+ */
+- (void)setName:(NSString *)name {
+    objc_setAssociatedObject(self, &nameKey, name, OBJC_ASSOCIATION_COPY);
+}
+
+/**
+ getter方法
+ */
+- (NSString *)name {
+    return objc_getAssociatedObject(self, &nameKey);
+}
+
 + (AppDelegate* )shareAppDelegate{
 	//    发送通知信息
  [[NSNotificationCenter defaultCenter] postNotificationName:@"versionState" object:nil userInfo:@{@"updateState":[NSNumber numberWithBool:YES]}];
@@ -216,61 +232,29 @@
 	
 	return UIImagePNGRepresentation(image);
 }
-- (UIViewController *)getCurrentVC
-
-{
-    
+- (UIViewController *)getCurrentVC{
     UIViewController *result = nil;
-    
     UIWindow * window = [[UIApplication sharedApplication] keyWindow];
-    
-    if (window.windowLevel != UIWindowLevelNormal)
-    
-    {
-        
+    if (window.windowLevel != UIWindowLevelNormal){
         NSArray *windows = [[UIApplication sharedApplication] windows];
-        
-        for(UIWindow * tmpWin in windows)
-        
-        {
-            
-            if (tmpWin.windowLevel == UIWindowLevelNormal)
-            
-            {
-                
+        for(UIWindow * tmpWin in windows){
+            if (tmpWin.windowLevel == UIWindowLevelNormal){
                 window = tmpWin;
-                
                 break;
-                
             }
-            
         }
-        
     }
-    
     UIView *frontView = [[window subviews] objectAtIndex:0];
-    
     id nextResponder = [frontView nextResponder];
-    
-    
-    
     if ([nextResponder isKindOfClass:[UIViewController class]])
-    
     result = nextResponder;
-    
     else
-    
     result = window.rootViewController;
-    
-    
-    
     return result;
-    
 }
 - (void)touch3D{
     if (@available(iOS 9.0, *)) {
         if ([UIApplication sharedApplication].shortcutItems.count == 0) {
-            
             UIMutableApplicationShortcutItem *itemScan = [[UIMutableApplicationShortcutItem alloc]initWithType:@"Scan"  localizedTitle:@"扫一扫" localizedSubtitle:nil icon:[UIApplicationShortcutIcon iconWithTemplateImageName:@"hpdianzan"] userInfo:nil];
             UIMutableApplicationShortcutItem *itemWrite = [[UIMutableApplicationShortcutItem alloc]initWithType:@"listen" localizedTitle:@"去写作" localizedSubtitle:nil icon:[UIApplicationShortcutIcon iconWithTemplateImageName:@"SettingS"] userInfo:nil];
             
