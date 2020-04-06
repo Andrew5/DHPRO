@@ -15,4 +15,7 @@
  *  用于设置单个按钮不需要被hook
  */
 @property (nonatomic, assign) BOOL isIgnore;
+
+- (void)setBackgroundColor:(UIColor *)backgroundColor forState:(UIControlState)state;
+
 @end

@@ -11,6 +11,7 @@
 #include <arpa/inet.h>//网络编程常见的头文件
 #include <net/if.h>//配置ip地址,激活接口,配置MTU等接口信息
 #import <mach/mach_time.h>
+#import <DKNightVersion/DKNightVersion.h>
 #import "DHMainViewController.h"
 #import "MeasurNetTools.h"
 #import "QBTools.h"
@@ -151,6 +152,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+//    [[DKNightVersionManager dk_manager] dawnComing];
+//    [[DKNightVersionManager dk_manager] nightFalling];
+
     //方法二
     mach_timebase_info_data_t timebase;
     mach_timebase_info(&timebase);

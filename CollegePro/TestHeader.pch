@@ -24,21 +24,19 @@
 
 #define kUserSwitchState @"USER_SWITCH_STATE"
 
-#define DH_Notifica [NSNotificationCenter defaultCenter]
-#define DH_USERDEFAULTS [NSUserDefaults standardUserDefaults]
-#define DH_DeviceWidth  [UIScreen mainScreen].bounds.size.width
-#define DH_DeviceHeight [UIScreen mainScreen].bounds.size.height
+///字体
 #define DH_FontSize(fontSize) [UIFont systemFontOfSize:fontSize]
-//weakSelf
+#define kFont(x)    [UIFont systemFontOfSize:x]
+
+///循环引用
 #define DH_WEAKSELF typeof(self) __weak weakSelf = self
 #define DH_WeakSelf(type)  __weak typeof(type) weak##type = type;
-/**
- 弱引用
- */
 #define LHWeakSelf __weak typeof(self) weakSelf = self;
-// strongSelf
 #define DH_StrongSelf(type)  __strong typeof(type) type = weak##type;
 
+#define DH_Notifica [NSNotificationCenter defaultCenter]
+
+///本地数据存储
 #define SETUSERDEFAULT(value,key)  [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%@",value] forKey:key];\
 [[NSUserDefaults standardUserDefaults] synchronize];
 
@@ -47,14 +45,12 @@
  *  沙盒Cache路径
  */
 #define LHCachePath ([NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject])
-//图片
-#define DH_ImageName(imageName) [UIImage imageNamed:imageName]
-//获取图片资源
-#define DH_GetImage(imageName) [UIImage imageNamed:[NSString stringWithFormat:@"%@",imageName]]
+///获取图片资源
+#define DH_Image(imageName) [UIImage imageNamed:[NSString stringWithFormat:@"%@",imageName]]
 
 #define DH_ImageNameWithBundle(bundleName,imgName) [UIImage imageNamed:[NSString stringWithFormat:@"%@.bundle/%@.png",bundleName,imgName]]
 
-//颜色管理
+///颜色管理
 #define DHColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 #define RGBCOLORV(rgbValue) [UIColor \
 colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
@@ -62,8 +58,8 @@ green:((float)((rgbValue & 0x00FF00) >> 8))/255.0 \
 blue:((float)(rgbValue & 0x0000FF))/255.0 \
 alpha:1.0]
 #define DHColorHex(value) [UIColor colorWithHexString:value]
-
-#define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
+#define UIColorFromRGB(rgbValue)        UIColorFromRGBA(rgbValue,1.0)
+#define UIColorFromRGBA(rgbValue,a)        [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 
 //#define IS_IPHONE_4_0 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )500 ) < DBL_EPSILON )
 
@@ -72,10 +68,37 @@ alpha:1.0]
 #define KNotificationActionIdentifileComment @"kNotificationActionIdentifileComment"
 #define KNotificationCategoryIdentifile @"KNOtificationCategoryIdentifile"
 
+///字符串、数组、字典验证操作
+#define StrValid(f)         (f!=nil && [f isKindOfClass:[NSString class]] && ![f isEqualToString:@""])
+#define ValidStr(f)         StrValid(f)
+#define ValidDict(f)        (f!=nil && [f isKindOfClass:[NSDictionary class]] && [f count]>0)
+#define ValidArray(f)       (f!=nil && [f isKindOfClass:[NSArray class]] && [f count]>0)
+
+///屏幕适配
+#define DH_DeviceWidth  [UIScreen mainScreen].bounds.size.width
+#define DH_DeviceHeight [UIScreen mainScreen].bounds.size.height
 #define kScreenW  [UIScreen mainScreen].bounds.size.width
 #define kScreenH  [UIScreen mainScreen].bounds.size.height
-#define kFont(x)    [UIFont systemFontOfSize:x]
-//设备型号
+#define kNavHeight                  kSafeAreaTopHeight       //导航的高度
+#define kSafeAreaBottomHeight       (IS_PhoneXAll ? 34.0f : 0.0f)
+// StatusbarH + NavigationH
+#define kSafeAreaTopHeight          (IS_PhoneXAll ? 88.0f : 64.0f)
+// StatusBarHeight
+#define kStatusBarHeight            (IS_PhoneXAll ? 44.0f : 20.0f)
+// NavigationBarHeigth
+#define kNavBarHeight               44.0f
+//kTabBarHeight
+#define kTabBarHeight               49.0f
+// TabBarHeight+kSafeAreaBottomHeight
+#define kBottomAreaHeight           (kTabBarHeight + kSafeAreaBottomHeight)
+#define IS_PhoneXAll \
+({BOOL isPhoneX = NO;\
+if (@available(iOS 11.0, *)) {\
+isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bottom > 0.0;\
+}\
+(isPhoneX);})
+
+///设备型号
 #define IS_IPAD     [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad
 #define IS_IPHONE   [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone
 #define IS_IPHONE_3_5 (fabs((double)[[UIScreen mainScreen] bounds].size.height - (double )480) < DBL_EPSILON )
@@ -83,6 +106,8 @@ alpha:1.0]
 #define IS_IPHONE_4_7 (fabs((double)[[UIScreen mainScreen] bounds].size.height - (double )667) < DBL_EPSILON )
 #define IS_IPHONE_5_5 (fabs((double)[[UIScreen mainScreen] bounds].size.height - (double )736) < DBL_EPSILON )
 #define IS_IPHONE_5_8 (fabs((double)[[UIScreen mainScreen] bounds].size.height - (double )812) < DBL_EPSILON )
+#define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
+
 //打印调试
 #ifdef DEBUG
 #define LHLog(format, ...) printf("[%s] %s [第%d行] %s\n", __TIME__, __FUNCTION__, __LINE__, [[NSString stringWithFormat:format, ## __VA_ARGS__] UTF8String]);

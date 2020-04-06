@@ -912,6 +912,8 @@
 		38CC865522D8A34D0057405C /* InternetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38CC865322D8A3460057405C /* InternetViewController.m */; };
 		38CC865822D8A35C0057405C /* SignalControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 38CC865622D8A3540057405C /* SignalControl.m */; };
 		38CD8D1E22B3F22900144E96 /* Learning Points in Resources */ = {isa = PBXBuildFile; fileRef = 38CD8D1D22B3F22900144E96 /* Learning Points */; };
+		38D0FB2E243AD9560028967E /* UIView+EmptyPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D0FB2C243AD9560028967E /* UIView+EmptyPage.m */; };
+		38D0FB2F243AD9560028967E /* UIView+ActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D0FB2D243AD9560028967E /* UIView+ActivityIndicator.m */; };
 		38D5CEF222965C6000323648 /* backgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D5CEF122965C6000323648 /* backgroundView.m */; };
 		38D5CEF5229661C400323648 /* ShowAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D5CEF4229661C400323648 /* ShowAnimationView.m */; };
 		38D9CEEF229D0B6200CDBA88 /* TodayTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D9CEEE229D0B6200CDBA88 /* TodayTableHeaderView.m */; };
@@ -2507,6 +2509,10 @@
 		38CC865622D8A3540057405C /* SignalControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignalControl.m; sourceTree = "<group>"; };
 		38CC865722D8A35C0057405C /* SignalControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignalControl.h; sourceTree = "<group>"; };
 		38CD8D1D22B3F22900144E96 /* Learning Points */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Learning Points"; sourceTree = "<group>"; };
+		38D0FB2A243AD9550028967E /* UIView+ActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ActivityIndicator.h"; sourceTree = "<group>"; };
+		38D0FB2B243AD9550028967E /* UIView+EmptyPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+EmptyPage.h"; sourceTree = "<group>"; };
+		38D0FB2C243AD9560028967E /* UIView+EmptyPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+EmptyPage.m"; sourceTree = "<group>"; };
+		38D0FB2D243AD9560028967E /* UIView+ActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ActivityIndicator.m"; sourceTree = "<group>"; };
 		38D5CEF022965C6000323648 /* backgroundView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = backgroundView.h; sourceTree = "<group>"; };
 		38D5CEF122965C6000323648 /* backgroundView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = backgroundView.m; sourceTree = "<group>"; };
 		38D5CEF3229661C400323648 /* ShowAnimationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowAnimationView.h; sourceTree = "<group>"; };
@@ -4395,6 +4401,10 @@
 				38C845EE227827EF00BCAD87 /* UITabBar+XSDExt.m */,
 				38C845EF227827EF00BCAD87 /* UIView+Extension.h */,
 				38C8460E227827EF00BCAD87 /* UIView+Extension.m */,
+				38D0FB2A243AD9550028967E /* UIView+ActivityIndicator.h */,
+				38D0FB2D243AD9560028967E /* UIView+ActivityIndicator.m */,
+				38D0FB2B243AD9550028967E /* UIView+EmptyPage.h */,
+				38D0FB2C243AD9560028967E /* UIView+EmptyPage.m */,
 				38C84611227827EF00BCAD87 /* UIViewExt.h */,
 				38C845F6227827EF00BCAD87 /* UIViewExt.m */,
 				385483FF23505AB90053AB46 /* NSObject+Runtime.h */,
@@ -4408,10 +4418,10 @@
 		38C84606227827EF00BCAD87 /* UIButton-touch */ = {
 			isa = PBXGroup;
 			children = (
+				38C8460A227827EF00BCAD87 /* UIButton+Delay.h */,
 				38C84607227827EF00BCAD87 /* UIButton+Delay.m */,
 				38C84608227827EF00BCAD87 /* UIButton+touch.h */,
 				38C84609227827EF00BCAD87 /* UIButton+touch.m */,
-				38C8460A227827EF00BCAD87 /* UIButton+Delay.h */,
 			);
 			path = "UIButton-touch";
 			sourceTree = "<group>";
@@ -7026,6 +7036,7 @@
 				386BBDD622DDA7FF005E6054 /* GPUImageKuwaharaFilter.m in Sources */,
 				384C3FEB22888DBF00F01586 /* ZQVariableMenuControl.m in Sources */,
 				38C9779B22AE02D200F978C1 /* Air_HockeyViewController.m in Sources */,
+				38D0FB2E243AD9560028967E /* UIView+EmptyPage.m in Sources */,
 				38080AF6232D37150073EFAC /* RippleView.m in Sources */,
 				38C84A74227827F200BCAD87 /* LabelNilMethodBlockViewController.m in Sources */,
 				38C84A26227827F200BCAD87 /* CodeView.m in Sources */,
@@ -7364,6 +7375,7 @@
 				386BBD9D22DDA7FF005E6054 /* GLProgram.m in Sources */,
 				386BBBE022DD7D2A005E6054 /* JRSwizzle.m in Sources */,
 				386BBDAB22DDA7FF005E6054 /* GPUImageRGBFilter.m in Sources */,
+				38D0FB2F243AD9560028967E /* UIView+ActivityIndicator.m in Sources */,
 				38274D53229EB00F00185C09 /* DHSendRunObject.m in Sources */,
 				386BC04222DDABA7005E6054 /* DGActivityIndicatorTripleRingsAnimation.m in Sources */,
 			);

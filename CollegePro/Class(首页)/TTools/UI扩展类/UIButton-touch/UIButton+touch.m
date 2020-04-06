@@ -14,6 +14,8 @@ static inline NSString* cachePathForKey(NSString* directory, NSString* key) {
 
 #import "UIButton+touch.h"
 #import <objc/runtime.h>
+#import "UIImage+Extend.h"
+
 @interface UIButton()
 /**bool 类型 YES 不允许点击   NO 允许点击   设置是否执行点UI方法*/
 @property (nonatomic, assign) BOOL isIgnoreEvent;
@@ -118,5 +120,8 @@ static inline NSString* cachePathForKey(NSString* directory, NSString* key) {
 }
 - (void)resetState{
     [self setIsIgnoreEvent:NO];
+}
+- (void)setBackgroundColor:(UIColor *)backgroundColor forState:(UIControlState)state {
+    [self setBackgroundImage:[UIImage imageWithColor:backgroundColor] forState:state];
 }
 @end

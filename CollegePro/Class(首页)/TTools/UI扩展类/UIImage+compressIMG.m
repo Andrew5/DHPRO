@@ -12,7 +12,25 @@
 
 
 @implementation UIImage (compressIMG)
-
++ (UIImage *)imageWithFrame:(CGRect)frame backGroundColor:(UIColor *)backGroundColor text:(NSString *)text textColor:(UIColor *)textColor textFontOfSize:(CGFloat)size {
+    UIView *backView = [[UIView alloc] initWithFrame:frame];
+    backView.layer.masksToBounds = YES;
+    backView.layer.cornerRadius = 5;
+    backView.backgroundColor = backGroundColor;
+    UILabel *label = [[UILabel alloc] initWithFrame:frame];
+    label.text = text;
+    label.textColor = textColor;
+    label.backgroundColor = backGroundColor;
+    label.textAlignment = 1;
+    label.font = [UIFont systemFontOfSize:size];
+    [backView addSubview:label];
+    UIGraphicsBeginImageContextWithOptions(backView.bounds.size,NO, 0.0);
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    [backView.layer renderInContext:ctx];
+    UIImage* tImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return tImage;
+}
 /**
  渐变色
 

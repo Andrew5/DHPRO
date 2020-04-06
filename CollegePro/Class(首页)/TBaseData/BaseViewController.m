@@ -28,7 +28,9 @@
     [super viewDidLoad];
 	self.view.backgroundColor = [UIColor whiteColor];
     if (@available(iOS 13.0, *)){
-
+//        self.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+//        self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+//        self.scrollView.scrollIndicatorInsets = self.scrollView.contentInset;
     }
 //    [[NSNotificationCenter defaultCenter]addObserver:selfselector:@selector(goDengLu:)name:@"ActionD"object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(goDengLu:) name:@"ActionD" object:nil];

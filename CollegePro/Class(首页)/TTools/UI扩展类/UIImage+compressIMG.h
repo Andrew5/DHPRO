@@ -13,6 +13,8 @@ typedef NS_ENUM(NSInteger, GradientType) {
     GradientTypeLeftToRight
 };
 @interface UIImage (compressIMG)
++ (UIImage *)imageWithFrame:(CGRect)frame backGroundColor:(UIColor *)backGroundColor text:(NSString *)text textColor:(UIColor *)textColor textFontOfSize:(CGFloat)size;
+
 + (UIImage *)getGradientImageFromColors:(NSArray*)colors gradientType:(GradientType)gradientType imgSize:(CGSize)imgSize;
 /**
  *  图片的压缩方法
