@@ -174,9 +174,9 @@
     // 监听有物品靠近还是离开
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(proximityStateDidChange) name:UIDeviceProximityStateDidChangeNotification object:nil];
 //    [UIDevice currentDevice].proximityMonitoringEnabled = YES;
-    
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(getinternet) userInfo:nil repeats:YES];
-    [timer fireDate];
+    //网络测速
+//    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(getinternet) userInfo:nil repeats:YES];
+//    [timer fireDate];
     //方法一
     CFAbsoluteTime endTime = (CFAbsoluteTimeGetCurrent() - startTime);
     NSLog(@"一方法耗时: %f ms", endTime * 1000.0);
@@ -212,7 +212,6 @@
     
     theSpan.longitudeDelta=0.00001;
     
-    
     //  定义一个区域（用定义的经纬度和范围来定义）
     
     MKCoordinateRegion theRegion;
@@ -240,7 +239,6 @@
     [_locationManager requestWhenInUseAuthorization];
 
 }
-
 
 - (void)setUPUI{
     //网速显示
@@ -325,6 +323,7 @@
     [self addCell:@"联网游戏" class:@"Menu"];
     [self addCell:@"下拉列表" class:@"DHRefreshViewController"];//@"ExpandTableVC"];
     [self addCell:@"网络测试" class:@"NetTestViewController"];
+    [self addCell:@"网速测试" class:@"NetworkSpeedViewController"];
     [self addCell:@"block" class:@"LabelMethodBlockVC"];
     [self addCell:@"block" class:@"LabelMethodBlockSubVC"];
     
@@ -357,7 +356,12 @@
     [self addCell:@"三维球相册" class:@"MatrixDimensionalViewController"];
     [self addCell:@"变换矩阵" class:@"DBSphereViewController"];
     [self addCell:@"蓝牙" class:@"BlueToothViewController"];
+    [self addCell:@"WK交互" class:@"WKWebViewController"];
     [_collectionView reloadData];
+    //它的本质就是建立了CATransaction这个事务上
+//    [_collectionView beginUpdates];
+//    // do some work
+//    [_collectionView endUpdates];
     
 #pragma mark- 底部网络状态显示
     _lb_showinfo = [[UILabel alloc]init];
@@ -696,15 +700,15 @@
         //检测手机网络速度
         NSMutableDictionary *WIFIspeed = [DHTool getDataCounters];
         NSLog(@"获取wifi信息 = %@ ------------- 检测手机网络速度 = %@",WIFImessage,WIFIspeed);
-        
     } finishMeasureBlock:^(float speed) {
         NSString* speedStr = [NSString stringWithFormat:@"%@/S", [QBTools formattedFileSize:speed]];
         NSLog(@"平均速度为：%@",speedStr);
         NSLog(@"相当于带宽：%@",[QBTools formatBandWidth:speed]);
-        _lb_showinfo.text = [NSString stringWithFormat:@"平均速度为： %@---相当于带宽：%@--%@",speedStr,[QBTools formatBandWidth:speed],[DHTool getByteRate]];
-        [userDefault setObject:speedStr forKey:@"network"];
+        _lb_showinfo.text = [NSString stringWithFormat:@"平均速度为： %@---相当带宽：%@--%@",speedStr,[QBTools formatBandWidth:speed],[DHTool getByteRate]];
+        [userDefault setObject:[DHTool getByteRate] forKey:@"network"];
         [userDefault setObject:@"2我是数据" forKey:@"myShareData"];
         [userDefault synchronize];
+        
     } failedBlock:^(NSError *error) {
         
     }];

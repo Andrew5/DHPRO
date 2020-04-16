@@ -59,9 +59,14 @@
 //    [self asyncGlobalQueue];//异步
 //    [self asyncSerialQueue];//同步
     [self asyncGroup];
-    dispatch_async(dispatch_get_main_queue(), ^{
+    //异步执行线程
+    dispatch_queue_t serialQueue = dispatch_queue_create("com.tian.lawrence",DISPATCH_QUEUE_CONCURRENT);
+    NSLog(@"1 - %@",[NSThread currentThread]);
+    dispatch_async(serialQueue,^{
+        NSLog(@"2 - %@",[NSThread currentThread]);
         [self asyncSemaphore];
     });
+
     [self asyncBarrier];
 }
 static  BOOL y;
@@ -796,11 +801,12 @@ static  BOOL y;
 	NSLog(@"定时器开始。。。");
 }
 #pragma mark- BlockOperation
-- (void)gcdTest{
+- (void)operationA{
+    //blockOperationWithBlock在不同的线程中并发执行的
     NSBlockOperation *op = [NSBlockOperation blockOperationWithBlock:^{
         NSLog(@"task0---%@", [NSThread currentThread]);
     }];
-    
+    //为 NSBlockOperation 添加额外的操作
     [op addExecutionBlock:^{
         NSLog(@"task1----%@", [NSThread currentThread]);
     }];
@@ -812,6 +818,104 @@ static  BOOL y;
     // 开始必须在添加其他操作之后
     [op start];
 }
+/**
+ * 设置 MaxConcurrentOperationCount（最大并发操作数）
+ */
+- (void)setMaxConcurrentOperationCount {
+
+    // 1.创建队列
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+
+    // 2.设置最大并发操作数
+    queue.maxConcurrentOperationCount = 1; // 串行队列
+// queue.maxConcurrentOperationCount = 2; // 并发队列
+// queue.maxConcurrentOperationCount = 8; // 并发队列
+
+    // 3.添加操作
+    [queue addOperationWithBlock:^{
+        for (int i = 0; i < 2; i++) {
+            [NSThread sleepForTimeInterval:2]; // 模拟耗时操作
+            NSLog(@"1---%@", [NSThread currentThread]); // 打印当前线程
+        }
+    }];
+    [queue addOperationWithBlock:^{
+        for (int i = 0; i < 2; i++) {
+            [NSThread sleepForTimeInterval:2]; // 模拟耗时操作
+            NSLog(@"2---%@", [NSThread currentThread]); // 打印当前线程
+        }
+    }];
+    [queue addOperationWithBlock:^{
+        for (int i = 0; i < 2; i++) {
+            [NSThread sleepForTimeInterval:2]; // 模拟耗时操作
+            NSLog(@"3---%@", [NSThread currentThread]); // 打印当前线程
+        }
+    }];
+    [queue addOperationWithBlock:^{
+        for (int i = 0; i < 2; i++) {
+            [NSThread sleepForTimeInterval:2]; // 模拟耗时操作
+            NSLog(@"4---%@", [NSThread currentThread]); // 打印当前线程
+        }
+    }];
+}
+/**
+ * 使用 addOperation: 将操作加入到操作队列中
+ * 使用 NSOperation 子类创建操作，并使用 addOperation: 将操作加入到操作队列后能够开启新线程，进行并发执行
+ */
+- (void)operationQueue{
+    // 1.创建队列
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    // 2.创建操作
+    // 使用 NSInvocationOperation 创建操作1
+    NSInvocationOperation *op1 = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(other) object:nil];
+    
+    // 使用 NSInvocationOperation 创建操作2
+    NSInvocationOperation *op2 = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(other) object:nil];
+    
+    // 使用 NSBlockOperation 创建操作3
+    NSBlockOperation *op3 = [NSBlockOperation blockOperationWithBlock:^{
+        for (int i = 0; i < 2; i++) {
+            [NSThread sleepForTimeInterval:2]; // 模拟耗时操作
+            NSLog(@"3---%@", [NSThread currentThread]); // 打印当前线程
+        }
+    }];
+    [op3 addExecutionBlock:^{
+        for (int i = 0; i < 2; i++) {
+            [NSThread sleepForTimeInterval:2]; // 模拟耗时操作
+            NSLog(@"4---%@", [NSThread currentThread]); // 打印当前线程
+        }
+    }];
+    // 3.使用 addOperation: 添加所有操作到队列中
+    [queue addOperation:op1]; // [op1 start]
+    [queue addOperation:op2]; // [op2 start]
+    [queue addOperation:op3]; // [op3 start]
+}
+/**
+ * 线程间通信
+ * 可以看到：通过线程间的通信，先在其他线程中执行操作，等操作执行完了之后再回到主线程执行主线程的相应操作。
+ */
+- (void)communication {
+
+    // 1.创建队列
+    NSOperationQueue *queue = [[NSOperationQueue alloc]init];
+
+    // 2.添加操作
+    [queue addOperationWithBlock:^{
+        // 异步进行耗时操作
+        for (int i = 0; i < 2; i++) {
+            [NSThread sleepForTimeInterval:2]; // 模拟耗时操作
+            NSLog(@"1---%@", [NSThread currentThread]); // 打印当前线程
+        }
+
+        // 回到主线程
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            // 进行一些 UI 刷新等操作
+            for (int i = 0; i < 2; i++) {
+                [NSThread sleepForTimeInterval:2]; // 模拟耗时操作
+                NSLog(@"2---%@", [NSThread currentThread]); // 打印当前线程
+            }
+        }];
+    }];
+}
 - (void)other{
     NSLog(@"%s",__func__);
 }
@@ -820,13 +924,10 @@ static  BOOL y;
 + (BOOL)resolveInstanceMethod:(SEL)sel
 {
     if (sel == @selector(test)) {
-        
         Method method = class_getInstanceMethod(self, @selector(other));
-        
         class_addMethod(self, sel, method_getImplementation(method), method_getTypeEncoding(method));
-        
+//      class_addMethod([self class], name, (IMP)dynamicAdditionMethodIMP, "v@:");
         return YES;
-        
     }
     return [super resolveInstanceMethod:sel];
 }
@@ -840,7 +941,10 @@ static  BOOL y;
     }
     return [super forwardingTargetForSelector:aSelector];
 }
-
+//如果需要传参直接在参数列表后面添加就好了
+void dynamicAdditionMethodIMP(id self, SEL _cmd) {
+    NSLog(@"dynamicAdditionMethodIMP");
+}
 //第二种2.0
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
 {

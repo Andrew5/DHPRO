@@ -23,17 +23,20 @@
 22、两个页面相互间的生命周期
 23、未来技术发展前沿：
 24、REACT开发-> https://www.runoob.com/react/react-tutorial.html
-25、Vue.js
+25、Vue.js  Dart
 26、flutter实战 -> https://flutterchina.club
 27、react
 28、RN
-29、element
-30、rem+viewport
-31、ReactorKit
-32、神器中的神器org-mode
-33、VIPER模式介绍
-34、iOS设计模式-21种设计模式
-FBRetainCycleDetector 
+29、uniapp
+30、element
+31、rem+viewport
+32、ReactorKit
+33、神器中的神器org-mode
+34、VIPER模式介绍
+35、iOS设计模式-21种设计模式
+36、FBRetainCycleDetector
+37、状态管理  主流框架  redux  mobx  bloc
+provider
 bug:
 1、添加图片控件 查看以选图片未展示
 

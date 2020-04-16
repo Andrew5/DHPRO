@@ -122,6 +122,6 @@ static inline NSString* cachePathForKey(NSString* directory, NSString* key) {
     [self setIsIgnoreEvent:NO];
 }
 - (void)setBackgroundColor:(UIColor *)backgroundColor forState:(UIControlState)state {
-    [self setBackgroundImage:[UIImage imageWithColor:backgroundColor] forState:state];
+    [self setBackgroundImage:[UIImage imageWithColor:backgroundColor size:CGSizeMake(1, 1)] forState:state];
 }
 @end

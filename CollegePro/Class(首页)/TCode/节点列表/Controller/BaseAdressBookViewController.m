@@ -12,6 +12,7 @@
 #import "NetWork.h"
 #import "ContactModel.h"
 #import "SearchResultViewController.h"
+#import "UIColor+JFColor.h"
 @interface BaseAdressBookViewController ()<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,LBSearchResultSelectedDelegate>
 {
 	NSMutableArray *_arr_ListContact;//获取的数据
@@ -25,10 +26,9 @@
 	SearchResultViewController *_resultController;
 	NSMutableArray *_arr_updata;
 	NSMutableArray *_arr_Results;
-
-	
-
 }
+@property (nonatomic, assign)CGFloat marginTop;
+
 @end
 
 @implementation BaseAdressBookViewController
@@ -355,7 +355,8 @@
 }
 //索引列点击事件
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index{
-	NSInteger count = 0;
+
+    NSInteger count = 0;
 	for(NSString *letter in _arr_letter)
 	{
 		if([letter isEqualToString:title])
@@ -383,6 +384,124 @@
 //	}
 }
 
+//- (void)viewDidLayoutSubviews
+//{
+//    [super viewDidLayoutSubviews];
+//    //设置导航字体颜色、字体、背景色
+//    for (UIView* subview in [_tableViewMy subviews])
+//    {
+//        if ([subview isKindOfClass:NSClassFromString(@"UITableViewIndex")])
+//        {
+//            if([subview respondsToSelector:@selector(setIndexColor:)])
+//            {
+//                [subview performSelector:@selector(setIndexColor:) withObject:[UIColor redColor]];
+//            }
+//            if([subview respondsToSelector:@selector(setFont:)])
+//            {
+//                [subview performSelector:@selector(setFont:) withObject:[UIColor redColor]];
+//            }
+//            if([subview respondsToSelector:@selector(setBackgroundColor:)])
+//            {
+//                [subview performSelector:@selector(setBackgroundColor:) withObject:[UIColor redColor]];
+//            }
+//        }
+//    }
+//}
+
+-(void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
+    //改变右侧的索引列表属性
+//    for (UIView *view in [tableView subviews]) {
+//        if ([view isKindOfClass:[NSClassFromString(@"UITableViewIndex") class]]) {
+//            // 设置字体大小
+//            [view setValue:[UIFont systemFontOfSize:14] forKey:@"_font"];
+//            //设置文字颜色
+////            [view setValue:[UIColor orangeColor] forKey:@"_indexColor"];
+////            [view setValue:[UIColor orangeColor] forKey:@"_indexBackgroundColor"];
+//            //设置view的大小
+//            view.bounds = CGRectMake(0, 0, 30, 30);
+//            //单单设置其中一个是无效的
+//        }
+//    }
+    //改变header的字体属性
+//    view.tintColor = [UIColor redColor];
+//    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
+//    header.contentView.backgroundColor=[UIColor whiteColor];
+////    header.textLabel.textAlignment=NSTextAlignmentCenter;
+//    [header.textLabel setTextColor:[UIColor greenColor]];
+}
+- (void)setIndexColor:(id)co{
+    
+}
+- (void)setFont:(id)co{
+    
+}
+- (void)setBackgroundColor:(id)co{
+
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    //返回tableView可见的cell数组
+    NSArray * array = [_tableViewMy visibleCells];
+    //返回cell的IndexPath
+    NSIndexPath * indexPath = [_tableViewMy indexPathForCell:array.firstObject];
+    NSLog(@"滑到了第 %ld 组 %ld个",indexPath.section, indexPath.row);
+    CGPoint translation = [scrollView.panGestureRecognizer translationInView:scrollView.superview];
+    CGPoint point =  [scrollView.panGestureRecognizer translationInView:self.view];
+    NSLog(@"滑动的点%f-%f",translation.y, point.y);
+
+
+    UITableViewHeaderFooterView *header = [_tableViewMy headerViewForSection:indexPath.section];
+    if (translation.y>0) {
+        NSLog(@"滑动操作：下");
+        [UIView animateWithDuration:0.3 animations:^{
+            [header.textLabel setTextColor:[UIColor colorWithHexString:@"#1b1b1b"]];
+        }];
+    }else{
+        NSLog(@"滑动操作：上");
+        [UIView animateWithDuration:0.3 animations:^{
+            [header.textLabel setTextColor:[UIColor greenColor]];
+
+        }];
+    }
+}
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if(!decelerate){
+        NSLog(@"停下来了 %i",decelerate);
+////        //返回tableView可见的cell数组
+//        NSArray * array = [_tableViewMy visibleCells];
+//        //返回cell的IndexPath
+//        NSIndexPath * indexPath = [_tableViewMy indexPathForCell:array.firstObject];
+//        NSLog(@"滑到了第 %ld 组 %ld个",indexPath.section, indexPath.row);
+//        CGPoint translation = [scrollView.panGestureRecognizer translationInView:scrollView.superview];
+//        UITableViewHeaderFooterView *header = [_tableViewMy headerViewForSection:indexPath.section];
+//        if (translation.y>0) {
+//            NSLog(@"上");
+//            [UIView animateWithDuration:0.3 animations:^{
+//                [header.textLabel setTextColor:[UIColor colorWithHexString:@"#1b1b1b"]];
+//            }];
+//        }else{
+//            NSLog(@"下");
+//            [UIView animateWithDuration:0.3 animations:^{
+//                [header.textLabel setTextColor:[UIColor greenColor]];
+//
+//            }];
+//        }
+    }
+ }
+ - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    NSLog(@"777");
+//    //        //返回tableView可见的cell数组
+//    NSArray * array = [_tableViewMy visibleCells];
+//    //返回cell的IndexPath
+//    NSIndexPath * indexPath = [_tableViewMy indexPathForCell:array.firstObject];
+//    NSLog(@"滑到了第 %ld 组 %ld个",indexPath.section, indexPath.row);
+//    CGPoint translation = [scrollView.panGestureRecognizer translationInView:scrollView.superview];
+//    UITableViewHeaderFooterView *header = [_tableViewMy headerViewForSection:indexPath.section];
+//    [header.textLabel setTextColor:[UIColor greenColor]];
+
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

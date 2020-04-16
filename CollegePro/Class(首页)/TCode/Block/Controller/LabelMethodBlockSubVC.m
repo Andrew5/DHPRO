@@ -405,6 +405,61 @@ void (^outFuncBlock)(void) = ^{
 };
 
 - (void)testDataD{
+    //    1.编译时刻:宏是预编译（编译之前处理），const是编译阶段。
+    //    2.编译检查:宏不做检查，不会报编译错误，只是替换，const会编译检查，会报编译错误。
+    //    3.宏的好处:宏能定义一些函数，方法。 const不能。
+    //    4.宏的坏处:使用大量宏，容易造成编译时间久，每次都需要重新替换。
+        
+    //    // 定义变量
+    //    int a = 1;
+    //    // 允许修改值
+    //    a = 20;
+    //    // const两种用法
+    //    // const:修饰基本变量p
+    //    // 这两种写法是一样的，const只修饰右边的基本变量b
+    //    const int b = 20; // b:只读变量
+    //    int const b = 20; // b:只读变量
+    //    // 不允许修改值
+    //    b = 1;
+    //    // const:修饰指针变量*p，带*的变量，就是指针变量.
+    //    // 定义一个指向int类型的指针变量，指向a的地址
+    //    int *p = &a;
+    //    int c = 10;
+    //    p = &c;
+    //    // 允许修改p指向的地址
+    //    // 允许修改p访问内存空间的值
+    //    *p = 20;
+    //    // const修饰指针变量访问的内存空间，修饰的是右边*p1，
+    //    // 两种方式一样
+    //    const int *p1; // *p1：常量 p1:变量
+    //    int const *p1; // *p1：常量 p1:变量
+    //    // const修饰指针变量p1
+    //    int * const p1; // *p1:变量 p1:常量
+    //    // 第一个const修饰*p1 第二个const修饰 p1
+    //    // 两种方式一样
+    //    const int * const p1; // *p1：常量 p1：常量
+    //    int const * const p1; // *p1：常量 p1：常量
+    //    静态方法在堆上分配内存，实例方法在堆栈上
+    //    静态的速度快，占内存。动态的速度相对慢些，但调用完后，立即释放类，可以节省内存
+    //    static修饰局部变量
+    //    在局部变量之前加上关键字static，局部变量就被定义成为一个局部静态变量。
+    //    特点如下:
+    //    1）存储区：有栈变为静态存储区rw data，生存期为整个源程序，只能在定义该变量的函数内使用。退出该函数后， 尽管该变量还继续存在，
+    //    但不能使用它；
+    //    2）作用域：作用域仍为局部作用域，当定义它的函数或者语句块结束的时候，作用域随之结束。
+//        static NSString *str = @"123";
+        //跨文件访问extern
+        //extern则必须是全局变量（静态+非静态）
+        //在不通过.h的情况下去访问全局变量，可以通过extern实现
+        //extern声明，仅适于修饰全局变量，不能去修饰其他的变量
+        //实例方法：首字母大写，实例方法往往首字母小写-实例方法在堆栈上
+        //静态方法：首字母小写，静态方法往往首字母大写+静态方法在堆上
+        //当你给一个类写一个方法，如果该方法需要访问某个实例的成员变量时，那么方法该被定义为实例方法。 一个类的实例通常有一些成员变量，其中含有该实例的状态信息。而该方法需要改变这些状态，那么该方法需要声明成实例方法
+        //堆中的静态区
+//        extern NSString *lhString;
+//        NSLog(@"%@-%@",lhString,str);
+//        extern NSString *StringSwiftUseOC;
+//        NSLog(@"StringSwiftUseOC--%@",StringSwiftUseOC);
     //    int multiplier = 6;
     //    int(^Block)(int) = ^int(int num)
     //    {
@@ -597,16 +652,31 @@ void (^outFuncBlock)(void) = ^{
     }
 }
 - (void)testDataH{
-    int a = 10;
-    int b = 12;
+    int a = 9;
+    int b = 10;
+    int c;
     //    a = b + 0 * ( b = a);//a=12;b=10
     //    NSLog(@"%d",a);
     a = b - a; //a=2;b=12
     b = b - a; //a=2;b=10
     a = a + b; //a=10;b=10
     NSLog(@"%d",a);
-    //    UITableView *_tableView = [];
-    //    [_tableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
+    
+    //    c=(++a==b--)?++a:b--;
+    /**
+     ++a后  a的值为10
+     （++a(10)==b(10)）,执行++a==b--)中的b- -（9）然后在求++a(11)，同时将其赋值给c
+     */
+    //++a整体和b--整体相等，所以三目运算，选择等号=前面的,再计算出等号前面的++a整体就得到c的值了
+    //++a整体是11，加了两次，所以c = 11,++写在前面和写在后面对整体的值有影响，对a的值都是+1操作，
+    //
+    //
+    if (++a==b--) {
+        c = ++a;
+    }else{
+        c =b--;
+    }
+    NSLog(@"%d,%d,%d",a,b,c);//11，9，11
 }
 
 
@@ -1271,7 +1341,34 @@ void logBlock(int(^theBlock)(void))
 {
     NSLog( @"Closure var X: %i", theBlock() );
 }
-
+- (void)acb:(id)data,...NS_REQUIRES_NIL_TERMINATION{
+    [self acb:nil,@"配置管理", nil];
+}
++ (instancetype)arrayWithObjects:(id)firstObj, ...{
+    
+    NSMutableArray* arrays = [NSMutableArray array];
+    //VA_LIST 是在C语言中解决变参问题的一组宏
+    va_list argList;
+    
+    if (firstObj) {
+        [arrays addObject:firstObj];
+        // VA_START宏，获取可变参数列表的第一个参数的地址,在这里是获取firstObj的内存地址,这时argList的指针 指向firstObj
+        va_start(argList, firstObj);
+        // 临时指针变量
+        id temp;
+        // VA_ARG宏，获取可变参数的当前参数，返回指定类型并将指针指向下一参数
+        // 首先 argList的内存地址指向的fristObj将对应储存的值取出,如果不为nil则判断为真,将取出的值存在数组中,
+        // 并且将指针指向下一个参数,这样每次循环argList所代表的指针偏移量就不断下移直到取出nil
+        while ((temp = va_arg(argList, id))) {
+            [arrays addObject:temp];
+            NSLog(@"%@",arrays);
+        }
+        //如果在使用 + (instancetype)arrayWithObjects:(id)firstObj, ... NS_REQUIRES_NIL_TERMINATION;方法中不传入nil值在(temp = va_arg(argList, id))这个函数中便会一直取出值,在C语言中指针指向的即便是一个空内存地址未初始化也是会取出值的,那么一个基本数据类型的随机数则赋值给了 temp 在添加到数组中,则造成将未初始化的内存空间赋值给可变数组的问题程序出现了崩溃.所以我们在使用+ (instancetype)arrayWithObjects:(id)firstObj, ... NS_REQUIRES_NIL_TERMINATION;方法时在多参数的结尾一定要加上nil
+    }
+    // 清空列表
+    va_end(argList);
+    return [arrays mutableCopy];
+}
 - (NSString *)findNumFromStr:(NSString *)originalString{
     NSMutableString *numberString = [[NSMutableString alloc] init];
     NSString *tempStr;

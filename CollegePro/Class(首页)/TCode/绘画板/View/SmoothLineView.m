@@ -115,10 +115,12 @@ CGPoint midPoint(CGPoint p1, CGPoint p2)
 
     CGContextRef context = UIGraphicsGetCurrentContext(); 
     
-    [self.layer renderInContext:context];
+    //解决崩溃问题
+//    [self.layer renderInContext:context];
+    [self drawViewHierarchyInRect:self.bounds afterScreenUpdates:NO];
 
     CGContextMoveToPoint(context, mid1.x, mid1.y);
-    CGContextAddQuadCurveToPoint(context, previousPoint1.x, previousPoint1.y, mid2.x, mid2.y); 
+    CGContextAddQuadCurveToPoint(context, previousPoint1.x, previousPoint1.y, mid2.x, mid2.y);
     CGContextSetLineCap(context, kCGLineCapRound);
     CGContextSetLineWidth(context, self.lineWidth);
     CGContextSetStrokeColorWithColor(context, self.lineColor.CGColor);

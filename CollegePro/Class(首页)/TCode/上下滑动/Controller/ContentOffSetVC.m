@@ -13,6 +13,7 @@
 #define UserCellIdetifeir @"UserCell"
 
 #import "ContentOffSetVC.h"
+#import "DHBAlertView.h"
 
 @interface ContentOffSetVC ()<UITextFieldDelegate,UIGestureRecognizerDelegate>
 {
@@ -238,11 +239,14 @@
 	return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-	
+
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
-	
+
 	if (indexPath.row == 2) {
-		
+        NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"提示",@"title",@"确认退出？",@"detail", nil];
+        [[DHBAlertView sharedAlertView] showAlertWithMode:OkCancelType param:dict action:^(NSMutableDictionary *dic) {
+            NSLog(@"点击确定后的回调处理");
+         }];
 		if ([textF.text isEqual:[NSString stringWithFormat:@"%d",codeV]]){
 			NSLog(@"yiyang ");
 		}

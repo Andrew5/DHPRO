@@ -26,7 +26,7 @@ target "CollegePro" do
   pod 'BaiduMapKit'#百度地图SDK
   
   pod 'pop','~>1.0'
-
+  pod 'YHPopupView'
   pod 'YYKit'
   
   pod 'WKVCDeallocMonitor'##内寸检测
