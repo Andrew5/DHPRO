@@ -40,7 +40,7 @@
 #endif
 
 
-#pragma GCC diagnostic ignored "-Wreceiver-is-weak"
+//#pragma GCC diagnostic ignored "-Wreceiver-is-weak"
 #pragma GCC diagnostic ignored "-Warc-repeated-use-of-weak"
 #pragma GCC diagnostic ignored "-Wobjc-missing-property-synthesis"
 #pragma GCC diagnostic ignored "-Wdirect-ivar-access"
@@ -977,14 +977,14 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
         case iCarouselTypeInvertedRotary:
         case iCarouselTypeInvertedCylinder:
         {
-            //TODO: improve this
+        ///TODO: improve this
             _numberOfVisibleItems = ceil([self circularCarouselItemCount] / 2.0);
             break;
         }
         case iCarouselTypeWheel:
         case iCarouselTypeInvertedWheel:
         {
-            //TODO: improve this
+        ///TODO: improve this
             CGFloat count = [self circularCarouselItemCount];
             CGFloat spacing = [self valueForOption:iCarouselOptionSpacing withDefault:1.0];
             CGFloat arc = [self valueForOption:iCarouselOptionArc withDefault:M_PI * 2.0];

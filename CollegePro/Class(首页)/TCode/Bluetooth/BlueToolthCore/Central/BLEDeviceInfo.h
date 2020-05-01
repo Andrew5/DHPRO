@@ -34,7 +34,6 @@
 /**
  *  取得设备名称
  *
- *  @return
  */
 - (NSString *)getDeviceName;
 

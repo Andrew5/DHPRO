@@ -7,7 +7,6 @@
 //
 
 #import "QRCodeAreaView.h"
-#import "UIViewExt.h"
 
 @interface QRCodeAreaView()
 

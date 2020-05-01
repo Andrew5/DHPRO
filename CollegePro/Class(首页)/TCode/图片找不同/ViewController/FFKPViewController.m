@@ -78,14 +78,8 @@
     }
     
     //记时 一
-//    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(setProgressViewValue) userInfo:nil repeats:YES];
-//    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
-    //    二
-     __weak typeof(self) weakSelf = self;
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 repeats:YES block:^(NSTimer * _Nonnull timer) {
-        [weakSelf setProgressViewValue];
-    }];
-    
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(setProgressViewValue) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
     progress = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 64 + 454, DH_DeviceWidth, 6)];
     [self.view addSubview:progress];
 }

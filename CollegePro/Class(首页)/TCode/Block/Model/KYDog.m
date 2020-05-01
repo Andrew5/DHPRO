@@ -30,7 +30,7 @@ typedef NS_ENUM(NSInteger, HLFontSize) {
         _age = age;
         _name = [self  setDogName:@"大黄"];
         //6秒后 名叫小花的狗来接替大黄这条狗看家
-        //        [NSTimer scheduledTimerWithTimeInterval:6 target:self selector:@selector(changeName)userInfo:nil repeats:NO];
+        [NSTimer scheduledTimerWithTimeInterval:6 target:self selector:@selector(changeName)userInfo:nil repeats:NO];
     }
     return self;
 }
@@ -92,10 +92,12 @@ typedef NS_ENUM(NSInteger, HLFontSize) {
     [self didChangeValueForKey:@"name"];
     
 }
--(void)loadNameValue:(NSString *)na{
-    NSLog(@"name指针地址:%p,name指针指向的对象内存地址:%p",&na,na);
+//-(void)loadNameValue:(NSString *)na{
+//    NSLog(@"name指针地址:%p,name指针指向的对象内存地址:%p",&na,na);
+//
+//}
 
-}
+
 - (void)getIvars
 {
     unsigned int count = 0;
@@ -136,5 +138,29 @@ typedef NS_ENUM(NSInteger, HLFontSize) {
 @end
 
 @implementation KYUser
+@dynamic sex;
+- (instancetype)init{
+    if (self=[super init]) {
+        _dog = [[KYDog alloc] init];
+        _dog.age = 10;
+        _arr = [NSMutableArray array];
+    }
+    return self;
+}
++(NSSet<NSString *> *)keyPathsForValuesAffectingValueForKey:(NSString *)key{
+    NSMutableSet *keyPaths = [NSMutableSet set];
+    if ([key isEqualToString:@"dog"]) {
+        NSArray *array = @[@"_dog.age",@"_dog.city"];
+        [keyPaths addObjectsFromArray:array];
+    }
+    return keyPaths;
+}
+
+-(void)setSex:(NSString *)sex{
+    _sex = sex;
+}
+-(NSString *)getSex{
+    return _sex;
+}
 
 @end

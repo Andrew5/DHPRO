@@ -40,14 +40,14 @@
 - (void)buttonPressed:(UIButton *)btn
 {
     [sphereView timerStop];
-    
+    DH_WEAKSELF;
     [UIView animateWithDuration:0.3 animations:^{
         btn.transform = CGAffineTransformMakeScale(2., 2.);
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:0.3 animations:^{
             btn.transform = CGAffineTransformMakeScale(1., 1.);
         } completion:^(BOOL finished) {
-            [sphereView timerStart];
+            [weakSelf.sphereView timerStart];
         }];
     }];
 }

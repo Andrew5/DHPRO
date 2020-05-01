@@ -32,7 +32,6 @@
 /**
  *  获取第一个连接对象
  *
- *  @return
  */
 - (BLEConnector *)getFirstConnector;
 
@@ -42,42 +41,42 @@
 /**
  *  设置蓝牙状态回调
  *
- *  @param aCompletionBlock 蓝牙状态回调block
+ *  aCompletionBlock 蓝牙状态回调block
  */
 - (void)setStateChangedBlock:(BLECentralStateChangedBlock)aStateChangedBlock;
 
 /**
  *  设置扫描到蓝牙设备回调
  *
- *  @param aScanBlock 扫描到蓝牙设备回调
+ *  aScanBlock 扫描到蓝牙设备回调
  */
 - (void)setDeviceScanBlock:(BLECentralDeviceScanBlock)aScanBlock;
 
 /**
  *  设置扫描到多个蓝牙设备回调
  *
- *  @param aDeviceScanCompletedBlock 扫描到多个蓝牙设备回调
+ *  aDeviceScanCompletedBlock 扫描到多个蓝牙设备回调
  */
 - (void)setDeviceScanCompletionBlock:(BLECentralDeviceScanCompletedBlock)aDeviceScanCompletedBlock;
 
 /**
  *  设置蓝牙连接成功
  *
- *  @param aConnectedCompletedBlock 蓝牙连接成功回调
+ *  aConnectedCompletedBlock 蓝牙连接成功回调
  */
 - (void)setConnectedCompletionBlock:(BLECentralConnectSuccessBlock)aConnectedCompletedBlock;
 
 /**
  *  设置蓝牙连接失败
  *
- *  @param aConnectedCompletedBlock 蓝牙连接失败回调
+ *  aFailedBlock 蓝牙连接失败回调
  */
 - (void)setConnectFailedBlock:(BLECentralConnectFailedBlock)aFailedBlock;
 
 /**
  *  设置蓝牙断开连接回调
  *
- *  @param aDisconnectBlock 蓝牙断开连接回调
+ *  aDisconnectBlock 蓝牙断开连接回调
  */
 - (void)setDisConnectBlock:(BLECentralDisconnectBlock)aDisconnectBlock;
 

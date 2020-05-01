@@ -7,7 +7,6 @@
 //
 
 #import "CustomSliderView.h"
-#import "UIView+Extension.h"
 
 //颜色
 #define blueColor [UIColor colorWithRed:(143)/255.0 green:(204)/255.0 blue:(181)/255.0 alpha:1.0]

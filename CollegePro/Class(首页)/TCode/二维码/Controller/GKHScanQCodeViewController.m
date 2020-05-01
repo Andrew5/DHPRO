@@ -8,7 +8,6 @@
 
 #import "GKHScanQCodeViewController.h"
 #import "QRCodeReaderView.h"
-#import "UIViewExt.h"
 #import <ImageIO/CGImageProperties.h>
 #import <AVFoundation/AVFoundation.h>
 #import <AudioToolbox/AudioToolbox.h>
@@ -157,9 +156,9 @@
     readview.alpha = 0;
     
     [self.view addSubview:readview];
-    
+
     [UIView animateWithDuration:0.5 animations:^{
-        readview.alpha = 1;
+        self->readview.alpha = 1;
     }completion:^(BOOL finished) {
 
     }];
@@ -210,7 +209,7 @@
     
     NSArray *features = [self.detector featuresInImage:[CIImage imageWithCGImage:image.CGImage]];
     if (features.count >=1) {
-        
+        DH_WEAKSELF;
         [picker dismissViewControllerAnimated:YES completion:^{
             [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
 
@@ -222,19 +221,18 @@
             AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:strSoundFile],&soundID);
             AudioServicesPlaySystemSound(soundID);
             
-            [self accordingQcode:scannedResult];
+            [weakSelf accordingQcode:scannedResult];
         }];
         
     }
     else{
         UIAlertView * alertView = [[UIAlertView alloc]initWithTitle:@"提示" message:@"该图片没有包含一个二维码！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alertView show];
-        
+
         [picker dismissViewControllerAnimated:YES completion:^{
             [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
-            
-            readview.is_Anmotion = NO;
-            [readview start];
+            self->readview.is_Anmotion = NO;
+            [self->readview start];
         }];
     }
 }

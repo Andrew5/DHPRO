@@ -101,11 +101,11 @@
 }
 
 - (void)pageOneAction:(UIButton *)sender {
-    NSLog(@"button tag == > %d", sender.tag);
+    NSLog(@"button tag == > %ld", (long)sender.tag);
 }
 
 - (void)pageTwoAction:(UIButton *)sender {
-    NSLog(@"button2 tag == > %d", sender.tag);
+    NSLog(@"button2 tag == > %ld", (long)sender.tag);
 }
 
 @end

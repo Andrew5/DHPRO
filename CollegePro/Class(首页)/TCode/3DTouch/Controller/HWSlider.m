@@ -7,7 +7,6 @@
 //
 
 #import "HWSlider.h"
-#import "UIView+Extension.h"
 
 @interface HWSlider ()
 

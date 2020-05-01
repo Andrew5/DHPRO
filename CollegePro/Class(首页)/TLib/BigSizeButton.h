@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface BigSizeButton : UIButton
-//可用
-- (instancetype)initWithFrame:(CGRect)frame andCornerRadius:(CGFloat)cornerRadius NS_DESIGNATED_INITIALIZER;
-//不可用
-- (instancetype)initWithFrame:(CGRect)frame NS_UNAVAILABLE;
+////可用
+//- (instancetype)initWithFrame:(CGRect)frame andCornerRadius:(CGFloat)cornerRadius NS_DESIGNATED_INITIALIZER;
+////不可用
+//- (instancetype)initWithFrame:(CGRect)frame NS_UNAVAILABLE;
 @end

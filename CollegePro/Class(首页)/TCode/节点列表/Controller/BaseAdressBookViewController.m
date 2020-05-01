@@ -26,6 +26,8 @@
 	SearchResultViewController *_resultController;
 	NSMutableArray *_arr_updata;
 	NSMutableArray *_arr_Results;
+    
+    
 }
 @property (nonatomic, assign)CGFloat marginTop;
 
@@ -35,36 +37,103 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	_arr_ListContact = [[NSMutableArray alloc]init];
-	_dict_Name = [NSMutableDictionary dictionary];
-	_arr_letter = [NSArray array];
-	_arr_updata = [[NSMutableArray alloc]init];
-	_arr_Results = [[NSMutableArray alloc]init];
-
+    _arr_ListContact = [[NSMutableArray alloc]init];
+    _dict_Name = [NSMutableDictionary dictionary];
+    _arr_letter = [NSArray array];
+    _arr_updata = [[NSMutableArray alloc]init];
+    _arr_Results = [[NSMutableArray alloc]init];
+    
     // Do any additional setup after loading the view.
-	[self getData];
-	[self setUPUI];
-	
+
+    dispatch_group_t group = dispatch_group_create();
+    dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        dispatch_group_enter(group);
+
+        NSString *url = [NSString stringWithFormat:@"https://api.thinkpage.cn/v3/weather/daily.json?key=osoydf7ademn8ybv&location=%@&language=zh-Hans&start=0&days=3",@"北京"];
+        url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *dict = [NSDictionary dictionary];
+        [NetWork GETWithUrl:url parameters:dict view:self.view ifMBP:NO success:^(id  _Nonnull responseObject) {
+            NSLog(@"请求-1-%@--",responseObject);
+
+        } fail:^(NSError * _Nonnull error) {
+            NSLog(@"请求-1---");
+            dispatch_group_leave(group);
+
+
+        }];
+    });
+    // 2 今日推荐
+    dispatch_group_enter(group);
+    dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        //请求2
+        NSDictionary *parameters;
+        parameters = @{@"Url":@"http://kaifa.homesoft.cn/WebService/jsonInterface.ashx",
+                       @"MethodType":@"GET",
+                       @"Value":@"?json=GetUserInfoAll&UserID=2"
+        };
+        
+        [NetWork POSTWithUrl:@"https://www.homesoft.cn/WebInterface/HBInterface.ashx" parameters:parameters view:self.view ifMBP:NO success:^(id responseObject) {
+            NSLog(@"请求-2-%@--",responseObject);
+            dispatch_group_leave(group);
+            
+        } fail:^(NSError * _Nonnull error) {
+            NSLog(@"请求-2---");
+
+        }];;
+    });
+    
+    // 5
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        NSLog(@"123123123123");
+    });
+    
+    [self setUPUI];
+    
+}
+- (void) requestOneWithSuccessBlock:(void(^)(void))successBlock {
+    
+    NSDictionary *parameters;
+    parameters = @{@"Url":@"http://kaifa.homesoft.cn/WebService/jsonInterface.ashx",
+                   @"MethodType":@"GET",
+                   @"Value":@"?json=GetUserInfoAll&UserID=2"
+    };
+    
+    [NetWork POSTWithUrl:@"https://www.homesoft.cn/WebInterface/HBInterface.ashx" parameters:parameters view:self.view ifMBP:YES success:^(id responseObject) {
+        NSLog(@"请求-2-%@--",responseObject);
+
+    } fail:^(NSError * _Nonnull error) {
+        
+    }];
+    
+}
+- (void) requestTwoWithBlock:(void(^)(void))successBlock {
+    NSString *url = [NSString stringWithFormat:@"https://api.thinkpage.cn/v3/weather/daily.json?key=osoydf7ademn8ybv&location=%@&language=zh-Hans&start=0&days=3",@"北京"];
+    url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *empty = [NSDictionary dictionary];
+    [NetWork GETWithUrl:url parameters:empty view:self.view ifMBP:YES success:^(id  _Nonnull responseObject) {
+        NSLog(@"请求-1-%@--",responseObject);
+
+    } fail:^(NSError * _Nonnull error) {
+        
+    }];
 }
 - (void)getData{
-
 	NSDictionary *parameters;
 	parameters = @{@"Url":@"http://kaifa.homesoft.cn/WebService/jsonInterface.ashx",
 				   @"MethodType":@"GET",
 				   @"Value":@"?json=GetUserInfoAll&UserID=2"
 				   };
-
+    
 	[NetWork POSTWithUrl:@"https://www.homesoft.cn/WebInterface/HBInterface.ashx" parameters:parameters view:self.view ifMBP:YES success:^(id responseObject) {
-		NSLog(@"--%@--",responseObject);
-		_arr_ListContact = [ContactModel mj_objectArrayWithKeyValuesArray:responseObject[@"UserInfo"]];
-	
+        self->_arr_ListContact = [ContactModel mj_objectArrayWithKeyValuesArray:responseObject[@"UserInfo"]];
 		[self handleLettersArray];
-		[_tableViewMy reloadData];
+        [self->_tableViewMy reloadData];
 	} fail:^(NSError * _Nonnull error) {
 		
 	}];
 	
 }
+
 
 - (void)setUPUI{
 	//显示序列框
@@ -196,9 +265,9 @@
 {
 	dispatch_async(dispatch_get_main_queue(), ^{
 		[UIView animateWithDuration:.3 animations:^{
-			_lb_SectionTitle.alpha = 0;
+            self->_lb_SectionTitle.alpha = 0;
 		} completion:^(BOOL finished) {
-			_lb_SectionTitle.hidden = YES;
+            self->_lb_SectionTitle.hidden = YES;
 		}];
 	});
 }

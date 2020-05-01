@@ -58,8 +58,12 @@
 		_imagePickerVc.navigationBar.tintColor = self.navigationController.navigationBar.tintColor;
 		UIBarButtonItem *tzBarItem, *BarItem;
 		if (iOS9Later) {
-			tzBarItem = [UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[TZImagePickerController class]]];
-			BarItem = [UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UIImagePickerController class]]];
+            if (@available(iOS 9.0, *)) {
+                tzBarItem = [UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[TZImagePickerController class]]];
+                BarItem = [UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UIImagePickerController class]]];
+            } else {
+                // Fallback on earlier versions
+            }
 		} else {
 			tzBarItem = [UIBarButtonItem appearanceWhenContainedIn:[TZImagePickerController class], nil];
 			BarItem = [UIBarButtonItem appearanceWhenContainedIn:[UIImagePickerController class], nil];
@@ -314,11 +318,11 @@
 			[self takePhoto];
 		}
 		// 拍照之前还需要检查相册权限
-	} else if ([TZImageManager authorizationStatus] == 2) { // 已被拒绝，没有相册权限，将无法保存拍的照片
-		UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"无法访问相册" message:@"请在iPhone的""设置-隐私-相册""中允许访问相册" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"设置", nil];
-		alert.tag = 1;
-		[alert show];
-	} else if ([TZImageManager authorizationStatus] == 0) { // 未请求过相册权限
+    }else if ([PHPhotoLibrary authorizationStatus] == 2){// 已被拒绝，没有相册权限，将无法保存拍的照片
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"无法访问相册" message:@"请在iPhone的""设置-隐私-相册""中允许访问相册" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"设置", nil];
+        alert.tag = 1;
+        [alert show];
+    }else if ([PHPhotoLibrary authorizationStatus] == 0) { // 未请求过相册权限
 		[[TZImageManager manager] requestAuthorizationWithCompletion:^{
 			[self takePhoto];
 		}];
@@ -331,11 +335,17 @@
 - (void)pushImagePickerController {
 	// 提前定位
 	__weak typeof(self) weakSelf = self;
-	[[TZLocationManager manager] startLocationWithSuccessBlock:^(CLLocation *location, CLLocation *oldLocation) {
-		weakSelf.location = location;
-	} failureBlock:^(NSError *error) {
-		weakSelf.location = nil;
-	}];
+    ///!!!:这里有问题
+    [[TZLocationManager manager] startLocationWithSuccessBlock:^(NSArray<CLLocation *> *location) {
+        weakSelf.location = location;
+    } failureBlock:^(NSError *error) {
+        weakSelf.location = nil;
+    }];
+//	[[TZLocationManager manager] startLocationWithSuccessBlock:^(CLLocation *location, CLLocation *oldLocation) {
+//		weakSelf.location = location;
+//	} failureBlock:^(NSError *error) {
+//		weakSelf.location = nil;
+//	}];
 	
 	UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypeCamera;
 	if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera]) {
@@ -359,32 +369,32 @@
 		UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
 		
 		// save photo and get asset / 保存图片，获取到asset
-		[[TZImageManager manager] savePhotoWithImage:image location:self.location completion:^(NSError *error){
-			if (error) {
-				[tzImagePickerVc hideProgressHUD];
-				NSLog(@"图片保存失败 %@",error);
-			} else {
-				[[TZImageManager manager] getCameraRollAlbum:NO allowPickingImage:YES completion:^(TZAlbumModel *model) {
-					[[TZImageManager manager] getAssetsFromFetchResult:model.result allowPickingVideo:NO allowPickingImage:YES completion:^(NSArray<TZAssetModel *> *models) {
-						[tzImagePickerVc hideProgressHUD];
-						TZAssetModel *assetModel = [models firstObject];
-						if (tzImagePickerVc.sortAscendingByModificationDate) {
-							assetModel = [models lastObject];
-						}
-						if (self.allowCropSwitch.isOn) { // 允许裁剪,去裁剪
-							TZImagePickerController *imagePicker = [[TZImagePickerController alloc] initCropTypeWithAsset:assetModel.asset photo:image completion:^(UIImage *cropImage, id asset) {
-								[self refreshCollectionViewWithAddedAsset:asset image:cropImage];
-							}];
-							imagePicker.needCircleCrop = self.needCircleCropSwitch.isOn;
-							imagePicker.circleCropRadius = 100;
-							[self presentViewController:imagePicker animated:YES completion:nil];
-						} else {
-							[self refreshCollectionViewWithAddedAsset:assetModel.asset image:image];
-						}
-					}];
-				}];
-			}
-		}];
+        [[TZImageManager manager] savePhotoWithImage:image location:self.location completion:^(PHAsset *asset, NSError *error) {
+            if (error) {
+                [tzImagePickerVc hideProgressHUD];
+                NSLog(@"图片保存失败 %@",error);
+            }else{
+                [[TZImageManager manager] getCameraRollAlbum:NO allowPickingImage:YES needFetchAssets:YES completion:^(TZAlbumModel *model) {
+                    [[TZImageManager manager] getAssetsFromFetchResult:model.result allowPickingVideo:NO allowPickingImage:YES completion:^(NSArray<TZAssetModel *> *models) {
+                        [tzImagePickerVc hideProgressHUD];
+                        TZAssetModel *assetModel = [models firstObject];
+                        if (tzImagePickerVc.sortAscendingByModificationDate) {
+                            assetModel = [models lastObject];
+                        }
+                        if (self.allowCropSwitch.isOn) { // 允许裁剪,去裁剪
+                            TZImagePickerController *imagePicker = [[TZImagePickerController alloc] initCropTypeWithAsset:assetModel.asset photo:image completion:^(UIImage *cropImage, id asset) {
+                                [self refreshCollectionViewWithAddedAsset:asset image:cropImage];
+                            }];
+                            imagePicker.needCircleCrop = self.needCircleCropSwitch.isOn;
+                            imagePicker.circleCropRadius = 100;
+                            [self presentViewController:imagePicker animated:YES completion:nil];
+                        } else {
+                            [self refreshCollectionViewWithAddedAsset:assetModel.asset image:image];
+                        }
+                    }];
+                }];
+            }
+        }];
 	}
 }
 
@@ -651,7 +661,7 @@
 			ALAsset *alAsset = (ALAsset *)asset;
 			fileName = alAsset.defaultRepresentation.filename;;
 		}
-		//NSLog(@"图片名字:%@",fileName);
+		NSLog(@"图片名字:%@",fileName);
 	}
 }
 

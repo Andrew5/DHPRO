@@ -5,8 +5,6 @@
 //  Created by Rillakkuma on 2017/7/27.
 //  Copyright © 2017年 Rillakkuma. All rights reserved.
 //
-#define NSEaseLocalizedString(key, comment) [[NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"EaseUIResource" withExtension:@"bundle"]] localizedStringForKey:(key) value:@"" table:nil]
-
 #include <ifaddrs.h>//MAC地址
 #include <arpa/inet.h>//网络编程常见的头文件
 #include <net/if.h>//配置ip地址,激活接口,配置MTU等接口信息
@@ -101,27 +99,20 @@
 //#import "DocumentViewController.h"//文档
 //#import "AliRTCViewController.h"
 
-
 @interface DHMainViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIAccelerometerDelegate,AVAudioPlayerDelegate,MKMapViewDelegate,CLLocationManagerDelegate>{
     NSMutableArray *valueArr;
-    
     UICollectionView *_collectionView;
     UILabel *_lb_showinfo;
     //测试
     NSTimer *timer;
     UILabel  *displayLabel;//提示语
-    
     CLLocationCoordinate2D _currentLocationCoordinate;
-
 }
 //定位信息
 @property(nonatomic,strong)CLLocationManager * locationManager;
 @property(nonatomic,strong)MKPointAnnotation * annotation;
-
 @property(nonatomic,strong)MKMapView * mapView;
-
 @property (nonatomic,strong) CLGeocoder * geocoder;
-
 @property(nonatomic,strong)AVAudioPlayer * audioPlayer;
 //指针imageView
 @property (nonatomic,strong) UIImageView * pointImageView;
@@ -129,18 +120,14 @@
 @property (nonatomic,assign) float signalStrength;
 //上行速度
 @property (nonatomic,assign) float upstreamSpeed;
-
 @property (nonatomic, strong) CMMotionManager *mgr; // 保证不死
 @property (nonatomic, strong) UIButton *button1;
 @property (nonatomic, strong) UIButton *button2;
 @property (nonatomic, strong) UIButton *button;
 @property (nonatomic ,strong) NSMutableArray *assets;//图片集合
-
 @property (nonatomic, strong) NSMutableArray *titles;
 @property (nonatomic, strong) NSMutableArray *classNames;
-
 @property (nonatomic, copy) NSString *test;
-
 @end
 
 @implementation DHMainViewController
@@ -148,20 +135,16 @@
     [super viewWillAppear:animated];
 
 }
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
 //    [[DKNightVersionManager dk_manager] dawnComing];
 //    [[DKNightVersionManager dk_manager] nightFalling];
-
     //方法二
     mach_timebase_info_data_t timebase;
     mach_timebase_info(&timebase);
     uint64_t start = mach_absolute_time();
     //方法一
     CFAbsoluteTime startTime = CFAbsoluteTimeGetCurrent();
-
     [self setUPUI];
     self.isShowleftBtn = YES;
 //    [self createMap];
@@ -184,22 +167,20 @@
     uint64_t end = mach_absolute_time();
     uint64_t cost = (end - start) * timebase.numer / timebase.denom;
     NSLog(@"二方法耗时: %f ms",(CGFloat)cost / NSEC_PER_SEC * 1000.0);
-    
     NSLog(@"ceshi 内存 %@-%f-%f",[DHTool freeDiskSpace],[DHTool freeMemory],[DHTool appUsedMemory]);
 //648953856-280.953125-176.453125
 }
--(void)viewDidDisappear:(BOOL)animated{
+- (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
     //移除距离感应通知
     //    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceProximityStateDidChangeNotification object:nil];
 }
--(void)createMap{
+- (void)createMap{
     //请求定位服务
     self.locationManager = [[CLLocationManager alloc]init];
     if (![CLLocationManager locationServicesEnabled] || [CLLocationManager authorizationStatus]!=kCLAuthorizationStatusAuthorizedWhenInUse) {
         [self.locationManager requestWhenInUseAuthorization];
     }
-    
     CGRect rect=[UIScreen mainScreen].bounds;
     self.mapView = [[MKMapView alloc]initWithFrame:rect];
     //设置地图类型
@@ -207,18 +188,12 @@
     self.mapView.userTrackingMode = MKUserTrackingModeFollowWithHeading;
     //缩放程度
     MKCoordinateSpan theSpan;
-    
     theSpan.latitudeDelta=0.00001;
-    
     theSpan.longitudeDelta=0.00001;
-    
     //  定义一个区域（用定义的经纬度和范围来定义）
-    
     MKCoordinateRegion theRegion;
-    
     theRegion.span=theSpan;
     [self.mapView setRegion:theRegion];
-
     //设置代理
     self.mapView.delegate = self;
     self.mapView.zoomEnabled = YES;
@@ -231,15 +206,12 @@
     self.mapView.rotateEnabled = NO;
 
     [self.view addSubview:self.mapView];
-    
     _locationManager = [[CLLocationManager alloc] init];
     _locationManager.delegate = self;
     _locationManager.distanceFilter = 5;
     _locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
     [_locationManager requestWhenInUseAuthorization];
-
 }
-
 - (void)setUPUI{
     //网速显示
     displayLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, DH_DeviceHeight-50, DH_DeviceWidth, 40)];
@@ -255,11 +227,9 @@
     [DHTool setBorderWithView:displayLabel top:NO left:NO bottom:NO right:YES borderColor:[UIColor clearColor] borderWidth:0 otherBorderWidth:1 topColor:[UIColor redColor] leftColor:[UIColor orangeColor] bottomColor:[UIColor grayColor] rightColor:[UIColor blueColor]];
     [self.view addSubview:displayLabel];
     [[UIApplication sharedApplication].keyWindow addSubview:displayLabel];
-    
     //    self.navigationController.navigationBar.barTintColor = IWColor(255,155,0);
     //    //设置导航条的背景色
     //    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:18],NSForegroundColorAttributeName:[UIColor whiteColor]}];
-    
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
     //    flowLayout.minimumLineSpacing = 0.0;//minimumLineSpacing cell上下之间的距离
@@ -268,7 +238,6 @@
     _collectionView=[[UICollectionView alloc] initWithFrame:CGRectMake(15, 0, DH_DeviceWidth-30, DH_DeviceHeight-64-34) collectionViewLayout:flowLayout];
     //    _collectionView=[[UICollectionView alloc] init];
     //    _collectionView.collectionViewLayout = flowLayout;
-    
     //注册Cell，必须要有
     [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"GradientCell"];
     [_collectionView registerClass:[THomeCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([THomeCollectionViewCell class])];
@@ -276,7 +245,6 @@
     _collectionView.delegate=self;
     [_collectionView setBackgroundColor:[UIColor whiteColor]];
     [self.view addSubview:_collectionView];
-    
     self.titles = @[].mutableCopy;
     self.classNames = @[].mutableCopy;
 #pragma mark -跳转页面
@@ -324,10 +292,9 @@
     [self addCell:@"下拉列表" class:@"DHRefreshViewController"];//@"ExpandTableVC"];
     [self addCell:@"网络测试" class:@"NetTestViewController"];
     [self addCell:@"网速测试" class:@"NetworkSpeedViewController"];
-    [self addCell:@"block" class:@"LabelMethodBlockVC"];
-    [self addCell:@"block" class:@"LabelMethodBlockSubVC"];
-    
-//    [self addCell:@"购物车" class:@"TShopAnimationViewController"];
+    [self addCell:@"MethodBlock" class:@"LabelMethodBlockVC"];
+    [self addCell:@"MethodBlockS" class:@"LabelMethodBlockSubVC"];
+    [self addCell:@"购物车" class:@"TShopAnimationViewController"];
     [self addCell:@"文档" class:@"DocumentViewController"];
     [self addCell:@"iCloud文件" class:@"iCloudViewController"];
     [self addCell:@"获取健康信息" class:@"HealthViewController"];
@@ -362,7 +329,6 @@
 //    [_collectionView beginUpdates];
 //    // do some work
 //    [_collectionView endUpdates];
-    
 #pragma mark- 底部网络状态显示
     _lb_showinfo = [[UILabel alloc]init];
     _lb_showinfo.backgroundColor = [UIColor brownColor];
@@ -382,22 +348,17 @@
     [self.titles addObject:title];
     [self.classNames addObject:className];
 }
-
 #pragma mark -- UICollectionViewDataSource
 //定义展示的Section的个数
--(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
-{
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return 1;
 }
 //定义展示的UICollectionViewCell的个数
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return _titles.count;
 }
-
 //每个UICollectionView展示的内容
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     //    static NSString * CellIdentifier = @"THomeCollectionViewCell";
     THomeCollectionViewCell *_cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([THomeCollectionViewCell class]) forIndexPath:indexPath];
     _cell.imageName = @"Facebook";
@@ -407,9 +368,7 @@
     _cell.layer.borderColor = DHColorHex(@"#cde6fe").CGColor;
     _cell.layer.borderWidth = 1.0;
     _cell.layer.cornerRadius = 5.0;
-    
     return _cell;
-    
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     [_collectionView deselectItemAtIndexPath:indexPath animated:NO];
@@ -435,9 +394,6 @@
 //    // 从字典中获取方法名，并调用对应的方法
 //    SEL selector = NSSelectorFromString(parameter[@"method"]);
 //    [classVC  performSelector:selector];
-
-
-    
     NSString *className = self.classNames[indexPath.row];
     UIViewController *controller = [[NSClassFromString(className) alloc]initWithNibName:className bundle:nil];
     if ([className isEqualToString:@"SubparagraphRootViewController"]) {
@@ -472,13 +428,11 @@
         ctrl.title = _titles[indexPath.row];
         pushVC(ctrl);
     }
-    
     /* //ios 13
      [AppDelegate sharedAppDelegate].rootTabbar = [[RootViewController alloc]init];
      [AppDelegate sharedAppDelegate].rootTabbar.modalPresentationStyle = UIModalPresentationFullScreen;
      [self presentViewController:[AppDelegate sharedAppDelegate].rootTabbar animated:YES completion:^{
-     
-     }];
+      }];
      */
 }
 //l多少列
@@ -487,22 +441,17 @@
 #define BRANDDEV 10
 //item 宽度
 #define LISTCELLWIDTH (DH_DeviceWidth - (BRANDSECTION + 1) * BRANDDEV)/BRANDSECTION
-
 #pragma mark --UICollectionViewDelegateFlowLayout
 //定义每个Item 的大小(cell的宽高)
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
 //    CGFloat width = ((self.view.frame.size.width-15)/5);//间隙
-    
     return CGSizeMake(LISTCELLWIDTH,LISTCELLWIDTH+10);
-    
 }
 ////定义每个UICollectionView 的 margin
 //-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 //{
 //    return UIEdgeInsetsMake(10, 15, 10, 15);//(CGFloat top, CGFloat left, CGFloat bottom, CGFloat right)
 //}
-
 //minimumLineSpacing 上下item之间的距离
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
 
@@ -513,51 +462,30 @@
 
     return 5;
 }
-
 - (void)encodeWithCoder:(nonnull NSCoder *)aCoder {
-    
 }
-
 - (void)traitCollectionDidChange:(nullable UITraitCollection *)previousTraitCollection {
-    
 }
-
 - (void)preferredContentSizeDidChangeForChildContentContainer:(nonnull id<UIContentContainer>)container {
-    
 }
-
 - (CGSize)sizeForChildContentContainer:(nonnull id<UIContentContainer>)container withParentContainerSize:(CGSize)parentSize {
     return CGSizeZero;
 }
-
 - (void)systemLayoutFittingSizeDidChangeForChildContentContainer:(nonnull id<UIContentContainer>)container {
-    
 }
-
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(nonnull id<UIViewControllerTransitionCoordinator>)coordinator {
-    
 }
-
 - (void)willTransitionToTraitCollection:(nonnull UITraitCollection *)newCollection withTransitionCoordinator:(nonnull id<UIViewControllerTransitionCoordinator>)coordinator {
-    
 }
-
-- (void)didUpdateFocusInContext:(nonnull UIFocusUpdateContext *)context withAnimationCoordinator:(nonnull UIFocusAnimationCoordinator *)coordinator {
-    
+- (void)didUpdateFocusInContext:(nonnull UIFocusUpdateContext *)context withAnimationCoordinator:(nonnull UIFocusAnimationCoordinator *)coordinator  API_AVAILABLE(ios(9.0)){
 }
-
 - (void)setNeedsFocusUpdate {
-    
 }
-
-- (BOOL)shouldUpdateFocusInContext:(nonnull UIFocusUpdateContext *)context {
+-(BOOL)shouldUpdateFocusInContext:(nonnull UIFocusUpdateContext *)context  API_AVAILABLE(ios(9.0)){
     return YES;
 }
 #pragma mark - MKMapViewDelegate
-
-- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
-{
-    
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     [geocoder reverseGeocodeLocation:userLocation.location completionHandler:^(NSArray *array, NSError *error) {
         if (!error && array.count > 0) {
@@ -568,9 +496,7 @@
         }
     }];
 }
-- (void)removeToLocation:(CLLocationCoordinate2D)locationCoordinate
-{
-    
+- (void)removeToLocation:(CLLocationCoordinate2D)locationCoordinate{
     _currentLocationCoordinate = locationCoordinate;
     float zoomLevel = 0.01;
     MKCoordinateRegion region = MKCoordinateRegionMake(_currentLocationCoordinate, MKCoordinateSpanMake(zoomLevel, zoomLevel));
@@ -588,8 +514,7 @@
     }];
     [self createAnnotationWithCoords:_currentLocationCoordinate];
 }
-- (void)mapView:(MKMapView *)mapView didFailToLocateUserWithError:(NSError *)error
-{
+- (void)mapView:(MKMapView *)mapView didFailToLocateUserWithError:(NSError *)error{
     if (error.code == 0) {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil
                                                             message:[error.userInfo objectForKey:NSLocalizedRecoverySuggestionErrorKey]
@@ -599,8 +524,7 @@
         [alertView show];
     }
 }
--(void)createAnnotationWithCoords:(CLLocationCoordinate2D)coords
-{
+-(void)createAnnotationWithCoords:(CLLocationCoordinate2D)coords{
     if (_annotation == nil) {
         _annotation = [[MKPointAnnotation alloc] init];
     }
@@ -614,58 +538,34 @@
 //    NSLog(@"GKHScanQCodeViewController---%@",result);
 //}
 - (void)updateFocusIfNeeded {
-    
 }
-
 //后台播放声音
 - (void)playVoiceBackground{
-    
     dispatch_queue_t dispatchQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    
     dispatch_async(dispatchQueue, ^(void) {
-        
         NSError *audioSessionError = nil;
-        
         AVAudioSession *audioSession = [AVAudioSession sharedInstance];
-        
         if ([audioSession setCategory:AVAudioSessionCategoryPlayback error:&audioSessionError]){
-            
             NSLog(@"Successfully set the audio session.");
-            
         } else {
-            
             NSLog(@"Could not set the audio session");
-            
         }
-        
         NSBundle *mainBundle = [NSBundle mainBundle];
         NSString *filePath = [mainBundle pathForResource:@"noVoice" ofType:@"mp3"];
         NSData *fileData = [NSData dataWithContentsOfFile:filePath];
         NSError *error = nil;
-        
         self.audioPlayer = [[AVAudioPlayer alloc] initWithData:fileData error:&error];
-        
         if (self.audioPlayer != nil){
-            
             self.audioPlayer.delegate = self;
-            
             [self.audioPlayer setNumberOfLoops:-1];
-            
             if ([self.audioPlayer prepareToPlay] && [self.audioPlayer play]){
-                
                 NSLog(@"Successfully started playing...");
-                
             } else {
-                
                 NSLog(@"Failed to play.");
-                
             }
-            
         }
-        
     });
 }
-
 - (void)receiveHMethod:(NSNotification *)notif{
     NSDictionary *dict = notif.userInfo;
     NSString*str_data= [dict valueForKey:@"dict"];
@@ -673,8 +573,6 @@
     //    [self showHint:[NSString stringWithFormat:@"后台执行时间 %@",str_data] yOffset:10];
     [MBProgressHUD showWarnMessage:[NSString stringWithFormat:@"后台执行时间 %@",str_data]];
 }
-
-
 //- (id)transformedValue:(id)value﻿
 //{﻿
 //       double convertedValue = [value doubleValue];﻿
@@ -687,10 +585,7 @@
 //       return [NSString stringWithFormat:@"%4.2f %@",convertedValue, [tokens objectAtIndex:multiplyFactor]];﻿
 //
 //}
-
-
 - (void)getinternet{
-    NSUserDefaults* userDefault = [[NSUserDefaults standardUserDefaults] initWithSuiteName:@"group.com.dhTool.selfpro.CollegeProExtension"];
     MeasurNetTools * meaurNet = [[MeasurNetTools alloc] initWithblock:^(float speed) {
         //        NSString* speedStr = [NSString stringWithFormat:@"%@/S", [QBTools formattedFileSize:speed]];
 //        _lb_showinfo.text = @"";
@@ -701,6 +596,7 @@
         NSMutableDictionary *WIFIspeed = [DHTool getDataCounters];
         NSLog(@"获取wifi信息 = %@ ------------- 检测手机网络速度 = %@",WIFImessage,WIFIspeed);
     } finishMeasureBlock:^(float speed) {
+        NSUserDefaults* userDefault = [[NSUserDefaults standardUserDefaults] initWithSuiteName:@"group.com.dhTool.selfpro.CollegeProExtension"];
         NSString* speedStr = [NSString stringWithFormat:@"%@/S", [QBTools formattedFileSize:speed]];
         NSLog(@"平均速度为：%@",speedStr);
         NSLog(@"相当于带宽：%@",[QBTools formatBandWidth:speed]);
@@ -708,71 +604,52 @@
         [userDefault setObject:[DHTool getByteRate] forKey:@"network"];
         [userDefault setObject:@"2我是数据" forKey:@"myShareData"];
         [userDefault synchronize];
-        
-    } failedBlock:^(NSError *error) {
-        
-    }];
+        } failedBlock:^(NSError *error) {
+        }];
     [meaurNet startMeasur];
-    
 }
-
-- (CMMotionManager *)mgr
-{
+- (CMMotionManager *)mgr{
     if (_mgr == nil) {
         _mgr = [[CMMotionManager alloc] init];
     }
     return _mgr;
 }
-
 - (void)developer{
-    
     // 1.获取单例对象
     UIAccelerometer *accelerometer = [UIAccelerometer sharedAccelerometer];
-    
     // 2.设置代理
     accelerometer.delegate = self;
-    
     // 3.设置采样间隔
     accelerometer.updateInterval = 0.3;
-    
     // 1.判断加速计是否可用
     if (!self.mgr.isAccelerometerAvailable) {
         NSLog(@"加速计不可用");
         return;
     }
-    
     // 2.设置采样间隔
     self.mgr.accelerometerUpdateInterval = 0.3;
-    
     // 3.开始采样
     [self.mgr startAccelerometerUpdatesToQueue:[NSOperationQueue mainQueue] withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) { // 当采样到加速计信息时就会执行
         if (error) return;
         // 4.获取加速计信息
         //        CMAcceleration acceleration = self.mgr.accelerometerData.acceleration;
-        
-        CMAcceleration acceleration = accelerometerData.acceleration;
+            CMAcceleration acceleration = accelerometerData.acceleration;
         NSLog(@"4/n获取加速计信息 x:%f y:%f z:%f", acceleration.x, acceleration.y, acceleration.z);
         //        _lb_showinfo.text = [NSString stringWithFormat:@"获取的X:%.2f,获取的Y:%.2f,获取的Z:%.2f",acceleration.x, acceleration.y, acceleration.z];
-        
-        //        NSLog(@"速度:%@",[NSByteCountFormatter stringFromByteCount:[DHTool getInterfaceBytes] countStyle:NSByteCountFormatterCountStyleFile]);
+            //        NSLog(@"速度:%@",[NSByteCountFormatter stringFromByteCount:[DHTool getInterfaceBytes] countStyle:NSByteCountFormatterCountStyleFile]);
         //
         //        NSLog(@"获取网速:%.4lld KB--网速是%@",[DHMainViewController getInterfaceBytes],[DHMainViewController getByteRate]);
-        
-    }];
-    
+        }];
     if (![CMPedometer isStepCountingAvailable]) {
         NSLog(@"计步器不可用");
         return;
     }
-    
     CMPedometer *stepCounter = [[CMPedometer alloc] init];
-    
     [stepCounter startPedometerUpdatesFromDate:[NSDate date] withHandler:^(CMPedometerData *pedometerData, NSError *error) {
         if (error) return;
         // 4.获取采样数据
         NSLog(@"获取采样数据 = %@", pedometerData.numberOfSteps);
     }];
-    
     //    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     //    [button setFrame:CGRectMake(100.0 ,100.0 ,100.0 ,40.0)];
     //    button.backgroundColor = [UIColor colorWithRed:1.00 green:1.00 blue:1.00 alpha:0.00];       //背景颜色
@@ -787,70 +664,50 @@
     //    [button1 addTarget:self action:@selector(cancelRun:) forControlEvents:(UIControlEventTouchUpInside)];
     //    [self.view addSubview:button1];
 }
-- (void)proximityStateDidChange
-{
+- (void)proximityStateDidChange{
     if ([UIDevice currentDevice].proximityState) {
         NSLog(@"有物品靠近");
     } else {
         NSLog(@"有物品离开");
     }
 }
-- (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
-{
-    NSLog(@"加速驾驶 /nx:%f y:%f z:%f", acceleration.x, acceleration.y, acceleration.z);
-}
-
-
+//- (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
+//{
+//    NSLog(@"加速驾驶 /nx:%f y:%f z:%f", acceleration.x, acceleration.y, acceleration.z);
+//}
 - (void)btnModelInCurrViewTouchupInside:(id)sender {
     [self performSelector:@selector(didRuninCurrModel:) withObject:[NSNumber numberWithBool:YES] afterDelay:3.0f];
-    
     [self performSelector:@selector(didRuninCurrModelNoArgument) withObject:nil afterDelay:3.0f];
-    
     NSLog(@"Test start....");
 }
-
 - (void)cancelRun:(id)sender {
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(didRuninCurrModel:) object:[NSNumber numberWithBool:YES]];//true
-    
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(didRuninCurrModel:) object:[NSNumber numberWithBool:NO]];//false
-    
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(didRuninCurrModel:) object:nil];//false
-    
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(didRuninCurrModelNoArgument) object:nil];//true
-    
     [NSObject cancelPreviousPerformRequestsWithTarget:self];//all ok
     [[self class] cancelPreviousPerformRequestsWithTarget:self];
 }
-
-- (void)didRuninCurrModel:(NSNumber *)numFin
-{
+- (void)didRuninCurrModel:(NSNumber *)numFin{
     NSLog(@"- (void)didRuninCurrModel:%@", numFin.boolValue ? @"YES":@"NO");
 }
-
-- (void)didRuninCurrModelNoArgument
-{
+- (void)didRuninCurrModelNoArgument{
     NSLog(@"- (void)didRuninCurrModelNoArgument");
 }
-
 //测试
-- (void)showPromptlanguage:(NSString *)string
-{
+- (void)showPromptlanguage:(NSString *)string{
     [UIView animateWithDuration:1.0 animations:^{
-        
         displayLabel.text = string;
         displayLabel.hidden = NO;
-        
-        //自适应高度
+            //自适应高度
         CGRect txtFrame = displayLabel.frame;
-        
-        displayLabel.frame = CGRectMake(0, DH_DeviceHeight-50, DH_DeviceWidth,
+            displayLabel.frame = CGRectMake(0, DH_DeviceHeight-50, DH_DeviceWidth,
                                         txtFrame.size.height =[string boundingRectWithSize:
                                                                CGSizeMake(txtFrame.size.width, CGFLOAT_MAX)
                                                                                    options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
                                                                                 attributes:[NSDictionary dictionaryWithObjectsAndKeys:displayLabel.font,NSFontAttributeName, nil] context:nil].size.height);
         NSLog(@"执行");
-        
-    } completion:^(BOOL finished) {
+        } completion:^(BOOL finished) {
         timer = [NSTimer scheduledTimerWithTimeInterval:10.5f
                                                  target:self
                                                selector:@selector(hiddenDataPicker)
@@ -860,7 +717,6 @@
         NSLog(@"完成");
     }];
 }
-
 - (void)hiddenDataPicker{
     [UIView animateWithDuration:0.5 animations:^{
         displayLabel.frame = CGRectMake(0, DH_DeviceHeight+50, DH_DeviceWidth, 20);
@@ -870,35 +726,19 @@
         [timer invalidate];
     }];
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
-
-
 - (void)receiveMessage:(NSNotification *)nof{
     NSDictionary *dict = nof.userInfo;
     self.test = dict[@"content"];
-    
 }
 -(void)dealloc{
     //移除距离感应通知
-//    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceProximityStateDidChangeNotification object:nil];
-    [super dealloc];
+    //    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceProximityStateDidChangeNotification object:nil];
     [[NSNotificationCenter defaultCenter]removeObserver:self];
+    [super dealloc];
 }
-
-
 @end
 

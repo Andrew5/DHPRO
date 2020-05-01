@@ -11,6 +11,9 @@
 #import "CommentsModel.h"
 #import <objc/message.h>
 #import "DataModel.h"
+#include <pthread.h>
+
+
 @interface NetTestViewController ()
 {
 	__block NSArray *_dataSource;
@@ -50,6 +53,8 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"多线程知识";
+
     // Do any additional setup after loading the view.
     //GCD停止正在执行的任务
     gcdIsStope = NO;
@@ -68,6 +73,7 @@
     });
 
     [self asyncBarrier];
+    [self pthreadLock];//线程锁
 }
 static  BOOL y;
 - (void)test{
@@ -118,11 +124,10 @@ static  BOOL y;
 	NSArray *UserId = @[@"f2622c2b-80fb-4e66-9280-66d4eb6053e4"];
 	NSString *PassWord = @"59254df4adb4f537906cb9c436641dd95d276a202960cab55aa546873c12e9c0";
 
-
     NSDictionary *param = NSDictionaryOfVariableBindings(UserId,PassWord);
     [SFNetWorkManager requestWithType:HttpRequestTypePost withUrlString:URL withParaments:param withSuccessBlock:^(NSDictionary *object) {
 		
-		_dataSource = [DataModel mj_objectArrayWithKeyValuesArray:object[@"data"]];
+		self->_dataSource = [DataModel mj_objectArrayWithKeyValuesArray:object[@"data"]];
 			
 	} withFailureBlock:^(NSError *error) {
         NSLog(@"error %@",error.description);
@@ -440,8 +445,6 @@ static  BOOL y;
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
         NSLog(@"歌曲下载完成");
     });
-    dispatch_group_enter(group);
-
 }
 
 // 核心概念：
@@ -670,7 +673,7 @@ static  BOOL y;
 	// 异步执行任务
 	for (int i=0 ; i<10 ; i++) {
 		dispatch_async(queue, ^{
-            if (gcdIsStope) {
+            if (self->gcdIsStope) {
                 return ;
             }
             sleep(1);
@@ -919,7 +922,177 @@ static  BOOL y;
 - (void)other{
     NSLog(@"%s",__func__);
 }
+//定义block类型
+typedef void(^KYSBlock)(void);
+//定义获取全局队列方法
+#define KYS_GLOBAL_QUEUE(block) \
+dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{ \
+    while (1) { \
+        block();\
+    }\
+})
+///TODO:pthreadLock
+- (void)pthreadLock{
+    CFTimeInterval timeBefore;
+    CFTimeInterval timeCurrent;
+    NSUInteger i;
+    NSUInteger count = 1000*10000;//执行一千万次
+    //@synchronized
+    id obj = [[NSObject alloc]init];;
+    timeBefore = CFAbsoluteTimeGetCurrent();
+    for(i=0; i<count; i++){
+        @synchronized(obj){
+        }
+    }
+    timeCurrent = CFAbsoluteTimeGetCurrent();
+    printf("@synchronized used : %f\n", timeCurrent-timeBefore);
+    //NSLock
+    NSLock *lock = [[NSLock alloc]init];
+    timeBefore = CFAbsoluteTimeGetCurrent();
+    for(i=0; i<count; i++){
+        [lock lock];
+        [lock unlock];
+    }
+    timeCurrent = CFAbsoluteTimeGetCurrent();
+    printf("NSLock used : %f\n", timeCurrent-timeBefore);
+    //NSCondition
+    NSCondition *condition = [[NSCondition alloc]init];
+    timeBefore = CFAbsoluteTimeGetCurrent();
+    for(i=0; i<count; i++){
+        [condition lock];
+        [condition unlock];
+    }
+    timeCurrent = CFAbsoluteTimeGetCurrent();
+    printf("NSCondition used : %f\n", timeCurrent-timeBefore);
+    //NSConditionLock
+    NSConditionLock *conditionLock = [[NSConditionLock alloc]init];
+    timeBefore = CFAbsoluteTimeGetCurrent();
+    for(i=0; i<count; i++){
+        [conditionLock lock];
+        [conditionLock unlock];
+    }
+    timeCurrent = CFAbsoluteTimeGetCurrent();
+    printf("NSConditionLock used : %f\n", timeCurrent-timeBefore);
+    //NSRecursiveLock
+    NSRecursiveLock *recursiveLock = [[NSRecursiveLock alloc]init];
+    timeBefore = CFAbsoluteTimeGetCurrent();
+    for(i=0; i<count; i++){
+        [recursiveLock lock];
+        [recursiveLock unlock];
+    }
+    timeCurrent = CFAbsoluteTimeGetCurrent();
+    printf("NSRecursiveLock1 used : %f\n", timeCurrent-timeBefore);
+    
+    timeBefore = CFAbsoluteTimeGetCurrent();
+    KYS_GLOBAL_QUEUE(^{
+        static void (^RecursiveBlock)(int);
+        RecursiveBlock = ^(int value) {
+            [recursiveLock lock];
+            if (value > 0) {
+                NSLog(@"加锁层数 %d", value);
+                sleep(1);
+                RecursiveBlock(--value);
+            }
+            [recursiveLock unlock];
+        };
+        RecursiveBlock(3);
+    });
+    timeCurrent = CFAbsoluteTimeGetCurrent();
+    printf("NSRecursiveLock2 used : %f\n", timeCurrent-timeBefore);
 
+    //pthread_mutex
+    pthread_mutex_t mutex =PTHREAD_MUTEX_INITIALIZER;
+    timeBefore = CFAbsoluteTimeGetCurrent();
+    for(i=0; i<count; i++){
+        pthread_mutex_lock(&mutex);
+        pthread_mutex_unlock(&mutex);
+    }
+    timeCurrent = CFAbsoluteTimeGetCurrent();
+    printf("pthread_mutex used : %f\n", timeCurrent-timeBefore);
+    //dispatch_semaphore
+    dispatch_semaphore_t semaphore =dispatch_semaphore_create(1);
+    timeBefore = CFAbsoluteTimeGetCurrent();
+    for(i=0; i<count; i++){
+        dispatch_semaphore_wait(semaphore,DISPATCH_TIME_FOREVER);
+        dispatch_semaphore_signal(semaphore);
+    }
+    timeCurrent = CFAbsoluteTimeGetCurrent();
+    printf("dispatch_semaphore used : %f\n", timeCurrent-timeBefore);
+    //参数可以理解为信号的总量，传入的值必须大于或等于0，否则，返回NULL
+    //dispatch_semaphore_signal +1
+    //dispatch_semaphore_wait等待信号，当<=0时会进入等待状态，否则，-1
+    __block dispatch_semaphore_t semaphoree = dispatch_semaphore_create(1);
+    KYS_GLOBAL_QUEUE(^{
+        dispatch_semaphore_wait(semaphoree, DISPATCH_TIME_FOREVER);
+        NSLog(@"这里简单写一下用法，可自行实现生产者、消费者");
+        sleep(1);
+        dispatch_semaphore_signal(semaphoree);
+    });
+    //OSSpinLockLock
+//    OSSpinLock spinlock = OS_SPINLOCK_INIT;
+//    timeBefore = CFAbsoluteTimeGetCurrent();
+//    for(i=0; i<count; i++){
+//        OSSpinLockLock(&spinlock);
+//        OSSpinLockUnlock(&spinlock);
+//    }
+//    timeCurrent = CFAbsoluteTimeGetCurrent();
+//    printf("停用OSSpinLock used : %f\n", timeCurrent-timeBefore);
+    
+    /**
+     * @synchronized used : 1.090570
+     * NSLock used : 0.194595
+     * NSCondition used : 0.188667
+     * NSConditionLock used : 0.627998
+     * NSRecursiveLock used : 0.423586
+     * pthread_mutex used : 0.191954
+     * dispatch_semaphore used : 0.139354
+     * OSSpinLock used : 0.077738
+     */
+    
+}
+//执行一次，之后用到，不在定义
+#define KYS_GLOBAL_QUEUE_ONCE(block) \
+dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{ \
+    block();\
+})
+- (void)lock{
+    NSConditionLock *conditionLock = [[NSConditionLock alloc] initWithCondition:0];
+    
+    KYS_GLOBAL_QUEUE_ONCE(^{
+        for (int i=0;i<3;i++){
+            [conditionLock lock];
+            NSLog(@"线程 0:%d",i);
+            sleep(1);
+            [conditionLock unlockWithCondition:i];
+        }
+    });
+    
+    sleep(1);
+    
+    KYS_GLOBAL_QUEUE_ONCE(^{
+        [conditionLock lock];
+        NSLog(@"线程 1");
+        [conditionLock unlock];
+    });
+    
+    KYS_GLOBAL_QUEUE_ONCE(^{
+        [conditionLock lockWhenCondition:2];
+        NSLog(@"线程 2");
+        [conditionLock unlockWithCondition:0];
+    });
+    
+    KYS_GLOBAL_QUEUE_ONCE(^{
+        [conditionLock lockWhenCondition:1];
+        NSLog(@"线程 3");
+        [conditionLock unlockWithCondition:2];
+    });
+    
+    KYS_GLOBAL_QUEUE_ONCE(^{
+        [conditionLock lockWhenCondition:0];
+        NSLog(@"线程 4");
+        [conditionLock unlockWithCondition:1];
+    });
+}
 //消息动态解析
 + (BOOL)resolveInstanceMethod:(SEL)sel
 {
@@ -955,7 +1128,7 @@ void dynamicAdditionMethodIMP(id self, SEL _cmd) {
 - (void)forwardInvocation:(NSInvocation *)anInvocation
 {
     //修改方法调用者
-    anInvocation.target = [[DataModel alloc] init];
+    anInvocation.target = (id)[[DataModel alloc] init];
     //调用方法
     [anInvocation invoke];
 }
@@ -968,7 +1141,7 @@ void dynamicAdditionMethodIMP(id self, SEL _cmd) {
         'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
         'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'
     };
-    int length = [data length];
+    int length = (int)[data length];
     unsigned long ixtext, lentext;
     long ctremaining;
     unsigned char input[3], output[4];

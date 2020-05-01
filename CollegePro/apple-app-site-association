@@ -1,0 +1,11 @@
+{
+    "applinks":{
+        "apps":[],
+        "details":[
+            {
+                "appID":"9JA89QQLNQ.com.dhTool.selfpro",
+                "paths":["/wwdc/news/","/videos/wwdc/2018/*"]//如果你的网站是www.yohunl.com,你的path写的是"/support/*",那么当用户点击www.yohunl.com/support/myDoucument,就可以进入你的app了,相反www.yohunl.com/other 就不会
+            }
+        ]
+    }
+}

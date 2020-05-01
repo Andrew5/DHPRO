@@ -37,7 +37,7 @@ static UIImage *currentImage;
 	label.layer.borderWidth = 1.0;
 	
 	UIButton *btn_TabBar = [UIButton buttonWithType:UIButtonTypeCustom];
-	[btn_TabBar setFrame:CGRectMake(100.0 ,100.0 ,100.0 ,30.0)];
+	[btn_TabBar setFrame:CGRectMake(100.0 ,0.0 ,100.0 ,30.0)];
 	btn_TabBar.backgroundColor = [UIColor colorWithRed:1.00 green:1.00 blue:1.00 alpha:0.00];       //背景颜色
 	[btn_TabBar setTitle:@"返回" forState:0];
 	[btn_TabBar setTitleColor:[UIColor redColor] forState:0];
@@ -110,9 +110,7 @@ static UIImage *currentImage;
 }
 - (void)tabBar{
 	
-	
-	
-//	dis;
+	disVC;
 }
 
 

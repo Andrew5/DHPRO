@@ -18,10 +18,6 @@ static BOOL const isCameraAutoSavePhoto = YES;
 // HUD提示框动画执行的秒数
 static CGFloat KHUDShowDuration = 1.0;
 
-#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
-green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
-blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
-
 // Navigation Color
 #define DefaultNavbarTintColor UIColorFromRGB(0x2f3535)
 #define DefaultNavTintColor UIColorFromRGB(0xd5d5d5)

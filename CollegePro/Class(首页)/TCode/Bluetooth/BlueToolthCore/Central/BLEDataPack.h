@@ -34,7 +34,6 @@
 /**
  *  取得分段发送数据
  *
- *  @return
  */
 - (NSData *)beginSendData;
 

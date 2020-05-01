@@ -15,7 +15,6 @@
 //  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
 
 #import "SGImageButton.h"
-#import "UIView+Extension.h"
 
 @implementation SGImageButton
 

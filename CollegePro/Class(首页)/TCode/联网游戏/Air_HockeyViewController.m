@@ -39,7 +39,7 @@
 		{
 			Menu * pageView = [[Menu alloc] initWithNibName: nil bundle: nil];
 			pageView.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-			[self presentModalViewController: pageView animated: YES];
+            [self presentViewController:pageView animated:YES completion:nil];
 //            [pageView release];
 			[self.audioPlayer pause];
 
@@ -75,7 +75,7 @@
 		{
 			Menu * pageView = [[Menu alloc] initWithNibName: nil bundle: nil];
 			pageView.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-			[self presentModalViewController: pageView animated: YES];
+            [self presentViewController:pageView animated:YES completion:nil];
 //            [pageView release];
 			[self.audioPlayer pause];
 		}
@@ -109,7 +109,7 @@
 		{
 			Menu * pageView = [[Menu alloc] initWithNibName: nil bundle: nil];
 			pageView.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-			[self presentModalViewController: pageView animated: YES];
+            [self presentViewController:pageView animated:YES completion:nil];
 //            [pageView release];
 			[self.audioPlayer pause];
 		}
@@ -882,8 +882,7 @@
 	
 	score2.transform = CGAffineTransformRotate(score2.transform, M_PI);
 
-	bgImage = [UIImageView alloc];
-	[bgImage initWithFrame: CGRectMake(0,0,320,460)];
+	bgImage = [[UIImageView alloc]initWithFrame:CGRectMake(0,0,320,460)];
 	if ([defaults integerForKey: @"BG Control"] == 0)
 	{
 		if ([defaults integerForKey: @"Goal Control"] == 0)
@@ -954,8 +953,7 @@
 	[self.view addSubview: bgImage];
 	[self.view sendSubviewToBack: bgImage];
 	
-	puck = [UIImageView alloc];
-	[puck initWithFrame: CGRectMake(144,208,40,40)];
+	puck = [[UIImageView alloc]initWithFrame:CGRectMake(144,208,40,40)];
 	if ([defaults integerForKey: @"Puck Control"] == 0)
 	{
 		puck.image = [UIImage imageNamed: @"black puck.png"];
@@ -967,8 +965,7 @@
 	[self.view addSubview: puck];
 
 	//PADDLE 1
-	paddleP1 = [UIImageView alloc];
-	[paddleP1 initWithFrame: CGRectMake(123,50,80,80)];
+	paddleP1 = [[UIImageView alloc]initWithFrame:CGRectMake(123,50,80,80)];
 	if ([defaults integerForKey: @"P2 Control"] == 0)
 	{
 		paddleP1.image = [UIImage imageNamed: @"red paddle.png"];
@@ -993,8 +990,7 @@
 	
 	
 	//PADDLE 2
-	paddleP2 = [UIImageView alloc];
-	[paddleP2 initWithFrame: CGRectMake(123,330,80,80)];
+	paddleP2 = [[UIImageView alloc]initWithFrame:CGRectMake(123,330,80,80)];
 	if ([defaults integerForKey: @"P1 Control"] == 0)
 	{
 		paddleP2.image = [UIImage imageNamed: @"red paddle.png"];
@@ -1025,10 +1021,9 @@
 -(void) touchesMoved:(NSSet*)touches withEvent:(UIEvent*)event
 {
 	UITouch * myTouch = [[event allTouches]anyObject];
-	
-
-	
-	int touchCount = [touches count];
+    
+    ///???:NSUInteger转int类型问题
+	int touchCount = (int)[touches count];
 	NSArray * touchesArray = [touches allObjects];
 	
 	for (int i = 0; i < touchCount; i++)

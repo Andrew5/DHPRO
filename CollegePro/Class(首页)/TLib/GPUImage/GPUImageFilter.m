@@ -58,33 +58,31 @@ void dataProviderUnlockCallback (void *info, const void *data, size_t size);
     runSynchronouslyOnVideoProcessingQueue(^{
         [GPUImageOpenGLESContext useImageProcessingContext];
 
-        filterProgram = [[GPUImageOpenGLESContext sharedImageProcessingOpenGLESContext] programForVertexShaderString:vertexShaderString fragmentShaderString:fragmentShaderString];
+        self->filterProgram = [[GPUImageOpenGLESContext sharedImageProcessingOpenGLESContext] programForVertexShaderString:vertexShaderString fragmentShaderString:fragmentShaderString];
         
-        if (!filterProgram.initialized)
+        if (!self->filterProgram.initialized)
         {
             [self initializeAttributes];
             
-            if (![filterProgram link])
+            if (![self->filterProgram link])
             {
-                NSString *progLog = [filterProgram programLog];
+                NSString *progLog = [self->filterProgram programLog];
                 NSLog(@"Program link log: %@", progLog);
-                NSString *fragLog = [filterProgram fragmentShaderLog];
+                NSString *fragLog = [self->filterProgram fragmentShaderLog];
                 NSLog(@"Fragment shader compile log: %@", fragLog);
-                NSString *vertLog = [filterProgram vertexShaderLog];
+                NSString *vertLog = [self->filterProgram vertexShaderLog];
                 NSLog(@"Vertex shader compile log: %@", vertLog);
-                filterProgram = nil;
+                self->filterProgram = nil;
                 NSAssert(NO, @"Filter shader link failed");
             }
         }
         
-        filterPositionAttribute = [filterProgram attributeIndex:@"position"];
-        filterTextureCoordinateAttribute = [filterProgram attributeIndex:@"inputTextureCoordinate"];
-        filterInputTextureUniform = [filterProgram uniformIndex:@"inputImageTexture"]; // This does assume a name of "inputImageTexture" for the fragment shader
-        
-        [GPUImageOpenGLESContext setActiveShaderProgram:filterProgram];
-        
-        glEnableVertexAttribArray(filterPositionAttribute);
-        glEnableVertexAttribArray(filterTextureCoordinateAttribute);    
+        self->filterPositionAttribute = [self->filterProgram attributeIndex:@"position"];
+        self->filterTextureCoordinateAttribute = [self->filterProgram attributeIndex:@"inputTextureCoordinate"];
+        self->filterInputTextureUniform = [self->filterProgram uniformIndex:@"inputImageTexture"]; // This does assume a name of "inputImageTexture" for the fragment shader
+        [GPUImageOpenGLESContext setActiveShaderProgram:self->filterProgram];
+        glEnableVertexAttribArray(self->filterPositionAttribute);
+        glEnableVertexAttribArray(self->filterTextureCoordinateAttribute);
     });
     
     return self;
@@ -159,20 +157,20 @@ void dataProviderUnlockCallback (void *info, const void *data, size_t size)
         CGSize currentFBOSize = [self sizeOfFBO];
         NSUInteger totalBytesForImage = (int)currentFBOSize.width * (int)currentFBOSize.height * 4;
         // It appears that the width of a texture must be padded out to be a multiple of 8 (32 bytes) if reading from it using a texture cache
-        NSUInteger paddedWidthOfImage = CVPixelBufferGetBytesPerRow(renderTarget) / 4.0;
+        NSUInteger paddedWidthOfImage = CVPixelBufferGetBytesPerRow(self->renderTarget) / 4.0;
         NSUInteger paddedBytesForImage = paddedWidthOfImage * (int)currentFBOSize.height * 4;
         
         GLubyte *rawImagePixels;
         
         CGDataProviderRef dataProvider;
-        if ([GPUImageOpenGLESContext supportsFastTextureUpload] && preparedToCaptureImage)
+        if ([GPUImageOpenGLESContext supportsFastTextureUpload] && self->preparedToCaptureImage)
         {
             //        glFlush();
             glFinish();
-            CFRetain(renderTarget); // I need to retain the pixel buffer here and release in the data source callback to prevent its bytes from being prematurely deallocated during a photo write operation
-            CVPixelBufferLockBaseAddress(renderTarget, 0);
+            CFRetain(self->renderTarget); // I need to retain the pixel buffer here and release in the data source callback to prevent its bytes from being prematurely deallocated during a photo write operation
+            CVPixelBufferLockBaseAddress(self->renderTarget, 0);
             self.preventRendering = YES; // Locks don't seem to work, so prevent any rendering to the filter which might overwrite the pixel buffer data until done processing
-            rawImagePixels = (GLubyte *)CVPixelBufferGetBaseAddress(renderTarget);
+            rawImagePixels = (GLubyte *)CVPixelBufferGetBaseAddress(self->renderTarget);
             dataProvider = CGDataProviderCreateWithData((__bridge_retained void*)self, rawImagePixels, paddedBytesForImage, dataProviderUnlockCallback);
         }
         else
@@ -186,9 +184,9 @@ void dataProviderUnlockCallback (void *info, const void *data, size_t size)
         
         CGColorSpaceRef defaultRGBColorSpace = CGColorSpaceCreateDeviceRGB();
         
-        if ([GPUImageOpenGLESContext supportsFastTextureUpload] && preparedToCaptureImage)
+        if ([GPUImageOpenGLESContext supportsFastTextureUpload] && self->preparedToCaptureImage)
         {
-            cgImageFromBytes = CGImageCreate((int)currentFBOSize.width, (int)currentFBOSize.height, 8, 32, CVPixelBufferGetBytesPerRow(renderTarget), defaultRGBColorSpace, kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst, dataProvider, NULL, NO, kCGRenderingIntentDefault);
+            cgImageFromBytes = CGImageCreate((int)currentFBOSize.width, (int)currentFBOSize.height, 8, 32, CVPixelBufferGetBytesPerRow(self->renderTarget), defaultRGBColorSpace, kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst, dataProvider, NULL, NO, kCGRenderingIntentDefault);
         }
         else
         {
@@ -264,14 +262,14 @@ void dataProviderUnlockCallback (void *info, const void *data, size_t size)
     runSynchronouslyOnVideoProcessingQueue(^{
         [GPUImageOpenGLESContext useImageProcessingContext];
         glActiveTexture(GL_TEXTURE1);
-        glGenFramebuffers(1, &filterFramebuffer);
-        glBindFramebuffer(GL_FRAMEBUFFER, filterFramebuffer);
+        glGenFramebuffers(1, &self->filterFramebuffer);
+        glBindFramebuffer(GL_FRAMEBUFFER, self->filterFramebuffer);
         
-        if ([GPUImageOpenGLESContext supportsFastTextureUpload] && preparedToCaptureImage)
+        if ([GPUImageOpenGLESContext supportsFastTextureUpload] && self->preparedToCaptureImage)
         {
             
 #if defined(__IPHONE_6_0)
-            CVReturn err = CVOpenGLESTextureCacheCreate(kCFAllocatorDefault, NULL, [[GPUImageOpenGLESContext sharedImageProcessingOpenGLESContext] context], NULL, &filterTextureCache);
+            CVReturn err = CVOpenGLESTextureCacheCreate(kCFAllocatorDefault, NULL, [[GPUImageOpenGLESContext sharedImageProcessingOpenGLESContext] context], NULL, &self->filterTextureCache);
 #else
             CVReturn err = CVOpenGLESTextureCacheCreate(kCFAllocatorDefault, NULL, (__bridge void *)[[GPUImageOpenGLESContext sharedImageProcessingOpenGLESContext] context], NULL, &filterTextureCache);
 #endif
@@ -289,7 +287,7 @@ void dataProviderUnlockCallback (void *info, const void *data, size_t size)
             attrs = CFDictionaryCreateMutable(kCFAllocatorDefault, 1, &kCFTypeDictionaryKeyCallBacks, &kCFTypeDictionaryValueCallBacks);
             CFDictionarySetValue(attrs, kCVPixelBufferIOSurfacePropertiesKey, empty);
             
-            err = CVPixelBufferCreate(kCFAllocatorDefault, (int)currentFBOSize.width, (int)currentFBOSize.height, kCVPixelFormatType_32BGRA, attrs, &renderTarget);
+            err = CVPixelBufferCreate(kCFAllocatorDefault, (int)currentFBOSize.width, (int)currentFBOSize.height, kCVPixelFormatType_32BGRA, attrs, &self->renderTarget);
             if (err)
             {
                 NSLog(@"FBO size: %f, %f", currentFBOSize.width, currentFBOSize.height);
@@ -297,7 +295,7 @@ void dataProviderUnlockCallback (void *info, const void *data, size_t size)
             }
             
             err = CVOpenGLESTextureCacheCreateTextureFromImage (kCFAllocatorDefault,
-                                                                filterTextureCache, renderTarget,
+                                                                self->filterTextureCache, renderTarget,
                                                                 NULL, // texture attributes
                                                                 GL_TEXTURE_2D,
                                                                 GL_RGBA, // opengl format
@@ -306,7 +304,7 @@ void dataProviderUnlockCallback (void *info, const void *data, size_t size)
                                                                 GL_BGRA, // native iOS format
                                                                 GL_UNSIGNED_BYTE,
                                                                 0,
-                                                                &renderTexture);
+                                                                &self->renderTexture);
             if (err)
             {
                 NSAssert(NO, @"Error at CVOpenGLESTextureCacheCreateTextureFromImage %d", err);
@@ -314,20 +312,20 @@ void dataProviderUnlockCallback (void *info, const void *data, size_t size)
             
             CFRelease(attrs);
             CFRelease(empty);
-            glBindTexture(CVOpenGLESTextureGetTarget(renderTexture), CVOpenGLESTextureGetName(renderTexture));
-            outputTexture = CVOpenGLESTextureGetName(renderTexture);
+            glBindTexture(CVOpenGLESTextureGetTarget(self->renderTexture), CVOpenGLESTextureGetName(self->renderTexture));
+            self->outputTexture = CVOpenGLESTextureGetName(self->renderTexture);
             glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
             glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
             
-            glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, CVOpenGLESTextureGetName(renderTexture), 0);
+            glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, CVOpenGLESTextureGetName(self->renderTexture), 0);
             
             [self notifyTargetsAboutNewOutputTexture];
         }
         else
         {
-            glBindTexture(GL_TEXTURE_2D, outputTexture);
+            glBindTexture(GL_TEXTURE_2D, self->outputTexture);
             glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (int)currentFBOSize.width, (int)currentFBOSize.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, 0);
-            glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, outputTexture, 0);
+            glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, self->outputTexture, 0);
             
             [self notifyTargetsAboutNewOutputTexture];
         }
@@ -348,23 +346,23 @@ void dataProviderUnlockCallback (void *info, const void *data, size_t size)
         runSynchronouslyOnVideoProcessingQueue(^{
             [GPUImageOpenGLESContext useImageProcessingContext];
 
-            glDeleteFramebuffers(1, &filterFramebuffer);
-            filterFramebuffer = 0;
+            glDeleteFramebuffers(1, &self->filterFramebuffer);
+            self->filterFramebuffer = 0;
             
-            if (filterTextureCache != NULL)
+            if (self->filterTextureCache != NULL)
             {
-                CFRelease(renderTarget);
-                renderTarget = NULL;
+                CFRelease(self->renderTarget);
+                self->renderTarget = NULL;
                 
-                if (renderTexture)
+                if (self->renderTexture)
                 {
-                    CFRelease(renderTexture);
-                    renderTexture = NULL;
+                    CFRelease(self->renderTexture);
+                    self->renderTexture = NULL;
                 }
                 
-                CVOpenGLESTextureCacheFlush(filterTextureCache, 0);
-                CFRelease(filterTextureCache);
-                filterTextureCache = NULL;
+                CVOpenGLESTextureCacheFlush(self->filterTextureCache, 0);
+                CFRelease(self->filterTextureCache);
+                self->filterTextureCache = NULL;
             }
         });
 	}
@@ -522,8 +520,8 @@ void dataProviderUnlockCallback (void *info, const void *data, size_t size)
             runSynchronouslyOnVideoProcessingQueue(^{
                 [GPUImageOpenGLESContext useImageProcessingContext];
                 
-                glDeleteTextures(1, &outputTexture);
-                outputTexture = 0;
+                glDeleteTextures(1, &self->outputTexture);
+                self->outputTexture = 0;
             });
         }
     }

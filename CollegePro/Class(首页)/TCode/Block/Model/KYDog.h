@@ -19,15 +19,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *city;
 
 @property (strong, nonatomic)   NSMutableData            *printerData;
--(void)loadNameValue:(NSString *)na;
+
+//-(void)loadNameValue:(NSString *)na;
 - (void)changeName;
 - (void)getIvars;
 - (void)appendTitle:(NSString *)title value:(NSString *)value valueOffset:(NSInteger)offset;
 @end
 
 @interface KYUser : NSObject
+{
+    @public
+    NSString *_can_not_observer_name;
+    
+    NSString *_sex;
+}
 /** ID */
-@property (nonatomic, strong) NSString *userId;
+@property (nonatomic, strong) NSString *sex;
 /** 狗 */
 @property (nonatomic, strong) KYDog *dog;
 /** 数组 */

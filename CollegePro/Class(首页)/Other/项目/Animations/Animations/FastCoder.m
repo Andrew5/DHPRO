@@ -707,7 +707,7 @@ static id FCReadObjectInstance(__unsafe_unretained FCNSDecoder *decoder, NSUInte
     id newObject = [object awakeAfterFastCoding];
     if (newObject != object)
     {
-        //TODO: this is only a partial solution, as any objects that referenced
+        ///TODO: this is only a partial solution, as any objects that referenced
         //this object between when it was created and now will have received incorrect instance
         FCReplaceCachedObject(cacheIndex, newObject, decoder->_objectCache);
     }
@@ -2375,7 +2375,7 @@ static id FCReadObjectInstance_2_3(__unsafe_unretained FCNSDecoder *decoder)
     id newObject = [object awakeAfterFastCoding];
     if (newObject != object)
     {
-        //TODO: this is only a partial solution, as any objects that referenced
+        ///TODO: this is only a partial solution, as any objects that referenced
         //this object between when it was created and now will have received incorrect instance
         FCReplaceCachedObject(cacheIndex, newObject, decoder->_objectCache);
     }

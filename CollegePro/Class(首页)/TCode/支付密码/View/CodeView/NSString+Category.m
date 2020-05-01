@@ -28,7 +28,9 @@
         resultSize = [self boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size;
     } else {
         //计算正文的高度
-        resultSize = [self sizeWithFont:font constrainedToSize:size lineBreakMode:NSLineBreakByWordWrapping];
+        NSDictionary *attrs = @{NSFontAttributeName : font};
+        CGSize size = [self boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:attrs context:nil].size;
+        resultSize = size;
     }
     return resultSize;
 }

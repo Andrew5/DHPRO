@@ -16,8 +16,8 @@ NSString * const kBLEConnectorReceivePartialDataNotification  = @"kBLEConnectorR
     
     CBCharacteristic *_notifiCharacteristic;
     CBCharacteristic *_writeCharacteristic;
-    NSMutableArray* dataPackList; //<! 待发送报文列表
-    BLEDataPack* sendingDataPack; //<! 当前正在发送报文
+    NSMutableArray* dataPackList; ///< 待发送报文列表
+    BLEDataPack* sendingDataPack; ///< 当前正在发送报文
 }
 
 /**

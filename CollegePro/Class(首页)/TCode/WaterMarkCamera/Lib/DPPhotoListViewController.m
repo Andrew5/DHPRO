@@ -119,20 +119,21 @@ const NSInteger maxCountInLine = 3; /**< 每行显示图片张数 */
 - (void)getAllPhoto{
     _assetList = [NSMutableArray array];
     _selectedFalgList = [NSMutableArray new];
+    DH_WEAKSELF;
     ALAssetsGroupEnumerationResultsBlock resultsBlock = ^(ALAsset *asset, NSUInteger index, BOOL *stop) {
         if (asset){
             NSString *type = [asset valueForProperty:ALAssetPropertyType];
             //当asset类型为照片时，添加到数组
             if ([type isEqual:ALAssetTypePhoto]){
-                [_assetList addObject:asset];
-                [_selectedFalgList addObject:@0];
+                [self->_assetList addObject:asset];
+                [self->_selectedFalgList addObject:@0];
             }
         }else{
             //asset为nil时代表枚举完成，重新加载collectionView
-            [self.collectionView reloadData];
+            [weakSelf.collectionView reloadData];
             
             //滚动到底部
-            [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:_assetList.count - 1 inSection:0] atScrollPosition:UICollectionViewScrollPositionBottom animated:YES];
+            [weakSelf.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:self->_assetList.count - 1 inSection:0] atScrollPosition:UICollectionViewScrollPositionBottom animated:YES];
         }
     };
     
@@ -142,29 +143,31 @@ const NSInteger maxCountInLine = 3; /**< 每行显示图片张数 */
 #pragma mark - ---------------------- animation
 - (void)showFinishButton{
     self.finishButton.hidden = NO;
+    DH_WEAKSELF;
     [UIView animateWithDuration:.25 animations:^{
-        CGRect frame = _finishButton.frame;
+        CGRect frame = weakSelf.finishButton.frame;
         frame.origin.y = self.view.frame.size.height - frame.size.height;
-        _finishButton.frame = frame;
+        weakSelf.finishButton.frame = frame;
         
-        frame = _collectionView.frame;
-        frame.size.height = _finishButton.frame.origin.y;
-        _collectionView.frame = frame;
+        frame = weakSelf.collectionView.frame;
+        frame.size.height = weakSelf.finishButton.frame.origin.y;
+        weakSelf.collectionView.frame = frame;
     }];
     [_finishButton setTitle:[NSString stringWithFormat:@"完成（%li/%ld张）",_selectedCount,(long)self.groupVC.maxSelectionCount] forState:UIControlStateNormal];
 }
 
 - (void)hideFinishButton{
+    DH_WEAKSELF;
     [UIView animateWithDuration:.25 animations:^{
-        CGRect frame = _finishButton.frame;
+        CGRect frame = weakSelf.finishButton.frame;
         frame.origin.y = self.view.frame.size.height;
-        _finishButton.frame = frame;
+        weakSelf.finishButton.frame = frame;
         
-        frame = _collectionView.frame;
-        frame.size.height = _finishButton.frame.origin.y;
-        _collectionView.frame = frame;
+        frame = weakSelf.collectionView.frame;
+        frame.size.height = weakSelf.finishButton.frame.origin.y;
+        weakSelf.collectionView.frame = frame;
     } completion:^(BOOL finished) {
-        self.finishButton.hidden = YES;
+        weakSelf.finishButton.hidden = YES;
     }];
 }
 

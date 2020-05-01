@@ -9,7 +9,6 @@
 #import "TagPickerView.h"
 #import "HXTagsView.h"
 #import "HXTagAttribute.h"
-#import "UIViewExt.h"
 
 static TagPickerView *shareInstance = nil;
 

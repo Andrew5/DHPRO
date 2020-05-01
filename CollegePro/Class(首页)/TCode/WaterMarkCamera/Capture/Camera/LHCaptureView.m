@@ -434,15 +434,15 @@
     
     if ([[[UIDevice currentDevice] systemVersion] floatValue] < 8.0) {
         ALAuthorizationStatus author =[ALAssetsLibrary authorizationStatus];
-//        if (
-//            author == kCLAuthorizationStatusDenied) {
-//            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"请打开相册权限" message:@"设置-隐私-相册" delegate:self cancelButtonTitle:@"前往设置" otherButtonTitles:@"取消", nil];
-//            alertView.tag = 100;
-//            [alertView show];
-//            //无权限
-//            return NO;
-//        }else if (author == kCLAuthorizationStatusNotDetermined)
-//            return NO;
+        if (
+            author == kCLAuthorizationStatusDenied) {
+            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"请打开相册权限" message:@"设置-隐私-相册" delegate:self cancelButtonTitle:@"前往设置" otherButtonTitles:@"取消", nil];
+            alertView.tag = 100;
+            [alertView show];
+            //无权限
+            return NO;
+        }else if (author == kCLAuthorizationStatusNotDetermined)
+            return NO;
     }
     else {
         PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];

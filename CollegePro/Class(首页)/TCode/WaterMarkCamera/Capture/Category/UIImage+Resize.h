@@ -13,17 +13,16 @@
 /**
  截取图片上指定尺寸内容
  
- @param bounds 指定尺寸
- @return 截取后的皂片
+ bounds 指定尺寸
+ 截取后的皂片
  */
 - (UIImage *)croppedImage:(CGRect)bounds;
 
 /**
  同上 可以的改变图片方向
- 
- @param bounds同上
- @param orientation 照片方向枚举
- @return 同上
+ bounds同上
+ orientation 照片方向枚举
+  同上
  */
 - (UIImage *)croppedImage:(CGRect)bounds
           WithOrientation:(UIImageOrientation)orientation;
@@ -48,8 +47,7 @@
 
 /**
  截取当前view生成image
-
- @param theView 需要截取的view
+ theView 需要截取的view
  */
 + (UIImage *)croppedImageFromView:(UIView *)theView;
 

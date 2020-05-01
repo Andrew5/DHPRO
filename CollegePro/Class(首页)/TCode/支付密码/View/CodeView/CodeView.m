@@ -32,7 +32,6 @@
     
     //观察者
     NSObject *observer;
-    
 }
 @property (nonatomic,strong) UITextField *textField;
 @property (nonatomic, strong) NSMutableArray *underlineArr;
@@ -105,40 +104,32 @@
     if (observer) {
         [[NSNotificationCenter defaultCenter] removeObserver:observer];
     }
-
     //开始输入
     [self addUnderLineAnimation];
-    
+    DH_WEAKSELF;
     observer = [[NSNotificationCenter defaultCenter] addObserverForName:UITextFieldTextDidChangeNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
-        NSInteger length = _textField.text.length;
-        
+        NSInteger length = weakSelf.textField.text.length;
         //改变数组，存储需要画的字符
         //通过判断textfield的长度和数组中的长度比较，选择删除还是添加
-        if (length > textArray.count) {
-            [textArray addObject:[_textField.text substringWithRange:NSMakeRange(textArray.count, 1)]];
+        if (length > self->textArray.count) {
+            [self->textArray addObject:[weakSelf.textField.text substringWithRange:NSMakeRange(self->textArray.count, 1)]];
         } else {
-            [textArray removeLastObject];
+            [self->textArray removeLastObject];
         }
-        
         //标记为需要重绘
         [self setNeedsDisplay];
-        
         [self underLineHidden];
-        
         [self addUnderLineAnimation];
-
-
-        
-        if (length == lineNum && self.EndEditBlcok) {
+        DH_WEAKSELF;
+        if (length == self->lineNum && self.EndEditBlcok) {
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.05 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                self.EndEditBlcok(_textField.text);
+                self.EndEditBlcok(weakSelf.textField.text);
                 [self emptyAndDisplay];
             });
         }
-        if (length > lineNum) {
-            _textField.text = [_textField.text substringToIndex:lineNum];
+        if (length > self->lineNum) {
+            weakSelf.textField.text = [weakSelf.textField.text substringToIndex:self->lineNum];
             [self emptyAndDisplay];
-
         }
     }];
 }

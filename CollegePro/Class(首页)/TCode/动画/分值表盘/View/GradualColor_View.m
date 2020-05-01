@@ -7,9 +7,8 @@
 //
 
 #define degreesToRadians(x) (M_PI*(x)/180.0) //把角度转换成PI的方式
-#define  PROGREESS_WIDTH 80 //圆直径
+#define PROGREESS_WIDTH 80 //圆直径
 #define PROGRESS_LINE_WIDTH 25 //弧线的宽度
-#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 #import "GradualColor_View.h"
 

@@ -24,11 +24,25 @@
 
 #define kUserSwitchState @"USER_SWITCH_STATE"
 
-///字体
+///MARK:字体
 #define DH_FontSize(fontSize) [UIFont systemFontOfSize:fontSize]
 #define kFont(x)    [UIFont systemFontOfSize:x]
+#define Font8  SCREENHEIGHT_big ? [UIFont systemFontOfSize:10] : [UIFont systemFontOfSize:8]
+#define Font10  SCREENHEIGHT_big ? [UIFont systemFontOfSize:12] : [UIFont systemFontOfSize:10]
+#define Font12  SCREENHEIGHT_big ? [UIFont systemFontOfSize:14] : [UIFont systemFontOfSize:12]
+#define Font14  SCREENHEIGHT_big ? [UIFont systemFontOfSize:16] : [UIFont systemFontOfSize:14]
+#define Font16  SCREENHEIGHT_big ? [UIFont systemFontOfSize:18] : [UIFont systemFontOfSize:16]
+#define Font18  SCREENHEIGHT_big ? [UIFont systemFontOfSize:20] : [UIFont systemFontOfSize:18]
+#define Font20  SCREENHEIGHT_big ? [UIFont systemFontOfSize:22] : [UIFont systemFontOfSize:20]
+#define Font22  SCREENHEIGHT_big ? [UIFont systemFontOfSize:24] : [UIFont systemFontOfSize:22]
+#define Font24  SCREENHEIGHT_big ? [UIFont systemFontOfSize:26] : [UIFont systemFontOfSize:24]
+#define Font26  SCREENHEIGHT_big ? [UIFont systemFontOfSize:28] : [UIFont systemFontOfSize:26]
+#define Font28  SCREENHEIGHT_big ? [UIFont systemFontOfSize:30] : [UIFont systemFontOfSize:28]
+#define Font30  SCREENHEIGHT_big ? [UIFont systemFontOfSize:32] : [UIFont systemFontOfSize:30]
+#define Font13  SCREENHEIGHT_big ? [UIFont systemFontOfSize:15] : [UIFont systemFontOfSize:13]
+#define Font15  SCREENHEIGHT_big ? [UIFont systemFontOfSize:17] : [UIFont systemFontOfSize:15]
 
-///循环引用
+///MARK:循环引用
 #define DH_WEAKSELF typeof(self) __weak weakSelf = self
 #define DH_WeakSelf(type)  __weak typeof(type) weak##type = type;
 #define LHWeakSelf __weak typeof(self) weakSelf = self;
@@ -36,7 +50,7 @@
 
 #define DH_Notifica [NSNotificationCenter defaultCenter]
 
-///本地数据存储
+///MARK:本地数据存储
 #define SETUSERDEFAULT(value,key)  [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%@",value] forKey:key];\
 [[NSUserDefaults standardUserDefaults] synchronize];
 
@@ -45,21 +59,24 @@
  *  沙盒Cache路径
  */
 #define LHCachePath ([NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject])
-///获取图片资源
+///MARK:获取图片资源
 #define DH_Image(imageName) [UIImage imageNamed:[NSString stringWithFormat:@"%@",imageName]]
 
 #define DH_ImageNameWithBundle(bundleName,imgName) [UIImage imageNamed:[NSString stringWithFormat:@"%@.bundle/%@.png",bundleName,imgName]]
 
-///颜色管理
+///MARK:MARK:颜色管理
 #define DHColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
-#define RGBCOLORV(rgbValue) [UIColor \
+#define UIColorFromRGB(rgbValue) [UIColor \
 colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
 green:((float)((rgbValue & 0x00FF00) >> 8))/255.0 \
 blue:((float)(rgbValue & 0x0000FF))/255.0 \
 alpha:1.0]
+
 #define DHColorHex(value) [UIColor colorWithHexString:value]
-#define UIColorFromRGB(rgbValue)        UIColorFromRGBA(rgbValue,1.0)
 #define UIColorFromRGBA(rgbValue,a)        [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
+
+/** 随机色 */
+#define RandomColor Color(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255))
 
 //#define IS_IPHONE_4_0 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )500 ) < DBL_EPSILON )
 
@@ -68,13 +85,13 @@ alpha:1.0]
 #define KNotificationActionIdentifileComment @"kNotificationActionIdentifileComment"
 #define KNotificationCategoryIdentifile @"KNOtificationCategoryIdentifile"
 
-///字符串、数组、字典验证操作
+///MARK:字符串、数组、字典验证操作
 #define StrValid(f)         (f!=nil && [f isKindOfClass:[NSString class]] && ![f isEqualToString:@""])
 #define ValidStr(f)         StrValid(f)
 #define ValidDict(f)        (f!=nil && [f isKindOfClass:[NSDictionary class]] && [f count]>0)
 #define ValidArray(f)       (f!=nil && [f isKindOfClass:[NSArray class]] && [f count]>0)
 
-///屏幕适配
+///MARK:屏幕适配
 #define DH_DeviceWidth  [UIScreen mainScreen].bounds.size.width
 #define DH_DeviceHeight [UIScreen mainScreen].bounds.size.height
 #define kScreenW  [UIScreen mainScreen].bounds.size.width
@@ -97,8 +114,16 @@ if (@available(iOS 11.0, *)) {\
 isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bottom > 0.0;\
 }\
 (isPhoneX);})
+//#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+//#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define IS_RETINA ([[UIScreen mainScreen] scale] >= 2.0)
+#define iOS7Later ([UIDevice currentDevice].systemVersion.floatValue >= 7.0f)
+#define iOS8Later ([UIDevice currentDevice].systemVersion.floatValue >= 8.0f)
+#define iOS9Later ([UIDevice currentDevice].systemVersion.floatValue >= 9.0f)
+#define iOS9_1Later ([UIDevice currentDevice].systemVersion.floatValue >= 9.1f)
 
-///设备型号
+
+///MARK:设备型号
 #define IS_IPAD     [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad
 #define IS_IPHONE   [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone
 #define IS_IPHONE_3_5 (fabs((double)[[UIScreen mainScreen] bounds].size.height - (double )480) < DBL_EPSILON )
@@ -107,6 +132,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 #define IS_IPHONE_5_5 (fabs((double)[[UIScreen mainScreen] bounds].size.height - (double )736) < DBL_EPSILON )
 #define IS_IPHONE_5_8 (fabs((double)[[UIScreen mainScreen] bounds].size.height - (double )812) < DBL_EPSILON )
 #define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
+
 
 //打印调试
 #ifdef DEBUG
@@ -119,6 +145,8 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 #import "ScreenShotView.h"
 #endif
 
+#define NSEaseLocalizedString(key, comment) [[NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"EaseUIResource" withExtension:@"bundle"]] localizedStringForKey:(key) value:@"" table:nil]
+
 #import "UIView+Layout.h"
 #import "Masonry.h"
 #import "MJExtension.h"
@@ -126,11 +154,11 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 #import "LHKeyChain.h"
 #import "IQKeyboardManager.h"
 #import "IQUIView+Hierarchy.h"
+#import "UIView+Extension.h"
 #import "AFNetworking.h"
 #import "SVProgressHUD.h"
 #import "MBProgressHUD.h"
 #import "MBProgressHUD+JDragon.h"
-#import "UIView+Extension.h"
 #import "UIView+SDAutoLayout.h"
 #import "UITableView+SDAutoTableViewCellHeight.h"
 //#import <BaiduMapAPI_Map/BMKMapView.h>//只引入所需的单个头文件

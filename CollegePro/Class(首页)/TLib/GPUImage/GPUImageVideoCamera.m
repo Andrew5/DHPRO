@@ -295,11 +295,11 @@
 		for (AVCaptureConnection *connection in videoOutput.connections)
 		{
 			if ([connection respondsToSelector:@selector(setVideoMinFrameDuration:)])
-				connection.videoMinFrameDuration = CMTimeMake(1, _frameRate);
-			
+                connection.videoMinFrameDuration = CMTimeMake(1, _frameRate);
+
 			if ([connection respondsToSelector:@selector(setVideoMaxFrameDuration:)])
 				connection.videoMaxFrameDuration = CMTimeMake(1, _frameRate);
-		}
+        }
 	}
 	else
 	{

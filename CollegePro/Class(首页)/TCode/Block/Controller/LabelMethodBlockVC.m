@@ -10,7 +10,6 @@
 #import "LabelMethodBlockSubVC.h"
 #import "LabelNilMethodBlockViewController.h"
 #import <objc/message.h>
-#import "UIViewExt.h"
 #import "DHRadianLayerView.h"
 #import "UIImage+compressIMG.h"
 
@@ -29,7 +28,7 @@ typedef void (^CustomEvent)(NSString* str);//本类测试
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	self.navigationItem.title = @"UIBlockRuntime";
+	self.navigationItem.title = @"BlockRuntime知识";
     self.view.backgroundColor = [UIColor whiteColor];
 
      
@@ -297,9 +296,104 @@ typedef void (^CustomEvent)(NSString* str);//本类测试
      [NSMutableArray mutableCopy] 深拷贝 得到 NSMutableArray
      */
     
+    
+     /**
+         1.type定义参考:https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html
+         2."v@:@",解释v-返回值void类型,@-self指针id类型,:-SEL指针SEL类型,@-函数第一个参数为id类型
+         3."@@:",解释@-返回值id类型,@-self指针id类型,:-SEL指针SEL类型,
+         d.注册到运行时环境
+             objc_registerClassPair(kclass);
+         e.实例化类
+             id instance = [[kclass alloc] init];
+         f.给变量赋值
+            object_setInstanceVariable(instance, "expression", "1+1");
+         g.获取变量值
+             void * value = NULL;
+             object_getInstanceVariable(instance, "expression", &value);
+         h.调用函数
+             [instance performSelector:@selector(getExpressionFormula)];
+         */
+        const char * className = "KYDog";
+        Class kclass = objc_getClass(className);
+        BOOL isSuccess = class_addIvar(kclass, "addVar", sizeof(NSString *), 0, "@");
+        
+        SEL selA = @selector(setExpressionFormula:);
+        Method methodA = class_getInstanceMethod(kclass, selA);
+        BOOL isSuccessMethod1 = class_addMethod(kclass, selA, method_getImplementation(methodA), method_getTypeEncoding(methodA));
+        //等同于下面这行代码
+    //    BOOL isSuccessMethod1 = class_addMethod(kclass, selA, (IMP)setExpressionFormula, "v@:@");
+        SEL selB = @selector(getExpressionFormula);
+        Method methodB = class_getInstanceMethod(kclass, @selector(getExpressionFormula));
+        BOOL isSuccessMethod2 = class_addMethod(kclass, selB, class_getMethodImplementation(kclass, @selector(getExpressionFormula)), method_getTypeEncoding(methodB));
+        
+        isSuccessMethod1?NSLog(@"添加方法1成功"):NSLog(@"添加方法1失败");
+        isSuccessMethod2?NSLog(@"添加方法2成功"):NSLog(@"添加方法2失败");
+        isSuccess?NSLog(@"添加变量成功"):NSLog(@"添加变量失败");
+    //    [person setValue:@"增加成了" forKey:@"addVar"];
+    //    NSLog(@"addVar == %@",[person valueForKey:@"addVar"]);
+    //    objc_allocateClassPair(kclass, className, 0);
+    //    id per = [KYDog alloc];
+    //    [per setValue:@"Lucy" forKey:@"namename"];
+    //    NSLog(@"name == %@",[per valueForKey:@"namename"]);
+        objc_registerClassPair(kclass);
+    //    [person loadNameValue:@"name"];
+    //    [person performSelector:@selector(loadNameValue:) withObject:@"minzhe"];
+//        SEL selector = NSSelectorFromString(@"loadNameValue:");
+//        IMP imp = [person methodForSelector:selector];
+//        void (*func)(id, SEL,NSString *) = (void *)imp;
+//        func(person, selector,@"namamam");
+
+        Class XYClass = objc_allocateClassPair([NSObject class], "XYClass", 0);
+        NSString*namename =@"namename";
+        class_addIvar(XYClass, namename.UTF8String,sizeof(id),log2(sizeof(id)),@encode(id));
+        objc_registerClassPair(XYClass);
+        id p = [XYClass alloc];
+        [p setValue:@"Lucy" forKey:@"namename"];
+        NSLog(@"name == %@",[p valueForKey:@"namename"]);
+
+        //对私有变量的更改
+        unsigned int count = 0;
+        Ivar *ivars = class_copyIvarList(kclass, &count);
+        Ivar namevar = ivars[1];
+        object_setIvar(XYClass, namevar, @"456");
+        NSString *privateName = object_getIvar(XYClass, namevar);
+        NSLog(@"privateName : %@",privateName);
+        NSString *ivarName = [NSString stringWithUTF8String:ivar_getName(namevar)];
+        ivarName = [ivarName stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+        ivarName = [ivarName stringByReplacingOccurrencesOfString:@"@" withString:@""];
+        if ([ivarName containsString:@"privateName"]) {
+            object_setIvar(XYClass, namevar, @"我的名字");
+            NSString *privateName = object_getIvar(XYClass, namevar);
+            NSLog(@"privateName %@",privateName);
+        }
+    
     [self.navigationController pushViewController:viewController animated:NO];
 }
-
+//static void setExpressionFormula(id self, SEL cmd, id value)
+//{
+//    // 获取类中指定名称实例成员变量的信息
+//    Ivar ivar = class_getInstanceVariable([self class], "test");
+//    // 获取整个成员变量列表
+//    //   Ivar * class_copyIvarList ( Class cls, unsigned intint * outCount );
+//    // 获取类中指定名称实例成员变量的信息
+//    //   Ivar class_getInstanceVariable ( Class cls, const charchar *name );
+//    // 获取类成员变量的信息
+//    //   Ivar class_getClassVariable ( Class cls, const charchar *name );
+//    
+//    // 返回名为test的ivar变量的值
+//    id obj = object_getIvar(self, ivar);
+//    NSLog(@"%@",obj);
+//    NSLog(@"addMethodForMyClass:参数：%@",value);
+//    NSLog(@"ClassName：%@",NSStringFromClass([self class]));
+//    NSLog(@"call setExpressionFormula");
+//}
+- (void)getExpressionFormula
+{
+    NSLog(@"call getExpressionFormula");
+}
+- (void)setExpressionFormula:(NSString *)string {
+    NSLog(@"string %@--ClassName:%@",string,NSStringFromClass([self class]));
+}
 - (void)pushBlockNilMetnod{
 //    __weak typeof(self) weakSelf = self;
 //    id library = [[NSClassFromString(@"LabelNilMethodBlockViewController") alloc] init];

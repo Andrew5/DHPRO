@@ -570,15 +570,13 @@ static BOOL btnSelected;
 	[UIView setAnimationDuration:0.01];
 	[UIView setAnimationDelegate:self];
 	[UIView setAnimationDidStopSelector:@selector(endAnimation)];
-	mainImageView.transform = CGAffineTransformMakeRotation(angle * (M_PI / 180.0f));
+    mainImageView.transform = CGAffineTransformMakeRotation(angle*(M_PI/180.0f));
 	[UIView commitAnimations];
 }
 
--(void)endAnimation
-
-{
-	angle += 10;
-	[self startAnimation];
+-(void)endAnimation{
+	angle +=10;
+    [self startAnimation];
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{

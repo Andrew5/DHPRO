@@ -40,7 +40,7 @@ target "CollegePro" do
 pod 'AliPaySDK', '~> 1.0'
 #pod 'FSCalendar', '~> 2.6.0'
 #pod 'YYCache'
-#pod 'ReactiveCocoa', '~> 7.0.1'
+  pod 'ReactiveCocoa'
 #pod 'ReactiveCocoa', '2.3.1'
 #pod 'ReactiveCocoa', '~> 4.0.2-alpha-1'
 #pod 'Realm'

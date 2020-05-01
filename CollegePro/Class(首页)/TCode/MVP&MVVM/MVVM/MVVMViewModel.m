@@ -18,8 +18,6 @@
     }
     return _dataArray;
 }
-
-
 - (instancetype)init{
     if (self==[super init]) {
         [self addObserver:self forKeyPath:@"dataArray" options:(NSKeyValueObservingOptionNew) context:nil];

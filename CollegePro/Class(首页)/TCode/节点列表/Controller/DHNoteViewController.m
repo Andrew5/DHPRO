@@ -92,10 +92,10 @@ static NSString *rell = @"cells";
 -(void)TimeLineDatas{
 	self.TimeLineData = [[NSMutableArray alloc]init];
 	
-	NSArray *textArray = @[@" NSString *path = [[NSBundle mainBundle]pathForResource: ofType:];UIImage *image = [UIImage imageWithContentsOfFile:[path stringByAppendingPathComponent:@]];self.view.layer.contents = (id)image.CGImage;",
+	NSArray *textArray = @[@"NSString *path = [[NSBundle mainBundle]pathForResource: ofType:];UIImage *image = [UIImage imageWithContentsOfFile:[path stringByAppendingPathComponent:@]];self.view.layer.contents = (id)image.CGImage;",
 						   @"一个像样的App，首先要有一个像样的门面 ---app启动页，现在我就给大家分享下我做过的各种各样的启动页！",
 						   @"使用UICollectionView可以布局各种各样的瀑布流，下面我写了两种不同布局的瀑布流样式如下显示",
-						   @"此后还会更新更多的关瀑布流的东西。代码传送门：https://github.com/Gang679/GZWaterfall"
+						   @"一个像样的App，首先要有一个像样的门面 ---app启动页，现在我就给大家分享下我做过的各种各样的启动页！",
 						   @"因为我们的App有商品兑换这一机制，故我们必须要有一个邮寄地址管理的页面，就在刚才自己简单的写了下实现单选和复选的问题，其实有两种方法，这里先给大家说下其中一种方法。",
 						   @"否则在大屏上会显得字大，内容少，容易遭到用户投诉。但是建议不要长期处于这种模式下，否则在大屏上会显得字大，内容少，容易遭到用户投诉。"
 						   , @"然后等比例拉伸到大屏。屏幕宽度返回 320否则在大屏上会显得字大长期处于这种模式下，否则在大屏上会显得字大，内容少这种情况下对界面不会",

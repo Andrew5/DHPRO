@@ -57,6 +57,7 @@
 	[tableViewMy reloadData];
     NSString *htmlString = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"https://blog.csdn.net/qq_29480617/article/details/79791462"] encoding:NSUTF8StringEncoding error:nil];
     NSString *contentStr = [self getZZwithString:htmlString];
+    NSLog(@"%@",contentStr);
     
 }
 - (void)btnAddData{
@@ -139,7 +140,7 @@
 }
 #pragma mark ----- UITableViewDelegate
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    CustomerTitleModel *memberModel = chatArray[indexPath.row];
+//    CustomerTitleModel *memberModel = chatArray[indexPath.row];
 //    if (memberModel.canModify == YES || memberModel.canDelete == YES || memberModel.isSelf == YES) {
 //        return YES;
 //    }

@@ -71,7 +71,12 @@
     // 可变 富文本4
     NSMutableAttributedString * attrStr4 = [[NSMutableAttributedString alloc] initWithAttributedString:attrStr2];
     // 获取“mno”字符串     ⭐️所在范围⭐️
-    NSRange rag_1 = [attrStr4.string localizedStandardRangeOfString:@"mno"];
+    NSRange rag_1;
+    if (@available(iOS 9.0, *)) {
+        rag_1 = [attrStr4.string localizedStandardRangeOfString:@"mno"];
+    } else {
+        rag_1 = [attrStr4.string rangeOfString:@"mno"];
+    }
     // 添加       “mno”字符串所在范围 字体  属性
     [attrStr4 addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:10.f] range:rag_1];
     

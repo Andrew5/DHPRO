@@ -54,8 +54,8 @@ NSString *const kGPUImageLocalBinaryPatternFragmentShaderString = SHADER_STRING
      byteTally += 64.0 / 255.0 * step(centerIntensity, bottomRightIntensity);
      byteTally += 128.0 / 255.0 * step(centerIntensity, rightIntensity);
           
-     // TODO: Replace the above with a dot product and two vec4s
-     // TODO: Apply step to a matrix, rather than individually
+     ///TODO: Replace the above with a dot product and two vec4s
+     ///TODO: Apply step to a matrix, rather than individually
      
      gl_FragColor = vec4(byteTally, byteTally, byteTally, 1.0);
  }

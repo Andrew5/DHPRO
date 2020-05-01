@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UIView+Extension.h"
 @interface TkTabBar : UITabBar
 @property (nonatomic,strong)UIButton *plusBtn;
 @property (nonatomic,strong)UIImageView *backgroundView;

@@ -61,7 +61,7 @@
 			
 			Air_HockeyViewController * pageView = [[Air_HockeyViewController alloc] initWithNibName: nil bundle: nil];
 			pageView.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-			[self presentModalViewController: pageView animated: YES];
+            [self presentViewController:pageView animated:YES completion:nil];
 //            [pageView release];
 		}
 		if (buttonIndex == 2)
@@ -75,7 +75,7 @@
 			
 			Air_HockeyViewController * pageView = [[Air_HockeyViewController alloc] initWithNibName: nil bundle: nil];
 			pageView.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-			[self presentModalViewController: pageView animated: YES];
+            [self presentViewController:pageView animated:YES completion:nil];
 //            [pageView release];
 		}
 		
@@ -91,16 +91,14 @@
 {
 	Options * pageView = [[Options alloc] initWithNibName: nil bundle: nil];
 	pageView.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-	[self presentModalViewController: pageView animated: YES];
-//    [pageView release];
+
 }
 
 -(IBAction) creditsButton
 {
 	Credits * pageView = [[Credits alloc] initWithNibName: nil bundle: nil];
 	pageView.modalTransitionStyle = UIModalTransitionStylePartialCurl;
-	[self presentModalViewController: pageView animated: YES];
-//    [pageView release];
+    [self presentViewController:pageView animated:YES completion:nil];
 }
 
 -(IBAction) scoresButton
@@ -110,7 +108,7 @@
 //    [alert release];
 	scores * pageView = [[scores alloc] initWithNibName: nil bundle: nil];
 	pageView.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-	[self presentModalViewController: pageView animated: YES];
+    [self presentViewController:pageView animated:YES completion:nil];
 //    [pageView release];
 }
 

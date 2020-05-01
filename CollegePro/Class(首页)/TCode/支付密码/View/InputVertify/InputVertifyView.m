@@ -9,9 +9,6 @@
 
 #import "InputVertifyView.h"
 
-#import "UIViewExt.h"
-
-
 @interface InputVertifyView ()
 {
     

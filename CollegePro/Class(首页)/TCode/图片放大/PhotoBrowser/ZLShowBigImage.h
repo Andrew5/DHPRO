@@ -14,7 +14,7 @@
 /**
  *	@brief	浏览头像
  *
- *	@param 	oldImageView 	头像所在的imageView
+ *	@param 	selectedImageView 	头像所在的imageView
  */
 + (void)showBigImage:(UIImageView *)selectedImageView;
 

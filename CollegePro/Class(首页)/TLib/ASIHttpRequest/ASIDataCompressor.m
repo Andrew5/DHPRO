@@ -66,7 +66,7 @@
 	return nil;
 }
 
-- (NSData *)compressBytes:(Bytef *)bytes length:(NSUInteger)length error:(NSError **)err shouldFinish:(BOOL)shouldFinish
+- (NSData *__nullable)compressBytes:(Bytef *)bytes length:(NSUInteger)length error:(NSError **)err shouldFinish:(BOOL)shouldFinish
 {
 	if (length == 0) return nil;
 	
@@ -98,7 +98,7 @@
 			if (err) {
 				*err = [[self class] deflateErrorWithCode:status];
 			}
-			return NO;
+			return nil;
 		}
 	}
 

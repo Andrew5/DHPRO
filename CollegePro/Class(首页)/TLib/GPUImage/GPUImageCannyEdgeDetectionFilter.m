@@ -2,7 +2,7 @@
 
 #import "GPUImageGrayscaleFilter.h"
 #import "GPUImageSingleComponentFastBlurFilter.h"
-#import "GPUImageDirectionalSobelEdgeDetectionFilter.h"
+#import "GPUimageDirectionalSobelEdgeDetectionFilter.h"
 #import "GPUImageDirectionalNonMaximumSuppressionFilter.h"
 #import "GPUImageWeakPixelInclusionFilter.h"
 

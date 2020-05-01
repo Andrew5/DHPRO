@@ -23,11 +23,10 @@ static const NSUInteger kDomainSection = 1;
 
 
 @implementation ASIAutorotatingViewController
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
-{
-	return YES;
-}
+//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+//{
+//	return YES;
+//}
 
 @end
 
@@ -145,7 +144,7 @@ static const NSUInteger kDomainSection = 1;
 	CGRect f = [[UIScreen mainScreen] applicationFrame];
 
 	// Swap the frame height and width if necessary
- 	if (UIDeviceOrientationIsLandscape(o)) {
+ 	if (UIDeviceOrientationIsLandscape((UIDeviceOrientation)o)) {
 		CGFloat t;
 		t = f.size.width;
 		f.size.width = f.size.height;
@@ -217,9 +216,9 @@ static const NSUInteger kDomainSection = 1;
 + (void)dismiss
 {
 	if ([sharedDialog respondsToSelector:@selector(presentingViewController)])
-		[[sharedDialog presentingViewController] dismissModalViewControllerAnimated:YES];
+    [[sharedDialog presentingViewController] dismissViewControllerAnimated:YES completion:nil];
 	else 
-		[[sharedDialog parentViewController] dismissModalViewControllerAnimated:YES];
+    [[sharedDialog parentViewController] dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -237,9 +236,9 @@ static const NSUInteger kDomainSection = 1;
 		[[self class] dismiss];
 	} else {
 		if ([self respondsToSelector:@selector(presentingViewController)])
-			[[self presentingViewController] dismissModalViewControllerAnimated:YES];
+        [[self presentingViewController]dismissViewControllerAnimated:YES completion:nil];
 		else
-			[[self parentViewController] dismissModalViewControllerAnimated:YES];
+        [[self parentViewController]dismissViewControllerAnimated:YES completion:nil];
 	}
 }
 
@@ -247,7 +246,7 @@ static const NSUInteger kDomainSection = 1;
 {
 	UINavigationBar *navigationBar = [[[self view] subviews] objectAtIndex:0];
 	UINavigationItem *navItem = [[navigationBar items] objectAtIndex:0];
-	if (UIInterfaceOrientationIsPortrait([[UIDevice currentDevice] orientation])) {
+	if (UIInterfaceOrientationIsPortrait((UIInterfaceOrientation)[[UIDevice currentDevice] orientation])) {
 		// Setup the title
 		if ([self type] == ASIProxyAuthenticationType) {
 			[navItem setPrompt:@"Login to this secure proxy server."];
@@ -315,7 +314,7 @@ static const NSUInteger kDomainSection = 1;
 	}
 #endif
 
-	[[self presentingController] presentModalViewController:self animated:YES];
+    [[self presentingController]presentViewController:self animated:YES completion:nil];
 }
 
 #pragma mark button callbacks

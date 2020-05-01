@@ -46,7 +46,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-	UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStyleBordered target:self action:@selector(edit)];
+	UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(edit)];
 	self.navigationItem.rightBarButtonItem = editButton;
 //	[editButton release];
 	
@@ -193,8 +193,10 @@
 	//    contentLabel.backgroundColor = [UIColor whiteColor];
 	self.contentLabel = contentLabel;
 	contentLabel.font = [UIFont systemFontOfSize:15.0];
-	CGSize size = CGSizeMake(320.0, 3000.0);
-	CGSize labelSize = [contentLabel.text sizeWithFont:contentLabel.font constrainedToSize:size];
+    contentLabel.lineBreakMode = NSLineBreakByCharWrapping;
+    NSDictionary *dict = @{NSFontAttributeName: [UIFont systemFontOfSize:15.0]};
+    CGSize labelSize = [contentLabel.text boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil].size;
+
 	[contentLabel setFrame:CGRectMake(95.0, 100.0, 200.0, labelSize.height)];
 	NSLog(@"%f",contentLabel.frame.size.height);
 	[self.displayView addSubview:contentLabel];

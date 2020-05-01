@@ -16,14 +16,14 @@ typedef NS_ENUM(NSInteger, AlertViewType) {
 
 typedef void(^ClickBlock)(NSMutableDictionary * dic);
 @interface DHBAlertView : UIView
-@property (nonatomic, strong) UIView * alertBgView;          // 背景视图
-@property (nonatomic, strong) UIView * operateView;         // 操作视图
+@property (nonatomic, strong, nullable) UIView * alertBgView;          // 背景视图
+@property (nonatomic, strong, nullable) UIView * operateView;         // 操作视图
 @property (nonatomic, strong) UILabel * titleLabel;            // 标题
 @property (nonatomic, strong) UILabel * detailLabel;         // 副标题
 @property (nonatomic, strong) UIButton * okButton;          // 确定按钮
 @property (nonatomic, strong) UIButton * cancelButton;        // 取消按钮
 @property (nonatomic, strong) UIButton * neverShowBtn;      // 不再显示按钮
-@property (nonatomic, copy) ClickBlock okBlock;
+@property (nonatomic, copy, nonnull) ClickBlock okBlock;
 /*
  * 单例
  */

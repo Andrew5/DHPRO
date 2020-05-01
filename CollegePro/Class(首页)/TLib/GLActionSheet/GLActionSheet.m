@@ -169,12 +169,13 @@
 }
 
 - (void)hideSheetView{
+    DH_WEAKSELF;
     [UIView animateWithDuration:kAnimationTime animations:^{
-        _bgView.alpha = 0;
-        self.contentView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, self.contentHeight);
+        weakSelf.bgView.alpha = 0;
+        weakSelf.contentView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, self.contentHeight);
     } completion:^(BOOL finished) {
-        [_bgView removeFromSuperview];
-        [self removeFromSuperview];
+        [weakSelf.bgView removeFromSuperview];
+        [weakSelf removeFromSuperview];
     }];
 }
 

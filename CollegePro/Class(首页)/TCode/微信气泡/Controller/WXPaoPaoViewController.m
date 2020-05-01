@@ -45,8 +45,8 @@
 	
 	//计算大小
 	UIFont *font = [UIFont systemFontOfSize:14];
-	CGSize size = [text sizeWithFont:font constrainedToSize:CGSizeMake(180.0f, 20000.0f) lineBreakMode:NSLineBreakByWordWrapping];
-	
+    NSDictionary *attrs = @{NSFontAttributeName : font};
+    CGSize size = [text boundingRectWithSize:CGSizeMake(180.0f, 20000.0f) options:NSStringDrawingUsesLineFragmentOrigin attributes:attrs context:nil].size;
 	// build single chat bubble cell with given text
 	UIView *returnView = [[UIView alloc] initWithFrame:CGRectZero];
 	returnView.backgroundColor = [UIColor clearColor];
@@ -176,8 +176,9 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 	NSDictionary *dict = [_resultArray objectAtIndex:indexPath.row];
 	UIFont *font = [UIFont systemFontOfSize:14];
-	CGSize size = [[dict objectForKey:@"content"] sizeWithFont:font constrainedToSize:CGSizeMake(180.0f, 20000.0f) lineBreakMode:NSLineBreakByWordWrapping];
-	
+//	CGSize size = [[dict objectForKey:@"content"] sizeWithFont:font constrainedToSize:CGSizeMake(180.0f, 20000.0f) lineBreakMode:NSLineBreakByWordWrapping];
+    NSDictionary *attrs = @{NSFontAttributeName : font};
+    CGSize size = [[dict objectForKey:@"content"] boundingRectWithSize:CGSizeMake(180.0f, 20000.0f) options:NSStringDrawingUsesLineFragmentOrigin attributes:attrs context:nil].size;
 	return size.height+44;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

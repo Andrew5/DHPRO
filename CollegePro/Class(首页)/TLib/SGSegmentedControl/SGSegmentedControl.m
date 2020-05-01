@@ -18,7 +18,6 @@
 #define IndicatorWidth 41
 #import "SGSegmentedControl.h"
 #import "SGImageButton.h"
-#import "UIView+Extension.h"
 
 #define SG_screenWidth [UIScreen mainScreen].bounds.size.width
 #define indicatorViewColorDefualt [UIColor redColor]
@@ -297,6 +296,7 @@ static CGFloat const indicatorViewTimeOfAnimation = 0.4;
         // 指示器默认在第一个选中位置
         // 计算TitleLabel内容的Size
         CGSize buttonSize = [self sizeWithText:firstButton.titleLabel.text font:[UIFont systemFontOfSize:btn_fondOfSize] maxSize:CGSizeMake(MAXFLOAT, self.frame.size.height)];
+        NSLog(@"firstButton.width is %f",buttonSize.width);
         _indicatorView.width = 75;
         _indicatorView.centerX = firstButton.centerX;
         
@@ -352,6 +352,7 @@ static CGFloat const indicatorViewTimeOfAnimation = 0.4;
         // 指示器默认在第一个选中位置
         // 计算TitleLabel内容的Size
         CGSize buttonSize = [self sizeWithText:firstButton.titleLabel.text font:[UIFont systemFontOfSize:btn_fondOfSize] maxSize:CGSizeMake(MAXFLOAT, self.frame.size.height)];
+        NSLog(@"firstButton.width is %f",buttonSize.width);
         _indicatorView.width = 75;
         _indicatorView.centerX = firstButton.centerX;
     }
@@ -558,6 +559,7 @@ static CGFloat const indicatorViewTimeOfAnimation = 0.4;
         // 指示器默认在第一个选中位置
         // 计算TitleLabel内容的Size
         CGSize buttonSize = [self sizeWithText:firstButton.titleLabel.text font:[UIFont systemFontOfSize:btn_fondOfSize] maxSize:CGSizeMake(MAXFLOAT, self.frame.size.height)];
+        NSLog(@"firstButton.width is %f",buttonSize.width);
         _indicatorView.width = 75;
         _indicatorView.centerX = firstButton.centerX;
         

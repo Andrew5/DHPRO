@@ -73,18 +73,18 @@
  
  */
 - (dispatch_source_t)timer{
-#ifdef DEBUG
+//#ifdef DEBUG
 	return objc_getAssociatedObject(self, _cmd);
-#else
-	return (__bridge dispatch_source_t)(objc_getAssociatedObject(self, _cmd));//ARC环境下 __bridge 涉及对象所有权的转换
-#endif
+//#else
+//	return (__bridge dispatch_source_t)(objc_getAssociatedObject(self, _cmd));//ARC环境下 __bridge 涉及对象所有权的转换
+//#endif
 }
 - (void)setTimer:(dispatch_source_t)timer{
-#ifdef DEBUG
+//#ifdef DEBUG
 	objc_setAssociatedObject(self, @selector(timer),timer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-#else
-	objc_setAssociatedObject(self, @selector(timer),CFBridgingRelease(timer), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-#endif
+//#else
+//	objc_setAssociatedObject(self, @selector(timer),CFBridgingRelease(timer), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+//#endif
 }
 - (void)setIsNeedDelay:(BOOL)isNeedDelay{
     // 注意BOOL类型 需要用OBJC_ASSOCIATION_RETAIN_NONATOMIC 不要用错，否则set方法会赋值出错

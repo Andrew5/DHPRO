@@ -84,8 +84,22 @@ static HAMLogOutputWindow __strong * sharedHAMLogOutputWindow = nil;
         textView.backgroundColor = [UIColor clearColor];
         textView.scrollsToTop = NO;
         [self addSubview:textView];
-        self.textView = textView;
+        //滚动顶部
+//        // 方法一
+//        [textView scrollRangeToVisible:NSMakeRange(0,0)];
+//        // 方法二
+//        [textView setContentOffset:CGPointZero animated:YES];
         
+//        [textView scrollRangeToVisible:NSMakeRange(textView.text.length,1)];
+//        textView.layoutManager.allowsNonContiguousLayout =NO;
+
+
+
+        //TextView自动滚动到最后一行
+        [textView scrollRectToVisible:CGRectMake(0, textView.contentSize.height-15, textView.contentSize.width, 10) animated:YES];
+        self.textView = textView;
+
+
         // string
         self.logs = [NSMutableArray array];
     }

@@ -112,7 +112,7 @@
 
 - (void)setupIndicatorFrame:(CGRect)menuButtonFrame animated:(BOOL)animated callDelegate:(BOOL)called {
     [UIView animateWithDuration:(animated ? 0.15 : 0) delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
-        _indicatorView.frame = CGRectMake(CGRectGetMinX(menuButtonFrame), CGRectGetHeight(self.bounds) - kXHIndicatorViewHeight, CGRectGetWidth(menuButtonFrame), kXHIndicatorViewHeight);
+        self->_indicatorView.frame = CGRectMake(CGRectGetMinX(menuButtonFrame), CGRectGetHeight(self.bounds) - kXHIndicatorViewHeight, CGRectGetWidth(menuButtonFrame), kXHIndicatorViewHeight);
     } completion:^(BOOL finished) {
         if (called) {
             if ([self.delegate respondsToSelector:@selector(scrollMenuDidSelected:menuIndex:)]) {
@@ -123,13 +123,16 @@
 }
 
 - (UIButton *)getButtonWithMenu:(XHMenu *)menu {
-    CGSize buttonSize = [menu.title sizeWithFont:menu.titleFont constrainedToSize:CGSizeMake(MAXFLOAT, CGRectGetHeight(self.bounds) - 10) lineBreakMode:NSLineBreakByCharWrapping];
+
+    NSDictionary *dict = @{NSFontAttributeName: menu.titleFont};
+    CGSize buttonSize = [menu.title boundingRectWithSize:CGSizeMake(MAXFLOAT, CGRectGetHeight(self.bounds) - 10) options:NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil].size;
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, buttonSize.width, buttonSize.height)];
     button.titleLabel.textAlignment = NSTextAlignmentCenter;
     button.titleLabel.font = menu.titleFont;
     [button setTitle:menu.title forState:UIControlStateNormal];
     [button setTitle:menu.title forState:UIControlStateHighlighted];
     [button setTitle:menu.title forState:UIControlStateSelected];
+    button.titleLabel.lineBreakMode = NSLineBreakByCharWrapping;
     [button setTitleColor:menu.titleNormalColor forState:UIControlStateNormal];
     if (!menu.titleHighlightedColor) {
         menu.titleHighlightedColor = menu.titleNormalColor;

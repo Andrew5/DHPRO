@@ -362,21 +362,21 @@ extern QRcode *QRcode_encodeString(const char *string, int version, QRecLevel le
 
 /**
  * Same to QRcode_encodeString(), but encode whole data in 8-bit mode.
- * @warning This function is THREAD UNSAFE.
+ *  This function is THREAD UNSAFE.
  */
 extern QRcode *QRcode_encodeString8bit(const char *string, int version, QRecLevel level);
 
 /**
  * Free the instance of QRcode class.
- * @param qrcode an instance of QRcode class.
+ *  qrcode an instance of QRcode class.
  */
 extern void QRcode_free(QRcode *qrcode);
 
 /**
  * Create structured symbols from the input data.
- * @warning This function is THREAD UNSAFE.
- * @param s
- * @return a singly-linked list of QRcode.
+ *  This function is THREAD UNSAFE.
+ *  s
+ *  a singly-linked list of QRcode.
  */
 extern QRcode_List *QRcode_encodeInputStructured(QRinput_Struct *s);
 

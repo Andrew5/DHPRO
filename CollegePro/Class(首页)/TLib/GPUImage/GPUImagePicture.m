@@ -37,7 +37,7 @@
     }
     self.shouldSmoothlyScaleOutput = smoothlyScaleOutput;
         
-    // TODO: Dispatch this whole thing asynchronously to move image loading off main thread
+    ///TODO: Dispatch this whole thing asynchronously to move image loading off main thread
     CGFloat widthOfImage = CGImageGetWidth(newImageSource);
     CGFloat heightOfImage = CGImageGetHeight(newImageSource);
     pixelSizeOfImage = CGSizeMake(widthOfImage, heightOfImage);

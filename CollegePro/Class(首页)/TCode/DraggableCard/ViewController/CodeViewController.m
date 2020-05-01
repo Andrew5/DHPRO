@@ -71,14 +71,14 @@ CCDraggableContainerDelegate
 #pragma mark - CCDraggableContainer Delegate
 
 - (void)draggableContainer:(CCDraggableContainer *)draggableContainer draggableDirection:(CCDraggableDirection)draggableDirection widthRatio:(CGFloat)widthRatio heightRatio:(CGFloat)heightRatio {
-    
-    CGFloat scale = 1 + ((kBoundaryRatio > fabs(widthRatio) ? fabs(widthRatio) : kBoundaryRatio)) / 4;
-    if (draggableDirection == CCDraggableDirectionLeft) {
-        // self.disLikeButton.transform = CGAffineTransformMakeScale(scale, scale);
-    }
-    if (draggableDirection == CCDraggableDirectionRight) {
-        // self.likeButton.transform = CGAffineTransformMakeScale(scale, scale);
-    }
+    NSLog(@"可牵引集装箱：%ld-可拖动方向：%ld-宽的角度：%f-高的角度：%f",draggableContainer.direction,draggableDirection,widthRatio,heightRatio);
+//    CGFloat scale = 1 + ((kBoundaryRatio > fabs(widthRatio) ? fabs(widthRatio) : kBoundaryRatio)) / 4;
+//    if (draggableDirection == CCDraggableDirectionLeft) {
+//        // self.disLikeButton.transform = CGAffineTransformMakeScale(scale, scale);
+//    }
+//    if (draggableDirection == CCDraggableDirectionRight) {
+//        // self.likeButton.transform = CGAffineTransformMakeScale(scale, scale);
+//    }
 }
 
 - (void)draggableContainer:(CCDraggableContainer *)draggableContainer cardView:(CCDraggableCardView *)cardView didSelectIndex:(NSInteger)didSelectIndex {

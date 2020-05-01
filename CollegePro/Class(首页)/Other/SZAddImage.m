@@ -177,7 +177,7 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    int count = self.subviews.count;
+    int count = (int)self.subviews.count;
     CGFloat btnW = imageW;
     CGFloat btnH = imageH;
     int maxColumn = kMaxColumn > self.frame.size.width / imageW ? self.frame.size.width / imageW : kMaxColumn;

@@ -40,6 +40,9 @@
         }
         //! OC调用JS入口
         function ocToJs(action, params) {
+            for(var k in params ){//遍历packJson 对象的每个key/value对,k为key
+               alert(k + " " + params[k]);
+            }
             document.getElementById("returnValue").innerHTML = action + '?' + params;
             jsInvokeOC();
         }
@@ -54,15 +57,142 @@
             var cookie = window.prompt("getCookie");
             document.getElementById('cookie').innerText = "cookie: " + cookie;
         }
+        
+        
+        /**
+         *返回处理后的 json字符串
+         */
+        function jsonParse(jsonObj) {
+              distinctJson(jsonObj);
+              var last=JSON.stringify(jsonObj, undefined, 2);
+              return last;
+        }
+         
+         
+        /**
+         * 去掉 json中数组多余的项
+         */
+        function distinctJson(obj) {
+              if(obj instanceof Array) {
+                     if(obj.length > 1) { //数组中有超过一个对象，删除第一个对象之后的所有对象
+                          obj.splice(1, (obj.length - 1));
+                    }
+                    distinctJson(obj[0]);
+              } else if(obj instanceof Object) {
+                     for( var index in obj){
+                           var jsonValue = obj[index];
+                          distinctJson(jsonValue);
+                    }
+              }
+        }
+        
+        function OCTOJSON(packJson){             
+            for(var k in packJson ){//遍历packJson 对象的每个key/value对,k为key
+               alert(k + " " + packJson[k]);
+            }
+           
+        }
+       
+        $(function (){
+          $("#btn").click(function ()  {
+            $.getJSON("js/userinfo.json", function (data){
+              var $jsontip = $("#jsonTip");
+              var strHtml = "123";
+              //存储数据的变量
+              $jsontip.empty();
+              //清空内容
+              $.each(data, function (infoIndex, info){
+                strHtml += "姓名：" + info["name"] + "<br>";
+                strHtml += "性别：" + info["sex"] + "<br>";
+                strHtml += "邮箱：" + info["email"] + "<br>";
+                strHtml += "<hr>"
+              })
+              $jsontip.html(strHtml);
+              //显示处理后的数据
+            })
+          })
+        })
+        function play() {
+            document.getElementById("videoid").play();
+        }
+        <meta name='Keywords' content='旋转多边形'>
+        <meta name='Description' content='效果为了谁'>
+        <link rel='stylesheet' href='css/style.css'>
+
+        <style>
+        body{
+            margin:0;
+        }
+        ui{
+           margin:0;
+        }
+        .wrap{
+            width:1000px;
+            height:500px;
+            margin:50px auto;
+            background-color:#096;
+        }
+        .wrap li{
+            position:relative;
+            float:left;
+            width:180px;
+            height:105px;
+            margin:50px;
+            background-color:rgba(0,0,0,0);
+        }
+        .wrap li:before{
+            content:'为';
+        }
+        .wrap li:after{
+            content:'为';
+        }
+        .left {
+            width:180px;
+            height:105px;
+            margin:50px;
+            background-color:rgba(0,0,0,5);
+            transform:rotate(60deg);
+        }
+        .right {
+            position:absolute;
+            left:0;
+            top:0;
+            width:180px;
+            height:105px;
+            margin:50px;
+            background-color:rgba(0,0,0,5);
+            transform:rotate(-60deg);
+
+        }
+        </style>
         </script>
     </head>
     <body>
+        <canvas id='canvas'></canvas>
+        <div class ='wrap'>
+            <ui>
+                <li>'我试试额'</li>
+                <li><img src='image/1.png'></li>
+                <li>
+                    <div class ='left'>left</div>
+                </li>
+                <li>style='margin-left:100px'</li>
+                </ui>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            </div>
         <h3>功能按钮</h3>
         <button onclick = "login()" style = "font-size: 18px;">登录</button>
         <br> </br>
         <button class="btn" type="button" onclick="getCookie()">invokeOCGetCookie</button>
         <br> </br>
         <button onclick = "showConfirm()" style = "font-size: 18px;">confirm(message)</button>
+        <br> </br>
+        <button onclick = "play()" style = "font-size: 18px;">prompt(prompt, defaultText)</button>
         <br> </br>
         <button onclick = "showPrompt()" style = "font-size: 18px;">prompt(prompt, defaultText)</button>
         <h3>回调数据</h3>

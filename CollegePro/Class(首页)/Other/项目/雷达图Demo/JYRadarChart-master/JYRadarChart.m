@@ -126,7 +126,7 @@
 		CGFloat yOffset = pointOnEdge.y >= _centerPoint.y ? height / 2.0 + padding : -height / 2.0 - padding;
 		CGPoint legendCenter = CGPointMake(pointOnEdge.x + xOffset, pointOnEdge.y + yOffset);
         
-		//TODO: use attributes in iOS 7
+		///TODO: use attributes in iOS 7
 		[attributeName drawInRect:CGRectMake(legendCenter.x - width / 2.0,
 		                                     legendCenter.y - height / 2.0,
 		                                     width,
@@ -158,7 +158,7 @@
 	CGContextRestoreGState(context);
     
 	//draw lines from center
-	//TODO: make this color a variable
+	///TODO: make this color a variable
 	[[UIColor darkGrayColor] setStroke];
 	for (int i = 0; i < _numOfV; i++) {
 		CGContextMoveToPoint(context, _centerPoint.x, _centerPoint.y);
@@ -217,7 +217,7 @@
     
 	if (self.showStepText) {
 		//draw step label text, alone y axis
-		//TODO: make this color a variable
+		///TODO: make this color a variable
 		[[UIColor blackColor] setFill];
 		for (int step = 0; step <= _steps; step++) {
 			CGFloat value = _minValue + (_maxValue - _minValue) * step / _steps;

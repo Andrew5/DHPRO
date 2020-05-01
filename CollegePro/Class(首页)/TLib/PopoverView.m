@@ -87,7 +87,8 @@
     frame.size.height = [self.titleArray count] * ROW_HEIGHT + SPACE + kArrowHeight;
     
     for (NSString *title in self.titleArray) {
-        CGFloat width =  [title sizeWithFont:TITLE_FONT constrainedToSize:CGSizeMake(300, 100) lineBreakMode:NSLineBreakByCharWrapping].width;
+        NSDictionary *dict = @{NSFontAttributeName: TITLE_FONT};
+        CGFloat width = [title boundingRectWithSize:CGSizeMake(300, 100) options:NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil].size.width;
         frame.size.width = MAX(width, frame.size.width);
     }
     

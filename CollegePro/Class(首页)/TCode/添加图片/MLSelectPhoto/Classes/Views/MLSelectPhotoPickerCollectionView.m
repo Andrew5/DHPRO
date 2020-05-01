@@ -102,11 +102,11 @@
         
         // 需要记录选中的值的数据
         if (self.isRecoderSelectPicker) {
-            for (MLSelectPhotoAssets *asset in self.doneAsstes) {
+//            for (MLSelectPhotoAssets *asset in self.doneAsstes) {
 //                if ([asset isKindOfClass:[MLSelectPhotoAssets class]] && [asset.asset.defaultRepresentation.url isEqual:[self.dataArray[indexPath.item] asset].defaultRepresentation.url]) {
 //                    [self.selectsIndexPath addObject:@(indexPath.row)];
 //                }
-            }
+//            }
         }
         
         [cell.contentView addSubview:cellImgView];

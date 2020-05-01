@@ -13,7 +13,7 @@
 #define LOG_QUEUE_ID "log_queue"
 static CHLogger *_instance=nil;
 static dispatch_queue_t queue_log;
-static NSUncaughtExceptionHandler *_handler;
+//static NSUncaughtExceptionHandler *_handler;
 
 @implementation CHLogger
 +(CHLogger *)shareInstance
@@ -211,4 +211,8 @@ void SignalHandler(int signal)
  
     }
 }
+- (void)uploadLogFile:(NSString *)taskId logDate:(NSString *)logDate logType:(NSString *)logType{
+    
+}
+
 @end

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <AVFoundation/AVAudioPlayer.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface Air_HockeyViewController : UIViewController < UIAlertViewDelegate >{
 	

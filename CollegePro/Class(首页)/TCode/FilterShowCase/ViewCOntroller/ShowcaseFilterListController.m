@@ -23,67 +23,44 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     self.allCellArray = [[NSMutableArray alloc]init];
     self.checkedArray = [[NSMutableArray alloc]init];
     self.checkedIndexArray = [[NSMutableArray alloc]init];
-    
     for(int i=0;i<42;i++)
     {
         [checkedArray addObject:@"0"];
     }
     self.title = @"Choose Elements(8 limited)";
-    
     UIButton *finishBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    
     [finishBtn setTitle:@"Done" forState:UIControlStateNormal];
     [finishBtn addTarget:self action:@selector(DoneAction:) forControlEvents:UIControlEventTouchDown];
     finishBtn.frame = CGRectMake(0, 0, 52, 36);
-    
-    
     UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithCustomView:finishBtn];
 	self.navigationItem.rightBarButtonItem = rightButtonItem;
-    
-    
     segmentTextContent = [[NSMutableArray alloc]initWithObjects:@"Camera",@"Image",nil];
 	segmentedControl = [[UISegmentedControl alloc] initWithItems:segmentTextContent];
-
 	segmentedControl.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-	segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
-
+//    segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
 	[segmentedControl addTarget:self action:@selector(segmentAction:) forControlEvents:UIControlEventValueChanged];
-    
-    
-    
 //    UIButton *cancelBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 //    
 //    [cancelBtn setTitle:@"Cancel" forState:UIControlStateNormal];
 //    [cancelBtn addTarget:self action:@selector(CancelAction:) forControlEvents:UIControlEventTouchDown];
 //    cancelBtn.frame = CGRectMake(0, 0, 100, 36);
-    
-    
-    
-    
-    
-    
     UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithCustomView:segmentedControl];
 	self.navigationItem.leftBarButtonItem = leftButtonItem;
-    
     [self initAllCell];
-
 }
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
+//- (void)viewDidUnload
+//{
+//    [super viewDidUnload];
+//    // Release any retained subviews of the main view.
+//    // e.g. self.myOutlet = nil;
+//}
+//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+//{
+//    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+//}
 
 #pragma mark - DoneAction
 - (void)DoneAction:(id)sender
@@ -92,9 +69,6 @@
     {
         if([checkedIndexArray count]>8)
         {
-            
-            
-            
             UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@""
                                                                      message:@"Exceed Elements Limited: 8"
                                                                     delegate:nil
@@ -122,8 +96,6 @@
         [self.navigationController pushViewController:filterViewController animated:YES];
     }
 }
-
-
 - (void)CancelAction:(id)sender
 {
     
@@ -132,7 +104,6 @@
 #pragma mark - segmentAction
 -(IBAction)segmentAction:(id)sender
 {
-
 	segmentedControl = (UISegmentedControl *)sender;
 	if (segmentedControl.selectedSegmentIndex == 0)
 	{
@@ -141,20 +112,13 @@
 	}
 	else if (segmentedControl.selectedSegmentIndex == 1)
 	{
-
         isStatic = YES;
-        
         imagePicker = [[UIImagePickerController alloc]init];
 		UIImagePickerControllerSourceType	soureType;
-        
         soureType = UIImagePickerControllerSourceTypePhotoLibrary;
         imagePicker.delegate =self;
         imagePicker.allowsEditing = NO;
         imagePicker.sourceType = soureType;
-       
-        
-        
-        
         UIDevice *device  = [UIDevice currentDevice];
         NSLog(@"device.model %@",device.model);
         if([device.model isEqualToString:@"iPad"])
@@ -170,16 +134,9 @@
         }
         else
         {
-             [self presentModalViewController:imagePicker animated:YES];
+            [self presentViewController:imagePicker animated:YES completion:nil];
         }
-        
-
-//
-
 	}
-
-    
-	
 }
 
 
@@ -198,21 +155,13 @@
     }
     else
     {
-        [self dismissModalViewControllerAnimated:YES];
+        [self dismissViewControllerAnimated:YES completion:nil];
     }
-	
-
 }
-
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
 {
-	
-	
-    
-	
 }
-
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
@@ -225,23 +174,17 @@
     }
     else
     {
-        [self dismissModalViewControllerAnimated:YES];
+        [self dismissViewControllerAnimated:YES completion:nil];
     }
-    
 	UIImage *imageselect= [info valueForKey:UIImagePickerControllerOriginalImage];
-
 	stillImage =[imageselect copy] ;
-
-
-
 }
 
 #pragma mark - checkedAction
-
 - (void)checkedAction:(id)sender
 {
     UIButton *btn = (UIButton*)sender;
-    int tag = btn.tag - 888888;
+    int tag = (int)btn.tag - 888888;
     NSString *flag = [checkedArray objectAtIndex:tag];
     
     if([flag isEqualToString:@"0"])
@@ -274,8 +217,6 @@
         static NSString *SimpleTableIdentifier = @"Simple";
         UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                                         reuseIdentifier:SimpleTableIdentifier];
-        
-        
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         [btn setBackgroundImage:[UIImage imageNamed:@"unchecked.png"] forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(checkedAction:) forControlEvents:UIControlEventTouchDown];
@@ -283,11 +224,8 @@
         btn.tag = 888888+i;
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
         BOOL addToTable = YES;
-        
         //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        
         switch (i)
         {
             case GPUIMAGE_SATURATION: cell.textLabel.text = @"Saturation"; break;

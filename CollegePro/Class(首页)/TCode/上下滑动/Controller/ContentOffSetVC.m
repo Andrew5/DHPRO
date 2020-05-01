@@ -62,16 +62,10 @@
 -(void)loadData{
 	
 	_dataArray =[[NSMutableArray alloc]init];
-    NSString *nilStr = nil;
-    NSArray *array = @[@"chenfanfang", nilStr];
 	for (int i = 0; i < 20; i++) {
-		
 		NSString * string=[NSString stringWithFormat:@"第%d行",i];
-		
 		[_dataArray addObject:string];
-		
 	}
-	
 }
 
 -(void)backImageView{
@@ -277,7 +271,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     return nil;
 }
-
+//(1) scrollview滚动过程中，自动调用的方法；（惯性滚动也会调用）
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
 	
 	int contentOffsety = scrollView.contentOffset.y;
@@ -287,15 +281,12 @@
 		
 	}else if (scrollView.contentOffset.y>=138){
 		self.NavView.title = _nameLabel.text;
-		
 	}
 	if (scrollView.contentOffset.y<=170) {
 		self.NavView.headBackView.alpha = scrollView.contentOffset.y/170;
 		self.NavView.left_bt_Image = @"left_";
 		self.NavView.right_bt_Image = @"Setting";
 		self.NavView.color = [UIColor whiteColor];
-		
-		
 		[[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
 	}else{
 		self.NavView.headBackView.alpha = 1;
@@ -321,11 +312,34 @@
 		rect.origin.x = 0;
 		rect.origin.y = -contentOffsety;
 		_backgroundImgV.frame = rect;
-		
-		
 	}
-	
 }
+//(2) scrollview 将要滚动的时候调用
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    
+}
+//(3)scrollview将要停止滚动时，调用
+-(void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
+    
+}
+//(4)scrollview 已经停止滚动时，调用
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    
+}
+//(5)scrollview滚动减速完毕后，调用 。 （ps:并不是每次拖拽都会有减速情况;所以如果要判断scrollview是否停止滚动，可以用scrollViewDidEndDecelerating，scrollViewDidEndDragging一起使用来判断）
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    
+}
+//(6)设置放大于缩小
+//1.设置scrollview的代理
+//2.实现如下方法
+//-(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
+//    return self.imageview;
+//}
+//(7)正在所发过程中调用的方法
+//-(void)scrollViewDidZoom:(UIScrollview *)scorllview{
+//    
+//}
 - (void)didReceiveMemoryWarning {
 	[super didReceiveMemoryWarning];
 	// Dispose of any resources that can be recreated.

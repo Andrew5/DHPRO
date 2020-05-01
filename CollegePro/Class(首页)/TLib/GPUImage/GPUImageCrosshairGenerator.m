@@ -50,15 +50,13 @@ NSString *const kGPUImageCrosshairFragmentShaderString = SHADER_STRING
     {
         return nil;
     }
-    
     runSynchronouslyOnVideoProcessingQueue(^{
-        crosshairWidthUniform = [filterProgram uniformIndex:@"crosshairWidth"];
-        crosshairColorUniform = [filterProgram uniformIndex:@"crosshairColor"];
+        self->crosshairWidthUniform = [self->filterProgram uniformIndex:@"crosshairWidth"];
+        self->crosshairColorUniform = [self->filterProgram uniformIndex:@"crosshairColor"];
         
         self.crosshairWidth = 5.0;
         [self setCrosshairColorRed:0.0 green:1.0 blue:0.0];
     });
-    
     return self;
 }
 

@@ -14,7 +14,7 @@ typedef enum {
     TSouth, TSouthEast
 } TGravity;
 
-// TODO: 新增设置Gravity
+///TODO: 新增设置Gravity
 
 @interface TResizer : NSObject
 @property (strong, nonatomic) NSURL *original;

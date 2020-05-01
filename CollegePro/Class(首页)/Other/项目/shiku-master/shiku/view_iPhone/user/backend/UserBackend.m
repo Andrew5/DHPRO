@@ -952,7 +952,7 @@
 {
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
     parameters[@"data"] = [NSString stringWithFormat:@"{\"type\":\"%@\",\"keyid\":\"%@\"}", user.usertype,user.keyid];
-    // TODO: 格式化
+    ///TODO: 格式化
     @weakify(self)
     return
     [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
@@ -1000,7 +1000,7 @@
 {
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
     parameters[@"data"] = [NSString stringWithFormat:@"{\"type\":\"%@\",\"keyid\":\"%@\"}", user.usertype,user.keyid];
-    // TODO: 格式化
+    ///TODO: 格式化
     @weakify(self)
     return
     [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {

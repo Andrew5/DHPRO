@@ -108,9 +108,7 @@
     label.text=@"00:00:00";
     
     label.textAlignment=NSTextAlignmentCenter;
-    
-    [label setFont:[UIFont fontWithName:nil size:80]];
-    
+        
     _label=label;
     
     [self.view addSubview:label];

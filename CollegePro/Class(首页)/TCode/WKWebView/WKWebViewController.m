@@ -18,15 +18,33 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
+
     // Do any additional setup after loading the view.
     [self createUI];
 }
+- (void)ReloadBtnClick{
+    [self.WKView reload];
+
+}
 - (void)createUI{
-    self.navigationController.navigationBar.hidden = NO;
-    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-    self.view.backgroundColor = [UIColor whiteColor];
+//    self.navigationController.navigationBar.hidden = NO;
+    self.navigationController.navigationBar.barTintColor = [UIColor blueColor];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.automaticallyAdjustsScrollViewInsets = NO;
+ 
+    UIBarButtonItem *myButton = [[UIBarButtonItem alloc] initWithTitle:@"刷新" style:UIBarButtonItemStylePlain target:self action:@selector(ReloadBtnClick)];
+    self.navigationItem.rightBarButtonItem = myButton;
+    
+//    UIBarButtonItem* rightItem = [[UIBarButtonItem alloc]initWithCustomView:rightButtonView];
+//    self.navigationItem.rightBarButtonItem = rightItem;
+    
+//    [self.view addSubview:({
+//        UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//        [rightBtn.titleLabel setText:@"刷新"];
+//        rightBtn.titleLabel.textColor = [UIColor blueColor];
+//        rightBtn;
+//    })];
     //! WKWebView
     //这个类主要用来做native与JavaScript的交互管理
     WKUserContentController *wkUController = [[WKUserContentController alloc] init];
@@ -77,7 +95,11 @@
     }
     NSString *urlStr = [[NSBundle mainBundle] pathForResource:@"WKOCBridgeJS.html" ofType:nil];
     NSURL *fileURL = [NSURL fileURLWithPath:urlStr];
-        [self.WKView loadFileURL:fileURL allowingReadAccessToURL:fileURL];
+    [self.WKView loadFileURL:fileURL allowingReadAccessToURL:fileURL];
+
+//    NSURL *fileURL = [NSURL URLWithString:@"http://59.110.243.193:8080/xlby_wx/enjoyment/appCoupon?nsukey=yoKDJkj8%2BnO6kJuSgeuUsYjkn6TSCoC67Hy3JKp%2BQSar50yEpf3MhQQwqWRrWv%2FeymNQvyHifbbEsnSNVJzPxEO36iSLxAfZgZJYnmhnU6ScMlSkSnRBQUTR%2BEjUWtclKHMo9PP336SdifWEsUDFicGj9C1jT1fOQmQ3a6tqR9T9LJiRsEruIpqXw013C9kq9AOt5wd699CIyJcQeKkLZg%3D%3D"];
+//    NSURLRequest *downloadRequest = [NSURLRequest requestWithURL:fileURL];
+//    [self.WKView loadRequest:downloadRequest];
     //WK用于正常加载
     //NSURLCache 实例化
     NSURLCache *cache = [NSURLCache sharedURLCache];
@@ -109,7 +131,7 @@
     //    [self.WKView loadRequest:backForwardList];
     //    self.WKView.scrollView.scrollEnabled = NO;
     //    self.WKView.userInteractionEnabled = NO;
-    self.WKView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,0);
+    self.WKView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,500);
     [self.WKView.scrollView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:nil];
 //    [self.WKView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:NULL];
     //圆形进度条
@@ -123,11 +145,28 @@
     //添加测试按钮
     [self.view addSubview:self.toolBtn];
 }
+
 - (void)toolPage{
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.WKView evaluateJavaScript:@"ocToJs('loginSucceed', 'oc_tokenString')" completionHandler:^(id response, NSError *error) {
             NSLog(@"response: %@", response);
         }];
+        
+//        NSDictionary *parm = @{
+//            @"platform" : @"2",
+//            @"versionName" : @"1.5",
+//            @"mobile" : @"18600294854",
+//            @"userId" : @"240",
+//            @"userToken" : @"JAVJNyWk52GM4cdw7Yedh/66dr8ksMlL3BI8Vwt0MUlEI9no8NG/b6qiWWJdkPzg3FRlo89AiRNF+kOVn6FspQ=="
+//        };
+//        NSError *parseError = nil;
+//        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parm options:NSJSONWritingPrettyPrinted error:&parseError];
+//        NSString *json = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+//        NSString *jsMethod = [NSString stringWithFormat:@"%@('%@','%@')",@"ocToJs",@"loginSucceed",json];
+//        [self.WKView evaluateJavaScript:jsMethod completionHandler:^(id response, NSError *error) {
+//            NSLog(@"response: %@", response);
+//        }];
+
     });
 }
 - (UIButton *)toolBtn{

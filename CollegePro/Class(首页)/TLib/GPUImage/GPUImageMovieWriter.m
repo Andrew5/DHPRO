@@ -89,40 +89,40 @@ NSString *const kGPUImageColorSwizzlingFragmentShaderString = SHADER_STRING
         
         if ([GPUImageOpenGLESContext supportsFastTextureUpload])
         {
-            colorSwizzlingProgram = [[GPUImageOpenGLESContext sharedImageProcessingOpenGLESContext] programForVertexShaderString:kGPUImageVertexShaderString fragmentShaderString:kGPUImagePassthroughFragmentShaderString];
+            self->colorSwizzlingProgram = [[GPUImageOpenGLESContext sharedImageProcessingOpenGLESContext] programForVertexShaderString:kGPUImageVertexShaderString fragmentShaderString:kGPUImagePassthroughFragmentShaderString];
         }
         else
         {
-            colorSwizzlingProgram = [[GPUImageOpenGLESContext sharedImageProcessingOpenGLESContext] programForVertexShaderString:kGPUImageVertexShaderString fragmentShaderString:kGPUImageColorSwizzlingFragmentShaderString];
+            self->colorSwizzlingProgram = [[GPUImageOpenGLESContext sharedImageProcessingOpenGLESContext] programForVertexShaderString:kGPUImageVertexShaderString fragmentShaderString:kGPUImageColorSwizzlingFragmentShaderString];
         }
         
-        if (!colorSwizzlingProgram.initialized)
+        if (!self->colorSwizzlingProgram.initialized)
         {
-            [colorSwizzlingProgram addAttribute:@"position"];
-            [colorSwizzlingProgram addAttribute:@"inputTextureCoordinate"];
+            [self->colorSwizzlingProgram addAttribute:@"position"];
+            [self->colorSwizzlingProgram addAttribute:@"inputTextureCoordinate"];
             
-            if (![colorSwizzlingProgram link])
+            if (![self->colorSwizzlingProgram link])
             {
-                NSString *progLog = [colorSwizzlingProgram programLog];
+                NSString *progLog = [self->colorSwizzlingProgram programLog];
                 NSLog(@"Program link log: %@", progLog);
-                NSString *fragLog = [colorSwizzlingProgram fragmentShaderLog];
+                NSString *fragLog = [self->colorSwizzlingProgram fragmentShaderLog];
                 NSLog(@"Fragment shader compile log: %@", fragLog);
-                NSString *vertLog = [colorSwizzlingProgram vertexShaderLog];
+                NSString *vertLog = [self->colorSwizzlingProgram vertexShaderLog];
                 NSLog(@"Vertex shader compile log: %@", vertLog);
-                colorSwizzlingProgram = nil;
+                self->colorSwizzlingProgram = nil;
                 NSAssert(NO, @"Filter shader link failed");
             }
         }        
         
-        colorSwizzlingPositionAttribute = [colorSwizzlingProgram attributeIndex:@"position"];
-        colorSwizzlingTextureCoordinateAttribute = [colorSwizzlingProgram attributeIndex:@"inputTextureCoordinate"];
-        colorSwizzlingInputTextureUniform = [colorSwizzlingProgram uniformIndex:@"inputImageTexture"];
+        self->colorSwizzlingPositionAttribute = [colorSwizzlingProgram attributeIndex:@"position"];
+        self->colorSwizzlingTextureCoordinateAttribute = [colorSwizzlingProgram attributeIndex:@"inputTextureCoordinate"];
+        self->colorSwizzlingInputTextureUniform = [colorSwizzlingProgram uniformIndex:@"inputImageTexture"];
         
         // REFACTOR: Wrap this in a block for the image processing queue
-        [GPUImageOpenGLESContext setActiveShaderProgram:colorSwizzlingProgram];
+        [GPUImageOpenGLESContext setActiveShaderProgram:self->colorSwizzlingProgram];
         
-        glEnableVertexAttribArray(colorSwizzlingPositionAttribute);
-        glEnableVertexAttribArray(colorSwizzlingTextureCoordinateAttribute);
+        glEnableVertexAttribArray(self->colorSwizzlingPositionAttribute);
+        glEnableVertexAttribArray(self->colorSwizzlingTextureCoordinateAttribute);
     });
         
     [self initializeMovieWithOutputSettings:outputSettings];
@@ -251,12 +251,13 @@ NSString *const kGPUImageColorSwizzlingFragmentShaderString = SHADER_STRING
     {
         return;
     }
-
     isRecording = NO;
     runOnMainQueueWithoutDeadlocking(^{
-        [assetWriterVideoInput markAsFinished];
-        [assetWriterAudioInput markAsFinished];
-        [assetWriter finishWriting];
+        [self->assetWriterVideoInput markAsFinished];
+        [self->assetWriterAudioInput markAsFinished];
+        [self->assetWriter finishWritingWithCompletionHandler:^{
+            self->assetWriter = nil;
+        }];
     });
 }
 
@@ -594,7 +595,7 @@ NSString *const kGPUImageColorSwizzlingFragmentShaderString = SHADER_STRING
         }
         else if (audioOutputSettings == nil)
         {
-            double preferredHardwareSampleRate = [[AVAudioSession sharedInstance] currentHardwareSampleRate];
+            double preferredHardwareSampleRate = [[AVAudioSession sharedInstance] sampleRate];
             
             AudioChannelLayout acl;
             bzero( &acl, sizeof(acl));

@@ -100,11 +100,11 @@
 									];
 	
 	
-	UIBarButtonItem *addBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"新建" style:UIBarButtonItemStyleBordered target:self action:@selector(addNote)];
+	UIBarButtonItem *addBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"新建" style:UIBarButtonItemStylePlain target:self action:@selector(addNote)];
 	self.navigationItem.leftBarButtonItems = @[mybackmarks,addBarButtonItem];
 //	[addBarButtonItem release];
 	
-	UIBarButtonItem *removeBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"删除全部" style:UIBarButtonItemStyleBordered target:self action:@selector(removeAll)];
+	UIBarButtonItem *removeBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"删除全部" style:UIBarButtonItemStylePlain target:self action:@selector(removeAll)];
 	self.navigationItem.rightBarButtonItem = removeBarButtonItem;
 //	[removeBarButtonItem release];
 	

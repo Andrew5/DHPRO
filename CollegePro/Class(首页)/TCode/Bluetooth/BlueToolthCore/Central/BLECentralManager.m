@@ -159,17 +159,12 @@ NSString * const kBLEScanCompletedNotification = @"kBLEScanCompletedNotification
 - (void)setDisConnectBlock:(BLECentralDisconnectBlock)aDisconnectBlock{
     self.disBLEConnectBlock=aDisconnectBlock;
 }
-
-
 #pragma mark -扫描
-
 /**
  *  开始扫描
  */
 -(void)startScan{
-    
     [self.scanBlueList removeAllObjects];
-    
     if(_bleState==BLEStateOpen)
     {
         [self updateLog:@"开始扫描"];
@@ -180,10 +175,7 @@ NSString * const kBLEScanCompletedNotification = @"kBLEScanCompletedNotification
         //弹框提示，请去系统中打开蓝牙
         //[[TKAlertCenter defaultCenter]postAlertWithMessage:NSLocalizedString(@"Please open the Bluetooth on system settings", @"请到系统设置中打开蓝牙")];
     }
-    
-    
 }
-
 /**
  *  停止扫描
  */
@@ -194,9 +186,7 @@ NSString * const kBLEScanCompletedNotification = @"kBLEScanCompletedNotification
     [_clientCM stopScan];
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(startScan) object:nil];
 }
-
 #pragma mark -连接与取消
-
 /**
  *  连接
  */
@@ -225,7 +215,6 @@ NSString * const kBLEScanCompletedNotification = @"kBLEScanCompletedNotification
 }
 
 - (void)removeConnectWithPeripheral:(CBPeripheral *)peripheral{
-    
     BOOL isRemove=NO;
     if ([self.connetorList count]>0) {
         for (BLEConnector *item in self.connetorList) {
@@ -406,7 +395,7 @@ NSString * const kBLEScanCompletedNotification = @"kBLEScanCompletedNotification
 /**
  *  添加扫描到的设备
  *
- *  @param mod
+ *  mod
  */
 - (void)addBluetoothWithModel:(BLEDeviceInfo *)mod{
     

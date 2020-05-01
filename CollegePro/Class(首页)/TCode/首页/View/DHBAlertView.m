@@ -161,7 +161,8 @@
 
 - (void)okButtonClicked:(UIButton *)sender
 {
-    self.okBlock(nil);
+    NSMutableDictionary *emty=[NSMutableDictionary dictionary];
+    self.okBlock(emty);
     [self removeAlertView];
 }
 

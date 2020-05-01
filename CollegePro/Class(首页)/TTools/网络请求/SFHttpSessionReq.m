@@ -130,7 +130,7 @@ static dispatch_once_t onceToken;//成为全局的
 //--------------------------------------------方式二------------------------------------------------------
 
 //NSMutableURLRequest 方式
-+(void)GET:(NSString *)URL parameters:(NSDictionary *)dic success:(ResponseHander)success failure:(ResErrHander)failure
++(void)GET:(NSString *__nonnull)URL parameters:(NSDictionary *__nullable)dic success:(ResponseHander)success failure:(ResErrHander)failure
 {
     //创建配置信息
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];

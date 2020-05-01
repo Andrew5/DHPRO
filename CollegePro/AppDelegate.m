@@ -29,6 +29,7 @@
 #import <MediaPlayer/MPNowPlayingInfoCenter.h>
 #import <MediaPlayer/MPContentItem.h>
 #import <MediaPlayer/MPMediaItem.h>
+#import <StoreKit/StoreKit.h>//内购
 //
 #import "showView.h"
 #import "DHGuidePageHUD.h"
@@ -113,7 +114,7 @@ extern CFAbsoluteTime StartTime;
     [self writeFile];
     self.name = @"kaishi";
     NSLog(@"self.name %@",self.name);
-#pragma mark -极光推送⬇️
+    ///MARK: -极光推送⬇️
     //Required
     //notice: 3.0.0 及以后版本注册可以这样写，也可以继续用之前的注册方式
     JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
@@ -144,7 +145,7 @@ extern CFAbsoluteTime StartTime;
                               channel:@"App Store"
                      apsForProduction:YES
                 advertisingIdentifier:nil];
-#pragma mark -极光推送⬆️
+///MARK: -极光推送⬆️
     _mapManager = [[BMKMapManager alloc]init];
     // 如果要关注网络及授权验证事件，请设定     generalDelegate参数
     BOOL ret = [_mapManager start:@"GqPBelcjdgnnusGN3QjEQ45vjE7YkyE1"  generalDelegate:nil];
@@ -236,7 +237,7 @@ extern CFAbsoluteTime StartTime;
     return YES;
 }
 
-#pragma mark -激活状态
+///MARK: -激活状态
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     //去除模糊效果
     [ScreenBlurry removeBlurryScreenImage];
@@ -248,7 +249,7 @@ extern CFAbsoluteTime StartTime;
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
-#pragma mark -取消激活状态
+///MARK: -取消激活状态
 - (void)applicationWillResignActive:(UIApplication *)application {
     //添加模糊效果
     //     [[UIApplication sharedApplication].keyWindow addSubview:self.visualEffectView];
@@ -258,7 +259,7 @@ extern CFAbsoluteTime StartTime;
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
 }
-#pragma mark -进入后台
+///MARK: -进入后台
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     //方法一
     //    [self startcount];
@@ -286,7 +287,7 @@ extern CFAbsoluteTime StartTime;
     //方法四
     [self newMethod];
 }
-#pragma mark -程序从后台回到前台
+///MARK: -程序从后台回到前台
 - (void)applicationWillEnterForeground:(UIApplication *)application {
 
     [[UIApplication sharedApplication]setApplicationIconBadgeNumber:0];//进入前台取消应用消息图标
@@ -303,7 +304,7 @@ extern CFAbsoluteTime StartTime;
     
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
-#pragma mark -程序没有被杀死（处于前台或后台），点击通知后会调用此程序
+///MARK: -程序没有被杀死（处于前台或后台），点击通知后会调用此程序
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
     NSLog(@"noti:%@",notification);
@@ -320,55 +321,55 @@ extern CFAbsoluteTime StartTime;
         //        NSLog(@"在后台时，接收本地通知时触发:%@",obj);
     }
 }
-#pragma mark -远程通知(个推)注册成功委托
+///MARK: -远程通知(个推)注册成功委托
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {    // Required
     //    [JPUSHService registerDeviceToken:deviceToken];
     NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
     token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSLog(@"\n>>>[DeviceToken Success]:%@\n\n", token);
     
-#pragma mark -Required - 极光推送注册 DeviceToken
+///MARK: -Required - 极光推送注册 DeviceToken
     [JPUSHService registerDeviceToken:deviceToken];
     
 }
 /** 统计APNs通知(个推)的点击数 */
 /** APP已经接收到“远程”通知(推送) - 透传推送消息  */
-#pragma mark -收到消息调用此方法
+///MARK: -收到消息调用此方法
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-#pragma mark -极光推送
+///MARK: -极光推送
     [JPUSHService handleRemoteNotification:userInfo];
     completionHandler(UIBackgroundFetchResultNewData);
 }
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-#pragma mark -极光推送
+///MARK: -极光推送
     [JPUSHService handleRemoteNotification:userInfo];
 }
-#pragma mark -iOS 10: App在前台获取到通知
+///MARK: -iOS 10: App在前台获取到通知
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler  API_AVAILABLE(ios(10.0)){
     
 }
-#pragma mark 调用过用户注册通知方法之后执行（也就是调用完registerUserNotificationSettings:方法之后执行）
+///MARK: 调用过用户注册通知方法之后执行（也就是调用完registerUserNotificationSettings:方法之后执行）
 -(void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings{
     NSLog(@"调用过用户注册通知方法之后执行");
     
 }
-#pragma mark -程序即将退出 App完全退出
+///MARK: -程序即将退出 App完全退出
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // 在App要终止前结束接收远程控制事件, 也可以在需要终止时调用该方法终止
     [application endReceivingRemoteControlEvents];
 }
-#pragma mark  -iOS 10: 点击通知进入App时触发，在该方法内统计有效用户点击数
+///MARK:  -iOS 10: 点击通知进入App时触发，在该方法内统计有效用户点击数
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler  API_AVAILABLE(ios(10.0)){
     //    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     //    NSString *payloadMsg = [response.notification.request.content.userInfo objectForKey:@"payload"];
     //    [[NSNotificationCenter defaultCenter] postNotificationName:@"didReceiveNotificationResponse" object:nil userInfo:@{@"dict" : payloadMsg}];
 }
-#pragma mark -远程通知注册失败委托
+///MARK: -远程通知注册失败委托
 -(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error{
     NSLog(@"\n>>>[DeviceToken Error]:%@\n\n", error.description);
 }
-#pragma mark -3DTouch 接收点击事件
+///MARK: -3DTouch 接收点击事件
 - (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void(^)(BOOL succeeded))completionHandler API_AVAILABLE(ios(9.0)){
     NSLog(@"shortcutItem %@",shortcutItem.type);
     BaseTabBarViewController *tab = (BaseTabBarViewController *)self.window.rootViewController;
@@ -450,14 +451,16 @@ extern CFAbsoluteTime StartTime;
         NSString *stateStr = [urlStr substringFromIndex:range2.location+1];
         NSRange range3 = [stateStr rangeOfString:@"="];
         NSString *articleUrl = [stateStr substringFromIndex:range3.location+1];
-        NSLog(@"%@====%@",articleTitle,articleUrl);
-        
-        
-        
+        NSLog(@"%@====%@====%@",articleTitle,articleUrl,sechemes);
+
         //跳转代码就是跳转到你自己设计的控制器，我这里就不写了
     }
 
     return YES;
+}
+///MARK:内购支付监听
+- (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions{
+    
 }
 
 -(void)jumpSubVCWithNameTitle:(NSString *)nameTitle{
@@ -475,7 +478,7 @@ extern CFAbsoluteTime StartTime;
         [self.window.rootViewController.navigationController pushViewController:tab animated:YES];
     }
 }
-#pragma mark -旋转屏幕
+///MARK: -旋转屏幕
 - (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
     
     if (self.allowRotate) {
@@ -484,7 +487,20 @@ extern CFAbsoluteTime StartTime;
         return UIInterfaceOrientationMaskPortrait;
     }
 }
-#pragma mark -极光推送⬇️
+//当APP由Universal Links进来，在此方法中进行相应的处理
+- (BOOL)application:(UIApplication *)application continueUserActivity:(nonnull NSUserActivity *)userActivity restorationHandler:(nonnull void (^)(NSArray<id<UIUserActivityRestoring>> * _Nullable))restorationHandler{
+    if ([userActivity.activityType isEqualToString:NSUserActivityTypeBrowsingWeb]) {
+        NSURL *webpageURL = userActivity.webpageURL;
+        NSString *host = webpageURL.host;
+        if ([host isEqualToString:@""]) {
+            //跳转处理
+        }else{
+            [[UIApplication sharedApplication]openURL:webpageURL];
+        }
+    }
+    return YES;
+}
+///MARK: -极光推送⬇️
 // iOS 12 Support
 - (void)jpushNotificationCenter:(UNUserNotificationCenter *)center openSettingsForNotification:(UNNotification *)notification API_AVAILABLE(ios(10.0)){
     if (notification && [notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
@@ -495,7 +511,7 @@ extern CFAbsoluteTime StartTime;
 }
 
 // iOS 10 Support
-- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(NSInteger))completionHandler {
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(NSInteger))completionHandler  API_AVAILABLE(ios(10.0)){
     // Required
     NSDictionary * userInfo = notification.request.content.userInfo;
     if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
@@ -505,7 +521,7 @@ extern CFAbsoluteTime StartTime;
 }
 
 // iOS 10 Support
-- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler  API_AVAILABLE(ios(10.0)) API_AVAILABLE(ios(10.0)){
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)(void))completionHandler  API_AVAILABLE(ios(10.0)) API_AVAILABLE(ios(10.0)){
     // Required
     NSDictionary * userInfo = response.notification.request.content.userInfo;
     if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
@@ -514,8 +530,8 @@ extern CFAbsoluteTime StartTime;
     completionHandler();  // 系统要求执行这个方法
 }
 
-#pragma mark -极光推送⬆️
-#pragma mark 移除本地通知，在不需要此通知时记得移除
+///MARK: -极光推送⬆️
+///MARK: 移除本地通知，在不需要此通知时记得移除
 -(void)removeNotification{
 
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
@@ -639,8 +655,9 @@ extern CFAbsoluteTime StartTime;
 - (void)previousCommandAction{
     NSLog(@"不喜欢");
 }
-//#pragma mark - 私有方法
-//#pragma mark 添加本地通知
+
+///MARK: - 私有方法
+///MARK: 添加本地通知
 //- (void) addLocalNotification{
 //
 //    //    NSLog(@"22222");
@@ -707,7 +724,7 @@ extern CFAbsoluteTime StartTime;
         
     });
 }
-#pragma mark -后台计时5分钟
+///MARK: -后台计时5分钟
 - (void)startcount {
     _number = 0;
     
@@ -763,7 +780,7 @@ extern CFAbsoluteTime StartTime;
     });
     
 }
-//- (void) timerMethod:(NSTimer *)paramSender{
+- (void) timerMethod:(NSTimer *)paramSender{
 //
 //    _number  ++;
 //
@@ -787,7 +804,7 @@ extern CFAbsoluteTime StartTime;
 //
 //    }
 //
-//}
+}
 //- (void)startEnterForground{
 //    [self.timer invalidate];
 //
@@ -973,8 +990,7 @@ extern CFAbsoluteTime StartTime;
     return image;
     
 }
-#pragma mark ----------- 当前屏幕截屏 -----------
-
+///MARK: ----------- 当前屏幕截屏 -----------
 + (UIImage *)screenShot {
     
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
@@ -1007,9 +1023,7 @@ extern CFAbsoluteTime StartTime;
     
     return img;
 }
-
-#pragma mark 后台模糊效果
-
+///MARK: 后台模糊效果
 - (UIVisualEffectView *)visualEffectView{
     
     if (!_visualEffectView) {
@@ -1025,8 +1039,7 @@ extern CFAbsoluteTime StartTime;
     return _visualEffectView;
     
 }
-
-#pragma mark 崩溃日志收集
+///MARK: 崩溃日志收集
 - (void)dealwithCrashMessage:(NSNotification *)note {
     //注意:所有的信息都在userInfo中
     //你可以在这里收集相应的崩溃信息进行相应的处理(比如传到自己服务器)

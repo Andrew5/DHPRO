@@ -127,10 +127,8 @@
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         // 存储maxtime
         self.maxtime = responseObject[@"info"][@"maxtime"];
-        
         // 字典数组 -> 模型数组
         self.topics = [TopicItem mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
-        
         // 刷新表格
         [self.mainTableView reloadData];
         

@@ -8,18 +8,21 @@
 
 #import "LabelMethodBlockSubVC.h"
 
-#import "Persion.h"
-#import "KYDog.h"
-#import "SFTextView.h"
 #include <stdlib.h>
 #include <stdio.h>
 #import <malloc/malloc.h>
 #import <objc/message.h>
 #import <CommonCrypto/CommonCrypto.h>
 
-#import "WeakProxy.h"
-#import "TempTarget.h"
+#import "NSObject+Swizzling.h"//kvo监听不到数组的变化，因为kvo监听的是set方法
 #import "CancelableObject.h"
+#import "WeakProxy.h"
+
+#import "KYDog.h"
+#import "Persion.h"
+#import "TempTarget.h"
+#import "SFTextView.h"
+
 #pragma pack(2)//1 代表不进行内存对齐
 struct StructOne {
     char a;         //1字节
@@ -48,12 +51,12 @@ struct StructTwo {
 }
 // 属性声明的block都是全局的__NSGlobalBlock__
 @property (nonatomic, copy) void (^copyBlock)(void);
-@property (nonatomic, weak) void (^weakBlock)(void);
+//@property (nonatomic, weak) void (^weakBlock)(void);
 
 //测试字符串⬇️⬇️⬇️
-@property(nonatomic,copy)NSString*str1;
-@property(nonatomic,strong)NSString*str2;
-@property(nonatomic,strong) NSString *rtcMessageID;
+@property(nonatomic,copy)    NSString*str1;
+@property(nonatomic,strong)  NSString*str2;
+@property(nonatomic,strong)  NSString*rtcMessageID;
 //测试字符串⬆️⬆️⬆️
 
 @property(nonatomic, strong)SFTextView *textF;
@@ -148,7 +151,6 @@ struct StructTwo {
 - (void)loadView{//2
     [super loadView];
 }
-
 //将要显示的时候
 -(void)viewWillAppear:(BOOL)animated{//4
     [super viewWillAppear:animated];
@@ -244,8 +246,6 @@ struct StructTwo {
     //函数式编程、链式编程优缺点
     //Block的底层实现原理
     [self baseBlock];
-    //NSTimer循环引用解决方案
-    [self getquoteof];
     
     void (^ MtTestBlock)(int,int)=^(int a,int b){
         int v= a+b;
@@ -254,6 +254,7 @@ struct StructTwo {
     MtTestBlock(10,20);
 
 }
+
 ///TODO:NSTimer
 - (void)getquoteof{
     //    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:[WeakProxy proxyWithTarget:self] selector:@selector(timerStart:) userInfo:nil repeats:YES];
@@ -294,12 +295,13 @@ struct StructTwo {
 //    [self testDataL];//排序方式
 //    [self testDataM];//排序
 //    [self testDataK];
-//    [self testDataN];//KVO进阶
+    [self testDataN];//KVO进阶
 //    [self testDataO];
 //    [self testDataT];//访问私有变量
 //    [self testDataQ];
-    [self testDataR];
-//    [self testDataSS];
+//    [self testDataR];
+//    [self testDataSS];//顺序执行网络请求
+//    [self getquoteof];//NSTimer循环引用解决方案
 }
 
 
@@ -522,10 +524,10 @@ void (^outFuncBlock)(void) = ^{
     
 #pragma mark - weakBlock（未使用函数内变量） __NSGlobalBlock__
     
-    self.weakBlock = ^{
-        
-    };
-    NSLog(@"2：%@", self.weakBlock);
+//    self.weakBlock = ^{
+//
+//    };
+//    NSLog(@"2：%@", self.weakBlock);
     
 #pragma mark - copyBlock （使用函数内变量） __NSMallocBlock__
     
@@ -536,10 +538,10 @@ void (^outFuncBlock)(void) = ^{
     
 #pragma mark - weakBlock（使用函数内变量） __NSStackBlock__
     
-    self.weakBlock = ^{
-        age = age+1-1;
-    };
-    NSLog(@"4：%@", self.weakBlock);
+//    self.weakBlock = ^{
+//        age = age+1-1;
+//    };
+//    NSLog(@"4：%@", self.weakBlock);
     
 #pragma mark - someBlock（定义在函数体外） __NSGlobalBlock__
     
@@ -603,6 +605,9 @@ void (^outFuncBlock)(void) = ^{
      
      只要我们抓住循环引用的本质，就不难理解这些东西。
      */
+    #pragma mark - MallocBlock
+    
+
     
 }
 
@@ -939,7 +944,7 @@ static UILabel *myLabel;
     self.user.dog = [[KYDog alloc] init];
     self.user.dog.age = 12;
     self.user.dog.name = @"大大";
-    self.user.userId = @"35325";
+    self.user.sex = @"35325";
     // MRC下
     Persion *test = [[Persion alloc] init];
     [test test];
@@ -949,6 +954,12 @@ static UILabel *myLabel;
     //NSKeyValueObservingOptionInitial 观察最初的值 在注册观察服务时会调用一次
     //NSKeyValueObservingOptionPrior 分别在被观察值的前后触发一次 一次修改两次触发
     [self.user addObserver:self forKeyPath:@"dog.name" options:NSKeyValueObservingOptionNew context:nil];
+//    [self.user addObserver:self forKeyPath:@"dog.can_not_observer_name" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
+    //kvo监听不到数组的变化，因为kvo监听的是set方法
+    [self.user dh_addObserver:self forKey:@"_can_not_observer_name" options:NSKeyValueObservingOptionNew block:^(id  _Nonnull observedObject, NSString * _Nonnull keyPath, id  _Nonnull oldValue, id  _Nonnull newValue) {
+        NSLog(@"监听到了");
+    }];
+
     
     myLabel = [[UILabel alloc]initWithFrame:CGRectMake(100, 150, 100, 30 )];
     myLabel.textColor = [UIColor redColor];
@@ -971,33 +982,17 @@ static UILabel *myLabel;
     [tmpArray removeObject:dic2];
     [tmpArray removeObject:dic2];
     
-    KYDog *person = [KYDog new];
+    KYDog *person = [KYDog alloc];
     NSLog(@"%zd", class_getInstanceSize([KYDog class])); // 输出为56
-        NSLog(@"%zd", malloc_size((__bridge const void *)(person))); // 输出为 64
+    NSLog(@"%zd", malloc_size((__bridge const void *)(person))); // 输出为 64
     //    NSLog(@"%zd",malloc(person));
-        NSLog(@"%ld",sizeof(person));
+    NSLog(@"%ld",sizeof(person));
     //malloc() 函数和calloc ()函数的主要区别是前者不能初始化所分配的内存空间，而后者能
     NSLog(@"%zd", class_getInstanceSize([KYDog class])); // 输出为8
     NSLog(@"%zd", malloc_size((__bridge const void *)(person))); // 输出为 16
     NSLog(@"%lu",sizeof(person)); // 输出为8
-    [person loadNameValue:@"name"];
 
-    
-    unsigned int count = 0;
-    Ivar *ivars = class_copyIvarList([KYDog class], &count);
-    //对私有变量的更改
-    Ivar namevar = ivars[4];
-    object_setIvar(person, namevar, @"456");
-    NSString *privateName = object_getIvar(person, namevar);
-    NSLog(@"privateName : %@",privateName);
-    NSString *ivarName = [NSString stringWithUTF8String:ivar_getName(namevar)];
-    ivarName = [ivarName stringByReplacingOccurrencesOfString:@"\"" withString:@""];
-    ivarName = [ivarName stringByReplacingOccurrencesOfString:@"@" withString:@""];
-    if ([ivarName containsString:@"privateName"]) {
-        object_setIvar(person, namevar, @"我的名字");
-        NSString *privateName = object_getIvar(person, namevar);
-        NSLog(@"privateName %@",privateName);
-    }
+   
 //    UIViewController *vc = [UIViewController new];
 //    NSDictionary *dic = @{@"vc":vc,@"item":person};
 //    NSDictionary *dic1 = @{@"vc":vc,@"item":person};
@@ -1077,6 +1072,12 @@ static UILabel *myLabel;
     NSLog(@"%@", change[NSKeyValueChangeNewKey]);
     NSLog(@"%@", (__bridge id)(context));
     myLabel.text = [self.user.dog valueForKeyPath:@"name"];
+    //自定义KVO 不监听_can_not_observer_name
+    NSLog(@"%@",change);
+    Class class = object_getClass(_user);
+    Class superClass = class_getSuperclass(class);
+    NSLog(@"class---%@",_user.class);
+    NSLog(@"superClass:%@",superClass);
     
     //else   若当前类无法捕捉到这个KVO，那很有可能是在他的superClass，或者super-superClass...中
 //        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
@@ -1084,11 +1085,14 @@ static UILabel *myLabel;
 }
 // 3、触发修改属性值
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    self.user.userId = @"123456789";
+    self.user.sex = @"123456789";
     //    self.user.dog.name = @"肖";
     self.user.dog.age = 15;
     [self.user.dog setValue:@"20.0" forKey:@"name"];
-    
+    self.user.sex = @"set is a new value";
+    //自定义KVO
+    [_user setValue:@"aa" forKey:@"_can_not_observer_name"];
+
 }
 
 /*
@@ -1123,7 +1127,7 @@ static UILabel *myLabel;
     dispatch_group_t group = dispatch_group_create();
     dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         //请求1
-        NSLog(@"Request_1");
+        NSLog(@"RequestDataQ_1");
         dispatch_semaphore_t sema = dispatch_semaphore_create(0);
         //模拟网络请求
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
@@ -1140,11 +1144,11 @@ static UILabel *myLabel;
     });
     dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         //请求2
-        NSLog(@"Request_2");
+        NSLog(@"RequestDataQ_2");
     });
     dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         //请求3
-        NSLog(@"Request_3");
+        NSLog(@"RequestDataQ_3");
     });
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
         //界面刷新
@@ -1156,7 +1160,7 @@ static UILabel *myLabel;
 - (void)testDataR {
     // 1.任务一：获取用户信息
     NSBlockOperation *operation1 = [NSBlockOperation blockOperationWithBlock:^{
-        NSLog(@"Request_1");
+        NSLog(@"RequestDataR_1");
         dispatch_semaphore_t sema = dispatch_semaphore_create(0);
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             
@@ -1171,7 +1175,7 @@ static UILabel *myLabel;
     
     // 2.任务二：请求相关数据
     NSBlockOperation *operation2 = [NSBlockOperation blockOperationWithBlock:^{
-        NSLog(@"Request_2");
+        NSLog(@"RequestDataR_2");
         dispatch_semaphore_t sema = dispatch_semaphore_create(0);
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             
@@ -1191,39 +1195,70 @@ static UILabel *myLabel;
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [queue addOperations:@[operation2, operation1] waitUntilFinished:NO];
 }
+
 //enter leave
 - (void)testDataSS {
+    [self testAAA];
+    CFAbsoluteTime startTime = CFAbsoluteTimeGetCurrent();
     
     dispatch_group_t group = dispatch_group_create();
-    
     dispatch_group_enter(group);
+    dispatch_group_enter(group);
+    dispatch_group_enter(group);
+
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        NSLog(@"Request_1");
+        NSLog(@"Request__1");
         sleep(3);
         NSLog(@"Request1完成");
         dispatch_group_leave(group);
     });
     
-    dispatch_group_enter(group);
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        NSLog(@"Request_2");
+        NSLog(@"Request__2");
         sleep(1);
         NSLog(@"Request2完成");
         dispatch_group_leave(group);
     });
     
-    dispatch_group_enter(group);
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        NSLog(@"Request_3");
+        NSLog(@"Request__3");
         sleep(2);
         NSLog(@"Request3完成");
         dispatch_group_leave(group);
     });
-    
     dispatch_group_notify(group,  dispatch_get_main_queue(), ^{
-        
         NSLog(@"全部完成.%@",[NSThread currentThread]);
+        CFAbsoluteTime endTime = (CFAbsoluteTimeGetCurrent() - startTime);
+        NSLog(@"正常使用enter和leave耗时: %f ms", endTime * 1000.0);
     });
+}
+- (void)testAAA{
+    CFAbsoluteTime startTime = CFAbsoluteTimeGetCurrent();
+
+    dispatch_queue_t globalQueue = dispatch_get_global_queue(0, 0);
+    dispatch_group_t group = dispatch_group_create();
+    
+    dispatch_group_async(group, globalQueue, ^{
+        NSLog(@"请求11");
+        sleep(3);
+        NSLog(@"请求11完成");
+    });
+    dispatch_group_async(group, globalQueue, ^{
+        NSLog(@"请求12");
+        sleep(1);
+        NSLog(@"请求12完成");
+    });
+    dispatch_group_async(group, globalQueue, ^{
+        NSLog(@"请求13");
+        sleep(2);
+        NSLog(@"请求13完成");
+    });
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        NSLog(@"请求完成");
+        CFAbsoluteTime endTime = (CFAbsoluteTimeGetCurrent() - startTime);
+        NSLog(@"不使用enter和leave耗时: %f ms", endTime * 1000.0);
+    });
+    
 }
 - (void)getPrivateVarWithClass:(KYDog *)object{
     unsigned int count = 0;
@@ -1429,12 +1464,16 @@ void logBlock(int(^theBlock)(void))
     
 }
 - (void)getMyBestMethod:(void (^)(NSString *))then{
-    
     NSString* str = @"HelloWorld";
     if (then) {
         then(str);
     }
-    
+}
++ (void)getMyBestMethod:(void (^)(NSDictionary  *dict))then{
+    NSDictionary* dictA = @{@"key":@"value"};
+    if (then) {
+        then(dictA);
+    }
 }
 -(void)showIndex:(NSInteger)index
 {
@@ -1453,6 +1492,10 @@ void logBlock(int(^theBlock)(void))
 }
 - (void)returnText:(ReturnTextBlock)block {
 	self.returnTextBlock = block;
+}
+- (void)dealloc{
+    //    [_p fof_removeObserver:self forKeyPath:@"sex" context:nil];
+    NSLog(@"释放了");
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
