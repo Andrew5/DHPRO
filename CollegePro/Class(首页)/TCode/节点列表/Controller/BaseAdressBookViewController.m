@@ -13,6 +13,9 @@
 #import "ContactModel.h"
 #import "SearchResultViewController.h"
 #import "UIColor+JFColor.h"
+
+#import "BookDataViewModel.h"
+
 @interface BaseAdressBookViewController ()<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,LBSearchResultSelectedDelegate>
 {
 	NSMutableArray *_arr_ListContact;//获取的数据
@@ -26,10 +29,9 @@
 	SearchResultViewController *_resultController;
 	NSMutableArray *_arr_updata;
 	NSMutableArray *_arr_Results;
-    
-    
 }
 @property (nonatomic, assign)CGFloat marginTop;
+@property (nonatomic, strong) BookDataViewModel *infoModel;
 
 @end
 
@@ -42,81 +44,36 @@
     _arr_letter = [NSArray array];
     _arr_updata = [[NSMutableArray alloc]init];
     _arr_Results = [[NSMutableArray alloc]init];
-    
-    // Do any additional setup after loading the view.
 
+    [self setUPUI];
+//    [self getData];
+    [self setMVVM];
+}
+- (void)setMVVM{
     dispatch_group_t group = dispatch_group_create();
-    dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        dispatch_group_enter(group);
-
-        NSString *url = [NSString stringWithFormat:@"https://api.thinkpage.cn/v3/weather/daily.json?key=osoydf7ademn8ybv&location=%@&language=zh-Hans&start=0&days=3",@"北京"];
-        url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        NSDictionary *dict = [NSDictionary dictionary];
-        [NetWork GETWithUrl:url parameters:dict view:self.view ifMBP:NO success:^(id  _Nonnull responseObject) {
-            NSLog(@"请求-1-%@--",responseObject);
-
-        } fail:^(NSError * _Nonnull error) {
-            NSLog(@"请求-1---");
-            dispatch_group_leave(group);
-
-
-        }];
-    });
-    // 2 今日推荐
     dispatch_group_enter(group);
     dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        //请求2
-        NSDictionary *parameters;
-        parameters = @{@"Url":@"http://kaifa.homesoft.cn/WebService/jsonInterface.ashx",
-                       @"MethodType":@"GET",
-                       @"Value":@"?json=GetUserInfoAll&UserID=2"
-        };
-        
-        [NetWork POSTWithUrl:@"https://www.homesoft.cn/WebInterface/HBInterface.ashx" parameters:parameters view:self.view ifMBP:NO success:^(id responseObject) {
-            NSLog(@"请求-2-%@--",responseObject);
+        [BookDataViewModel bookDataRequestOncompletion:^(ContactModel * _Nonnull responseResult) {
+            self->_arr_ListContact = [ContactModel mj_objectArrayWithKeyValuesArray:responseResult];
+            [self handleLettersArray];
+            [self->_tableViewMy reloadData];
+            NSLog(@"请求-1--");
             dispatch_group_leave(group);
-            
-        } fail:^(NSError * _Nonnull error) {
-            NSLog(@"请求-2---");
-
-        }];;
+        }];
     });
     
-    // 5
+    dispatch_group_enter(group);
+    dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [BookDataViewModel add:^(id  _Nonnull responseData, NSError * _Nullable error) {
+            NSLog(@"请求-2--");
+            dispatch_group_leave(group);
+        }];
+    });
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
         NSLog(@"123123123123");
     });
-    
-    [self setUPUI];
-    
 }
-- (void) requestOneWithSuccessBlock:(void(^)(void))successBlock {
-    
-    NSDictionary *parameters;
-    parameters = @{@"Url":@"http://kaifa.homesoft.cn/WebService/jsonInterface.ashx",
-                   @"MethodType":@"GET",
-                   @"Value":@"?json=GetUserInfoAll&UserID=2"
-    };
-    
-    [NetWork POSTWithUrl:@"https://www.homesoft.cn/WebInterface/HBInterface.ashx" parameters:parameters view:self.view ifMBP:YES success:^(id responseObject) {
-        NSLog(@"请求-2-%@--",responseObject);
 
-    } fail:^(NSError * _Nonnull error) {
-        
-    }];
-    
-}
-- (void) requestTwoWithBlock:(void(^)(void))successBlock {
-    NSString *url = [NSString stringWithFormat:@"https://api.thinkpage.cn/v3/weather/daily.json?key=osoydf7ademn8ybv&location=%@&language=zh-Hans&start=0&days=3",@"北京"];
-    url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSDictionary *empty = [NSDictionary dictionary];
-    [NetWork GETWithUrl:url parameters:empty view:self.view ifMBP:YES success:^(id  _Nonnull responseObject) {
-        NSLog(@"请求-1-%@--",responseObject);
-
-    } fail:^(NSError * _Nonnull error) {
-        
-    }];
-}
 - (void)getData{
 	NSDictionary *parameters;
 	parameters = @{@"Url":@"http://kaifa.homesoft.cn/WebService/jsonInterface.ashx",

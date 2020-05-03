@@ -9,7 +9,7 @@
 #import "NetWork.h"
 
 @implementation NetWork
-+ (void)GETWithUrl:(NSString *__nonnull)url parameters:(NSDictionary *__nonnull)parameters view:(UIView *)view ifMBP:(BOOL)mark success:(void(^)(id responseObject))success fail:(void(^)(id))fail{
++ (void)GETWithUrl:(NSString *__nonnull)url parameters:(NSDictionary *__nullable)parameters view:(UIView *__nullable)view ifMBP:(BOOL)mark success:(void(^)(id responseObject))success fail:(void(^)(id))fail{
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         if (status <=0) {
@@ -67,14 +67,14 @@
                         fail(error);
                     }
                     NSLog(@">>>%@",error);
-
+                    
                 }];
             }
         }
     }];
 }
 
-+ (void)POSTWithUrl:(NSString *)url parameters:(NSDictionary *)parameters view:(UIView *)view  ifMBP:(BOOL)mark success:(void(^)(id responseObject))success fail:(void(^)(NSError * _Nonnull error))fail{
++ (void)POSTWithUrl:(NSString *__nullable)url parameters:(NSDictionary *)parameters view:(UIView *__nullable)view  ifMBP:(BOOL)mark success:(void(^)(id responseObject))success fail:(void(^)(NSError * _Nonnull error))fail{
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         if (status <=0) {

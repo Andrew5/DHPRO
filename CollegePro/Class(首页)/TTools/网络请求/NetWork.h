@@ -12,15 +12,11 @@
 @interface NetWork : NSObject
 //__nullable表示对象可以是NULL或nil，而__nonnull表示对象不应该为空
 NS_ASSUME_NONNULL_BEGIN
-+ (void)GETWithUrl:(NSString *)url
-        parameters:(NSDictionary *)parameters
-              view:(UIView *)view ifMBP:(BOOL)mark
-           success:(void(^)(id responseObject))success
-              fail:(void(^)(id))fail;
++ (void)GETWithUrl:(NSString *__nonnull)url parameters:(NSDictionary *__nullable)parameters view:(UIView *__nullable)view ifMBP:(BOOL)mark success:(void(^)(id responseObject))success fail:(void(^)(id))fail;
 
-+ (void)POSTWithUrl:(NSString *)url
++ (void)POSTWithUrl:(NSString *__nullable)url
          parameters:(NSDictionary *)parameters
-               view:(UIView *)view  ifMBP:(BOOL)mark
+               view:(UIView *__nullable)view  ifMBP:(BOOL)mark
             success:(void(^_Nullable)(id responseObject))success
                fail:(void(^_Nonnull)(NSError * _Nonnull error))fail;
 NS_ASSUME_NONNULL_END

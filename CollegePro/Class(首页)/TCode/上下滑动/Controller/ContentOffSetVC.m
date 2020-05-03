@@ -46,7 +46,7 @@
 	[self loadData];
 	
 	[self layoutTableView];
-	
+    
 }
 -(void)createNaView
 {

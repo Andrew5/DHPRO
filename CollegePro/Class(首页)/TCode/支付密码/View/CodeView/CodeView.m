@@ -19,62 +19,46 @@
 //密码风格 圆点半径
 #define RADIUS 5
 
-@interface CodeView () <UITextFieldDelegate>
-{
+@interface CodeView () <UITextFieldDelegate>{
     NSMutableArray *textArray;
-    
     //线的条数
     NSInteger lineNum;
 
     UIColor *linecolor;
     UIColor *textcolor;
     UIFont *textFont;
-    
     //观察者
     NSObject *observer;
 }
 @property (nonatomic,strong) UITextField *textField;
 @property (nonatomic, strong) NSMutableArray *underlineArr;
 @end
-
 @implementation CodeView
-
 - (instancetype)initWithFrame:(CGRect)frame
                           num:(NSInteger)num
                     lineColor:(UIColor *)lColor
                      textFont:(CGFloat)font {
-    
     self = [super initWithFrame:frame];
     if (self) {
         self.frame = frame;
         self.backgroundColor = [UIColor whiteColor];
         textArray = [NSMutableArray arrayWithCapacity:num];
-        
         lineNum = num;
         //数字样式是的颜色和线条颜色相同
         linecolor = textcolor = lColor;
-        
         self.layer.borderWidth = 1;
         self.layer.borderColor = lColor.CGColor;
-        
         textFont = [UIFont boldSystemFontOfSize:font];
-        
-        
         _underLine_center_y = frame.size.height - LineBottomHeight - LineHeight/2;
-        
         self.textField.delegate = self;
-        
         _underLineAnimation = NO;
         _emptyEditEnd = NO;
         //设置的字体高度小于self的高
         NSAssert(textFont.lineHeight < self.frame.size.height, @"设置的字体高度应该小于self的高");
-        
         //单击手势
         UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(beginEdit)];
         [self addGestureRecognizer:tapGes];
-
     }
-    
     return self;
 }
 
@@ -84,7 +68,6 @@
         self.hasUnderLine = YES;
     }
 }
-
 
 - (void)setHasSpaceLine:(BOOL)hasSpaceLine {
     _hasSpaceLine = hasSpaceLine;
@@ -96,7 +79,6 @@
         [self addUnderLine];
     }
 }
-
 
 #pragma mark - 添加通知
 - (void)addNotification {
@@ -143,14 +125,10 @@
         [self setNeedsDisplay];
         [self underLineHidden];
     }
-    
     if (_noInputAni) {
         [self addUnderLineAnimation];
     }
-
 }
-
-
 #pragma mark - 下划线是否隐藏
 - (void)underLineHidden {
     if (_hasUnderLine) {
@@ -161,8 +139,6 @@
         }
     }
 }
-
-
 //键盘弹出
 - (void)beginEdit {
     if (_textField == nil) {
@@ -174,7 +150,6 @@
     }
     [self addNotification];
     [self.textField becomeFirstResponder];
-    
 }
 
 - (void)endEdit {
@@ -188,7 +163,6 @@
     [self endEdit];
 }
 
-
 - (void)setUnderLine_center_y:(CGFloat)underLine_center_y {
     _underLine_center_y = underLine_center_y;
     for (CAShapeLayer *layer in _underlineArr) {
@@ -197,9 +171,7 @@
                                  LineWidth,
                                  LineHeight);
     }
-    
 }
-
 
 //添加下划线
 - (void)addUnderLine {
@@ -214,11 +186,9 @@
         [self.layer addSublayer:line];
         [self.underlineArr addObject:line];
     }
-    
     if (!_noInputAni) {
         [self addUnderLineAnimation];
     }
-
 }
 
 //添加分割线
@@ -233,7 +203,6 @@
     }
 }
 
-
 #pragma mark - 懒加载
 - (NSMutableArray *)underlineArr{
     if (_underlineArr == nil) {
@@ -243,29 +212,24 @@
 }
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
-
 - (void)drawRect:(CGRect)rect {
     // Drawing code
     switch (_codeType) {
-        case CodeViewTypeCustom:
-        {
+        case CodeViewTypeCustom:{
             //画字
             //字的起点
-        
             CGContextRef context = UIGraphicsGetCurrentContext();
             for (NSInteger i = 0; i < textArray.count; i ++) {
                 NSString *num = textArray[i];
                 CGFloat wordWidth = [num stringSizeWithFont:textFont Size:CGSizeMake(MAXFLOAT, textFont.lineHeight)].width;
                 //起点
                 CGFloat startX = self.frame.size.width/lineNum * i + (self.frame.size.width/lineNum - wordWidth)/2;
-                
                 [num drawInRect:CGRectMake(startX, (self.frame.size.height - textFont.lineHeight - LineBottomHeight - LineHeight)/2, wordWidth,  textFont.lineHeight + 5) withAttributes:@{NSFontAttributeName:textFont,NSForegroundColorAttributeName:textcolor}];
             }
             CGContextDrawPath(context, kCGPathFill);
         }
             break;
-        case CodeViewTypeSecret:
-        {
+        case CodeViewTypeSecret:{
             //画圆
             CGContextRef context = UIGraphicsGetCurrentContext();
             for (NSInteger i = 0; i < textArray.count; i ++) {
@@ -276,16 +240,12 @@
                 CGContextDrawPath(context, kCGPathFill);//绘制填充
             }
             CGContextDrawPath(context, kCGPathFill);
-            
         }
             break;
         default:
             break;
     }
-
 }
-
-
 
 #pragma mark - 有下划线时,下划线的动画
 - (void)addUnderLineAnimation {
@@ -304,7 +264,6 @@
     }
 }
 
-
 - (CABasicAnimation *)opacityAnimation {
     CABasicAnimation *opacityAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
     opacityAnimation.fromValue = @(1.0);
@@ -316,6 +275,5 @@
     opacityAnimation.timingFunction=[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
     return opacityAnimation;
 }
-
 
 @end

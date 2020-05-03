@@ -29,6 +29,7 @@
 		381D6470243F163F00EA86D8 /* DDYNetworkSpeedTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 381D646C243F163D00EA86D8 /* DDYNetworkSpeedTool.m */; };
 		381D6471243F163F00EA86D8 /* NetworkSpeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 381D646F243F163F00EA86D8 /* NetworkSpeedViewController.m */; };
 		381D6474243F173D00EA86D8 /* SafeSetObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 381D6473243F173D00EA86D8 /* SafeSetObject.m */; };
+		38230153245E675C0096DB42 /* BookDataViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38230152245E675C0096DB42 /* BookDataViewModel.m */; };
 		38274D53229EB00F00185C09 /* DHSendRunObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 38274D52229EB00F00185C09 /* DHSendRunObject.m */; };
 		38274D56229EB80000185C09 /* DHTimeoutAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38274D55229EB80000185C09 /* DHTimeoutAppDelegate.m */; };
 		3828B66023ADE5CB008E4D04 /* NSDictionary+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 3828B65F23ADE5CB008E4D04 /* NSDictionary+Safe.m */; };
@@ -402,6 +403,11 @@
 		386BC0DB22DDBC3F005E6054 /* UICountingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 386BC0D922DDBC3D005E6054 /* UICountingLabel.m */; };
 		386BC0DC22DDBC3F005E6054 /* LJInstrumentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 386BC0DA22DDBC3F005E6054 /* LJInstrumentView.m */; };
 		3874BB422331CB1400C05C90 /* CViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3874BB402331CB1200C05C90 /* CViewController.m */; };
+		3874F5C0245E9A0C0038E7DE /* KeyBoardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3874F5BF245E9A0C0038E7DE /* KeyBoardCell.m */; };
+		3874F5C4245E9A550038E7DE /* KeyBoardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3874F5C3245E9A550038E7DE /* KeyBoardModel.m */; };
+		3874F5C7245E9BF10038E7DE /* CustomFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3874F5C6245E9BF10038E7DE /* CustomFlowLayout.m */; };
+		3874F5CA245E9C600038E7DE /* KeyBoardVView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3874F5C9245E9C600038E7DE /* KeyBoardVView.m */; };
+		3874F5CD245EC0E80038E7DE /* NSArray+CrashCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = 3874F5CC245EC0E80038E7DE /* NSArray+CrashCustom.m */; };
 		387AE6422321103B00EADE4B /* MyCreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 387AE6412321103B00EADE4B /* MyCreView.m */; };
 		387AE6452321109900EADE4B /* MyRectangleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 387AE6442321109900EADE4B /* MyRectangleViewController.m */; };
 		387F18F4233C674100C25F63 /* DHRadianLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 387F18F3233C674000C25F63 /* DHRadianLayerView.m */; };
@@ -996,6 +1002,8 @@
 		381D646F243F163F00EA86D8 /* NetworkSpeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkSpeedViewController.m; sourceTree = "<group>"; };
 		381D6472243F173D00EA86D8 /* SafeSetObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SafeSetObject.h; sourceTree = "<group>"; };
 		381D6473243F173D00EA86D8 /* SafeSetObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SafeSetObject.m; sourceTree = "<group>"; };
+		38230151245E675C0096DB42 /* BookDataViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookDataViewModel.h; sourceTree = "<group>"; };
+		38230152245E675C0096DB42 /* BookDataViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookDataViewModel.m; sourceTree = "<group>"; };
 		38274D51229EB00F00185C09 /* DHSendRunObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHSendRunObject.h; sourceTree = "<group>"; };
 		38274D52229EB00F00185C09 /* DHSendRunObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHSendRunObject.m; sourceTree = "<group>"; };
 		38274D54229EB80000185C09 /* DHTimeoutAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHTimeoutAppDelegate.h; sourceTree = "<group>"; };
@@ -1650,6 +1658,16 @@
 		386BC0DA22DDBC3F005E6054 /* LJInstrumentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJInstrumentView.m; sourceTree = "<group>"; };
 		3874BB402331CB1200C05C90 /* CViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CViewController.m; sourceTree = "<group>"; };
 		3874BB412331CB1300C05C90 /* CViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CViewController.h; sourceTree = "<group>"; };
+		3874F5BE245E9A0C0038E7DE /* KeyBoardCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyBoardCell.h; sourceTree = "<group>"; };
+		3874F5BF245E9A0C0038E7DE /* KeyBoardCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyBoardCell.m; sourceTree = "<group>"; };
+		3874F5C2245E9A550038E7DE /* KeyBoardModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyBoardModel.h; sourceTree = "<group>"; };
+		3874F5C3245E9A550038E7DE /* KeyBoardModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyBoardModel.m; sourceTree = "<group>"; };
+		3874F5C5245E9BF10038E7DE /* CustomFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomFlowLayout.h; sourceTree = "<group>"; };
+		3874F5C6245E9BF10038E7DE /* CustomFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomFlowLayout.m; sourceTree = "<group>"; };
+		3874F5C8245E9C600038E7DE /* KeyBoardVView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyBoardVView.h; sourceTree = "<group>"; };
+		3874F5C9245E9C600038E7DE /* KeyBoardVView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyBoardVView.m; sourceTree = "<group>"; };
+		3874F5CB245EC0E80038E7DE /* NSArray+CrashCustom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+CrashCustom.h"; sourceTree = "<group>"; };
+		3874F5CC245EC0E80038E7DE /* NSArray+CrashCustom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+CrashCustom.m"; sourceTree = "<group>"; };
 		387AE6402321103B00EADE4B /* MyCreView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCreView.h; sourceTree = "<group>"; };
 		387AE6412321103B00EADE4B /* MyCreView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCreView.m; sourceTree = "<group>"; };
 		387AE6432321109900EADE4B /* MyRectangleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyRectangleViewController.h; sourceTree = "<group>"; };
@@ -2619,6 +2637,15 @@
 			children = (
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		38230150245E67470096DB42 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				38230151245E675C0096DB42 /* BookDataViewModel.h */,
+				38230152245E675C0096DB42 /* BookDataViewModel.m */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		382B6F7223347C9200CD2497 /* DBSphere */ = {
@@ -3830,6 +3857,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		3874F5C1245E9A2E0038E7DE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3874F5C2245E9A550038E7DE /* KeyBoardModel.h */,
+				3874F5C3245E9A550038E7DE /* KeyBoardModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		387AE63F2321101C00EADE4B /* 仪表哦盘 */ = {
 			isa = PBXGroup;
 			children = (
@@ -4302,6 +4338,8 @@
 				38862C7522BB1A0400231140 /* UIViewController+RTCSampleAlert.m */,
 				38C845F5227827EF00BCAD87 /* NSArray+Log.h */,
 				38C84612227827EF00BCAD87 /* NSArray+Log.m */,
+				3874F5CB245EC0E80038E7DE /* NSArray+CrashCustom.h */,
+				3874F5CC245EC0E80038E7DE /* NSArray+CrashCustom.m */,
 				381B6BDA22C0EF9E0018C0C2 /* NSURL+changProtocol.h */,
 				381B6BD922C0EF9E0018C0C2 /* NSURL+changProtocol.m */,
 				38C8460D227827EF00BCAD87 /* NSMutableArray+Util.h */,
@@ -5096,6 +5134,7 @@
 		38C84760227827F000BCAD87 /* 节点列表 */ = {
 			isa = PBXGroup;
 			children = (
+				38230150245E67470096DB42 /* ViewModel */,
 				38C84761227827F000BCAD87 /* Controller */,
 				38C84768227827F000BCAD87 /* Model */,
 				38C84777227827F000BCAD87 /* View */,
@@ -5119,20 +5158,20 @@
 		38C84768227827F000BCAD87 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				38C84769227827F000BCAD87 /* ContactModel.m */,
-				38C8476A227827F000BCAD87 /* PinyinHelper.h */,
-				38C8476B227827F000BCAD87 /* HanyuPinyinOutputFormat.h */,
-				38C8476C227827F000BCAD87 /* NSString+PinYin4Cocoa.m */,
-				38C8476D227827F000BCAD87 /* GZTimeLineModel.m */,
 				38C8476E227827F000BCAD87 /* ChineseToPinyinResource.h */,
-				38C8476F227827F000BCAD87 /* PinyinFormatter.h */,
-				38C84770227827F000BCAD87 /* ContactModel.h */,
-				38C84771227827F000BCAD87 /* PinyinHelper.m */,
-				38C84772227827F000BCAD87 /* NSString+PinYin4Cocoa.h */,
-				38C84773227827F000BCAD87 /* HanyuPinyinOutputFormat.m */,
-				38C84774227827F000BCAD87 /* GZTimeLineModel.h */,
 				38C84775227827F000BCAD87 /* ChineseToPinyinResource.m */,
+				38C84770227827F000BCAD87 /* ContactModel.h */,
+				38C84769227827F000BCAD87 /* ContactModel.m */,
+				38C84774227827F000BCAD87 /* GZTimeLineModel.h */,
+				38C8476D227827F000BCAD87 /* GZTimeLineModel.m */,
+				38C8476B227827F000BCAD87 /* HanyuPinyinOutputFormat.h */,
+				38C84773227827F000BCAD87 /* HanyuPinyinOutputFormat.m */,
+				38C84772227827F000BCAD87 /* NSString+PinYin4Cocoa.h */,
+				38C8476C227827F000BCAD87 /* NSString+PinYin4Cocoa.m */,
+				38C8476F227827F000BCAD87 /* PinyinFormatter.h */,
 				38C84776227827F000BCAD87 /* PinyinFormatter.m */,
+				38C8476A227827F000BCAD87 /* PinyinHelper.h */,
+				38C84771227827F000BCAD87 /* PinyinHelper.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -5507,6 +5546,7 @@
 		38C847FD227827F000BCAD87 /* 支付密码 */ = {
 			isa = PBXGroup;
 			children = (
+				3874F5C1245E9A2E0038E7DE /* Model */,
 				38C847FE227827F000BCAD87 /* Controller */,
 				38C84809227827F000BCAD87 /* View */,
 			);
@@ -5542,6 +5582,12 @@
 			children = (
 				38C8480A227827F000BCAD87 /* InputVertify */,
 				38C8480D227827F000BCAD87 /* CodeView */,
+				3874F5BE245E9A0C0038E7DE /* KeyBoardCell.h */,
+				3874F5BF245E9A0C0038E7DE /* KeyBoardCell.m */,
+				3874F5C5245E9BF10038E7DE /* CustomFlowLayout.h */,
+				3874F5C6245E9BF10038E7DE /* CustomFlowLayout.m */,
+				3874F5C8245E9C600038E7DE /* KeyBoardVView.h */,
+				3874F5C9245E9C600038E7DE /* KeyBoardVView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -5558,10 +5604,10 @@
 		38C8480D227827F000BCAD87 /* CodeView */ = {
 			isa = PBXGroup;
 			children = (
+				38C84811227827F000BCAD87 /* CodeView.h */,
 				38C8480E227827F000BCAD87 /* CodeView.m */,
 				38C8480F227827F000BCAD87 /* NSString+Category.h */,
 				38C84810227827F000BCAD87 /* NSString+Category.m */,
-				38C84811227827F000BCAD87 /* CodeView.h */,
 			);
 			path = CodeView;
 			sourceTree = "<group>";
@@ -6812,6 +6858,7 @@
 				386BC0DC22DDBC3F005E6054 /* LJInstrumentView.m in Sources */,
 				38C8453B2278249900BCAD87 /* ViewController.mm in Sources */,
 				38C848F6227827F100BCAD87 /* GYChangeTextView.m in Sources */,
+				3874F5C4245E9A550038E7DE /* KeyBoardModel.m in Sources */,
 				38C84A6E227827F200BCAD87 /* SectionsViewController.m in Sources */,
 				38C2D0CB22D5E27700CF30CA /* ASIFormDataRequest.m in Sources */,
 				38C977E522AE02D300F978C1 /* Options.m in Sources */,
@@ -6941,6 +6988,7 @@
 				383DC23023E4373100B362EF /* TopicItem.m in Sources */,
 				38C8492D227827F100BCAD87 /* LHMD5.m in Sources */,
 				386BBDD522DDA7FF005E6054 /* GPUImageHighlightShadowFilter.m in Sources */,
+				38230153245E675C0096DB42 /* BookDataViewModel.m in Sources */,
 				386BBDD722DDA7FF005E6054 /* GPUImageSingleComponentGaussianBlurFilter.m in Sources */,
 				38C848D7227827F100BCAD87 /* YPTabBar.m in Sources */,
 				386BBDA222DDA7FF005E6054 /* GPUImageOutput.m in Sources */,
@@ -6962,6 +7010,7 @@
 				38C84A21227827F200BCAD87 /* ZSDSetPasswordView.m in Sources */,
 				3807246622CDCC8C0035E5B1 /* CornerViewController.m in Sources */,
 				38C84A3D227827F200BCAD87 /* UIImage+MLTint.m in Sources */,
+				3874F5C7245E9BF10038E7DE /* CustomFlowLayout.m in Sources */,
 				386BBD7922DDA7FE005E6054 /* GPUImageHistogramFilter.m in Sources */,
 				38C849F0227827F200BCAD87 /* MyView.m in Sources */,
 				386BBDAA22DDA7FF005E6054 /* GPUImageSourceOverBlendFilter.m in Sources */,
@@ -7076,6 +7125,7 @@
 				38EE05B123853D8200718397 /* YHView.m in Sources */,
 				386BBB5722DC9BE3005E6054 /* LuckyMainViewController.m in Sources */,
 				3874BB422331CB1400C05C90 /* CViewController.m in Sources */,
+				3874F5C0245E9A0C0038E7DE /* KeyBoardCell.m in Sources */,
 				38C84A66227827F200BCAD87 /* ZLDashboardViewController.m in Sources */,
 				384C3FD122887D7A00F01586 /* MVVMViewController.m in Sources */,
 				386BC0A722DDB1CC005E6054 /* CodeViewController.m in Sources */,
@@ -7191,6 +7241,7 @@
 				38C849E8227827F200BCAD87 /* SmoothLineViewController.m in Sources */,
 				382B6F7523347CC100CD2497 /* DBSphereViewController.m in Sources */,
 				386BBDA422DDA7FF005E6054 /* GPUImagePosterizeFilter.m in Sources */,
+				3874F5CA245E9C600038E7DE /* KeyBoardVView.m in Sources */,
 				38C849C9227827F200BCAD87 /* ZLThumbnailViewController.m in Sources */,
 				38C84903227827F100BCAD87 /* SZAddImage.m in Sources */,
 				38C848F8227827F100BCAD87 /* ChineseString.m in Sources */,
@@ -7263,6 +7314,7 @@
 				38CC865522D8A34D0057405C /* InternetViewController.m in Sources */,
 				38862D3A22BB522300231140 /* UIViewController+topmost.m in Sources */,
 				38C84901227827F100BCAD87 /* IncludeNibTableViewController.m in Sources */,
+				3874F5CD245EC0E80038E7DE /* NSArray+CrashCustom.m in Sources */,
 				38C84957227827F100BCAD87 /* ESMTabBarViewController.m in Sources */,
 				38C84A39227827F200BCAD87 /* ScrollImageView.m in Sources */,
 				386BBDA522DDA7FF005E6054 /* GPUImageLanczosResamplingFilter.m in Sources */,

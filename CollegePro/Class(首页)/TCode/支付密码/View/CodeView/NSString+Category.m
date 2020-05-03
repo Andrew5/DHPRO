@@ -29,8 +29,8 @@
     } else {
         //计算正文的高度
         NSDictionary *attrs = @{NSFontAttributeName : font};
-        CGSize size = [self boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:attrs context:nil].size;
-        resultSize = size;
+        CGSize sizesize = [self boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:attrs context:nil].size;
+        resultSize = sizesize;
     }
     return resultSize;
 }

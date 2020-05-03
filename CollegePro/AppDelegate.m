@@ -86,6 +86,7 @@ extern CFAbsoluteTime StartTime;
     NSSetUncaughtExceptionHandler(&UncaughtExceptionHandler);
     InstallSignalHandler();//信号量截断
     InstallUncaughtExceptionHandler();
+    //三方解决崩溃问题
     [AvoidCrash becomeEffective];
     //监听通知:AvoidCrashNotification, 获取AvoidCrash捕获的崩溃日志的详细信息
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dealwithCrashMessage:) name:@"AvoidCrashNotification" object:nil];
