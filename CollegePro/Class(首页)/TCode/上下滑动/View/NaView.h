@@ -16,9 +16,9 @@
 
 @property(nonatomic,assign)id<NaViewDelegate>delegate;
 @property(nonatomic,strong)UIImageView * headBackView;
-@property(nonatomic,strong)NSString * title;
+@property(nonatomic,copy)NSString * title;
 @property(nonatomic,strong)UIColor * color;
-@property(nonatomic,strong)NSString * left_bt_Image;
-@property(nonatomic,strong)NSString * right_bt_Image;
+@property(nonatomic,copy)NSString * left_bt_Image;
+@property(nonatomic,copy)NSString * right_bt_Image;
 
 @end

@@ -427,6 +427,7 @@
 		388C76CC22B4F7A40094773D /* TodayItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 388C76CB22B4F7A40094773D /* TodayItemModel.m */; };
 		388C76E422B501F30094773D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38C8453F2278249A00BCAD87 /* Assets.xcassets */; };
 		388C76E722B503800094773D /* TodayItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 388C76E622B503800094773D /* TodayItemCell.m */; };
+		3890B5C624683ADA00BA39A0 /* SearchistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3890B5C524683ADA00BA39A0 /* SearchistoryTableViewCell.m */; };
 		3893F39A22CDE3DA005C30AE /* DHMonthListlinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3893F39922CDE3DA005C30AE /* DHMonthListlinkViewController.m */; };
 		3893F39D22CDE472005C30AE /* DHMonthListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3893F39C22CDE472005C30AE /* DHMonthListViewController.m */; };
 		3893F3A022CDE492005C30AE /* DHMonthDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3893F39F22CDE492005C30AE /* DHMonthDetailViewController.m */; };
@@ -441,7 +442,6 @@
 		38A99B42229BD1C000D52230 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38A99B40229BD1C000D52230 /* MainInterface.storyboard */; };
 		38A99B46229BD1C000D52230 /* CollegeProExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 38A99B39229BD1C000D52230 /* CollegeProExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		38B94602243F48C10013170F /* DHBAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B94601243F48C10013170F /* DHBAlertView.m */; };
-		38C031422300553600B4B364 /* DHTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C031412300553600B4B364 /* DHTabbarViewController.m */; };
 		38C2D0C922D5E27700CF30CA /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C2D0B222D5E27600CF30CA /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		38C2D0CA22D5E27700CF30CA /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C2D0B322D5E27600CF30CA /* ASIHTTPRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		38C2D0CB22D5E27700CF30CA /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C2D0B622D5E27600CF30CA /* ASIFormDataRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -902,6 +902,9 @@
 		38C977E322AE02D300F978C1 /* Menu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38C9779222AE02D200F978C1 /* Menu.xib */; };
 		38C977E422AE02D300F978C1 /* Themes.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C9779322AE02D200F978C1 /* Themes.m */; };
 		38C977E522AE02D300F978C1 /* Options.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C9779422AE02D200F978C1 /* Options.m */; };
+		38C995A72484B377008C3788 /* DHTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C995A62484B377008C3788 /* DHTabbarViewController.m */; };
+		38C995AF2484B4A7008C3788 /* SphericaLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C995AB2484B4A6008C3788 /* SphericaLayout.m */; };
+		38C995B02484B4A7008C3788 /* ThreeDimensionalSphericalLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C995AD2484B4A6008C3788 /* ThreeDimensionalSphericalLayout.m */; };
 		38CC864C22D882ED0057405C /* play_def@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38CC864A22D882EC0057405C /* play_def@2x.png */; };
 		38CC864D22D882ED0057405C /* play_def@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38CC864B22D882EC0057405C /* play_def@3x.png */; };
 		38CC865022D8A0F70057405C /* SpeedController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38CC864E22D8A0F00057405C /* SpeedController.m */; };
@@ -926,8 +929,6 @@
 		38EBA07D22CF24F400AAD44F /* FoodListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EBA07C22CF24F400AAD44F /* FoodListViewController.m */; };
 		38EE05B123853D8200718397 /* YHView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EE05B023853D8200718397 /* YHView.m */; };
 		38F0FBFA23C781F400B04343 /* CHLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F0FBF923C781F400B04343 /* CHLogger.m */; };
-		69231657234E31B400A92110 /* SphericaLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 69231653234E31B400A92110 /* SphericaLayout.m */; };
-		69231658234E31B400A92110 /* ThreeDimensionalSphericalLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 69231655234E31B400A92110 /* ThreeDimensionalSphericalLayout.m */; };
 		73869E513ABCF28AE9B6C239 /* Pods_CollegePro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CBC72DE2C175A4CF5A210DB /* Pods_CollegePro.framework */; };
 /* End PBXBuildFile section */
 
@@ -1699,6 +1700,8 @@
 		388C76CB22B4F7A40094773D /* TodayItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodayItemModel.m; sourceTree = "<group>"; };
 		388C76E522B503800094773D /* TodayItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayItemCell.h; sourceTree = "<group>"; };
 		388C76E622B503800094773D /* TodayItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayItemCell.m; sourceTree = "<group>"; };
+		3890B5C424683ADA00BA39A0 /* SearchistoryTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchistoryTableViewCell.h; sourceTree = "<group>"; };
+		3890B5C524683ADA00BA39A0 /* SearchistoryTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchistoryTableViewCell.m; sourceTree = "<group>"; };
 		3893F39822CDE3DA005C30AE /* DHMonthListlinkViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHMonthListlinkViewController.h; sourceTree = "<group>"; };
 		3893F39922CDE3DA005C30AE /* DHMonthListlinkViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHMonthListlinkViewController.m; sourceTree = "<group>"; };
 		3893F39B22CDE472005C30AE /* DHMonthListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHMonthListViewController.h; sourceTree = "<group>"; };
@@ -1725,7 +1728,6 @@
 		38A99B43229BD1C000D52230 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38B94600243F48C10013170F /* DHBAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHBAlertView.h; sourceTree = "<group>"; };
 		38B94601243F48C10013170F /* DHBAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHBAlertView.m; sourceTree = "<group>"; };
-		38C031412300553600B4B364 /* DHTabbarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHTabbarViewController.m; sourceTree = "<group>"; };
 		38C2D0B222D5E27600CF30CA /* ASIDataCompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDataCompressor.m; sourceTree = "<group>"; };
 		38C2D0B322D5E27600CF30CA /* ASIHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIHTTPRequest.m; sourceTree = "<group>"; };
 		38C2D0B422D5E27600CF30CA /* ASIHTTPRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestDelegate.h; sourceTree = "<group>"; };
@@ -2490,6 +2492,12 @@
 		38C9779222AE02D200F978C1 /* Menu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Menu.xib; sourceTree = "<group>"; };
 		38C9779322AE02D200F978C1 /* Themes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Themes.m; sourceTree = "<group>"; };
 		38C9779422AE02D200F978C1 /* Options.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Options.m; sourceTree = "<group>"; };
+		38C995A52484B377008C3788 /* DHTabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHTabbarViewController.h; sourceTree = "<group>"; };
+		38C995A62484B377008C3788 /* DHTabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHTabbarViewController.m; sourceTree = "<group>"; };
+		38C995AA2484B4A6008C3788 /* SphericaLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SphericaLayout.h; sourceTree = "<group>"; };
+		38C995AB2484B4A6008C3788 /* SphericaLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SphericaLayout.m; sourceTree = "<group>"; };
+		38C995AD2484B4A6008C3788 /* ThreeDimensionalSphericalLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreeDimensionalSphericalLayout.m; sourceTree = "<group>"; };
+		38C995AE2484B4A6008C3788 /* ThreeDimensionalSphericalLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreeDimensionalSphericalLayout.h; sourceTree = "<group>"; };
 		38CC864A22D882EC0057405C /* play_def@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play_def@2x.png"; sourceTree = "<group>"; };
 		38CC864B22D882EC0057405C /* play_def@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play_def@3x.png"; sourceTree = "<group>"; };
 		38CC864E22D8A0F00057405C /* SpeedController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeedController.m; sourceTree = "<group>"; };
@@ -2533,12 +2541,7 @@
 		38F0FBF823C781F000B04343 /* CHLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHLogger.h; sourceTree = "<group>"; };
 		38F0FBF923C781F400B04343 /* CHLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHLogger.m; sourceTree = "<group>"; };
 		5CBC72DE2C175A4CF5A210DB /* Pods_CollegePro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CollegePro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		69231652234E31B400A92110 /* SphericaLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SphericaLayout.h; sourceTree = "<group>"; };
-		69231653234E31B400A92110 /* SphericaLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SphericaLayout.m; sourceTree = "<group>"; };
-		69231655234E31B400A92110 /* ThreeDimensionalSphericalLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreeDimensionalSphericalLayout.m; sourceTree = "<group>"; };
-		69231656234E31B400A92110 /* ThreeDimensionalSphericalLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreeDimensionalSphericalLayout.h; sourceTree = "<group>"; };
 		69231659234E322400A92110 /* CollegeProDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CollegeProDebug.entitlements; sourceTree = "<group>"; };
-		69231685234E34B200A92110 /* DHTabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHTabbarViewController.h; sourceTree = "<group>"; };
 		B94442A678D5676362354ED8 /* Pods-CollegePro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollegePro.release.xcconfig"; path = "Pods/Target Support Files/Pods-CollegePro/Pods-CollegePro.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -4305,8 +4308,8 @@
 				38C845DC227827EF00BCAD87 /* BaseTabBarViewController.m */,
 				38C845E1227827EF00BCAD87 /* BaseViewController.h */,
 				38C845DD227827EF00BCAD87 /* BaseViewController.m */,
-				69231685234E34B200A92110 /* DHTabbarViewController.h */,
-				38C031412300553600B4B364 /* DHTabbarViewController.m */,
+				38C995A52484B377008C3788 /* DHTabbarViewController.h */,
+				38C995A62484B377008C3788 /* DHTabbarViewController.m */,
 			);
 			path = TBaseData;
 			sourceTree = "<group>";
@@ -4445,10 +4448,10 @@
 		38C84631227827EF00BCAD87 /* TCode */ = {
 			isa = PBXGroup;
 			children = (
+				38C995A82484B4A6008C3788 /* ThreeDimensional */,
 				38D0FB30243B054C0028967E /* WKWebView */,
 				3817211C23EE8E8100F8A9A0 /* DrawLine */,
 				385483C7234F4A440053AB46 /* Bluetooth */,
-				69231650234E31B400A92110 /* ThreeDimensional */,
 				382B6F7223347C9200CD2497 /* DBSphere */,
 				382FFA31231CAE440062080E /* YoungSphere */,
 				386BC0D122DDBBF8005E6054 /* DivisionCircle */,
@@ -4943,11 +4946,11 @@
 		38C846F0227827EF00BCAD87 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				38C846F1227827EF00BCAD87 /* TagPickerView.m */,
+				38C846FF227827EF00BCAD87 /* ScottPopMenu.h */,
 				38C846F2227827EF00BCAD87 /* ScottPopMenu.m */,
 				38C846F3227827EF00BCAD87 /* TagPickerView.h */,
+				38C846F1227827EF00BCAD87 /* TagPickerView.m */,
 				38C846F4227827EF00BCAD87 /* TagView */,
-				38C846FF227827EF00BCAD87 /* ScottPopMenu.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4955,16 +4958,16 @@
 		38C846F4227827EF00BCAD87 /* TagView */ = {
 			isa = PBXGroup;
 			children = (
-				38C846F5227827EF00BCAD87 /* HXTagCollectionViewCell.m */,
 				38C846F6227827EF00BCAD87 /* HXTagAttribute.h */,
-				38C846F7227827EF00BCAD87 /* HXTagsView.m */,
-				38C846F8227827EF00BCAD87 /* HXTagsCell.m */,
-				38C846F9227827EF00BCAD87 /* HXTagCollectionViewFlowLayout.h */,
 				38C846FA227827EF00BCAD87 /* HXTagAttribute.m */,
 				38C846FB227827EF00BCAD87 /* HXTagCollectionViewCell.h */,
-				38C846FC227827EF00BCAD87 /* HXTagsView.h */,
+				38C846F5227827EF00BCAD87 /* HXTagCollectionViewCell.m */,
+				38C846F9227827EF00BCAD87 /* HXTagCollectionViewFlowLayout.h */,
 				38C846FD227827EF00BCAD87 /* HXTagCollectionViewFlowLayout.m */,
 				38C846FE227827EF00BCAD87 /* HXTagsCell.h */,
+				38C846F8227827EF00BCAD87 /* HXTagsCell.m */,
+				38C846FC227827EF00BCAD87 /* HXTagsView.h */,
+				38C846F7227827EF00BCAD87 /* HXTagsView.m */,
 			);
 			path = TagView;
 			sourceTree = "<group>";
@@ -5086,8 +5089,8 @@
 		38C84750227827F000BCAD87 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				38C84751227827F000BCAD87 /* ContentOffSetVC.m */,
 				38C84752227827F000BCAD87 /* ContentOffSetVC.h */,
+				38C84751227827F000BCAD87 /* ContentOffSetVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -5100,6 +5103,8 @@
 				38C84756227827F000BCAD87 /* UserCell.xib */,
 				38C84757227827F000BCAD87 /* NaView.h */,
 				38C84758227827F000BCAD87 /* UserCell.m */,
+				3890B5C424683ADA00BA39A0 /* SearchistoryTableViewCell.h */,
+				3890B5C524683ADA00BA39A0 /* SearchistoryTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -6148,6 +6153,33 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
+		38C995A82484B4A6008C3788 /* ThreeDimensional */ = {
+			isa = PBXGroup;
+			children = (
+				38C995A92484B4A6008C3788 /* Model */,
+				38C995AC2484B4A6008C3788 /* ViewController */,
+			);
+			path = ThreeDimensional;
+			sourceTree = "<group>";
+		};
+		38C995A92484B4A6008C3788 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				38C995AA2484B4A6008C3788 /* SphericaLayout.h */,
+				38C995AB2484B4A6008C3788 /* SphericaLayout.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		38C995AC2484B4A6008C3788 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				38C995AD2484B4A6008C3788 /* ThreeDimensionalSphericalLayout.m */,
+				38C995AE2484B4A6008C3788 /* ThreeDimensionalSphericalLayout.h */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		38D0FB30243B054C0028967E /* WKWebView */ = {
 			isa = PBXGroup;
 			children = (
@@ -6175,33 +6207,6 @@
 				38EE05B023853D8200718397 /* YHView.m */,
 			);
 			path = yh;
-			sourceTree = "<group>";
-		};
-		69231650234E31B400A92110 /* ThreeDimensional */ = {
-			isa = PBXGroup;
-			children = (
-				69231651234E31B400A92110 /* Model */,
-				69231654234E31B400A92110 /* ViewController */,
-			);
-			path = ThreeDimensional;
-			sourceTree = "<group>";
-		};
-		69231651234E31B400A92110 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				69231652234E31B400A92110 /* SphericaLayout.h */,
-				69231653234E31B400A92110 /* SphericaLayout.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		69231654234E31B400A92110 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				69231655234E31B400A92110 /* ThreeDimensionalSphericalLayout.m */,
-				69231656234E31B400A92110 /* ThreeDimensionalSphericalLayout.h */,
-			);
-			path = ViewController;
 			sourceTree = "<group>";
 		};
 		DB7A53478EBF97A0FF9F1D0C /* Pods */ = {
@@ -6813,7 +6818,6 @@
 				386BBB0F22DB7739005E6054 /* SlideNavigationController.m in Sources */,
 				386BC04722DDABA7005E6054 /* DGActivityIndicatorRotatingSquaresAnimation.m in Sources */,
 				38C8498B227827F100BCAD87 /* HXTagsView.m in Sources */,
-				38C031422300553600B4B364 /* DHTabbarViewController.m in Sources */,
 				38C84947227827F100BCAD87 /* NTButton.m in Sources */,
 				386BC0B522DDB5AB005E6054 /* cardView.m in Sources */,
 				386BC04B22DDABA7005E6054 /* DGActivityIndicatorBallZigZagAnimation.m in Sources */,
@@ -7041,6 +7045,7 @@
 				38C84958227827F100BCAD87 /* ESMOneViewController.m in Sources */,
 				386BBDDF22DDA7FF005E6054 /* GPUImageFilter.m in Sources */,
 				38C2D0D022D5E27700CF30CA /* ASINetworkQueue.m in Sources */,
+				38C995A72484B377008C3788 /* DHTabbarViewController.m in Sources */,
 				38C84946227827F100BCAD87 /* LSTabBarViewController.m in Sources */,
 				38C84A73227827F200BCAD87 /* LabelMethodBlockVC.m in Sources */,
 				38C84985227827F100BCAD87 /* DemoViewController.m in Sources */,
@@ -7059,12 +7064,12 @@
 				38080AF6232D37150073EFAC /* RippleView.m in Sources */,
 				38C84A74227827F200BCAD87 /* LabelNilMethodBlockViewController.m in Sources */,
 				38C84A26227827F200BCAD87 /* CodeView.m in Sources */,
+				3890B5C624683ADA00BA39A0 /* SearchistoryTableViewCell.m in Sources */,
 				386BBD7022DDA7FE005E6054 /* GPUImageWeakPixelInclusionFilter.m in Sources */,
 				38C848FE227827F100BCAD87 /* IncludeNibTableViewCell.m in Sources */,
 				386BBB3D22DC8EE0005E6054 /* FFKPViewController.m in Sources */,
 				385483E2234F4B5C0053AB46 /* BlueToothViewController.swift in Sources */,
 				38C849DB227827F200BCAD87 /* GZTableViewCell.m in Sources */,
-				69231658234E31B400A92110 /* ThreeDimensionalSphericalLayout.m in Sources */,
 				38C8492F227827F100BCAD87 /* LHCacheTool.m in Sources */,
 				38C848D3227827F100BCAD87 /* DHGuidePageHUD.m in Sources */,
 				386BBDD422DDA7FF005E6054 /* GPUImageCrosshatchFilter.m in Sources */,
@@ -7141,7 +7146,6 @@
 				386BBD9322DDA7FE005E6054 /* GPUImageSaturationFilter.m in Sources */,
 				38C84931227827F100BCAD87 /* SFNetWorkManager.m in Sources */,
 				38C84A54227827F200BCAD87 /* QRCodeViewController.m in Sources */,
-				69231657234E31B400A92110 /* SphericaLayout.m in Sources */,
 				38C849E2227827F200BCAD87 /* ZJBLTimerButton.m in Sources */,
 				38C84907227827F100BCAD87 /* CustomDateView.m in Sources */,
 				386BBD9622DDA7FE005E6054 /* GPUImagePixellateFilter.m in Sources */,
@@ -7227,6 +7231,7 @@
 				386BBD8D22DDA7FE005E6054 /* GPUImagePolarPixellateFilter.m in Sources */,
 				386BBDAE22DDA7FF005E6054 /* GPUImageGaussianBlurFilter.m in Sources */,
 				386BBD8622DDA7FE005E6054 /* GPUImageOverlayBlendFilter.m in Sources */,
+				38C995AF2484B4A7008C3788 /* SphericaLayout.m in Sources */,
 				386BBDB322DDA7FF005E6054 /* GPUImageMaskFilter.m in Sources */,
 				382FFA4F231CBBD20062080E /* ZPCAshapelGradientView.m in Sources */,
 				386BBDB822DDA7FF005E6054 /* GPUImageRGBDilationFilter.m in Sources */,
@@ -7374,6 +7379,7 @@
 				38C84A6D227827F200BCAD87 /* AdaptionListViewController.m in Sources */,
 				384C3FEC22888DBF00F01586 /* ZQVariableMenuHeader.m in Sources */,
 				387AE6452321109900EADE4B /* MyRectangleViewController.m in Sources */,
+				38C995B02484B4A7008C3788 /* ThreeDimensionalSphericalLayout.m in Sources */,
 				386BBC5922DD9C18005E6054 /* LHStickerView.m in Sources */,
 				38C848FA227827F100BCAD87 /* SGImageButton.m in Sources */,
 				386BBD7822DDA7FE005E6054 /* GPUImageCannyEdgeDetectionFilter.m in Sources */,
