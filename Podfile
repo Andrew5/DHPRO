@@ -23,7 +23,8 @@ target "CollegePro" do
   #MD5加密
   pod 'CocoaSecurity'
 
-  pod 'BaiduMapKit'#百度地图SDK
+  ##  pod 'BaiduMapKit'#百度地图SDK
+  pod 'BaiduMapKit','4.4.0' #百度地图SDK
   
   pod 'pop','~>1.0'
   pod 'YHPopupView'
@@ -37,7 +38,7 @@ target "CollegePro" do
 #pod 'FDFullscreenPopGesture'
 #pod 'WechatOpenSDK'
 #pod 'FBRetainCycleDetector'
-pod 'AliPaySDK', '~> 1.0'
+  pod 'AliPaySDK', '~> 1.0'
 #pod 'FSCalendar', '~> 2.6.0'
 #pod 'YYCache'
   pod 'ReactiveCocoa'
