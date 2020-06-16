@@ -34,57 +34,64 @@
 @end
 
 @implementation ScrollViewController
-//初始化数组
--(void)initWithArray
-{
-    infoarray = [[NSMutableArray alloc] initWithCapacity:20];
-    for (int i=1;i<=13; i++) {
-        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"0%d.jpg",i]];
-        [infoarray addObject:image];
-    }
-}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-	self.view.backgroundColor =[UIColor whiteColor];
-	iCarousels *iCarouselView = [[iCarousels alloc] initWithFrame:CGRectMake(10.0 ,64.0 ,self.view.bounds.size.width-20 ,400)];
+	self.view.backgroundColor = [UIColor whiteColor];
+//    [self initWithArray];
+    [self initScrollView];
+//    [self addMyPageControl];
+//    [self loadScrollViewSubViews];
+//    [self initiCarousels];
+//    [self initTimerButton];
+    [self buildSubViewsInScrollView:myScrollView];
+    
+}
+- (void)initTimerButton{
+    //时间按钮
+    ZJBLTimerButton *TimerBtn = [[ZJBLTimerButton alloc] initWithFrame:CGRectMake(100, self.view.bounds.size.height-100, 150, 50)];
+    __weak typeof(self) WeakSelf = self;
+    TimerBtn.countDownButtonBlock = ^{
+        [WeakSelf qurestCode]; //开始获取验证码
+    };
+    [self.view addSubview:TimerBtn];
+}
+- (void)initiCarousels{
+    iCarousels *iCarouselView = [[iCarousels alloc] initWithFrame:CGRectMake(10.0 ,64.0 ,self.view.bounds.size.width-20 ,400)];
     iCarouselView.layer.borderColor = [UIColor redColor].CGColor;
     iCarouselView.layer.borderWidth = 1.0;
-	iCarouselView.backgroundColor = [UIColor colorWithRed:1.00 green:1.00 blue:1.00 alpha:0.00];       //背景颜色
-	[self.view addSubview:iCarouselView];
-	self.iCarouselView = iCarouselView;
-	self.iCarouselView.delegate = self;
-	self.iCarouselView.dataSource = self;
-	self.iCarouselView.type = iCarouselTypeCylinder;//设置图片切换的类型
-    [self createUI];
-    // Do any additional setup after loading the view.
-	
-	//时间按钮
-	ZJBLTimerButton *TimerBtn = [[ZJBLTimerButton alloc] initWithFrame:CGRectMake(100, self.view.bounds.size.height-100, 150, 50)];
-	__weak typeof(self) WeakSelf = self;
-	TimerBtn.countDownButtonBlock = ^{
-		[WeakSelf qurestCode]; //开始获取验证码
-	};
-	[self.view addSubview:TimerBtn];
-	
+    iCarouselView.backgroundColor = [UIColor colorWithRed:1.00 green:1.00 blue:1.00 alpha:0.00];       //背景颜色
+    [self.view addSubview:iCarouselView];
+    self.iCarouselView = iCarouselView;
+    self.iCarouselView.delegate = self;
+    self.iCarouselView.dataSource = self;
+    self.iCarouselView.type = iCarouselTypeCylinder;//设置图片切换的类型
 }
-- (void)createUI{
-    [self initWithArray];
+- (void)initScrollView{
     currentImageCount = 0;
-    pageWidth = 320;
-    myScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.iCarouselView.width, 400)];
+    pageWidth = [UIScreen mainScreen].bounds.size.width;
+    myScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(10, 80, self.view.bounds.size.width-20, 200)];
     [myScrollView setDelegate:self];
-    [myScrollView setContentSize:CGSizeMake(pageWidth*3, 430)];
+    [myScrollView setContentSize:CGSizeMake(pageWidth*3, 100)];
     // [myScrollView setBackgroundColor:[UIColor clearColor]];
     myScrollView.showsHorizontalScrollIndicator = NO;
     myScrollView.showsVerticalScrollIndicator = NO;
     [myScrollView setPagingEnabled:YES];
     //[myScrollView setContentOffset:CGPointMake(pageWidth, 0)];
-    [self.iCarouselView addSubview:myScrollView];
-    [self addMyPageControl];
+    [self.view addSubview:myScrollView];
+    myScrollView.layer.borderColor = [UIColor greenColor].CGColor;
+    myScrollView.layer.borderWidth = 1.0;
     
-    [self loadScrollViewSubViews];
+}
+//初始化数组
+-(void)initWithArray{
+    infoarray = [[NSMutableArray alloc] initWithCapacity:20];
+    for (int i=1;i<=13; i++) {
+        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"0%d.jpg",i]];
+        [infoarray addObject:image];
+    }
 }
 #pragma mark -
 #pragma mark 加上ImageView看看效果
@@ -148,8 +155,40 @@
     [self.view addSubview:myPageControl];
 }
 
+- (void)buildSubViewsInScrollView:(UIScrollView *)scrollView {
+    for (int i = 0; i < scrollView.contentSize.width / CGRectGetWidth(scrollView.bounds); i++) {
+        for (int j = 0; j < scrollView.contentSize.height / CGRectGetHeight(scrollView.bounds); j++) {
+            UIView *infoView = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetWidth(scrollView.bounds) * i, CGRectGetHeight(scrollView.bounds) * j, CGRectGetWidth(scrollView.bounds), CGRectGetHeight(scrollView.bounds))];
+            [self addButtonForView:infoView];
+            infoView.backgroundColor = [self randomColor];
+            [scrollView addSubview:infoView];
+        }
+    }
+}
+- (void)addButtonForView:(UIView *)view {
+    UIButton *testButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    testButton.frame = CGRectMake(0, 0, 80, 80);
+    testButton.backgroundColor = [self randomColor];
+    testButton.layer.borderColor = [UIColor greenColor].CGColor;
+    testButton.layer.borderWidth = 1.0;
+    [testButton addTarget:self action:@selector(testActionButton:) forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:testButton];
+}
+- (UIColor *)randomColor {
+    CGFloat rColor = arc4random() % 256 / 256.0;
+    CGFloat gColor = arc4random() % 256 / 256.0;
+    CGFloat bColor = arc4random() % 256 / 256.0;
+    
+    return [UIColor colorWithRed:rColor green:gColor blue:bColor alpha:1];
+}
+- (void)testActionButton:(UIButton *)but{
+    myScrollView.delaysContentTouches = NO;
+//    myScrollView.canCancelContentTouches = NO;
+
+}
 #pragma mark -
 #pragma mark UIScrollViewDelegate
+//会在视图滚动时收到通知。包括一个指向被滚动视图的指针，从中可以读取contentOffset属性以确定其滚动到的位置。  1
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     //    if (scrollView.contentOffset.x <= 0)
@@ -210,13 +249,57 @@
     }
     
 }
-
 //加速度停止后，回到中间，带动画效果
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     // [scrollView setContentOffset:CGPointMake(pageWidth, 0) animated:YES];
-    //增加PageControl直观显示当前滑动位置
-    [myPageControl setCurrentPage:currentImageCount];
+}
+- (UIView*)viewForZoomingInScrollView:(UIScrollView*)scrollView{
+    return nil;
+}
+                                             // any offset changes
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView{
+    
+} API_AVAILABLE(ios(3.2)); // any zoom scale changes
+
+// called on start of dragging (may require some time and or distance to move)
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    
+}
+// called on finger up if the user dragged. velocity is in points/millisecond. targetContentOffset may be changed to adjust where the scroll view comes to rest
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
+    
+} API_AVAILABLE(ios(5.0));
+// called on finger up if the user dragged. decelerate is true if it will continue moving afterwards
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    
+}
+
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
+    
+}   // called on finger up as we are moving
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
+    
+} // called when setContentOffset/scrollRectVisible:animated: finishes. not called if not animating
+
+- (void)scrollViewWillBeginZooming:(UIScrollView *)scrollView withView:(nullable UIView *)view{
+    
+} API_AVAILABLE(ios(3.2)); // called before the scroll view begins zooming its content
+- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(nullable UIView *)view atScale:(CGFloat)scale{
+    
+} // scale between minimum and maximum. called after any 'bounce' animations
+
+- (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView{
+    return YES;
+}   // return a yes if you want to scroll to the top. if not defined, assumes YES
+- (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView{
+    
+}      // called when scrolling animation finished. may be called immediately if already at top
+
+/* Also see -[UIScrollView adjustedContentInsetDidChange]
+ */
+- (void)scrollViewDidChangeAdjustedContentInset:(UIScrollView *)scrollView{
     
 }
 //发生网络请求 --> 获取验证码
@@ -337,7 +420,7 @@
 	
 }
 
-- (void)didUpdateFocusInContext:(nonnull UIFocusUpdateContext *)context withAnimationCoordinator:(nonnull UIFocusAnimationCoordinator *)coordinator {
+- (void)didUpdateFocusInContext:(nonnull UIFocusUpdateContext *)context withAnimationCoordinator:(nonnull UIFocusAnimationCoordinator *)coordinator  API_AVAILABLE(ios(9.0)) API_AVAILABLE(ios(9.0)){
 	
 }
 
@@ -345,7 +428,7 @@
 	
 }
 
-- (BOOL)shouldUpdateFocusInContext:(nonnull UIFocusUpdateContext *)context {
+- (BOOL)shouldUpdateFocusInContext:(nonnull UIFocusUpdateContext *)context  API_AVAILABLE(ios(9.0)){
 	return YES;
 }
 

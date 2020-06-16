@@ -32,12 +32,13 @@ target "CollegePro" do
   pod 'WKVCDeallocMonitor'##内寸检测
   pod 'MLeaksFinder'
   pod 'AvoidCrash'
-  
+  pod 'SocketRocket'#socket
+
   pod "DKNightVersion"##暗黑模式
 #pod 'FDFullscreenPopGesture'
 #pod 'WechatOpenSDK'
 #pod 'FBRetainCycleDetector'
-pod 'AliPaySDK', '~> 1.0'
+  pod 'AliPaySDK', '~> 1.0'
 #pod 'FSCalendar', '~> 2.6.0'
 #pod 'YYCache'
   pod 'ReactiveCocoa'

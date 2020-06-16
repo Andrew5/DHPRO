@@ -46,7 +46,7 @@ extern CFAbsoluteTime StartTime;
 {
     BMKMapManager* _mapManager;//实例变量
    __block int num;//成员变量
-    
+    UIView *launchView;
 }
 //@property(nonatomic,strong) UIMutableUserNotificationCategory* categorys;
 @property (strong, nonatomic)UIVisualEffectView *visualEffectView;
@@ -231,6 +231,7 @@ extern CFAbsoluteTime StartTime;
 
     NSLog(@"didFinishLaunchingWithOptions:The userInfo is %@.",userInfo);
 */
+    [self getLaunchImage];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[DHGuidepageViewController alloc] init]];
     [self.window makeKeyWindow];
@@ -1047,6 +1048,45 @@ extern CFAbsoluteTime StartTime;
     NSLog(@"%@",note.userInfo);
     //本地日志打印
     [DHTool writeLocalCacheDataToCachesFolderWithKey:[NSString stringWithFormat:@"A_%@.log",[DHTool getCurrectTimeWithPar:@"yyyy-MM-dd-HH-mm-ss-SSS"]] fileName:@"exception"];
+}
 
+- (void)getLaunchImage{
+    UIViewController *viewController = [[UIStoryboard storyboardWithName:@"LaunchScreen" bundle:nil] instantiateViewControllerWithIdentifier:@"LaunchScreen"];
+    UIView *launchView = viewController.view;
+    //    CGRect bottomframe;
+    //    for (UIView *view in launchView.subviews) {
+    //        if (view.tag==30000) {
+    //            bottomframe = view.frame;
+    //        }
+    //    }
+    UIWindow *mainWindow = [UIApplication sharedApplication].keyWindow;
+    launchView.frame = [UIApplication sharedApplication].keyWindow.frame;
+    [mainWindow addSubview:launchView];
+//    UIImageView *imageV=[[UIImageView alloc]init];
+//    imageV.backgroundColor=[UIColor whiteColor];
+//    [launchView addSubview:imageV];
+    UIImageView *subimageV=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"750x1334@2x.png"]];
+    [launchView addSubview:subimageV];
+    [subimageV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(launchView);
+        make.left.equalTo(launchView).offset(17);
+        make.right.equalTo(launchView).offset(-17);
+    }];
+//    [imageV mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(launchView);
+//        make.left.right.equalTo(launchView);
+//        make.bottom.equalTo(subimageV.mas_top);
+//    }];
+    subimageV.contentMode=UIViewContentModeCenter;
+    [self.window bringSubviewToFront:launchView];
+//    [imageV sd_setImageWithURL:[NSURL URLWithString:responseobj[@"path"]]];
+//    [imageV setImage:[UIImage imageNamed:@"750x1334@2x.png"]];
+//    [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(removeADView) userInfo:nil repeats:NO];
+}
+- (void)removeADView{
+
+    [launchView removeFromSuperview];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[DHGuidepageViewController alloc] init]];
 }
 @end

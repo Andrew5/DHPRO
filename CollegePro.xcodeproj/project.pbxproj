@@ -440,6 +440,7 @@
 		38A99B3F229BD1C000D52230 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A99B3E229BD1C000D52230 /* TodayViewController.m */; };
 		38A99B42229BD1C000D52230 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38A99B40229BD1C000D52230 /* MainInterface.storyboard */; };
 		38A99B46229BD1C000D52230 /* CollegeProExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 38A99B39229BD1C000D52230 /* CollegeProExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		38B734542497BB2E00CC4384 /* 750x1334@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38B734532497BB2E00CC4384 /* 750x1334@2x.png */; };
 		38B94602243F48C10013170F /* DHBAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B94601243F48C10013170F /* DHBAlertView.m */; };
 		38C031422300553600B4B364 /* DHTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C031412300553600B4B364 /* DHTabbarViewController.m */; };
 		38C2D0C922D5E27700CF30CA /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C2D0B222D5E27600CF30CA /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -1723,6 +1724,7 @@
 		38A99B3E229BD1C000D52230 /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
 		38A99B41229BD1C000D52230 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		38A99B43229BD1C000D52230 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38B734532497BB2E00CC4384 /* 750x1334@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "750x1334@2x.png"; sourceTree = "<group>"; };
 		38B94600243F48C10013170F /* DHBAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHBAlertView.h; sourceTree = "<group>"; };
 		38B94601243F48C10013170F /* DHBAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHBAlertView.m; sourceTree = "<group>"; };
 		38C031412300553600B4B364 /* DHTabbarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHTabbarViewController.m; sourceTree = "<group>"; };
@@ -4069,6 +4071,7 @@
 				38C8454D227827EF00BCAD87 /* Class(首页) */,
 				38C845362278249900BCAD87 /* AppDelegate.h */,
 				38C845372278249900BCAD87 /* AppDelegate.m */,
+				38B734532497BB2E00CC4384 /* 750x1334@2x.png */,
 				388C55CA244E8AD900FF5CAF /* apple-app-site-association */,
 				38C845392278249900BCAD87 /* ViewController.h */,
 				38C8453A2278249900BCAD87 /* ViewController.mm */,
@@ -6540,6 +6543,7 @@
 				38C84908227827F100BCAD87 /* no_my@2x.png in Resources */,
 				38C849BE227827F200BCAD87 /* btn_original_circle.png in Resources */,
 				384C407822888DFA00F01586 /* 选题管理.png in Resources */,
+				38B734542497BB2E00CC4384 /* 750x1334@2x.png in Resources */,
 				38C84A14227827F200BCAD87 /* photo.png in Resources */,
 				38C849B3227827F100BCAD87 /* btn_unselected@3x.png in Resources */,
 				386BBF6A22DDA8AF005E6054 /* ShowcaseFilterViewController.xib in Resources */,
