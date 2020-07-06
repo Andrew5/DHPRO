@@ -1,6 +1,0 @@
-framework module CocoaSecurity {
-  umbrella header "CocoaSecurity-umbrella.h"
-
-  export *
-  module * { export * }
-}

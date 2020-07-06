@@ -1,23 +1,5 @@
 PODS:
-  - AFNetworking (3.2.1):
-    - AFNetworking/NSURLSession (= 3.2.1)
-    - AFNetworking/Reachability (= 3.2.1)
-    - AFNetworking/Security (= 3.2.1)
-    - AFNetworking/Serialization (= 3.2.1)
-    - AFNetworking/UIKit (= 3.2.1)
-  - AFNetworking/NSURLSession (3.2.1):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (3.2.1)
-  - AFNetworking/Security (3.2.1)
-  - AFNetworking/Serialization (3.2.1)
-  - AFNetworking/UIKit (3.2.1):
-    - AFNetworking/NSURLSession
   - AliPaySDK (1.0)
-  - AvoidCrash (2.5.2)
-  - BaiduMapKit (5.2.0)
-  - CocoaSecurity (1.2.4)
   - DKNightVersion (2.4.3):
     - DKNightVersion/Core (= 2.4.3)
     - DKNightVersion/CoreAnimation (= 2.4.3)
@@ -31,104 +13,28 @@ PODS:
     - DKNightVersion/Core
   - DKNightVersion/UIKit (2.4.3):
     - DKNightVersion/Core
-  - FBRetainCycleDetector (0.1.4)
-  - IQKeyboardManager (6.5.5)
-  - JCore (1.2.6)
-  - JPush (3.1.0):
-    - JCore (~> 1.2.0)
-  - Masonry (1.1.0)
-  - MBProgressHUD (0.9.2)
-  - "MBProgressHUD+JDragon (0.0.5)":
-    - MBProgressHUD (~> 0.9.2)
-  - MJExtension (3.2.1)
-  - MJRefresh (3.3.1)
-  - MLeaksFinder (1.0.0):
-    - FBRetainCycleDetector
-  - pop (1.0.12)
-  - SDAutoLayout (2.2.1)
-  - SDWebImage (5.6.1):
-    - SDWebImage/Core (= 5.6.1)
-  - SDWebImage/Core (5.6.1)
-  - SVProgressHUD (2.2.5)
-  - TZImagePickerController (3.3.1)
-  - WKVCDeallocMonitor (0.1.7)
-  - YYKit (1.0.9):
-    - YYKit/no-arc (= 1.0.9)
-  - YYKit/no-arc (1.0.9)
+  - ReactiveCocoa (10.3.0):
+    - ReactiveSwift (~> 6.2)
+  - ReactiveSwift (6.3.0)
 
 DEPENDENCIES:
-  - AFNetworking
   - AliPaySDK (~> 1.0)
-  - AvoidCrash
-  - BaiduMapKit
-  - CocoaSecurity
   - DKNightVersion
-  - IQKeyboardManager
-  - JPush (= 3.1.0)
-  - Masonry
-  - "MBProgressHUD+JDragon"
-  - MJExtension
-  - MJRefresh
-  - MLeaksFinder
-  - pop (~> 1.0)
-  - SDAutoLayout
-  - SDWebImage
-  - SVProgressHUD
-  - TZImagePickerController
-  - WKVCDeallocMonitor
-  - YYKit
+  - ReactiveCocoa
 
 SPEC REPOS:
   trunk:
-    - AFNetworking
     - AliPaySDK
-    - AvoidCrash
-    - BaiduMapKit
-    - CocoaSecurity
     - DKNightVersion
-    - FBRetainCycleDetector
-    - IQKeyboardManager
-    - JCore
-    - JPush
-    - Masonry
-    - MBProgressHUD
-    - "MBProgressHUD+JDragon"
-    - MJExtension
-    - MJRefresh
-    - MLeaksFinder
-    - pop
-    - SDAutoLayout
-    - SDWebImage
-    - SVProgressHUD
-    - TZImagePickerController
-    - WKVCDeallocMonitor
-    - YYKit
+    - ReactiveCocoa
+    - ReactiveSwift
 
 SPEC CHECKSUMS:
-  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   AliPaySDK: 126275e58119c000cfc2d67a950eb354d3e28ab3
-  AvoidCrash: 28c6916fe19bd2b84126b8dec7cbe61c9a12741d
-  BaiduMapKit: 075465cf7134d0ebf81796b93a59d504c350d9a4
-  CocoaSecurity: d288a6f87e0f363823d2cb83e753814a6944f71a
   DKNightVersion: eaa80cc4014b4bae7d4b535fd87ecc6a3c2767b3
-  FBRetainCycleDetector: 46f8179bbb1c587deee3ea838a1a3ee02acf5015
-  IQKeyboardManager: 3a8b9e603f8b0eeaf5f096a1f2b2cfcf121992ef
-  JCore: cae516dd2bf1a73b578ce6e1065abd49e709e0f7
-  JPush: 5921e25ad13e0386351079217b009f2039084eac
-  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
-  "MBProgressHUD+JDragon": 15bf7583612f0bb9f0bcea634ba5eb247b17d014
-  MJExtension: 635f2c663dcb1bf76fa4b715b2570a5710aec545
-  MJRefresh: eeda70fbf0ad277f3178cef1cd0c3532591d6237
-  MLeaksFinder: 8c435bd2f6d070af18cff082b503b21adc130fc0
-  pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
-  SDAutoLayout: 8bf6b3bbc8b01f775d4defbb4fda2ace805461be
-  SDWebImage: 7edb9c3ea661e77a66661f7f044de8c1b55d1120
-  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  TZImagePickerController: 99f03b64145a8c92c55b9b1b931410967d9be4cb
-  WKVCDeallocMonitor: be8973246aabdfa9b05504ae0a4ad83d18e6ebbf
-  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
+  ReactiveCocoa: 083ae559e6f588ce519cab412ea119b431c26a24
+  ReactiveSwift: 7937f26ec18d555e2a99352bd0a8b2817d1f042d
 
-PODFILE CHECKSUM: afcf9b4b65ad4d21ecb269477ff2a16f92020323
+PODFILE CHECKSUM: 1ea2b7bb4fc6a34f97fc553defe7c40f4ec17af6
 
-COCOAPODS: 1.9.0.beta.2
+COCOAPODS: 1.9.1

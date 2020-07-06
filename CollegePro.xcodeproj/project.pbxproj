@@ -6293,7 +6293,6 @@
 				38C845302278249900BCAD87 /* Frameworks */,
 				38C845312278249900BCAD87 /* Resources */,
 				6014277ED69D92C14D28F888 /* [CP] Embed Pods Frameworks */,
-				F3F72C46D824C26FEB918BBE /* [CP] Copy Pods Resources */,
 				38A99B4A229BD1C000D52230 /* Embed App Extensions */,
 				3853A7A7244F225D00F57CC8 /* ShellScript */,
 			);
@@ -6723,8 +6722,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "
-";
+			shellScript = "\n";
 		};
 		6014277ED69D92C14D28F888 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -6741,23 +6739,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CollegePro/Pods-CollegePro-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F3F72C46D824C26FEB918BBE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CollegePro/Pods-CollegePro-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CollegePro/Pods-CollegePro-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CollegePro/Pods-CollegePro-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

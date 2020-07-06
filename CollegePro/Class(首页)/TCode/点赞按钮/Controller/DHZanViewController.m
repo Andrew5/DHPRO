@@ -8,7 +8,7 @@
 //
 
 #import "DHZanViewController.h"
-
+#import "MBProgressHUD.h"
 @interface DHZanViewController ()
 
 @end
@@ -35,7 +35,19 @@
 	if (sender.selected == YES) {
 		NSLog(@"点赞");
 		[sender setImage:[UIImage imageNamed:@"dianzan"] forState:UIControlStateNormal];
+         MBProgressHUD *hub=[[MBProgressHUD alloc] initWithView:self.view];
 
+        hub.mode=MBProgressHUDModeIndeterminate;
+
+        hub.labelText=@"发送中。。。";
+
+//        [self.view addSubview:hub];
+
+        [hub show:YES];
+
+        [hub hide:YES afterDelay:5];
+        
+        hub.userInteractionEnabled = NO;
 	}
 	else{
 		NSLog(@"取消点赞");

@@ -272,6 +272,8 @@
     [self addCell:@"弹出框" class:@"ShowViewController"];
     [self addCell:@"QQ联系人" class:@"QQListViewController"];
     [self addCell:@"3DTouch" class:@"T3DTouchViewController"];
+    [self addCell:@"点赞" class:@"DHZanViewController"];
+
     //    [self addCell:@"身份证" class:@"IDCardViewController"];
     //    [self addCell:@"信用卡识别" class:@"BankCardViewController"];
     //    [self addCell:@"银行卡识别" class:@"BankCartViewController"];
