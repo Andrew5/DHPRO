@@ -399,9 +399,9 @@
     NSString *className = self.classNames[indexPath.row];
     UIViewController *controller = [[NSClassFromString(className) alloc]initWithNibName:className bundle:nil];
     if ([className isEqualToString:@"SubparagraphRootViewController"]) {
-        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
-        navController.navigationBarHidden = YES;
-        [UIApplication sharedApplication].keyWindow.rootViewController = navController;
+//        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+//        navController.navigationBarHidden = YES;
+//        [UIApplication sharedApplication].keyWindow.rootViewController = navController;
         return;
     }
     //storyboard

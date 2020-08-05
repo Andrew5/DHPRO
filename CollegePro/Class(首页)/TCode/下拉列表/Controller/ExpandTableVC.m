@@ -11,6 +11,7 @@
 #import "ExpandTableVC.h"
 #import "ExpandCell.h"
 #import "TodayItemModel.h"
+#import "TopicItem.h"
 
 @interface ExpandTableVC ()
 @property (nonatomic, strong) NSMutableArray * dataArray;
@@ -67,10 +68,13 @@
                             ];
         _dataArray = [NSMutableArray arrayWithCapacity:array.count];
         for (NSDictionary * dic in  array) {
-            TodayItemModel*manageModel = [TodayItemModel new];
-            manageModel.icon =dic[@"icon"];
-            manageModel.handerUrl = dic[@"handerUrl"];
-            manageModel.titlename = dic[@"title"];
+//            TodayItemModel*manageModel = [TodayItemModel new];
+//            manageModel.icon =dic[@"icon"];
+//            manageModel.handerUrl = dic[@"handerUrl"];
+//            manageModel.titlename = dic[@"title"];
+            TopicItem *manageModel = [TopicItem new];
+            manageModel.text = dic[@"handerUrl"];
+            manageModel.name = dic[@"title"];
             [self.dataArray addObject:manageModel];
         }
         [self.tableView reloadData];
@@ -104,15 +108,15 @@
 //    if (cell == nil) {
 //        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
 //    }
-    TodayItemModel * model = self.dataArray[indexPath.row];
+//    TodayItemModel * model = self.dataArray[indexPath.row];
 //    cell.textLabel.text = @"素数";
-    
+    TopicItem *model = self.dataArray[indexPath.row];
     ExpandCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ExpandCell class])];
     if (nil == cell) {
         cell = [[ExpandCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass([ExpandCell class])];
     }
     
-    [cell setCellContentData:model.titlename];
+    [cell setCellContentData:model.name];
 //    cell.textLabel.text = [self.m_ContentArr objectAtIndex:indexPath.row];
 //    cell.textLabel.textAlignment = NSTextAlignmentCenter;
 //    cell.textLabel.backgroundColor = [UIColor clearColor];

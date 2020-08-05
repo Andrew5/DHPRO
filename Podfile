@@ -1,6 +1,23 @@
 platform :ios, "8.0"
+
+##循环target 添加pod
+#inhibit_all_warnings!
+#targetArray = ['CollegePro','CollegeProWidge']
+#	targetArray.each do |t|
+#		target t do
+
+#abstract_target 'CommonPods' do
+# 多个target共用一套pod的写法，项目中不能有名字为CommonPods，防止冲突；
+def commonPods
+  #自动布局界面库
+  pod 'Masonry'
+  pod 'SDAutoLayout','~>2.2.1'
+  pod 'SDWebImage'
+  pod 'MJExtension'
+end
+
 target "CollegePro" do
-#  source 'https://github.com/CocoaPods/Specs.git'
+#source 'https://github.com/CocoaPods/Specs.git'
 	use_frameworks!
 #使用数字比较符号指定版本
 #'> 0.1'   // tag 0.1以上
@@ -13,22 +30,23 @@ target "CollegePro" do
 #'~> 0'        // 0和以上，等于没有此约束
   pod 'AFNetworking'
 #  pod 'AFNetworking', (~> 4.0.1)
-  #自动布局界面库
-  pod 'Masonry'
-  pod 'SDAutoLayout','~>2.2.1'
+  commonPods
+#  #自动布局界面库
+#  pod 'Masonry'
+#  pod 'SDAutoLayout','~>2.2.1'
   #网络加载转圈图标
   pod 'SVProgressHUD'
 #  pod 'MBProgressHUD'
   pod 'MBProgressHUD+JDragon'
   #图片处理
   pod 'TZImagePickerController'
-  pod 'SDWebImage'
+#  pod 'SDWebImage'
   #键盘自适应
   pod 'IQKeyboardManager'
   #上拉下拉刷新
   pod 'MJRefresh'
 #  #JSON数据与Model模型之间的转化
-  pod 'MJExtension'
+#  pod 'MJExtension'
 #  #极光推送
   pod 'JPush', '3.1.0'
 #  #MD5加密
@@ -60,8 +78,10 @@ target "CollegePro" do
 #pod 'CardIO'
 #  pod 'TesseractOCRiOS'
 #pod 'OpenCV', '~>3.4.1'
-end
-#target 'CollegeProExtension' do
+	end
+#end
+#target 'CollegeProWidge' do
+#  use_frameworks!
 #    pod 'MJExtension'
 #    pod 'AFNetworking'
 #    #自动布局界面库

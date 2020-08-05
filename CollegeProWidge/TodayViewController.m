@@ -1,21 +1,21 @@
 //
 //  TodayViewController.m
-//  CollegeProExtension
+//  CollegeProWidge
 //
-//  Created by jabraknight on 2019/5/27.
-//  Copyright © 2019 jabrknight. All rights reserved.
+//  Created by admin on 2020/8/5.
+//  Copyright © 2020 jabrknight. All rights reserved.
 //
 
 #import "TodayViewController.h"
 #import <NotificationCenter/NotificationCenter.h>
+
 #import <sys/sysctl.h>
 #import <mach/mach.h>
 #import <sys/mount.h>
 #import "TodayTableHeaderView.h"
 #import "TodayItemCell.h"
 #import "TodayItemModel.h"
-@interface TodayViewController () <NCWidgetProviding,  UITableViewDataSource, UITableViewDelegate>
-
+@interface TodayViewController () <NCWidgetProviding, UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property(nonatomic,strong) UILabel *textLabel;
 @property(nonatomic,strong) UILabel *labelNet;
@@ -35,65 +35,56 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    /*
-     <?xml version="1.0" encoding="UTF-8"?>
-     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-     <plist version="1.0">
-     <string>TodayViewController</string>NSExtensionMainStoryboard
-     </plist>
-
-     */
-   
-
+    // Do any additional setup after loading the view.
     // 将小组件的展现模式设置为可展开 ”展开120=40 headview330=110  4x209+539=458“
-    if (@available(iOS 10.0, *)) {
-        self.extensionContext.widgetLargestAvailableDisplayMode = NCWidgetDisplayModeExpanded;
-    }
-    //设置extension的size
-//    self.preferredContentSize = CGSizeMake(0, 80);
-    [self.view addSubview:self.tableView];
-    [self.view addSubview:self.labelTitleName];
-    [self.view addSubview:self.labelUsedMemory];
-    [self.view addSubview:self.labelNet];
+        if (@available(iOS 10.0, *)) {
+            self.extensionContext.widgetLargestAvailableDisplayMode = NCWidgetDisplayModeExpanded;
+        }
+        //设置extension的size
+    //    self.preferredContentSize = CGSizeMake(0, 80);
+        [self.view addSubview:self.tableView];
+        [self.view addSubview:self.labelTitleName];
+        [self.view addSubview:self.labelUsedMemory];
+        [self.view addSubview:self.labelNet];
 
-    _labelUsedMemory.text = [NSString stringWithFormat:@"设备的已使用容量:%.1f, 当前任务所占用的内存:%.2fMB,可用内存:%f",[self getTotalDiskSpace],[self availableMemory],[self usedMemory]];
-    _labelUsedMemory.frame  = CGRectMake(10, 20, 25*15, 40);
+        _labelUsedMemory.text = [NSString stringWithFormat:@"设备的已使用容量:%.1f, 当前任务所占用的内存:%.2fMB,可用内存:%f",[self getTotalDiskSpace],[self availableMemory],[self usedMemory]];
+        _labelUsedMemory.frame  = CGRectMake(10, 20, 25*15, 40);
 
 
-    _labelTitleName.text = [NSString stringWithFormat:@"%.2f,%.2f,%.2f,%.2llu,%.2lld,%.2lld",self.fileSystemSize,self.usedRate,self.freeSize,self.usedSize,[self memoryUsage],[self diskMemory]];
+        _labelTitleName.text = [NSString stringWithFormat:@"%.2f,%.2f,%.2f,%.2llu,%.2lld,%.2lld",self.fileSystemSize,self.usedRate,self.freeSize,self.usedSize,[self memoryUsage],[self diskMemory]];
 
-    NSString *urlString = [NSString stringWithFormat:@"CollegeProTodayExtensionDemo://set/markCode=%@&code=%@&yesclose=%@&stockName=%@",@"10200",@"200",@"YES",[@"高晨阳" stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
-    NSArray * array = @[
-                        @{@"icon":@"bangzhu",
-                          @"handerUrl":@"CollegeProTodayExtensionDemo://message",
-                          @"title":@"消息"},
-                        @{@"icon":@"fankui",
-                          @"handerUrl":@"CollegeProTodayExtensionDemo://adress",
-                          @"title":@"地址管理"},
-                        @{@"icon":@"gerenxinxi",
-                          @"handerUrl":@"CollegeProTodayExtensionDemo://work",
-                          @"title":@"工作"},
-                        @{@"icon":@"kefu",
-                          @"handerUrl":@"CollegeProTodayExtensionDemo://my",
-                          @"title":@"我的"},
-                        @{@"icon":@"shezhi",
-                          @"handerUrl":urlString,
-                          @"title":@"设置"},
+        NSString *urlString = [NSString stringWithFormat:@"CollegeProTodayExtensionDemo://set/markCode=%@&code=%@&yesclose=%@&stockName=%@",@"10200",@"200",@"YES",[@"高晨阳" stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
+        NSArray * array = @[
+                            @{@"icon":@"bangzhu",
+                              @"handerUrl":@"CollegeProTodayExtensionDemo://message",
+                              @"title":@"消息"},
+                            @{@"icon":@"fankui",
+                              @"handerUrl":@"CollegeProTodayExtensionDemo://adress",
+                              @"title":@"地址管理"},
+                            @{@"icon":@"gerenxinxi",
+                              @"handerUrl":@"CollegeProTodayExtensionDemo://work",
+                              @"title":@"工作"},
+                            @{@"icon":@"kefu",
+                              @"handerUrl":@"CollegeProTodayExtensionDemo://my",
+                              @"title":@"我的"},
+                            @{@"icon":@"shezhi",
+                              @"handerUrl":urlString,
+                              @"title":@"设置"},
 
-                        ];
-    for (NSDictionary * dic in  array) {
-        TodayItemModel*manageModel = [TodayItemModel new];
-        manageModel.icon =dic[@"icon"];
-        manageModel.handerUrl = dic[@"handerUrl"];
-        manageModel.titlename = dic[@"title"];
-        [self.dataArray addObject:manageModel];
-    }
-//    [self.tableView reloadData];
-    
-    NSUserDefaults *userDefault = [[NSUserDefaults standardUserDefaults] initWithSuiteName:@"group.dhTool.selfpro.CollegeProExtension"];
-    NSString *t = [userDefault valueForKey:@"network"];
-    self.labelNet.frame  = CGRectMake(10, 60, 15*15, 40);
-    self.labelNet.text = [NSString stringWithFormat:@"当前网速是：%@",t];
+                            ];
+        for (NSDictionary * dic in  array) {
+            TodayItemModel*manageModel = [TodayItemModel new];
+            manageModel.icon =dic[@"icon"];
+            manageModel.handerUrl = dic[@"handerUrl"];
+            manageModel.titlename = dic[@"title"];
+            [self.dataArray addObject:manageModel];
+        }
+    //    [self.tableView reloadData];
+        
+        NSUserDefaults *userDefault = [[NSUserDefaults standardUserDefaults] initWithSuiteName:@"group.dhTool.selfpro.CollegeProExtension"];
+        NSString *t = [userDefault valueForKey:@"network"];
+        self.labelNet.frame  = CGRectMake(10, 60, 15*15, 40);
+        self.labelNet.text = [NSString stringWithFormat:@"当前网速是：%@",t];
 }
 #pragma mark- lazy
 -(NSMutableArray *)dataArray{
