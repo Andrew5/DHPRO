@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AEB8E7EE9BD36451930E84E5DB62E674"
-               BuildableName = "AliPaySDK.framework"
+               BuildableName = "libAliPaySDK.a"
                BlueprintName = "AliPaySDK"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>

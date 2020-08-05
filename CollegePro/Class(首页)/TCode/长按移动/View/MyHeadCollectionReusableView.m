@@ -21,12 +21,12 @@
         lb_bgm.frame = CGRectMake(0, 0, self.frame.size.width, 10);
         [self addSubview:lb_bgm];
         
-        _leftlabel  = [[UILabel alloc] initWithFrame:CGRectMake(10, lb_bgm.tz_bottom+10, 80, 20)];
+        _leftlabel  = [[UILabel alloc] initWithFrame:CGRectMake(10, lb_bgm.bottom+10, 80, 20)];
         _leftlabel.textColor = [UIColor blackColor];
         _leftlabel.font = [UIFont fontWithName:@"Arial Rounded MT Bold"  size:(18.0)];
         [self addSubview:_leftlabel];
         
-        _botlabel = [[UILabel alloc] initWithFrame:CGRectMake(DH_DeviceWidth-100, lb_bgm.tz_bottom, 80, 20)];
+        _botlabel = [[UILabel alloc] initWithFrame:CGRectMake(DH_DeviceWidth-100, lb_bgm.bottom, 80, 20)];
         _botlabel.textAlignment = NSTextAlignmentCenter;
         _botlabel.textColor = [UIColor lightGrayColor];
 //        _botlabel.font = Font12;

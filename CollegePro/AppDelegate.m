@@ -44,7 +44,7 @@
 extern CFAbsoluteTime StartTime;
 @interface AppDelegate ()<JPUSHRegisterDelegate,UNUserNotificationCenterDelegate>
 {
-    BMKMapManager* _mapManager;//实例变量
+//    BMKMapManager* _mapManager;//实例变量
    __block int num;//成员变量
     UIView *launchView;
 }
@@ -147,12 +147,12 @@ extern CFAbsoluteTime StartTime;
                      apsForProduction:YES
                 advertisingIdentifier:nil];
 ///MARK: -极光推送⬆️
-    _mapManager = [[BMKMapManager alloc]init];
-    // 如果要关注网络及授权验证事件，请设定     generalDelegate参数
-    BOOL ret = [_mapManager start:@"GqPBelcjdgnnusGN3QjEQ45vjE7YkyE1"  generalDelegate:nil];
-    if (!ret) {
-        NSLog(@"manager start failed!");
-    }
+//    _mapManager = [[BMKMapManager alloc]init];
+//    // 如果要关注网络及授权验证事件，请设定     generalDelegate参数
+//    BOOL ret = [_mapManager start:@"GqPBelcjdgnnusGN3QjEQ45vjE7YkyE1"  generalDelegate:nil];
+//    if (!ret) {
+//        NSLog(@"manager start failed!");
+//    }
     
     //    float sysVersion=[[UIDevice currentDevice]systemVersion].floatValue;
     //    if (sysVersion>=8.0) {

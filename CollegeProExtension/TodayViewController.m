@@ -90,7 +90,7 @@
     }
 //    [self.tableView reloadData];
     
-    NSUserDefaults *userDefault = [[NSUserDefaults standardUserDefaults] initWithSuiteName:@"group.com.dhTool.selfpro.CollegeProExtension"];
+    NSUserDefaults *userDefault = [[NSUserDefaults standardUserDefaults] initWithSuiteName:@"group.dhTool.selfpro.CollegeProExtension"];
     NSString *t = [userDefault valueForKey:@"network"];
     self.labelNet.frame  = CGRectMake(10, 60, 15*15, 40);
     self.labelNet.text = [NSString stringWithFormat:@"当前网速是：%@",t];

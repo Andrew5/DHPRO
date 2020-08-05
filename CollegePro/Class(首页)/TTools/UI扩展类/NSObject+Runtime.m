@@ -21,4 +21,5 @@
     free(properties);
     return propertiesArray;
 }
+
 @end

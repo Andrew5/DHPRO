@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  btc
+
+  Created by txj on 15/1/15.
+  Copyright (c) 2015年 txj. All rights reserved.
+*/
+"SearchTips"="输入关键字搜索";
+"Scan"="扫一扫";
+"Msg"="消息";
+"picgettitle"="来源";
+"picget1"="拍照";
+"picget2"="相册";

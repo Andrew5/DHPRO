@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "08B8EF1A02DE30CBEFB370FFE1C123C0"
-               BuildableName = "ReactiveSwift.framework"
+               BuildableName = "libReactiveSwift.a"
                BlueprintName = "ReactiveSwift"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
