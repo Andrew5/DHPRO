@@ -11,7 +11,7 @@ target "CollegePro" do
   pod 'MBProgressHUD+JDragon'
   #图片处理
   pod 'TZImagePickerController'
-  pod 'SDWebImage'
+  pod 'SDWebImage', '~> 5.0.6'
   #键盘自适应
   pod 'IQKeyboardManager'
   #上拉下拉刷新
@@ -24,7 +24,7 @@ target "CollegePro" do
   pod 'CocoaSecurity'
 
   ##  pod 'BaiduMapKit'#百度地图SDK
-  pod 'BaiduMapKit','4.4.0' #百度地图SDK
+  pod 'BaiduMapKit' #百度地图SDK
   
   pod 'pop','~>1.0'
   pod 'YHPopupView'
@@ -50,12 +50,12 @@ target "CollegePro" do
 #pod 'TesseractOCRiOS'
 #pod 'OpenCV', '~>3.4.1'
 end
-#target 'CollegeProExtension' do
-#    
-#    pod 'MJExtension'
-#    pod 'AFNetworking'
-#    #自动布局界面库
-#    pod 'Masonry'
-#    pod 'SDWebImage'
-#    
-#end
+target 'CollegeProExtension' do
+    use_frameworks!
+    pod 'MJExtension'
+    pod 'AFNetworking'
+    #自动布局界面库
+    pod 'Masonry'
+    pod 'SDWebImage'
+    
+end

@@ -315,7 +315,7 @@
     [self addCell:@"卡片" class:@"CodeViewController"];
     [self addCell:@"卡片" class:@"CardAnimateViewController"];
     [self addCell:@"表盘" class:@"DivisionCircleViewController"];
-    [self addCell:@"三维球" class:@"ThreeDimensionalSphericalLayout"];
+    [self addCell:@"三维球" class:@"ThreeDimensionalSphericalLayoutViewController"];
     [self addCell:@"分值表" class:@"CreditNumViewController"];
     [self addCell:@"分值表" class:@"IndicatorCrViewController"];
     [self addCell:@"圆环" class:@"anitimalViewController"];

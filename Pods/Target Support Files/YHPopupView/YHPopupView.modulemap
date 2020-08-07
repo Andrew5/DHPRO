@@ -1,0 +1,6 @@
+framework module YHPopupView {
+  umbrella header "YHPopupView-umbrella.h"
+
+  export *
+  module * { export * }
+}

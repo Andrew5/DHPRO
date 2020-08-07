@@ -12,8 +12,7 @@
 	<array/>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.com.dhTool.selfpro.CollegeProExtension</string>
-		<string>group.com.dhTool.selfpro.CollegeProShareExtension</string>
+		<string>group.com.dhPro.tool.CollegeProExtension</string>
 	</array>
 </dict>
 </plist>

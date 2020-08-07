@@ -231,7 +231,7 @@ extern CFAbsoluteTime StartTime;
 
     NSLog(@"didFinishLaunchingWithOptions:The userInfo is %@.",userInfo);
 */
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[DHGuidepageViewController alloc] init]];
     [self.window makeKeyWindow];
     // Override point for customization after application launch.

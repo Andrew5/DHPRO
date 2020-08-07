@@ -1,0 +1,6 @@
+framework module Pods_CollegeProExtension {
+  umbrella header "Pods-CollegeProExtension-umbrella.h"
+
+  export *
+  module * { export * }
+}

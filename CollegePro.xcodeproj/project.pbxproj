@@ -903,8 +903,6 @@
 		38C977E422AE02D300F978C1 /* Themes.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C9779322AE02D200F978C1 /* Themes.m */; };
 		38C977E522AE02D300F978C1 /* Options.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C9779422AE02D200F978C1 /* Options.m */; };
 		38C995A72484B377008C3788 /* DHTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C995A62484B377008C3788 /* DHTabbarViewController.m */; };
-		38C995AF2484B4A7008C3788 /* SphericaLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C995AB2484B4A6008C3788 /* SphericaLayout.m */; };
-		38C995B02484B4A7008C3788 /* ThreeDimensionalSphericalLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C995AD2484B4A6008C3788 /* ThreeDimensionalSphericalLayout.m */; };
 		38CC864C22D882ED0057405C /* play_def@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38CC864A22D882EC0057405C /* play_def@2x.png */; };
 		38CC864D22D882ED0057405C /* play_def@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38CC864B22D882EC0057405C /* play_def@3x.png */; };
 		38CC865022D8A0F70057405C /* SpeedController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38CC864E22D8A0F00057405C /* SpeedController.m */; };
@@ -930,6 +928,9 @@
 		38EE05B123853D8200718397 /* YHView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EE05B023853D8200718397 /* YHView.m */; };
 		38F0FBFA23C781F400B04343 /* CHLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F0FBF923C781F400B04343 /* CHLogger.m */; };
 		73869E513ABCF28AE9B6C239 /* Pods_CollegePro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CBC72DE2C175A4CF5A210DB /* Pods_CollegePro.framework */; };
+		8462335F24DD5D4E00A1F60D /* ThreeDimensionalSphericalLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8462335E24DD5D4E00A1F60D /* ThreeDimensionalSphericalLayoutViewController.m */; };
+		8462336224DD5D8100A1F60D /* SphericaLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8462336124DD5D8100A1F60D /* SphericaLayout.m */; };
+		BFE4D1E113DEF22EBF1C41B2 /* Pods_CollegeProExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA35B4FD3EDA61664411974A /* Pods_CollegeProExtension.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -966,6 +967,7 @@
 
 /* Begin PBXFileReference section */
 		08E0AED3904D837217FE104D /* Pods-CollegePro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollegePro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CollegePro/Pods-CollegePro.debug.xcconfig"; sourceTree = "<group>"; };
+		36AF4279E2C5486F88DA10DF /* Pods-CollegeProExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollegeProExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-CollegeProExtension/Pods-CollegeProExtension.release.xcconfig"; sourceTree = "<group>"; };
 		3807246422CDCC8C0035E5B1 /* CornerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CornerViewController.h; sourceTree = "<group>"; };
 		3807246522CDCC8C0035E5B1 /* CornerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CornerViewController.m; sourceTree = "<group>"; };
 		3807246722CDCCCC0035E5B1 /* UIView+RandomCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+RandomCorner.h"; sourceTree = "<group>"; };
@@ -2492,12 +2494,7 @@
 		38C9779222AE02D200F978C1 /* Menu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Menu.xib; sourceTree = "<group>"; };
 		38C9779322AE02D200F978C1 /* Themes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Themes.m; sourceTree = "<group>"; };
 		38C9779422AE02D200F978C1 /* Options.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Options.m; sourceTree = "<group>"; };
-		38C995A52484B377008C3788 /* DHTabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHTabbarViewController.h; sourceTree = "<group>"; };
 		38C995A62484B377008C3788 /* DHTabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHTabbarViewController.m; sourceTree = "<group>"; };
-		38C995AA2484B4A6008C3788 /* SphericaLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SphericaLayout.h; sourceTree = "<group>"; };
-		38C995AB2484B4A6008C3788 /* SphericaLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SphericaLayout.m; sourceTree = "<group>"; };
-		38C995AD2484B4A6008C3788 /* ThreeDimensionalSphericalLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreeDimensionalSphericalLayout.m; sourceTree = "<group>"; };
-		38C995AE2484B4A6008C3788 /* ThreeDimensionalSphericalLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreeDimensionalSphericalLayout.h; sourceTree = "<group>"; };
 		38CC864A22D882EC0057405C /* play_def@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play_def@2x.png"; sourceTree = "<group>"; };
 		38CC864B22D882EC0057405C /* play_def@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play_def@3x.png"; sourceTree = "<group>"; };
 		38CC864E22D8A0F00057405C /* SpeedController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeedController.m; sourceTree = "<group>"; };
@@ -2542,7 +2539,14 @@
 		38F0FBF923C781F400B04343 /* CHLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHLogger.m; sourceTree = "<group>"; };
 		5CBC72DE2C175A4CF5A210DB /* Pods_CollegePro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CollegePro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69231659234E322400A92110 /* CollegeProDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CollegeProDebug.entitlements; sourceTree = "<group>"; };
+		8462335D24DD5D4E00A1F60D /* ThreeDimensionalSphericalLayoutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreeDimensionalSphericalLayoutViewController.h; sourceTree = "<group>"; };
+		8462335E24DD5D4E00A1F60D /* ThreeDimensionalSphericalLayoutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreeDimensionalSphericalLayoutViewController.m; sourceTree = "<group>"; };
+		8462336024DD5D8100A1F60D /* SphericaLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SphericaLayout.h; sourceTree = "<group>"; };
+		8462336124DD5D8100A1F60D /* SphericaLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SphericaLayout.m; sourceTree = "<group>"; };
+		8462336324DD615200A1F60D /* DHTabbarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHTabbarViewController.h; sourceTree = "<group>"; };
 		B94442A678D5676362354ED8 /* Pods-CollegePro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollegePro.release.xcconfig"; path = "Pods/Target Support Files/Pods-CollegePro/Pods-CollegePro.release.xcconfig"; sourceTree = "<group>"; };
+		BE51D14C52009AB28C100045 /* Pods-CollegeProExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollegeProExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CollegeProExtension/Pods-CollegeProExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		EA35B4FD3EDA61664411974A /* Pods_CollegeProExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CollegeProExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2558,6 +2562,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38A99B3B229BD1C000D52230 /* NotificationCenter.framework in Frameworks */,
+				BFE4D1E113DEF22EBF1C41B2 /* Pods_CollegeProExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4308,7 +4313,7 @@
 				38C845DC227827EF00BCAD87 /* BaseTabBarViewController.m */,
 				38C845E1227827EF00BCAD87 /* BaseViewController.h */,
 				38C845DD227827EF00BCAD87 /* BaseViewController.m */,
-				38C995A52484B377008C3788 /* DHTabbarViewController.h */,
+				8462336324DD615200A1F60D /* DHTabbarViewController.h */,
 				38C995A62484B377008C3788 /* DHTabbarViewController.m */,
 			);
 			path = TBaseData;
@@ -6156,28 +6161,11 @@
 		38C995A82484B4A6008C3788 /* ThreeDimensional */ = {
 			isa = PBXGroup;
 			children = (
-				38C995A92484B4A6008C3788 /* Model */,
-				38C995AC2484B4A6008C3788 /* ViewController */,
+				8462335C24DD5D3B00A1F60D /* Model */,
+				8462335B24DD5D2B00A1F60D /* Controller */,
+				8462335A24DD5D2A00A1F60D /* View */,
 			);
 			path = ThreeDimensional;
-			sourceTree = "<group>";
-		};
-		38C995A92484B4A6008C3788 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				38C995AA2484B4A6008C3788 /* SphericaLayout.h */,
-				38C995AB2484B4A6008C3788 /* SphericaLayout.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		38C995AC2484B4A6008C3788 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				38C995AD2484B4A6008C3788 /* ThreeDimensionalSphericalLayout.m */,
-				38C995AE2484B4A6008C3788 /* ThreeDimensionalSphericalLayout.h */,
-			);
-			path = ViewController;
 			sourceTree = "<group>";
 		};
 		38D0FB30243B054C0028967E /* WKWebView */ = {
@@ -6209,11 +6197,38 @@
 			path = yh;
 			sourceTree = "<group>";
 		};
+		8462335A24DD5D2A00A1F60D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8462336024DD5D8100A1F60D /* SphericaLayout.h */,
+				8462336124DD5D8100A1F60D /* SphericaLayout.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8462335B24DD5D2B00A1F60D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8462335D24DD5D4E00A1F60D /* ThreeDimensionalSphericalLayoutViewController.h */,
+				8462335E24DD5D4E00A1F60D /* ThreeDimensionalSphericalLayoutViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8462335C24DD5D3B00A1F60D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		DB7A53478EBF97A0FF9F1D0C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				08E0AED3904D837217FE104D /* Pods-CollegePro.debug.xcconfig */,
 				B94442A678D5676362354ED8 /* Pods-CollegePro.release.xcconfig */,
+				BE51D14C52009AB28C100045 /* Pods-CollegeProExtension.debug.xcconfig */,
+				36AF4279E2C5486F88DA10DF /* Pods-CollegeProExtension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -6245,6 +6260,7 @@
 				380F9F7F227835CD00D515E3 /* libc++.tbd */,
 				5CBC72DE2C175A4CF5A210DB /* Pods_CollegePro.framework */,
 				38A99B3A229BD1C000D52230 /* NotificationCenter.framework */,
+				EA35B4FD3EDA61664411974A /* Pods_CollegeProExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -6273,6 +6289,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 38A99B47229BD1C000D52230 /* Build configuration list for PBXNativeTarget "CollegeProExtension" */;
 			buildPhases = (
+				1D905E27A81437C9779BE2EE /* [CP] Check Pods Manifest.lock */,
 				38A99B35229BD1C000D52230 /* Sources */,
 				38A99B36229BD1C000D52230 /* Frameworks */,
 				38A99B37229BD1C000D52230 /* Resources */,
@@ -6687,6 +6704,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1D905E27A81437C9779BE2EE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CollegeProExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		264E1428BE5E148DC6FA21E9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -7231,7 +7270,6 @@
 				386BBD8D22DDA7FE005E6054 /* GPUImagePolarPixellateFilter.m in Sources */,
 				386BBDAE22DDA7FF005E6054 /* GPUImageGaussianBlurFilter.m in Sources */,
 				386BBD8622DDA7FE005E6054 /* GPUImageOverlayBlendFilter.m in Sources */,
-				38C995AF2484B4A7008C3788 /* SphericaLayout.m in Sources */,
 				386BBDB322DDA7FF005E6054 /* GPUImageMaskFilter.m in Sources */,
 				382FFA4F231CBBD20062080E /* ZPCAshapelGradientView.m in Sources */,
 				386BBDB822DDA7FF005E6054 /* GPUImageRGBDilationFilter.m in Sources */,
@@ -7325,6 +7363,7 @@
 				386BBDA522DDA7FF005E6054 /* GPUImageLanczosResamplingFilter.m in Sources */,
 				38C8490B227827F100BCAD87 /* BaseTabBarViewController.m in Sources */,
 				38C849D4227827F200BCAD87 /* ContactModel.m in Sources */,
+				8462335F24DD5D4E00A1F60D /* ThreeDimensionalSphericalLayoutViewController.m in Sources */,
 				38C84A2E227827F200BCAD87 /* SubparagraphRootViewController.h.m in Sources */,
 				38C849DF227827F200BCAD87 /* T3DTouchViewController.m in Sources */,
 				386BBC2422DD9ADC005E6054 /* HWSlider.m in Sources */,
@@ -7335,6 +7374,7 @@
 				386BC05B22DDABA7005E6054 /* DGActivityIndicatorNineDotsAnimation.m in Sources */,
 				382FFA3F231CAF2E0062080E /* ChildLongPress.m in Sources */,
 				38C84A48227827F200BCAD87 /* MLSelectPhotoPickerCollectionViewCell.m in Sources */,
+				8462336224DD5D8100A1F60D /* SphericaLayout.m in Sources */,
 				38C849CF227827F200BCAD87 /* HealthManager.m in Sources */,
 				386BBDBA22DDA7FF005E6054 /* GPUImageHazeFilter.m in Sources */,
 				386BC05022DDABA7005E6054 /* DGActivityIndicatorLineScalePartyAnimation.m in Sources */,
@@ -7379,7 +7419,6 @@
 				38C84A6D227827F200BCAD87 /* AdaptionListViewController.m in Sources */,
 				384C3FEC22888DBF00F01586 /* ZQVariableMenuHeader.m in Sources */,
 				387AE6452321109900EADE4B /* MyRectangleViewController.m in Sources */,
-				38C995B02484B4A7008C3788 /* ThreeDimensionalSphericalLayout.m in Sources */,
 				386BBC5922DD9C18005E6054 /* LHStickerView.m in Sources */,
 				38C848FA227827F100BCAD87 /* SGImageButton.m in Sources */,
 				386BBD7822DDA7FE005E6054 /* GPUImageCannyEdgeDetectionFilter.m in Sources */,
@@ -7459,7 +7498,7 @@
 				CODE_SIGN_ENTITLEMENTS = CollegeProShareExtension/CollegeProShareExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 74W795UZRB;
+				DEVELOPMENT_TEAM = B9CK74J9J9;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				INFOPLIST_FILE = CollegeProShareExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
@@ -7468,7 +7507,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dhTool.selfpro.CollegeProShareExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dhPro.tool.CollegePro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -7481,7 +7520,7 @@
 				CODE_SIGN_ENTITLEMENTS = CollegeProShareExtension/CollegeProShareExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 74W795UZRB;
+				DEVELOPMENT_TEAM = B9CK74J9J9;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				INFOPLIST_FILE = CollegeProShareExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
@@ -7490,7 +7529,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dhTool.selfpro.CollegeProShareExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dhPro.tool.CollegePro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -7499,11 +7538,12 @@
 		};
 		38A99B48229BD1C000D52230 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE51D14C52009AB28C100045 /* Pods-CollegeProExtension.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = CollegeProExtension/CollegeProExtensionDebug.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 74W795UZRB;
+				DEVELOPMENT_TEAM = B9CK74J9J9;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				INFOPLIST_FILE = CollegeProExtension/Info.plist;
@@ -7513,7 +7553,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dhTool.selfpro.CollegeProExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dhPro.tool.CollegeProExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -7523,10 +7563,12 @@
 		};
 		38A99B49229BD1C000D52230 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36AF4279E2C5486F88DA10DF /* Pods-CollegeProExtension.release.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = CollegeProExtension/CollegeProExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 74W795UZRB;
+				DEVELOPMENT_TEAM = B9CK74J9J9;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				INFOPLIST_FILE = CollegeProExtension/Info.plist;
@@ -7536,7 +7578,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dhTool.selfpro.CollegeProExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dhPro.tool.CollegeProExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -7668,7 +7710,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 74W795UZRB;
+				DEVELOPMENT_TEAM = B9CK74J9J9;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -7754,7 +7796,7 @@
 					"-weak_framework",
 					"\"UserNotifications\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dhTool.selfpro;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dhPro.tool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "CollegePro/Class(首页)/TCode/Bluetooth/ViewController/CollegePro-Bridging-Header.h";
@@ -7774,9 +7816,9 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_ENTITLEMENTS = CollegePro/CollegePro.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = B9CK74J9J9;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -7862,7 +7904,7 @@
 					"-weak_framework",
 					"\"UserNotifications\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dhTool.selfpro;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dhPro.tool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "CollegePro/Class(首页)/TCode/Bluetooth/ViewController/CollegePro-Bridging-Header.h";

@@ -11,6 +11,8 @@
 @interface WKWebViewController ()<WKNavigationDelegate,WKUIDelegate,WKScriptMessageHandler>
 @property (strong, nonatomic) WKWebView *WKView;
 @property (strong, nonatomic) UIButton *toolBtn;
+@property (strong, nonatomic) WKWebView *ScreenshotWKView;
+
 
 @end
 
@@ -21,11 +23,96 @@
     self.view.backgroundColor = [UIColor whiteColor];
 
     // Do any additional setup after loading the view.
-    [self createUI];
+    ///网页截屏
+    [self createScreenshot];
+    ///交互
+//    [self createUI];
 }
-- (void)ReloadBtnClick{
-    [self.WKView reload];
 
+- (void)createScreenshot{
+    WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
+    self.ScreenshotWKView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:config];
+    self.ScreenshotWKView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.ScreenshotWKView.autoresizesSubviews = YES;
+    self.ScreenshotWKView.frame = CGRectMake(0, 0, DH_DeviceWidth,DH_DeviceHeight);
+    [self.view addSubview:self.ScreenshotWKView];
+    UIBarButtonItem *myButton = [[UIBarButtonItem alloc] initWithTitle:@"截屏" style:UIBarButtonItemStylePlain target:self action:@selector(screenshotMethod)];
+    self.navigationItem.rightBarButtonItem = myButton;
+}
+- (void)screenshotMethod{
+    UIImageView *screenshotImg = [[UIImageView alloc]initWithFrame:CGRectMake(DH_DeviceWidth-100, 100, 100, 100)];
+    [screenshotImg setImage:[self getCoverView]];
+    [self.view addSubview:screenshotImg];
+    
+    screenshotImg.layer.borderColor = [UIColor greenColor].CGColor;
+    screenshotImg.layer.borderWidth = 1.0;
+    
+     
+}
+-(UIImage *)getCoverView{
+    
+    UIScrollView *rt = self.view.subviews.firstObject;
+    rt.frame = CGRectMake(0, 0, DH_DeviceWidth, DH_DeviceHeight-64);
+    CGRect originFrame = rt.frame;
+    CGRect frm=rt.frame;
+    frm.size.height = self.ScreenshotWKView.scrollView.contentSize.height;
+    rt.frame=frm;
+    [rt.superview layoutIfNeeded];
+    return  [self  captureView:rt frame:originFrame];
+   
+}
+- (UIImage*)captureView:(UIView *)theView frame:(CGRect)originFrame
+{
+    UIGraphicsBeginImageContext(theView.frame.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    UIImage *img;
+    if([[[UIDevice currentDevice] systemVersion] floatValue]>=7.0)
+    {
+        for(UIView *subview in theView.subviews)
+        {
+            [subview drawViewHierarchyInRect:subview.bounds afterScreenUpdates:YES];
+        }
+        img = UIGraphicsGetImageFromCurrentImageContext();
+    }
+    else
+    {
+        CGContextSaveGState(context);
+        [theView.layer renderInContext:context];
+        img = UIGraphicsGetImageFromCurrentImageContext();
+    }
+    UIGraphicsEndImageContext();
+    CGImageRef ref = CGImageCreateWithImageInRect(img.CGImage, theView.frame);
+    UIImage *CGImg = [UIImage imageWithCGImage:ref];
+    CGImageRelease(ref);
+    
+    //图行复原
+    theView.frame = originFrame;
+    [theView.superview layoutIfNeeded];
+    
+    return CGImg;
+}
+- (UIImage*)captureView:(WKWebView *)webView
+{
+    UIImage* image = nil;
+        //优化图片截取不清晰
+    UIGraphicsBeginImageContextWithOptions(webView.scrollView.contentSize, true, [UIScreen mainScreen].scale);
+    {
+        CGPoint savedContentOffset = webView.scrollView.contentOffset;
+        CGRect savedFrame = webView.scrollView.frame;
+        webView.scrollView.contentOffset = CGPointZero;
+        webView.scrollView.frame = CGRectMake(0, 0, webView.scrollView.contentSize.width, webView.scrollView.contentSize.height);
+        for (UIView * subView in webView.subviews) {
+            [subView drawViewHierarchyInRect:subView.bounds afterScreenUpdates:YES];
+        }
+        image = UIGraphicsGetImageFromCurrentImageContext();
+        webView.scrollView.contentOffset = savedContentOffset;
+        webView.scrollView.frame = savedFrame;
+    }
+    UIGraphicsEndImageContext();
+    if (image != nil) {
+        return image;
+    }
+    return nil;
 }
 - (void)createUI{
 //    self.navigationController.navigationBar.hidden = NO;
@@ -168,6 +255,10 @@
 //        }];
 
     });
+}
+- (void)ReloadBtnClick{
+    [self.WKView reload];
+
 }
 - (UIButton *)toolBtn{
     if (_toolBtn == nil)
