@@ -15,14 +15,14 @@
 @implementation ShareViewController
 
 - (BOOL)isContentValid {
-    NSUserDefaults *userShare= [[NSUserDefaults alloc] initWithSuiteName:@"group.com.dhTool.selfpro.CollegeProShareExtension"];
+    NSUserDefaults *userShare= [[NSUserDefaults alloc] initWithSuiteName:@"group.com.dhPro.tool.CollegePro"];
     [userShare setURL:[NSURL URLWithString:@"https://baidu.com"] forKey:@"URL"];
     [userShare setValue:@"value" forKey:@"key"];
     [userShare synchronize];
     // Do validation of contentText and/or NSExtensionContext attachments here
     
     //获取分组的共享目录
-    NSURL *groupURL = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.com.dhTool.selfpro.CollegeProShareExtension"];
+    NSURL *groupURL = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.com.dhPro.tool.CollegePro"];
     NSURL *fileURL = [groupURL URLByAppendingPathComponent:@"demo.txt"];
     
     //写入文件
@@ -40,7 +40,7 @@
     __block BOOL hasExistsUrl = NO;
     [self.extensionContext.inputItems enumerateObjectsUsingBlock:^(NSExtensionItem * _Nonnull extItem, NSUInteger idx, BOOL * _Nonnull stop) {
         NSLog(@"%@-----------%@",extItem.attributedTitle,extItem.attributedContentText);
-        NSUserDefaults *userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.dhTool.selfpro.CollegeProShareExtension"];
+        NSUserDefaults *userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.dhPro.tool.CollegePro"];
         NSAttributedString *strings = [extItem.attributedContentText attributedSubstringFromRange:NSMakeRange(0, extItem.attributedContentText.length)];
         NSArray *array = [strings.string componentsSeparatedByString:@"\n"];
         NSString *firstString = array[0];
