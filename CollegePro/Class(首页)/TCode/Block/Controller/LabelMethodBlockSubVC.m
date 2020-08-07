@@ -23,6 +23,9 @@
 #import "TempTarget.h"
 #import "SFTextView.h"
 
+#include "WTTestC.h"
+#import "WTTestObject.h"
+
 #pragma pack(2)//1 代表不进行内存对齐
 struct StructOne {
     char a;         //1字节
@@ -246,6 +249,22 @@ struct StructTwo {
     //函数式编程、链式编程优缺点
     //Block的底层实现原理
     [self baseBlock];
+    ///C 语言练习
+    printfHelloWord(); //此即为上面C文件的方法u
+    WTTestObject *family = [WTTestObject new];
+    [family addTommy];
+    [family addLily];
+    [family everyBodySayHello];
+
+    NSString *str;
+    NSArray *arr = @[@"1",@"2",@"3"];
+    for (int i = 0; i<arr.count; i++) {
+        str =arr[i];
+        i++;
+        if (i==arr.count) {
+            NSLog(@"成功");
+        }
+    }
     
     void (^ MtTestBlock)(int,int)=^(int a,int b){
         int v= a+b;

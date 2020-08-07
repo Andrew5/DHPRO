@@ -930,6 +930,9 @@
 		73869E513ABCF28AE9B6C239 /* Pods_CollegePro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CBC72DE2C175A4CF5A210DB /* Pods_CollegePro.framework */; };
 		8462335F24DD5D4E00A1F60D /* ThreeDimensionalSphericalLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8462335E24DD5D4E00A1F60D /* ThreeDimensionalSphericalLayoutViewController.m */; };
 		8462336224DD5D8100A1F60D /* SphericaLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8462336124DD5D8100A1F60D /* SphericaLayout.m */; };
+		8462336E24DD69ED00A1F60D /* WTTestC.c in Sources */ = {isa = PBXBuildFile; fileRef = 8462336824DD69ED00A1F60D /* WTTestC.c */; };
+		8462336F24DD69ED00A1F60D /* WTTestObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8462336B24DD69ED00A1F60D /* WTTestObject.mm */; };
+		8462337024DD69ED00A1F60D /* WTTestt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8462336C24DD69ED00A1F60D /* WTTestt.cpp */; };
 		BFE4D1E113DEF22EBF1C41B2 /* Pods_CollegeProExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA35B4FD3EDA61664411974A /* Pods_CollegeProExtension.framework */; };
 /* End PBXBuildFile section */
 
@@ -2544,6 +2547,12 @@
 		8462336024DD5D8100A1F60D /* SphericaLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SphericaLayout.h; sourceTree = "<group>"; };
 		8462336124DD5D8100A1F60D /* SphericaLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SphericaLayout.m; sourceTree = "<group>"; };
 		8462336324DD615200A1F60D /* DHTabbarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHTabbarViewController.h; sourceTree = "<group>"; };
+		8462336824DD69ED00A1F60D /* WTTestC.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = WTTestC.c; sourceTree = "<group>"; };
+		8462336924DD69ED00A1F60D /* WTTestC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTTestC.h; sourceTree = "<group>"; };
+		8462336A24DD69ED00A1F60D /* WTTestObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTTestObject.h; sourceTree = "<group>"; };
+		8462336B24DD69ED00A1F60D /* WTTestObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WTTestObject.mm; sourceTree = "<group>"; };
+		8462336C24DD69ED00A1F60D /* WTTestt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WTTestt.cpp; sourceTree = "<group>"; };
+		8462336D24DD69ED00A1F60D /* WTTestt.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = WTTestt.hpp; sourceTree = "<group>"; };
 		B94442A678D5676362354ED8 /* Pods-CollegePro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollegePro.release.xcconfig"; path = "Pods/Target Support Files/Pods-CollegePro/Pods-CollegePro.release.xcconfig"; sourceTree = "<group>"; };
 		BE51D14C52009AB28C100045 /* Pods-CollegeProExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollegeProExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CollegeProExtension/Pods-CollegeProExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		EA35B4FD3EDA61664411974A /* Pods_CollegeProExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CollegeProExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2900,6 +2909,7 @@
 		384C3FD9228881F700F01586 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8462336624DD699300A1F60D /* CAllocate */,
 				384C3FDD228881F700F01586 /* KYDog.h */,
 				384C3FDB228881F700F01586 /* KYDog.m */,
 				3853A7A8244F393E00F57CC8 /* KYDog+E.h */,
@@ -6222,6 +6232,19 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		8462336624DD699300A1F60D /* CAllocate */ = {
+			isa = PBXGroup;
+			children = (
+				8462336824DD69ED00A1F60D /* WTTestC.c */,
+				8462336924DD69ED00A1F60D /* WTTestC.h */,
+				8462336A24DD69ED00A1F60D /* WTTestObject.h */,
+				8462336B24DD69ED00A1F60D /* WTTestObject.mm */,
+				8462336C24DD69ED00A1F60D /* WTTestt.cpp */,
+				8462336D24DD69ED00A1F60D /* WTTestt.hpp */,
+			);
+			path = CAllocate;
+			sourceTree = "<group>";
+		};
 		DB7A53478EBF97A0FF9F1D0C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -7251,6 +7274,7 @@
 				38C8493C227827F100BCAD87 /* DisassemblyViewController.m in Sources */,
 				384C3FC622887D7900F01586 /* CustomCollectionViewController.m in Sources */,
 				386BBD8C22DDA7FE005E6054 /* GPUImagePicture.m in Sources */,
+				8462336F24DD69ED00A1F60D /* WTTestObject.mm in Sources */,
 				38C848F4227827F100BCAD87 /* WLBallTool.m in Sources */,
 				386BBDB622DDA7FF005E6054 /* GPUImageSubtractBlendFilter.m in Sources */,
 				38C84A70227827F200BCAD87 /* CustomerTitleModel.m in Sources */,
@@ -7395,6 +7419,7 @@
 				38C849D9227827F200BCAD87 /* ChineseToPinyinResource.m in Sources */,
 				38C848ED227827F100BCAD87 /* XMLDictionary.m in Sources */,
 				38C8490A227827F100BCAD87 /* ADo_ViewController.m in Sources */,
+				8462337024DD69ED00A1F60D /* WTTestt.cpp in Sources */,
 				38C84A4B227827F200BCAD87 /* MLPhotoPickerImageView.m in Sources */,
 				386BC04D22DDABA7005E6054 /* DGActivityIndicatorLineScalePulseOutAnimation.m in Sources */,
 				38C84935227827F100BCAD87 /* HYBSectionModel.m in Sources */,
@@ -7425,6 +7450,7 @@
 				386BC0D622DDBC1E005E6054 /* DivisionCircleViewController.m in Sources */,
 				38C845382278249900BCAD87 /* AppDelegate.m in Sources */,
 				38C84974227827F100BCAD87 /* showView.m in Sources */,
+				8462336E24DD69ED00A1F60D /* WTTestC.c in Sources */,
 				38C848D0227827F100BCAD87 /* GragView.m in Sources */,
 				386BBD7222DDA7FE005E6054 /* GPUImageNonMaximumSuppressionFilter.m in Sources */,
 				38C8495A227827F100BCAD87 /* ESMTwoViewController.m in Sources */,
