@@ -231,8 +231,14 @@ extern CFAbsoluteTime StartTime;
 
     NSLog(@"didFinishLaunchingWithOptions:The userInfo is %@.",userInfo);
 */
-//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[DHGuidepageViewController alloc] init]];
+    
+    
+
+    DHGuidepageViewController *guidepageVC = [[DHGuidepageViewController alloc] init];
+    BaseNavigationController *navVC = [[BaseNavigationController alloc]initWithRootViewController:guidepageVC];
+    navVC.modalPresentationStyle = UIModalPresentationFullScreen;
+    self.window.rootViewController = navVC;
+
     [self.window makeKeyWindow];
     // Override point for customization after application launch.
     return YES;
