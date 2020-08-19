@@ -14,6 +14,8 @@ ${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework
 ${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework
 ${BUILT_PRODUCTS_DIR}/MLeaksFinder/MLeaksFinder.framework
 ${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework
+${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework
+${BUILT_PRODUCTS_DIR}/PromiseYTKNetwork/PromiseYTKNetwork.framework
 ${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework
 ${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework
 ${BUILT_PRODUCTS_DIR}/SDAutoLayout/SDAutoLayout.framework
@@ -23,5 +25,6 @@ ${BUILT_PRODUCTS_DIR}/SocketRocket/SocketRocket.framework
 ${BUILT_PRODUCTS_DIR}/TZImagePickerController/TZImagePickerController.framework
 ${BUILT_PRODUCTS_DIR}/WKVCDeallocMonitor/WKVCDeallocMonitor.framework
 ${BUILT_PRODUCTS_DIR}/YHPopupView/YHPopupView.framework
+${BUILT_PRODUCTS_DIR}/YTKNetwork/YTKNetwork.framework
 ${BUILT_PRODUCTS_DIR}/YYCache/YYCache.framework
 ${BUILT_PRODUCTS_DIR}/pop/pop.framework

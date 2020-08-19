@@ -345,6 +345,7 @@
         make.left.with.right.equalTo(self.view);
         make.height.offset(25);
     }];
+//    _lb_showinfo.text = [self getSignalStrength];
 }
 - (void)addCell:(NSString *)title class:(NSString *)className {
     [self.titles addObject:title];
@@ -511,7 +512,7 @@
             CLPlacemark * placemark = placemarks.lastObject;
             NSDictionary *address = [placemark addressDictionary];
             //City（市） Country(国家)  CountryCode（） FormattedAddressLines（）   Name（）  State(省)  Street(路) SubLocality(区县)  Thoroughfare（）
-            NSLog(@"address %@",address.allKeys);
+            NSLog(@"15779938054  18624617204 address %@",address.allKeys);
         }
     }];
     [self createAnnotationWithCoords:_currentLocationCoordinate];
@@ -615,6 +616,84 @@
         _mgr = [[CMMotionManager alloc] init];
     }
     return _mgr;
+}
+- (BOOL)whetherConnectedNetwork
+{
+    //创建零地址，0.0.0.0的地址表示查询本机的网络连接状态
+    
+    struct sockaddr_storage zeroAddress;//IP地址
+    
+    bzero(&zeroAddress, sizeof(zeroAddress));//将地址转换为0.0.0.0
+    zeroAddress.ss_len = sizeof(zeroAddress);//地址长度
+    zeroAddress.ss_family = AF_INET;//地址类型为UDP, TCP, etc.
+    
+    // Recover reachability flags
+    SCNetworkReachabilityRef defaultRouteReachability = SCNetworkReachabilityCreateWithAddress(NULL, (struct sockaddr *)&zeroAddress);
+    SCNetworkReachabilityFlags flags;
+    
+    //获得连接的标志
+    BOOL didRetrieveFlags = SCNetworkReachabilityGetFlags(defaultRouteReachability, &flags);
+    CFRelease(defaultRouteReachability);
+    
+    //如果不能获取连接标志，则不能连接网络，直接返回
+    if (!didRetrieveFlags)
+    {
+        return NO;
+    }
+    //根据获得的连接标志进行判断
+    
+    BOOL isReachable = flags & kSCNetworkFlagsReachable;
+    BOOL needsConnection = flags & kSCNetworkFlagsConnectionRequired;
+    return (isReachable&&!needsConnection) ? YES : NO;
+}
+- (NSString *)getNetworkType {
+    if (![self whetherConnectedNetwork]) return @"NONE";
+    UIApplication *app = [UIApplication sharedApplication];
+    NSArray *subviews = [[[app valueForKeyPath:@"statusBar"] valueForKeyPath:@"foregroundView"] subviews];
+    NSString *type = @"NONE";
+    for (id subview in subviews) {
+        if ([subview isKindOfClass:NSClassFromString(@"UIStatusBarDataNetworkItemView")]) {
+            int networkType = [[subview valueForKeyPath:@"dataNetworkType"] intValue];
+            switch (networkType) {
+                case 0:
+                    type = @"NONE";
+                    break;
+                case 1:
+                    type = @"2G";
+                    break;
+                case 2:
+                    type = @"3G";
+                    break;
+                case 3:
+                    type = @"4G";
+                    break;
+                case 5:
+                    type = @"WIFI";
+                    break;
+            }
+        }
+    }
+    return type;
+}
+- (NSString *)getSignalStrength {
+    if (![self whetherConnectedNetwork]) return @"";
+    UIApplication *app = [UIApplication sharedApplication];
+    NSArray *subviews = [[[app valueForKey:@"statusBar"] valueForKey:@"foregroundView"] subviews];
+    NSString *dataNetworkItemView = nil;
+    NSString *signalStrength = @"";
+    for (id subview in subviews) {
+        if([subview isKindOfClass:[NSClassFromString(@"UIStatusBarDataNetworkItemView") class]] && [[self getNetworkType] isEqualToString:@"WIFI"] && ![[self getNetworkType] isEqualToString:@"NONE"]) {
+            dataNetworkItemView = subview;
+            signalStrength = [NSString stringWithFormat:@"%@dBm",[dataNetworkItemView valueForKey:@"_wifiStrengthRaw"]];
+            break;
+        }
+        if ([subview isKindOfClass:[NSClassFromString(@"UIStatusBarSignalStrengthItemView") class]] && ![[self getNetworkType] isEqualToString:@"WIFI"] && ![[self getNetworkType] isEqualToString:@"NONE"]) {
+            dataNetworkItemView = subview;
+            signalStrength = [NSString stringWithFormat:@"%@dBm",[dataNetworkItemView valueForKey:@"_signalStrengthRaw"]];
+            break;
+        }
+    }
+    return signalStrength;
 }
 - (void)developer{
     // 1.获取单例对象

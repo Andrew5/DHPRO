@@ -1,4 +1,4 @@
-platform :ios, "8.0"
+platform :ios, "9.0"
 
 ##循环target 添加pod
 #inhibit_all_warnings!
@@ -29,6 +29,9 @@ target "CollegePro" do
 #'~> 0.1'      // 1.0以下(不含1.0)，0.1以上（含0.1）
 #'~> 0'        // 0和以上，等于没有此约束
   pod 'AFNetworking'
+  pod 'YTKNetwork'#, '~> 3.0.3'
+  #YTKNetwork结合PromiseKit，添加链式调用方法
+  pod 'PromiseYTKNetwork'#, '~> 0.1.2'
 #  pod 'AFNetworking', (~> 4.0.1)
   commonPods
 #  #自动布局界面库

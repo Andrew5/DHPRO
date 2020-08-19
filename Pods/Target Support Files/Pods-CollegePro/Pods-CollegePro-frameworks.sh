@@ -212,6 +212,8 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MLeaksFinder/MLeaksFinder.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/PromiseYTKNetwork/PromiseYTKNetwork.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDAutoLayout/SDAutoLayout.framework"
@@ -221,6 +223,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/TZImagePickerController/TZImagePickerController.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/WKVCDeallocMonitor/WKVCDeallocMonitor.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YHPopupView/YHPopupView.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/YTKNetwork/YTKNetwork.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YYCache/YYCache.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/pop/pop.framework"
 fi
@@ -240,6 +243,8 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MLeaksFinder/MLeaksFinder.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/PromiseYTKNetwork/PromiseYTKNetwork.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDAutoLayout/SDAutoLayout.framework"
@@ -249,6 +254,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/TZImagePickerController/TZImagePickerController.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/WKVCDeallocMonitor/WKVCDeallocMonitor.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YHPopupView/YHPopupView.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/YTKNetwork/YTKNetwork.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YYCache/YYCache.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/pop/pop.framework"
 fi

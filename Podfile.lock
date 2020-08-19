@@ -34,7 +34,7 @@ PODS:
   - FBRetainCycleDetector (0.1.4)
   - FDFullscreenPopGesture (1.1)
   - FSCalendar (2.6.0)
-  - IQKeyboardManager (6.5.5)
+  - IQKeyboardManager (6.5.6)
   - JCore (1.2.6)
   - JPush (3.1.0):
     - JCore (~> 1.2.0)
@@ -43,10 +43,22 @@ PODS:
   - "MBProgressHUD+JDragon (0.0.5)":
     - MBProgressHUD (~> 0.9.2)
   - MJExtension (3.2.2)
-  - MJRefresh (3.4.3)
+  - MJRefresh (3.5.0)
   - MLeaksFinder (1.0.0):
     - FBRetainCycleDetector
   - pop (1.0.12)
+  - PromiseKit (6.13.1):
+    - PromiseKit/CorePromise (= 6.13.1)
+    - PromiseKit/Foundation (= 6.13.1)
+    - PromiseKit/UIKit (= 6.13.1)
+  - PromiseKit/CorePromise (6.13.1)
+  - PromiseKit/Foundation (6.13.1):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.13.1):
+    - PromiseKit/CorePromise
+  - PromiseYTKNetwork (0.1.1):
+    - PromiseKit
+    - YTKNetwork
   - ReactiveCocoa (11.0.0):
     - ReactiveSwift (~> 6.2)
   - ReactiveSwift (6.3.0)
@@ -56,9 +68,11 @@ PODS:
   - SDWebImage/Core (5.8.4)
   - SocketRocket (0.5.1)
   - SVProgressHUD (2.2.5)
-  - TZImagePickerController (3.4.1)
+  - TZImagePickerController (3.4.2)
   - WKVCDeallocMonitor (0.1.7)
   - YHPopupView (0.3.0)
+  - YTKNetwork (2.1.4):
+    - AFNetworking/NSURLSession (~> 3.0)
   - YYCache (1.0.4)
 
 DEPENDENCIES:
@@ -79,6 +93,7 @@ DEPENDENCIES:
   - MJRefresh
   - MLeaksFinder
   - pop (~> 1.0)
+  - PromiseYTKNetwork
   - ReactiveCocoa
   - SDAutoLayout (~> 2.2.1)
   - SDWebImage
@@ -87,6 +102,7 @@ DEPENDENCIES:
   - TZImagePickerController
   - WKVCDeallocMonitor
   - YHPopupView
+  - YTKNetwork
   - YYCache
 
 SPEC REPOS:
@@ -110,6 +126,8 @@ SPEC REPOS:
     - MJRefresh
     - MLeaksFinder
     - pop
+    - PromiseKit
+    - PromiseYTKNetwork
     - ReactiveCocoa
     - ReactiveSwift
     - SDAutoLayout
@@ -119,6 +137,7 @@ SPEC REPOS:
     - TZImagePickerController
     - WKVCDeallocMonitor
     - YHPopupView
+    - YTKNetwork
     - YYCache
 
 SPEC CHECKSUMS:
@@ -131,27 +150,30 @@ SPEC CHECKSUMS:
   FBRetainCycleDetector: 46f8179bbb1c587deee3ea838a1a3ee02acf5015
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   FSCalendar: c00fa5f4c3ec343ee6f7b804ae19322e9898bb84
-  IQKeyboardManager: 3a8b9e603f8b0eeaf5f096a1f2b2cfcf121992ef
+  IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
   JCore: cae516dd2bf1a73b578ce6e1065abd49e709e0f7
   JPush: 5921e25ad13e0386351079217b009f2039084eac
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   "MBProgressHUD+JDragon": 15bf7583612f0bb9f0bcea634ba5eb247b17d014
   MJExtension: d9b9c74cbdeb724c1e9ecbb157b318276e62e876
-  MJRefresh: 53e3e3219f204425ee6d3e62e8733d3295944cd6
+  MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   MLeaksFinder: 8c435bd2f6d070af18cff082b503b21adc130fc0
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
+  PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db
+  PromiseYTKNetwork: 62025b7734828a56cea72a9f3a9b924f25bd3c20
   ReactiveCocoa: 189fcea9c5af7e394dd8a4cfc1c6f77af9ff3598
   ReactiveSwift: 7937f26ec18d555e2a99352bd0a8b2817d1f042d
   SDAutoLayout: 8bf6b3bbc8b01f775d4defbb4fda2ace805461be
   SDWebImage: cf6922231e95550934da2ada0f20f2becf2ceba9
   SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  TZImagePickerController: 4e7a7b3d314f8a75f11042931dfd9d34c270c7db
+  TZImagePickerController: cc0b74d5f01ab4cddcc24dcdfc3c7d68e6261056
   WKVCDeallocMonitor: be8973246aabdfa9b05504ae0a4ad83d18e6ebbf
   YHPopupView: 96d9c05c79a2a17cf69c3def09e5305cfae9e8e8
+  YTKNetwork: 19be749c30f0512ada07180f4637b4b67bc8ddc2
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: 717e763b904328d0ff99904b99b85417b9899305
+PODFILE CHECKSUM: 078f7ec0905bc284b0163c24bc9c6ff79c026f35
 
 COCOAPODS: 1.9.3

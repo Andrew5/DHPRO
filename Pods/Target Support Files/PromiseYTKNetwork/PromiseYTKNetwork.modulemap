@@ -1,0 +1,6 @@
+framework module PromiseYTKNetwork {
+  umbrella header "PromiseYTKNetwork-umbrella.h"
+
+  export *
+  module * { export * }
+}
