@@ -255,6 +255,10 @@
     NSString *logFilePath = [documentDirectory stringByAppendingPathComponent:fileName];
     // 先删除已经存在的文件
     NSFileManager *defaultManager = [NSFileManager defaultManager];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if ([fileManager fileExistsAtPath:logFilePath]) {
+        NSLog(@"大文件小：%llu",[[fileManager attributesOfItemAtPath:logFilePath error:nil] fileSize]);
+    }
     [defaultManager removeItemAtPath:logFilePath error:nil]; // 将log输入到文件
     freopen([logFilePath cStringUsingEncoding:NSASCIIStringEncoding], "a+", stdout);
     freopen([logFilePath cStringUsingEncoding:NSASCIIStringEncoding], "a+", stderr);
