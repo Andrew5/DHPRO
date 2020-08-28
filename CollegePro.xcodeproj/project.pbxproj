@@ -608,11 +608,6 @@
 		38C8497F227827F100BCAD87 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C846D9227827EF00BCAD87 /* UserModel.m */; };
 		38C84980227827F100BCAD87 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C846DA227827EF00BCAD87 /* DataModel.m */; };
 		38C84981227827F100BCAD87 /* NetTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C846DF227827EF00BCAD87 /* NetTestViewController.m */; };
-		38C84982227827F100BCAD87 /* WaveTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C846E2227827EF00BCAD87 /* WaveTableViewCell.m */; };
-		38C84983227827F100BCAD87 /* DemoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C846E5227827EF00BCAD87 /* DemoTableViewController.m */; };
-		38C84984227827F100BCAD87 /* WaveProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C846E8227827EF00BCAD87 /* WaveProgressViewController.m */; };
-		38C84985227827F100BCAD87 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C846EA227827EF00BCAD87 /* DemoViewController.m */; };
-		38C84986227827F100BCAD87 /* DemoTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38C846EB227827EF00BCAD87 /* DemoTableViewController.xib */; };
 		38C84987227827F100BCAD87 /* ShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C846EE227827EF00BCAD87 /* ShowViewController.m */; };
 		38C84988227827F100BCAD87 /* TagPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C846F1227827EF00BCAD87 /* TagPickerView.m */; };
 		38C84989227827F100BCAD87 /* ScottPopMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C846F2227827EF00BCAD87 /* ScottPopMenu.m */; };
@@ -926,6 +921,14 @@
 		8462332C24DAA4D000A1F60D /* TodayTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D9CEEE229D0B6200CDBA88 /* TodayTableHeaderView.m */; };
 		8462332D24DAA4E500A1F60D /* TodayItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 388C76E622B503800094773D /* TodayItemCell.m */; };
 		8462332E24DAA4E500A1F60D /* TodayItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 388C76CB22B4F7A40094773D /* TodayItemModel.m */; };
+		8487ADB024F8BE56004B41ED /* WaveTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8487ADA724F8BE56004B41ED /* WaveTableViewCell.m */; };
+		8487ADB124F8BE56004B41ED /* DemoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8487ADAA24F8BE56004B41ED /* DemoTableViewController.m */; };
+		8487ADB224F8BE56004B41ED /* DemoTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8487ADAB24F8BE56004B41ED /* DemoTableViewController.xib */; };
+		8487ADB324F8BE56004B41ED /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8487ADAD24F8BE56004B41ED /* DemoViewController.m */; };
+		8487ADB424F8BE56004B41ED /* WaveProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8487ADAF24F8BE56004B41ED /* WaveProgressViewController.m */; };
+		8487ADBC24F8BEC1004B41ED /* WTTestC.c in Sources */ = {isa = PBXBuildFile; fileRef = 8487ADB624F8BEC1004B41ED /* WTTestC.c */; };
+		8487ADBD24F8BEC1004B41ED /* WTTestObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8487ADB924F8BEC1004B41ED /* WTTestObject.mm */; };
+		8487ADBE24F8BEC1004B41ED /* WTTestt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8487ADBA24F8BEC1004B41ED /* WTTestt.cpp */; };
 		8688670DA1111CB5B413FE49 /* Pods_CollegePro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40E2710DF49C3576F5AC7B3 /* Pods_CollegePro.framework */; };
 /* End PBXBuildFile section */
 
@@ -2040,15 +2043,6 @@
 		38C846DC227827EF00BCAD87 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
 		38C846DE227827EF00BCAD87 /* NetTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetTestViewController.h; sourceTree = "<group>"; };
 		38C846DF227827EF00BCAD87 /* NetTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetTestViewController.m; sourceTree = "<group>"; };
-		38C846E2227827EF00BCAD87 /* WaveTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveTableViewCell.m; sourceTree = "<group>"; };
-		38C846E3227827EF00BCAD87 /* WaveTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveTableViewCell.h; sourceTree = "<group>"; };
-		38C846E5227827EF00BCAD87 /* DemoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoTableViewController.m; sourceTree = "<group>"; };
-		38C846E6227827EF00BCAD87 /* WaveProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveProgressViewController.h; sourceTree = "<group>"; };
-		38C846E7227827EF00BCAD87 /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
-		38C846E8227827EF00BCAD87 /* WaveProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveProgressViewController.m; sourceTree = "<group>"; };
-		38C846E9227827EF00BCAD87 /* DemoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoTableViewController.h; sourceTree = "<group>"; };
-		38C846EA227827EF00BCAD87 /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
-		38C846EB227827EF00BCAD87 /* DemoTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoTableViewController.xib; sourceTree = "<group>"; };
 		38C846EE227827EF00BCAD87 /* ShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowViewController.m; sourceTree = "<group>"; };
 		38C846EF227827EF00BCAD87 /* ShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowViewController.h; sourceTree = "<group>"; };
 		38C846F1227827EF00BCAD87 /* TagPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagPickerView.m; sourceTree = "<group>"; };
@@ -2534,6 +2528,21 @@
 		8462332024DAA4A500A1F60D /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
 		8462332324DAA4A500A1F60D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		8462332524DAA4A500A1F60D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8487ADA624F8BE56004B41ED /* WaveTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveTableViewCell.h; sourceTree = "<group>"; };
+		8487ADA724F8BE56004B41ED /* WaveTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveTableViewCell.m; sourceTree = "<group>"; };
+		8487ADA924F8BE56004B41ED /* DemoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoTableViewController.h; sourceTree = "<group>"; };
+		8487ADAA24F8BE56004B41ED /* DemoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoTableViewController.m; sourceTree = "<group>"; };
+		8487ADAB24F8BE56004B41ED /* DemoTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoTableViewController.xib; sourceTree = "<group>"; };
+		8487ADAC24F8BE56004B41ED /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
+		8487ADAD24F8BE56004B41ED /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
+		8487ADAE24F8BE56004B41ED /* WaveProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveProgressViewController.h; sourceTree = "<group>"; };
+		8487ADAF24F8BE56004B41ED /* WaveProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveProgressViewController.m; sourceTree = "<group>"; };
+		8487ADB624F8BEC1004B41ED /* WTTestC.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = WTTestC.c; sourceTree = "<group>"; };
+		8487ADB724F8BEC1004B41ED /* WTTestC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTTestC.h; sourceTree = "<group>"; };
+		8487ADB824F8BEC1004B41ED /* WTTestObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTTestObject.h; sourceTree = "<group>"; };
+		8487ADB924F8BEC1004B41ED /* WTTestObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WTTestObject.mm; sourceTree = "<group>"; };
+		8487ADBA24F8BEC1004B41ED /* WTTestt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WTTestt.cpp; sourceTree = "<group>"; };
+		8487ADBB24F8BEC1004B41ED /* WTTestt.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = WTTestt.hpp; sourceTree = "<group>"; };
 		B94442A678D5676362354ED8 /* Pods-CollegePro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollegePro.release.xcconfig"; path = "Pods/Target Support Files/Pods-CollegePro/Pods-CollegePro.release.xcconfig"; sourceTree = "<group>"; };
 		F40E2710DF49C3576F5AC7B3 /* Pods_CollegePro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CollegePro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -2579,7 +2588,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3807246322CDCC5E0035E5B1 /* 画圆角 */ = {
+		3807246322CDCC5E0035E5B1 /* DrawRoundCorners */ = {
 			isa = PBXGroup;
 			children = (
 				3807246422CDCC8C0035E5B1 /* CornerViewController.h */,
@@ -2589,7 +2598,7 @@
 				3807246B22CDCCDF0035E5B1 /* MasonryCustomView.h */,
 				3807246D22CDCCE00035E5B1 /* MasonryCustomView.m */,
 			);
-			path = "画圆角";
+			path = DrawRoundCorners;
 			sourceTree = "<group>";
 		};
 		38080AF3232D36F90073EFAC /* 水波纹 */ = {
@@ -2774,13 +2783,13 @@
 			path = "仪表盘";
 			sourceTree = "<group>";
 		};
-		384C3F9E22887D7800F01586 /* 长按移动 */ = {
+		384C3F9E22887D7800F01586 /* LongPressToMove */ = {
 			isa = PBXGroup;
 			children = (
 				384C3F9F22887D7800F01586 /* Controller */,
 				384C3FA222887D7800F01586 /* View */,
 			);
-			path = "长按移动";
+			path = LongPressToMove;
 			sourceTree = "<group>";
 		};
 		384C3F9F22887D7800F01586 /* Controller */ = {
@@ -2803,7 +2812,7 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		384C3FA722887D7900F01586 /* 转盘 */ = {
+		384C3FA722887D7900F01586 /* TurnTable */ = {
 			isa = PBXGroup;
 			children = (
 				38CC864A22D882EC0057405C /* play_def@2x.png */,
@@ -2811,7 +2820,7 @@
 				384C3FA822887D7900F01586 /* View */,
 				384C3FA922887D7900F01586 /* ViewController */,
 			);
-			path = "转盘";
+			path = TurnTable;
 			sourceTree = "<group>";
 		};
 		384C3FA822887D7900F01586 /* View */ = {
@@ -3065,13 +3074,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		386BBB3822DC8EE0005E6054 /* 图片找不同 */ = {
+		386BBB3822DC8EE0005E6054 /* LookForDifferentPictures */ = {
 			isa = PBXGroup;
 			children = (
 				386BBB3922DC8EE0005E6054 /* Resource */,
 				386BBB3A22DC8EE0005E6054 /* ViewController */,
 			);
-			path = "图片找不同";
+			path = LookForDifferentPictures;
 			sourceTree = "<group>";
 		};
 		386BBB3922DC8EE0005E6054 /* Resource */ = {
@@ -3888,13 +3897,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		3893F39022CDE317005C30AE /* 列表联动 */ = {
+		3893F39022CDE317005C30AE /* ListLinkage */ = {
 			isa = PBXGroup;
 			children = (
 				3893F39322CDE346005C30AE /* 日历 */,
 				3893F39122CDE320005C30AE /* 菜单 */,
 			);
-			path = "列表联动";
+			path = ListLinkage;
 			sourceTree = "<group>";
 		};
 		3893F39122CDE320005C30AE /* 菜单 */ = {
@@ -4283,14 +4292,14 @@
 		38C845E2227827EF00BCAD87 /* TTools */ = {
 			isa = PBXGroup;
 			children = (
-				38C845E3227827EF00BCAD87 /* UI扩展类 */,
-				38C84613227827EF00BCAD87 /* UI快捷方法 */,
-				38C8461C227827EF00BCAD87 /* 网络请求 */,
+				38C845E3227827EF00BCAD87 /* UIExtension */,
+				38C84613227827EF00BCAD87 /* UIShortcut */,
+				38C8461C227827EF00BCAD87 /* NetworkRequest */,
 			);
 			path = TTools;
 			sourceTree = "<group>";
 		};
-		38C845E3227827EF00BCAD87 /* UI扩展类 */ = {
+		38C845E3227827EF00BCAD87 /* UIExtension */ = {
 			isa = PBXGroup;
 			children = (
 				382B4E84245594D4006FD956 /* UIView+Extension.h */,
@@ -4347,7 +4356,7 @@
 				3886DD4324162639004CCA21 /* NSTimer+UnretainCycle.h */,
 				3886DD4424162639004CCA21 /* NSTimer+UnretainCycle.m */,
 			);
-			path = "UI扩展类";
+			path = UIExtension;
 			sourceTree = "<group>";
 		};
 		38C84606227827EF00BCAD87 /* UIButton-touch */ = {
@@ -4361,7 +4370,7 @@
 			path = "UIButton-touch";
 			sourceTree = "<group>";
 		};
-		38C84613227827EF00BCAD87 /* UI快捷方法 */ = {
+		38C84613227827EF00BCAD87 /* UIShortcut */ = {
 			isa = PBXGroup;
 			children = (
 				38C84618227827EF00BCAD87 /* DHTool.h */,
@@ -4381,10 +4390,10 @@
 				382F838624C301E100B27799 /* DHWeakProxy.h */,
 				382F838724C301E100B27799 /* DHWeakProxy.m */,
 			);
-			path = "UI快捷方法";
+			path = UIShortcut;
 			sourceTree = "<group>";
 		};
-		38C8461C227827EF00BCAD87 /* 网络请求 */ = {
+		38C8461C227827EF00BCAD87 /* NetworkRequest */ = {
 			isa = PBXGroup;
 			children = (
 				38C8462A227827EF00BCAD87 /* AES.h */,
@@ -4410,7 +4419,7 @@
 				38345BD822B1207C00FBE78B /* SFHttpSessionReq.h */,
 				38345BD922B1207C00FBE78B /* SFHttpSessionReq.m */,
 			);
-			path = "网络请求";
+			path = NetworkRequest;
 			sourceTree = "<group>";
 		};
 		38C84631227827EF00BCAD87 /* TCode */ = {
@@ -4431,60 +4440,58 @@
 				386BBBCF22DD7441005E6054 /* ScrollVC */,
 				386BBB5822DC9F16005E6054 /* PhotoClip */,
 				386BBB5222DC9B77005E6054 /* LuckyDraw */,
-				386BBB3822DC8EE0005E6054 /* 图片找不同 */,
-				3893F39022CDE317005C30AE /* 列表联动 */,
-				3807246322CDCC5E0035E5B1 /* 画圆角 */,
-				38C9773422AE02D200F978C1 /* 联网游戏 */,
-				384C3F9E22887D7800F01586 /* 长按移动 */,
-				384C3FA722887D7900F01586 /* 转盘 */,
+				386BBB3822DC8EE0005E6054 /* LookForDifferentPictures */,
+				3893F39022CDE317005C30AE /* ListLinkage */,
+				3807246322CDCC5E0035E5B1 /* DrawRoundCorners */,
+				38C9773422AE02D200F978C1 /* OnlineGames */,
+				384C3F9E22887D7800F01586 /* LongPressToMove */,
+				384C3FA722887D7900F01586 /* TurnTable */,
 				384C3FAC22887D7900F01586 /* MVP&MVVM */,
-				38C84632227827EF00BCAD87 /* 三消除 */,
-				38C84636227827EF00BCAD87 /* 收缩列表 */,
-				38C8463F227827EF00BCAD87 /* 侧边栏 */,
-				38C84649227827EF00BCAD87 /* 手势解锁 */,
-				38C84650227827EF00BCAD87 /* 拖拽 */,
-				38C8465D227827EF00BCAD87 /* 导航栏 */,
+				38C84632227827EF00BCAD87 /* Elimination */,
+				38C84636227827EF00BCAD87 /* ShrinkList */,
+				38C8463F227827EF00BCAD87 /* Sidebar */,
+				38C84649227827EF00BCAD87 /* GestureUnlocking */,
+				38C84650227827EF00BCAD87 /* Duag */,
+				38C8465D227827EF00BCAD87 /* Navigation */,
 				38C84688227827EF00BCAD87 /* HomeKit */,
-				38C8469F227827EF00BCAD87 /* 首页 */,
-				38C846D1227827EF00BCAD87 /* 闹铃 */,
-				38C846E0227827EF00BCAD87 /* 水波动画 */,
-				38C846EC227827EF00BCAD87 /* 弹出列表 */,
-				38C84701227827EF00BCAD87 /* 图片放大 */,
-				38C8474F227827F000BCAD87 /* 上下滑动 */,
-				38C84759227827F000BCAD87 /* 获得步数 */,
-				38C84760227827F000BCAD87 /* 节点列表 */,
-				38C8477A227827F000BCAD87 /* 签名 */,
+				38C8469F227827EF00BCAD87 /* MainPage */,
+				38C846D1227827EF00BCAD87 /* Alarm */,
+				38C846EC227827EF00BCAD87 /* Pop-upList */,
+				38C84701227827EF00BCAD87 /* EnlargeThePicture */,
+				38C8474F227827F000BCAD87 /* SlideUpAndDown */,
+				38C84759227827F000BCAD87 /* GetSteps */,
+				38C84760227827F000BCAD87 /* NodeList */,
+				38C8477A227827F000BCAD87 /* Sign */,
 				38C84781227827F000BCAD87 /* 3DTouch */,
-				38C84787227827F000BCAD87 /* 滚动图 */,
-				38C84790227827F000BCAD87 /* 引导页 */,
-				38C84794227827F000BCAD87 /* 下拉列表 */,
-				38C8479D227827F000BCAD87 /* 绘画板 */,
-				38C847A4227827F000BCAD87 /* 购物车 */,
-				38C847B2227827F000BCAD87 /* 动态改变高度 */,
-				38C847BB227827F000BCAD87 /* 记事本 */,
-				38C847E1227827F000BCAD87 /* 微信气泡 */,
-				38C847F8227827F000BCAD87 /* 倒计时 */,
-				38C847FD227827F000BCAD87 /* 支付密码 */,
-				38C84812227827F000BCAD87 /* 传递事件 */,
-				38C84819227827F000BCAD87 /* 分段导航栏 */,
-				38C8482E227827F000BCAD87 /* 添加图片 */,
-				38C84871227827F000BCAD87 /* 点赞按钮 */,
-				38C84875227827F000BCAD87 /* 二维码 */,
-				38C8489B227827F000BCAD87 /* 上传iCloud文件 */,
-				38C8489F227827F000BCAD87 /* 动画 */,
-				38C848B9227827F100BCAD87 /* 自适应列表 */,
-				38C846D5227827EF00BCAD87 /* 网络测试 */,
+				38C84787227827F000BCAD87 /* ScrollChart */,
+				38C84790227827F000BCAD87 /* GuidePage */,
+				38C84794227827F000BCAD87 /* DropDownList */,
+				38C8479D227827F000BCAD87 /* DrawingBoard  */,
+				38C847A4227827F000BCAD87 /* ShoppingCart */,
+				38C847BB227827F000BCAD87 /* NoteBook */,
+				38C847E1227827F000BCAD87 /* Bubble */,
+				38C847F8227827F000BCAD87 /* Countdown */,
+				38C847FD227827F000BCAD87 /* PaymentPassword */,
+				38C84812227827F000BCAD87 /* DeliverEvents */,
+				38C84819227827F000BCAD87 /* SectionNavigationBar */,
+				38C8482E227827F000BCAD87 /* AddImage */,
+				38C84871227827F000BCAD87 /* LikeButton */,
+				38C84875227827F000BCAD87 /* QRCode */,
+				38C8489B227827F000BCAD87 /* UploadIcloudFile */,
+				38C8489F227827F000BCAD87 /* AnimationCollection */,
+				38C848B9227827F100BCAD87 /* AdaptiveList */,
+				38C846D5227827EF00BCAD87 /* NetWorkTest */,
 				38C848C6227827F100BCAD87 /* Block */,
 			);
 			path = TCode;
 			sourceTree = "<group>";
 		};
-		38C84632227827EF00BCAD87 /* 三消除 */ = {
+		38C84632227827EF00BCAD87 /* Elimination */ = {
 			isa = PBXGroup;
 			children = (
 				38C84633227827EF00BCAD87 /* ViewController */,
 			);
-			path = "三消除";
+			path = Elimination;
 			sourceTree = "<group>";
 		};
 		38C84633227827EF00BCAD87 /* ViewController */ = {
@@ -4496,13 +4503,13 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		38C84636227827EF00BCAD87 /* 收缩列表 */ = {
+		38C84636227827EF00BCAD87 /* ShrinkList */ = {
 			isa = PBXGroup;
 			children = (
 				38C84637227827EF00BCAD87 /* Controller */,
 				38C8463A227827EF00BCAD87 /* View */,
 			);
-			path = "收缩列表";
+			path = ShrinkList;
 			sourceTree = "<group>";
 		};
 		38C84637227827EF00BCAD87 /* Controller */ = {
@@ -4525,12 +4532,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		38C8463F227827EF00BCAD87 /* 侧边栏 */ = {
+		38C8463F227827EF00BCAD87 /* Sidebar */ = {
 			isa = PBXGroup;
 			children = (
 				38C84640227827EF00BCAD87 /* Controller */,
 			);
-			path = "侧边栏";
+			path = Sidebar;
 			sourceTree = "<group>";
 		};
 		38C84640227827EF00BCAD87 /* Controller */ = {
@@ -4546,13 +4553,13 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		38C84649227827EF00BCAD87 /* 手势解锁 */ = {
+		38C84649227827EF00BCAD87 /* GestureUnlocking */ = {
 			isa = PBXGroup;
 			children = (
 				38C8464A227827EF00BCAD87 /* View */,
 				38C8464D227827EF00BCAD87 /* ViewController */,
 			);
-			path = "手势解锁";
+			path = GestureUnlocking;
 			sourceTree = "<group>";
 		};
 		38C8464A227827EF00BCAD87 /* View */ = {
@@ -4573,13 +4580,13 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		38C84650227827EF00BCAD87 /* 拖拽 */ = {
+		38C84650227827EF00BCAD87 /* Duag */ = {
 			isa = PBXGroup;
 			children = (
 				38C84651227827EF00BCAD87 /* Controller */,
 				38C84656227827EF00BCAD87 /* View */,
 			);
-			path = "拖拽";
+			path = Duag;
 			sourceTree = "<group>";
 		};
 		38C84651227827EF00BCAD87 /* Controller */ = {
@@ -4613,13 +4620,13 @@
 			path = WMDragView;
 			sourceTree = "<group>";
 		};
-		38C8465D227827EF00BCAD87 /* 导航栏 */ = {
+		38C8465D227827EF00BCAD87 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
 				38C8465E227827EF00BCAD87 /* Controller */,
 				38C84677227827EF00BCAD87 /* View */,
 			);
-			path = "导航栏";
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 		38C8465E227827EF00BCAD87 /* Controller */ = {
@@ -4722,14 +4729,14 @@
 			path = HomeKit;
 			sourceTree = "<group>";
 		};
-		38C8469F227827EF00BCAD87 /* 首页 */ = {
+		38C8469F227827EF00BCAD87 /* MainPage */ = {
 			isa = PBXGroup;
 			children = (
 				38C846A0227827EF00BCAD87 /* Controller */,
 				38C846B6227827EF00BCAD87 /* Model */,
 				38C846BD227827EF00BCAD87 /* View */,
 			);
-			path = "首页";
+			path = MainPage;
 			sourceTree = "<group>";
 		};
 		38C846A0227827EF00BCAD87 /* Controller */ = {
@@ -4813,12 +4820,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		38C846D1227827EF00BCAD87 /* 闹铃 */ = {
+		38C846D1227827EF00BCAD87 /* Alarm */ = {
 			isa = PBXGroup;
 			children = (
 				38C846D2227827EF00BCAD87 /* ViewController */,
 			);
-			path = "闹铃";
+			path = Alarm;
 			sourceTree = "<group>";
 		};
 		38C846D2227827EF00BCAD87 /* ViewController */ = {
@@ -4830,13 +4837,13 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		38C846D5227827EF00BCAD87 /* 网络测试 */ = {
+		38C846D5227827EF00BCAD87 /* NetWorkTest */ = {
 			isa = PBXGroup;
 			children = (
 				38C846D6227827EF00BCAD87 /* Model */,
 				38C846DD227827EF00BCAD87 /* ViewController */,
 			);
-			path = "网络测试";
+			path = NetWorkTest;
 			sourceTree = "<group>";
 		};
 		38C846D6227827EF00BCAD87 /* Model */ = {
@@ -4865,45 +4872,13 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		38C846E0227827EF00BCAD87 /* 水波动画 */ = {
-			isa = PBXGroup;
-			children = (
-				38C846E1227827EF00BCAD87 /* View */,
-				38C846E4227827EF00BCAD87 /* Viewcontroller */,
-			);
-			path = "水波动画";
-			sourceTree = "<group>";
-		};
-		38C846E1227827EF00BCAD87 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				38C846E2227827EF00BCAD87 /* WaveTableViewCell.m */,
-				38C846E3227827EF00BCAD87 /* WaveTableViewCell.h */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		38C846E4227827EF00BCAD87 /* Viewcontroller */ = {
-			isa = PBXGroup;
-			children = (
-				38C846E9227827EF00BCAD87 /* DemoTableViewController.h */,
-				38C846E5227827EF00BCAD87 /* DemoTableViewController.m */,
-				38C846EB227827EF00BCAD87 /* DemoTableViewController.xib */,
-				38C846E7227827EF00BCAD87 /* DemoViewController.h */,
-				38C846EA227827EF00BCAD87 /* DemoViewController.m */,
-				38C846E6227827EF00BCAD87 /* WaveProgressViewController.h */,
-				38C846E8227827EF00BCAD87 /* WaveProgressViewController.m */,
-			);
-			path = Viewcontroller;
-			sourceTree = "<group>";
-		};
-		38C846EC227827EF00BCAD87 /* 弹出列表 */ = {
+		38C846EC227827EF00BCAD87 /* Pop-upList */ = {
 			isa = PBXGroup;
 			children = (
 				38C846ED227827EF00BCAD87 /* Controller */,
 				38C846F0227827EF00BCAD87 /* View */,
 			);
-			path = "弹出列表";
+			path = "Pop-upList";
 			sourceTree = "<group>";
 		};
 		38C846ED227827EF00BCAD87 /* Controller */ = {
@@ -4944,12 +4919,12 @@
 			path = TagView;
 			sourceTree = "<group>";
 		};
-		38C84701227827EF00BCAD87 /* 图片放大 */ = {
+		38C84701227827EF00BCAD87 /* EnlargeThePicture */ = {
 			isa = PBXGroup;
 			children = (
 				38C84702227827EF00BCAD87 /* PhotoBrowser */,
 			);
-			path = "图片放大";
+			path = EnlargeThePicture;
 			sourceTree = "<group>";
 		};
 		38C84702227827EF00BCAD87 /* PhotoBrowser */ = {
@@ -5049,13 +5024,13 @@
 			path = resource;
 			sourceTree = "<group>";
 		};
-		38C8474F227827F000BCAD87 /* 上下滑动 */ = {
+		38C8474F227827F000BCAD87 /* SlideUpAndDown */ = {
 			isa = PBXGroup;
 			children = (
 				38C84750227827F000BCAD87 /* Controller */,
 				38C84753227827F000BCAD87 /* View */,
 			);
-			path = "上下滑动";
+			path = SlideUpAndDown;
 			sourceTree = "<group>";
 		};
 		38C84750227827F000BCAD87 /* Controller */ = {
@@ -5079,13 +5054,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		38C84759227827F000BCAD87 /* 获得步数 */ = {
+		38C84759227827F000BCAD87 /* GetSteps */ = {
 			isa = PBXGroup;
 			children = (
 				38C8475A227827F000BCAD87 /* Model */,
 				38C8475D227827F000BCAD87 /* ViewController */,
 			);
-			path = "获得步数";
+			path = GetSteps;
 			sourceTree = "<group>";
 		};
 		38C8475A227827F000BCAD87 /* Model */ = {
@@ -5106,7 +5081,7 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		38C84760227827F000BCAD87 /* 节点列表 */ = {
+		38C84760227827F000BCAD87 /* NodeList */ = {
 			isa = PBXGroup;
 			children = (
 				38230150245E67470096DB42 /* ViewModel */,
@@ -5114,7 +5089,7 @@
 				38C84768227827F000BCAD87 /* Model */,
 				38C84777227827F000BCAD87 /* View */,
 			);
-			path = "节点列表";
+			path = NodeList;
 			sourceTree = "<group>";
 		};
 		38C84761227827F000BCAD87 /* Controller */ = {
@@ -5133,6 +5108,7 @@
 		38C84768227827F000BCAD87 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8487ADB524F8BEC1004B41ED /* CAndObject-c */,
 				38C8476E227827F000BCAD87 /* ChineseToPinyinResource.h */,
 				38C84775227827F000BCAD87 /* ChineseToPinyinResource.m */,
 				38C84770227827F000BCAD87 /* ContactModel.h */,
@@ -5160,13 +5136,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		38C8477A227827F000BCAD87 /* 签名 */ = {
+		38C8477A227827F000BCAD87 /* Sign */ = {
 			isa = PBXGroup;
 			children = (
 				38C8477B227827F000BCAD87 /* Controller */,
 				38C8477E227827F000BCAD87 /* View */,
 			);
-			path = "签名";
+			path = Sign;
 			sourceTree = "<group>";
 		};
 		38C8477B227827F000BCAD87 /* Controller */ = {
@@ -5210,14 +5186,14 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		38C84787227827F000BCAD87 /* 滚动图 */ = {
+		38C84787227827F000BCAD87 /* ScrollChart */ = {
 			isa = PBXGroup;
 			children = (
 				386D518F22D47D4700B694B7 /* Resources */,
 				38C84788227827F000BCAD87 /* Controller */,
 				38C8478B227827F000BCAD87 /* View */,
 			);
-			path = "滚动图";
+			path = ScrollChart;
 			sourceTree = "<group>";
 		};
 		38C84788227827F000BCAD87 /* Controller */ = {
@@ -5240,12 +5216,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		38C84790227827F000BCAD87 /* 引导页 */ = {
+		38C84790227827F000BCAD87 /* GuidePage */ = {
 			isa = PBXGroup;
 			children = (
 				38C84791227827F000BCAD87 /* Controller */,
 			);
-			path = "引导页";
+			path = GuidePage;
 			sourceTree = "<group>";
 		};
 		38C84791227827F000BCAD87 /* Controller */ = {
@@ -5257,14 +5233,14 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		38C84794227827F000BCAD87 /* 下拉列表 */ = {
+		38C84794227827F000BCAD87 /* DropDownList */ = {
 			isa = PBXGroup;
 			children = (
 				388C76BE22B4E9D20094773D /* Model */,
 				38C84795227827F000BCAD87 /* Controller */,
 				38C84798227827F000BCAD87 /* View */,
 			);
-			path = "下拉列表";
+			path = DropDownList;
 			sourceTree = "<group>";
 		};
 		38C84795227827F000BCAD87 /* Controller */ = {
@@ -5289,13 +5265,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		38C8479D227827F000BCAD87 /* 绘画板 */ = {
+		38C8479D227827F000BCAD87 /* DrawingBoard  */ = {
 			isa = PBXGroup;
 			children = (
 				38C8479E227827F000BCAD87 /* View */,
 				38C847A1227827F000BCAD87 /* ViewController */,
 			);
-			path = "绘画板";
+			path = "DrawingBoard ";
 			sourceTree = "<group>";
 		};
 		38C8479E227827F000BCAD87 /* View */ = {
@@ -5318,14 +5294,14 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		38C847A4227827F000BCAD87 /* 购物车 */ = {
+		38C847A4227827F000BCAD87 /* ShoppingCart */ = {
 			isa = PBXGroup;
 			children = (
 				38C847A5227827F000BCAD87 /* Controller */,
 				38C847A8227827F000BCAD87 /* Model */,
 				38C847AB227827F000BCAD87 /* View */,
 			);
-			path = "购物车";
+			path = ShoppingCart;
 			sourceTree = "<group>";
 		};
 		38C847A5227827F000BCAD87 /* Controller */ = {
@@ -5359,43 +5335,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		38C847B2227827F000BCAD87 /* 动态改变高度 */ = {
-			isa = PBXGroup;
-			children = (
-				38C847B3227827F000BCAD87 /* View */,
-				38C847B8227827F000BCAD87 /* ViewController */,
-			);
-			path = "动态改变高度";
-			sourceTree = "<group>";
-		};
-		38C847B3227827F000BCAD87 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				38C847B4227827F000BCAD87 /* MyView.h */,
-				38C847B5227827F000BCAD87 /* ACEExpandableTextCell.m */,
-				38C847B6227827F000BCAD87 /* MyView.m */,
-				38C847B7227827F000BCAD87 /* ACEExpandableTextCell.h */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		38C847B8227827F000BCAD87 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				38C847B9227827F000BCAD87 /* ACEViewController.m */,
-				38C847BA227827F000BCAD87 /* ACEViewController.h */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		38C847BB227827F000BCAD87 /* 记事本 */ = {
+		38C847BB227827F000BCAD87 /* NoteBook */ = {
 			isa = PBXGroup;
 			children = (
 				38C847BC227827F000BCAD87 /* Resources */,
 				38C847D0227827F000BCAD87 /* Controller */,
 				38C847DD227827F000BCAD87 /* Model */,
 			);
-			path = "记事本";
+			path = NoteBook;
 			sourceTree = "<group>";
 		};
 		38C847BC227827F000BCAD87 /* Resources */ = {
@@ -5450,13 +5397,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		38C847E1227827F000BCAD87 /* 微信气泡 */ = {
+		38C847E1227827F000BCAD87 /* Bubble */ = {
 			isa = PBXGroup;
 			children = (
 				38C847E2227827F000BCAD87 /* Controller */,
 				38C847E5227827F000BCAD87 /* Model */,
 			);
-			path = "微信气泡";
+			path = Bubble;
 			sourceTree = "<group>";
 		};
 		38C847E2227827F000BCAD87 /* Controller */ = {
@@ -5500,12 +5447,12 @@
 			path = image;
 			sourceTree = "<group>";
 		};
-		38C847F8227827F000BCAD87 /* 倒计时 */ = {
+		38C847F8227827F000BCAD87 /* Countdown */ = {
 			isa = PBXGroup;
 			children = (
 				38C847F9227827F000BCAD87 /* Controller */,
 			);
-			path = "倒计时";
+			path = Countdown;
 			sourceTree = "<group>";
 		};
 		38C847F9227827F000BCAD87 /* Controller */ = {
@@ -5518,14 +5465,14 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		38C847FD227827F000BCAD87 /* 支付密码 */ = {
+		38C847FD227827F000BCAD87 /* PaymentPassword */ = {
 			isa = PBXGroup;
 			children = (
 				3874F5C1245E9A2E0038E7DE /* Model */,
 				38C847FE227827F000BCAD87 /* Controller */,
 				38C84809227827F000BCAD87 /* View */,
 			);
-			path = "支付密码";
+			path = PaymentPassword;
 			sourceTree = "<group>";
 		};
 		38C847FE227827F000BCAD87 /* Controller */ = {
@@ -5587,13 +5534,13 @@
 			path = CodeView;
 			sourceTree = "<group>";
 		};
-		38C84812227827F000BCAD87 /* 传递事件 */ = {
+		38C84812227827F000BCAD87 /* DeliverEvents */ = {
 			isa = PBXGroup;
 			children = (
 				38C84813227827F000BCAD87 /* Model */,
 				38C84816227827F000BCAD87 /* ViewController */,
 			);
-			path = "传递事件";
+			path = DeliverEvents;
 			sourceTree = "<group>";
 		};
 		38C84813227827F000BCAD87 /* Model */ = {
@@ -5614,12 +5561,12 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		38C84819227827F000BCAD87 /* 分段导航栏 */ = {
+		38C84819227827F000BCAD87 /* SectionNavigationBar */ = {
 			isa = PBXGroup;
 			children = (
 				38C8481A227827F000BCAD87 /* Controller */,
 			);
-			path = "分段导航栏";
+			path = SectionNavigationBar;
 			sourceTree = "<group>";
 		};
 		38C8481A227827F000BCAD87 /* Controller */ = {
@@ -5641,14 +5588,14 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		38C8482E227827F000BCAD87 /* 添加图片 */ = {
+		38C8482E227827F000BCAD87 /* AddImage */ = {
 			isa = PBXGroup;
 			children = (
 				38C8482F227827F000BCAD87 /* Controller */,
 				38C84837227827F000BCAD87 /* View */,
 				38C84842227827F000BCAD87 /* MLSelectPhoto */,
 			);
-			path = "添加图片";
+			path = AddImage;
 			sourceTree = "<group>";
 		};
 		38C8482F227827F000BCAD87 /* Controller */ = {
@@ -5772,12 +5719,12 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		38C84871227827F000BCAD87 /* 点赞按钮 */ = {
+		38C84871227827F000BCAD87 /* LikeButton */ = {
 			isa = PBXGroup;
 			children = (
 				38C84872227827F000BCAD87 /* Controller */,
 			);
-			path = "点赞按钮";
+			path = LikeButton;
 			sourceTree = "<group>";
 		};
 		38C84872227827F000BCAD87 /* Controller */ = {
@@ -5789,13 +5736,13 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		38C84875227827F000BCAD87 /* 二维码 */ = {
+		38C84875227827F000BCAD87 /* QRCode */ = {
 			isa = PBXGroup;
 			children = (
 				38C84876227827F000BCAD87 /* Controller */,
 				38C84898227827F000BCAD87 /* View */,
 			);
-			path = "二维码";
+			path = QRCode;
 			sourceTree = "<group>";
 		};
 		38C84876227827F000BCAD87 /* Controller */ = {
@@ -5854,12 +5801,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		38C8489B227827F000BCAD87 /* 上传iCloud文件 */ = {
+		38C8489B227827F000BCAD87 /* UploadIcloudFile */ = {
 			isa = PBXGroup;
 			children = (
 				38C8489C227827F000BCAD87 /* ViewController */,
 			);
-			path = "上传iCloud文件";
+			path = UploadIcloudFile;
 			sourceTree = "<group>";
 		};
 		38C8489C227827F000BCAD87 /* ViewController */ = {
@@ -5871,9 +5818,10 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		38C8489F227827F000BCAD87 /* 动画 */ = {
+		38C8489F227827F000BCAD87 /* AnimationCollection */ = {
 			isa = PBXGroup;
 			children = (
+				8487ADA424F8BE56004B41ED /* WaterWaveAnimation */,
 				38EE05AE23853D6600718397 /* yh */,
 				38080AF3232D36F90073EFAC /* 水波纹 */,
 				387AE63F2321101C00EADE4B /* 仪表哦盘 */,
@@ -5884,7 +5832,7 @@
 				38C848AB227827F000BCAD87 /* 购物车动画 */,
 				38C848AF227827F000BCAD87 /* 咖啡机 */,
 			);
-			path = "动画";
+			path = AnimationCollection;
 			sourceTree = "<group>";
 		};
 		38C848A0227827F000BCAD87 /* 碰撞球 */ = {
@@ -5986,19 +5934,21 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		38C848B9227827F100BCAD87 /* 自适应列表 */ = {
+		38C848B9227827F100BCAD87 /* AdaptiveList */ = {
 			isa = PBXGroup;
 			children = (
 				38C848BA227827F100BCAD87 /* Controller */,
 				38C848C0227827F100BCAD87 /* Model */,
 				38C848C3227827F100BCAD87 /* View */,
 			);
-			path = "自适应列表";
+			path = AdaptiveList;
 			sourceTree = "<group>";
 		};
 		38C848BA227827F100BCAD87 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				38C847BA227827F000BCAD87 /* ACEViewController.h */,
+				38C847B9227827F000BCAD87 /* ACEViewController.m */,
 				38C848BE227827F100BCAD87 /* AdaptionListViewController.h */,
 				38C848BB227827F100BCAD87 /* AdaptionListViewController.m */,
 				38C848BF227827F100BCAD87 /* SectionsViewController.h */,
@@ -6020,8 +5970,12 @@
 		38C848C3227827F100BCAD87 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				38C847B7227827F000BCAD87 /* ACEExpandableTextCell.h */,
+				38C847B5227827F000BCAD87 /* ACEExpandableTextCell.m */,
 				38C848C4227827F100BCAD87 /* MyPersionTableViewCell.h */,
 				38C848C5227827F100BCAD87 /* MyPersionTableViewCell.m */,
+				38C847B4227827F000BCAD87 /* MyView.h */,
+				38C847B6227827F000BCAD87 /* MyView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -6054,7 +6008,7 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		38C9773422AE02D200F978C1 /* 联网游戏 */ = {
+		38C9773422AE02D200F978C1 /* OnlineGames */ = {
 			isa = PBXGroup;
 			children = (
 				38C9773822AE02D200F978C1 /* 095007dnez0dnzlednenwl.jpg */,
@@ -6079,7 +6033,7 @@
 				38C9779322AE02D200F978C1 /* Themes.m */,
 				38C9773A22AE02D200F978C1 /* Themes.xib */,
 			);
-			path = "联网游戏";
+			path = OnlineGames;
 			sourceTree = "<group>";
 		};
 		38C9776E22AE02D200F978C1 /* Resource */ = {
@@ -6196,6 +6150,52 @@
 			);
 			path = CollegeProWidge;
 			sourceTree = "<group>";
+		};
+		8487ADA424F8BE56004B41ED /* WaterWaveAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				8487ADA524F8BE56004B41ED /* View */,
+				8487ADA824F8BE56004B41ED /* Viewcontroller */,
+			);
+			path = WaterWaveAnimation;
+			sourceTree = "<group>";
+		};
+		8487ADA524F8BE56004B41ED /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8487ADA624F8BE56004B41ED /* WaveTableViewCell.h */,
+				8487ADA724F8BE56004B41ED /* WaveTableViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8487ADA824F8BE56004B41ED /* Viewcontroller */ = {
+			isa = PBXGroup;
+			children = (
+				8487ADA924F8BE56004B41ED /* DemoTableViewController.h */,
+				8487ADAA24F8BE56004B41ED /* DemoTableViewController.m */,
+				8487ADAB24F8BE56004B41ED /* DemoTableViewController.xib */,
+				8487ADAC24F8BE56004B41ED /* DemoViewController.h */,
+				8487ADAD24F8BE56004B41ED /* DemoViewController.m */,
+				8487ADAE24F8BE56004B41ED /* WaveProgressViewController.h */,
+				8487ADAF24F8BE56004B41ED /* WaveProgressViewController.m */,
+			);
+			path = Viewcontroller;
+			sourceTree = "<group>";
+		};
+		8487ADB524F8BEC1004B41ED /* CAndObject-c */ = {
+			isa = PBXGroup;
+			children = (
+				8487ADB624F8BEC1004B41ED /* WTTestC.c */,
+				8487ADB724F8BEC1004B41ED /* WTTestC.h */,
+				8487ADB824F8BEC1004B41ED /* WTTestObject.h */,
+				8487ADB924F8BEC1004B41ED /* WTTestObject.mm */,
+				8487ADBA24F8BEC1004B41ED /* WTTestt.cpp */,
+				8487ADBB24F8BEC1004B41ED /* WTTestt.hpp */,
+			);
+			name = "CAndObject-c";
+			path = "CollegePro/Class(首页)/TCode/NodeList/Model/CAndObject-c";
+			sourceTree = SOURCE_ROOT;
 		};
 		DB7A53478EBF97A0FF9F1D0C /* Pods */ = {
 			isa = PBXGroup;
@@ -6448,7 +6448,6 @@
 				386BBC5A22DD9C18005E6054 /* group_default@3x.png in Resources */,
 				38C8499E227827F100BCAD87 /* Setting_@2x.png in Resources */,
 				38C977DF22AE02D300F978C1 /* blueYellow.png in Resources */,
-				38C84986227827F100BCAD87 /* DemoTableViewController.xib in Resources */,
 				38C849EB227827F200BCAD87 /* JPShopHeaderCell.xib in Resources */,
 				386BBC6122DD9C18005E6054 /* gallery_chs_seleceted@3x.png in Resources */,
 				38C9779622AE02D200F978C1 /* scores.xib in Resources */,
@@ -6481,6 +6480,7 @@
 				384C407822888DFA00F01586 /* 选题管理.png in Resources */,
 				38B734542497BB2E00CC4384 /* 750x1334@2x.png in Resources */,
 				38C84A14227827F200BCAD87 /* photo.png in Resources */,
+				8487ADB224F8BE56004B41ED /* DemoTableViewController.xib in Resources */,
 				38C849B3227827F100BCAD87 /* btn_unselected@3x.png in Resources */,
 				386BBF6A22DDA8AF005E6054 /* ShowcaseFilterViewController.xib in Resources */,
 				386BBF8222DDA99A005E6054 /* lookup_amatorka.png in Resources */,
@@ -6684,7 +6684,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\n";
+			shellScript = "
+";
 		};
 		731C13F9B5FCB2BB74B4D708 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -6863,6 +6864,7 @@
 				382BB56C2434E5AA000A9CB7 /* UITableView+DHAnimationA.m in Sources */,
 				386BBD7E22DDA7FE005E6054 /* GPUImageHueFilter.m in Sources */,
 				386BBDC622DDA7FF005E6054 /* GPUImageMedianFilter.m in Sources */,
+				8487ADB324F8BE56004B41ED /* DemoViewController.m in Sources */,
 				38C84A53227827F200BCAD87 /* QRCodeGenerator.m in Sources */,
 				38C848CE227827F100BCAD87 /* iCarousel.m in Sources */,
 				386BBDD822DDA7FF005E6054 /* GPUImageMosaicFilter.m in Sources */,
@@ -6881,6 +6883,7 @@
 				382B4E86245594D5006FD956 /* UIView+Extension.m in Sources */,
 				38DBD7DC23B22E8C00E3F33C /* NSObject+Swizzling.m in Sources */,
 				38C84A4C227827F200BCAD87 /* MLSelectPhotoPickerGroupTableViewCell.m in Sources */,
+				8487ADBC24F8BEC1004B41ED /* WTTestC.c in Sources */,
 				385483DB234F4A450053AB46 /* BLEConnector.m in Sources */,
 				383AEB4222970F03002F3A22 /* MaskView.m in Sources */,
 				38C849F1227827F200BCAD87 /* ACEViewController.m in Sources */,
@@ -6892,7 +6895,6 @@
 				384017BA23545C8E002A2FB4 /* DHUncaughtExceptionHandle.m in Sources */,
 				386BBDAC22DDA7FF005E6054 /* GPUImageTiltShiftFilter.m in Sources */,
 				386BBD8B22DDA7FE005E6054 /* GPUImageHardLightBlendFilter.m in Sources */,
-				38C84984227827F100BCAD87 /* WaveProgressViewController.m in Sources */,
 				384C3FCD22887D7A00F01586 /* MVPTableViewCell.m in Sources */,
 				386BBB2622DC6902005E6054 /* MedalModel.m in Sources */,
 				38C849AF227827F100BCAD87 /* ZLPhotoBrowser.m in Sources */,
@@ -6973,7 +6975,6 @@
 				38C2D0D022D5E27700CF30CA /* ASINetworkQueue.m in Sources */,
 				38C84946227827F100BCAD87 /* LSTabBarViewController.m in Sources */,
 				38C84A73227827F200BCAD87 /* LabelMethodBlockVC.m in Sources */,
-				38C84985227827F100BCAD87 /* DemoViewController.m in Sources */,
 				38C84A07227827F200BCAD87 /* DisplayNoteViewController.m in Sources */,
 				38C2D0CF22D5E27700CF30CA /* Reachability.m in Sources */,
 				38C849D2227827F200BCAD87 /* DHNoteViewController.m in Sources */,
@@ -7033,6 +7034,7 @@
 				3807246E22CDCCE00035E5B1 /* CustomView.m in Sources */,
 				385483DE234F4A450053AB46 /* BLEDeviceInfo.m in Sources */,
 				38080AF9232D3B630073EFAC /* RoppleViewController.m in Sources */,
+				8487ADBE24F8BEC1004B41ED /* WTTestt.cpp in Sources */,
 				38C848EC227827F100BCAD87 /* SoapUtil.m in Sources */,
 				386BBD6D22DDA7FE005E6054 /* GPUImageSoftEleganceFilter.m in Sources */,
 				386BC06022DDABA7005E6054 /* DGActivityIndicatorRotatingTrigonAnimation.m in Sources */,
@@ -7087,7 +7089,6 @@
 				386BBD8422DDA7FE005E6054 /* GPUImageAlphaBlendFilter.m in Sources */,
 				38C84988227827F100BCAD87 /* TagPickerView.m in Sources */,
 				384C3FE922888DBF00F01586 /* ZQVariableMenuView.m in Sources */,
-				38C84982227827F100BCAD87 /* WaveTableViewCell.m in Sources */,
 				38C84949227827F100BCAD87 /* AutoLayoutViewController.m in Sources */,
 				383F11FC23155A37005F085F /* CreditNumViewController.m in Sources */,
 				386BBDC322DDA7FF005E6054 /* GPUImageMonochromeFilter.m in Sources */,
@@ -7155,6 +7156,7 @@
 				38C84A49227827F200BCAD87 /* MLSelectPhotoPickerBrowserPhotoView.m in Sources */,
 				386BBD8D22DDA7FE005E6054 /* GPUImagePolarPixellateFilter.m in Sources */,
 				386BBDAE22DDA7FF005E6054 /* GPUImageGaussianBlurFilter.m in Sources */,
+				8487ADB124F8BE56004B41ED /* DemoTableViewController.m in Sources */,
 				386BBD8622DDA7FE005E6054 /* GPUImageOverlayBlendFilter.m in Sources */,
 				386BBDB322DDA7FF005E6054 /* GPUImageMaskFilter.m in Sources */,
 				382FFA4F231CBBD20062080E /* ZPCAshapelGradientView.m in Sources */,
@@ -7163,6 +7165,7 @@
 				386BBDBB22DDA7FF005E6054 /* GPUImageRawDataOutput.m in Sources */,
 				386BC04922DDABA7005E6054 /* DGActivityIndicatorBallScaleRippleAnimation.m in Sources */,
 				38C8494F227827F100BCAD87 /* UIScrollView+XHVisibleCenterScroll.m in Sources */,
+				8487ADB424F8BE56004B41ED /* WaveProgressViewController.m in Sources */,
 				3868BF7B22B9C7CC003B643C /* GLActionSheet.m in Sources */,
 				38C84924227827F100BCAD87 /* NSArray+Log.m in Sources */,
 				386BBC6322DD9C18005E6054 /* DPPhotoListViewController.m in Sources */,
@@ -7176,6 +7179,7 @@
 				38C84903227827F100BCAD87 /* SZAddImage.m in Sources */,
 				38C848F8227827F100BCAD87 /* ChineseString.m in Sources */,
 				38C8493D227827F100BCAD87 /* DropViewController.m in Sources */,
+				8487ADB024F8BE56004B41ED /* WaveTableViewCell.m in Sources */,
 				386BBDD322DDA7FF005E6054 /* GPUImageNobleCornerDetectionFilter.m in Sources */,
 				386BBBBA22DD6DE1005E6054 /* CustomerAlertController.m in Sources */,
 				386BBD9C22DDA7FF005E6054 /* GPUImageSepiaFilter.m in Sources */,
@@ -7203,7 +7207,6 @@
 				386BC06722DDABF0005E6054 /* ActivityIndicator.m in Sources */,
 				386BBDA722DDA7FF005E6054 /* GPUImageXYDerivativeFilter.m in Sources */,
 				386BBD9522DDA7FE005E6054 /* GPUImageCropFilter.m in Sources */,
-				38C84983227827F100BCAD87 /* DemoTableViewController.m in Sources */,
 				386BBDA322DDA7FF005E6054 /* GPUimageDirectionalSobelEdgeDetectionFilter.m in Sources */,
 				386BC05122DDABA7005E6054 /* DGActivityIndicatorLineScaleAnimation.m in Sources */,
 				38C84944227827F100BCAD87 /* YSYPreviewViewController.m in Sources */,
@@ -7252,6 +7255,7 @@
 				38C849D4227827F200BCAD87 /* ContactModel.m in Sources */,
 				38C84A2E227827F200BCAD87 /* SubparagraphRootViewController.h.m in Sources */,
 				38C849DF227827F200BCAD87 /* T3DTouchViewController.m in Sources */,
+				8487ADBD24F8BEC1004B41ED /* WTTestObject.mm in Sources */,
 				386BBC2422DD9ADC005E6054 /* HWSlider.m in Sources */,
 				38C84906227827F100BCAD87 /* ListContentViewController.m in Sources */,
 				386BBDB722DDA7FF005E6054 /* GPUImageCrosshairGenerator.m in Sources */,
