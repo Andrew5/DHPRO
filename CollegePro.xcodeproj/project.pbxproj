@@ -57,7 +57,6 @@
 		38345BDA22B1207C00FBE78B /* SFHttpSessionReq.m in Sources */ = {isa = PBXBuildFile; fileRef = 38345BD922B1207C00FBE78B /* SFHttpSessionReq.m */; };
 		383AEB4222970F03002F3A22 /* MaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 383AEB4122970F03002F3A22 /* MaskView.m */; };
 		383DC22D23E4326B00B362EF /* DHRefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 383DC22C23E4326B00B362EF /* DHRefreshViewController.m */; };
-		383DC23023E4373100B362EF /* TopicItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 383DC22F23E4373100B362EF /* TopicItem.m */; };
 		383EAFE322981D1E00A2AA1E /* JHDownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 383EAFE222981D1D00A2AA1E /* JHDownButton.m */; };
 		383F11F823155966005F085F /* CreditNumView.m in Sources */ = {isa = PBXBuildFile; fileRef = 383F11F723155966005F085F /* CreditNumView.m */; };
 		383F11FC23155A37005F085F /* CreditNumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 383F11FB23155A37005F085F /* CreditNumViewController.m */; };
@@ -429,7 +428,6 @@
 		3893F3A822CDF080005C30AE /* HDCollectionMonthDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3893F3A422CDF07E005C30AE /* HDCollectionMonthDetailHeaderView.m */; };
 		3893F3A922CDF080005C30AE /* HDMonthDetailCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3893F3A722CDF07F005C30AE /* HDMonthDetailCollectionViewCell.m */; };
 		3893F3AC22CDF549005C30AE /* NSDate+HDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3893F3AB22CDF548005C30AE /* NSDate+HDExtension.m */; };
-		389AA05B24051202003361A7 /* File.xml in Resources */ = {isa = PBXBuildFile; fileRef = 389AA05A24051202003361A7 /* File.xml */; };
 		38A9697024458E35003673E2 /* CustomerFootIdentificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A9696E24458E35003673E2 /* CustomerFootIdentificationView.m */; };
 		38B734542497BB2E00CC4384 /* 750x1334@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38B734532497BB2E00CC4384 /* 750x1334@2x.png */; };
 		38B94602243F48C10013170F /* DHBAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B94601243F48C10013170F /* DHBAlertView.m */; };
@@ -929,6 +927,8 @@
 		8487ADBC24F8BEC1004B41ED /* WTTestC.c in Sources */ = {isa = PBXBuildFile; fileRef = 8487ADB624F8BEC1004B41ED /* WTTestC.c */; };
 		8487ADBD24F8BEC1004B41ED /* WTTestObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8487ADB924F8BEC1004B41ED /* WTTestObject.mm */; };
 		8487ADBE24F8BEC1004B41ED /* WTTestt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8487ADBA24F8BEC1004B41ED /* WTTestt.cpp */; };
+		8487ADC224F8E111004B41ED /* TopicItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8487ADC124F8E111004B41ED /* TopicItem.m */; };
+		8487ADC424F8E17B004B41ED /* File.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8487ADC324F8E17B004B41ED /* File.xml */; };
 		8688670DA1111CB5B413FE49 /* Pods_CollegePro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40E2710DF49C3576F5AC7B3 /* Pods_CollegePro.framework */; };
 /* End PBXBuildFile section */
 
@@ -1054,8 +1054,6 @@
 		383AEB4122970F03002F3A22 /* MaskView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaskView.m; sourceTree = "<group>"; };
 		383DC22B23E4326B00B362EF /* DHRefreshViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHRefreshViewController.h; sourceTree = "<group>"; };
 		383DC22C23E4326B00B362EF /* DHRefreshViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHRefreshViewController.m; sourceTree = "<group>"; };
-		383DC22E23E4373100B362EF /* TopicItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TopicItem.h; path = "CollegePro/Class(首页)/TCode/下拉列表/Controller/TopicItem.h"; sourceTree = SOURCE_ROOT; };
-		383DC22F23E4373100B362EF /* TopicItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TopicItem.m; path = "CollegePro/Class(首页)/TCode/下拉列表/Controller/TopicItem.m"; sourceTree = SOURCE_ROOT; };
 		383EAFE122981D1D00A2AA1E /* JHDownButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHDownButton.h; sourceTree = "<group>"; };
 		383EAFE222981D1D00A2AA1E /* JHDownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHDownButton.m; sourceTree = "<group>"; };
 		383F11F623155966005F085F /* CreditNumView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreditNumView.h; sourceTree = "<group>"; };
@@ -2543,6 +2541,9 @@
 		8487ADB924F8BEC1004B41ED /* WTTestObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WTTestObject.mm; sourceTree = "<group>"; };
 		8487ADBA24F8BEC1004B41ED /* WTTestt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WTTestt.cpp; sourceTree = "<group>"; };
 		8487ADBB24F8BEC1004B41ED /* WTTestt.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = WTTestt.hpp; sourceTree = "<group>"; };
+		8487ADC024F8E111004B41ED /* TopicItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicItem.h; sourceTree = "<group>"; };
+		8487ADC124F8E111004B41ED /* TopicItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicItem.m; sourceTree = "<group>"; };
+		8487ADC324F8E17B004B41ED /* File.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = File.xml; sourceTree = "<group>"; };
 		B94442A678D5676362354ED8 /* Pods-CollegePro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollegePro.release.xcconfig"; path = "Pods/Target Support Files/Pods-CollegePro/Pods-CollegePro.release.xcconfig"; sourceTree = "<group>"; };
 		F40E2710DF49C3576F5AC7B3 /* Pods_CollegePro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CollegePro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -3888,15 +3889,6 @@
 			path = DHLeak;
 			sourceTree = "<group>";
 		};
-		388C76BE22B4E9D20094773D /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				383DC22E23E4373100B362EF /* TopicItem.h */,
-				383DC22F23E4373100B362EF /* TopicItem.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		3893F39022CDE317005C30AE /* ListLinkage */ = {
 			isa = PBXGroup;
 			children = (
@@ -4396,6 +4388,7 @@
 		38C8461C227827EF00BCAD87 /* NetworkRequest */ = {
 			isa = PBXGroup;
 			children = (
+				8487ADC324F8E17B004B41ED /* File.xml */,
 				38C8462A227827EF00BCAD87 /* AES.h */,
 				38C8461D227827EF00BCAD87 /* AES.m */,
 				38C84623227827EF00BCAD87 /* LHCacheTool.h */,
@@ -5236,7 +5229,7 @@
 		38C84794227827F000BCAD87 /* DropDownList */ = {
 			isa = PBXGroup;
 			children = (
-				388C76BE22B4E9D20094773D /* Model */,
+				8487ADBF24F8E111004B41ED /* Model */,
 				38C84795227827F000BCAD87 /* Controller */,
 				38C84798227827F000BCAD87 /* View */,
 			);
@@ -6197,6 +6190,15 @@
 			path = "CollegePro/Class(首页)/TCode/NodeList/Model/CAndObject-c";
 			sourceTree = SOURCE_ROOT;
 		};
+		8487ADBF24F8E111004B41ED /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8487ADC024F8E111004B41ED /* TopicItem.h */,
+				8487ADC124F8E111004B41ED /* TopicItem.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		DB7A53478EBF97A0FF9F1D0C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -6393,6 +6395,7 @@
 				38C84A1C227827F200BCAD87 /* photo1@2x.png in Resources */,
 				38C977C722AE02D300F978C1 /* redBlack.png in Resources */,
 				38C845432278249A00BCAD87 /* LaunchScreen.storyboard in Resources */,
+				8487ADC424F8E17B004B41ED /* File.xml in Resources */,
 				38C845402278249A00BCAD87 /* Assets.xcassets in Resources */,
 				38C84A18227827F200BCAD87 /* photo@2x.png in Resources */,
 				386BBB4F22DC8F42005E6054 /* h4.jpg in Resources */,
@@ -6430,7 +6433,6 @@
 				386BBB5022DC8F42005E6054 /* h6.jpg in Resources */,
 				384C408D22888DFA00F01586 /* 内容库@3x.png in Resources */,
 				386BC0A522DDB1CA005E6054 /* XibViewController.xib in Resources */,
-				389AA05B24051202003361A7 /* File.xml in Resources */,
 				38C8496A227827F100BCAD87 /* guideImage7.gif in Resources */,
 				38C849BA227827F100BCAD87 /* lock.png in Resources */,
 				386BC09422DDB19F005E6054 /* image_3.jpg in Resources */,
@@ -6917,7 +6919,6 @@
 				385483DD234F4A450053AB46 /* BLEDataPack.m in Sources */,
 				386BBD9222DDA7FE005E6054 /* GPUImageDissolveBlendFilter.m in Sources */,
 				38C84981227827F100BCAD87 /* NetTestViewController.m in Sources */,
-				383DC23023E4373100B362EF /* TopicItem.m in Sources */,
 				38C8492D227827F100BCAD87 /* LHMD5.m in Sources */,
 				386BBDD522DDA7FF005E6054 /* GPUImageHighlightShadowFilter.m in Sources */,
 				38230153245E675C0096DB42 /* BookDataViewModel.m in Sources */,
@@ -7324,6 +7325,7 @@
 				386BBD9D22DDA7FF005E6054 /* GLProgram.m in Sources */,
 				386BBBE022DD7D2A005E6054 /* JRSwizzle.m in Sources */,
 				386BBDAB22DDA7FF005E6054 /* GPUImageRGBFilter.m in Sources */,
+				8487ADC224F8E111004B41ED /* TopicItem.m in Sources */,
 				38D0FB2F243AD9560028967E /* UIView+ActivityIndicator.m in Sources */,
 				38274D53229EB00F00185C09 /* DHSendRunObject.m in Sources */,
 				386BC04222DDABA7005E6054 /* DGActivityIndicatorTripleRingsAnimation.m in Sources */,
