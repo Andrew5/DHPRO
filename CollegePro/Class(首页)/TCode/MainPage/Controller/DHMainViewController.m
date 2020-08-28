@@ -10,6 +10,8 @@
 #include <net/if.h>//配置ip地址,激活接口,配置MTU等接口信息
 #import <mach/mach_time.h>
 #import <DKNightVersion/DKNightVersion.h>
+#include "WTTestC.h"
+#import "WTTestObject.h"
 #import "DHMainViewController.h"
 #import "MeasurNetTools.h"
 #import "QBTools.h"
@@ -135,6 +137,12 @@
     [super viewWillAppear:animated];
 
 }
+//int main(int argc, const char * argv[]) {
+//    @autoreleasepool {
+//        [Person test];
+//    }
+//    return 0;
+//}
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    [[DKNightVersionManager dk_manager] dawnComing];
@@ -147,6 +155,11 @@
     CFAbsoluteTime startTime = CFAbsoluteTimeGetCurrent();
     [self setUPUI];
     self.isShowleftBtn = YES;
+    printfHelloWord(); //此即为上面C文件的方法u
+    WTTestObject *family = [WTTestObject new];
+    [family addTommy];
+    [family addLily];
+    [family everyBodySayHello];
 //    [self createMap];
     //    applicationWillEnterForeground
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveHMethod:) name:@"applicationWillEnterForeground" object:nil];
