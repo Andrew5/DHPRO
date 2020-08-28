@@ -278,6 +278,8 @@
     //    [self addCell:@"信用卡识别" class:@"BankCardViewController"];
     //    [self addCell:@"银行卡识别" class:@"BankCartViewController"];
     //    [self addCell:@"身份证识别" class:@"XLIDScanViewController"];
+    [self addCell:@"MVP" class:@"MVPViewController"];
+    [self addCell:@"MVVM" class:@"MVVMViewController"];
     [self addCell:@"手势解锁" class:@"DisassemblyViewController"];
     [self addCell:@"CEll自适应高度" class:@"ACEViewController"];
     [self addCell:@"记事本" class:@"DHNoteJoyViewController"];
