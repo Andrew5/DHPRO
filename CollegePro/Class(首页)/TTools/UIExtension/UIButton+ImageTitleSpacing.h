@@ -15,6 +15,8 @@ typedef NS_ENUM(NSUInteger, MKButtonEdgeInsetsStyle) {
 };
 
 @interface UIButton (ImageTitleSpacing)
+@property (nonatomic, strong) NSString *normalTitle;//按钮文字
+
 /**
  *  设置button的titleLabel和imageView的布局样式，及间距
  *
@@ -23,4 +25,10 @@ typedef NS_ENUM(NSUInteger, MKButtonEdgeInsetsStyle) {
  */
 - (void)layoutButtonWithEdgeInsetsStyle:(MKButtonEdgeInsetsStyle)style
 						imageTitleSpace:(CGFloat)space;  
+/**
+ *  验证码倒计时  时分倒计时  endTime:结束时间 2016-02-02 12:12:12
+ */
+- (void)verifedCodeButtonWithTitle:(NSString *)title andNewTitle:(NSString *)newTitle bgImageName:(NSString *)imageName newBgImageName:(NSString *)newImageName;
+
+- (void)relaseTimer;
 @end
