@@ -2853,9 +2853,9 @@
 			isa = PBXGroup;
 			children = (
 				384C3FAE22887D7900F01586 /* MVPViewController.h */,
-				384C3FAF22887D7900F01586 /* Present.m */,
 				384C3FB022887D7900F01586 /* MVPViewController.m */,
 				384C3FB122887D7900F01586 /* Present.h */,
+				384C3FAF22887D7900F01586 /* Present.m */,
 			);
 			path = MVP;
 			sourceTree = "<group>";
@@ -2877,12 +2877,12 @@
 		384C3FBA22887D7900F01586 /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
-				384C3FBB22887D7900F01586 /* MVVMViewModel.m */,
-				384C3FBC22887D7900F01586 /* BaseViewModel.m */,
-				384C3FBD22887D7900F01586 /* MVVMViewController.m */,
-				384C3FBE22887D7900F01586 /* MVVMViewController.h */,
-				384C3FBF22887D7900F01586 /* MVVMViewModel.h */,
 				384C3FC022887D7900F01586 /* BaseViewModel.h */,
+				384C3FBC22887D7900F01586 /* BaseViewModel.m */,
+				384C3FBE22887D7900F01586 /* MVVMViewController.h */,
+				384C3FBD22887D7900F01586 /* MVVMViewController.m */,
+				384C3FBF22887D7900F01586 /* MVVMViewModel.h */,
+				384C3FBB22887D7900F01586 /* MVVMViewModel.m */,
 			);
 			path = MVVM;
 			sourceTree = "<group>";
