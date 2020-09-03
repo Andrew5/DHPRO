@@ -912,6 +912,10 @@
 		38F0FBFA23C781F400B04343 /* CHLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F0FBF923C781F400B04343 /* CHLogger.m */; };
 		69231657234E31B400A92110 /* SphericaLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 69231653234E31B400A92110 /* SphericaLayout.m */; };
 		69231658234E31B400A92110 /* ThreeDimensionalSphericalLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 69231655234E31B400A92110 /* ThreeDimensionalSphericalLayout.m */; };
+		845010F724F9221500FE4321 /* DHHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 845010F624F9221500FE4321 /* DHHttpRequest.m */; };
+		845010FA24F94B1400FE4321 /* DHRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 845010F924F94B1300FE4321 /* DHRequest.m */; };
+		845010FD24FBDE4000FE4321 /* DHHttpRequestUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 845010FC24FBDE4000FE4321 /* DHHttpRequestUserInfo.m */; };
+		8450110024FBE34000FE4321 /* DHUserInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 845010FF24FBE34000FE4321 /* DHUserInfoRequest.m */; };
 		8462331D24DAA4A500A1F60D /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38A99B3A229BD1C000D52230 /* NotificationCenter.framework */; };
 		8462332124DAA4A500A1F60D /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8462332024DAA4A500A1F60D /* TodayViewController.m */; };
 		8462332424DAA4A500A1F60D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8462332224DAA4A500A1F60D /* MainInterface.storyboard */; };
@@ -2521,6 +2525,14 @@
 		69231659234E322400A92110 /* CollegeProDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CollegeProDebug.entitlements; sourceTree = "<group>"; };
 		69231685234E34B200A92110 /* DHTabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHTabbarViewController.h; sourceTree = "<group>"; };
 		7AF4C889879B55CEA1FEE0BD /* Pods-CommonPods-CollegePro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommonPods-CollegePro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CommonPods-CollegePro/Pods-CommonPods-CollegePro.debug.xcconfig"; sourceTree = "<group>"; };
+		845010F524F9221500FE4321 /* DHHttpRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHHttpRequest.h; sourceTree = "<group>"; };
+		845010F624F9221500FE4321 /* DHHttpRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHHttpRequest.m; sourceTree = "<group>"; };
+		845010F824F94B1300FE4321 /* DHRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHRequest.h; sourceTree = "<group>"; };
+		845010F924F94B1300FE4321 /* DHRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHRequest.m; sourceTree = "<group>"; };
+		845010FB24FBDE3F00FE4321 /* DHHttpRequestUserInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHHttpRequestUserInfo.h; sourceTree = "<group>"; };
+		845010FC24FBDE4000FE4321 /* DHHttpRequestUserInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHHttpRequestUserInfo.m; sourceTree = "<group>"; };
+		845010FE24FBE34000FE4321 /* DHUserInfoRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHUserInfoRequest.h; sourceTree = "<group>"; };
+		845010FF24FBE34000FE4321 /* DHUserInfoRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHUserInfoRequest.m; sourceTree = "<group>"; };
 		8462331C24DAA4A500A1F60D /* CollegeProWidge.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CollegeProWidge.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		8462331F24DAA4A500A1F60D /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
 		8462332024DAA4A500A1F60D /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
@@ -4848,6 +4860,14 @@
 				38C846DA227827EF00BCAD87 /* DataModel.m */,
 				38C846DC227827EF00BCAD87 /* UserModel.h */,
 				38C846D9227827EF00BCAD87 /* UserModel.m */,
+				845010F524F9221500FE4321 /* DHHttpRequest.h */,
+				845010F624F9221500FE4321 /* DHHttpRequest.m */,
+				845010FB24FBDE3F00FE4321 /* DHHttpRequestUserInfo.h */,
+				845010FC24FBDE4000FE4321 /* DHHttpRequestUserInfo.m */,
+				845010F824F94B1300FE4321 /* DHRequest.h */,
+				845010F924F94B1300FE4321 /* DHRequest.m */,
+				845010FE24FBE34000FE4321 /* DHUserInfoRequest.h */,
+				845010FF24FBE34000FE4321 /* DHUserInfoRequest.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -6754,6 +6774,7 @@
 				38C84A6A227827F200BCAD87 /* ActionViewController.m in Sources */,
 				38C849CA227827F200BCAD87 /* ZLPhotoActionSheet.m in Sources */,
 				386BC06122DDABA7005E6054 /* DGActivityIndicatorBallClipRotateAnimation.m in Sources */,
+				845010FD24FBDE4000FE4321 /* DHHttpRequestUserInfo.m in Sources */,
 				38C84A2A227827F200BCAD87 /* FixedItemWidthTabController.m in Sources */,
 				3886DD3F24162236004CCA21 /* WeakProxy.m in Sources */,
 				38C8491E227827F100BCAD87 /* UIButton+Delay.m in Sources */,
@@ -6792,6 +6813,7 @@
 				3874F5C4245E9A550038E7DE /* KeyBoardModel.m in Sources */,
 				38C84A6E227827F200BCAD87 /* SectionsViewController.m in Sources */,
 				38C2D0CB22D5E27700CF30CA /* ASIFormDataRequest.m in Sources */,
+				845010FA24F94B1400FE4321 /* DHRequest.m in Sources */,
 				38C977E522AE02D300F978C1 /* Options.m in Sources */,
 				386BC04322DDABA7005E6054 /* DGActivityIndicatorBallGridPulseAnimation.m in Sources */,
 				38C8492C227827F100BCAD87 /* SM3Tool.mm in Sources */,
@@ -7200,6 +7222,7 @@
 				38C84A35227827F200BCAD87 /* EditPicturesViewController.m in Sources */,
 				386BBDB022DDA7FF005E6054 /* GPUImageSharpenFilter.m in Sources */,
 				386BBDA022DDA7FF005E6054 /* GPUImageStretchDistortionFilter.m in Sources */,
+				845010F724F9221500FE4321 /* DHHttpRequest.m in Sources */,
 				38C8490E227827F100BCAD87 /* HKHealthStore+AAPLExtensions.m in Sources */,
 				38EA8533228D57F300A28136 /* SFTextView.m in Sources */,
 				386BBDE222DDA7FF005E6054 /* GPUImageCGAColorspaceFilter.m in Sources */,
@@ -7224,6 +7247,7 @@
 				38C84943227827F100BCAD87 /* LBTabBarTextController.m in Sources */,
 				38C848D2227827F100BCAD87 /* DHGifImageOperation.m in Sources */,
 				38C848F5227827F100BCAD87 /* WLBallView.m in Sources */,
+				8450110024FBE34000FE4321 /* DHUserInfoRequest.m in Sources */,
 				386BBD7D22DDA7FE005E6054 /* GPUImageTransformFilter.m in Sources */,
 				384C3FCB22887D7A00F01586 /* MVPViewController.m in Sources */,
 				38C84A0A227827F200BCAD87 /* DHAboutViewController.m in Sources */,

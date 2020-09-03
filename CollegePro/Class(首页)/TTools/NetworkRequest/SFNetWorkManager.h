@@ -51,7 +51,7 @@ typedef void(^downloadProgress)(float progress);
  *  @param failureBlock 请求失败的回调
  *  @param progress 进度
  */
-+(void)requestWithType:(HttpRequestType)type withUrlString:(NSString *)urlString withParaments:(id)paraments withSuccessBlock:(requestSuccess)successBlock withFailureBlock:(requestFailure)failureBlock progress:(downloadProgress)progress;
+-(void)requestWithType:(HttpRequestType)type withUrlString:(NSString *)urlString withParaments:(id)paraments withSuccessBlock:(requestSuccess)successBlock withFailureBlock:(requestFailure)failureBlock progress:(downloadProgress)progress;
 
 /**
  *  上传图片

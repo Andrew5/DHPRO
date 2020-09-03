@@ -71,13 +71,16 @@
 @property (nonatomic, strong) UILabel *completionRateCount;
 //完成率
 @property (nonatomic, strong) UILabel *completionRate;
+@property (nonatomic, strong) UILabel *oneLabel;//上 -左
+@property (nonatomic, strong) UILabel *twoLabel;//上 -右
+@property (nonatomic, strong) UILabel *threeLabel;//下
 @end
 
 @implementation TShopAnimationViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	self.navigationItem.title = @"购物车";
+	self.navigationItem.title = @"UI布局学习";
 	
 	self.view.backgroundColor = [UIColor whiteColor];
 
@@ -94,13 +97,13 @@
 static UILabel *labelLay;
 - (void)creatAutoLayout{
     UIView *customerView = [[UIView alloc]init];
-    customerView.backgroundColor = [UIColor redColor];
+    customerView.backgroundColor = [UIColor yellowColor];
     [self.view addSubview:customerView];
     UILabel *labelLay = [[UILabel alloc]init];
-    labelLay.backgroundColor = [UIColor blueColor];
     labelLay.textColor = [UIColor blackColor];
     [customerView addSubview:labelLay];
-    
+    labelLay.layer.borderColor = [UIColor redColor].CGColor;
+    labelLay.layer.borderWidth = 1.0;
     [customerView mas_makeConstraints:^(MASConstraintMaker *make) {
         //        make.top.mas_equalTo(100);
         //        make.height.mas_equalTo(20);
@@ -111,7 +114,7 @@ static UILabel *labelLay;
             make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop).offset(1);;
             make.left.equalTo(self.view.mas_safeAreaLayoutGuideLeft).offset(30);;
             make.right.equalTo(self.view.mas_safeAreaLayoutGuideRight).offset(-30);;
-            make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom).offset(-45);;
+            make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom);
             
         } else {
             // Fallback on earlier versions
@@ -137,7 +140,7 @@ static UILabel *labelLay;
             //            make.top.equalTo(customerView.mas_top).offset(-15);
             make.left.equalTo(customerView.mas_left).offset(10);
             make.right.equalTo(customerView.mas_right).offset(-10);
-            make.height.mas_equalTo(150);
+//            make.height.mas_equalTo(150);
             //            make.width.equalTo(customerView);
             
             
@@ -168,6 +171,57 @@ static UILabel *labelLay;
     
     [finalStr insertAttributedString:space atIndex:4];
     labelLay.attributedText = finalStr;
+    
+    [customerView addSubview:self.oneLabel];
+    [customerView addSubview:self.twoLabel];
+    [customerView addSubview:self.threeLabel];
+    
+    self.oneLabel.text = @"抗压缩和抗拉伸性";
+    self.twoLabel.text = @"遇见你，我变得很低很低，一直低到尘埃里去，但我的心是欢喜的。并且在那里开出一朵花来。";
+    self.threeLabel.text = @"我行过许多地方的桥，看过许多次数的云，123，abc，喝过许多类的酒，却只爱过一个正当最好年龄的人";
+    NSCharacterSet *nonDigitCharacterSet = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
+    NSLog(@"%@",[[self.threeLabel.text componentsSeparatedByCharactersInSet:nonDigitCharacterSet] componentsJoinedByString:@""]);
+    //抗拉伸性 越高越不容易被拉伸
+//    [self.oneLabel setContentHuggingPriority:UILayoutPriorityRequired
+//                                     forAxis:UILayoutConstraintAxisHorizontal];
+    //抗压缩性 越高越不容易被压缩
+    [self.oneLabel setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+    ///建议一般是以上两个都设置
+    [self.oneLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(customerView.mas_leading).mas_offset(15);
+        make.top.mas_equalTo(0);
+    }];
+    
+    [self.twoLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(_oneLabel.mas_trailing).mas_offset(10);
+        make.trailing.equalTo(@-15);
+        make.top.equalTo(_oneLabel);
+    }];
+    
+    [self.threeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(_oneLabel);
+        make.top.equalTo(_twoLabel.mas_bottom).mas_offset(15);
+        make.trailing.equalTo(_twoLabel);
+    }];
+    
+    self.twoLabel.numberOfLines = 1;
+//    self.twoLabel.lineBreakMode = NSLineBreakByCharWrapping; //以字符为显示单位显示，后面部分省略不显示。
+//    self.twoLabel.lineBreakMode = NSLineBreakByClipping; //剪切与文本宽度相同的内容长度，后半部分被删除。
+//    self.twoLabel.lineBreakMode = NSLineBreakByTruncatingHead; //前面部分文字以……方式省略，显示尾部文字内容。
+//    self.twoLabel.lineBreakMode = NSLineBreakByTruncatingMiddle; //中间的内容以……方式省略，显示头尾的文字内容。
+//    self.twoLabel.lineBreakMode = NSLineBreakByTruncatingTail; //结尾部分的内容以……方式省略，显示头的文字内容。
+    self.twoLabel.lineBreakMode = NSLineBreakByWordWrapping; //以单词为显示单位显示，后面部分省略不显示。
+
+    
+    /*
+     NSString *priceText = [NSString stringWithFormat:@"实付金额：¥%.2f",nearest];
+     NSRange range2 = NSMakeRange(5, priceText.length - 3 - 5);
+     NSRange range3 = NSMakeRange(priceText.length - 3, 3);
+     NSMutableAttributedString *attPriceText = [[NSMutableAttributedString alloc] initWithString:priceText];
+     [attPriceText addAttribute:NSForegroundColorAttributeName value:UIColorFromRGBA(0xfb6c21, 1.0) range:range2];
+     [attPriceText addAttribute:NSFontAttributeName value:kFont(18) range:range2];
+     [attPriceText addAttribute:NSForegroundColorAttributeName value:UIColorFromRGBA(0xfb6c21, 1.0) range:range3];
+     */
     
     //    UIView *light = [UIView new];
     //    light.backgroundColor = [UIColor lightGrayColor];
@@ -266,7 +320,12 @@ static UILabel *labelLay;
     [buttonleft mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view);
         make.right.equalTo(buttonright.mas_left);
-        make.bottom.equalTo(self.view.mas_bottom);
+        if (@available(iOS 11.0, *)) {
+            make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom);
+        } else {
+            // Fallback on earlier versions
+            make.bottom.equalTo(self.view.mas_bottom);
+        }
         /**
          *  长宽相等 注意，这里不能用 make.height.equalTo(make.width);
          */
@@ -277,7 +336,12 @@ static UILabel *labelLay;
     [buttonright mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.view);
         make.height.equalTo(buttonleft.mas_height);
-        make.bottom.equalTo(self.view.mas_bottom);
+        if (@available(iOS 11.0, *)) {
+            make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom);
+        } else {
+            make.bottom.equalTo(self.view.mas_bottom);
+            // Fallback on earlier versions
+        }
     }];
     //增加闪动动画
     CAMediaTimingFunction *anticipateTiming = [CAMediaTimingFunction functionWithControlPoints:0.42 :-0.30 :1.00 :1.00];
@@ -319,7 +383,20 @@ static UILabel *labelLay;
     //    backgroundView *vire = [backgroundView sureGuideView];
     //
     //    [self.view addSubview:vire];
+    UIView *bottomView = [[UIView alloc]init];
+    bottomView.backgroundColor = [UIColor redColor];
+    UILabel *bottomAdView = [[UILabel alloc]init];
+    bottomAdView.textColor = [UIColor blackColor];
+    bottomAdView.text = @"大海专属";
+    bottomAdView.textAlignment = NSTextAlignmentCenter;
+    [bottomView addSubview:bottomAdView];
+    [self.view addSubview:bottomView];
     
+    [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.left.equalTo(self.view);
+        make.top.equalTo(customerView.mas_bottom);
+        make.bottom.equalTo(self.view);
+    }];
 }
 static BOOL btnSelected;
 - (void)controil{
@@ -1947,6 +2024,37 @@ static NSMutableArray *_masonryViewArray;
         _completionRate.text = @"完成率";
     }
     return _completionRate;
+}
+- (UILabel *)oneLabel
+{
+    if (!_oneLabel) {
+        _oneLabel = [[UILabel alloc] init];
+        _oneLabel.textColor = [UIColor redColor];
+        _oneLabel.font = [UIFont systemFontOfSize:15];
+    }
+    return _oneLabel;
+}
+
+- (UILabel *)twoLabel
+{
+    if (!_twoLabel) {
+        _twoLabel = [[UILabel alloc] init];
+        _twoLabel.textColor = [UIColor orangeColor];
+        _twoLabel.font = [UIFont systemFontOfSize:15];
+        _twoLabel.numberOfLines = 0;//换行
+    }
+    return _twoLabel;
+}
+
+- (UILabel *)threeLabel
+{
+    if (!_threeLabel) {
+        _threeLabel = [[UILabel alloc] init];
+        _threeLabel.textColor = [UIColor magentaColor];
+        _threeLabel.font = [UIFont systemFontOfSize:15];
+        _threeLabel.numberOfLines = 0;//换行
+    }
+    return _threeLabel;
 }
 //- (void)startAnimation
 //

@@ -16,7 +16,7 @@
 // 可写在pch文件里
 //#define BaseURL @"http://apis.baidu.com/apistore"
 
-#define BaseURL @"http://112.74.174.20:8080/contactOne/"
+#define BaseURL @"http://api.aixueshi.top:5000/Api/V2/Teacher/Study/Search/V200828" //@"http://112.74.174.20:8080/contactOne/"
 @implementation SFNetWorkManager
 
 #pragma mark - shareManager
@@ -88,7 +88,7 @@
  *  @param progress 进度
  */
 
-+(void)requestWithType:(HttpRequestType)type withUrlString:(NSString *)urlString withParaments:(id)paraments withSuccessBlock:(requestSuccess)successBlock withFailureBlock:(requestFailure)failureBlock progress:(downloadProgress)progress
+-(void)requestWithType:(HttpRequestType)type withUrlString:(NSString *)urlString withParaments:(id)paraments withSuccessBlock:(requestSuccess)successBlock withFailureBlock:(requestFailure)failureBlock progress:(downloadProgress)progress
 {
     switch (type) {
             case HttpRequestTypeGet:

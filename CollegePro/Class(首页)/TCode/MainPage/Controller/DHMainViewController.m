@@ -311,7 +311,7 @@
     [self addCell:@"网速测试" class:@"NetworkSpeedViewController"];
     [self addCell:@"MethodBlock" class:@"LabelMethodBlockVC"];
     [self addCell:@"MethodBlockS" class:@"LabelMethodBlockSubVC"];
-    [self addCell:@"购物车" class:@"TShopAnimationViewController"];
+    [self addCell:@"布局知识" class:@"TShopAnimationViewController"];
     [self addCell:@"文档" class:@"DocumentViewController"];
     [self addCell:@"iCloud文件" class:@"iCloudViewController"];
     [self addCell:@"获取健康信息" class:@"HealthViewController"];

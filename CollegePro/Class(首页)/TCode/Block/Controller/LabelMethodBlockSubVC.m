@@ -1351,7 +1351,66 @@ static UILabel *myLabel;
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [queue addOperations:@[operation2, operation1] waitUntilFinished:NO];
 }
-
+///NSOperation需要在NSOperationQueue中使用，通过queue可以实现先进先出的队列任务，可以添加或取消任务，NSOperation有2个重要的子类，分别是：NSInvocationOperation，NSBlockOperation，分别表示调用一个方法或调用一个block的任务。 NSOperation是比GCD更高层次的api，相同的线程操作如果能用NSOperation操作就尽量用，不能实现的线程操作才使用GCD.相比GCD，NSOperation还有个好处，就是任务可以被取消，而GCD不可以。
+- (void)OperationFunction{
+    NSOperationQueue *queue = [[NSOperationQueue alloc]init];
+    //设置队列最大同时进行的任务数量，1为串行队列
+    [queue setMaxConcurrentOperationCount:1];
+    //添加一个block任务
+    [queue addOperationWithBlock:^{
+        sleep(2);
+        NSLog(@"block task 1");
+    }];
+    [queue addOperationWithBlock:^{
+        sleep(2);
+        NSLog(@"block task 2");
+    }];
+    //显示添加一个block任务
+    NSBlockOperation *block1 = [NSBlockOperation blockOperationWithBlock:^{
+        sleep(2);
+        NSLog(@"block task 3");
+    }];
+    //设置任务优先级
+    //说明：优先级高的任务，调用的几率会更大,但不表示一定先调用
+    [block1 setQueuePriority:NSOperationQueuePriorityHigh];
+    [queue addOperation:block1];
+    
+    NSBlockOperation *block2 = [NSBlockOperation blockOperationWithBlock:^{
+        sleep(2);
+        NSLog(@"block task 4，任务3依赖4");
+    }];
+    [queue addOperation:block2];
+    //任务3依赖4
+    [block1 addDependency:block2];
+    //设置任务完成的回调
+    [block2 setCompletionBlock:^{
+        NSLog(@"block task 4 comlpete");
+    }];
+    
+    //设置block1完成后才会继续往下走
+    [block1 waitUntilFinished];
+    NSLog(@"block task 3 is waitUntilFinished!");
+    
+    //初始化一个子任务
+    NSInvocationOperation *oper1 = [[NSInvocationOperation alloc]initWithTarget:self selector:@selector(function1) object:nil];
+    [queue addOperation:oper1];
+    ///queue也有对应的方法，叫做waitUntilAllOperationsAreFinished
+    [queue waitUntilAllOperationsAreFinished];
+    NSLog(@"queue comlpeted");
+    
+    //    取消全部操作
+    //    [queue cancelAllOperations];
+    //    暂停操作/恢复操作/是否暂定状态
+    //    [queue setSuspended:YES];[queue setSuspended:NO];[queue isSuspended];
+    
+    //操作优先级
+    
+    //      [queue waitUntilAllOperationsAreFinished];
+    
+}
+- (void)function1{
+    
+}
 - (void)operationA{
     //blockOperationWithBlock在不同的线程中并发执行的
     NSBlockOperation *op = [NSBlockOperation blockOperationWithBlock:^{
@@ -2631,6 +2690,41 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 }
 - (void)returnText:(ReturnTextBlock)block {
 	self.returnTextBlock = block;
+}
+///倒计时
+- (void)countDown
+{
+    __block int timeout=60; //倒计时时间
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
+    dispatch_source_t _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,queue);
+    
+    dispatch_source_set_timer(_timer,dispatch_walltime(NULL, 0),1.0*NSEC_PER_SEC, 0); //每秒执行
+    
+    dispatch_source_set_event_handler(_timer, ^{
+        
+        if(timeout<=0){ //倒计时结束，关闭
+            
+            dispatch_source_cancel(_timer);
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                //设置界面的按钮显示 根据自己需求设置
+//                self.timeCount.enabled = YES;
+//                [self.timeCount setTitle:@"获取验证码" forState:UIControlStateNormal];
+            });
+        }else{
+            NSString *strTime = [NSString stringWithFormat:@"%.2d", timeout];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                //设置界面的按钮显示 根据自己需求设置
+//                self.timeCount.enabled = NO;
+//                [self.timeCount setTitle:[NSString stringWithFormat:@"%@s",strTime] forState:UIControlStateNormal];
+            });
+            timeout--;
+        }
+    });
+    dispatch_resume(_timer);
 }
 - (void)dealloc{
     //    [_p fof_removeObserver:self forKeyPath:@"sex" context:nil];
