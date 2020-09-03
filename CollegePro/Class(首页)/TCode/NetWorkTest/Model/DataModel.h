@@ -16,5 +16,5 @@
 @property (nonatomic, strong)NSArray *Comments;
 @property (nonatomic, strong)NSDictionary *User;
 @property (nonatomic, strong)NSDictionary *Favorters;
-- (void)teset;
+//- (void)teset;
 @end

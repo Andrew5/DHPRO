@@ -28,7 +28,7 @@
 //- (void)alloc{
 //    NSLog(@"alloc接收到网络测试的model");
 //}
-- (void)teset{
-    NSLog(@"teset接收到网络测试的model");
-}
+//- (void)teset{
+//    NSLog(@"teset接收到网络测试的model");
+//}
 @end

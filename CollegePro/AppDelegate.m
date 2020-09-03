@@ -15,6 +15,7 @@
 #import "ScreenBlurry.h"
 #import "TMotionViewController.h"//碰撞
 #import "AvoidCrash.h"
+#import "YTKNetworkConfig.h"
 //极光推送
 // 引入 JPush 功能所需头文件
 #import "JPUSHService.h"
@@ -115,6 +116,9 @@ extern CFAbsoluteTime StartTime;
     [self writeFile];
     self.name = @"kaishi";
     NSLog(@"self.name %@",self.name);
+    YTKNetworkConfig *config = [YTKNetworkConfig sharedConfig];
+    config.baseUrl = @"https://sitservice.lilyclass.com";
+//    config.cdnUrl = @"http://fen.bi";
     ///MARK: -极光推送⬇️
     //Required
     //notice: 3.0.0 及以后版本注册可以这样写，也可以继续用之前的注册方式
