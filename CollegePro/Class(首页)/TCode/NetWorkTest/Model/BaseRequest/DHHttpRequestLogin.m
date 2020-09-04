@@ -1,16 +1,13 @@
 //
-//  DHHttpRequest.m
+//  DHHttpRequestLogin.m
 //  CollegePro
 //
 //  Created by admin on 2020/8/28.
 //  Copyright © 2020 jabrknight. All rights reserved.
 //
 
-#import "DHHttpRequest.h"
-//typedef void(^HXRequestCompletionBlock)(__kindof HXRequest *request,NSDictionary *result, BOOL success);
-//typedef void(^HXRequestCompletionFailureBlock)(__kindof HXRequest *request,NSString *errorInfo);
-
-@interface DHHttpRequest(){
+#import "DHHttpRequestLogin.h"
+@interface DHHttpRequestLogin(){
     
 }
 @property(nonatomic, strong) NSString *username;
@@ -18,32 +15,12 @@
 
 @property(nonatomic, strong) NSString * errorInfo;
 @end
-@implementation DHHttpRequest
+@implementation DHHttpRequestLogin
 - (YTKRequestMethod)requestMethod {
    return YTKRequestMethodPOST;
 }
 - (NSString *)requestUrl {
-//    return @"https://sitservice.lilyclass.com/api/orders/28280";
-    ///api/carousels/enabled?type=4
-/*
- 登录
- {
-     password = admin123;
-     secretKey = 588c1adb403f6ce030e44ec4d182640e;
-     username = 15209930772;
- }/api/auth/login
- */
-    /*
-     注册
-     {
-         pushId = 121c83f760a4cc10242;
-         pushType = 1;
-         username = 15209930772;
-     }/api/push/register 需要token
-     */
     return @"https://sitservice.lilyclass.com/api/auth/login";
-//    return @"http://192.168.210.50:8080/api/auth/login";
-
 }
 - (instancetype)initWithUsername:(NSString *)username
                         password:(NSString *)password{
@@ -93,8 +70,8 @@
     return @{
             @"username":_username,
             @"password":_password,
-            @"secretKey":@"588c1adb403f6ce030e44ec4d182640e",
-            @"access_token":@"eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJsaWx5Q2xhc3NPbmxpbmUiLCJzdWIiOiJ7XCJsYXN0TG9naW5EYXRlXCI6XCIyMDIwLTA4LTMwIDIyOjI4OjUyLjdcIixcInVzZXJJZFwiOjIzNTMxLFwidXNlcm5hbWVcIjpcIjE1MjA5OTMwNzcyXCJ9IiwiYXVkIjoibW9iaWxlIiwiaWF0IjoxNTk4Nzk3NzMyLCJleHAiOjE1OTg4ODQxMzJ9.Rt2DP_yro9FIhxG663PrSsUnlaCh3cUDbsp_MNc6PsdhkEBIn9v__Pz5dSRUggz895YN6fNkv5OASR2a5cSqJA"
+            @"secretKey":@"81df9161be6115e1a0cb335c74b2a2f9",
+            @"access_token":[[DHTool userTokenObj] objectForKey:@"access_token"]
             };
 }
 
@@ -110,11 +87,9 @@
         @"did":@"144B2FE8-3EE5-4916-A0CA-66EF461FBB39",
         @"os":@"1",
         @"channel":@"001",
-        @"reqTime":@"1598694276",
+        @"reqTime":@"1599103287",
         @"osVer":@"iPhone-13.5.1",
-        @"ver":@"2.2.0",
-        @"Content-Type":@"application/json; charset=utf-8"
-        
+        @"ver":@"2.3.0"
     };
 }
 -(NSString *)convertToJsonData:(NSDictionary *)dict

@@ -1,5 +1,5 @@
 //
-//  DHHttpRequest.h
+//  DHHttpRequestLogin.h
 //  CollegePro
 //
 //  Created by admin on 2020/8/28.
@@ -13,7 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DHHttpRequest : YTKBaseRequest
+@interface DHHttpRequestLogin : YTKBaseRequest
 
 @property (nonatomic, assign) BOOL needToken;
 

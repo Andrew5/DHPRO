@@ -347,6 +347,24 @@
     }
     return taskInfo.resident_size / 1024.0 / 1024.0;
 }
++ (void)setToken:(id)tokenObj{
+    NSMutableDictionary *tokenDic = [NSMutableDictionary new];
+    tokenDic[@"access_token"] = tokenObj[@"data"][@"access_token"];
+    tokenDic[@"expires_time"] = tokenObj[@"data"][@"expires_in"];
+    tokenDic[@"token_getTime"] = [NSDate date];
+    
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    [userDefault setObject:tokenDic forKey:@"access_token"];
+    [userDefault synchronize];
+}
++ (NSDictionary *)userTokenObj{
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    
+    NSDictionary *tokenObj = [userDefault objectForKey:@"access_token"];
+    
+    [userDefault synchronize];
+    return tokenObj;
+}
 ///TODO: 获取网络流量信息
 + (NSString *)getByteRate {
     long long int currentBytes = [DHTool getInterfaceBytes];

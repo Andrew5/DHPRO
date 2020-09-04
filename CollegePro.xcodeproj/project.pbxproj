@@ -912,10 +912,8 @@
 		38F0FBFA23C781F400B04343 /* CHLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F0FBF923C781F400B04343 /* CHLogger.m */; };
 		69231657234E31B400A92110 /* SphericaLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 69231653234E31B400A92110 /* SphericaLayout.m */; };
 		69231658234E31B400A92110 /* ThreeDimensionalSphericalLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 69231655234E31B400A92110 /* ThreeDimensionalSphericalLayout.m */; };
-		845010F724F9221500FE4321 /* DHHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 845010F624F9221500FE4321 /* DHHttpRequest.m */; };
-		845010FA24F94B1400FE4321 /* DHRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 845010F924F94B1300FE4321 /* DHRequest.m */; };
+		845010F724F9221500FE4321 /* DHHttpRequestLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 845010F624F9221500FE4321 /* DHHttpRequestLogin.m */; };
 		845010FD24FBDE4000FE4321 /* DHHttpRequestUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 845010FC24FBDE4000FE4321 /* DHHttpRequestUserInfo.m */; };
-		8450110024FBE34000FE4321 /* DHUserInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 845010FF24FBE34000FE4321 /* DHUserInfoRequest.m */; };
 		8462331D24DAA4A500A1F60D /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38A99B3A229BD1C000D52230 /* NotificationCenter.framework */; };
 		8462332124DAA4A500A1F60D /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8462332024DAA4A500A1F60D /* TodayViewController.m */; };
 		8462332424DAA4A500A1F60D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8462332224DAA4A500A1F60D /* MainInterface.storyboard */; };
@@ -933,6 +931,9 @@
 		8487ADBE24F8BEC1004B41ED /* WTTestt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8487ADBA24F8BEC1004B41ED /* WTTestt.cpp */; };
 		8487ADC224F8E111004B41ED /* TopicItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8487ADC124F8E111004B41ED /* TopicItem.m */; };
 		8487ADC424F8E17B004B41ED /* File.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8487ADC324F8E17B004B41ED /* File.xml */; };
+		84B264192500A761009B9E4B /* DHHttpRequestOrders.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B264182500A761009B9E4B /* DHHttpRequestOrders.m */; };
+		84B2641C2500F12C009B9E4B /* DHHttpRequestImageFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2641B2500F12C009B9E4B /* DHHttpRequestImageFile.m */; };
+		84B2641F2501DCAF009B9E4B /* DHHttpRequestImageUp.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2641E2501DCAF009B9E4B /* DHHttpRequestImageUp.m */; };
 		8688670DA1111CB5B413FE49 /* Pods_CollegePro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40E2710DF49C3576F5AC7B3 /* Pods_CollegePro.framework */; };
 /* End PBXBuildFile section */
 
@@ -2525,14 +2526,10 @@
 		69231659234E322400A92110 /* CollegeProDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CollegeProDebug.entitlements; sourceTree = "<group>"; };
 		69231685234E34B200A92110 /* DHTabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHTabbarViewController.h; sourceTree = "<group>"; };
 		7AF4C889879B55CEA1FEE0BD /* Pods-CommonPods-CollegePro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommonPods-CollegePro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CommonPods-CollegePro/Pods-CommonPods-CollegePro.debug.xcconfig"; sourceTree = "<group>"; };
-		845010F524F9221500FE4321 /* DHHttpRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHHttpRequest.h; sourceTree = "<group>"; };
-		845010F624F9221500FE4321 /* DHHttpRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHHttpRequest.m; sourceTree = "<group>"; };
-		845010F824F94B1300FE4321 /* DHRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHRequest.h; sourceTree = "<group>"; };
-		845010F924F94B1300FE4321 /* DHRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHRequest.m; sourceTree = "<group>"; };
+		845010F524F9221500FE4321 /* DHHttpRequestLogin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHHttpRequestLogin.h; sourceTree = "<group>"; };
+		845010F624F9221500FE4321 /* DHHttpRequestLogin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHHttpRequestLogin.m; sourceTree = "<group>"; };
 		845010FB24FBDE3F00FE4321 /* DHHttpRequestUserInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHHttpRequestUserInfo.h; sourceTree = "<group>"; };
 		845010FC24FBDE4000FE4321 /* DHHttpRequestUserInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHHttpRequestUserInfo.m; sourceTree = "<group>"; };
-		845010FE24FBE34000FE4321 /* DHUserInfoRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHUserInfoRequest.h; sourceTree = "<group>"; };
-		845010FF24FBE34000FE4321 /* DHUserInfoRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHUserInfoRequest.m; sourceTree = "<group>"; };
 		8462331C24DAA4A500A1F60D /* CollegeProWidge.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CollegeProWidge.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		8462331F24DAA4A500A1F60D /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
 		8462332024DAA4A500A1F60D /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
@@ -2556,6 +2553,12 @@
 		8487ADC024F8E111004B41ED /* TopicItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicItem.h; sourceTree = "<group>"; };
 		8487ADC124F8E111004B41ED /* TopicItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicItem.m; sourceTree = "<group>"; };
 		8487ADC324F8E17B004B41ED /* File.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = File.xml; sourceTree = "<group>"; };
+		84B264172500A761009B9E4B /* DHHttpRequestOrders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHHttpRequestOrders.h; sourceTree = "<group>"; };
+		84B264182500A761009B9E4B /* DHHttpRequestOrders.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHHttpRequestOrders.m; sourceTree = "<group>"; };
+		84B2641A2500F12C009B9E4B /* DHHttpRequestImageFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHHttpRequestImageFile.h; sourceTree = "<group>"; };
+		84B2641B2500F12C009B9E4B /* DHHttpRequestImageFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHHttpRequestImageFile.m; sourceTree = "<group>"; };
+		84B2641D2501DCAF009B9E4B /* DHHttpRequestImageUp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHHttpRequestImageUp.h; sourceTree = "<group>"; };
+		84B2641E2501DCAF009B9E4B /* DHHttpRequestImageUp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHHttpRequestImageUp.m; sourceTree = "<group>"; };
 		B94442A678D5676362354ED8 /* Pods-CollegePro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollegePro.release.xcconfig"; path = "Pods/Target Support Files/Pods-CollegePro/Pods-CollegePro.release.xcconfig"; sourceTree = "<group>"; };
 		F40E2710DF49C3576F5AC7B3 /* Pods_CollegePro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CollegePro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -4860,14 +4863,8 @@
 				38C846DA227827EF00BCAD87 /* DataModel.m */,
 				38C846DC227827EF00BCAD87 /* UserModel.h */,
 				38C846D9227827EF00BCAD87 /* UserModel.m */,
-				845010F524F9221500FE4321 /* DHHttpRequest.h */,
-				845010F624F9221500FE4321 /* DHHttpRequest.m */,
-				845010FB24FBDE3F00FE4321 /* DHHttpRequestUserInfo.h */,
-				845010FC24FBDE4000FE4321 /* DHHttpRequestUserInfo.m */,
-				845010F824F94B1300FE4321 /* DHRequest.h */,
-				845010F924F94B1300FE4321 /* DHRequest.m */,
-				845010FE24FBE34000FE4321 /* DHUserInfoRequest.h */,
-				845010FF24FBE34000FE4321 /* DHUserInfoRequest.m */,
+				84B264222501E808009B9E4B /* BaseRequest */,
+				84B264232501E815009B9E4B /* Request */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -6219,6 +6216,30 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		84B264222501E808009B9E4B /* BaseRequest */ = {
+			isa = PBXGroup;
+			children = (
+				845010F524F9221500FE4321 /* DHHttpRequestLogin.h */,
+				845010F624F9221500FE4321 /* DHHttpRequestLogin.m */,
+				845010FB24FBDE3F00FE4321 /* DHHttpRequestUserInfo.h */,
+				845010FC24FBDE4000FE4321 /* DHHttpRequestUserInfo.m */,
+				84B264172500A761009B9E4B /* DHHttpRequestOrders.h */,
+				84B264182500A761009B9E4B /* DHHttpRequestOrders.m */,
+				84B2641A2500F12C009B9E4B /* DHHttpRequestImageFile.h */,
+				84B2641B2500F12C009B9E4B /* DHHttpRequestImageFile.m */,
+			);
+			path = BaseRequest;
+			sourceTree = "<group>";
+		};
+		84B264232501E815009B9E4B /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				84B2641D2501DCAF009B9E4B /* DHHttpRequestImageUp.h */,
+				84B2641E2501DCAF009B9E4B /* DHHttpRequestImageUp.m */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
 		DB7A53478EBF97A0FF9F1D0C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -6813,7 +6834,6 @@
 				3874F5C4245E9A550038E7DE /* KeyBoardModel.m in Sources */,
 				38C84A6E227827F200BCAD87 /* SectionsViewController.m in Sources */,
 				38C2D0CB22D5E27700CF30CA /* ASIFormDataRequest.m in Sources */,
-				845010FA24F94B1400FE4321 /* DHRequest.m in Sources */,
 				38C977E522AE02D300F978C1 /* Options.m in Sources */,
 				386BC04322DDABA7005E6054 /* DGActivityIndicatorBallGridPulseAnimation.m in Sources */,
 				38C8492C227827F100BCAD87 /* SM3Tool.mm in Sources */,
@@ -6877,6 +6897,7 @@
 				38C84A29227827F200BCAD87 /* CustomKeyBoardViewController.m in Sources */,
 				38C2D0CD22D5E27700CF30CA /* ASIAuthenticationDialog.m in Sources */,
 				38C84959227827F100BCAD87 /* ESMMeViewController.m in Sources */,
+				84B2641C2500F12C009B9E4B /* DHHttpRequestImageFile.m in Sources */,
 				38C849DD227827F200BCAD87 /* SKGraphicView.m in Sources */,
 				38C849DA227827F200BCAD87 /* PinyinFormatter.m in Sources */,
 				386BC05522DDABA7005E6054 /* DGActivityIndicatorRotatingSandglassAnimation.m in Sources */,
@@ -6926,6 +6947,7 @@
 				386BBC5222DD9C18005E6054 /* UIImage+Filter.m in Sources */,
 				38C2D0D122D5E27700CF30CA /* ASIDownloadCache.m in Sources */,
 				38C849DC227827F200BCAD87 /* SignatureViewController.m in Sources */,
+				84B2641F2501DCAF009B9E4B /* DHHttpRequestImageUp.m in Sources */,
 				381D6474243F173D00EA86D8 /* SafeSetObject.m in Sources */,
 				38C8491A227827F100BCAD87 /* UIImage+Extend.m in Sources */,
 				38C84A40227827F200BCAD87 /* MLSelectPhotoAssets.m in Sources */,
@@ -7222,7 +7244,7 @@
 				38C84A35227827F200BCAD87 /* EditPicturesViewController.m in Sources */,
 				386BBDB022DDA7FF005E6054 /* GPUImageSharpenFilter.m in Sources */,
 				386BBDA022DDA7FF005E6054 /* GPUImageStretchDistortionFilter.m in Sources */,
-				845010F724F9221500FE4321 /* DHHttpRequest.m in Sources */,
+				845010F724F9221500FE4321 /* DHHttpRequestLogin.m in Sources */,
 				38C8490E227827F100BCAD87 /* HKHealthStore+AAPLExtensions.m in Sources */,
 				38EA8533228D57F300A28136 /* SFTextView.m in Sources */,
 				386BBDE222DDA7FF005E6054 /* GPUImageCGAColorspaceFilter.m in Sources */,
@@ -7247,7 +7269,6 @@
 				38C84943227827F100BCAD87 /* LBTabBarTextController.m in Sources */,
 				38C848D2227827F100BCAD87 /* DHGifImageOperation.m in Sources */,
 				38C848F5227827F100BCAD87 /* WLBallView.m in Sources */,
-				8450110024FBE34000FE4321 /* DHUserInfoRequest.m in Sources */,
 				386BBD7D22DDA7FE005E6054 /* GPUImageTransformFilter.m in Sources */,
 				384C3FCB22887D7A00F01586 /* MVPViewController.m in Sources */,
 				38C84A0A227827F200BCAD87 /* DHAboutViewController.m in Sources */,
@@ -7305,6 +7326,7 @@
 				38C84A47227827F200BCAD87 /* MLSelectPhotoPickerBrowserPhotoImageView.m in Sources */,
 				386BBD7422DDA7FE005E6054 /* GPUImageEmbossFilter.m in Sources */,
 				38C84A3A227827F200BCAD87 /* LxGridViewFlowLayout.m in Sources */,
+				84B264192500A761009B9E4B /* DHHttpRequestOrders.m in Sources */,
 				38C84918227827F100BCAD87 /* UIButton+ImageTitleSpacing.m in Sources */,
 				38C849D9227827F200BCAD87 /* ChineseToPinyinResource.m in Sources */,
 				38C848ED227827F100BCAD87 /* XMLDictionary.m in Sources */,

@@ -1,8 +1,8 @@
 //
-//  DHUserInfoRequest.h
+//  DHHttpRequestOrders.h
 //  CollegePro
 //
-//  Created by admin on 2020/8/30.
+//  Created by admin on 2020/9/3.
 //  Copyright © 2020 jabrknight. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DHUserInfoRequest : YTKRequest
+@interface DHHttpRequestOrders : YTKBaseRequest
 
 @end
 
