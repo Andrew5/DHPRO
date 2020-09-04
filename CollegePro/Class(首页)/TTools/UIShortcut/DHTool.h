@@ -85,6 +85,9 @@
 + (void)deleteLocalCacheDataWithKey:(NSString *)key;
 
 + (NSString *)getIPAddress;
+///本地信息保存
++ (void)setToken:(id)tokenObj;
++ (NSDictionary *)userTokenObj;
 /**
  富文本实现文章末尾增加自定义后缀文字
  

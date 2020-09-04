@@ -28,38 +28,35 @@
     return [NSString stringWithFormat:@"%@ \nstatusCode:%ld\nresponseJSONObject:\n%@",super.description,self.responseStatusCode,self.responseJSONObject];
 }
 - (NSString *)requestUrl{
-    return @"/api/user";
+    return @"https://sitservice.lilyclass.com/api/user";
 }
 
 -(YTKRequestSerializerType)requestSerializerType{
     return YTKRequestSerializerTypeJSON;
 }
-- (id)requestArgument{
-    return @"";
-}
+
+
 //设置请求头
 - (NSDictionary<NSString *,NSString *> *)requestHeaderFieldValueDictionary {
     //设置通用header 签名
     if (self.needToken) {
         return @{
-            @"did":@"144B2FE8-3EE5-4916-A0CA-66EF461FBB39",
+            @"did":@"CB55E0B1-AD0A-46E9-B566-F732BB478C04",
             @"os":@"1",
             @"channel":@"001",
-            @"reqTime":@"1598694276",
+            @"reqTime":@"1599117817",
             @"osVer":@"iPhone-13.5.1",
-            @"ver":@"2.2.0",
-            @"Content-Type":@"application/json; charset=utf-8",
-            @"access_token":@"eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJsaWx5Q2xhc3NPbmxpbmUiLCJzdWIiOiJ7XCJsYXN0TG9naW5EYXRlXCI6XCIyMDIwLTA4LTMwIDIyOjI4OjUyLjdcIixcInVzZXJJZFwiOjIzNTMxLFwidXNlcm5hbWVcIjpcIjE1MjA5OTMwNzcyXCJ9IiwiYXVkIjoibW9iaWxlIiwiaWF0IjoxNTk4Nzk3NzMyLCJleHAiOjE1OTg4ODQxMzJ9.Rt2DP_yro9FIhxG663PrSsUnlaCh3cUDbsp_MNc6PsdhkEBIn9v__Pz5dSRUggz895YN6fNkv5OASR2a5cSqJA"
+            @"ver":@"2.3.0",
+            @"Authorization":[NSString stringWithFormat:@"Bearer %@",[[DHTool userTokenObj] objectForKey:@"access_token"]]
         };
     }else{
         return @{
-            @"did":@"144B2FE8-3EE5-4916-A0CA-66EF461FBB39",
+            @"did":@"CB55E0B1-AD0A-46E9-B566-F732BB478C04",
             @"os":@"1",
             @"channel":@"001",
-            @"reqTime":@"1598694276",
+            @"reqTime":@"1599103287",
             @"osVer":@"iPhone-13.5.1",
-            @"ver":@"2.2.0",
-            @"Content-Type":@"application/json; charset=utf-8"
+            @"ver":@"2.3.0"
             
         };
     }

@@ -10,14 +10,14 @@
 #import "SFNetWorkManager.h"
 #import "CommentsModel.h"
 #import <objc/message.h>
-//#import "DataModel.h"
-#import "DHHttpRequest.h"
+#import "DHHttpRequestLogin.h"
 #import "YTKNetwork.h"
-#import "DHRequest.h"
 #import "SFNetWorkManager.h"
 #import "YTKNetworkConfig.h"
 #import "DHHttpRequestUserInfo.h"
-#import "DHUserInfoRequest.h"
+#import "DHHttpRequestOrders.h"
+#import "DHHttpRequestImageFile.h"
+#import "DHHttpRequestImageUp.h"
 ///对象宏(object-like macro)和函数宏(function-like macro)
 #define M_PI        3.14159265358979323846264338327950288
 #define SELF(x)      x
@@ -26,7 +26,7 @@
 //#define MIN(A,B) A < B ? A : B
 //正确
 #define MIN(A,B) (A < B ? A : B)
-@interface NetTestViewController ()<YTKChainRequestDelegate,YTKRequestDelegate>
+@interface NetTestViewController ()<YTKChainRequestDelegate,YTKRequestDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 {
 	__block NSArray *_dataSource;
 	
@@ -35,8 +35,12 @@
 	
 
 }
+@property (strong, nonatomic) UIView *headerView;
+@property (strong, nonatomic) UIImageView *userIcon;
+
+
 @property (nonatomic,assign)dispatch_queue_t queue ;
-@property (nonatomic,copy)NSString *someString;
+@property (nonatomic,  copy)NSString *someString;
 @end
 
 @implementation NetTestViewController
@@ -47,9 +51,9 @@
     [super viewDidLoad];
     self.navigationItem.title = @"网络测试";
     // Do any additional setup after loading the view.
-//    [self getdata];
-    [self getNetwork];
-//    [self loginRequest];
+//    [self httpRequestImage];
+//    [self getNetwork];
+    
     double r = 10.0;
     double circlePerimeter = 2 * M_PI * r;
     // => double circlePerimeter = 2 * 3.14159265358979323846264338327950288 * r;
@@ -70,88 +74,274 @@
     //因为小于和比较符号的优先级是较低的，所以乘法先被运算了，修正非常简单嘛，加括号就好了。
     int c = MIN(3, 4 < 5 ? 4 : 5);
     printf("%d",c);
+    ///网络请求
+//    [self getBaseRequestNetwork];
+//    [self getRequestNetwork];
+    ///头像请求
+    [self httpRequestLogin];
+    [self.view addSubview:self.headerView];
 }
-- (void)getNetwork{
+- (void)getRequestNetwork{
+    
+}
+- (void)getBaseRequestNetwork{
     ///登录接口
-    [self httpRequestLoginData];
+    [self httpRequestLogin];
     ///获取个人信息
     [self httpRequestUserInfo];
-}
-- (void)httpRequestLoginData{
-    YTKNetworkAgent *agent = [YTKNetworkAgent sharedAgent];
-    [agent setValue:[NSSet setWithObjects:@"application/json", @"text/plain", @"text/javascript", @"text/json",@"text/html", nil]
-    forKeyPath:@"jsonResponseSerializer.acceptableContentTypes"];
-    [YTKNetworkConfig sharedConfig].debugLogEnabled = NO;  //开启Debug模式
-    ///请求成功
-    DHHttpRequest *reg = [[DHHttpRequest alloc] initWithUsername:@"15209930772" password:@"admin123"];
-    reg.needToken = YES;
-    reg.delegate = self;
-    YTKChainRequest *chainReq = [[YTKChainRequest alloc] init];
-    [chainReq addRequest:reg callback:^(YTKChainRequest * _Nonnull chainRequest, YTKBaseRequest * _Nonnull baseRequest) {
+    ///获取订单列表
+    [self httpRequestOrders];
+    ///上传头像
 
-    }];
-    [reg startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
-        NSLog(@"请求数据,返回数据:%@--%@",request.responseString,request.requestUrl);
-
-    } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
-        NSLog(@"请求失败");
-    }];
 }
-- (void)httpRequestUserInfo{
+- (void)httpRequestLogin{
 //    YTKNetworkAgent *agent = [YTKNetworkAgent sharedAgent];
 //    [agent setValue:[NSSet setWithObjects:@"application/json", @"text/plain", @"text/javascript", @"text/json",@"text/html", nil]
 //    forKeyPath:@"jsonResponseSerializer.acceptableContentTypes"];
-    
-    DHHttpRequestUserInfo *reg = [[DHHttpRequestUserInfo alloc] init];
+//    [YTKNetworkConfig sharedConfig].debugLogEnabled = NO;  //开启Debug模式
+    ///请求成功
+    DHHttpRequestLogin *reg = [[DHHttpRequestLogin alloc] initWithUsername:@"15209930772" password:@"admin123"];
     reg.needToken = YES;
+    reg.delegate = self;
 //    YTKChainRequest *chainReq = [[YTKChainRequest alloc] init];
 //    [chainReq addRequest:reg callback:^(YTKChainRequest * _Nonnull chainRequest, YTKBaseRequest * _Nonnull baseRequest) {
 //
 //    }];
     [reg startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
         NSLog(@"请求数据,返回数据:%@--%@",request.responseString,request.requestUrl);
-
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:@"15209930772" forKey:@"USERNAME"];
+        [defaults setObject:@"admin123" forKey:@"PASSWORD"];
+        [DHTool setToken:request.responseObject];
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
         NSLog(@"请求失败");
     }];
 }
-
-- (void)loginRequest{
-    DHRequest *loginRequest = [[DHRequest alloc]init];
-    [loginRequest startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
-        NSLog(@"请求数据,返回数据:%@--%@",request.responseString,request.requestUrl);
+- (void)httpRequestUserInfo{
+    YTKNetworkAgent *agent = [YTKNetworkAgent sharedAgent];
+    [agent setValue:[NSSet setWithObjects:@"application/json", @"text/plain", @"text/javascript", @"text/json",@"text/html", nil]
+    forKeyPath:@"jsonResponseSerializer.acceptableContentTypes"];
+//    [NSSet setWithObjects:@"text/plain",@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
+    
+    DHHttpRequestUserInfo *reg = [[DHHttpRequestUserInfo alloc] init];
+    reg.needToken = YES;
+    YTKChainRequest *chainReq = [[YTKChainRequest alloc] init];
+    [chainReq addRequest:reg callback:^(YTKChainRequest * _Nonnull chainRequest, YTKBaseRequest * _Nonnull baseRequest) {
+        NSLog(@"个人信息请求数据缓存:%@",baseRequest);
+    }];
+    [reg startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
+        NSLog(@"个人信息请求数据,返回数据:%@--%@",request.responseString,request.requestUrl);
 
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
-        NSLog(@"请求失败");
-    }];
-    
-    DHUserInfoRequest *userInfoRequest = [[DHUserInfoRequest alloc]init];
-    [userInfoRequest startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
-        NSLog(@"请求数据,返回数据:%@--%@",request.responseString,request.requestUrl);
-
-    } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
-        NSLog(@"请求失败");
-    }];
-    
-    YTKBatchRequest *batchRequest = [[YTKBatchRequest alloc] initWithRequestArray:@[loginRequest, userInfoRequest]];
-    [batchRequest startWithCompletionBlockWithSuccess:^(YTKBatchRequest *batchRequest) {
-        NSLog(@"succeed");
-        NSArray *requests = batchRequest.requestArray;
-//        GetImageApi *a = (GetImageApi *)requests[0];
-//        GetImageApi *b = (GetImageApi *)requests[1];
-//        GetImageApi *c = (GetImageApi *)requests[2];
-//        GetUserInfoApi *user = (GetUserInfoApi *)requests[3];
-        // deal with requests result ...
-    } failure:^(YTKBatchRequest *batchRequest) {
-        NSLog(@"failed");
+        NSLog(@"个人信息请求失败 %@",request.requestUrl);
     }];
 }
+- (void)httpRequestOrders{
+    DHHttpRequestOrders *reg = [[DHHttpRequestOrders alloc] init];
+    [reg startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
+        NSLog(@"订单请求数据,返回数据:%@--%@",request.responseString,request.requestUrl);
+        
+    } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
+        NSLog(@"订单请求失败 %@-----%@",request.responseString,request.requestUrl);
+    }];
+}
+
+
 - (void)requestFinished:(__kindof YTKBaseRequest *)request{
     
 }
 - (void)requestFailed:(__kindof YTKBaseRequest *)request{
     
 }
+
+- (UIView *)headerView{
+    
+    if (!_headerView) {
+        _headerView = [UIView new];
+        _headerView.frame = CGRectMake(0, 0, DH_DeviceWidth, (DH_DeviceHeight - 64) * 63/(667 - 64));
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapActions:)];
+        
+        [_headerView addGestureRecognizer:tap];
+        UILabel *label = [UILabel new];
+        label.text = @"头像";
+        label.textAlignment = NSTextAlignmentLeft;
+        self.userIcon = [UIImageView new];
+        self.userIcon.layer.masksToBounds = YES;
+        self.userIcon.layer.cornerRadius = (DH_DeviceHeight - 64) * 22.5 / (667 - 64);
+        self.userIcon.layer.borderColor = [UIColor redColor].CGColor;
+        self.userIcon.layer.borderWidth = 1.0;
+        NSString *urlString = [NSString stringWithFormat:@"%@%@?x-oss-process=image/resize,w_200",@"https://fedynamic.lilyclass.com/", @"object/23320/avatar.jpg"];
+        NSURL *imageUrl = [NSURL URLWithString:urlString];
+        //            NSData *data = [NSData dataWithContentsOfURL:imageUrl];
+        //            self.userIcon.image = [UIImage imageWithData:data];
+        [self.userIcon sd_setImageWithURL:nil placeholderImage:[UIImage imageNamed:@"g"] options:SDWebImageRefreshCached];
+        
+        UIImageView *right = [UIImageView new];
+        right.image = [UIImage imageNamed:@"icon_courseList_right.png"];
+        
+        UIView *bottomLine = [UIView new];
+        bottomLine.backgroundColor = UIColorFromRGBA(0xe6e6e6, 1.0);
+        
+        [_headerView addSubview:label];
+        [_headerView addSubview:self.userIcon];
+        [_headerView addSubview:right];
+        [_headerView addSubview:bottomLine];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(_headerView);
+            make.left.equalTo(_headerView.mas_left).offset(15);
+        }];
+        
+        [right mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(_headerView);
+            make.height.mas_equalTo(_headerView).multipliedBy((float) 12/63);
+            make.width.mas_equalTo(right.mas_height).multipliedBy((float) 7/12);
+            make.right.equalTo(_headerView.mas_right).offset(-15);
+        }];
+        
+        [self.userIcon mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(_headerView);
+            make.height.mas_equalTo(_headerView).multipliedBy((float)45/63);
+            make.width.mas_equalTo(self.userIcon.mas_height);
+            make.right.equalTo(right.mas_left).offset(-15);
+        }];
+        
+        [bottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(label.mas_left);
+            make.height.mas_equalTo(@(1));
+            make.right.equalTo(_headerView.mas_right);
+            make.bottom.equalTo(_headerView.mas_bottom);
+        }];
+    }
+    return _headerView;
+}
+- (void)tapActions:(UITapGestureRecognizer *)tap{
+    __weak __typeof (self)weakSelf = self;
+    // 创建UIImagePickerController实例
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    // 设置代理
+    imagePickerController.delegate = self;
+    // 是否允许编辑（默认为NO）
+    imagePickerController.allowsEditing = YES;
+    // 创建一个警告控制器
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"选取图片" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    if (@available(iOS 13.0, *)) {
+        alert.view.overrideUserInterfaceStyle = YES;
+    } else {
+        // Fallback on earlier versions
+    }
+    // 设置警告响应事件
+    UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        // 设置照片来源为相机
+        imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+        // 设置进入相机时使用前置或后置摄像头
+        imagePickerController.cameraDevice = UIImagePickerControllerCameraDeviceFront;
+        imagePickerController.modalPresentationStyle = UIModalPresentationFullScreen;
+        imagePickerController.modalPresentationStyle = UIModalPresentationFullScreen;
+
+        // 展示选取照片控制器
+        [weakSelf presentViewController:imagePickerController animated:YES completion:nil];
+    }];
+    UIAlertAction *photosAction = [UIAlertAction actionWithTitle:@"从相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        imagePickerController.modalPresentationStyle = UIModalPresentationFullScreen;
+
+        [weakSelf presentViewController:imagePickerController animated:YES completion:nil];
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    }];
+    // 判断是否支持相机
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        // 添加警告按钮
+        [alert addAction:cameraAction];
+    }
+    [alert addAction:photosAction];
+    [alert addAction:cancelAction];
+    // 展示警告控制器
+    [self presentViewController:alert animated:YES completion:nil];
+}
+#pragma mark - UIImagePickerControllerDelegate
+// 完成图片的选取后调用的方法
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    // 选取完图片后跳转回原控制器
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    /* 此处参数 info 是一个字典，下面是字典中的键值 （从相机获取的图片和相册获取的图片时，两者的info值不尽相同）
+     * UIImagePickerControllerMediaType; // 媒体类型
+     * UIImagePickerControllerOriginalImage; // 原始图片
+     * UIImagePickerControllerEditedImage; // 裁剪后图片
+     * UIImagePickerControllerCropRect; // 图片裁剪区域（CGRect）
+     * UIImagePickerControllerMediaURL; // 媒体的URL
+     * UIImagePickerControllerReferenceURL // 原件的URL
+     * UIImagePickerControllerMediaMetadata // 当数据来源是相机时，此值才有效
+     */
+    // 从info中将图片取出，并加载到imageView当中
+    UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
+    self.userIcon.image = image;
+    if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+        // 创建保存图像时需要传入的选择器对象（回调方法格式固定）
+        SEL selectorToCall = @selector(imageSavedToPhotosAlbum:didFinishSavingWithError:contextInfo:);
+        // 将图像保存到相册（第三个参数需要传入上面格式的选择器对象）
+        UIImageWriteToSavedPhotosAlbum(image, self, selectorToCall, NULL);
+        
+    }
+    
+    NSData *data = UIImageJPEGRepresentation(image,0.5);
+    NSMutableDictionary *parameters = [NSMutableDictionary new];
+    parameters[@"file"] = data;
+    parameters[@"image"] = image;
+
+    [self uploadUsericonWithParameters:parameters];
+
+}
+- (void)uploadUsericonWithParameters:(NSMutableDictionary *)parameters{
+    
+//    DHHttpRequestImageFile *reg = [[DHHttpRequestImageFile alloc] initImageWithData:parameters[@"file"] WithImage:parameters[@"image"]];
+//    [reg setUploadProgressBlock:^(DHHttpRequestImageFile * _Nonnull currentApi, NSProgress * _Nonnull progress) {
+//        NSLog(@"头像请求进度,返回数据:%@--%@",currentApi,progress);
+//    }];
+//    reg.uploadProgressBlock = ^(DHHttpRequestImageFile * _Nonnull currentApi, NSProgress * _Nonnull progress) {
+//        NSLog(@"%@",progress);
+//    };
+//    [reg startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
+//        NSLog(@"头像请求数据,返回数据:%@--%@",request.responseString,request.requestUrl);
+//
+//    } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
+//           NSLog(@"头像请求失败 %@-----%@",request.responseString,request.requestUrl);
+//    }];
+    
+    
+    DHHttpRequestImageUp *regreg = [[DHHttpRequestImageUp alloc] initImageWithData:parameters[@"file"] WithImage:parameters[@"image"] WithBase64:@""];
+    [regreg startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
+        NSLog(@"头像请求数据,返回数据:%@--%@",request.responseString,request.requestUrl);
+    } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
+        NSLog(@"--%ldd",(long)request.error.code);
+    }];
+}
+// 取消选取调用的方法
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+// 保存图片后到相册后，回调的相关方法，查看是否保存成功
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
+    if (error == nil){
+        NSLog(@"Image was saved successfully.");
+    } else {
+        NSLog(@"An error happened while saving the image.");
+    }
+}
+//保存照片成功后的回调
+- (void)imageSavedToPhotosAlbum:(UIImage *)image didFinishSavingWithError:(NSError *)error
+                    contextInfo:(void *)contextInfo {
+    
+    if (!error) {
+        NSLog(@"保存图片到相册成功");
+    }else {
+        NSLog(@"保存图片到相册发生错误，错误信息%@",error);
+    }
+}
+
 - (void)requestNetWorkManager{
     NSString *URL = @"http://api.aixueshi.top:5000/Api/V2/Teacher/Study/Search/V200828";
     NSDictionary *dic = @{@"Account": @"15962119320", @"DeviceSystemVersion": @"13.6", @"Logitude": @(0.0), @"Latitude": @(0.0), @"Location": @"", @"Password": @"123456", @"DeviceType": @(1), @"DeviceName": @"iPad Pro (12.9-inch)", @"AppBuild": @"2020.08.23.01", @"DeviceUUID": @"F9CF5E5B-AD12-4256-8F72-AE40FEAA8D9E", @"AppVersion": @"1.2.4"};

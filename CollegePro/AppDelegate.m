@@ -40,7 +40,7 @@
 #import "BaseNavigationController.h"
 
 #import "QDExceptionHandler.h"
-
+#define UUID_IDFA @"IdentifierUUIDIDFA"
 #define kUseScreenShotGesture 1
 extern CFAbsoluteTime StartTime;
 @interface AppDelegate ()<JPUSHRegisterDelegate,UNUserNotificationCenterDelegate>
@@ -96,6 +96,12 @@ extern CFAbsoluteTime StartTime;
     
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
     [SVProgressHUD setMinimumDismissTimeInterval:1.0];
+
+    NSString *IDFV = [LHKeyChain load:UUID_IDFA];
+    if ([IDFV isEqualToString:@""] || !IDFV) {
+        IDFV = [UIDevice currentDevice].identifierForVendor.UUIDString;
+        [LHKeyChain save:UUID_IDFA data:IDFV];
+    }
     
     IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
     manager.enable = YES;//控制整个功能是否启用。
