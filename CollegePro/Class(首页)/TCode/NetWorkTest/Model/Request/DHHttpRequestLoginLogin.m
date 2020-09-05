@@ -1,41 +1,41 @@
 //
-//  DHHttpRequestUserInfo.m
+//  DHHttpRequestLoginLogin.m
 //  CollegePro
 //
-//  Created by admin on 2020/8/30.
+//  Created by admin on 2020/9/4.
 //  Copyright © 2020 jabrknight. All rights reserved.
 //
 
-#import "DHHttpRequestUserInfo.h"
+#import "DHHttpRequestLoginLogin.h"
 
-@implementation DHHttpRequestUserInfo
+@implementation DHHttpRequestLoginLogin
+
+//    NSString *secretKey = [NSString stringWithFormat:@"%@%@%@",[LilyTools userDefaultObjectForKey:AppSecSretkey],parameters[@"username"],parameters[@"password"]];
 - (YTKRequestMethod)requestMethod {
-   return YTKRequestMethodGET;
+   return YTKRequestMethodPOST;
 }
-- (instancetype)init{
+- (NSString *)requestUrl {
+    return @"https://sitservice.lilyclass.com/api/auth/login";
+}
+- (instancetype)initWithUsername:(NSString *)username
+                        password:(NSString *)password{
     self = [super init];
     if (self) {
-       
+        _username = username;
+        _password = password;
     }
     return self;
 }
-
+- (id)requestArgument {
+    return @{
+            @"username":_username,
+            @"password":_password,
+            @"secretKey":@"81df9161be6115e1a0cb335c74b2a2f9"
+            };
+}
 - (NSTimeInterval)requestTimeoutInterval {
     return 10;
 }
-- (NSString *)description {
-    //打印自己认为重要的信息
-    return [NSString stringWithFormat:@"%@ \nstatusCode:%ld\nresponseJSONObject:\n%@",super.description,self.responseStatusCode,self.responseJSONObject];
-}
-- (NSString *)requestUrl{
-    return @"https://sitservice.lilyclass.com/api/user";
-}
-
--(YTKRequestSerializerType)requestSerializerType{
-    return YTKRequestSerializerTypeJSON;
-}
-
-
 //设置请求头
 - (NSDictionary<NSString *,NSString *> *)requestHeaderFieldValueDictionary {
     //设置通用header 签名
@@ -60,6 +60,10 @@
             
         };
     }
-    
 }
+-(YTKRequestSerializerType)requestSerializerType{
+    return YTKRequestSerializerTypeJSON;
+}
+
+
 @end

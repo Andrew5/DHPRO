@@ -38,7 +38,7 @@
         @"did":@"CB55E0B1-AD0A-46E9-B566-F732BB478C04",
         @"os":@"1",
         @"channel":@"001",
-        @"reqTime":@"1599203994",
+        @"reqTime":[NSString stringWithFormat:@"%.f",[[NSDate dateWithTimeIntervalSinceNow:0] timeIntervalSince1970]],
         @"osVer":@"iPhone-13.5.1",
         @"ver":@"2.3.0",
 //        @"Authorization":@"Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJsaWx5Q2xhc3NPbmxpbmUiLCJzdWIiOiJ7XCJsYXN0TG9naW5EYXRlXCI6XCIyMDIwLTA5LTAzIDE2OjM3OjUyLjg5N1wiLFwidXNlcklkXCI6MjMzMjAsXCJ1c2VybmFtZVwiOlwiMTMxNjY2Njg2ODZcIn0iLCJhdWQiOiJtb2JpbGUiLCJpYXQiOjE1OTkxMjIyNzIsImV4cCI6MTU5OTIwODY3Mn0.36O03UijLArrBugWUnUC9q-wuSbzz7AvGY5AJmj_lKZsoVplpCGkjvRweXPV1-P4ZYH-h-i5kmKFOG_oq7dTbA"

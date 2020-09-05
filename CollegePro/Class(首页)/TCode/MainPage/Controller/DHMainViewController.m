@@ -101,7 +101,7 @@
 //#import "DocumentViewController.h"//文档
 //#import "AliRTCViewController.h"
 
-@interface DHMainViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIAccelerometerDelegate,AVAudioPlayerDelegate,MKMapViewDelegate,CLLocationManagerDelegate>{
+@interface DHMainViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIAccelerometerDelegate,AVAudioPlayerDelegate,MKMapViewDelegate,CLLocationManagerDelegate,UISearchBarDelegate>{
     NSMutableArray *valueArr;
     UICollectionView *_collectionView;
     UILabel *_lb_showinfo;
@@ -129,7 +129,14 @@
 @property (nonatomic ,strong) NSMutableArray *assets;//图片集合
 @property (nonatomic, strong) NSMutableArray *titles;
 @property (nonatomic, strong) NSMutableArray *classNames;
-@property (nonatomic, copy) NSString *test;
+///搜索功能
+@property(nonatomic,strong)NSArray *tableData;
+@property(nonatomic,strong)NSMutableArray *requltData;
+@property(nonatomic,strong)NSArray *tableIndexData;
+@property(nonatomic,strong)NSMutableArray *requltIndexData;
+@property(nonatomic,assign)BOOL searchActive;
+///搜索功能
+
 @end
 
 @implementation DHMainViewController
@@ -146,7 +153,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    [[DKNightVersionManager dk_manager] dawnComing];
-//    [[DKNightVersionManager dk_manager] nightFalling];
+    [[DKNightVersionManager dk_manager] nightFalling];
     //方法二
     mach_timebase_info_data_t timebase;
     mach_timebase_info(&timebase);
@@ -171,8 +178,8 @@
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(proximityStateDidChange) name:UIDeviceProximityStateDidChangeNotification object:nil];
 //    [UIDevice currentDevice].proximityMonitoringEnabled = YES;
     //网络测速
-//    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(getinternet) userInfo:nil repeats:YES];
-//    [timer fireDate];
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(getinternet) userInfo:nil repeats:YES];
+    [timer fireDate];
     //方法一
     CFAbsoluteTime endTime = (CFAbsoluteTimeGetCurrent() - startTime);
     NSLog(@"一方法耗时: %f ms", endTime * 1000.0);
@@ -227,7 +234,7 @@
 }
 - (void)setUPUI{
     //网速显示
-    displayLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, DH_DeviceHeight-50, DH_DeviceWidth, 40)];
+    displayLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, DH_DeviceHeight, DH_DeviceWidth, 40)];
     displayLabel.backgroundColor = [UIColor colorWithRed:0.962 green:0.971 blue:1.000 alpha:1.000];
     displayLabel.layer.shadowColor = [UIColor lightGrayColor].CGColor;
     displayLabel.layer.shadowOffset = CGSizeMake(0, -5);
@@ -237,7 +244,7 @@
     displayLabel.hidden = YES;
     displayLabel.lineBreakMode = NSLineBreakByWordWrapping;
     displayLabel.numberOfLines = 0;
-    [DHTool setBorderWithView:displayLabel top:NO left:NO bottom:NO right:YES borderColor:[UIColor clearColor] borderWidth:0 otherBorderWidth:1 topColor:[UIColor redColor] leftColor:[UIColor orangeColor] bottomColor:[UIColor grayColor] rightColor:[UIColor blueColor]];
+//    [DHTool setBorderWithView:displayLabel top:NO left:NO bottom:NO right:YES borderColor:[UIColor clearColor] borderWidth:0 otherBorderWidth:1 topColor:[UIColor redColor] leftColor:[UIColor orangeColor] bottomColor:[UIColor grayColor] rightColor:[UIColor blueColor]];
     [self.view addSubview:displayLabel];
     [[UIApplication sharedApplication].keyWindow addSubview:displayLabel];
     //    self.navigationController.navigationBar.barTintColor = IWColor(255,155,0);
@@ -248,7 +255,7 @@
     //    flowLayout.minimumLineSpacing = 0.0;//minimumLineSpacing cell上下之间的距离
     //    flowLayout.minimumInteritemSpacing = 5.0;//cell左右之间的距离
     //    flowLayout.headerReferenceSize = CGSizeMake(self.view.frame.size.width, 20);
-    _collectionView=[[UICollectionView alloc] initWithFrame:CGRectMake(15, 0, DH_DeviceWidth-30, DH_DeviceHeight-64-34) collectionViewLayout:flowLayout];
+    _collectionView=[[UICollectionView alloc] initWithFrame:CGRectMake(15, 0, DH_DeviceWidth-30, DH_DeviceHeight-64-34-64) collectionViewLayout:flowLayout];
     //    _collectionView=[[UICollectionView alloc] init];
     //    _collectionView.collectionViewLayout = flowLayout;
     //注册Cell，必须要有
@@ -258,6 +265,11 @@
     _collectionView.delegate=self;
     [_collectionView setBackgroundColor:[UIColor whiteColor]];
     [self.view addSubview:_collectionView];
+    [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.view);
+        make.left.with.right.equalTo(self.view);
+        make.height.offset(25);
+    }];
     self.titles = @[].mutableCopy;
     self.classNames = @[].mutableCopy;
 #pragma mark -跳转页面
@@ -353,15 +365,70 @@
     _lb_showinfo.font = DH_FontSize(12);
     _lb_showinfo.layer.borderColor = [UIColor redColor].CGColor;
     _lb_showinfo.layer.borderWidth = 1.0;
-    _lb_showinfo.frame = CGRectMake(0, DH_DeviceHeight-44-30, DH_DeviceWidth, 25);
+//    _lb_showinfo.frame = CGRectMake(0, DH_DeviceHeight, DH_DeviceWidth, 25);
     [self.view addSubview:_lb_showinfo];
     [_lb_showinfo mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.view).offset(-88);
+        make.bottom.equalTo(self.view);
         make.left.with.right.equalTo(self.view);
         make.height.offset(25);
     }];
 //    _lb_showinfo.text = [self getSignalStrength];
 }
+
+/**
+ 将传进来的数据模型分组并排序  分成若干个分组  每个分组也进行排序 并删除分组中为空的分组
+
+ @param objects 初始的对象数组
+ @param selector 属性名称
+ @param empty 清空与否
+ @return 返回一个大数组 数组中是小数组  小数组中存储模型对象
+ */
+-(NSArray *)groupingSortingWithObjects:(NSArray *)objects withSelector:(SEL)selector isEmptyArray:(BOOL)empty{
+    
+    //UILocalizedIndexedCollation的分组排序建立在对对象的操作之上
+    UILocalizedIndexedCollation *collation = [UILocalizedIndexedCollation currentCollation];
+    
+    //得到collation索引数量（26个字母和1个#）
+    NSMutableArray *indexArray = [NSMutableArray arrayWithArray:collation.sectionTitles];
+    NSUInteger sectionNumber = [indexArray count];//sectionNumber = 27
+    
+    //建立每个section数组
+    NSMutableArray *sectionArray = [NSMutableArray arrayWithCapacity:sectionNumber];
+    for (int index = 0; index < sectionNumber; index++) {
+        NSMutableArray *subArray = [NSMutableArray array];
+        [sectionArray addObject:subArray];
+    }
+    
+//    for (PersonData *model in objects) {
+//        //根绝SEL方法返回的字符串判断对象应该处于哪个分区
+//        //将每个人按name分到某个section下
+//        NSInteger index = [collation sectionForObject:model collationStringSelector:selector];//获取name属性的值所在的位置，比如“林”首字母是L,则就把林放在L组中
+//        NSMutableArray *tempArray = sectionArray[index];
+//        [tempArray addObject:model];
+//    }
+    
+    //对每个section中的数组按照name属性排序
+    for (NSMutableArray *arr in sectionArray) {
+        NSArray *sortArr = [collation sortedArrayFromArray:arr collationStringSelector:selector];
+        [arr removeAllObjects];
+        [arr addObjectsFromArray:sortArr];
+    }
+    
+    //是不是删除空数组
+    if (empty) {
+        [sectionArray enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(NSArray *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (obj.count == 0) {
+                [sectionArray removeObjectAtIndex:idx];
+                [indexArray removeObjectAtIndex:idx];
+            }
+        }];
+    }
+    //第一个数组为tableView的数据源  第二个数组为索引数组 A B C......
+    return @[sectionArray,indexArray];
+}
+
+
+
 - (void)addCell:(NSString *)title class:(NSString *)className {
     [self.titles addObject:title];
     [self.classNames addObject:className];
@@ -618,7 +685,7 @@
         NSString* speedStr = [NSString stringWithFormat:@"%@/S", [QBTools formattedFileSize:speed]];
         NSLog(@"平均速度为：%@",speedStr);
         NSLog(@"相当于带宽：%@",[QBTools formatBandWidth:speed]);
-        _lb_showinfo.text = [NSString stringWithFormat:@"平均速度为： %@---相当带宽：%@--%@",speedStr,[QBTools formatBandWidth:speed],[DHTool getByteRate]];
+        _lb_showinfo.text = [NSString stringWithFormat:@"平均速度为： %@---相当带宽：(时间间隔里的传输速率:)%@--%@",speedStr,[QBTools formatBandWidth:speed],[DHTool getByteRate]];
         [userDefault setObject:[DHTool getByteRate] forKey:@"network"];
         [userDefault setObject:@"2我是数据" forKey:@"myShareData"];
         [userDefault synchronize];
@@ -731,7 +798,7 @@
         //        CMAcceleration acceleration = self.mgr.accelerometerData.acceleration;
             CMAcceleration acceleration = accelerometerData.acceleration;
         NSLog(@"4/n获取加速计信息 x:%f y:%f z:%f", acceleration.x, acceleration.y, acceleration.z);
-        //        _lb_showinfo.text = [NSString stringWithFormat:@"获取的X:%.2f,获取的Y:%.2f,获取的Z:%.2f",acceleration.x, acceleration.y, acceleration.z];
+                _lb_showinfo.text = [NSString stringWithFormat:@"获取的X:%.2f,获取的Y:%.2f,获取的Z:%.2f",acceleration.x, acceleration.y, acceleration.z];
             //        NSLog(@"速度:%@",[NSByteCountFormatter stringFromByteCount:[DHTool getInterfaceBytes] countStyle:NSByteCountFormatterCountStyleFile]);
         //
         //        NSLog(@"获取网速:%.4lld KB--网速是%@",[DHMainViewController getInterfaceBytes],[DHMainViewController getByteRate]);
@@ -797,7 +864,7 @@
         displayLabel.hidden = NO;
             //自适应高度
         CGRect txtFrame = displayLabel.frame;
-            displayLabel.frame = CGRectMake(0, DH_DeviceHeight-50, DH_DeviceWidth,
+            displayLabel.frame = CGRectMake(0, DH_DeviceHeight, DH_DeviceWidth,
                                         txtFrame.size.height =[string boundingRectWithSize:
                                                                CGSizeMake(txtFrame.size.width, CGFLOAT_MAX)
                                                                                    options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
@@ -815,7 +882,7 @@
 }
 - (void)hiddenDataPicker{
     [UIView animateWithDuration:0.5 animations:^{
-        displayLabel.frame = CGRectMake(0, DH_DeviceHeight+50, DH_DeviceWidth, 20);
+        displayLabel.frame = CGRectMake(0, DH_DeviceHeight, DH_DeviceWidth, 20);
         NSLog(@"执行隐藏");
     } completion:^(BOOL finished) {
         NSLog(@"执行完毕");
@@ -828,7 +895,7 @@
 }
 - (void)receiveMessage:(NSNotification *)nof{
     NSDictionary *dict = nof.userInfo;
-    self.test = dict[@"content"];
+//    self.test = dict[@"content"];
 }
 -(void)dealloc{
     //移除距离感应通知

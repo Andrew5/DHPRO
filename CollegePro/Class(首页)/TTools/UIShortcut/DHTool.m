@@ -7,6 +7,7 @@
 //
 
 #import "DHTool.h"
+#import "WKWebViewController.h"
 #import <SystemConfiguration/CaptiveNetwork.h>
 #import <CoreText/CoreText.h>
 //获取设备当前连接网段IP
@@ -796,6 +797,16 @@
         str = [NSString stringWithFormat:@"%f",tInterval];
     }
     return str;
+}
++ (void)pushChatController:(UIViewController *)controller {
+    
+    NSString *url = @"https://www.jianshu.com/p/f646916abd77";
+//    if (kUserInfo.userModel.markType == 0) {
+//        url = kChatUrl_Normal;
+//    }
+    WKWebViewController *chatController = [[WKWebViewController alloc] initWithUrl:url navTitle:@"客服"];
+    [controller.navigationController pushViewController:chatController animated:YES];
+    
 }
 /////利用图像遮盖
 

@@ -28,6 +28,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //解决hidesBottomBarWhenPushed 跳转闪屏问题
+    [[UITabBar appearance] setTranslucent:NO];
+    [self.view addSubview:self.customerService];
+//    [self.view addSubview:self.visitorLabel];
+    [self.view addSubview:self.bottomADView];
     [self myTabbar];
     // Do any additional setup after loading the view.
 }
@@ -76,6 +81,92 @@
 	}];
 	//显示第几个
 	self.selectedIndex = 0;
+
+}
+//#define iPhoneX (IS_IOS_11 && IS_IPHONE && (MIN([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) >= 375 && MAX([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) >= 812))
+#define isIPhone        [[UIDevice currentDevice].model isEqualToString:@"iPhone"]
+
+-(UIButton *)customerService{
+    
+    if (!_customerService) {
+        
+        _customerService = [UIButton buttonWithType:UIButtonTypeCustom];
+        
+        [_customerService setImage:[UIImage imageNamed:@"icon_kefu_home"] forState:UIControlStateNormal];
+        
+        [_customerService addTarget:self action:@selector(customerServiceClick) forControlEvents:UIControlEventTouchUpInside];
+        
+        [self.view addSubview:_customerService];
+        [_customerService mas_makeConstraints:^(MASConstraintMaker *make) {
+            
+            make.right.mas_equalTo(-15);
+            
+            make.bottom.mas_equalTo(-(49.00 + (isIPhone ? 12+40 : 16+40)));
+            
+            make.size.mas_equalTo(isIPhone ? CGSizeMake(40, 40) : CGSizeMake(60, 60));
+        }];
+        
+    }
+    
+    return _customerService;
+}
+
+//联系客服
+- (void)customerServiceClick{
+    
+    UINavigationController *nav = self.selectedViewController;
+    [DHTool pushChatController:nav.topViewController];
+    
+}
+-(UIButton *)visitorLabel{
+    
+    if (!_visitorLabel) {
+        
+        NSString *string = @"当前为游客模式，快去登录学习吧！!";
+        NSMutableAttributedString *mutAtt = [[NSMutableAttributedString alloc]initWithString:string];
+        
+        [mutAtt addAttribute:NSForegroundColorAttributeName value:UIColorFromRGB(0xfe7652) range:[string rangeOfString:@"登录"]];
+        
+        _visitorLabel = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_visitorLabel setTitle:nil forState:UIControlStateNormal];
+        [_visitorLabel setAttributedTitle:mutAtt forState:(UIControlStateNormal)];
+        CGFloat h = isIPhone ? 33 : 43;
+        
+        _visitorLabel.frame = CGRectMake(0, DH_DeviceHeight - kTabBarHeight - h, DH_DeviceWidth, h);
+        _visitorLabel.backgroundColor = UIColorFromRGBA(0x000000, 0.6);
+        _visitorLabel.titleLabel.textColor = UIColorFromRGBA(0xffffff, 1.0);
+        _visitorLabel.titleLabel.font = isIPhone ? kFont(13) : kFont(18);
+
+        [_visitorLabel addTarget:self action:@selector(visitorLabelClick) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _visitorLabel;
+}
+- (UIView *)bottomADView{
+    if (_bottomADView == nil) {
+        _bottomADView = [[UIView alloc]init];
+        _bottomADView.backgroundColor = [UIColor greenColor];
+        UILabel *bottomAdView = [[UILabel alloc]init];
+        bottomAdView.textColor = [UIColor blackColor];
+        bottomAdView.text = @"大海专属";
+        bottomAdView.textAlignment = NSTextAlignmentCenter;
+        [_bottomADView addSubview:bottomAdView];
+        [self.view addSubview:_bottomADView];
+        [bottomAdView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(_bottomADView.mas_top);
+            make.centerX.equalTo(_bottomADView);
+        }];
+        [_bottomADView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.left.equalTo(self.view);
+            make.top.equalTo(self.view.mas_safeAreaLayoutGuideBottom);
+            make.bottom.equalTo(self.view);
+            make.height.offset(34);
+        }];
+    }
+    return _bottomADView;
+}
+- (void)visitorLabelClick{
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"eLLToLoginViewController" object:@{@"eLLToLoginViewController" : @"1"}];
 
 }
 //- (void)addOneChildVC:(UIViewController *)childVC title:(NSString *)title backgroundColor:(UIColor *)color imageName:(NSString *)imageName selectedName:(NSString *)selectImageName

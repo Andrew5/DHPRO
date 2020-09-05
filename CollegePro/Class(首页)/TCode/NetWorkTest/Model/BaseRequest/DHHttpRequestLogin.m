@@ -70,24 +70,19 @@
     return @{
             @"username":_username,
             @"password":_password,
-            @"secretKey":@"81df9161be6115e1a0cb335c74b2a2f9",
-            @"access_token":[[DHTool userTokenObj] objectForKey:@"access_token"]
+            @"secretKey":@"81df9161be6115e1a0cb335c74b2a2f9"
+//            @"access_token":[[DHTool userTokenObj] objectForKey:@"access_token"]
             };
 }
 
 //设置请求头
 - (NSDictionary<NSString *,NSString *> *)requestHeaderFieldValueDictionary {
     //设置通用header 签名
-    if (self.needToken) {
-        NSLog(@"需要");
-    }else{
-        NSLog(@"不需要");
-    }
     return @{
-        @"did":@"144B2FE8-3EE5-4916-A0CA-66EF461FBB39",
+        @"did":@"CB55E0B1-AD0A-46E9-B566-F732BB478C04",
         @"os":@"1",
         @"channel":@"001",
-        @"reqTime":@"1599103287",
+        @"reqTime":@"1599217293",
         @"osVer":@"iPhone-13.5.1",
         @"ver":@"2.3.0"
     };

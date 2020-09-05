@@ -57,7 +57,7 @@
         @"did":@"CB55E0B1-AD0A-46E9-B566-F732BB478C04",
         @"os":@"1",
         @"channel":@"001",
-        @"reqTime":@"1599116416",
+        @"reqTime":@"1599217293",
         @"osVer":@"iPhone-13.5.1",
         @"ver":@"2.3.0",
         @"Authorization":[NSString stringWithFormat:@"Bearer %@",[[DHTool userTokenObj] objectForKey:@"access_token"]]
