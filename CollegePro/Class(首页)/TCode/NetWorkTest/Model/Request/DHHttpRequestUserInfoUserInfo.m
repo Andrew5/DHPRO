@@ -1,41 +1,28 @@
 //
-//  DHHttpRequestUserInfo.m
+//  DHHttpRequestUserInfoUserInfo.m
 //  CollegePro
 //
-//  Created by admin on 2020/8/30.
+//  Created by admin on 2020/9/4.
 //  Copyright © 2020 jabrknight. All rights reserved.
 //
 
-#import "DHHttpRequestUserInfo.h"
+#import "DHHttpRequestUserInfoUserInfo.h"
 
-@implementation DHHttpRequestUserInfo
+@implementation DHHttpRequestUserInfoUserInfo
 - (YTKRequestMethod)requestMethod {
    return YTKRequestMethodGET;
-}
-- (instancetype)init{
-    self = [super init];
-    if (self) {
-       
-    }
-    return self;
 }
 
 - (NSTimeInterval)requestTimeoutInterval {
     return 10;
 }
-- (NSString *)description {
-    //打印自己认为重要的信息
-    return [NSString stringWithFormat:@"%@ \nstatusCode:%ld\nresponseJSONObject:\n%@",super.description,self.responseStatusCode,self.responseJSONObject];
-}
+//- (NSString *)description {
+//    //打印自己认为重要的信息
+//    return [NSString stringWithFormat:@"%@ \nstatusCode:%ld\nresponseJSONObject:\n%@",self.description,self.responseStatusCode,self.responseJSONObject];
+//}
 - (NSString *)requestUrl{
     return @"https://sitservice.lilyclass.com/api/user";
 }
-
--(YTKRequestSerializerType)requestSerializerType{
-    return YTKRequestSerializerTypeJSON;
-}
-
-
 //设置请求头
 - (NSDictionary<NSString *,NSString *> *)requestHeaderFieldValueDictionary {
     //设置通用header 签名
@@ -60,6 +47,8 @@
             
         };
     }
-    
+}
+-(YTKRequestSerializerType)requestSerializerType{
+    return YTKRequestSerializerTypeJSON;
 }
 @end

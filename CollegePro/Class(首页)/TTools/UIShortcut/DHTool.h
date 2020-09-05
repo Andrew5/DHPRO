@@ -105,4 +105,5 @@
 + (NSNumber *) freeDiskSpace;
 + (double)freeMemory;
 + (double)appUsedMemory;
++ (void)pushChatController:(UIViewController *)controller;
 @end

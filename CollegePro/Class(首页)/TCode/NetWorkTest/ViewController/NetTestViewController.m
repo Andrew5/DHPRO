@@ -8,6 +8,7 @@
 
 #import "NetTestViewController.h"
 #import "SFNetWorkManager.h"
+#import "LHCacheTool.h"
 #import "CommentsModel.h"
 #import <objc/message.h>
 #import "DHHttpRequestLogin.h"
@@ -18,6 +19,9 @@
 #import "DHHttpRequestOrders.h"
 #import "DHHttpRequestImageFile.h"
 #import "DHHttpRequestImageUp.h"
+#import "DHHttpRequestLoginLogin.h"
+#import "DHHttpRequestUserInfoUserInfo.h"
+
 ///对象宏(object-like macro)和函数宏(function-like macro)
 #define M_PI        3.14159265358979323846264338327950288
 #define SELF(x)      x
@@ -41,6 +45,7 @@
 
 @property (nonatomic,assign)dispatch_queue_t queue ;
 @property (nonatomic,  copy)NSString *someString;
+@property (nonatomic,  copy)NSString *headImageUrl;
 @end
 
 @implementation NetTestViewController
@@ -75,14 +80,19 @@
     int c = MIN(3, 4 < 5 ? 4 : 5);
     printf("%d",c);
     ///网络请求
-//    [self getBaseRequestNetwork];
 //    [self getRequestNetwork];
+//    [self getBaseRequestNetwork];
+    ///请求组
+//    [self httpRequestGroup];
     ///头像请求
-    [self httpRequestLogin];
-    [self.view addSubview:self.headerView];
+//    [self.view addSubview:self.headerView];
+    [self requestNetWorkManager];
 }
 - (void)getRequestNetwork{
-    
+    ///获取个人信息
+    [self httpRequestUserInfoUserInfo];
+    ///登录接口
+    [self httpRequestLoginLogin];
 }
 - (void)getBaseRequestNetwork{
     ///登录接口
@@ -91,9 +101,45 @@
     [self httpRequestUserInfo];
     ///获取订单列表
     [self httpRequestOrders];
-    ///上传头像
-
 }
+- (void)httpRequestLoginLogin{
+    DHHttpRequestLoginLogin *login = [[DHHttpRequestLoginLogin alloc]initWithUsername:@"15209930772" password:@"admin123"];
+    login.needToken = NO;
+    [login startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
+        NSLog(@"请求数据,返回数据:%@--%@",request.responseString,request.requestUrl);
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:@"15209930772" forKey:@"USERNAME"];
+        [defaults setObject:@"admin123" forKey:@"PASSWORD"];
+        [DHTool setToken:request.responseObject];
+    } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
+        NSLog(@"请求失败");
+    }];
+}
+- (void)httpRequestUserInfoUserInfo{
+    DHHttpRequestUserInfoUserInfo *reg = [[DHHttpRequestUserInfoUserInfo alloc] init];
+    reg.needToken = YES;
+    [reg startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
+        NSLog(@"个人信息请求数据,返回数据:%@--%@",request.responseString,request.requestUrl);
+
+    } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
+        NSLog(@"个人信息请求失败 %@",request.requestUrl);
+    }];
+}
+- (void)httpRequestGroup{
+    DHHttpRequestLoginLogin *a = [[DHHttpRequestLoginLogin alloc]initWithUsername:@"15209930772" password:@"admin123"];
+    DHHttpRequestUserInfoUserInfo *b = [[DHHttpRequestUserInfoUserInfo alloc] init];
+    b.needToken = YES;
+    YTKBatchRequest *batchRequest = [[YTKBatchRequest alloc] initWithRequestArray:@[b, a]];
+    [batchRequest startWithCompletionBlockWithSuccess:^(YTKBatchRequest *batchRequest) {
+        NSLog(@"succeed");
+        NSArray *requests = batchRequest.requestArray;
+    } failure:^(YTKBatchRequest *batchRequest) {
+        NSLog(@"failed");
+    }];
+    
+}
+
+
 - (void)httpRequestLogin{
 //    YTKNetworkAgent *agent = [YTKNetworkAgent sharedAgent];
 //    [agent setValue:[NSSet setWithObjects:@"application/json", @"text/plain", @"text/javascript", @"text/json",@"text/html", nil]
@@ -118,17 +164,17 @@
     }];
 }
 - (void)httpRequestUserInfo{
-    YTKNetworkAgent *agent = [YTKNetworkAgent sharedAgent];
-    [agent setValue:[NSSet setWithObjects:@"application/json", @"text/plain", @"text/javascript", @"text/json",@"text/html", nil]
-    forKeyPath:@"jsonResponseSerializer.acceptableContentTypes"];
+//    YTKNetworkAgent *agent = [YTKNetworkAgent sharedAgent];
+//    [agent setValue:[NSSet setWithObjects:@"application/json", @"text/plain", @"text/javascript", @"text/json",@"text/html", nil]
+//    forKeyPath:@"jsonResponseSerializer.acceptableContentTypes"];
 //    [NSSet setWithObjects:@"text/plain",@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
     
     DHHttpRequestUserInfo *reg = [[DHHttpRequestUserInfo alloc] init];
     reg.needToken = YES;
-    YTKChainRequest *chainReq = [[YTKChainRequest alloc] init];
-    [chainReq addRequest:reg callback:^(YTKChainRequest * _Nonnull chainRequest, YTKBaseRequest * _Nonnull baseRequest) {
-        NSLog(@"个人信息请求数据缓存:%@",baseRequest);
-    }];
+//    YTKChainRequest *chainReq = [[YTKChainRequest alloc] init];
+//    [chainReq addRequest:reg callback:^(YTKChainRequest * _Nonnull chainRequest, YTKBaseRequest * _Nonnull baseRequest) {
+//        NSLog(@"个人信息请求数据缓存:%@",baseRequest);
+//    }];
     [reg startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
         NSLog(@"个人信息请求数据,返回数据:%@--%@",request.responseString,request.requestUrl);
 
@@ -171,11 +217,11 @@
         self.userIcon.layer.cornerRadius = (DH_DeviceHeight - 64) * 22.5 / (667 - 64);
         self.userIcon.layer.borderColor = [UIColor redColor].CGColor;
         self.userIcon.layer.borderWidth = 1.0;
-        NSString *urlString = [NSString stringWithFormat:@"%@%@?x-oss-process=image/resize,w_200",@"https://fedynamic.lilyclass.com/", @"object/23320/avatar.jpg"];
+        NSString *urlString = [NSString stringWithFormat:@"%@%@?x-oss-process=image/resize,w_200",@"https://fedynamic.lilyclass.com/", self.headImageUrl];
         NSURL *imageUrl = [NSURL URLWithString:urlString];
         //            NSData *data = [NSData dataWithContentsOfURL:imageUrl];
         //            self.userIcon.image = [UIImage imageWithData:data];
-        [self.userIcon sd_setImageWithURL:nil placeholderImage:[UIImage imageNamed:@"g"] options:SDWebImageRefreshCached];
+        [self.userIcon sd_setImageWithURL:imageUrl placeholderImage:[UIImage imageNamed:@"g"] options:SDWebImageRefreshCached];
         
         UIImageView *right = [UIImageView new];
         right.image = [UIImage imageNamed:@"icon_courseList_right.png"];
@@ -310,10 +356,11 @@
 //           NSLog(@"头像请求失败 %@-----%@",request.responseString,request.requestUrl);
 //    }];
     
-    
+    __weak __typeof (self)weakSelf = self;
     DHHttpRequestImageUp *regreg = [[DHHttpRequestImageUp alloc] initImageWithData:parameters[@"file"] WithImage:parameters[@"image"] WithBase64:@""];
     [regreg startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
         NSLog(@"头像请求数据,返回数据:%@--%@",request.responseString,request.requestUrl);
+        weakSelf.headImageUrl = request.responseObject[@"data"];
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
         NSLog(@"--%ldd",(long)request.error.code);
     }];
@@ -343,23 +390,17 @@
 }
 
 - (void)requestNetWorkManager{
-    NSString *URL = @"http://api.aixueshi.top:5000/Api/V2/Teacher/Study/Search/V200828";
-    NSDictionary *dic = @{@"Account": @"15962119320", @"DeviceSystemVersion": @"13.6", @"Logitude": @(0.0), @"Latitude": @(0.0), @"Location": @"", @"Password": @"123456", @"DeviceType": @(1), @"DeviceName": @"iPad Pro (12.9-inch)", @"AppBuild": @"2020.08.23.01", @"DeviceUUID": @"F9CF5E5B-AD12-4256-8F72-AE40FEAA8D9E", @"AppVersion": @"1.2.4"};
+//    NSString *URL = @"http://api.aixueshi.top:5000/Api/V2/Teacher/Study/Search/V200828";
+//    NSDictionary *dic = @{@"Account": @"15962119320", @"DeviceSystemVersion": @"13.6", @"Logitude": @(0.0), @"Latitude": @(0.0), @"Location": @"", @"Password": @"123456", @"DeviceType": @(1), @"DeviceName": @"iPad Pro (12.9-inch)", @"AppBuild": @"2020.08.23.01", @"DeviceUUID": @"F9CF5E5B-AD12-4256-8F72-AE40FEAA8D9E", @"AppVersion": @"1.2.4"};
     //    NSDictionary *param = NSDictionaryOfVariableBindings(UserId,PassWord);
-    [[SFNetWorkManager shareManager] requestWithType:(HttpRequestTypePost) withUrlString:URL withParaments:dic withSuccessBlock:^(NSDictionary *object) {
+    [[SFNetWorkManager shareManager] requestWithType:(HttpRequestTypeGet) withUrlString:@"https://image.so.com/j?q=meinv&sn=0&pn=50" withParaments:nil withSuccessBlock:^(NSDictionary *object) {
         NSLog(@"object %@",object);
     } withFailureBlock:^(NSError *error) {
         NSLog(@"error %@",error);
     } progress:^(float progress) {
         
     }];
-//    [[SFNetWorkManager shareManager] requestWithType:HttpRequestTypePost withUrlString:URL withParaments:dic withSuccessBlock:^(NSDictionary *object) {
-//        NSLog(@"object %@",object);
-//    } withFailureBlock:^(NSError *error) {
-//        NSLog(@"error %@",error);
-//    } progress:^(float progress) {
-//
-//    }];
+
 }
 #pragma mark GCD- 依赖
 - (void)relyOperation{

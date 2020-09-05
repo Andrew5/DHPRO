@@ -934,6 +934,10 @@
 		84B264192500A761009B9E4B /* DHHttpRequestOrders.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B264182500A761009B9E4B /* DHHttpRequestOrders.m */; };
 		84B2641C2500F12C009B9E4B /* DHHttpRequestImageFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2641B2500F12C009B9E4B /* DHHttpRequestImageFile.m */; };
 		84B2641F2501DCAF009B9E4B /* DHHttpRequestImageUp.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2641E2501DCAF009B9E4B /* DHHttpRequestImageUp.m */; };
+		84B2642625024B73009B9E4B /* DHHttpRequestLoginLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2642525024B73009B9E4B /* DHHttpRequestLoginLogin.m */; };
+		84B2642925024D01009B9E4B /* DHHttpRequestSecret.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2642825024D01009B9E4B /* DHHttpRequestSecret.m */; };
+		84B2642C25024F68009B9E4B /* DHHttpRequestUserInfoUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2642B25024F68009B9E4B /* DHHttpRequestUserInfoUserInfo.m */; };
+		84B2642F250338BF009B9E4B /* DHHttpBaseHeaderFieldDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2642E250338BF009B9E4B /* DHHttpBaseHeaderFieldDictionary.m */; };
 		8688670DA1111CB5B413FE49 /* Pods_CollegePro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40E2710DF49C3576F5AC7B3 /* Pods_CollegePro.framework */; };
 /* End PBXBuildFile section */
 
@@ -2559,6 +2563,14 @@
 		84B2641B2500F12C009B9E4B /* DHHttpRequestImageFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHHttpRequestImageFile.m; sourceTree = "<group>"; };
 		84B2641D2501DCAF009B9E4B /* DHHttpRequestImageUp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHHttpRequestImageUp.h; sourceTree = "<group>"; };
 		84B2641E2501DCAF009B9E4B /* DHHttpRequestImageUp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHHttpRequestImageUp.m; sourceTree = "<group>"; };
+		84B2642425024B73009B9E4B /* DHHttpRequestLoginLogin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHHttpRequestLoginLogin.h; sourceTree = "<group>"; };
+		84B2642525024B73009B9E4B /* DHHttpRequestLoginLogin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHHttpRequestLoginLogin.m; sourceTree = "<group>"; };
+		84B2642725024D01009B9E4B /* DHHttpRequestSecret.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHHttpRequestSecret.h; sourceTree = "<group>"; };
+		84B2642825024D01009B9E4B /* DHHttpRequestSecret.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHHttpRequestSecret.m; sourceTree = "<group>"; };
+		84B2642A25024F68009B9E4B /* DHHttpRequestUserInfoUserInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHHttpRequestUserInfoUserInfo.h; sourceTree = "<group>"; };
+		84B2642B25024F68009B9E4B /* DHHttpRequestUserInfoUserInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHHttpRequestUserInfoUserInfo.m; sourceTree = "<group>"; };
+		84B2642D250338BF009B9E4B /* DHHttpBaseHeaderFieldDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHHttpBaseHeaderFieldDictionary.h; sourceTree = "<group>"; };
+		84B2642E250338BF009B9E4B /* DHHttpBaseHeaderFieldDictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHHttpBaseHeaderFieldDictionary.m; sourceTree = "<group>"; };
 		B94442A678D5676362354ED8 /* Pods-CollegePro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollegePro.release.xcconfig"; path = "Pods/Target Support Files/Pods-CollegePro/Pods-CollegePro.release.xcconfig"; sourceTree = "<group>"; };
 		F40E2710DF49C3576F5AC7B3 /* Pods_CollegePro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CollegePro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -6234,6 +6246,14 @@
 		84B264232501E815009B9E4B /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				84B2642D250338BF009B9E4B /* DHHttpBaseHeaderFieldDictionary.h */,
+				84B2642E250338BF009B9E4B /* DHHttpBaseHeaderFieldDictionary.m */,
+				84B2642425024B73009B9E4B /* DHHttpRequestLoginLogin.h */,
+				84B2642525024B73009B9E4B /* DHHttpRequestLoginLogin.m */,
+				84B2642A25024F68009B9E4B /* DHHttpRequestUserInfoUserInfo.h */,
+				84B2642B25024F68009B9E4B /* DHHttpRequestUserInfoUserInfo.m */,
+				84B2642725024D01009B9E4B /* DHHttpRequestSecret.h */,
+				84B2642825024D01009B9E4B /* DHHttpRequestSecret.m */,
 				84B2641D2501DCAF009B9E4B /* DHHttpRequestImageUp.h */,
 				84B2641E2501DCAF009B9E4B /* DHHttpRequestImageUp.m */,
 			);
@@ -6786,6 +6806,7 @@
 				386BC04722DDABA7005E6054 /* DGActivityIndicatorRotatingSquaresAnimation.m in Sources */,
 				38C8498B227827F100BCAD87 /* HXTagsView.m in Sources */,
 				38C031422300553600B4B364 /* DHTabbarViewController.m in Sources */,
+				84B2642925024D01009B9E4B /* DHHttpRequestSecret.m in Sources */,
 				38C84947227827F100BCAD87 /* NTButton.m in Sources */,
 				386BC0B522DDB5AB005E6054 /* cardView.m in Sources */,
 				386BC04B22DDABA7005E6054 /* DGActivityIndicatorBallZigZagAnimation.m in Sources */,
@@ -6793,6 +6814,7 @@
 				38C849EC227827F200BCAD87 /* JPShopCarCell.m in Sources */,
 				38C84972227827F100BCAD87 /* MeasurNetTools.m in Sources */,
 				38C84A6A227827F200BCAD87 /* ActionViewController.m in Sources */,
+				84B2642625024B73009B9E4B /* DHHttpRequestLoginLogin.m in Sources */,
 				38C849CA227827F200BCAD87 /* ZLPhotoActionSheet.m in Sources */,
 				386BC06122DDABA7005E6054 /* DGActivityIndicatorBallClipRotateAnimation.m in Sources */,
 				845010FD24FBDE4000FE4321 /* DHHttpRequestUserInfo.m in Sources */,
@@ -6885,6 +6907,7 @@
 				384C3FC722887D7900F01586 /* MyHeadCollectionReusableView.m in Sources */,
 				384C3FDF228881F800F01586 /* KYDog.m in Sources */,
 				38C84A5E227827F200BCAD87 /* mask.c in Sources */,
+				84B2642C25024F68009B9E4B /* DHHttpRequestUserInfoUserInfo.m in Sources */,
 				38C8498D227827F100BCAD87 /* HXTagAttribute.m in Sources */,
 				38C849E3227827F200BCAD87 /* TGuideMViewController.m in Sources */,
 				38C8497D227827F100BCAD87 /* TRViewController.m in Sources */,
@@ -7250,6 +7273,7 @@
 				386BBDE222DDA7FF005E6054 /* GPUImageCGAColorspaceFilter.m in Sources */,
 				38C84961227827F100BCAD87 /* ESMMoneyViewController.m in Sources */,
 				38C849D0227827F200BCAD87 /* HealthViewController.m in Sources */,
+				84B2642F250338BF009B9E4B /* DHHttpBaseHeaderFieldDictionary.m in Sources */,
 				386BC06722DDABF0005E6054 /* ActivityIndicator.m in Sources */,
 				386BBDA722DDA7FF005E6054 /* GPUImageXYDerivativeFilter.m in Sources */,
 				386BBD9522DDA7FE005E6054 /* GPUImageCropFilter.m in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import "WKWebViewController.h"
+#import "BaseTabBarViewController.h"
 
 @interface WKWebViewController ()<WKNavigationDelegate,WKUIDelegate,WKScriptMessageHandler>
 @property (strong, nonatomic) WKWebView *WKView;
@@ -15,14 +16,53 @@
 @end
 
 @implementation WKWebViewController
-
+- (instancetype)initWithHtml:(NSString *)html navTitle:(NSString *)title
+{
+    if (self = [super init]) {
+        self.navTitle = title;
+//        self.html = html;
+    }
+    return self;
+}
+- (instancetype)initWithUrl:(NSString *)url navTitle:(NSString *)title
+{
+    return [self initWithUrl:url navTitle:title type:0];
+}
+- (instancetype)initWithUrl:(NSString *)url navTitle:(NSString *)title type:(NSInteger)type {
+    if (self = [super init]) {
+//        self.type = type;
+        self.navTitle = title;
+//        self.url = url;
+//        self.time = 0;
+//        if (_type == 1) {
+//            //倒计时
+//            self.timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(countDown) userInfo:nil repeats:YES];
+//            [[NSRunLoop mainRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+//        }
+    }
+    return self;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-
+    
     // Do any additional setup after loading the view.
     [self createUI];
+    self.title = self.navTitle;
+    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    leftButton.frame = CGRectMake(0, 0, 20, 20);
+    [leftButton setImage:[UIImage imageNamed:@"icon_back_lessonDetail"] forState:UIControlStateNormal];
+    [leftButton addTarget:self action:@selector(backClick) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *left = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+    [self.navigationItem setLeftBarButtonItem:left];
+    
+    self.navigationController.navigationBar.hidden = NO;
+
+    BaseTabBarViewController *main = (BaseTabBarViewController *)self.tabBarController;
+    main.visitorLabel.hidden = YES;
+
 }
+
 - (void)ReloadBtnClick{
     [self.WKView reload];
 
