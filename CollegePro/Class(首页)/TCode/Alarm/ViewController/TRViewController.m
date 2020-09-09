@@ -180,18 +180,18 @@
     
     self.num=(temp1-temp3)*60*60+(temp2-temp4)*60;
     
-    if (self.num != 0) {
-		[[NSNotificationCenter defaultCenter]postNotificationName:@"Alarm" object:nil userInfo:@{@"length":[NSNumber numberWithUnsignedInteger:self.num]}];
-
-    
-//    AppDelegate* app = [[AppDelegate alloc] init];
-//    self.delegate = app;
-//    if (self.delegate&&[self.delegate respondsToSelector:@selector(ViewControllerSendTime:)]) {
-//        [self.delegate ViewControllerSendTime:self.num];
-//    }
-//    [self.delegate ViewControllerSendTime:self.num];
+//    if (self.num != 0) {
+//		[[NSNotificationCenter defaultCenter]postNotificationName:@"Alarm" object:nil userInfo:@{@"length":[NSNumber numberWithUnsignedInteger:self.num]}];
 //
-    }
+//
+////    AppDelegate* app = [[AppDelegate alloc] init];
+////    self.delegate = app;
+////    if (self.delegate&&[self.delegate respondsToSelector:@selector(ViewControllerSendTime:)]) {
+////        [self.delegate ViewControllerSendTime:self.num];
+////    }
+////    [self.delegate ViewControllerSendTime:self.num];
+////
+//    }
 	
 	
     _lt=self.num;
@@ -252,6 +252,9 @@
     _label.text=str;
     if (_lt == 0) {
         [_timer setFireDate:[NSDate distantFuture]];
+        
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"Alarm" object:nil userInfo:@{@"length":[NSNumber numberWithUnsignedInteger:self.num]}];
+
 //        self.alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"关闭闹钟" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
 //
 //

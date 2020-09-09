@@ -21,6 +21,7 @@
 #import "DHHttpRequestImageUp.h"
 #import "DHHttpRequestLoginLogin.h"
 #import "DHHttpRequestUserInfoUserInfo.h"
+#import "DHHttpRequestOrdersOrders.h"
 
 ///对象宏(object-like macro)和函数宏(function-like macro)
 #define M_PI        3.14159265358979323846264338327950288
@@ -80,13 +81,13 @@
     int c = MIN(3, 4 < 5 ? 4 : 5);
     printf("%d",c);
     ///网络请求
-//    [self getRequestNetwork];
+    [self getRequestNetwork];
 //    [self getBaseRequestNetwork];
     ///请求组
 //    [self httpRequestGroup];
     ///头像请求
 //    [self.view addSubview:self.headerView];
-    [self requestNetWorkManager];
+//    [self requestNetWorkManager];
 }
 - (void)getRequestNetwork{
     ///获取个人信息
@@ -118,6 +119,16 @@
 - (void)httpRequestUserInfoUserInfo{
     DHHttpRequestUserInfoUserInfo *reg = [[DHHttpRequestUserInfoUserInfo alloc] init];
     reg.needToken = YES;
+    [reg startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
+        NSLog(@"个人信息请求数据,返回数据:%@--%@",request.responseString,request.requestUrl);
+
+    } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
+        NSLog(@"个人信息请求失败 %@",request.requestUrl);
+    }];
+}
+- (void)httpRequestOrdersOrders{
+    
+    DHHttpRequestOrdersOrders *reg = [[DHHttpRequestOrdersOrders alloc] init];
     [reg startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
         NSLog(@"个人信息请求数据,返回数据:%@--%@",request.responseString,request.requestUrl);
 

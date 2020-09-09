@@ -266,9 +266,10 @@
     [_collectionView setBackgroundColor:[UIColor whiteColor]];
     [self.view addSubview:_collectionView];
     [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view);
         make.bottom.equalTo(self.view);
         make.left.with.right.equalTo(self.view);
-        make.height.offset(25);
+//        make.height.offset(25);
     }];
     self.titles = @[].mutableCopy;
     self.classNames = @[].mutableCopy;
