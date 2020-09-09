@@ -171,41 +171,7 @@ extern CFAbsoluteTime StartTime;
     //        }
     //    }
 
-    //如果已经获得发送通知哦的授权则创建本地通知，否则请求授权（注意：如果不请求授权在设置中是没有对应的通知设置项的，也就是说如果从来没有发送过请求，即使通过设置也打不开消息允许设置）
-    if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-        if (@available(iOS 10.0, *)) {
-            UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-            center.delegate = self;
-            [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert + UNAuthorizationOptionSound)
-                                  completionHandler:^(BOOL granted, NSError * _Nullable error) {
-                                      
-                                  }];
-            [center getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
-                
-            }];
-            //  > 通知内容
-            UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];
-            // > 通知的title
-            content.title = [NSString localizedUserNotificationStringForKey:@"推送的标题" arguments:nil];
-            // > 通知的要通知内容
-            content.body = [NSString localizedUserNotificationStringForKey:@"======推送的消息体======"
-                                                                 arguments:nil];
-            // > 通知的提示声音
-            content.sound = [UNNotificationSound soundNamed:@"oppo.mp3"];//[UNNotificationSound defaultSound];
-            //  > 通知的延时执行
-            UNTimeIntervalNotificationTrigger* trigger = [UNTimeIntervalNotificationTrigger
-                                                          triggerWithTimeInterval:5 repeats:NO];
-            UNNotificationRequest* request = [UNNotificationRequest requestWithIdentifier:@"FiveSecond"
-                                                                                  content:content trigger:trigger];
-            //添加推送通知，等待通知即可！
-            [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
-                // > 可在此设置添加后的一些设置
-                // > 例如alertVC。。
-            }];
-        } else {
-            // Fallback on earlier versions
-        }
-    }
+    
 /*
 
     //    接收通知参数
@@ -233,7 +199,6 @@ extern CFAbsoluteTime StartTime;
         [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound   categories:nil]];
     }
     
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(Alarm:) name:@"Alarm" object:nil];
     //关闭程序后再通过点击通知打开应用获取userInfo
     //接收通知参数
     UILocalNotification *notification=[launchOptions valueForKey:UIApplicationLaunchOptionsLocalNotificationKey];
@@ -241,6 +206,8 @@ extern CFAbsoluteTime StartTime;
 
     NSLog(@"didFinishLaunchingWithOptions:The userInfo is %@.",userInfo);
 */
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(Alarm:) name:@"Alarm" object:nil];
+
     [self getLaunchImage];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[DHGuidepageViewController alloc] init]];
@@ -541,8 +508,45 @@ extern CFAbsoluteTime StartTime;
     }
     completionHandler();  // 系统要求执行这个方法
 }
-
 ///MARK: -极光推送⬆️
+- (void)loadLocalNotification{
+    /////如果已经获得发送通知哦的授权则创建本地通知，否则请求授权（注意：如果不请求授权在设置中是没有对应的通知设置项的，也就是说如果从来没有发送过请求，即使通过设置也打不开消息允许设置）
+    if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+        if (@available(iOS 10.0, *)) {
+            UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+            center.delegate = self;
+            [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert + UNAuthorizationOptionSound)
+                                  completionHandler:^(BOOL granted, NSError * _Nullable error) {
+                
+            }];
+            [center getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
+                
+            }];
+            //  > 通知内容
+            UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];
+            // > 通知的title
+            content.title = [NSString localizedUserNotificationStringForKey:@"推送的标题" arguments:nil];
+            // > 通知的要通知内容
+            content.body = [NSString localizedUserNotificationStringForKey:@"======推送的消息体======"
+                                                                 arguments:nil];
+            // > 通知的提示声音
+            content.sound = [UNNotificationSound soundNamed:@"test.m4a"];//[UNNotificationSound defaultSound];
+            //  > 通知的延时执行
+            UNTimeIntervalNotificationTrigger* trigger = [UNTimeIntervalNotificationTrigger
+                                                          triggerWithTimeInterval:5 repeats:NO];
+            UNNotificationRequest* request = [UNNotificationRequest requestWithIdentifier:@"FiveSecond"
+                                                                                  content:content trigger:trigger];
+            //添加推送通知，等待通知即可！
+            [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+                // > 可在此设置添加后的一些设置
+                // > 例如alertVC。。
+            }];
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+}
+
 ///MARK: 移除本地通知，在不需要此通知时记得移除
 -(void)removeNotification{
 
@@ -700,6 +704,7 @@ extern CFAbsoluteTime StartTime;
 - (void)Alarm:(NSNotification *)noti{
     NSDictionary *dict = noti.object;
     NSLog(@"闹钟-%@",dict[@"Alarm"]) ;
+    [self loadLocalNotification];
 //    [self ViewControllerSendTime:(NSUInteger)dict[@"length"]];
 }
 - (void)newMethod{

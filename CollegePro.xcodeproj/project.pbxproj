@@ -55,6 +55,7 @@
 		382FFA55231CC0750062080E /* GradualColor_View.m in Sources */ = {isa = PBXBuildFile; fileRef = 382FFA54231CC0750062080E /* GradualColor_View.m */; };
 		382FFA58231CDDAA0062080E /* CricleScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 382FFA57231CDDAA0062080E /* CricleScrollViewController.m */; };
 		38345BDA22B1207C00FBE78B /* SFHttpSessionReq.m in Sources */ = {isa = PBXBuildFile; fileRef = 38345BD922B1207C00FBE78B /* SFHttpSessionReq.m */; };
+		3839212B2509205E00D1F3A0 /* test.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3839212A2509205E00D1F3A0 /* test.m4a */; };
 		383AEB4222970F03002F3A22 /* MaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 383AEB4122970F03002F3A22 /* MaskView.m */; };
 		383DC22D23E4326B00B362EF /* DHRefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 383DC22C23E4326B00B362EF /* DHRefreshViewController.m */; };
 		383EAFE322981D1E00A2AA1E /* JHDownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 383EAFE222981D1D00A2AA1E /* JHDownButton.m */; };
@@ -938,6 +939,7 @@
 		84B2642925024D01009B9E4B /* DHHttpRequestSecret.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2642825024D01009B9E4B /* DHHttpRequestSecret.m */; };
 		84B2642C25024F68009B9E4B /* DHHttpRequestUserInfoUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2642B25024F68009B9E4B /* DHHttpRequestUserInfoUserInfo.m */; };
 		84B2642F250338BF009B9E4B /* DHHttpBaseHeaderFieldDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2642E250338BF009B9E4B /* DHHttpBaseHeaderFieldDictionary.m */; };
+		84E8AFB72503A6F300D2C426 /* DHHttpRequestOrdersOrders.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E8AFB62503A6F300D2C426 /* DHHttpRequestOrdersOrders.m */; };
 		8688670DA1111CB5B413FE49 /* Pods_CollegePro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40E2710DF49C3576F5AC7B3 /* Pods_CollegePro.framework */; };
 /* End PBXBuildFile section */
 
@@ -1059,6 +1061,7 @@
 		382FFA57231CDDAA0062080E /* CricleScrollViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CricleScrollViewController.m; sourceTree = "<group>"; };
 		38345BD822B1207C00FBE78B /* SFHttpSessionReq.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFHttpSessionReq.h; sourceTree = "<group>"; };
 		38345BD922B1207C00FBE78B /* SFHttpSessionReq.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFHttpSessionReq.m; sourceTree = "<group>"; };
+		3839212A2509205E00D1F3A0 /* test.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.m4a; sourceTree = "<group>"; };
 		383AEB4022970F03002F3A22 /* MaskView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaskView.h; sourceTree = "<group>"; };
 		383AEB4122970F03002F3A22 /* MaskView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaskView.m; sourceTree = "<group>"; };
 		383DC22B23E4326B00B362EF /* DHRefreshViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHRefreshViewController.h; sourceTree = "<group>"; };
@@ -2571,6 +2574,8 @@
 		84B2642B25024F68009B9E4B /* DHHttpRequestUserInfoUserInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHHttpRequestUserInfoUserInfo.m; sourceTree = "<group>"; };
 		84B2642D250338BF009B9E4B /* DHHttpBaseHeaderFieldDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHHttpBaseHeaderFieldDictionary.h; sourceTree = "<group>"; };
 		84B2642E250338BF009B9E4B /* DHHttpBaseHeaderFieldDictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHHttpBaseHeaderFieldDictionary.m; sourceTree = "<group>"; };
+		84E8AFB52503A6F300D2C426 /* DHHttpRequestOrdersOrders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHHttpRequestOrdersOrders.h; sourceTree = "<group>"; };
+		84E8AFB62503A6F300D2C426 /* DHHttpRequestOrdersOrders.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHHttpRequestOrdersOrders.m; sourceTree = "<group>"; };
 		B94442A678D5676362354ED8 /* Pods-CollegePro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollegePro.release.xcconfig"; path = "Pods/Target Support Files/Pods-CollegePro/Pods-CollegePro.release.xcconfig"; sourceTree = "<group>"; };
 		F40E2710DF49C3576F5AC7B3 /* Pods_CollegePro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CollegePro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -4252,6 +4257,7 @@
 		38C845BC227827EF00BCAD87 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				3839212A2509205E00D1F3A0 /* test.m4a */,
 				389AA05A24051202003361A7 /* File.xml */,
 				38C845D2227827EF00BCAD87 /* ADo_ViewController.h */,
 				38C845D9227827EF00BCAD87 /* ADo_ViewController.m */,
@@ -6252,6 +6258,8 @@
 				84B2642525024B73009B9E4B /* DHHttpRequestLoginLogin.m */,
 				84B2642A25024F68009B9E4B /* DHHttpRequestUserInfoUserInfo.h */,
 				84B2642B25024F68009B9E4B /* DHHttpRequestUserInfoUserInfo.m */,
+				84E8AFB52503A6F300D2C426 /* DHHttpRequestOrdersOrders.h */,
+				84E8AFB62503A6F300D2C426 /* DHHttpRequestOrdersOrders.m */,
 				84B2642725024D01009B9E4B /* DHHttpRequestSecret.h */,
 				84B2642825024D01009B9E4B /* DHHttpRequestSecret.m */,
 				84B2641D2501DCAF009B9E4B /* DHHttpRequestImageUp.h */,
@@ -6636,6 +6644,7 @@
 				38C849C4227827F200BCAD87 /* btn_unselected.png in Resources */,
 				38C84A1B227827F200BCAD87 /* SenderAppNodeBkg_HL.png in Resources */,
 				38C9779822AE02D200F978C1 /* 095007dnez0dnzlednenwl.jpg in Resources */,
+				3839212B2509205E00D1F3A0 /* test.m4a in Resources */,
 				38C84967227827F100BCAD87 /* guideImage8.gif in Resources */,
 				384C409122888DFA00F01586 /* 创建文稿@3x.png in Resources */,
 				38C2D0DE22D5E31D00CF30CA /* 03.png in Resources */,
@@ -6747,8 +6756,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "
-";
+			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n\n";
 		};
 		731C13F9B5FCB2BB74B4D708 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -7155,6 +7163,7 @@
 				3807246922CDCCCC0035E5B1 /* UIView+RandomCorner.m in Sources */,
 				386BBD9B22DDA7FF005E6054 /* GPUImageFastBlurFilter.m in Sources */,
 				386BBD8422DDA7FE005E6054 /* GPUImageAlphaBlendFilter.m in Sources */,
+				84E8AFB72503A6F300D2C426 /* DHHttpRequestOrdersOrders.m in Sources */,
 				38C84988227827F100BCAD87 /* TagPickerView.m in Sources */,
 				384C3FE922888DBF00F01586 /* ZQVariableMenuView.m in Sources */,
 				38C84949227827F100BCAD87 /* AutoLayoutViewController.m in Sources */,

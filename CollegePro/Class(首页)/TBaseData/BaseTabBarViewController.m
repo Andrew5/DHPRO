@@ -20,6 +20,7 @@
 @interface BaseTabBarViewController ()<UITabBarControllerDelegate>
 {
     UILabel *_redLab;
+    UILabel *_bottomAdLB;
 }
 
 @end
@@ -30,11 +31,34 @@
     [super viewDidLoad];
     //解决hidesBottomBarWhenPushed 跳转闪屏问题
     [[UITabBar appearance] setTranslucent:NO];
-    [self.view addSubview:self.customerService];
+    [self myTabbar];
+//    [self.view addSubview:self.customerService];
 //    [self.view addSubview:self.visitorLabel];
     [self.view addSubview:self.bottomADView];
-    [self myTabbar];
+    [self addAnimation];
     // Do any additional setup after loading the view.
+}
+
+///MARK:加动画
+- (void)addAnimation{
+
+    [_bottomAdLB.layer removeAllAnimations];
+    CGRect frame = _bottomAdLB.frame;
+    frame.origin.x = self.bottomADView.frame.size.width;
+    _bottomAdLB.frame = frame;
+    float interval = _bottomAdLB.frame.size.width/35;
+    [UIView beginAnimations:@"Animation"context:NULL];
+    [UIView setAnimationDuration:interval];
+    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationRepeatAutoreverses:NO];
+    [UIView setAnimationRepeatCount:9999999];
+    frame = _bottomAdLB.frame;
+    frame.origin.x = - _bottomAdLB.frame.size.width;
+    _bottomAdLB.frame = frame;
+    [UIView commitAnimations];
+    _bottomAdLB.layer.borderColor = [UIColor redColor].CGColor;
+    _bottomAdLB.layer.borderWidth = 1.0;
 }
 - (void)myTabbar
 {  
@@ -145,22 +169,30 @@
     if (_bottomADView == nil) {
         _bottomADView = [[UIView alloc]init];
         _bottomADView.backgroundColor = [UIColor greenColor];
-        UILabel *bottomAdView = [[UILabel alloc]init];
-        bottomAdView.textColor = [UIColor blackColor];
-        bottomAdView.text = @"大海专属";
-        bottomAdView.textAlignment = NSTextAlignmentCenter;
-        [_bottomADView addSubview:bottomAdView];
         [self.view addSubview:_bottomADView];
-        [bottomAdView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(_bottomADView.mas_top);
-            make.centerX.equalTo(_bottomADView);
-        }];
         [_bottomADView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.left.equalTo(self.view);
-            make.top.equalTo(self.view.mas_safeAreaLayoutGuideBottom);
+            if (@available(iOS 11.0, *)) {
+                make.top.equalTo(self.view.mas_safeAreaLayoutGuideBottom);
+            } else {
+                // Fallback on earlier versions
+            }
             make.bottom.equalTo(self.view);
             make.height.offset(34);
         }];
+        
+        _bottomAdLB = [[UILabel alloc]init];
+        _bottomAdLB.textColor = [UIColor blackColor];
+        _bottomAdLB.text = @"大海专属";
+        _bottomAdLB.textAlignment = NSTextAlignmentCenter;
+        [_bottomADView addSubview:_bottomAdLB];
+        [_bottomAdLB mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(_bottomADView.mas_top);
+            make.centerX.equalTo(_bottomADView);
+            make.width.offset(15*5);
+        }];
+        [self.view layoutIfNeeded];
+        NSLog(@"--%@--%@",_bottomAdLB.description,_bottomADView.description);
     }
     return _bottomADView;
 }
