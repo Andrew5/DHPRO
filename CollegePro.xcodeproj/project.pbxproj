@@ -596,7 +596,6 @@
 		38C8496F227827F100BCAD87 /* DHWorkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C846B2227827EF00BCAD87 /* DHWorkViewController.m */; };
 		38C84970227827F100BCAD87 /* DHMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C846B5227827EF00BCAD87 /* DHMainViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		38C84971227827F100BCAD87 /* QBTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C846B9227827EF00BCAD87 /* QBTools.m */; };
-		38C84972227827F100BCAD87 /* MeasurNetTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C846BA227827EF00BCAD87 /* MeasurNetTools.m */; };
 		38C84973227827F100BCAD87 /* ScreenBlurry.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C846BC227827EF00BCAD87 /* ScreenBlurry.m */; };
 		38C84974227827F100BCAD87 /* showView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C846BE227827EF00BCAD87 /* showView.m */; };
 		38C84975227827F100BCAD87 /* THomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C846C0227827EF00BCAD87 /* THomeCollectionViewCell.m */; };
@@ -951,6 +950,7 @@
 		84B7FF4A250B68D00051603C /* CollageProExtensionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B7FF3C250B67E50051603C /* CollageProExtensionKit.framework */; };
 		84B7FF4C250B69220051603C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B7FF4B250B69220051603C /* UIKit.framework */; };
 		84B7FF4E250B69370051603C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B7FF4D250B69370051603C /* Foundation.framework */; };
+		84B7FF54250B90460051603C /* MeasurNetTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C846BA227827EF00BCAD87 /* MeasurNetTools.m */; };
 		84E8AFB72503A6F300D2C426 /* DHHttpRequestOrdersOrders.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E8AFB62503A6F300D2C426 /* DHHttpRequestOrdersOrders.m */; };
 		8688670DA1111CB5B413FE49 /* Pods_CollegePro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40E2710DF49C3576F5AC7B3 /* Pods_CollegePro.framework */; };
 /* End PBXBuildFile section */
@@ -6946,7 +6946,6 @@
 				386BC04B22DDABA7005E6054 /* DGActivityIndicatorBallZigZagAnimation.m in Sources */,
 				386BBBDA22DD7460005E6054 /* ScrollChangeViewController.m in Sources */,
 				38C849EC227827F200BCAD87 /* JPShopCarCell.m in Sources */,
-				38C84972227827F100BCAD87 /* MeasurNetTools.m in Sources */,
 				38C84A6A227827F200BCAD87 /* ActionViewController.m in Sources */,
 				84B2642625024B73009B9E4B /* DHHttpRequestLoginLogin.m in Sources */,
 				38C849CA227827F200BCAD87 /* ZLPhotoActionSheet.m in Sources */,
@@ -7556,6 +7555,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84B7FF54250B90460051603C /* MeasurNetTools.m in Sources */,
 				84B7FF49250B683D0051603C /* DHTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

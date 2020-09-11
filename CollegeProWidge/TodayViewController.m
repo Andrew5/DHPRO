@@ -15,6 +15,8 @@
 #import "TodayTableHeaderView.h"
 #import "TodayItemCell.h"
 #import "TodayItemModel.h"
+#import "MeasurNetTools.h"
+
 @interface TodayViewController () <NCWidgetProviding, UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property(nonatomic,strong) UILabel *textLabel;
@@ -37,62 +39,87 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     // 将小组件的展现模式设置为可展开 ”展开120=40 headview330=110  4x209+539=458“
-        if (@available(iOS 10.0, *)) {
-            self.extensionContext.widgetLargestAvailableDisplayMode = NCWidgetDisplayModeExpanded;
-        }
-        //设置extension的size
+    if (@available(iOS 10.0, *)) {
+        self.extensionContext.widgetLargestAvailableDisplayMode = NCWidgetDisplayModeExpanded;
+    }
+    //设置extension的size
     //    self.preferredContentSize = CGSizeMake(0, 80);
-        [self.view addSubview:self.tableView];
-        [self.view addSubview:self.labelTitleName];
-        [self.view addSubview:self.labelUsedMemory];
-        [self.view addSubview:self.labelNet];
-
-        _labelUsedMemory.text = [NSString stringWithFormat:@"设备容量:%@",[DHTool diskSpaceType]];
-        _labelUsedMemory.frame  = CGRectMake(10, 20, 25*15, 40);
-
-
-//        _labelTitleName.text = [NSString stringWithFormat:@"%.2f,%.2f,%.2f,%.2llu,%.2lld,%.2lld",self.fileSystemSize,self.usedRate,self.freeSize,self.usedSize,[self memoryUsage],[self diskMemory]];
-
-        NSString *urlString = [NSString stringWithFormat:@"CollegeProTodayExtensionDemo://set/markCode=%@&code=%@&yesclose=%@&stockName=%@",@"10200",@"200",@"YES",[@"高晨阳" stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
-        NSArray * array = @[
-                            @{@"icon":@"bangzhu",
-                              @"handerUrl":@"CollegeProTodayExtensionDemo://message",
-                              @"title":@"消息"},
-                            @{@"icon":@"fankui",
-                              @"handerUrl":@"CollegeProTodayExtensionDemo://adress",
-                              @"title":@"地址管理"},
-                            @{@"icon":@"gerenxinxi",
-                              @"handerUrl":@"CollegeProTodayExtensionDemo://work",
-                              @"title":@"工作"},
-                            @{@"icon":@"kefu",
-                              @"handerUrl":@"CollegeProTodayExtensionDemo://my",
-                              @"title":@"我的"},
-                            @{@"icon":@"shezhi",
-                              @"handerUrl":urlString,
-                              @"title":@"设置"},
-
-                            ];
-        for (NSDictionary * dic in  array) {
-            TodayItemModel*manageModel = [TodayItemModel new];
-            manageModel.icon =dic[@"icon"];
-            manageModel.handerUrl = dic[@"handerUrl"];
-            manageModel.titlename = dic[@"title"];
-            [self.dataArray addObject:manageModel];
-        }
+    [self.view addSubview:self.tableView];
+//    [self.view addSubview:self.labelTitleName];
+    [self.view addSubview:self.labelUsedMemory];
+    [self.view addSubview:self.labelNet];
+    
+    _labelUsedMemory.text = [NSString stringWithFormat:@"设备容量:%@",[DHTool diskSpaceType]];
+    _labelUsedMemory.frame  = CGRectMake(10, 20, 25*15, 40);
+    
+    
+    //        _labelTitleName.text = [NSString stringWithFormat:@"%.2f,%.2f,%.2f,%.2llu,%.2lld,%.2lld",self.fileSystemSize,self.usedRate,self.freeSize,self.usedSize,[self memoryUsage],[self diskMemory]];
+    
+    NSString *urlString = [NSString stringWithFormat:@"CollegeProTodayExtensionDemo://set/markCode=%@&code=%@&yesclose=%@&stockName=%@",@"10200",@"200",@"YES",[@"高晨阳" stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
+    NSArray * array = @[
+        @{@"icon":@"bangzhu",
+          @"handerUrl":@"CollegeProTodayExtensionDemo://message",
+          @"title":@"消息"},
+        @{@"icon":@"fankui",
+          @"handerUrl":@"CollegeProTodayExtensionDemo://adress",
+          @"title":@"地址管理"},
+        @{@"icon":@"gerenxinxi",
+          @"handerUrl":@"CollegeProTodayExtensionDemo://work",
+          @"title":@"工作"},
+        @{@"icon":@"kefu",
+          @"handerUrl":@"CollegeProTodayExtensionDemo://my",
+          @"title":@"我的"},
+        @{@"icon":@"shezhi",
+          @"handerUrl":urlString,
+          @"title":@"设置"},
+        
+    ];
+    for (NSDictionary * dic in  array) {
+        TodayItemModel*manageModel = [TodayItemModel new];
+        manageModel.icon =dic[@"icon"];
+        manageModel.handerUrl = dic[@"handerUrl"];
+        manageModel.titlename = dic[@"title"];
+        [self.dataArray addObject:manageModel];
+    }
     //    [self.tableView reloadData];
-        NSUserDefaults *userDefault = [[NSUserDefaults standardUserDefaults] initWithSuiteName:@"group.com.dhPro.tool.CollegeProExtension"];
-        NSString *t = [userDefault valueForKey:@"network"];
-        self.labelNet.frame  = CGRectMake(10, 60, 15*15, 40);
-        self.labelNet.text = [NSString stringWithFormat:@"当前网速是：%@",t];
+    //        NSUserDefaults *userDefault = [[NSUserDefaults standardUserDefaults] initWithSuiteName:@"group.com.dhPro.tool.CollegeProExtension"];
+    //        NSString *t = [userDefault valueForKey:@"network"];
+    self.labelNet.frame  = CGRectMake(10, 60, 15*15, 40);
+    //        self.labelNet.text = [NSString stringWithFormat:@"当前网速是：%@",t];
+    [self getInternetSpeet];
+}
+- (void)getInternetSpeet{
+    MeasurNetTools * meaurNet = [[MeasurNetTools alloc] initWithblock:^(float speed) {
+        //        NSString* speedStr = [NSString stringWithFormat:@"%@/S", [QBTools formattedFileSize:speed]];
+        //        _lb_showinfo.text = @"";
+        NSLog(@"当前网速：%@",[DHTool getByteRate]);
+        self.labelNet.text = [NSString stringWithFormat:@"当前网速是：%@",[DHTool getByteRate]];
+        //获取wifi信息
+        NSDictionary *WIFImessage = [DHTool fetchSSIDInfo];
+        //检测手机网络速度
+        NSMutableDictionary *WIFIspeed = [DHTool getDataCounters];
+        NSLog(@"获取wifi信息 = %@ ------------- 检测手机网络速度 = %@",WIFImessage,WIFIspeed);
+    } finishMeasureBlock:^(float speed) {
+//        NSUserDefaults* userDefault = [[NSUserDefaults standardUserDefaults] initWithSuiteName:@"group.com.dhTool.selfpro.CollegeProExtension"];
+//        NSString* speedStr = [NSString stringWithFormat:@"%@/S", [QBTools formattedFileSize:speed]];
+//        NSLog(@"平均速度为：%@",speedStr);
+//        NSLog(@"相当于带宽：%@",[QBTools formatBandWidth:speed]);
+//        _lb_showinfo.text = [NSString stringWithFormat:@"平均速度为： %@---相当带宽：(时间间隔里的传输速率:)%@--%@",speedStr,[QBTools formatBandWidth:speed],[DHTool getByteRate]];
+//        [userDefault setObject:[DHTool getByteRate] forKey:@"network"];
+//        [userDefault setObject:@"2我是数据" forKey:@"myShareData"];
+//        [userDefault synchronize];
+    } failedBlock:^(NSError *error) {
+    }];
+    [meaurNet startMeasur];
 }
 #pragma mark- lazy
--(NSMutableArray *)dataArray{
+- (NSMutableArray *)dataArray{
     if (!_dataArray) {
         _dataArray = [NSMutableArray array];
     }
     return _dataArray;
 }
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     //点击跳转到APP
     [self.extensionContext openURL:[NSURL URLWithString:@"CollegeProTodayExtensionDemo://enterApp"] completionHandler:nil];
 }
