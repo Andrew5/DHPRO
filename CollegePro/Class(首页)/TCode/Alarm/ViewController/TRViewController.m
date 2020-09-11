@@ -265,7 +265,7 @@
         
         
     }
-    
+    NSLog(@"倒计时.....%ld",_lt);
 }
 //- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 //

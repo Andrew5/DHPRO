@@ -530,6 +530,21 @@ extern CFAbsoluteTime StartTime;
             content.body = [NSString localizedUserNotificationStringForKey:@"======推送的消息体======"
                                                                  arguments:nil];
             // > 通知的提示声音
+            /*
+             自定义的弹框铃声是由系统设备播放的, 所以铃声应当是以下数据格式:
+             Linear PCM
+             MA4 (IMA/ADPCM)
+             µLaw
+             aLaw
+             你可以将音频数据打包成一个aiff, wav, 或者caf的文件. 铃声文件的音频长度应少于30秒, 否则将设置无效而播放默认的铃声.
+             苹果原文:
+             Custom alert sounds are played by the system sound facility, so they must be in one of the following audio data formats:
+             Linear PCM
+             MA4 (IMA/ADPCM)
+             µLaw
+             aLaw
+             You can package the audio data in an aiff, wav, or caf file. Sound files must be less than 30 seconds in length. If the sound file is longer than 30 seconds, the system plays the default sound instead.
+             */
             content.sound = [UNNotificationSound soundNamed:@"test.m4a"];//[UNNotificationSound defaultSound];
             //  > 通知的延时执行
             UNTimeIntervalNotificationTrigger* trigger = [UNTimeIntervalNotificationTrigger

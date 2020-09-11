@@ -32,6 +32,8 @@
     if (self = [super init]) {
 //        self.type = type;
         self.navTitle = title;
+///     初始化 webview -> 请求页面 -> 下载数据 -> 解析HTML -> 请求 js/css 资源 -> dom 渲染 -> 解析 JS 执行 -> JS 请求数据 -> 解析渲染 -> 下载渲染图片
+
 //        self.url = url;
 //        self.time = 0;
 //        if (_type == 1) {

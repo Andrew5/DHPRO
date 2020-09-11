@@ -10,6 +10,7 @@
 #import "WKWebViewController.h"
 #import <SystemConfiguration/CaptiveNetwork.h>
 #import <CoreText/CoreText.h>
+#import <AdSupport/AdSupport.h>
 //获取设备当前连接网段IP
 #include <netdb.h>
 #include <net/if.h>
@@ -807,6 +808,40 @@
     WKWebViewController *chatController = [[WKWebViewController alloc] initWithUrl:url navTitle:@"客服"];
     [controller.navigationController pushViewController:chatController animated:YES];
     
+}
+/// IDFA编号
++ (NSString *)IDFA
+{
+    NSString *IDFA = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+    if (!IDFA) {
+        IDFA = @"00000000-0000-0000-0000-000000000000";
+    }
+    return IDFA;
+}
+/// 手机总容量
++ (NSNumber *)totalDiskSpace
+{
+    NSDictionary *fattributes = [[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:nil];
+    return [fattributes objectForKey:NSFileSystemSize];
+}
+/// 手机容量
++ (NSString *)diskSpaceType
+{
+    NSString *diskSpace = @"16GB";
+    NSNumber *totalDiskSpace = [self totalDiskSpace];
+    long disk_size = totalDiskSpace.longValue / (1024 * 1024 * 1024);
+    if (disk_size < 16) {
+        diskSpace = @"16GB";
+    } else if (disk_size < 32) {
+        diskSpace = @"32GB";
+    } else if (disk_size < 64) {
+        diskSpace = @"64GB";
+    } else if (disk_size < 128) {
+        diskSpace = @"128GB";
+    } else {
+        diskSpace = @"256GB";
+    }
+    return diskSpace;
 }
 /////利用图像遮盖
 

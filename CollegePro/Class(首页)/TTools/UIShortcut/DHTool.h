@@ -106,4 +106,10 @@
 + (double)freeMemory;
 + (double)appUsedMemory;
 + (void)pushChatController:(UIViewController *)controller;
+/// IDFA编号
++ (NSString *)IDFA;
+/// 手机容量
++ (NSString *)diskSpaceType;
+/// 手机可用容量
++ (NSNumber *)freeDiskSpace;
 @end
