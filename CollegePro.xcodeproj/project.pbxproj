@@ -943,6 +943,9 @@
 		84B7FF26250B17ED0051603C /* BLYHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B7FF23250B17ED0051603C /* BLYHTTPRequest.m */; };
 		84B7FF2B250B19410051603C /* CustomWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B7FF28250B19400051603C /* CustomWebView.m */; };
 		84B7FF2C250B19410051603C /* CustomWebViewPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B7FF2A250B19400051603C /* CustomWebViewPool.m */; };
+		84B7FF30250B502A0051603C /* B206760E60639441A7876D27110082AC.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 84B7FF2F250B502A0051603C /* B206760E60639441A7876D27110082AC.MOV */; };
+		84B7FF33250B597A0051603C /* AudioPieceTogether.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B7FF32250B597A0051603C /* AudioPieceTogether.m */; };
+		84B7FF36250B59A20051603C /* AudioEdit.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B7FF35250B59A20051603C /* AudioEdit.m */; };
 		84E8AFB72503A6F300D2C426 /* DHHttpRequestOrdersOrders.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E8AFB62503A6F300D2C426 /* DHHttpRequestOrdersOrders.m */; };
 		8688670DA1111CB5B413FE49 /* Pods_CollegePro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40E2710DF49C3576F5AC7B3 /* Pods_CollegePro.framework */; };
 /* End PBXBuildFile section */
@@ -2587,6 +2590,11 @@
 		84B7FF28250B19400051603C /* CustomWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomWebView.m; sourceTree = "<group>"; };
 		84B7FF29250B19400051603C /* CustomWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomWebView.h; sourceTree = "<group>"; };
 		84B7FF2A250B19400051603C /* CustomWebViewPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomWebViewPool.m; sourceTree = "<group>"; };
+		84B7FF2F250B502A0051603C /* B206760E60639441A7876D27110082AC.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = B206760E60639441A7876D27110082AC.MOV; sourceTree = "<group>"; };
+		84B7FF31250B597A0051603C /* AudioPieceTogether.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioPieceTogether.h; sourceTree = "<group>"; };
+		84B7FF32250B597A0051603C /* AudioPieceTogether.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioPieceTogether.m; sourceTree = "<group>"; };
+		84B7FF34250B59A20051603C /* AudioEdit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioEdit.h; sourceTree = "<group>"; };
+		84B7FF35250B59A20051603C /* AudioEdit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioEdit.m; sourceTree = "<group>"; };
 		84E8AFB52503A6F300D2C426 /* DHHttpRequestOrdersOrders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHHttpRequestOrdersOrders.h; sourceTree = "<group>"; };
 		84E8AFB62503A6F300D2C426 /* DHHttpRequestOrdersOrders.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHHttpRequestOrdersOrders.m; sourceTree = "<group>"; };
 		B94442A678D5676362354ED8 /* Pods-CollegePro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollegePro.release.xcconfig"; path = "Pods/Target Support Files/Pods-CollegePro/Pods-CollegePro.release.xcconfig"; sourceTree = "<group>"; };
@@ -5353,6 +5361,7 @@
 		38C847A5227827F000BCAD87 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				84B7FF2F250B502A0051603C /* B206760E60639441A7876D27110082AC.MOV */,
 				38C847A6227827F000BCAD87 /* JPShopCarController.m */,
 				38C847A7227827F000BCAD87 /* JPShopCarController.h */,
 			);
@@ -5364,6 +5373,10 @@
 			children = (
 				38C847A9227827F000BCAD87 /* JPCarModel.m */,
 				38C847AA227827F000BCAD87 /* JPCarModel.h */,
+				84B7FF31250B597A0051603C /* AudioPieceTogether.h */,
+				84B7FF32250B597A0051603C /* AudioPieceTogether.m */,
+				84B7FF34250B59A20051603C /* AudioEdit.h */,
+				84B7FF35250B59A20051603C /* AudioEdit.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -6514,6 +6527,7 @@
 				38C849B9227827F100BCAD87 /* btn_unselected@2x.png in Resources */,
 				384C407122888DFA00F01586 /* 线索@2x.png in Resources */,
 				384C406F22888DFA00F01586 /* 消息@2x.png in Resources */,
+				84B7FF30250B502A0051603C /* B206760E60639441A7876D27110082AC.MOV in Resources */,
 				38C977DC22AE02D300F978C1 /* play_button.png in Resources */,
 				384C409622888DFA00F01586 /* 线索.png in Resources */,
 				38C84A02227827F200BCAD87 /* 3.jpg in Resources */,
@@ -6889,6 +6903,7 @@
 				38C977E522AE02D300F978C1 /* Options.m in Sources */,
 				386BC04322DDABA7005E6054 /* DGActivityIndicatorBallGridPulseAnimation.m in Sources */,
 				38C8492C227827F100BCAD87 /* SM3Tool.mm in Sources */,
+				84B7FF33250B597A0051603C /* AudioPieceTogether.m in Sources */,
 				386BBDAD22DDA7FF005E6054 /* GPUImageToneCurveFilter.m in Sources */,
 				383EAFE322981D1E00A2AA1E /* JHDownButton.m in Sources */,
 				38C84950227827F100BCAD87 /* XHMenu.m in Sources */,
@@ -7177,6 +7192,7 @@
 				69231657234E31B400A92110 /* SphericaLayout.m in Sources */,
 				38C849E2227827F200BCAD87 /* ZJBLTimerButton.m in Sources */,
 				38C84907227827F100BCAD87 /* CustomDateView.m in Sources */,
+				84B7FF36250B59A20051603C /* AudioEdit.m in Sources */,
 				386BBD9622DDA7FE005E6054 /* GPUImagePixellateFilter.m in Sources */,
 				386BC0DB22DDBC3F005E6054 /* UICountingLabel.m in Sources */,
 				38C849D1227827F200BCAD87 /* SearchResultViewController.m in Sources */,

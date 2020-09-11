@@ -155,7 +155,9 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 #import "IQKeyboardManager.h"
 #import "IQUIView+Hierarchy.h"
 #import "UIView+Extension.h"
-#import "AFNetworking.h"
+//#import "AFNetworking.h"
+#import <AFNetworking/AFNetworking.h>
+#import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 #import "YTKNetwork.h"
 #import "SVProgressHUD.h"
 #import "MBProgressHUD.h"
