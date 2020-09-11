@@ -498,7 +498,6 @@
 		38C84901227827F100BCAD87 /* IncludeNibTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C845C7227827EF00BCAD87 /* IncludeNibTableViewController.m */; };
 		38C84902227827F100BCAD87 /* IncludeNibTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38C845CA227827EF00BCAD87 /* IncludeNibTableViewCell.xib */; };
 		38C84903227827F100BCAD87 /* SZAddImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C845CD227827EF00BCAD87 /* SZAddImage.m */; };
-		38C84904227827F100BCAD87 /* homeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C845CE227827EF00BCAD87 /* homeViewController.m */; };
 		38C84905227827F100BCAD87 /* UDTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C845CF227827EF00BCAD87 /* UDTableViewCell.m */; };
 		38C84906227827F100BCAD87 /* ListContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C845D1227827EF00BCAD87 /* ListContentViewController.m */; };
 		38C84907227827F100BCAD87 /* CustomDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C845D3227827EF00BCAD87 /* CustomDateView.m */; };
@@ -1882,13 +1881,11 @@
 		38C845CB227827EF00BCAD87 /* IncludeNibTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IncludeNibTableViewCell.h; sourceTree = "<group>"; };
 		38C845CC227827EF00BCAD87 /* CustomDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomDateView.h; sourceTree = "<group>"; };
 		38C845CD227827EF00BCAD87 /* SZAddImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZAddImage.m; sourceTree = "<group>"; };
-		38C845CE227827EF00BCAD87 /* homeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = homeViewController.m; sourceTree = "<group>"; };
 		38C845CF227827EF00BCAD87 /* UDTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDTableViewCell.m; sourceTree = "<group>"; };
 		38C845D1227827EF00BCAD87 /* ListContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListContentViewController.m; sourceTree = "<group>"; };
 		38C845D2227827EF00BCAD87 /* ADo_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADo_ViewController.h; sourceTree = "<group>"; };
 		38C845D3227827EF00BCAD87 /* CustomDateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomDateView.m; sourceTree = "<group>"; };
 		38C845D4227827EF00BCAD87 /* no_my@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no_my@2x.png"; sourceTree = "<group>"; };
-		38C845D5227827EF00BCAD87 /* homeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = homeViewController.h; sourceTree = "<group>"; };
 		38C845D6227827EF00BCAD87 /* SZAddImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZAddImage.h; sourceTree = "<group>"; };
 		38C845D8227827EF00BCAD87 /* UDTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDTableViewCell.h; sourceTree = "<group>"; };
 		38C845D9227827EF00BCAD87 /* ADo_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADo_ViewController.m; sourceTree = "<group>"; };
@@ -4163,25 +4160,25 @@
 		38C8454E227827EF00BCAD87 /* TLib */ = {
 			isa = PBXGroup;
 			children = (
-				3817212323EE903000F8A9A0 /* BigSizeButton.h */,
-				3817212223EE903000F8A9A0 /* BigSizeButton.m */,
-				38E416AC2338800600FD84D8 /* HAMLogOutputWindow.h */,
-				38E416AB2338800600FD84D8 /* HAMLogOutputWindow.m */,
 				38C84589227827EF00BCAD87 /* ALiAlertView.h */,
 				38C845B5227827EF00BCAD87 /* ALiAlertView.m */,
-				387F18F2233C674000C25F63 /* DHRadianLayerView.h */,
-				387F18F3233C674000C25F63 /* DHRadianLayerView.m */,
 				38C2D0B122D5E27600CF30CA /* ASIHttpRequest */,
+				3817212323EE903000F8A9A0 /* BigSizeButton.h */,
+				3817212223EE903000F8A9A0 /* BigSizeButton.m */,
 				38C84588227827EF00BCAD87 /* ChineseString.h */,
 				38C845B6227827EF00BCAD87 /* ChineseString.m */,
 				386BBFF722DDABA7005E6054 /* DGActivityIndicatorView */,
 				38C84552227827EF00BCAD87 /* DHGuidePageHUD */,
 				38862C6522BA5BFB00231140 /* DHLeak */,
+				387F18F2233C674000C25F63 /* DHRadianLayerView.h */,
+				387F18F3233C674000C25F63 /* DHRadianLayerView.m */,
 				389D42EA22B375C600232777 /* GLActionSheet */,
 				386BBC6722DDA7FD005E6054 /* GPUImage */,
 				38C8458A227827EF00BCAD87 /* GragView.h */,
 				38C84551227827EF00BCAD87 /* GragView.m */,
 				38C845B2227827EF00BCAD87 /* GYChangeTextView */,
+				38E416AC2338800600FD84D8 /* HAMLogOutputWindow.h */,
+				38E416AB2338800600FD84D8 /* HAMLogOutputWindow.m */,
 				38E97EDF22D5CEC100A70112 /* HCWProgressHUD */,
 				38C84593227827EF00BCAD87 /* iCarousel.h */,
 				38C8454F227827EF00BCAD87 /* iCarousel.m */,
@@ -4326,8 +4323,6 @@
 				38C845D9227827EF00BCAD87 /* ADo_ViewController.m */,
 				38C845CC227827EF00BCAD87 /* CustomDateView.h */,
 				38C845D3227827EF00BCAD87 /* CustomDateView.m */,
-				38C845D5227827EF00BCAD87 /* homeViewController.h */,
-				38C845CE227827EF00BCAD87 /* homeViewController.m */,
 				38C845DA227827EF00BCAD87 /* ListContentViewController.h */,
 				38C845D1227827EF00BCAD87 /* ListContentViewController.m */,
 				38C845BD227827EF00BCAD87 /* ListContentViewController.xib */,
@@ -7292,7 +7287,6 @@
 				38C849D1227827F200BCAD87 /* SearchResultViewController.m in Sources */,
 				386BBDE022DDA7FF005E6054 /* GPUImageStillCamera.m in Sources */,
 				386BBC5522DD9C18005E6054 /* LHCameraViewController.m in Sources */,
-				38C84904227827F100BCAD87 /* homeViewController.m in Sources */,
 				38C849ED227827F200BCAD87 /* JPShopHeaderCell.m in Sources */,
 				3893F39A22CDE3DA005C30AE /* DHMonthListlinkViewController.m in Sources */,
 				3807246922CDCCCC0035E5B1 /* UIView+RandomCorner.m in Sources */,

@@ -154,8 +154,6 @@
 	//[alert show];
  
 	[self.navigationController dismissViewControllerAnimated:YES completion:nil];
-	homeViewController *view=[self.storyboard instantiateViewControllerWithIdentifier:@"zhujiemian"];
-	[self.navigationController pushViewController:view animated:YES];
 }
 
 /**
