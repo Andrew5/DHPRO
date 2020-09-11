@@ -34,7 +34,8 @@
         presetName = AVAssetExportPresetAppleM4A;
         outputFileType = AVFileTypeAppleM4A;
     }else{
-        _block(NO);   return;
+        _block(NO);
+        return;
     }
     // 1.拿到预处理音频文件
     NSURL *songURL = [NSURL fileURLWithPath:filePath];
