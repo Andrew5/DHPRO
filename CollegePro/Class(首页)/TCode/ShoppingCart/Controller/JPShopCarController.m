@@ -12,6 +12,7 @@
 #import "JPCarModel.h"
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MPVolumeView.h>
+#import <Photos/Photos.h>
 
 @interface JPShopCarController ()<UITableViewDataSource,UITableViewDelegate,JPShopCarDelegate>
 {
@@ -38,6 +39,9 @@
     self.title = @"购物车";
     [self setupTableView]; // tableView
     [self createAllBtn];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"B206760E60639441A7876D27110082AC" ofType:@"MOV"];
+    [JPShopCarController videoChangeGetBackgroundMiusicWithVideoUrl:[NSURL fileURLWithPath:path] completion:nil];
+
 }
 
 - (NSMutableArray *)dataArray
@@ -622,6 +626,45 @@ void audioRouteChangeListenerCallback (void *inUserData, AudioSessionPropertyID 
             return TRUE;
     }
     return FALSE;
+}
+/**
+
+ 截取视频的背景音乐
+
+ */
+
++ (void)videoChangeGetBackgroundMiusicWithVideoUrl:(NSURL*)videoUrl completion:(void(^)(NSString*data))completionHandle{
+    AVURLAsset* videoAsset = [[AVURLAsset alloc] initWithURL:videoUrl options:nil];
+    NSArray *keys = @[@"duration",@"tracks"];
+    [videoAsset loadValuesAsynchronouslyForKeys:keys completionHandler:^{
+        NSError*error =nil;
+        AVKeyValueStatus status = [videoAsset statusOfValueForKey:@"tracks"error:&error];
+        if(status ==AVKeyValueStatusLoaded) {//数据加载完成
+            AVMutableComposition *mixComposition = [[AVMutableComposition alloc] init];
+            // 2 - Video track
+            //Audio Recorder
+            //创建一个轨道,类型是AVMediaTypeAudio
+            AVMutableCompositionTrack *firstTrack = [mixComposition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid];
+            //获取videoAsset中的音频,插入轨道
+            [firstTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, videoAsset.duration) ofTrack:[[videoAsset tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0] atTime:kCMTimeZero error:nil];
+            AVAssetExportSession *exporter = [[AVAssetExportSession alloc] initWithAsset:mixComposition presetName:AVAssetExportPresetAppleM4A];//输出为M4A音频
+            NSString *documentsDirPath = [NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"Library/%@.m4a",@"music"]];
+            NSURL *documentsDirUrl = [NSURL fileURLWithPath:documentsDirPath isDirectory:YES];
+            exporter.outputURL = documentsDirUrl;
+            exporter.outputFileType=@"com.apple.m4a-audio";//类型和输出类型一致
+            exporter.shouldOptimizeForNetworkUse = YES;
+            [exporter exportAsynchronouslyWithCompletionHandler:^{
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if (exporter.status == AVAssetExportSessionStatusCompleted) {
+                        completionHandle(exporter.outputURL.path);
+                    }else{
+                        NSLog(@"失败了，原因是：%@,%@",exporter.error,exporter.error.userInfo.description);
+                        completionHandle([exporter.error.userInfo.description description]);
+                    }
+                });
+            }];
+        }
+    }];
 }
 - (UILabel *)labelVoice{
     if (!_labelVoice){
