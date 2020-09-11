@@ -7,7 +7,7 @@
 //
 
 #import "DHTool.h"
-#import "WKWebViewController.h"
+//#import "WKWebViewController.h"
 #import <SystemConfiguration/CaptiveNetwork.h>
 #import <CoreText/CoreText.h>
 #import <AdSupport/AdSupport.h>
@@ -20,6 +20,8 @@
 #import <dlfcn.h>
 #import <netinet/in.h>
 #import <mach/mach.h>
+#define DH_FontSize(fontSize) [UIFont systemFontOfSize:fontSize]
+#define DH_DeviceWidth  [UIScreen mainScreen].bounds.size.width
 
 @implementation DHTool
 
@@ -805,8 +807,8 @@
 //    if (kUserInfo.userModel.markType == 0) {
 //        url = kChatUrl_Normal;
 //    }
-    WKWebViewController *chatController = [[WKWebViewController alloc] initWithUrl:url navTitle:@"客服"];
-    [controller.navigationController pushViewController:chatController animated:YES];
+//    WKWebViewController *chatController = [[WKWebViewController alloc] initWithUrl:url navTitle:@"客服"];
+//    [controller.navigationController pushViewController:chatController animated:YES];
     
 }
 /// IDFA编号

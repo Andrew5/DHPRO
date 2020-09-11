@@ -8,7 +8,7 @@
 
 #import "TodayViewController.h"
 #import <NotificationCenter/NotificationCenter.h>
-
+#import "DHTool.h"
 #import <sys/sysctl.h>
 #import <mach/mach.h>
 #import <sys/mount.h>
@@ -47,11 +47,11 @@
         [self.view addSubview:self.labelUsedMemory];
         [self.view addSubview:self.labelNet];
 
-        _labelUsedMemory.text = [NSString stringWithFormat:@"设备的已使用容量:%.1f, 当前任务所占用的内存:%.2fMB,可用内存:%f",[self getTotalDiskSpace],[self availableMemory],[self usedMemory]];
+        _labelUsedMemory.text = [NSString stringWithFormat:@"设备容量:%@",[DHTool diskSpaceType]];
         _labelUsedMemory.frame  = CGRectMake(10, 20, 25*15, 40);
 
 
-        _labelTitleName.text = [NSString stringWithFormat:@"%.2f,%.2f,%.2f,%.2llu,%.2lld,%.2lld",self.fileSystemSize,self.usedRate,self.freeSize,self.usedSize,[self memoryUsage],[self diskMemory]];
+//        _labelTitleName.text = [NSString stringWithFormat:@"%.2f,%.2f,%.2f,%.2llu,%.2lld,%.2lld",self.fileSystemSize,self.usedRate,self.freeSize,self.usedSize,[self memoryUsage],[self diskMemory]];
 
         NSString *urlString = [NSString stringWithFormat:@"CollegeProTodayExtensionDemo://set/markCode=%@&code=%@&yesclose=%@&stockName=%@",@"10200",@"200",@"YES",[@"高晨阳" stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
         NSArray * array = @[
@@ -80,8 +80,7 @@
             [self.dataArray addObject:manageModel];
         }
     //    [self.tableView reloadData];
-        
-        NSUserDefaults *userDefault = [[NSUserDefaults standardUserDefaults] initWithSuiteName:@"group.dhTool.selfpro.CollegeProExtension"];
+        NSUserDefaults *userDefault = [[NSUserDefaults standardUserDefaults] initWithSuiteName:@"group.com.dhPro.tool.CollegeProExtension"];
         NSString *t = [userDefault valueForKey:@"network"];
         self.labelNet.frame  = CGRectMake(10, 60, 15*15, 40);
         self.labelNet.text = [NSString stringWithFormat:@"当前网速是：%@",t];
@@ -158,7 +157,7 @@
     // If there's an update, use NCUpdateResultNewData
     
     // 取出数据
-    NSString * myData = [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.dhTool.selfpro.CollegeProExtension"] valueForKey:@"myShareData"];
+    NSString * myData = [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.dhPro.tool.CollegeProExtension"] valueForKey:@"myShareData"];
     NSLog(@"草泥马的数据呢？ %@",myData);
     [self.tableView reloadData];
     completionHandler(NCUpdateResultNewData);
