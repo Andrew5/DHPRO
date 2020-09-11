@@ -20,6 +20,7 @@
 @interface BaseTabBarViewController ()<UITabBarControllerDelegate>
 {
     UILabel *_redLab;
+    UILabel *_bottomAdLB;
 }
 
 @end
@@ -28,8 +29,36 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //解决hidesBottomBarWhenPushed 跳转闪屏问题
+    [[UITabBar appearance] setTranslucent:NO];
     [self myTabbar];
+//    [self.view addSubview:self.customerService];
+//    [self.view addSubview:self.visitorLabel];
+    [self.view addSubview:self.bottomADView];
+    [self addAnimation];
     // Do any additional setup after loading the view.
+}
+
+///MARK:加动画
+- (void)addAnimation{
+
+    [_bottomAdLB.layer removeAllAnimations];
+    CGRect frame = _bottomAdLB.frame;
+    frame.origin.x = self.bottomADView.frame.size.width;
+    _bottomAdLB.frame = frame;
+    float interval = _bottomAdLB.frame.size.width/35;
+    [UIView beginAnimations:@"Animation"context:NULL];
+    [UIView setAnimationDuration:interval];
+    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationRepeatAutoreverses:NO];
+    [UIView setAnimationRepeatCount:9999999];
+    frame = _bottomAdLB.frame;
+    frame.origin.x = - _bottomAdLB.frame.size.width;
+    _bottomAdLB.frame = frame;
+    [UIView commitAnimations];
+    _bottomAdLB.layer.borderColor = [UIColor redColor].CGColor;
+    _bottomAdLB.layer.borderWidth = 1.0;
 }
 - (void)myTabbar
 {  
@@ -76,6 +105,100 @@
 	}];
 	//显示第几个
 	self.selectedIndex = 0;
+
+}
+//#define iPhoneX (IS_IOS_11 && IS_IPHONE && (MIN([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) >= 375 && MAX([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) >= 812))
+#define isIPhone        [[UIDevice currentDevice].model isEqualToString:@"iPhone"]
+
+-(UIButton *)customerService{
+    
+    if (!_customerService) {
+        
+        _customerService = [UIButton buttonWithType:UIButtonTypeCustom];
+        
+        [_customerService setImage:[UIImage imageNamed:@"icon_kefu_home"] forState:UIControlStateNormal];
+        
+        [_customerService addTarget:self action:@selector(customerServiceClick) forControlEvents:UIControlEventTouchUpInside];
+        
+        [self.view addSubview:_customerService];
+        [_customerService mas_makeConstraints:^(MASConstraintMaker *make) {
+            
+            make.right.mas_equalTo(-15);
+            
+            make.bottom.mas_equalTo(-(49.00 + (isIPhone ? 12+40 : 16+40)));
+            
+            make.size.mas_equalTo(isIPhone ? CGSizeMake(40, 40) : CGSizeMake(60, 60));
+        }];
+        
+    }
+    
+    return _customerService;
+}
+
+//联系客服
+- (void)customerServiceClick{
+    
+    UINavigationController *nav = self.selectedViewController;
+    [DHTool pushChatController:nav.topViewController];
+    
+}
+-(UIButton *)visitorLabel{
+    
+    if (!_visitorLabel) {
+        
+        NSString *string = @"当前为游客模式，快去登录学习吧！!";
+        NSMutableAttributedString *mutAtt = [[NSMutableAttributedString alloc]initWithString:string];
+        
+        [mutAtt addAttribute:NSForegroundColorAttributeName value:UIColorFromRGB(0xfe7652) range:[string rangeOfString:@"登录"]];
+        
+        _visitorLabel = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_visitorLabel setTitle:nil forState:UIControlStateNormal];
+        [_visitorLabel setAttributedTitle:mutAtt forState:(UIControlStateNormal)];
+        CGFloat h = isIPhone ? 33 : 43;
+        
+        _visitorLabel.frame = CGRectMake(0, DH_DeviceHeight - kTabBarHeight - h, DH_DeviceWidth, h);
+        _visitorLabel.backgroundColor = UIColorFromRGBA(0x000000, 0.6);
+        _visitorLabel.titleLabel.textColor = UIColorFromRGBA(0xffffff, 1.0);
+        _visitorLabel.titleLabel.font = isIPhone ? kFont(13) : kFont(18);
+
+        [_visitorLabel addTarget:self action:@selector(visitorLabelClick) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _visitorLabel;
+}
+- (UIView *)bottomADView{
+    if (_bottomADView == nil) {
+        _bottomADView = [[UIView alloc]init];
+        _bottomADView.backgroundColor = [UIColor greenColor];
+        [self.view addSubview:_bottomADView];
+        [_bottomADView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.left.equalTo(self.view);
+            if (@available(iOS 11.0, *)) {
+                make.top.equalTo(self.view.mas_safeAreaLayoutGuideBottom);
+            } else {
+                // Fallback on earlier versions
+            }
+            make.bottom.equalTo(self.view);
+            make.height.offset(34);
+        }];
+        
+        _bottomAdLB = [[UILabel alloc]init];
+        _bottomAdLB.textColor = [UIColor blackColor];
+        _bottomAdLB.text = @"大海专属";
+        _bottomAdLB.textAlignment = NSTextAlignmentCenter;
+        [_bottomADView addSubview:_bottomAdLB];
+        [_bottomAdLB mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(_bottomADView.mas_top);
+            make.centerX.equalTo(_bottomADView);
+            make.width.offset(15*5);
+        }];
+        [self.view layoutIfNeeded];
+        NSLog(@"--%@--%@",_bottomAdLB.description,_bottomADView.description);
+    }
+    return _bottomADView;
+}
+- (void)visitorLabelClick{
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"eLLToLoginViewController" object:@{@"eLLToLoginViewController" : @"1"}];
 
 }
 //- (void)addOneChildVC:(UIViewController *)childVC title:(NSString *)title backgroundColor:(UIColor *)color imageName:(NSString *)imageName selectedName:(NSString *)selectImageName

@@ -2,13 +2,12 @@
 //  DHTabbarViewController.h
 //  CollegePro
 //
-//  Created by admin on 2020/8/7.
-//  Copyright © 2020 jabrknight. All rights reserved.
+//  Created by jabraknight on 2019/8/11.
+//  Copyright © 2019 jabrknight. All rights reserved.
 //
 
 #import "BaseViewController.h"
 
-NS_ASSUME_NONNULL_BEGIN
 #define CTABBAR_BGIMG_NAME @"tabbar_bg.png"
 #define CTABBAR_CELL_R 0.16
 #define CTABBAR_CELL_G 0.23
@@ -18,7 +17,11 @@ NS_ASSUME_NONNULL_BEGIN
 #define CTABBAR_WIDTH DH_DeviceHeight
 #define CTABBAR_HEIGHT 48
 #define CTABBAR_TOP DH_DeviceHeight - 20 - CTABBAR_HEIGHT
+
+NS_ASSUME_NONNULL_BEGIN
+
 @class CTabViewCell;
+
 @interface DHTabbarViewController : BaseViewController<UITabBarDelegate>
 {
     NSUInteger selectedIndex;

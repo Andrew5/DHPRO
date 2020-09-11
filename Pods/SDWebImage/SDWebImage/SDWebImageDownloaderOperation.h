@@ -63,6 +63,15 @@
 @property (strong, nonatomic, readonly, nullable) NSURLSessionTask *dataTask;
 
 /**
+<<<<<<< HEAD:Pods/SDWebImage/SDWebImage/SDWebImageDownloaderOperation.h
+=======
+ * The collected metrics from `-URLSession:task:didFinishCollectingMetrics:`.
+ * This can be used to collect the network metrics like download duration, DNS lookup duration, SSL handshake duration, etc. See Apple's documentation: https://developer.apple.com/documentation/foundation/urlsessiontaskmetrics
+ */
+@property (strong, nonatomic, readonly, nullable) NSURLSessionTaskMetrics *metrics API_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));
+
+/**
+>>>>>>> develop:Pods/SDWebImage/SDWebImage/Core/SDWebImageDownloaderOperation.h
  * The credential used for authentication challenges in `-URLSession:task:didReceiveChallenge:completionHandler:`.
  *
  * This will be overridden by any shared credentials that exist for the username or password of the request URL, if present.

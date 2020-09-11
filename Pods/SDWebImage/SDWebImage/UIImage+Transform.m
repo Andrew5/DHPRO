@@ -9,7 +9,12 @@
 #import "UIImage+Transform.h"
 #import "NSImage+Compatibility.h"
 #import "SDImageGraphics.h"
+<<<<<<< HEAD:Pods/SDWebImage/SDWebImage/UIImage+Transform.m
 #import "NSBezierPath+RoundedCorners.h"
+=======
+#import "SDGraphicsImageRenderer.h"
+#import "NSBezierPath+SDRoundedCorners.h"
+>>>>>>> develop:Pods/SDWebImage/SDWebImage/Core/UIImage+Transform.m
 #import <Accelerate/Accelerate.h>
 #if SD_UIKIT || SD_MAC
 #import <CoreImage/CoreImage.h>

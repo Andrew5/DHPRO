@@ -89,6 +89,15 @@
  */
 + (UIImage * _Nullable)decodedAndScaledDownImageWithImage:(UIImage * _Nullable)image limitBytes:(NSUInteger)bytes;
 
+<<<<<<< HEAD:Pods/SDWebImage/SDWebImage/SDImageCoderHelper.h
+=======
+/**
+ Control the default limit bytes to scale down largest images.
+ This value must be larger than or equal to 1MB. Defaults to 60MB on iOS/tvOS, 90MB on macOS, 30MB on watchOS.
+ */
+@property (class, readwrite) NSUInteger defaultScaleDownLimitBytes;
+
+>>>>>>> develop:Pods/SDWebImage/SDWebImage/Core/SDImageCoderHelper.h
 #if SD_UIKIT || SD_WATCH
 /**
  Convert an EXIF image orientation to an iOS one.

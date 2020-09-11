@@ -11,7 +11,6 @@
 #import "SDDiskCache.h"
 #import "NSImage+Compatibility.h"
 #import "SDImageCodersManager.h"
-#import "SDImageTransformer.h"
 #import "SDImageCoderHelper.h"
 #import "SDAnimatedImage.h"
 #import "UIImage+MemoryCacheCost.h"
@@ -277,6 +276,17 @@
     return [self.diskCache containsDataForKey:key];
 }
 
+- (void)diskImageDataQueryForKey:(NSString *)key completion:(SDImageCacheQueryDataCompletionBlock)completionBlock {
+    dispatch_async(self.ioQueue, ^{
+        NSData *imageData = [self diskImageDataBySearchingAllPathsForKey:key];
+        if (completionBlock) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completionBlock(imageData);
+            });
+        }
+    });
+}
+
 - (nullable NSData *)diskImageDataForKey:(nullable NSString *)key {
     if (!key) {
         return nil;
@@ -294,7 +304,12 @@
 }
 
 - (nullable UIImage *)imageFromDiskCacheForKey:(nullable NSString *)key {
-    UIImage *diskImage = [self diskImageForKey:key];
+    return [self imageFromDiskCacheForKey:key options:0 context:nil];
+}
+
+- (nullable UIImage *)imageFromDiskCacheForKey:(nullable NSString *)key options:(SDImageCacheOptions)options context:(nullable SDWebImageContext *)context {
+    NSData *data = [self diskImageDataForKey:key];
+    UIImage *diskImage = [self diskImageForKey:key data:data options:options context:context];
     if (diskImage && self.config.shouldCacheImagesInMemory) {
         NSUInteger cost = diskImage.sd_memoryCost;
         [self.memCache setObject:diskImage forKey:key cost:cost];
@@ -304,6 +319,10 @@
 }
 
 - (nullable UIImage *)imageFromCacheForKey:(nullable NSString *)key {
+    return [self imageFromCacheForKey:key options:0 context:nil];
+}
+
+- (nullable UIImage *)imageFromCacheForKey:(nullable NSString *)key options:(SDImageCacheOptions)options context:(nullable SDWebImageContext *)context {
     // First check the in-memory cache...
     UIImage *image = [self imageFromMemoryCacheForKey:key];
     if (image) {
@@ -311,7 +330,7 @@
     }
     
     // Second check the disk cache...
-    image = [self imageFromDiskCacheForKey:key];
+    image = [self imageFromDiskCacheForKey:key options:options context:context];
     return image;
 }
 
@@ -363,24 +382,41 @@
 }
 
 - (nullable NSOperation *)queryCacheOperationForKey:(nullable NSString *)key options:(SDImageCacheOptions)options context:(nullable SDWebImageContext *)context done:(nullable SDImageCacheQueryCompletionBlock)doneBlock {
+    return [self queryCacheOperationForKey:key options:options context:context cacheType:SDImageCacheTypeAll done:doneBlock];
+}
+
+- (nullable NSOperation *)queryCacheOperationForKey:(nullable NSString *)key options:(SDImageCacheOptions)options context:(nullable SDWebImageContext *)context cacheType:(SDImageCacheType)queryCacheType done:(nullable SDImageCacheQueryCompletionBlock)doneBlock {
     if (!key) {
         if (doneBlock) {
             doneBlock(nil, nil, SDImageCacheTypeNone);
         }
         return nil;
     }
-    
-    id<SDImageTransformer> transformer = context[SDWebImageContextImageTransformer];
-    if (transformer) {
-        // grab the transformed disk image if transformer provided
-        NSString *transformerKey = [transformer transformerKey];
-        key = SDTransformedKeyForKey(key, transformerKey);
+    // Invalid cache type
+    if (queryCacheType == SDImageCacheTypeNone) {
+        if (doneBlock) {
+            doneBlock(nil, nil, SDImageCacheTypeNone);
+        }
+        return nil;
     }
     
     // First check the in-memory cache...
+<<<<<<< HEAD:Pods/SDWebImage/SDWebImage/SDImageCache.m
     UIImage *image = [self imageFromMemoryCacheForKey:key];
 
     if ((options & SDImageCacheDecodeFirstFrameOnly) && image.sd_isAnimated) {
+=======
+    UIImage *image;
+    if (queryCacheType != SDImageCacheTypeDisk) {
+        image = [self imageFromMemoryCacheForKey:key];
+    }
+    
+    if (image) {
+        if (options & SDImageCacheDecodeFirstFrameOnly) {
+            // Ensure static image
+            Class animatedImageClass = image.class;
+            if (image.sd_isAnimated || ([animatedImageClass isSubclassOfClass:[UIImage class]] && [animatedImageClass conformsToProtocol:@protocol(SDAnimatedImage)])) {
+>>>>>>> develop:Pods/SDWebImage/SDWebImage/Core/SDImageCache.m
 #if SD_MAC
         image = [[NSImage alloc] initWithCGImage:image.CGImage scale:image.scale orientation:kCGImagePropertyOrientationUp];
 #else
@@ -388,7 +424,7 @@
 #endif
     }
 
-    BOOL shouldQueryMemoryOnly = (image && !(options & SDImageCacheQueryMemoryData));
+    BOOL shouldQueryMemoryOnly = (queryCacheType == SDImageCacheTypeMemory) || (image && !(options & SDImageCacheQueryMemoryData));
     if (shouldQueryMemoryOnly) {
         if (doneBlock) {
             doneBlock(image, nil, SDImageCacheTypeMemory);
@@ -500,7 +536,7 @@
     });
 }
 
-// Make sure to call form io queue by caller
+// Make sure to call from io queue by caller
 - (void)_removeImageFromDiskForKey:(NSString *)key {
     if (!key) {
         return;
@@ -620,6 +656,10 @@
 #pragma mark - SDImageCache
 
 - (id<SDWebImageOperation>)queryImageForKey:(NSString *)key options:(SDWebImageOptions)options context:(nullable SDWebImageContext *)context completion:(nullable SDImageCacheQueryCompletionBlock)completionBlock {
+    return [self queryImageForKey:key options:options context:context cacheType:SDImageCacheTypeAll completion:completionBlock];
+}
+
+- (id<SDWebImageOperation>)queryImageForKey:(NSString *)key options:(SDWebImageOptions)options context:(nullable SDWebImageContext *)context cacheType:(SDImageCacheType)cacheType completion:(nullable SDImageCacheQueryCompletionBlock)completionBlock {
     SDImageCacheOptions cacheOptions = 0;
     if (options & SDWebImageQueryMemoryData) cacheOptions |= SDImageCacheQueryMemoryData;
     if (options & SDWebImageQueryMemoryDataSync) cacheOptions |= SDImageCacheQueryMemoryDataSync;
@@ -628,7 +668,13 @@
     if (options & SDWebImageAvoidDecodeImage) cacheOptions |= SDImageCacheAvoidDecodeImage;
     if (options & SDWebImageDecodeFirstFrameOnly) cacheOptions |= SDImageCacheDecodeFirstFrameOnly;
     if (options & SDWebImagePreloadAllFrames) cacheOptions |= SDImageCachePreloadAllFrames;
+<<<<<<< HEAD:Pods/SDWebImage/SDWebImage/SDImageCache.m
     return [self queryCacheOperationForKey:key options:cacheOptions context:context done:completionBlock];
+=======
+    if (options & SDWebImageMatchAnimatedImageClass) cacheOptions |= SDImageCacheMatchAnimatedImageClass;
+    
+    return [self queryCacheOperationForKey:key options:cacheOptions context:context cacheType:cacheType done:completionBlock];
+>>>>>>> develop:Pods/SDWebImage/SDWebImage/Core/SDImageCache.m
 }
 
 - (void)storeImage:(UIImage *)image imageData:(NSData *)imageData forKey:(nullable NSString *)key cacheType:(SDImageCacheType)cacheType completion:(nullable SDWebImageNoParamsBlock)completionBlock {

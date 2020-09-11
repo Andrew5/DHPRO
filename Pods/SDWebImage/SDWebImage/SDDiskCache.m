@@ -83,7 +83,7 @@
     
     // get cache Path for image key
     NSString *cachePathForKey = [self cachePathForKey:key];
-    // transform to NSUrl
+    // transform to NSURL
     NSURL *fileURL = [NSURL fileURLWithPath:cachePathForKey];
     
     [data writeToURL:fileURL options:self.config.diskCacheWritingOptions error:nil];

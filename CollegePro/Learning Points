@@ -1,42 +1,42 @@
 1、处理基类的返回按钮事件✅
-2、处理block文件代码主线程返回事件
-3、成员变量使用block问题 熟知成员变量（实例变量）、属性变量、全局变量对block的影响
-4、研究后台保活事件 达到招商银行APP效果
-5、计时器的研究NSTimer和GCD计时器 RunTime
-6、RunLoop的研究和使用 写实例
-7、本地推送 仿闹铃APP
-8、碰撞效果
-9、socket通信 两部手机之间的通信包括蓝牙聊天
-10、collection view拖拽移动事件
-11、基本动画集合list
-12、复杂动画包括贝塞尔曲线的使用 写实例
-13、组件化研究使用
-14、长时间不操作下的执行
-熟悉了OC对象的本质，对比 OC 和 Swift对象内存的占用区别
-15、环队列
-16、静态队列
-17、内存分布
-18、内存对齐
-19、kvc 监听对象
-20、runtime实现后台停留3分钟后执行任务
-21、控制器生命周期
-22、两个页面相互间的生命周期
-23、未来技术发展前沿：
-24、REACT开发-> https://www.runoob.com/react/react-tutorial.html
-25、Vue.js  Dart
-26、flutter实战 -> https://flutterchina.club
-27、react
-28、RN
-29、uniapp
-30、element
-31、rem+viewport
-32、ReactorKit
-33、神器中的神器org-mode
-34、VIPER模式介绍
-35、iOS设计模式-21种设计模式
-36、FBRetainCycleDetector
-37、状态管理  主流框架  redux  mobx  bloc
-38、opevcv、cordova、h5+css、暗黑模式、微信通讯录title滑动变色效果
+2、处理block文件代码主线程返回事件✅
+3、骨架屏 TABAnimated
+4、成员变量使用block问题 熟知成员变量（实例变量）、属性变量、全局变量对block的影响
+5、研究后台保活事件 达到招商银行APP效果
+6、计时器的研究NSTimer和GCD计时器 RunTime✅
+7、RunLoop的研究和使用 写实例
+8、本地推送 仿闹铃APP
+9、碰撞效果 仿Steve
+10、socket通信 两部手机之间的通信包括蓝牙聊天
+11、collection view拖拽移动事件
+12、基本动画集合list
+13、复杂动画包括贝塞尔曲线的使用 写实例
+14、控制器生命周期✅
+15、长时间不操作下的执行
+16、熟悉了OC对象的本质，对比 OC 和 Swift对象内存的占用区别
+17、runtime实现后台停留3分钟后执行任务
+18、暗黑模式、微信通讯录title滑动变色效果
+19、两个页面相互间的生命周期✅
+20、自定义kvo 监听对象✅
+21、环队列
+22、静态队列
+23、内存分布
+24、内存对齐
+25、未来技术发展前沿：
+26、REACT开发-> https://www.runoob.com/react/react-tutorial.html
+27、Vue.js Dart flutter实战 -> https://flutterchina.club
+28、RN、react
+29、ReactorKit
+30、uniapp
+31、element
+32、rem+viewport
+33、组件化研究使用
+34、神器中的神器org-mode
+35、VIPER模式介绍
+36、iOS设计模式-21种设计模式
+37、FBRetainCycleDetector
+38、状态管理  主流框架  redux  mobx  bloc
+39、opevcv、cordova、h5+css、
 provider
 bug:
 1、添加图片控件 查看以选图片未展示

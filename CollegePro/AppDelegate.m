@@ -15,6 +15,7 @@
 #import "ScreenBlurry.h"
 #import "TMotionViewController.h"//碰撞
 #import "AvoidCrash.h"
+#import "YTKNetworkConfig.h"
 //极光推送
 // 引入 JPush 功能所需头文件
 #import "JPUSHService.h"
@@ -39,14 +40,14 @@
 #import "BaseNavigationController.h"
 
 #import "QDExceptionHandler.h"
-
+#define UUID_IDFA @"IdentifierUUIDIDFA"
 #define kUseScreenShotGesture 1
 extern CFAbsoluteTime StartTime;
 @interface AppDelegate ()<JPUSHRegisterDelegate,UNUserNotificationCenterDelegate>
 {
-    BMKMapManager* _mapManager;//实例变量
+//    BMKMapManager* _mapManager;//实例变量
    __block int num;//成员变量
-    
+    UIView *launchView;
 }
 //@property(nonatomic,strong) UIMutableUserNotificationCategory* categorys;
 @property (strong, nonatomic)UIVisualEffectView *visualEffectView;
@@ -95,6 +96,12 @@ extern CFAbsoluteTime StartTime;
     
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
     [SVProgressHUD setMinimumDismissTimeInterval:1.0];
+
+    NSString *IDFV = [LHKeyChain load:UUID_IDFA];
+    if ([IDFV isEqualToString:@""] || !IDFV) {
+        IDFV = [UIDevice currentDevice].identifierForVendor.UUIDString;
+        [LHKeyChain save:UUID_IDFA data:IDFV];
+    }
     
     IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
     manager.enable = YES;//控制整个功能是否启用。
@@ -115,6 +122,9 @@ extern CFAbsoluteTime StartTime;
     [self writeFile];
     self.name = @"kaishi";
     NSLog(@"self.name %@",self.name);
+    YTKNetworkConfig *config = [YTKNetworkConfig sharedConfig];
+    config.baseUrl = @"https://sitservice.lilyclass.com";
+//    config.cdnUrl = @"http://fen.bi";
     ///MARK: -极光推送⬇️
     //Required
     //notice: 3.0.0 及以后版本注册可以这样写，也可以继续用之前的注册方式
@@ -147,12 +157,12 @@ extern CFAbsoluteTime StartTime;
                      apsForProduction:YES
                 advertisingIdentifier:nil];
 ///MARK: -极光推送⬆️
-    _mapManager = [[BMKMapManager alloc]init];
-    // 如果要关注网络及授权验证事件，请设定     generalDelegate参数
-    BOOL ret = [_mapManager start:@"GqPBelcjdgnnusGN3QjEQ45vjE7YkyE1"  generalDelegate:nil];
-    if (!ret) {
-        NSLog(@"manager start failed!");
-    }
+//    _mapManager = [[BMKMapManager alloc]init];
+//    // 如果要关注网络及授权验证事件，请设定     generalDelegate参数
+//    BOOL ret = [_mapManager start:@"GqPBelcjdgnnusGN3QjEQ45vjE7YkyE1"  generalDelegate:nil];
+//    if (!ret) {
+//        NSLog(@"manager start failed!");
+//    }
     
     //    float sysVersion=[[UIDevice currentDevice]systemVersion].floatValue;
     //    if (sysVersion>=8.0) {
@@ -161,41 +171,7 @@ extern CFAbsoluteTime StartTime;
     //        }
     //    }
 
-    //如果已经获得发送通知哦的授权则创建本地通知，否则请求授权（注意：如果不请求授权在设置中是没有对应的通知设置项的，也就是说如果从来没有发送过请求，即使通过设置也打不开消息允许设置）
-    if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-        if (@available(iOS 10.0, *)) {
-            UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-            center.delegate = self;
-            [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert + UNAuthorizationOptionSound)
-                                  completionHandler:^(BOOL granted, NSError * _Nullable error) {
-                                      
-                                  }];
-            [center getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
-                
-            }];
-            //  > 通知内容
-            UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];
-            // > 通知的title
-            content.title = [NSString localizedUserNotificationStringForKey:@"推送的标题" arguments:nil];
-            // > 通知的要通知内容
-            content.body = [NSString localizedUserNotificationStringForKey:@"======推送的消息体======"
-                                                                 arguments:nil];
-            // > 通知的提示声音
-            content.sound = [UNNotificationSound soundNamed:@"oppo.mp3"];//[UNNotificationSound defaultSound];
-            //  > 通知的延时执行
-            UNTimeIntervalNotificationTrigger* trigger = [UNTimeIntervalNotificationTrigger
-                                                          triggerWithTimeInterval:5 repeats:NO];
-            UNNotificationRequest* request = [UNNotificationRequest requestWithIdentifier:@"FiveSecond"
-                                                                                  content:content trigger:trigger];
-            //添加推送通知，等待通知即可！
-            [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
-                // > 可在此设置添加后的一些设置
-                // > 例如alertVC。。
-            }];
-        } else {
-            // Fallback on earlier versions
-        }
-    }
+    
 /*
 
     //    接收通知参数
@@ -223,7 +199,6 @@ extern CFAbsoluteTime StartTime;
         [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound   categories:nil]];
     }
     
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(Alarm:) name:@"Alarm" object:nil];
     //关闭程序后再通过点击通知打开应用获取userInfo
     //接收通知参数
     UILocalNotification *notification=[launchOptions valueForKey:UIApplicationLaunchOptionsLocalNotificationKey];
@@ -231,14 +206,11 @@ extern CFAbsoluteTime StartTime;
 
     NSLog(@"didFinishLaunchingWithOptions:The userInfo is %@.",userInfo);
 */
-    
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(Alarm:) name:@"Alarm" object:nil];
 
-    DHGuidepageViewController *guidepageVC = [[DHGuidepageViewController alloc] init];
-    BaseNavigationController *navVC = [[BaseNavigationController alloc]initWithRootViewController:guidepageVC];
-    navVC.modalPresentationStyle = UIModalPresentationFullScreen;
-    self.window.rootViewController = navVC;
-
+    [self getLaunchImage];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[DHGuidepageViewController alloc] init]];
     [self.window makeKeyWindow];
     // Override point for customization after application launch.
     return YES;
@@ -536,8 +508,60 @@ extern CFAbsoluteTime StartTime;
     }
     completionHandler();  // 系统要求执行这个方法
 }
-
 ///MARK: -极光推送⬆️
+- (void)loadLocalNotification{
+    /////如果已经获得发送通知哦的授权则创建本地通知，否则请求授权（注意：如果不请求授权在设置中是没有对应的通知设置项的，也就是说如果从来没有发送过请求，即使通过设置也打不开消息允许设置）
+    if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+        if (@available(iOS 10.0, *)) {
+            UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+            center.delegate = self;
+            [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert + UNAuthorizationOptionSound)
+                                  completionHandler:^(BOOL granted, NSError * _Nullable error) {
+                
+            }];
+            [center getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
+                
+            }];
+            //  > 通知内容
+            UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];
+            // > 通知的title
+            content.title = [NSString localizedUserNotificationStringForKey:@"推送的标题" arguments:nil];
+            // > 通知的要通知内容
+            content.body = [NSString localizedUserNotificationStringForKey:@"======推送的消息体======"
+                                                                 arguments:nil];
+            // > 通知的提示声音
+            /*
+             自定义的弹框铃声是由系统设备播放的, 所以铃声应当是以下数据格式:
+             Linear PCM
+             MA4 (IMA/ADPCM)
+             µLaw
+             aLaw
+             你可以将音频数据打包成一个aiff, wav, 或者caf的文件. 铃声文件的音频长度应少于30秒, 否则将设置无效而播放默认的铃声.
+             苹果原文:
+             Custom alert sounds are played by the system sound facility, so they must be in one of the following audio data formats:
+             Linear PCM
+             MA4 (IMA/ADPCM)
+             µLaw
+             aLaw
+             You can package the audio data in an aiff, wav, or caf file. Sound files must be less than 30 seconds in length. If the sound file is longer than 30 seconds, the system plays the default sound instead.
+             */
+            content.sound = [UNNotificationSound soundNamed:@"test.m4a"];//[UNNotificationSound defaultSound];
+            //  > 通知的延时执行
+            UNTimeIntervalNotificationTrigger* trigger = [UNTimeIntervalNotificationTrigger
+                                                          triggerWithTimeInterval:5 repeats:NO];
+            UNNotificationRequest* request = [UNNotificationRequest requestWithIdentifier:@"FiveSecond"
+                                                                                  content:content trigger:trigger];
+            //添加推送通知，等待通知即可！
+            [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+                // > 可在此设置添加后的一些设置
+                // > 例如alertVC。。
+            }];
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+}
+
 ///MARK: 移除本地通知，在不需要此通知时记得移除
 -(void)removeNotification{
 
@@ -695,6 +719,7 @@ extern CFAbsoluteTime StartTime;
 - (void)Alarm:(NSNotification *)noti{
     NSDictionary *dict = noti.object;
     NSLog(@"闹钟-%@",dict[@"Alarm"]) ;
+    [self loadLocalNotification];
 //    [self ViewControllerSendTime:(NSUInteger)dict[@"length"]];
 }
 - (void)newMethod{
@@ -1053,6 +1078,45 @@ extern CFAbsoluteTime StartTime;
     NSLog(@"%@",note.userInfo);
     //本地日志打印
     [DHTool writeLocalCacheDataToCachesFolderWithKey:[NSString stringWithFormat:@"A_%@.log",[DHTool getCurrectTimeWithPar:@"yyyy-MM-dd-HH-mm-ss-SSS"]] fileName:@"exception"];
+}
 
+- (void)getLaunchImage{
+    UIViewController *viewController = [[UIStoryboard storyboardWithName:@"LaunchScreen" bundle:nil] instantiateViewControllerWithIdentifier:@"LaunchScreen"];
+    UIView *launchView = viewController.view;
+    //    CGRect bottomframe;
+    //    for (UIView *view in launchView.subviews) {
+    //        if (view.tag==30000) {
+    //            bottomframe = view.frame;
+    //        }
+    //    }
+    UIWindow *mainWindow = [UIApplication sharedApplication].keyWindow;
+    launchView.frame = [UIApplication sharedApplication].keyWindow.frame;
+    [mainWindow addSubview:launchView];
+//    UIImageView *imageV=[[UIImageView alloc]init];
+//    imageV.backgroundColor=[UIColor whiteColor];
+//    [launchView addSubview:imageV];
+    UIImageView *subimageV=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"750x1334@2x.png"]];
+    [launchView addSubview:subimageV];
+    [subimageV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(launchView);
+        make.left.equalTo(launchView).offset(17);
+        make.right.equalTo(launchView).offset(-17);
+    }];
+//    [imageV mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(launchView);
+//        make.left.right.equalTo(launchView);
+//        make.bottom.equalTo(subimageV.mas_top);
+//    }];
+    subimageV.contentMode=UIViewContentModeCenter;
+    [self.window bringSubviewToFront:launchView];
+//    [imageV sd_setImageWithURL:[NSURL URLWithString:responseobj[@"path"]]];
+//    [imageV setImage:[UIImage imageNamed:@"750x1334@2x.png"]];
+//    [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(removeADView) userInfo:nil repeats:NO];
+}
+- (void)removeADView{
+
+    [launchView removeFromSuperview];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[DHGuidepageViewController alloc] init]];
 }
 @end

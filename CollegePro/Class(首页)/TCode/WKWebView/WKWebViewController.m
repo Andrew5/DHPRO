@@ -7,112 +7,67 @@
 //
 
 #import "WKWebViewController.h"
+#import "BaseTabBarViewController.h"
 
 @interface WKWebViewController ()<WKNavigationDelegate,WKUIDelegate,WKScriptMessageHandler>
 @property (strong, nonatomic) WKWebView *WKView;
 @property (strong, nonatomic) UIButton *toolBtn;
-@property (strong, nonatomic) WKWebView *ScreenshotWKView;
-
 
 @end
 
 @implementation WKWebViewController
+- (instancetype)initWithHtml:(NSString *)html navTitle:(NSString *)title
+{
+    if (self = [super init]) {
+        self.navTitle = title;
+//        self.html = html;
+    }
+    return self;
+}
+- (instancetype)initWithUrl:(NSString *)url navTitle:(NSString *)title
+{
+    return [self initWithUrl:url navTitle:title type:0];
+}
+- (instancetype)initWithUrl:(NSString *)url navTitle:(NSString *)title type:(NSInteger)type {
+    if (self = [super init]) {
+//        self.type = type;
+        self.navTitle = title;
+///     初始化 webview -> 请求页面 -> 下载数据 -> 解析HTML -> 请求 js/css 资源 -> dom 渲染 -> 解析 JS 执行 -> JS 请求数据 -> 解析渲染 -> 下载渲染图片
 
+//        self.url = url;
+//        self.time = 0;
+//        if (_type == 1) {
+//            //倒计时
+//            self.timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(countDown) userInfo:nil repeats:YES];
+//            [[NSRunLoop mainRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+//        }
+    }
+    return self;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-
+    
     // Do any additional setup after loading the view.
-    ///网页截屏
-    [self createScreenshot];
-    ///交互
-//    [self createUI];
+    [self createUI];
+    self.title = self.navTitle;
+    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    leftButton.frame = CGRectMake(0, 0, 20, 20);
+    [leftButton setImage:[UIImage imageNamed:@"icon_back_lessonDetail"] forState:UIControlStateNormal];
+    [leftButton addTarget:self action:@selector(backClick) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *left = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+    [self.navigationItem setLeftBarButtonItem:left];
+    
+    self.navigationController.navigationBar.hidden = NO;
+
+    BaseTabBarViewController *main = (BaseTabBarViewController *)self.tabBarController;
+    main.visitorLabel.hidden = YES;
+
 }
 
-- (void)createScreenshot{
-    WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
-    self.ScreenshotWKView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:config];
-    self.ScreenshotWKView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.ScreenshotWKView.autoresizesSubviews = YES;
-    self.ScreenshotWKView.frame = CGRectMake(0, 0, DH_DeviceWidth,DH_DeviceHeight);
-    [self.view addSubview:self.ScreenshotWKView];
-    UIBarButtonItem *myButton = [[UIBarButtonItem alloc] initWithTitle:@"截屏" style:UIBarButtonItemStylePlain target:self action:@selector(screenshotMethod)];
-    self.navigationItem.rightBarButtonItem = myButton;
-}
-- (void)screenshotMethod{
-    UIImageView *screenshotImg = [[UIImageView alloc]initWithFrame:CGRectMake(DH_DeviceWidth-100, 100, 100, 100)];
-    [screenshotImg setImage:[self getCoverView]];
-    [self.view addSubview:screenshotImg];
-    
-    screenshotImg.layer.borderColor = [UIColor greenColor].CGColor;
-    screenshotImg.layer.borderWidth = 1.0;
-    
-     
-}
--(UIImage *)getCoverView{
-    
-    UIScrollView *rt = self.view.subviews.firstObject;
-    rt.frame = CGRectMake(0, 0, DH_DeviceWidth, DH_DeviceHeight-64);
-    CGRect originFrame = rt.frame;
-    CGRect frm=rt.frame;
-    frm.size.height = self.ScreenshotWKView.scrollView.contentSize.height;
-    rt.frame=frm;
-    [rt.superview layoutIfNeeded];
-    return  [self  captureView:rt frame:originFrame];
-   
-}
-- (UIImage*)captureView:(UIView *)theView frame:(CGRect)originFrame
-{
-    UIGraphicsBeginImageContext(theView.frame.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    UIImage *img;
-    if([[[UIDevice currentDevice] systemVersion] floatValue]>=7.0)
-    {
-        for(UIView *subview in theView.subviews)
-        {
-            [subview drawViewHierarchyInRect:subview.bounds afterScreenUpdates:YES];
-        }
-        img = UIGraphicsGetImageFromCurrentImageContext();
-    }
-    else
-    {
-        CGContextSaveGState(context);
-        [theView.layer renderInContext:context];
-        img = UIGraphicsGetImageFromCurrentImageContext();
-    }
-    UIGraphicsEndImageContext();
-    CGImageRef ref = CGImageCreateWithImageInRect(img.CGImage, theView.frame);
-    UIImage *CGImg = [UIImage imageWithCGImage:ref];
-    CGImageRelease(ref);
-    
-    //图行复原
-    theView.frame = originFrame;
-    [theView.superview layoutIfNeeded];
-    
-    return CGImg;
-}
-- (UIImage*)captureView:(WKWebView *)webView
-{
-    UIImage* image = nil;
-        //优化图片截取不清晰
-    UIGraphicsBeginImageContextWithOptions(webView.scrollView.contentSize, true, [UIScreen mainScreen].scale);
-    {
-        CGPoint savedContentOffset = webView.scrollView.contentOffset;
-        CGRect savedFrame = webView.scrollView.frame;
-        webView.scrollView.contentOffset = CGPointZero;
-        webView.scrollView.frame = CGRectMake(0, 0, webView.scrollView.contentSize.width, webView.scrollView.contentSize.height);
-        for (UIView * subView in webView.subviews) {
-            [subView drawViewHierarchyInRect:subView.bounds afterScreenUpdates:YES];
-        }
-        image = UIGraphicsGetImageFromCurrentImageContext();
-        webView.scrollView.contentOffset = savedContentOffset;
-        webView.scrollView.frame = savedFrame;
-    }
-    UIGraphicsEndImageContext();
-    if (image != nil) {
-        return image;
-    }
-    return nil;
+- (void)ReloadBtnClick{
+    [self.WKView reload];
+
 }
 - (void)createUI{
 //    self.navigationController.navigationBar.hidden = NO;
@@ -255,10 +210,6 @@
 //        }];
 
     });
-}
-- (void)ReloadBtnClick{
-    [self.WKView reload];
-
 }
 - (UIButton *)toolBtn{
     if (_toolBtn == nil)
@@ -427,7 +378,6 @@
         }];
     }
 }
-
 /*
 #pragma mark - Navigation
 

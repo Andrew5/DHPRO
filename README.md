@@ -15,6 +15,9 @@
   <img width=33% alt="wx20170601-170002 2x" src="https://github.com/Andrew5/DHPRO/blob/master/IMG_0073.PNG"> 
   <img width=33% alt="wx20170601-170002 2x" src="https://github.com/Andrew5/DHPRO/blob/master/SCREENSHOT.gif">
 </p>
+
+项目中有引入他方代码实现演示效果：指示器加载效果，各种分值表盘效果，三维球显示效果，多种卡片效果，图片滤镜效果；
+
 #### GIF 动画演示
 [演示项] 正在编写中……尽情期待！
 <p align="center"><img width="250" src =" "/></p>

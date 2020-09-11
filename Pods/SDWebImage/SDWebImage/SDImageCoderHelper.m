@@ -361,13 +361,13 @@ static const CGFloat kDestSeemOverlap = 2.0f;   // the numbers of pixels to over
         CGContextSetInterpolationQuality(destContext, kCGInterpolationHigh);
         
         // Now define the size of the rectangle to be used for the
-        // incremental blits from the input image to the output image.
+        // incremental bits from the input image to the output image.
         // we use a source tile width equal to the width of the source
         // image due to the way that iOS retrieves image data from disk.
         // iOS must decode an image from disk in full width 'bands', even
         // if current graphics context is clipped to a subrect within that
         // band. Therefore we fully utilize all of the pixel data that results
-        // from a decoding opertion by achnoring our tile size to the full
+        // from a decoding operation by anchoring our tile size to the full
         // width of the input image.
         CGRect sourceTile = CGRectZero;
         sourceTile.size.width = sourceResolution.width;
@@ -383,7 +383,7 @@ static const CGFloat kDestSeemOverlap = 2.0f;   // the numbers of pixels to over
         destTile.size.height = sourceTile.size.height * imageScale;
         destTile.origin.x = 0.0f;
         // The source seem overlap is proportionate to the destination seem overlap.
-        // this is the amount of pixels to overlap each tile as we assemble the ouput image.
+        // this is the amount of pixels to overlap each tile as we assemble the output image.
         float sourceSeemOverlap = (int)((kDestSeemOverlap/destResolution.height)*sourceResolution.height);
         CGImageRef sourceTileImageRef;
         // calculate the number of read/write operations required to assemble the
@@ -502,15 +502,19 @@ static const CGFloat kDestSeemOverlap = 2.0f;   // the numbers of pixels to over
 }
 #endif
 
+<<<<<<< HEAD:Pods/SDWebImage/SDWebImage/SDImageCoderHelper.m
 #pragma mark - Helper Fuction
 #if SD_UIKIT || SD_WATCH
+=======
+#pragma mark - Helper Function
+>>>>>>> develop:Pods/SDWebImage/SDWebImage/Core/SDImageCoderHelper.m
 + (BOOL)shouldDecodeImage:(nullable UIImage *)image {
-    // Avoid extra decode
-    if (image.sd_isDecoded) {
-        return NO;
-    }
     // Prevent "CGBitmapContextCreateImage: invalid context 0x0" error
     if (image == nil) {
+        return NO;
+    }
+    // Avoid extra decode
+    if (image.sd_isDecoded) {
         return NO;
     }
     // do not decode animated images

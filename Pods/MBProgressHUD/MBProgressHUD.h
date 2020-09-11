@@ -85,7 +85,7 @@ typedef NS_ENUM(NSInteger, MBProgressHUDAnimation) {
 #endif
 
 #if NS_BLOCKS_AVAILABLE
-typedef void (^MBProgressHUDCompletionBlock)(void);
+typedef void (^MBProgressHUDCompletionBlock)();
 #endif
 
 

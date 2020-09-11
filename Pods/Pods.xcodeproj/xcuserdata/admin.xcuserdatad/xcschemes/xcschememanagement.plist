@@ -16,41 +16,62 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>3</integer>
+=======
+			<integer>2</integer>
+>>>>>>> develop
 		</dict>
 		<key>AvoidCrash.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>4</integer>
+=======
+			<integer>3</integer>
+>>>>>>> develop
 		</dict>
 		<key>BaiduMapKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>5</integer>
+=======
+			<integer>4</integer>
+>>>>>>> develop
 		</dict>
 		<key>CocoaSecurity.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>6</integer>
+=======
+			<integer>5</integer>
+>>>>>>> develop
 		</dict>
 		<key>DKNightVersion.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>7</integer>
+=======
+			<integer>6</integer>
+>>>>>>> develop
 		</dict>
 		<key>FBRetainCycleDetector.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>8</integer>
 		</dict>
 		<key>FDFullscreenPopGesture.xcscheme</key>
@@ -62,69 +83,122 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>11</integer>
+=======
+			<integer>7</integer>
+		</dict>
+		<key>FDFullscreenPopGesture.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
+		<key>FSCalendar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>9</integer>
+>>>>>>> develop
 		</dict>
 		<key>IQKeyboardManager.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>9</integer>
+=======
+			<integer>10</integer>
+>>>>>>> develop
 		</dict>
 		<key>JCore.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>10</integer>
+=======
+			<integer>11</integer>
+>>>>>>> develop
 		</dict>
 		<key>JPush.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>11</integer>
+=======
+			<integer>12</integer>
+>>>>>>> develop
 		</dict>
 		<key>MBProgressHUD+JDragon.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>14</integer>
+=======
+			<integer>15</integer>
+>>>>>>> develop
 		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>13</integer>
+=======
+			<integer>14</integer>
+>>>>>>> develop
 		</dict>
 		<key>MJExtension.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>15</integer>
+=======
+			<integer>16</integer>
+>>>>>>> develop
 		</dict>
 		<key>MJRefresh.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>16</integer>
+=======
+			<integer>17</integer>
+>>>>>>> develop
 		</dict>
 		<key>MLeaksFinder.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>17</integer>
+=======
+			<integer>18</integer>
+>>>>>>> develop
 		</dict>
 		<key>Masonry.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>12</integer>
+=======
+			<integer>13</integer>
+>>>>>>> develop
 		</dict>
 		<key>Pods-CollegePro.xcscheme</key>
 		<dict>
@@ -133,50 +207,90 @@
 			<key>orderHint</key>
 			<integer>19</integer>
 		</dict>
+<<<<<<< HEAD
 		<key>Pods-CollegeProExtension.xcscheme</key>
+=======
+		<key>PromiseKit.xcscheme</key>
+>>>>>>> develop
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>18</integer>
+=======
+			<integer>21</integer>
+		</dict>
+		<key>PromiseYTKNetwork.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>22</integer>
+>>>>>>> develop
 		</dict>
 		<key>ReactiveCocoa.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>21</integer>
+=======
+			<integer>23</integer>
+>>>>>>> develop
 		</dict>
 		<key>ReactiveSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>22</integer>
+=======
+			<integer>24</integer>
+>>>>>>> develop
 		</dict>
 		<key>SDAutoLayout.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>23</integer>
+=======
+			<integer>25</integer>
+>>>>>>> develop
 		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>24</integer>
+=======
+			<integer>26</integer>
+>>>>>>> develop
 		</dict>
 		<key>SVProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>25</integer>
 		</dict>
 		<key>SocketRocket.xcscheme</key>
 		<dict>
+=======
+			<integer>28</integer>
+		</dict>
+		<key>SocketRocket.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+>>>>>>> develop
 			<key>orderHint</key>
 			<integer>27</integer>
 		</dict>
@@ -185,20 +299,29 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>26</integer>
+=======
+			<integer>29</integer>
+>>>>>>> develop
 		</dict>
 		<key>WKVCDeallocMonitor.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>27</integer>
+=======
+			<integer>30</integer>
+>>>>>>> develop
 		</dict>
 		<key>YHPopupView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>29</integer>
 		</dict>
 		<key>YYCache.xcscheme</key>
@@ -207,11 +330,27 @@
 			<integer>31</integer>
 		</dict>
 		<key>YYKit.xcscheme</key>
+=======
+			<integer>31</integer>
+		</dict>
+		<key>YTKNetwork.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+			<integer>32</integer>
+		</dict>
+		<key>YYCache.xcscheme</key>
+>>>>>>> develop
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>28</integer>
+=======
+			<integer>33</integer>
+>>>>>>> develop
 		</dict>
 		<key>pop.xcscheme</key>
 		<dict>
