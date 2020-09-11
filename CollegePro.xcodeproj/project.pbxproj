@@ -943,6 +943,7 @@
 		84B7FF26250B17ED0051603C /* BLYHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B7FF23250B17ED0051603C /* BLYHTTPRequest.m */; };
 		84B7FF2B250B19410051603C /* CustomWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B7FF28250B19400051603C /* CustomWebView.m */; };
 		84B7FF2C250B19410051603C /* CustomWebViewPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B7FF2A250B19400051603C /* CustomWebViewPool.m */; };
+		84B7FF53250B8B2D0051603C /* SearchistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B7FF52250B8B2D0051603C /* SearchistoryTableViewCell.m */; };
 		84E8AFB72503A6F300D2C426 /* DHHttpRequestOrdersOrders.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E8AFB62503A6F300D2C426 /* DHHttpRequestOrdersOrders.m */; };
 		8688670DA1111CB5B413FE49 /* Pods_CollegePro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40E2710DF49C3576F5AC7B3 /* Pods_CollegePro.framework */; };
 /* End PBXBuildFile section */
@@ -2587,6 +2588,8 @@
 		84B7FF28250B19400051603C /* CustomWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomWebView.m; sourceTree = "<group>"; };
 		84B7FF29250B19400051603C /* CustomWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomWebView.h; sourceTree = "<group>"; };
 		84B7FF2A250B19400051603C /* CustomWebViewPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomWebViewPool.m; sourceTree = "<group>"; };
+		84B7FF51250B8B2D0051603C /* SearchistoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchistoryTableViewCell.h; sourceTree = "<group>"; };
+		84B7FF52250B8B2D0051603C /* SearchistoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchistoryTableViewCell.m; sourceTree = "<group>"; };
 		84E8AFB52503A6F300D2C426 /* DHHttpRequestOrdersOrders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHHttpRequestOrdersOrders.h; sourceTree = "<group>"; };
 		84E8AFB62503A6F300D2C426 /* DHHttpRequestOrdersOrders.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHHttpRequestOrdersOrders.m; sourceTree = "<group>"; };
 		B94442A678D5676362354ED8 /* Pods-CollegePro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollegePro.release.xcconfig"; path = "Pods/Target Support Files/Pods-CollegePro/Pods-CollegePro.release.xcconfig"; sourceTree = "<group>"; };
@@ -5091,6 +5094,8 @@
 		38C84753227827F000BCAD87 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				84B7FF51250B8B2D0051603C /* SearchistoryTableViewCell.h */,
+				84B7FF52250B8B2D0051603C /* SearchistoryTableViewCell.m */,
 				38C84754227827F000BCAD87 /* NaView.m */,
 				38C84755227827F000BCAD87 /* UserCell.h */,
 				38C84756227827F000BCAD87 /* UserCell.xib */,
@@ -7020,6 +7025,7 @@
 				38C8492D227827F100BCAD87 /* LHMD5.m in Sources */,
 				386BBDD522DDA7FF005E6054 /* GPUImageHighlightShadowFilter.m in Sources */,
 				38230153245E675C0096DB42 /* BookDataViewModel.m in Sources */,
+				84B7FF53250B8B2D0051603C /* SearchistoryTableViewCell.m in Sources */,
 				386BBDD722DDA7FF005E6054 /* GPUImageSingleComponentGaussianBlurFilter.m in Sources */,
 				38C848D7227827F100BCAD87 /* YPTabBar.m in Sources */,
 				386BBDA222DDA7FF005E6054 /* GPUImageOutput.m in Sources */,

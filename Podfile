@@ -28,7 +28,7 @@ target "CollegePro" do
 #'~> 0.1.2'   // 0.2以下(不含0.2)，0.1.2以上（含0.1.2）
 #'~> 0.1'      // 1.0以下(不含1.0)，0.1以上（含0.1）
 #'~> 0'        // 0和以上，等于没有此约束
-  pod 'AFNetworking'
+  pod 'AFNetworking', '~> 4.0.1'
   pod 'YTKNetwork'#, '~> 3.0.3'
   #YTKNetwork结合PromiseKit，添加链式调用方法
   pod 'PromiseYTKNetwork'#, '~> 0.1.2'

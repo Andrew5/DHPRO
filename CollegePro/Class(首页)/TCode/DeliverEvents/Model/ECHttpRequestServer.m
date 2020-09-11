@@ -68,9 +68,7 @@
     [self logRequestURLWithPath:URLString paramters:parameters];
 #endif
     NSMutableDictionary *tempDic =[NSMutableDictionary dictionaryWithDictionary:parameters];
-
-
-    _theTask = [super POST:URLString parameters:tempDic progress:^(NSProgress * _Nonnull uploadProgress) {
+    _theTask = [super POST:URLString parameters:tempDic headers:nil progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
@@ -88,6 +86,7 @@
             failure(error);
         }
     }];
+
     return _theTask;
 
 }
@@ -110,9 +109,10 @@
 #ifdef DEBUG
     [self logRequestURLWithPath:URLString paramters:parameters];
 #endif
-   _theTask = [super GET:URLString parameters:parameters progress:NULL success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    _theTask = [super GET:URLString parameters:parameters headers:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (success){
-            
             NSString *status =[responseObject objectForKey:@"status"];
             if([status integerValue] == -1){
             }
@@ -148,8 +148,7 @@
 #ifdef DEBUG
     [self logRequestURLWithPath:URLString paramters:parameters];
 #endif
-    
-    _theTask= [super POST:URLString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    _theTask = [super POST:URLString parameters:parameters headers:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         NSMutableString * str_name = nil;
         NSMutableString * str_name_png = nil;
         NSData * data = UIImageJPEGRepresentation(image, 1.0f);
@@ -171,10 +170,5 @@
             failure(error);
         }
     }];
-
 }
-
-
-
-
 @end

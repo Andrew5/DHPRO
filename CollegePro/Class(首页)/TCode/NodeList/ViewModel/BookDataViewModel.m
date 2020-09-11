@@ -45,7 +45,7 @@
     manager = [AFHTTPSessionManager manager];
     NSString *url = [NSString stringWithFormat:@"https://api.thinkpage.cn/v3/weather/daily.json?key=osoydf7ademn8ybv&location=%@&language=zh-Hans&start=0&days=3",@"北京"];
     url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    [manager GET:url parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manager GET:url parameters:nil headers:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (completion) {

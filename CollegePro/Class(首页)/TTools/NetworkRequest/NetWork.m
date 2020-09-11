@@ -27,7 +27,7 @@
                 manager.requestSerializer.timeoutInterval = 30.0f;
                 manager.responseSerializer = [AFJSONResponseSerializer serializer];
                 manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/plain", nil];
-                [manager GET:url parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
+                [manager GET:url parameters:parameters headers:nil progress:^(NSProgress * _Nonnull downloadProgress) {
                     
                 } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                     if (responseObject) {
@@ -47,27 +47,23 @@
                         NSLog(@"<<<%@",error);
                 }];
             }else{
-                
                 AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
                 manager.responseSerializer = [AFJSONResponseSerializer serializer];
                 manager.requestSerializer.timeoutInterval = 30.0f;
                 manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/plain", nil];
-                [manager GET:url parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
+                [manager GET:url parameters:parameters headers:nil progress:^(NSProgress * _Nonnull downloadProgress) {
                     
                 } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                    
                     if (responseObject) {
                         if (success) {
                             success(responseObject);
                         }
                     }
-                    
                 } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                     if (fail) {
                         fail(error);
                     }
                     NSLog(@">>>%@",error);
-                    
                 }];
             }
         }
@@ -94,7 +90,7 @@
 //                manager.requestSerializer= [AFJSONRequestSerializer serializer];
                 manager.requestSerializer.timeoutInterval = 30.0f;
                 manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/plain", nil];
-                [manager POST:url parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
+                [manager POST:url parameters:parameters headers:nil progress:^(NSProgress * _Nonnull uploadProgress) {
                     
                 } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                     if (responseObject) {
@@ -119,7 +115,7 @@
                 manager.responseSerializer = [AFJSONResponseSerializer serializer];
                 manager.requestSerializer.timeoutInterval = 30.0f;
                 manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/plain", nil];
-                [manager POST:url parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
+                [manager POST:url parameters:parameters headers:nil progress:^(NSProgress * _Nonnull uploadProgress) {
                     
                 } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                     if (responseObject) {
