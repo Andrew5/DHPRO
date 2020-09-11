@@ -74,6 +74,7 @@ target "CollegePro" do
   pod 'FSCalendar', '~> 2.6.0'
   pod 'YYCache'
   pod 'ReactiveCocoa'
+  #injectionIII iOS代码注入工具
 #pod 'ReactiveCocoa', '2.3.1'
 #pod 'ReactiveCocoa', '~> 4.0.2-alpha-1'
 #  pod 'Realm/Headers' ##移动平台设计的数据库

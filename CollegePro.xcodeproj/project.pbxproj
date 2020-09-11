@@ -939,6 +939,10 @@
 		84B2642925024D01009B9E4B /* DHHttpRequestSecret.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2642825024D01009B9E4B /* DHHttpRequestSecret.m */; };
 		84B2642C25024F68009B9E4B /* DHHttpRequestUserInfoUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2642B25024F68009B9E4B /* DHHttpRequestUserInfoUserInfo.m */; };
 		84B2642F250338BF009B9E4B /* DHHttpBaseHeaderFieldDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B2642E250338BF009B9E4B /* DHHttpBaseHeaderFieldDictionary.m */; };
+		84B7FF25250B17ED0051603C /* BLYGetEquipmentInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B7FF20250B17EC0051603C /* BLYGetEquipmentInfo.m */; };
+		84B7FF26250B17ED0051603C /* BLYHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B7FF23250B17ED0051603C /* BLYHTTPRequest.m */; };
+		84B7FF2B250B19410051603C /* CustomWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B7FF28250B19400051603C /* CustomWebView.m */; };
+		84B7FF2C250B19410051603C /* CustomWebViewPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B7FF2A250B19400051603C /* CustomWebViewPool.m */; };
 		84E8AFB72503A6F300D2C426 /* DHHttpRequestOrdersOrders.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E8AFB62503A6F300D2C426 /* DHHttpRequestOrdersOrders.m */; };
 		8688670DA1111CB5B413FE49 /* Pods_CollegePro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40E2710DF49C3576F5AC7B3 /* Pods_CollegePro.framework */; };
 /* End PBXBuildFile section */
@@ -2574,6 +2578,15 @@
 		84B2642B25024F68009B9E4B /* DHHttpRequestUserInfoUserInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHHttpRequestUserInfoUserInfo.m; sourceTree = "<group>"; };
 		84B2642D250338BF009B9E4B /* DHHttpBaseHeaderFieldDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHHttpBaseHeaderFieldDictionary.h; sourceTree = "<group>"; };
 		84B2642E250338BF009B9E4B /* DHHttpBaseHeaderFieldDictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHHttpBaseHeaderFieldDictionary.m; sourceTree = "<group>"; };
+		84B7FF20250B17EC0051603C /* BLYGetEquipmentInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLYGetEquipmentInfo.m; sourceTree = "<group>"; };
+		84B7FF21250B17EC0051603C /* BLYGetEquipmentInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLYGetEquipmentInfo.h; sourceTree = "<group>"; };
+		84B7FF22250B17EC0051603C /* BLYNetworkDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLYNetworkDef.h; sourceTree = "<group>"; };
+		84B7FF23250B17ED0051603C /* BLYHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLYHTTPRequest.m; sourceTree = "<group>"; };
+		84B7FF24250B17ED0051603C /* BLYHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLYHTTPRequest.h; sourceTree = "<group>"; };
+		84B7FF27250B19400051603C /* CustomWebViewPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomWebViewPool.h; sourceTree = "<group>"; };
+		84B7FF28250B19400051603C /* CustomWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomWebView.m; sourceTree = "<group>"; };
+		84B7FF29250B19400051603C /* CustomWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomWebView.h; sourceTree = "<group>"; };
+		84B7FF2A250B19400051603C /* CustomWebViewPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomWebViewPool.m; sourceTree = "<group>"; };
 		84E8AFB52503A6F300D2C426 /* DHHttpRequestOrdersOrders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHHttpRequestOrdersOrders.h; sourceTree = "<group>"; };
 		84E8AFB62503A6F300D2C426 /* DHHttpRequestOrdersOrders.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHHttpRequestOrdersOrders.m; sourceTree = "<group>"; };
 		B94442A678D5676362354ED8 /* Pods-CollegePro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollegePro.release.xcconfig"; path = "Pods/Target Support Files/Pods-CollegePro/Pods-CollegePro.release.xcconfig"; sourceTree = "<group>"; };
@@ -4421,6 +4434,11 @@
 		38C8461C227827EF00BCAD87 /* NetworkRequest */ = {
 			isa = PBXGroup;
 			children = (
+				84B7FF21250B17EC0051603C /* BLYGetEquipmentInfo.h */,
+				84B7FF20250B17EC0051603C /* BLYGetEquipmentInfo.m */,
+				84B7FF24250B17ED0051603C /* BLYHTTPRequest.h */,
+				84B7FF23250B17ED0051603C /* BLYHTTPRequest.m */,
+				84B7FF22250B17EC0051603C /* BLYNetworkDef.h */,
 				8487ADC324F8E17B004B41ED /* File.xml */,
 				38C8462A227827EF00BCAD87 /* AES.h */,
 				38C8461D227827EF00BCAD87 /* AES.m */,
@@ -6108,6 +6126,10 @@
 		38D0FB30243B054C0028967E /* WKWebView */ = {
 			isa = PBXGroup;
 			children = (
+				84B7FF29250B19400051603C /* CustomWebView.h */,
+				84B7FF28250B19400051603C /* CustomWebView.m */,
+				84B7FF27250B19400051603C /* CustomWebViewPool.h */,
+				84B7FF2A250B19400051603C /* CustomWebViewPool.m */,
 				38D0FB31243B05790028967E /* WKWebViewController.h */,
 				38D0FB32243B05790028967E /* WKWebViewController.m */,
 				38D0FB34243B07BA0028967E /* WKOCBridgeJS.html */,
@@ -6994,6 +7016,7 @@
 				385483DD234F4A450053AB46 /* BLEDataPack.m in Sources */,
 				386BBD9222DDA7FE005E6054 /* GPUImageDissolveBlendFilter.m in Sources */,
 				38C84981227827F100BCAD87 /* NetTestViewController.m in Sources */,
+				84B7FF2B250B19410051603C /* CustomWebView.m in Sources */,
 				38C8492D227827F100BCAD87 /* LHMD5.m in Sources */,
 				386BBDD522DDA7FF005E6054 /* GPUImageHighlightShadowFilter.m in Sources */,
 				38230153245E675C0096DB42 /* BookDataViewModel.m in Sources */,
@@ -7061,6 +7084,7 @@
 				386BBB2E22DC8C2E005E6054 /* UIDrawView.m in Sources */,
 				386BBDD622DDA7FF005E6054 /* GPUImageKuwaharaFilter.m in Sources */,
 				384C3FEB22888DBF00F01586 /* ZQVariableMenuControl.m in Sources */,
+				84B7FF25250B17ED0051603C /* BLYGetEquipmentInfo.m in Sources */,
 				38C9779B22AE02D200F978C1 /* Air_HockeyViewController.m in Sources */,
 				38D0FB2E243AD9560028967E /* UIView+EmptyPage.m in Sources */,
 				38080AF6232D37150073EFAC /* RippleView.m in Sources */,
@@ -7090,6 +7114,7 @@
 				38C84923227827F100BCAD87 /* UIColor+expanded.m in Sources */,
 				384C3FC822887D7A00F01586 /* CustomCell.m in Sources */,
 				38E97EDE22D5CD9B00A70112 /* PopoverView.m in Sources */,
+				84B7FF2C250B19410051603C /* CustomWebViewPool.m in Sources */,
 				381D6470243F163F00EA86D8 /* DDYNetworkSpeedTool.m in Sources */,
 				38C84920227827F100BCAD87 /* UIButton+EnlargeTouchArea.m in Sources */,
 				3893F3A922CDF080005C30AE /* HDMonthDetailCollectionViewCell.m in Sources */,
@@ -7296,6 +7321,7 @@
 				386BBD9E22DDA7FF005E6054 /* GPUImageBrightnessFilter.m in Sources */,
 				38C849E9227827F200BCAD87 /* JPShopCarController.m in Sources */,
 				386BBD8522DDA7FE005E6054 /* GPUImageExclusionBlendFilter.m in Sources */,
+				84B7FF26250B17ED0051603C /* BLYHTTPRequest.m in Sources */,
 				386BBD6A22DDA7FE005E6054 /* GPUImageLuminanceThresholdFilter.m in Sources */,
 				386BBDC522DDA7FF005E6054 /* GPUImageDirectionalNonMaximumSuppressionFilter.m in Sources */,
 				386BBBCE22DD72D7005E6054 /* PhotoClipViewController.m in Sources */,
