@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -523,7 +523,6 @@
 		38C84921227827F100BCAD87 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C8460C227827EF00BCAD87 /* UIImage+ImageEffects.m */; };
 		38C84923227827F100BCAD87 /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C84610227827EF00BCAD87 /* UIColor+expanded.m */; };
 		38C84924227827F100BCAD87 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C84612227827EF00BCAD87 /* NSArray+Log.m */; };
-		38C84925227827F100BCAD87 /* DHTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C84615227827EF00BCAD87 /* DHTool.m */; };
 		38C84926227827F100BCAD87 /* KeyBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C84617227827EF00BCAD87 /* KeyBoardView.m */; };
 		38C84927227827F100BCAD87 /* SDDrowNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C84619227827EF00BCAD87 /* SDDrowNoticeView.m */; };
 		38C84928227827F100BCAD87 /* LHKeyChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C8461B227827EF00BCAD87 /* LHKeyChain.m */; };
@@ -946,6 +945,13 @@
 		84B7FF30250B502A0051603C /* B206760E60639441A7876D27110082AC.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 84B7FF2F250B502A0051603C /* B206760E60639441A7876D27110082AC.MOV */; };
 		84B7FF33250B597A0051603C /* AudioPieceTogether.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B7FF32250B597A0051603C /* AudioPieceTogether.m */; };
 		84B7FF36250B59A20051603C /* AudioEdit.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B7FF35250B59A20051603C /* AudioEdit.m */; };
+		84B7FF40250B67E60051603C /* CollageProExtensionKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 84B7FF3E250B67E60051603C /* CollageProExtensionKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84B7FF43250B67E60051603C /* CollageProExtensionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B7FF3C250B67E50051603C /* CollageProExtensionKit.framework */; };
+		84B7FF44250B67E60051603C /* CollageProExtensionKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84B7FF3C250B67E50051603C /* CollageProExtensionKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		84B7FF49250B683D0051603C /* DHTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C84615227827EF00BCAD87 /* DHTool.m */; platformFilter = ios; };
+		84B7FF4A250B68D00051603C /* CollageProExtensionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B7FF3C250B67E50051603C /* CollageProExtensionKit.framework */; };
+		84B7FF4C250B69220051603C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B7FF4B250B69220051603C /* UIKit.framework */; };
+		84B7FF4E250B69370051603C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B7FF4D250B69370051603C /* Foundation.framework */; };
 		84E8AFB72503A6F300D2C426 /* DHHttpRequestOrdersOrders.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E8AFB62503A6F300D2C426 /* DHHttpRequestOrdersOrders.m */; };
 		8688670DA1111CB5B413FE49 /* Pods_CollegePro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40E2710DF49C3576F5AC7B3 /* Pods_CollegePro.framework */; };
 /* End PBXBuildFile section */
@@ -957,6 +963,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 8462331B24DAA4A500A1F60D;
 			remoteInfo = CollegeProWidge;
+		};
+		84B7FF41250B67E60051603C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 38C8452B2278249900BCAD87 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84B7FF3B250B67E50051603C;
+			remoteInfo = CollageProExtensionKit;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -970,6 +983,17 @@
 				8462332824DAA4A500A1F60D /* CollegeProWidge.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84B7FF48250B67E60051603C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				84B7FF44250B67E60051603C /* CollageProExtensionKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -2595,6 +2619,11 @@
 		84B7FF32250B597A0051603C /* AudioPieceTogether.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioPieceTogether.m; sourceTree = "<group>"; };
 		84B7FF34250B59A20051603C /* AudioEdit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioEdit.h; sourceTree = "<group>"; };
 		84B7FF35250B59A20051603C /* AudioEdit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioEdit.m; sourceTree = "<group>"; };
+		84B7FF3C250B67E50051603C /* CollageProExtensionKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CollageProExtensionKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84B7FF3E250B67E60051603C /* CollageProExtensionKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollageProExtensionKit.h; sourceTree = "<group>"; };
+		84B7FF3F250B67E60051603C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84B7FF4B250B69220051603C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		84B7FF4D250B69370051603C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		84E8AFB52503A6F300D2C426 /* DHHttpRequestOrdersOrders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHHttpRequestOrdersOrders.h; sourceTree = "<group>"; };
 		84E8AFB62503A6F300D2C426 /* DHHttpRequestOrdersOrders.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHHttpRequestOrdersOrders.m; sourceTree = "<group>"; };
 		B94442A678D5676362354ED8 /* Pods-CollegePro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollegePro.release.xcconfig"; path = "Pods/Target Support Files/Pods-CollegePro/Pods-CollegePro.release.xcconfig"; sourceTree = "<group>"; };
@@ -2607,6 +2636,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				382B4E8024546346006FD956 /* StoreKit.framework in Frameworks */,
+				84B7FF43250B67E60051603C /* CollageProExtensionKit.framework in Frameworks */,
 				38862C4922BA009900231140 /* UserNotifications.framework in Frameworks */,
 				38862C4722BA007000231140 /* CoreTelephony.framework in Frameworks */,
 				38862C4522BA006A00231140 /* CoreFoundation.framework in Frameworks */,
@@ -2635,7 +2665,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84B7FF4E250B69370051603C /* Foundation.framework in Frameworks */,
+				84B7FF4C250B69220051603C /* UIKit.framework in Frameworks */,
+				84B7FF4A250B68D00051603C /* CollageProExtensionKit.framework in Frameworks */,
 				8462331D24DAA4A500A1F60D /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84B7FF39250B67E50051603C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4068,6 +4108,7 @@
 				38C845352278249900BCAD87 /* CollegePro */,
 				38546C7C23851F330050200C /* CollegeProShareExtension */,
 				8462331E24DAA4A500A1F60D /* CollegeProWidge */,
+				84B7FF3D250B67E50051603C /* CollageProExtensionKit */,
 				38C845342278249900BCAD87 /* Products */,
 				DB7A53478EBF97A0FF9F1D0C /* Pods */,
 				F3734FE496F0FE515FCEE2E1 /* Frameworks */,
@@ -4079,6 +4120,7 @@
 			children = (
 				38C845332278249900BCAD87 /* CollegePro.app */,
 				8462331C24DAA4A500A1F60D /* CollegeProWidge.appex */,
+				84B7FF3C250B67E50051603C /* CollageProExtensionKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -6303,6 +6345,15 @@
 			path = Request;
 			sourceTree = "<group>";
 		};
+		84B7FF3D250B67E50051603C /* CollageProExtensionKit */ = {
+			isa = PBXGroup;
+			children = (
+				84B7FF3E250B67E60051603C /* CollageProExtensionKit.h */,
+				84B7FF3F250B67E60051603C /* Info.plist */,
+			);
+			path = CollageProExtensionKit;
+			sourceTree = "<group>";
+		};
 		DB7A53478EBF97A0FF9F1D0C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -6317,6 +6368,8 @@
 		F3734FE496F0FE515FCEE2E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84B7FF4D250B69370051603C /* Foundation.framework */,
+				84B7FF4B250B69220051603C /* UIKit.framework */,
 				382B4E7F24546346006FD956 /* StoreKit.framework */,
 				3828B875240CF57F00C79AC9 /* AFNetworking.framework */,
 				382B6F822334BFE900CD2497 /* HealthKit.framework */,
@@ -6347,6 +6400,17 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		84B7FF37250B67E50051603C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84B7FF40250B67E60051603C /* CollageProExtensionKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		38C845322278249900BCAD87 /* CollegePro */ = {
 			isa = PBXNativeTarget;
@@ -6360,11 +6424,13 @@
 				3853A7A7244F225D00F57CC8 /* ShellScript */,
 				364D5BDDFDC229D09BB1A635 /* [CP] Copy Pods Resources */,
 				731C13F9B5FCB2BB74B4D708 /* [CP] Embed Pods Frameworks */,
+				84B7FF48250B67E60051603C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				8462332724DAA4A500A1F60D /* PBXTargetDependency */,
+				84B7FF42250B67E60051603C /* PBXTargetDependency */,
 			);
 			name = CollegePro;
 			productName = CollegePro;
@@ -6387,6 +6453,24 @@
 			productName = CollegeProWidge;
 			productReference = 8462331C24DAA4A500A1F60D /* CollegeProWidge.appex */;
 			productType = "com.apple.product-type.app-extension";
+		};
+		84B7FF3B250B67E50051603C /* CollageProExtensionKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84B7FF45250B67E60051603C /* Build configuration list for PBXNativeTarget "CollageProExtensionKit" */;
+			buildPhases = (
+				84B7FF37250B67E50051603C /* Headers */,
+				84B7FF38250B67E50051603C /* Sources */,
+				84B7FF39250B67E50051603C /* Frameworks */,
+				84B7FF3A250B67E50051603C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CollageProExtensionKit;
+			productName = CollageProExtensionKit;
+			productReference = 84B7FF3C250B67E50051603C /* CollageProExtensionKit.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -6418,6 +6502,9 @@
 					8462331B24DAA4A500A1F60D = {
 						CreatedOnToolsVersion = 11.5;
 					};
+					84B7FF3B250B67E50051603C = {
+						CreatedOnToolsVersion = 11.5;
+					};
 				};
 			};
 			buildConfigurationList = 38C8452E2278249900BCAD87 /* Build configuration list for PBXProject "CollegePro" */;
@@ -6435,6 +6522,7 @@
 			targets = (
 				38C845322278249900BCAD87 /* CollegePro */,
 				8462331B24DAA4A500A1F60D /* CollegeProWidge */,
+				84B7FF3B250B67E50051603C /* CollageProExtensionKit */,
 			);
 		};
 /* End PBXProject section */
@@ -6735,6 +6823,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		84B7FF3A250B67E50051603C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -6988,7 +7083,6 @@
 				382F838824C301E100B27799 /* DHWeakProxy.m in Sources */,
 				38C84930227827F100BCAD87 /* LHHttpTool.m in Sources */,
 				38B94602243F48C10013170F /* DHBAlertView.m in Sources */,
-				38C84925227827F100BCAD87 /* DHTool.m in Sources */,
 				386BBD7622DDA7FE005E6054 /* GPUImageGrayscaleFilter.m in Sources */,
 				386BBDBD22DDA7FF005E6054 /* GPUImageShiTomasiFeatureDetectionFilter.m in Sources */,
 				386BBD8922DDA7FE005E6054 /* GPUImageHarrisCornerDetectionFilter.m in Sources */,
@@ -7464,6 +7558,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		84B7FF38250B67E50051603C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84B7FF49250B683D0051603C /* DHTool.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -7471,6 +7573,11 @@
 			isa = PBXTargetDependency;
 			target = 8462331B24DAA4A500A1F60D /* CollegeProWidge */;
 			targetProxy = 8462332624DAA4A500A1F60D /* PBXContainerItemProxy */;
+		};
+		84B7FF42250B67E60051603C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84B7FF3B250B67E50051603C /* CollageProExtensionKit */;
+			targetProxy = 84B7FF41250B67E60051603C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -7881,6 +7988,64 @@
 			};
 			name = Release;
 		};
+		84B7FF46250B67E60051603C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = B9CK74J9J9;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = CollageProExtensionKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = DaHai.CollageProExtensionKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		84B7FF47250B67E60051603C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = B9CK74J9J9;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = CollageProExtensionKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = DaHai.CollageProExtensionKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -7907,6 +8072,15 @@
 			buildConfigurations = (
 				8462332A24DAA4A500A1F60D /* Debug */,
 				8462332B24DAA4A500A1F60D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84B7FF45250B67E60051603C /* Build configuration list for PBXNativeTarget "CollageProExtensionKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84B7FF46250B67E60051603C /* Debug */,
+				84B7FF47250B67E60051603C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
