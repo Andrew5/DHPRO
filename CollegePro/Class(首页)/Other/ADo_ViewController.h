@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#import "homeViewController.h"
-
 #define screenW self.view.frame.size.width
 
 #define screenH self.view.frame.size.height
