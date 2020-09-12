@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NetworkSpeedViewController : BaseViewController
+@property (nonatomic, copy) void (^instantBlock)(BOOL upSpeed);
 
 @end
 
