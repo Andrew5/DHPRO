@@ -100,7 +100,7 @@
 - (void)loadAddChildViewController{
     NetworkSpeedViewController *twoVC = [[NetworkSpeedViewController alloc]init];
     __weak typeof(twoVC)weakTwoVC = twoVC;
-    [twoVC.view setFrame:CGRectMake(0, 200, 200, 200)];
+    twoVC.view.frame = self.view.frame;
     [twoVC setInstantBlock:^(BOOL upSpeed) {
         [weakTwoVC willMoveToParentViewController:nil];
         [weakTwoVC removeFromParentViewController];
