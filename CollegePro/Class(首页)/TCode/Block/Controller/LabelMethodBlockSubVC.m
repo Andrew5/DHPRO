@@ -65,7 +65,7 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     （还有NSStatckBlock位于栈内存）
      */
     int numC;
-    BOOL chooseState;
+    __block BOOL chooseState;
     NSString *_someString;
     BOOL gcdIsStope;
     UILabel *labelName;//显示名称
@@ -419,7 +419,7 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     
 }
 //GCD取消
-static BOOL gcdIsStope;
+//static BOOL gcdIsStope;
 - (void)baseBlock{
     numC = 100;
     //    [self testDataA];
@@ -2691,6 +2691,9 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 - (void)returnText:(ReturnTextBlock)block {
 	self.returnTextBlock = block;
 }
+- (void)other{
+    
+}
 ///倒计时
 - (void)countDown
 {
@@ -2714,7 +2717,7 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 //                [self.timeCount setTitle:@"获取验证码" forState:UIControlStateNormal];
             });
         }else{
-            NSString *strTime = [NSString stringWithFormat:@"%.2d", timeout];
+//            NSString *strTime = [NSString stringWithFormat:@"%.2d", timeout];
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 //设置界面的按钮显示 根据自己需求设置
