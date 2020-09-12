@@ -478,8 +478,8 @@
             filePath = "CollegePro/Class(&#x9996;&#x9875;)/TCode/NetWorkTest/ViewController/NetTestViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "373"
-            endingLineNumber = "373"
+            startingLineNumber = "395"
+            endingLineNumber = "395"
             landmarkName = "-uploadUsericonWithParameters:"
             landmarkType = "7">
          </BreakpointContent>
@@ -494,8 +494,8 @@
             filePath = "CollegePro/Class(&#x9996;&#x9875;)/TCode/NetWorkTest/ViewController/NetTestViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "376"
-            endingLineNumber = "376"
+            startingLineNumber = "398"
+            endingLineNumber = "398"
             landmarkName = "-uploadUsericonWithParameters:"
             landmarkType = "7">
          </BreakpointContent>
@@ -526,8 +526,8 @@
             filePath = "CollegePro/Class(&#x9996;&#x9875;)/TCode/NetWorkTest/ViewController/NetTestViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
             landmarkName = "-httpRequestLoginLogin"
             landmarkType = "7">
          </BreakpointContent>
@@ -542,8 +542,8 @@
             filePath = "CollegePro/Class(&#x9996;&#x9875;)/TCode/NetWorkTest/ViewController/NetTestViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
             landmarkName = "-httpRequestLoginLogin"
             landmarkType = "7">
          </BreakpointContent>
@@ -558,10 +558,42 @@
             filePath = "CollegePro/Class(&#x9996;&#x9875;)/TCode/NetWorkTest/ViewController/NetTestViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
             landmarkName = "-httpRequestGroup"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4EF4E0CC-38F5-4561-8164-E7CE2FF4A408 - 85e65b8653a45aba"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[NetTestViewController httpRequestLogin]"
+                  moduleName = "CollegePro"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/SSK%20Media/ColligateDHPro/DHPRO/CollegePro/Class(%E9%A6%96%E9%A1%B5)/TCode/NetWorkTest/ViewController/NetTestViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "167"
+                  endingLineNumber = "167"
+                  offsetFromSymbolStart = "172">
+               </Location>
+               <Location
+                  uuid = "4EF4E0CC-38F5-4561-8164-E7CE2FF4A408 - fc3c32f0f2a1bb33"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__41-[NetTestViewController httpRequestLogin]_block_invoke"
+                  moduleName = "CollegePro"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/SSK%20Media/ColligateDHPro/DHPRO/CollegePro/Class(%E9%A6%96%E9%A1%B5)/TCode/NetWorkTest/ViewController/NetTestViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "168"
+                  endingLineNumber = "168"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -574,8 +606,8 @@
             filePath = "CollegePro/Class(&#x9996;&#x9875;)/TCode/NetWorkTest/ViewController/NetTestViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
             landmarkName = "-httpRequestGroup"
             landmarkType = "7">
          </BreakpointContent>
@@ -590,10 +622,42 @@
             filePath = "CollegePro/Class(&#x9996;&#x9875;)/TCode/NetWorkTest/ViewController/NetTestViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
             landmarkName = "-httpRequestUserInfoUserInfo"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8E48C396-5ADB-4796-BC83-4674A017B40B - 85e606556d7aed86"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[NetTestViewController httpRequestGroup]"
+                  moduleName = "CollegePro"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/SSK%20Media/ColligateDHPro/DHPRO/CollegePro/Class(%E9%A6%96%E9%A1%B5)/TCode/NetWorkTest/ViewController/NetTestViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "144"
+                  endingLineNumber = "144"
+                  offsetFromSymbolStart = "348">
+               </Location>
+               <Location
+                  uuid = "8E48C396-5ADB-4796-BC83-4674A017B40B - fbde4a2deea7e21f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__41-[NetTestViewController httpRequestGroup]_block_invoke"
+                  moduleName = "CollegePro"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/SSK%20Media/ColligateDHPro/DHPRO/CollegePro/Class(%E9%A6%96%E9%A1%B5)/TCode/NetWorkTest/ViewController/NetTestViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "145"
+                  endingLineNumber = "145"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -606,42 +670,42 @@
             filePath = "CollegePro/Class(&#x9996;&#x9875;)/TCode/NetWorkTest/ViewController/NetTestViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
             landmarkName = "-httpRequestUserInfoUserInfo"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "3A4A27E5-AD85-4D7B-ABB4-9B7563CA09BF"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CollegePro/Class(&#x9996;&#x9875;)/TCode/NetWorkTest/ViewController/NetTestViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "190"
-            endingLineNumber = "190"
-            landmarkName = "-httpRequestUserInfo"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C9E9D3AE-8DC7-44FA-9295-39DCBAFD6565"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CollegePro/Class(&#x9996;&#x9875;)/TCode/NetWorkTest/ViewController/NetTestViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
-            landmarkName = "-httpRequestUserInfo"
-            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B8D39F34-0A83-4D25-9D7E-FFE33E98AA39 - fbde4a2deea7e21f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__41-[NetTestViewController httpRequestGroup]_block_invoke"
+                  moduleName = "CollegePro"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/SSK%20Media/ColligateDHPro/DHPRO/CollegePro/Class(%E9%A6%96%E9%A1%B5)/TCode/NetWorkTest/ViewController/NetTestViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "147"
+                  endingLineNumber = "147"
+                  offsetFromSymbolStart = "96">
+               </Location>
+               <Location
+                  uuid = "B8D39F34-0A83-4D25-9D7E-FFE33E98AA39 - 8abae3c05573a46a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__41-[NetTestViewController httpRequestGroup]_block_invoke_2"
+                  moduleName = "CollegePro"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/SSK%20Media/ColligateDHPro/DHPRO/CollegePro/Class(%E9%A6%96%E9%A1%B5)/TCode/NetWorkTest/ViewController/NetTestViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "148"
+                  endingLineNumber = "148"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -654,8 +718,8 @@
             filePath = "CollegePro/Class(&#x9996;&#x9875;)/TCode/NetWorkTest/ViewController/NetTestViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "199"
-            endingLineNumber = "199"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
             landmarkName = "-httpRequestOrders"
             landmarkType = "7">
          </BreakpointContent>
@@ -670,8 +734,8 @@
             filePath = "CollegePro/Class(&#x9996;&#x9875;)/TCode/NetWorkTest/ViewController/NetTestViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "202"
-            endingLineNumber = "202"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
             landmarkName = "-httpRequestOrders"
             landmarkType = "7">
          </BreakpointContent>
@@ -702,8 +766,8 @@
             filePath = "CollegePro/Class(&#x9996;&#x9875;)/TCode/NetWorkTest/ViewController/NetTestViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
             landmarkName = "-httpRequestOrdersOrders"
             landmarkType = "7">
          </BreakpointContent>
@@ -718,8 +782,8 @@
             filePath = "CollegePro/Class(&#x9996;&#x9875;)/TCode/NetWorkTest/ViewController/NetTestViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
             landmarkName = "-httpRequestOrdersOrders"
             landmarkType = "7">
          </BreakpointContent>
@@ -769,22 +833,6 @@
             startingLineNumber = "122"
             endingLineNumber = "122"
             landmarkName = "+totalDiskSpace"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "891EC074-1E53-4A05-91DD-6134A778DCC1"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CollegePro/Class(&#x9996;&#x9875;)/TCode/Block/Controller/LabelMethodBlockSubVC.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "721"
-            endingLineNumber = "721"
-            landmarkName = "-testDataD"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

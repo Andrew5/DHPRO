@@ -22,6 +22,7 @@
 #import "DHHttpRequestLoginLogin.h"
 #import "DHHttpRequestUserInfoUserInfo.h"
 #import "DHHttpRequestOrdersOrders.h"
+#import "NetworkSpeedViewController.h"
 
 ///对象宏(object-like macro)和函数宏(function-like macro)
 #define M_PI        3.14159265358979323846264338327950288
@@ -88,6 +89,26 @@
     ///头像请求
 //    [self.view addSubview:self.headerView];
 //    [self requestNetWorkManager];
+    UIButton *pushNillButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [pushNillButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [pushNillButton setFrame:CGRectMake(10.0 ,80.0 ,120.0 ,20.0)];
+    pushNillButton.backgroundColor = [UIColor colorWithRed:1.00 green:1.00 blue:1.00 alpha:0.00]; //背景颜
+    [pushNillButton setTitle:@"加载" forState:(UIControlStateNormal)];
+    [pushNillButton addTarget:self action:@selector(loadAddChildViewController) forControlEvents:(UIControlEventTouchUpInside)];
+    [self.view addSubview:pushNillButton];
+}
+- (void)loadAddChildViewController{
+    NetworkSpeedViewController *twoVC = [[NetworkSpeedViewController alloc]init];
+    __weak typeof(twoVC)weakTwoVC = twoVC;
+    [twoVC.view setFrame:CGRectMake(0, 200, 200, 200)];
+    [twoVC setInstantBlock:^(BOOL upSpeed) {
+        [weakTwoVC willMoveToParentViewController:nil];
+        [weakTwoVC removeFromParentViewController];
+        [weakTwoVC.view removeFromSuperview];
+    }];
+    [self addChildViewController:twoVC];
+    [self.view addSubview:twoVC.view];
+
 }
 - (void)getRequestNetwork{
     ///获取个人信息
@@ -144,6 +165,7 @@
     [batchRequest startWithCompletionBlockWithSuccess:^(YTKBatchRequest *batchRequest) {
         NSLog(@"succeed");
         NSArray *requests = batchRequest.requestArray;
+        NSLog(@"succeed%@",requests);
     } failure:^(YTKBatchRequest *batchRequest) {
         NSLog(@"failed");
     }];
