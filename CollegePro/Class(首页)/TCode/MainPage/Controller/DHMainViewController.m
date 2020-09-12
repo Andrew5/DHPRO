@@ -167,7 +167,8 @@
     [family addTommy];
     [family addLily];
     [family everyBodySayHello];
-//    [self createMap];
+
+    //    [self createMap];
     //    applicationWillEnterForeground
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveHMethod:) name:@"applicationWillEnterForeground" object:nil];
     //    [self playVoiceBackground];

@@ -312,12 +312,6 @@
     }
 }
 
-+ (NSNumber *) freeDiskSpace
-{
-    NSDictionary *fattributes = [[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:nil];
-    return [fattributes objectForKey:NSFileSystemFreeSize];
-}
-
 + (double)freeMemory
 {
     vm_statistics_data_t vmStats;
@@ -823,8 +817,23 @@
 /// 手机总容量
 + (NSNumber *)totalDiskSpace
 {
+    /*
+     {
+         NSFileSystemFreeNodes = 624404130;
+         NSFileSystemFreeSize = 1465380864;//所剩空间
+         NSFileSystemNodes = 624794760;
+         NSFileSystemNumber = 16777218;
+         NSFileSystemSize = 63978983424;//总空间
+     }
+     */
     NSDictionary *fattributes = [[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:nil];
     return [fattributes objectForKey:NSFileSystemSize];
+}
+/// 手机使用容量
++ (NSNumber *) freeDiskSpace
+{
+    NSDictionary *fattributes = [[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:nil];
+    return [fattributes objectForKey:NSFileSystemFreeSize];
 }
 /// 手机容量
 + (NSString *)diskSpaceType
