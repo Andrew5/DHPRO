@@ -750,8 +750,8 @@
             filePath = "CollegeProWidge/TodayViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "235"
-            endingLineNumber = "235"
+            startingLineNumber = "243"
+            endingLineNumber = "243"
             landmarkName = "-updateDetailsLabel"
             landmarkType = "7">
          </BreakpointContent>
@@ -759,16 +759,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "70E54743-3EE0-462D-ACED-3004056D4E7F"
+            uuid = "32ACA6CA-2A1E-4CF0-8D21-13513BE5484B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CollegePro/Class(&#x9996;&#x9875;)/TCode/MainPage/Controller/DHMainViewController.m"
+            filePath = "CollegePro/Class(&#x9996;&#x9875;)/TTools/NetworkRequest/BLYGetEquipmentInfo.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "680"
-            endingLineNumber = "680"
-            landmarkName = "-getinternet"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "+totalDiskSpace"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

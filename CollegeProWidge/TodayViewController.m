@@ -23,6 +23,10 @@
 @property(nonatomic,strong) UILabel *labelNet;
 @property(nonatomic,strong) UILabel *labelTitleName;
 @property(nonatomic,strong) UILabel *labelUsedMemory;
+@property (nonatomic, strong) UIImageView *progressImg;
+@property (nonatomic, strong) UIImageView *trackImg;
+/// 空间所剩标签展示
+@property (nonatomic, strong) UILabel *progressLable;
 
 @property(nonatomic,strong) UIView *subView;
 @property (nonatomic, strong) NSMutableArray * dataArray;
@@ -42,18 +46,24 @@
     if (@available(iOS 10.0, *)) {
         self.extensionContext.widgetLargestAvailableDisplayMode = NCWidgetDisplayModeExpanded;
     }
+    
+    self.progressImg.image     = [self createImageWithColor:[UIColor greenColor]];
+    self.trackImg.image        = [self createImageWithColor:[UIColor grayColor]];
+    
+    [self.view addSubview:self.progressLable];
+    [self.view addSubview:self.progressImg];
+    [self.view addSubview:self.trackImg];
+    [self.view addSubview:self.progressLable];
+    
     //设置extension的size
-    //    self.preferredContentSize = CGSizeMake(0, 80);
+//    self.preferredContentSize = CGSizeMake(0, 80);
     [self.view addSubview:self.tableView];
 //    [self.view addSubview:self.labelTitleName];
     [self.view addSubview:self.labelUsedMemory];
     [self.view addSubview:self.labelNet];
-    
-    _labelUsedMemory.text = [NSString stringWithFormat:@"设备容量:%@",[DHTool diskSpaceType]];
-    _labelUsedMemory.frame  = CGRectMake(10, 20, 25*15, 40);
-    
-    
-    //        _labelTitleName.text = [NSString stringWithFormat:@"%.2f,%.2f,%.2f,%.2llu,%.2lld,%.2lld",self.fileSystemSize,self.usedRate,self.freeSize,self.usedSize,[self memoryUsage],[self diskMemory]];
+//    _labelUsedMemory.text = [NSString stringWithFormat:@"设备容量:%@",[DHTool diskSpaceType]];
+    [self loadSpaceWishFrame:CGRectMake(10, 0, [UIScreen mainScreen].bounds.size.width-20, 20)];
+//        _labelTitleName.text = [NSString stringWithFormat:@"%.2f,%.2f,%.2f,%.2llu,%.2lld,%.2lld",self.fileSystemSize,self.usedRate,self.freeSize,self.usedSize,[self memoryUsage],[self diskMemory]];
     
     NSString *urlString = [NSString stringWithFormat:@"CollegeProTodayExtensionDemo://set/markCode=%@&code=%@&yesclose=%@&stockName=%@",@"10200",@"200",@"YES",[@"高晨阳" stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
     NSArray * array = @[
@@ -72,7 +82,6 @@
         @{@"icon":@"shezhi",
           @"handerUrl":urlString,
           @"title":@"设置"},
-        
     ];
     for (NSDictionary * dic in  array) {
         TodayItemModel*manageModel = [TodayItemModel new];
@@ -81,10 +90,9 @@
         manageModel.titlename = dic[@"title"];
         [self.dataArray addObject:manageModel];
     }
-    //    [self.tableView reloadData];
+    [self.tableView reloadData];
     //        NSUserDefaults *userDefault = [[NSUserDefaults standardUserDefaults] initWithSuiteName:@"group.com.dhPro.tool.CollegeProExtension"];
     //        NSString *t = [userDefault valueForKey:@"network"];
-    self.labelNet.frame  = CGRectMake(10, 60, 15*15, 40);
     //        self.labelNet.text = [NSString stringWithFormat:@"当前网速是：%@",t];
     [self getInternetSpeet];
 }
@@ -345,6 +353,42 @@
     }
     return taskInfo.resident_size / 1024.0 / 1024.0;
 }
+/**
+ *  加载剩余空间
+ */
+- (void)loadSpaceWishFrame:(CGRect)frame{
+    
+    NSDictionary *fattributes = [[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:nil];
+    
+    //总空间
+    float   space     =   [[fattributes objectForKey:NSFileSystemSize] floatValue];
+    //所剩空间
+    float   freespace =   [[fattributes objectForKey:NSFileSystemFreeSize] floatValue];
+    
+    
+    float free_m  =  freespace / 1024 / 1024 / 1024;
+    float space_m =  space / 1024 / 1024 / 1024;//局部总空间
+    float proportion = free_m / space_m;
+    
+    
+    self.progressImg.frame      = CGRectMake(0, 0,(1 - proportion) * frame.size.width, frame.size.height);
+    self.trackImg.frame         = CGRectMake((1 - proportion) * frame.size.width , 0, [UIScreen mainScreen].bounds.size.width - (1 - proportion) * frame.size.width , frame.size.height);
+    self.progressLable.text     = [NSString stringWithFormat:@"总空间%@G/剩余%.1fG",[DHTool diskSpaceType],free_m];
+    self.progressLable.frame    = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, frame.size.height -2);
+    
+}
+-(UIImage *) createImageWithColor: (UIColor *) color
+{
+    CGRect rect=CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    
+    UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return theImage;
+}
 #pragma mark - lazy load
 - (UITableView *)tableView {
     if (!_tableView) {
@@ -371,9 +415,8 @@
 - (UILabel *)labelUsedMemory {
     if (!_labelUsedMemory) {
         _labelUsedMemory = [[UILabel alloc]init];
-        _labelUsedMemory.layer.borderColor = [UIColor greenColor].CGColor;
-        _labelUsedMemory.layer.borderWidth = 1.0;
         _labelUsedMemory.numberOfLines = 2;
+        _labelUsedMemory.frame  = CGRectMake(10, 20, 25*15, 40);
 //        [_labelUsedMemory sizeToFit];
     }
     return _labelUsedMemory;
@@ -381,11 +424,31 @@
 - (UILabel *)labelNet {
     if (!_labelNet) {
         _labelNet = [[UILabel alloc]init];
-        _labelNet.layer.borderColor = [UIColor greenColor].CGColor;
-        _labelNet.layer.borderWidth = 1.0;
         _labelNet.numberOfLines = 2;
+        _labelNet.frame  = CGRectMake(10, 20, 15*15, 40);
     }
     return _labelNet;
 }
+- (UILabel *)progressLable{
+    if (!_progressLable) {
+        _progressLable         = [[UILabel alloc]init];
+        _progressLable.font    = [UIFont systemFontOfSize:12];
+        _progressLable.textColor =  [UIColor whiteColor];
+        _progressLable.textAlignment = NSTextAlignmentCenter;
+    }
+    return _progressLable;
+}
 
+- (UIImageView *)progressImg{
+    if (!_progressImg) {
+        _progressImg      = [[UIImageView alloc]init];
+    }
+    return _progressImg;
+}
+- (UIImageView *)trackImg{
+    if (!_trackImg) {
+        _trackImg         = [[UIImageView alloc]init];
+    }
+    return _trackImg;
+}
 @end
