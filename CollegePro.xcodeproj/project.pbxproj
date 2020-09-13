@@ -7955,7 +7955,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dhPro.tool.CollegePro.CollegeProWidge;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CollegeProWidge;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -7976,7 +7976,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dhPro.tool.CollegePro.CollegeProWidge;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CollegeProWidge;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
