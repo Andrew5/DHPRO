@@ -16,6 +16,12 @@
 #import "TodayItemCell.h"
 #import "TodayItemModel.h"
 #import "MeasurNetTools.h"
+#import <CoreTelephony/CTTelephonyNetworkInfo.h>
+
+#import <CoreTelephony/CTCarrier.h>
+
+#import <UIKit/UIKit.h>
+
 
 @interface TodayViewController () <NCWidgetProviding, UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
@@ -35,6 +41,8 @@
 @property (nonatomic, assign) float freeSize;
 @property (nonatomic, assign) unsigned long long usedSize;
 @property (nonatomic, assign) double usedRate;
+@property (nonatomic, assign) CTTelephonyNetworkInfo *networkInfo;
+
 @end
 
 @implementation TodayViewController
@@ -46,24 +54,21 @@
     if (@available(iOS 10.0, *)) {
         self.extensionContext.widgetLargestAvailableDisplayMode = NCWidgetDisplayModeExpanded;
     }
-    
-    self.progressImg.image     = [self createImageWithColor:[UIColor greenColor]];
-    self.trackImg.image        = [self createImageWithColor:[UIColor grayColor]];
-    
     [self.view addSubview:self.progressLable];
     [self.view addSubview:self.progressImg];
     [self.view addSubview:self.trackImg];
     [self.view addSubview:self.progressLable];
-    
     //设置extension的size
-//    self.preferredContentSize = CGSizeMake(0, 80);
+    //    self.preferredContentSize = CGSizeMake(0, 80);
     [self.view addSubview:self.tableView];
-//    [self.view addSubview:self.labelTitleName];
+    //    [self.view addSubview:self.labelTitleName];
     [self.view addSubview:self.labelUsedMemory];
     [self.view addSubview:self.labelNet];
-//    _labelUsedMemory.text = [NSString stringWithFormat:@"设备容量:%@",[DHTool diskSpaceType]];
+    //    _labelUsedMemory.text = [NSString stringWithFormat:@"设备容量:%@",[DHTool diskSpaceType]];
     [self loadSpaceWishFrame:CGRectMake(10, 0, [UIScreen mainScreen].bounds.size.width-20, 20)];
-//        _labelTitleName.text = [NSString stringWithFormat:@"%.2f,%.2f,%.2f,%.2llu,%.2lld,%.2lld",self.fileSystemSize,self.usedRate,self.freeSize,self.usedSize,[self memoryUsage],[self diskMemory]];
+    self.progressImg.image     = [self createImageWithColor:[UIColor greenColor]];
+    self.trackImg.image        = [self createImageWithColor:[UIColor grayColor]];
+    //        _labelTitleName.text = [NSString stringWithFormat:@"%.2f,%.2f,%.2f,%.2llu,%.2lld,%.2lld",self.fileSystemSize,self.usedRate,self.freeSize,self.usedSize,[self memoryUsage],[self diskMemory]];
     
     NSString *urlString = [NSString stringWithFormat:@"CollegeProTodayExtensionDemo://set/markCode=%@&code=%@&yesclose=%@&stockName=%@",@"10200",@"200",@"YES",[@"高晨阳" stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
     NSArray * array = @[
@@ -108,14 +113,14 @@
         NSMutableDictionary *WIFIspeed = [DHTool getDataCounters];
         NSLog(@"获取wifi信息 = %@ ------------- 检测手机网络速度 = %@",WIFImessage,WIFIspeed);
     } finishMeasureBlock:^(float speed) {
-//        NSUserDefaults* userDefault = [[NSUserDefaults standardUserDefaults] initWithSuiteName:@"group.com.dhTool.selfpro.CollegeProExtension"];
-//        NSString* speedStr = [NSString stringWithFormat:@"%@/S", [QBTools formattedFileSize:speed]];
-//        NSLog(@"平均速度为：%@",speedStr);
-//        NSLog(@"相当于带宽：%@",[QBTools formatBandWidth:speed]);
-//        _lb_showinfo.text = [NSString stringWithFormat:@"平均速度为： %@---相当带宽：(时间间隔里的传输速率:)%@--%@",speedStr,[QBTools formatBandWidth:speed],[DHTool getByteRate]];
-//        [userDefault setObject:[DHTool getByteRate] forKey:@"network"];
-//        [userDefault setObject:@"2我是数据" forKey:@"myShareData"];
-//        [userDefault synchronize];
+        //        NSUserDefaults* userDefault = [[NSUserDefaults standardUserDefaults] initWithSuiteName:@"group.com.dhTool.selfpro.CollegeProExtension"];
+        //        NSString* speedStr = [NSString stringWithFormat:@"%@/S", [QBTools formattedFileSize:speed]];
+        //        NSLog(@"平均速度为：%@",speedStr);
+        //        NSLog(@"相当于带宽：%@",[QBTools formatBandWidth:speed]);
+        //        _lb_showinfo.text = [NSString stringWithFormat:@"平均速度为： %@---相当带宽：(时间间隔里的传输速率:)%@--%@",speedStr,[QBTools formatBandWidth:speed],[DHTool getByteRate]];
+        //        [userDefault setObject:[DHTool getByteRate] forKey:@"network"];
+        //        [userDefault setObject:@"2我是数据" forKey:@"myShareData"];
+        //        [userDefault synchronize];
     } failedBlock:^(NSError *error) {
     }];
     [meaurNet startMeasur];
@@ -162,10 +167,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     TodayItemModel * model = self.dataArray[indexPath.row];
     [self.extensionContext openURL:[NSURL URLWithString:model.handerUrl] completionHandler:nil];
-
-//    NSString *path = [NSString stringWithFormat:@"CollegeProExtension://%zd",indexPath.row];
-//    NSURL *url = [NSURL URLWithString:path];
-//    [self openContainingAPPWithURL:url];
+    
+    //    NSString *path = [NSString stringWithFormat:@"CollegeProExtension://%zd",indexPath.row];
+    //    NSURL *url = [NSURL URLWithString:path];
+    //    [self openContainingAPPWithURL:url];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 70;
@@ -231,20 +236,20 @@
 }
 - (void)updateInterface
 {
-//    double rate = self.usedRate; // retrieve the cached value
-//    self.percentLabel.text = [NSString stringWithFormat:@"%.1f%%", (rate * 100)];
-//    self.barView.progress = rate;
+    //    double rate = self.usedRate; // retrieve the cached value
+    //    self.percentLabel.text = [NSString stringWithFormat:@"%.1f%%", (rate * 100)];
+    //    self.barView.progress = rate;
 }
 -(void)updateDetailsLabel
 {
     NSByteCountFormatter *formatter = [[NSByteCountFormatter alloc] init];
     [formatter setCountStyle:NSByteCountFormatterCountStyleFile];
     
-//    self.detailsLabel.text =
-//    [NSString stringWithFormat:@"Used:\t%@\nFree:\t%@\nTotal:\t%@",
-//     [formatter stringFromByteCount:self.usedSize],
-//     [formatter stringFromByteCount:self.freeSize],
-//     [formatter stringFromByteCount:self.fileSystemSize]];
+    //    self.detailsLabel.text =
+    //    [NSString stringWithFormat:@"Used:\t%@\nFree:\t%@\nTotal:\t%@",
+    //     [formatter stringFromByteCount:self.usedSize],
+    //     [formatter stringFromByteCount:self.freeSize],
+    //     [formatter stringFromByteCount:self.fileSystemSize]];
 }
 //硬盘容量
 
@@ -396,7 +401,7 @@
         _tableView.frame = CGRectMake(0, 110, self.view.frame.size.width-8, 70*5);
         _tableView.dataSource = self;
         _tableView.delegate = self;
-//        _tableView.estimatedRowHeight = 70;
+        //        _tableView.estimatedRowHeight = 70;
         _tableView.rowHeight = UITableViewAutomaticDimension;
         [_tableView registerClass:[TodayItemCell class] forCellReuseIdentifier:NSStringFromClass([TodayItemCell class])];
         _tableView.tableFooterView = [UIView new];
@@ -417,7 +422,7 @@
         _labelUsedMemory = [[UILabel alloc]init];
         _labelUsedMemory.numberOfLines = 2;
         _labelUsedMemory.frame  = CGRectMake(10, 20, 25*15, 40);
-//        [_labelUsedMemory sizeToFit];
+        //        [_labelUsedMemory sizeToFit];
     }
     return _labelUsedMemory;
 }
