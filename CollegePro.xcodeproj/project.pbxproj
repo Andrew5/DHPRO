@@ -24,6 +24,7 @@
 		380F9F902278475200D515E3 /* TabbarBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 380F9F8F2278475200D515E3 /* TabbarBundle.bundle */; };
 		3817212123EE8EBA00F8A9A0 /* DrawBezierPathView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3817212023EE8EBA00F8A9A0 /* DrawBezierPathView.m */; };
 		3817212423EE903000F8A9A0 /* BigSizeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3817212223EE903000F8A9A0 /* BigSizeButton.m */; };
+		3818319E2512186B000F4104 /* LoTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3818319D2512186B000F4104 /* LoTest.m */; };
 		381B6BDB22C0EF9E0018C0C2 /* NSURL+changProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 381B6BD922C0EF9E0018C0C2 /* NSURL+changProtocol.m */; };
 		381D6096243B285400EA86D8 /* SubOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 381D6095243B285400EA86D8 /* SubOperation.m */; };
 		381D6470243F163F00EA86D8 /* DDYNetworkSpeedTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 381D646C243F163D00EA86D8 /* DDYNetworkSpeedTool.m */; };
@@ -140,6 +141,12 @@
 		385483E2234F4B5C0053AB46 /* BlueToothViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385483E1234F4B5C0053AB46 /* BlueToothViewController.swift */; };
 		3854840123505AB90053AB46 /* NSObject+Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = 3854840023505AB90053AB46 /* NSObject+Runtime.m */; };
 		38560ACA22AF7C7300A68F5D /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38560AC922AF7C7200A68F5D /* AssetsLibrary.framework */; };
+		386070D325132AD800545ECB /* DHAttachmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 386070D225132AD800545ECB /* DHAttachmentViewController.m */; };
+		386070D625132FDE00545ECB /* DHAttachmentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 386070D525132FDE00545ECB /* DHAttachmentListViewController.m */; };
+		386070D72513378E00545ECB /* MeasurNetTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C846B7227827EF00BCAD87 /* MeasurNetTools.h */; platformFilter = ios; settings = {ATTRIBUTES = (Public, ); }; };
+		386070D825133B8000545ECB /* DHTool.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C84618227827EF00BCAD87 /* DHTool.h */; platformFilter = ios; settings = {ATTRIBUTES = (Public, ); }; };
+		386070DB251340AB00545ECB /* DHAttachmentListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 386070DA251340AB00545ECB /* DHAttachmentListCell.m */; };
+		386070DE2513460200545ECB /* DHCollectFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 386070DD2513460200545ECB /* DHCollectFileViewController.m */; };
 		386422CB228AC3F2006DB570 /* SliderMainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 386422CA228AC3F2006DB570 /* SliderMainStoryboard.storyboard */; };
 		386422CE228AC455006DB570 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 386422CD228AC455006DB570 /* MenuViewController.m */; };
 		3868BF7B22B9C7CC003B643C /* GLActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3868BF7A22B9C7CB003B643C /* GLActionSheet.m */; };
@@ -908,6 +915,18 @@
 		38EBA07D22CF24F400AAD44F /* FoodListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EBA07C22CF24F400AAD44F /* FoodListViewController.m */; };
 		38EE05B123853D8200718397 /* YHView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EE05B023853D8200718397 /* YHView.m */; };
 		38F0FBFA23C781F400B04343 /* CHLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F0FBF923C781F400B04343 /* CHLogger.m */; };
+		38F459D5251314C700F368EF /* ZCAssetCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F459CA251314C700F368EF /* ZCAssetCollectionViewCell.m */; };
+		38F459D6251314C700F368EF /* ZCAssetsPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F459CC251314C700F368EF /* ZCAssetsPickerViewController.m */; };
+		38F459D7251314C700F368EF /* ZCBrowserCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F459CE251314C700F368EF /* ZCBrowserCollectionViewCell.m */; };
+		38F459D8251314C700F368EF /* ZCBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F459D0251314C700F368EF /* ZCBrowserViewController.m */; };
+		38F459D9251314C700F368EF /* ZCPhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F459D2251314C700F368EF /* ZCPhotoManager.m */; };
+		38F459DA251314C700F368EF /* ZCSelectedAssetsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F459D4251314C700F368EF /* ZCSelectedAssetsManager.m */; };
+		38F459DD2513157B00F368EF /* FilePickAllTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F459DC2513157B00F368EF /* FilePickAllTypeModel.m */; };
+		38F459E0251315C900F368EF /* UIApplication+scanLocalVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F459DF251315C900F368EF /* UIApplication+scanLocalVideo.m */; };
+		38F459E3251317C300F368EF /* DHSystemFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F459E2251317C300F368EF /* DHSystemFileViewController.m */; };
+		38F459E62513186C00F368EF /* DHSegmentCommenMannager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F459E52513186C00F368EF /* DHSegmentCommenMannager.m */; };
+		38F459E9251319D300F368EF /* DHVideoFileListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F459E8251319D300F368EF /* DHVideoFileListViewController.m */; };
+		38F459EC25131ABA00F368EF /* DHTFVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F459EB25131ABA00F368EF /* DHTFVideoCell.m */; };
 		69231657234E31B400A92110 /* SphericaLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 69231653234E31B400A92110 /* SphericaLayout.m */; };
 		69231658234E31B400A92110 /* ThreeDimensionalSphericalLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 69231655234E31B400A92110 /* ThreeDimensionalSphericalLayout.m */; };
 		845010F724F9221500FE4321 /* DHHttpRequestLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 845010F624F9221500FE4321 /* DHHttpRequestLogin.m */; };
@@ -950,7 +969,7 @@
 		84B7FF4A250B68D00051603C /* CollageProExtensionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B7FF3C250B67E50051603C /* CollageProExtensionKit.framework */; };
 		84B7FF4C250B69220051603C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B7FF4B250B69220051603C /* UIKit.framework */; };
 		84B7FF4E250B69370051603C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B7FF4D250B69370051603C /* Foundation.framework */; };
-		84B7FF54250B90460051603C /* MeasurNetTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C846BA227827EF00BCAD87 /* MeasurNetTools.m */; };
+		84B7FF54250B90460051603C /* MeasurNetTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C846BA227827EF00BCAD87 /* MeasurNetTools.m */; platformFilter = ios; };
 		84E8AFB72503A6F300D2C426 /* DHHttpRequestOrdersOrders.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E8AFB62503A6F300D2C426 /* DHHttpRequestOrdersOrders.m */; };
 		8688670DA1111CB5B413FE49 /* Pods_CollegePro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40E2710DF49C3576F5AC7B3 /* Pods_CollegePro.framework */; };
 /* End PBXBuildFile section */
@@ -1025,6 +1044,8 @@
 		3817212023EE8EBA00F8A9A0 /* DrawBezierPathView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawBezierPathView.m; sourceTree = "<group>"; };
 		3817212223EE903000F8A9A0 /* BigSizeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BigSizeButton.m; sourceTree = "<group>"; };
 		3817212323EE903000F8A9A0 /* BigSizeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BigSizeButton.h; sourceTree = "<group>"; };
+		3818319C2512186B000F4104 /* LoTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoTest.h; sourceTree = "<group>"; };
+		3818319D2512186B000F4104 /* LoTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoTest.m; sourceTree = "<group>"; };
 		381B6BD922C0EF9E0018C0C2 /* NSURL+changProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+changProtocol.m"; sourceTree = "<group>"; };
 		381B6BDA22C0EF9E0018C0C2 /* NSURL+changProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+changProtocol.h"; sourceTree = "<group>"; };
 		381D6094243B285400EA86D8 /* SubOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubOperation.h; sourceTree = "<group>"; };
@@ -1218,6 +1239,14 @@
 		385483FF23505AB90053AB46 /* NSObject+Runtime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Runtime.h"; sourceTree = "<group>"; };
 		3854840023505AB90053AB46 /* NSObject+Runtime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Runtime.m"; sourceTree = "<group>"; };
 		38560AC922AF7C7200A68F5D /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		386070D125132AD800545ECB /* DHAttachmentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHAttachmentViewController.h; sourceTree = "<group>"; };
+		386070D225132AD800545ECB /* DHAttachmentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHAttachmentViewController.m; sourceTree = "<group>"; };
+		386070D425132FDE00545ECB /* DHAttachmentListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHAttachmentListViewController.h; sourceTree = "<group>"; };
+		386070D525132FDE00545ECB /* DHAttachmentListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHAttachmentListViewController.m; sourceTree = "<group>"; };
+		386070D9251340AB00545ECB /* DHAttachmentListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHAttachmentListCell.h; sourceTree = "<group>"; };
+		386070DA251340AB00545ECB /* DHAttachmentListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHAttachmentListCell.m; sourceTree = "<group>"; };
+		386070DC2513460200545ECB /* DHCollectFileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHCollectFileViewController.h; sourceTree = "<group>"; };
+		386070DD2513460200545ECB /* DHCollectFileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHCollectFileViewController.m; sourceTree = "<group>"; };
 		386422CA228AC3F2006DB570 /* SliderMainStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SliderMainStoryboard.storyboard; sourceTree = "<group>"; };
 		386422CC228AC455006DB570 /* MenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		386422CD228AC455006DB570 /* MenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
@@ -2553,6 +2582,31 @@
 		38EE05B023853D8200718397 /* YHView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHView.m; sourceTree = "<group>"; };
 		38F0FBF823C781F000B04343 /* CHLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHLogger.h; sourceTree = "<group>"; };
 		38F0FBF923C781F400B04343 /* CHLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHLogger.m; sourceTree = "<group>"; };
+		38F459C8251314C700F368EF /* Macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
+		38F459C9251314C700F368EF /* ZCAssetCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCAssetCollectionViewCell.h; sourceTree = "<group>"; };
+		38F459CA251314C700F368EF /* ZCAssetCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCAssetCollectionViewCell.m; sourceTree = "<group>"; };
+		38F459CB251314C700F368EF /* ZCAssetsPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCAssetsPickerViewController.h; sourceTree = "<group>"; };
+		38F459CC251314C700F368EF /* ZCAssetsPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCAssetsPickerViewController.m; sourceTree = "<group>"; };
+		38F459CD251314C700F368EF /* ZCBrowserCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCBrowserCollectionViewCell.h; sourceTree = "<group>"; };
+		38F459CE251314C700F368EF /* ZCBrowserCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCBrowserCollectionViewCell.m; sourceTree = "<group>"; };
+		38F459CF251314C700F368EF /* ZCBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCBrowserViewController.h; sourceTree = "<group>"; };
+		38F459D0251314C700F368EF /* ZCBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCBrowserViewController.m; sourceTree = "<group>"; };
+		38F459D1251314C700F368EF /* ZCPhotoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPhotoManager.h; sourceTree = "<group>"; };
+		38F459D2251314C700F368EF /* ZCPhotoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPhotoManager.m; sourceTree = "<group>"; };
+		38F459D3251314C700F368EF /* ZCSelectedAssetsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCSelectedAssetsManager.h; sourceTree = "<group>"; };
+		38F459D4251314C700F368EF /* ZCSelectedAssetsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCSelectedAssetsManager.m; sourceTree = "<group>"; };
+		38F459DB2513157A00F368EF /* FilePickAllTypeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilePickAllTypeModel.h; sourceTree = "<group>"; };
+		38F459DC2513157B00F368EF /* FilePickAllTypeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilePickAllTypeModel.m; sourceTree = "<group>"; };
+		38F459DE251315C900F368EF /* UIApplication+scanLocalVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+scanLocalVideo.h"; sourceTree = "<group>"; };
+		38F459DF251315C900F368EF /* UIApplication+scanLocalVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+scanLocalVideo.m"; sourceTree = "<group>"; };
+		38F459E1251317C300F368EF /* DHSystemFileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHSystemFileViewController.h; sourceTree = "<group>"; };
+		38F459E2251317C300F368EF /* DHSystemFileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHSystemFileViewController.m; sourceTree = "<group>"; };
+		38F459E42513186C00F368EF /* DHSegmentCommenMannager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHSegmentCommenMannager.h; sourceTree = "<group>"; };
+		38F459E52513186C00F368EF /* DHSegmentCommenMannager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHSegmentCommenMannager.m; sourceTree = "<group>"; };
+		38F459E7251319D300F368EF /* DHVideoFileListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHVideoFileListViewController.h; sourceTree = "<group>"; };
+		38F459E8251319D300F368EF /* DHVideoFileListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHVideoFileListViewController.m; sourceTree = "<group>"; };
+		38F459EA25131ABA00F368EF /* DHTFVideoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHTFVideoCell.h; sourceTree = "<group>"; };
+		38F459EB25131ABA00F368EF /* DHTFVideoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHTFVideoCell.m; sourceTree = "<group>"; };
 		5F735CBD75148748D536001D /* Pods-CommonPods-CollegePro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommonPods-CollegePro.release.xcconfig"; path = "Pods/Target Support Files/Pods-CommonPods-CollegePro/Pods-CommonPods-CollegePro.release.xcconfig"; sourceTree = "<group>"; };
 		69231652234E31B400A92110 /* SphericaLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SphericaLayout.h; sourceTree = "<group>"; };
 		69231653234E31B400A92110 /* SphericaLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SphericaLayout.m; sourceTree = "<group>"; };
@@ -4196,6 +4250,7 @@
 				38C84594227827EF00BCAD87 /* Macro */,
 				38E97ED922D5CD8900A70112 /* MQHButtonsView.h */,
 				38E97EDA22D5CD8D00A70112 /* MQHButtonsView.m */,
+				38F459C7251314C700F368EF /* PickerImageVideo */,
 				386BBB5A22DC9F45005E6054 /* PhotoTweaks */,
 				38C845A5227827EF00BCAD87 /* pinyin.c */,
 				38C84563227827EF00BCAD87 /* pinyin.h */,
@@ -4409,6 +4464,8 @@
 				38DBD7DA23B22E8C00E3F33C /* NSObject+Swizzling.m */,
 				3828B65E23ADE5CB008E4D04 /* NSDictionary+Safe.h */,
 				3828B65F23ADE5CB008E4D04 /* NSDictionary+Safe.m */,
+				38F459DE251315C900F368EF /* UIApplication+scanLocalVideo.h */,
+				38F459DF251315C900F368EF /* UIApplication+scanLocalVideo.m */,
 				38C845EA227827EF00BCAD87 /* NSString+Extension.h */,
 				38C84601227827EF00BCAD87 /* NSString+Extension.m */,
 				38C84606227827EF00BCAD87 /* UIButton-touch */,
@@ -5399,8 +5456,18 @@
 			isa = PBXGroup;
 			children = (
 				84B7FF2F250B502A0051603C /* B206760E60639441A7876D27110082AC.MOV */,
-				38C847A6227827F000BCAD87 /* JPShopCarController.m */,
 				38C847A7227827F000BCAD87 /* JPShopCarController.h */,
+				38C847A6227827F000BCAD87 /* JPShopCarController.m */,
+				38F459E1251317C300F368EF /* DHSystemFileViewController.h */,
+				38F459E2251317C300F368EF /* DHSystemFileViewController.m */,
+				38F459E7251319D300F368EF /* DHVideoFileListViewController.h */,
+				38F459E8251319D300F368EF /* DHVideoFileListViewController.m */,
+				386070D125132AD800545ECB /* DHAttachmentViewController.h */,
+				386070D225132AD800545ECB /* DHAttachmentViewController.m */,
+				386070D425132FDE00545ECB /* DHAttachmentListViewController.h */,
+				386070D525132FDE00545ECB /* DHAttachmentListViewController.m */,
+				386070DC2513460200545ECB /* DHCollectFileViewController.h */,
+				386070DD2513460200545ECB /* DHCollectFileViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -5408,12 +5475,14 @@
 		38C847A8227827F000BCAD87 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				38C847A9227827F000BCAD87 /* JPCarModel.m */,
-				38C847AA227827F000BCAD87 /* JPCarModel.h */,
-				84B7FF31250B597A0051603C /* AudioPieceTogether.h */,
-				84B7FF32250B597A0051603C /* AudioPieceTogether.m */,
 				84B7FF34250B59A20051603C /* AudioEdit.h */,
 				84B7FF35250B59A20051603C /* AudioEdit.m */,
+				84B7FF31250B597A0051603C /* AudioPieceTogether.h */,
+				84B7FF32250B597A0051603C /* AudioPieceTogether.m */,
+				38F459DB2513157A00F368EF /* FilePickAllTypeModel.h */,
+				38F459DC2513157B00F368EF /* FilePickAllTypeModel.m */,
+				38C847AA227827F000BCAD87 /* JPCarModel.h */,
+				38C847A9227827F000BCAD87 /* JPCarModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -5427,6 +5496,12 @@
 				38C847AF227827F000BCAD87 /* JPShopCarCell.xib */,
 				38C847B0227827F000BCAD87 /* JPShopCarCell.h */,
 				38C847B1227827F000BCAD87 /* JPShopHeaderCell.h */,
+				38F459E42513186C00F368EF /* DHSegmentCommenMannager.h */,
+				38F459E52513186C00F368EF /* DHSegmentCommenMannager.m */,
+				38F459EA25131ABA00F368EF /* DHTFVideoCell.h */,
+				38F459EB25131ABA00F368EF /* DHTFVideoCell.m */,
+				386070D9251340AB00545ECB /* DHAttachmentListCell.h */,
+				386070DA251340AB00545ECB /* DHAttachmentListCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -6206,6 +6281,26 @@
 			path = yh;
 			sourceTree = "<group>";
 		};
+		38F459C7251314C700F368EF /* PickerImageVideo */ = {
+			isa = PBXGroup;
+			children = (
+				38F459C8251314C700F368EF /* Macro.h */,
+				38F459C9251314C700F368EF /* ZCAssetCollectionViewCell.h */,
+				38F459CA251314C700F368EF /* ZCAssetCollectionViewCell.m */,
+				38F459CB251314C700F368EF /* ZCAssetsPickerViewController.h */,
+				38F459CC251314C700F368EF /* ZCAssetsPickerViewController.m */,
+				38F459CD251314C700F368EF /* ZCBrowserCollectionViewCell.h */,
+				38F459CE251314C700F368EF /* ZCBrowserCollectionViewCell.m */,
+				38F459CF251314C700F368EF /* ZCBrowserViewController.h */,
+				38F459D0251314C700F368EF /* ZCBrowserViewController.m */,
+				38F459D1251314C700F368EF /* ZCPhotoManager.h */,
+				38F459D2251314C700F368EF /* ZCPhotoManager.m */,
+				38F459D3251314C700F368EF /* ZCSelectedAssetsManager.h */,
+				38F459D4251314C700F368EF /* ZCSelectedAssetsManager.m */,
+			);
+			path = PickerImageVideo;
+			sourceTree = "<group>";
+		};
 		69231650234E31B400A92110 /* ThreeDimensional */ = {
 			isa = PBXGroup;
 			children = (
@@ -6336,6 +6431,8 @@
 				84B2642825024D01009B9E4B /* DHHttpRequestSecret.m */,
 				84B2641D2501DCAF009B9E4B /* DHHttpRequestImageUp.h */,
 				84B2641E2501DCAF009B9E4B /* DHHttpRequestImageUp.m */,
+				3818319C2512186B000F4104 /* LoTest.h */,
+				3818319D2512186B000F4104 /* LoTest.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -6401,6 +6498,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				84B7FF40250B67E60051603C /* CollageProExtensionKit.h in Headers */,
+				386070D72513378E00545ECB /* MeasurNetTools.h in Headers */,
+				386070D825133B8000545ECB /* DHTool.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7062,6 +7161,7 @@
 				386BC05D22DDABA7005E6054 /* DGActivityIndicatorBallSpinFadeLoader.m in Sources */,
 				38C84A38227827F200BCAD87 /* CollectionImageView.m in Sources */,
 				38C8492B227827F100BCAD87 /* RSA.m in Sources */,
+				386070D325132AD800545ECB /* DHAttachmentViewController.m in Sources */,
 				38C84A5F227827F200BCAD87 /* qrspec.c in Sources */,
 				382BB56C2434E5AA000A9CB7 /* UITableView+DHAnimationA.m in Sources */,
 				386BBD7E22DDA7FE005E6054 /* GPUImageHueFilter.m in Sources */,
@@ -7116,6 +7216,7 @@
 				38C84A24227827F200BCAD87 /* ZSDPaymentView.m in Sources */,
 				386BBDA122DDA7FF005E6054 /* GPUImageDivideBlendFilter.m in Sources */,
 				38C848D9227827F100BCAD87 /* KeychainItemWrapper.m in Sources */,
+				38F459DA251314C700F368EF /* ZCSelectedAssetsManager.m in Sources */,
 				385483DD234F4A450053AB46 /* BLEDataPack.m in Sources */,
 				386BBD9222DDA7FE005E6054 /* GPUImageDissolveBlendFilter.m in Sources */,
 				38C84981227827F100BCAD87 /* NetTestViewController.m in Sources */,
@@ -7210,6 +7311,7 @@
 				38C84980227827F100BCAD87 /* DataModel.m in Sources */,
 				38C8498A227827F100BCAD87 /* HXTagCollectionViewCell.m in Sources */,
 				38C849E0227827F200BCAD87 /* ScrollViewController.m in Sources */,
+				38F459D6251314C700F368EF /* ZCAssetsPickerViewController.m in Sources */,
 				38C84A72227827F200BCAD87 /* LabelMethodBlockSubVC.m in Sources */,
 				38C84928227827F100BCAD87 /* LHKeyChain.m in Sources */,
 				38C2D0CA22D5E27700CF30CA /* ASIHTTPRequest.m in Sources */,
@@ -7234,6 +7336,7 @@
 				38C849AA227827F100BCAD87 /* ZLBigImageCell.m in Sources */,
 				38C9779522AE02D200F978C1 /* scores.m in Sources */,
 				38C845462278249A00BCAD87 /* main.m in Sources */,
+				386070D625132FDE00545ECB /* DHAttachmentListViewController.m in Sources */,
 				38C849EF227827F200BCAD87 /* ACEExpandableTextCell.m in Sources */,
 				3807246E22CDCCE00035E5B1 /* CustomView.m in Sources */,
 				385483DE234F4A450053AB46 /* BLEDeviceInfo.m in Sources */,
@@ -7265,6 +7368,7 @@
 				38C84A66227827F200BCAD87 /* ZLDashboardViewController.m in Sources */,
 				384C3FD122887D7A00F01586 /* MVVMViewController.m in Sources */,
 				386BC0A722DDB1CC005E6054 /* CodeViewController.m in Sources */,
+				38F459EC25131ABA00F368EF /* DHTFVideoCell.m in Sources */,
 				386BBDB522DDA7FF005E6054 /* GPUImageSoftLightBlendFilter.m in Sources */,
 				38CC865022D8A0F70057405C /* SpeedController.m in Sources */,
 				386BBDCA22DDA7FF005E6054 /* GPUImageGlassSphereFilter.m in Sources */,
@@ -7293,6 +7397,7 @@
 				386BBD8422DDA7FE005E6054 /* GPUImageAlphaBlendFilter.m in Sources */,
 				84E8AFB72503A6F300D2C426 /* DHHttpRequestOrdersOrders.m in Sources */,
 				38C84988227827F100BCAD87 /* TagPickerView.m in Sources */,
+				386070DB251340AB00545ECB /* DHAttachmentListCell.m in Sources */,
 				384C3FE922888DBF00F01586 /* ZQVariableMenuView.m in Sources */,
 				38C84949227827F100BCAD87 /* AutoLayoutViewController.m in Sources */,
 				383F11FC23155A37005F085F /* CreditNumViewController.m in Sources */,
@@ -7317,6 +7422,7 @@
 				386BC05822DDABA7005E6054 /* DGActivityIndicatorBallScaleAnimation.m in Sources */,
 				38C84A4D227827F200BCAD87 /* MLSelectPhotoPickerFooterCollectionReusableView.m in Sources */,
 				3893F3A322CDEC78005C30AE /* DHMonthListTableViewCell.m in Sources */,
+				38F459E62513186C00F368EF /* DHSegmentCommenMannager.m in Sources */,
 				38C8494C227827F100BCAD87 /* TestTwoVC.m in Sources */,
 				38C84A71227827F200BCAD87 /* MyPersionTableViewCell.m in Sources */,
 				38C84A64227827F200BCAD87 /* iCloudViewController.m in Sources */,
@@ -7356,6 +7462,7 @@
 				382FFA52231CBD710062080E /* anitimalViewController.m in Sources */,
 				38C84975227827F100BCAD87 /* THomeCollectionViewCell.m in Sources */,
 				386BBD9822DDA7FE005E6054 /* GPUImage3x3TextureSamplingFilter.m in Sources */,
+				38F459E3251317C300F368EF /* DHSystemFileViewController.m in Sources */,
 				38C84955227827F100BCAD87 /* XHMenuButton.m in Sources */,
 				382BB5682434E3E8000A9CB7 /* TableViewAnimationA.m in Sources */,
 				38C84A49227827F200BCAD87 /* MLSelectPhotoPickerBrowserPhotoView.m in Sources */,
@@ -7373,6 +7480,7 @@
 				8487ADB424F8BE56004B41ED /* WaveProgressViewController.m in Sources */,
 				3868BF7B22B9C7CC003B643C /* GLActionSheet.m in Sources */,
 				38C84924227827F100BCAD87 /* NSArray+Log.m in Sources */,
+				38F459E9251319D300F368EF /* DHVideoFileListViewController.m in Sources */,
 				386BBC6322DD9C18005E6054 /* DPPhotoListViewController.m in Sources */,
 				386BC04C22DDABA7005E6054 /* DGActivityIndicatorThreeDotsAnimation.m in Sources */,
 				386BC0A422DDB1CA005E6054 /* CustomCardView.m in Sources */,
@@ -7380,6 +7488,7 @@
 				382B6F7523347CC100CD2497 /* DBSphereViewController.m in Sources */,
 				386BBDA422DDA7FF005E6054 /* GPUImagePosterizeFilter.m in Sources */,
 				3874F5CA245E9C600038E7DE /* KeyBoardVView.m in Sources */,
+				38F459DD2513157B00F368EF /* FilePickAllTypeModel.m in Sources */,
 				38C849C9227827F200BCAD87 /* ZLThumbnailViewController.m in Sources */,
 				38C84903227827F100BCAD87 /* SZAddImage.m in Sources */,
 				38C848F8227827F100BCAD87 /* ChineseString.m in Sources */,
@@ -7421,6 +7530,7 @@
 				386BC04622DDABA7005E6054 /* DGActivityIndicatorAnimation.m in Sources */,
 				386BC04522DDABA7005E6054 /* DGActivityIndicatorTriplePulseAnimation.m in Sources */,
 				38C84A4F227827F200BCAD87 /* DHZanViewController.m in Sources */,
+				38F459D9251314C700F368EF /* ZCPhotoManager.m in Sources */,
 				386BBD9E22DDA7FF005E6054 /* GPUImageBrightnessFilter.m in Sources */,
 				38C849E9227827F200BCAD87 /* JPShopCarController.m in Sources */,
 				386BBD8522DDA7FE005E6054 /* GPUImageExclusionBlendFilter.m in Sources */,
@@ -7453,6 +7563,7 @@
 				38C849CB227827F200BCAD87 /* ContentOffSetVC.m in Sources */,
 				386BBF6B22DDA8AF005E6054 /* ShowcaseFilterListController.m in Sources */,
 				38CC865522D8A34D0057405C /* InternetViewController.m in Sources */,
+				38F459D8251314C700F368EF /* ZCBrowserViewController.m in Sources */,
 				38862D3A22BB522300231140 /* UIViewController+topmost.m in Sources */,
 				38C84901227827F100BCAD87 /* IncludeNibTableViewController.m in Sources */,
 				3874F5CD245EC0E80038E7DE /* NSArray+CrashCustom.m in Sources */,
@@ -7460,10 +7571,12 @@
 				38C84A39227827F200BCAD87 /* ScrollImageView.m in Sources */,
 				386BBDA522DDA7FF005E6054 /* GPUImageLanczosResamplingFilter.m in Sources */,
 				38C8490B227827F100BCAD87 /* BaseTabBarViewController.m in Sources */,
+				38F459E0251315C900F368EF /* UIApplication+scanLocalVideo.m in Sources */,
 				38C849D4227827F200BCAD87 /* ContactModel.m in Sources */,
 				38C84A2E227827F200BCAD87 /* SubparagraphRootViewController.h.m in Sources */,
 				38C849DF227827F200BCAD87 /* T3DTouchViewController.m in Sources */,
 				8487ADBD24F8BEC1004B41ED /* WTTestObject.mm in Sources */,
+				38F459D7251314C700F368EF /* ZCBrowserCollectionViewCell.m in Sources */,
 				386BBC2422DD9ADC005E6054 /* HWSlider.m in Sources */,
 				38C84906227827F100BCAD87 /* ListContentViewController.m in Sources */,
 				386BBDB722DDA7FF005E6054 /* GPUImageCrosshairGenerator.m in Sources */,
@@ -7482,10 +7595,12 @@
 				386BBD9022DDA7FE005E6054 /* GPUImageErosionFilter.m in Sources */,
 				38E97EDB22D5CD8E00A70112 /* MQHButtonsView.m in Sources */,
 				38C84987227827F100BCAD87 /* ShowViewController.m in Sources */,
+				3818319E2512186B000F4104 /* LoTest.m in Sources */,
 				3807246F22CDCCE00035E5B1 /* MasonryCustomView.m in Sources */,
 				3893F39D22CDE472005C30AE /* DHMonthListViewController.m in Sources */,
 				38C8496E227827F100BCAD87 /* DHMyInfoViewController.m in Sources */,
 				38C84A47227827F200BCAD87 /* MLSelectPhotoPickerBrowserPhotoImageView.m in Sources */,
+				386070DE2513460200545ECB /* DHCollectFileViewController.m in Sources */,
 				386BBD7422DDA7FE005E6054 /* GPUImageEmbossFilter.m in Sources */,
 				38C84A3A227827F200BCAD87 /* LxGridViewFlowLayout.m in Sources */,
 				84B264192500A761009B9E4B /* DHHttpRequestOrders.m in Sources */,
@@ -7500,6 +7615,7 @@
 				38C84960227827F100BCAD87 /* ESMTestViewController.m in Sources */,
 				38C84912227827F100BCAD87 /* UITabBar+XSDExt.m in Sources */,
 				386BBDD122DDA7FF005E6054 /* GPUImageDilationFilter.m in Sources */,
+				38F459D5251314C700F368EF /* ZCAssetCollectionViewCell.m in Sources */,
 				386BBD9922DDA7FE005E6054 /* GPUImageSphereRefractionFilter.m in Sources */,
 				386BBDA922DDA7FF005E6054 /* GPUImageBoxBlurFilter.m in Sources */,
 				38C849E5227827F200BCAD87 /* Btn_TableView.m in Sources */,
@@ -7985,6 +8101,12 @@
 		84B7FF46250B67E60051603C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					arm64,
+					arm64e,
+					armv7,
+					armv7s,
+				);
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -7996,12 +8118,13 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				INFOPLIST_FILE = CollageProExtensionKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = DaHai.CollageProExtensionKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -8014,6 +8137,12 @@
 		84B7FF47250B67E60051603C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					arm64,
+					arm64e,
+					armv7,
+					armv7s,
+				);
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -8025,12 +8154,13 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				INFOPLIST_FILE = CollageProExtensionKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = DaHai.CollageProExtensionKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

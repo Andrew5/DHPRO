@@ -28,6 +28,11 @@
     
     NSMutableArray *infoarray;
     float oldX;
+    ///循环显示
+    NSTimer         * _animationTimer;
+    UIView          *_scrollerView,*_scrollerView2;///场景
+    UIView          *_sprite;
+    NSTimer         *_spriteTimer;
 }
 @property (strong, nonatomic) iCarousels *iCarouselView;
 
@@ -38,16 +43,127 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	
-	self.view.backgroundColor = [UIColor whiteColor];
+//    self.title = @"";
 //    [self initWithArray];
-    [self initScrollView];
+//    [self initScrollView];
 //    [self addMyPageControl];
 //    [self loadScrollViewSubViews];
 //    [self initiCarousels];
 //    [self initTimerButton];
-    [self buildSubViewsInScrollView:myScrollView];
+//    [self buildSubViewsInScrollView:myScrollView];
+    ///实现steve游戏效果
+    [self runloopScroller];
+}
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [_spriteTimer invalidate];
+    [_animationTimer invalidate];
+    _scrollerView.frame = CGRectMake(0, 100, DH_DeviceWidth, 50);
+    _scrollerView2.frame = CGRectMake(DH_DeviceWidth, 100, DH_DeviceWidth, 50);
+    _sprite.frame = CGRectMake(100, 400, 50, 50);
+
+}
+- (void)runloopScroller{
+    _scrollerView = [[UIView alloc]init];
+    _scrollerView.backgroundColor = [UIColor greenColor];
+    [self.view addSubview:_scrollerView];
+    _scrollerView.frame = CGRectMake(0, 100, DH_DeviceWidth, 50);
     
+    _scrollerView2 = [[UIView alloc]init];
+    _scrollerView2.backgroundColor = [UIColor redColor];
+    [self.view addSubview:_scrollerView2];
+    _scrollerView2.frame = CGRectMake(DH_DeviceWidth, 100, DH_DeviceWidth, 50);
+    
+    _sprite = [[UIView alloc]init];
+    _sprite.backgroundColor = [UIColor orangeColor];
+    [self.view addSubview:_sprite];
+    _sprite.frame = CGRectMake(100, 400, 50, 50);
+    
+    _animationTimer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(getinternet:) userInfo:nil repeats:YES];
+    [_animationTimer setFireDate:[NSDate date]];
+
+}
+- (void)getinternet:(NSTimer *)timer{
+//    abs（value） 处理int类型value的取绝对值
+//    labs（value） 处理long类型value的取绝对值
+//    fabsf(value)  处理float类型value的取绝对值
+//    fabs(value)   处理double类型value的取绝对值
+    [UIView animateWithDuration:0.1 animations:^{
+        // 执行动画
+        CGRect frame = _scrollerView.frame;
+        frame.origin.x -= 1;
+        _scrollerView.frame = frame;
+        
+        CGRect frameframe = _scrollerView2.frame;
+        frameframe.origin.x -= 1;
+        _scrollerView2.frame = frameframe;
+        
+    } completion:^(BOOL finished) {
+    }];
+    ///当绿色走出屏幕外
+    if (fabs(_scrollerView.frame.origin.x) >= DH_DeviceWidth) {
+        CGRect frame1 = _scrollerView.frame;
+        frame1.origin.x = DH_DeviceWidth;
+        _scrollerView.frame = frame1;
+    }
+    ///当红色走出屏幕外
+    if (fabs(_scrollerView2.frame.origin.x) >= DH_DeviceWidth) {
+        CGRect frame2 = _scrollerView2.frame;
+        frame2.origin.x = DH_DeviceWidth;
+        _scrollerView2.frame = frame2;
+    }
+    [UIView animateWithDuration:1 animations:^{
+        [_scrollerView layoutIfNeeded];
+    }];
+    NSLog(@"游戏中的场景：%.2f",_scrollerView.frame.origin.x);
+}
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    
+    _spriteTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(spriteTime:) userInfo:nil repeats:YES];
+    [_spriteTimer setFireDate:[NSDate date]];
+}
+-(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    _spriteTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(spriteTime:) userInfo:nil repeats:YES];
+    [_spriteTimer setFireDate:[NSDate date]];
+    
+    [UIView animateWithDuration:1 animations:^{
+        // 执行动画
+        CGRect frame = _sprite.frame;
+        frame.origin.y += 10;
+        _sprite.frame = frame;
+        NSLog(@"精灵轴Y：%.2f",_sprite.frame.origin.y);
+
+    } completion:^(BOOL finished) {
+        
+    }];
+    if (fabs(_sprite.frame.origin.y) >= 400) {
+        [_spriteTimer invalidate];
+    }
+}
+- (void)spriteTime:(NSTimer *)timer{
+    [UIView animateWithDuration:1 animations:^{
+        // 执行动画
+        CGRect frame = _sprite.frame;
+        frame.origin.y -= 10;
+        _sprite.frame = frame;
+        NSLog(@"精灵轴Y：%.2f",_sprite.frame.origin.y);
+
+    } completion:^(BOOL finished) {
+    }];
+}
+-(void)startAnimation {
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position.x"];
+    animation.repeatCount = MAXFLOAT;
+    animation.fillMode= kCAFillModeForwards;
+    animation.removedOnCompletion = NO;
+    animation.duration = 8.0;
+    animation.toValue = [NSNumber numberWithFloat:-1 * _scrollerView.frame.size.width];
+    [_scrollerView.layer addAnimation:animation forKey:nil];
+//    _scrollerView.toValue = [NSNumber numberWithFloat:0];
+}
+-(void)stopAnimation {
+    [_scrollerView.layer removeAllAnimations];
+    [_scrollerView.layer removeAllAnimations];
 }
 - (void)initTimerButton{
     //时间按钮
