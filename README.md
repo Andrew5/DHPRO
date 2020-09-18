@@ -38,3 +38,10 @@
 [SVProgressHUD]()| 仅使用加载框提示，类似于MBProgressHUD
 #### Swift版
 [Code版] 正在编写中……尽情期待！
+
+1、三维球相册动画是引用
+2、变换矩阵是引用
+3、分值表仪表盘是引用 @wayone   https://github.com/wayone/Indicator 表示感谢
+4、三维球是引用
+5、图片滤镜是引用
+6、指示器加载时引用
