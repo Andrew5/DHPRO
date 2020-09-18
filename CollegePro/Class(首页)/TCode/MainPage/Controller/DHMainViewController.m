@@ -179,7 +179,7 @@
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(proximityStateDidChange) name:UIDeviceProximityStateDidChangeNotification object:nil];
 //    [UIDevice currentDevice].proximityMonitoringEnabled = YES;
     //网络测速
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(getinternet) userInfo:nil repeats:YES];
+    timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(getinternet) userInfo:nil repeats:YES];
     [timer fireDate];
     //方法一
     CFAbsoluteTime endTime = (CFAbsoluteTimeGetCurrent() - startTime);
@@ -195,6 +195,8 @@
     [super viewDidDisappear:animated];
     //移除距离感应通知
     //    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceProximityStateDidChangeNotification object:nil];
+    [timer invalidate];
+    timer = nil;
 }
 - (void)createMap{
     //请求定位服务
@@ -293,7 +295,7 @@
     [self addCell:@"菜单栏" class:@"SubparagraphRootViewController"];
     [self addCell:@"键盘" class:@"CustomKeyBoardViewController"];
     [self addCell:@"拖拽" class:@"DropViewController"];
-    [self addCell:@"滚动视图" class:@"ScrollViewController"];
+    [self addCell:@"小游戏" class:@"ScrollViewController"];
     [self addCell:@"微信气泡聊天" class:@"WXPaoPaoViewController"];
     [self addCell:@"通讯录" class:@"BaseAdressBookViewController"];
     [self addCell:@"弹出框" class:@"ShowViewController"];

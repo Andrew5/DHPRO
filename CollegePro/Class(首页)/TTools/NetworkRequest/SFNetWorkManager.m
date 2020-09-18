@@ -91,45 +91,45 @@
 -(void)requestWithType:(HttpRequestType)type withUrlString:(NSString *)urlString withParaments:(id)paraments withSuccessBlock:(requestSuccess)successBlock withFailureBlock:(requestFailure)failureBlock progress:(downloadProgress)progress
 {
     switch (type) {
-            case HttpRequestTypeGet:
+        case HttpRequestTypeGet:
         {
-                    [[SFNetWorkManager shareManager] GET:urlString parameters:paraments progress:^(NSProgress * _Nonnull downloadProgress) {
-                        progress(downloadProgress.completedUnitCount / downloadProgress.totalUnitCount);
-                    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                        successBlock(responseObject);
-                    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                        failureBlock(error);
-            }];
-                break;
-        }
-            case HttpRequestTypePost:
-            {
-                [[SFNetWorkManager shareManager] POST:urlString parameters:paraments progress:^(NSProgress * _Nonnull uploadProgress) {
-                        progress(uploadProgress.completedUnitCount / uploadProgress.totalUnitCount);
-                            } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                        successBlock(responseObject);
-                    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                        failureBlock(error);
-                    }];
-        }
-        }
-    if (type == HttpRequestTypeGet) {
-        [[SFNetWorkManager shareManager] GET:urlString parameters:paraments progress:^(NSProgress * _Nonnull downloadProgress) {
+            [[SFNetWorkManager shareManager] GET:urlString parameters:paraments progress:^(NSProgress * _Nonnull downloadProgress) {
                 progress(downloadProgress.completedUnitCount / downloadProgress.totalUnitCount);
             } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 successBlock(responseObject);
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                 failureBlock(error);
-        }];
-
-    }else {
-        [[SFNetWorkManager shareManager] POST:urlString parameters:paraments progress:^(NSProgress * _Nonnull uploadProgress) {
+            }];
+            break;
+        }
+        case HttpRequestTypePost:
+        {
+            [[SFNetWorkManager shareManager] POST:urlString parameters:paraments progress:^(NSProgress * _Nonnull uploadProgress) {
                 progress(uploadProgress.completedUnitCount / uploadProgress.totalUnitCount);
-                } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 successBlock(responseObject);
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                 failureBlock(error);
             }];
+        }
+    }
+    if (type == HttpRequestTypeGet) {
+        [[SFNetWorkManager shareManager] GET:urlString parameters:paraments progress:^(NSProgress * _Nonnull downloadProgress) {
+            progress(downloadProgress.completedUnitCount / downloadProgress.totalUnitCount);
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            successBlock(responseObject);
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            failureBlock(error);
+        }];
+        
+    }else {
+        [[SFNetWorkManager shareManager] POST:urlString parameters:paraments progress:^(NSProgress * _Nonnull uploadProgress) {
+            progress(uploadProgress.completedUnitCount / uploadProgress.totalUnitCount);
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            successBlock(responseObject);
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            failureBlock(error);
+        }];
     }
 }
 

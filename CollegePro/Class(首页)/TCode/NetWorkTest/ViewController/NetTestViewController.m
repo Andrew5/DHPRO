@@ -24,6 +24,15 @@
 #import "DHHttpRequestOrdersOrders.h"
 #import "NetworkSpeedViewController.h"
 
+#import "LoTest.h"
+#import "LHHttpTool.h"
+#import "NetWork.h"
+#import "SFHttpSessionReq.h"
+
+
+#define HEAD @"http://192.168.101.62:8080"
+#define url(KEY) [NSString stringWithFormat:@"%@%@",HEAD,KEY]
+
 ///对象宏(object-like macro)和函数宏(function-like macro)
 #define M_PI        3.14159265358979323846264338327950288
 #define SELF(x)      x
@@ -82,7 +91,7 @@
     int c = MIN(3, 4 < 5 ? 4 : 5);
     printf("%d",c);
     ///网络请求
-    [self getRequestNetwork];
+//    [self getRequestNetwork];
 //    [self getBaseRequestNetwork];
     ///请求组
 //    [self httpRequestGroup];
@@ -426,15 +435,48 @@
 //    NSString *URL = @"http://api.aixueshi.top:5000/Api/V2/Teacher/Study/Search/V200828";
 //    NSDictionary *dic = @{@"Account": @"15962119320", @"DeviceSystemVersion": @"13.6", @"Logitude": @(0.0), @"Latitude": @(0.0), @"Location": @"", @"Password": @"123456", @"DeviceType": @(1), @"DeviceName": @"iPad Pro (12.9-inch)", @"AppBuild": @"2020.08.23.01", @"DeviceUUID": @"F9CF5E5B-AD12-4256-8F72-AE40FEAA8D9E", @"AppVersion": @"1.2.4"};
     //    NSDictionary *param = NSDictionaryOfVariableBindings(UserId,PassWord);
-    [[SFNetWorkManager shareManager] requestWithType:(HttpRequestTypeGet) withUrlString:@"https://image.so.com/j?q=meinv&sn=0&pn=50" withParaments:nil withSuccessBlock:^(NSDictionary *object) {
+
+    NSString *accessToken = @"STsid0000001600309746250iDPQH0oFvbFWmMwwvPcLlWmuKDioVjcF";
+    NSString *token = @"8c0ec96db02f4053b1c6d227d380c6f7";
+    NSDictionary *param = NSDictionaryOfVariableBindings(accessToken,token);
+//    NSString *url = @"http://192.168.101.62:8080/api/account/demo";
+    NSString *requestURL = url(@"/api/account/demo");
+    [[SFNetWorkManager shareManager] requestWithType:(HttpRequestTypePost) withUrlString:requestURL withParaments:param withSuccessBlock:^(NSDictionary *object) {
         NSLog(@"object %@",object);
     } withFailureBlock:^(NSError *error) {
         NSLog(@"error %@",error);
     } progress:^(float progress) {
-        
-    }];
 
+    }];
+    
+//    __weak __typeof (self)weakSelf = self;
+    LoTest *regreg = [[LoTest alloc] initWithToken:token accessToken:accessToken];
+    [regreg startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
+        NSLog(@"头像请求数据,返回数据:%@--%@",request.responseString,request.requestUrl);
+
+    } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
+        NSLog(@"--%ldd",(long)request.error.code);
+    }];
+    
+    [LHHttpTool post:requestURL params:param success:^(NSDictionary *obj) {
+        NSLog(@"");
+    } failure:^(NSError *error) {
+        NSLog(@"");
+    }];
+    
+    [NetWork POSTWithUrl:requestURL parameters:param view:self.view ifMBP:YES success:^(id  _Nonnull responseObject) {
+        NSLog(@"");
+    } fail:^(NSError * _Nonnull error) {
+        NSLog(@"");
+    }];
+    
+//    [[SFHttpSessionReq shareInstance]POSTRequestWithUrl:requestURL parameters:param resHander:^(NSDictionary * _Nullable resData) {
+//        NSLog(@"");
+//    } resError:^(NSString * _Nullable error) {
+//        NSLog(@"");
+//    }];
 }
+
 #pragma mark GCD- 依赖
 - (void)relyOperation{
 //    NSOperation
