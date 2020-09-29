@@ -443,6 +443,18 @@
     NSString *requestURL = url(@"/api/account/demo");
     [[SFNetWorkManager shareManager] requestWithType:(HttpRequestTypePost) withUrlString:requestURL withParaments:param withSuccessBlock:^(NSDictionary *object) {
         NSLog(@"object %@",object);
+//        NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL: [NSURL URLWithString:requestURL]];//得到cookie
+//        
+//        NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+//        NSArray *cookies = [NSArray arrayWithArray:[cookieJar cookies]];
+//        for (NSHTTPCookie *cookie in cookies) {
+//            if ([[cookie name] isEqualToString:@"HFSESSION"]) {
+//                
+//                NSLog(@"===%@",cookie);
+//            }
+//        }
+        
+
     } withFailureBlock:^(NSError *error) {
         NSLog(@"error %@",error);
     } progress:^(float progress) {

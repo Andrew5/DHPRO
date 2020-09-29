@@ -7,7 +7,7 @@
 		<key>CollageProExtensionKit.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>33</integer>
+			<integer>34</integer>
 		</dict>
 		<key>CollegePro.xcscheme_^#shared#^_</key>
 		<dict>
@@ -25,6 +25,11 @@
 			<integer>7</integer>
 		</dict>
 		<key>CollegeProWidge.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>36</integer>
+		</dict>
+		<key>OCLint.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>35</integer>

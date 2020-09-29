@@ -92,7 +92,7 @@
     WKUserContentController *wkUController = [[WKUserContentController alloc] init];
     //自定义的WKScriptMessageHandler 是为了解决内存不释放的问题
     //JS调用OC 添加处理脚本
-    [wkUController addScriptMessageHandler:self name:@"jsInvokeOCMethod"];
+    [wkUController addScriptMessageHandler:self name:@"jsInvokeOCMethod"];///js打印事件
     //创建网页配置对象
     WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
     config.userContentController = wkUController;
@@ -120,6 +120,12 @@
     self.WKView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.WKView.autoresizesSubviews = YES;
     [self.view addSubview:self.WKView];
+     //注入js的代码，就相当于重写了js的printLog方法，在printLog方法中去调用原生方法
+    // function 后面的方法名跟js代码中的方法名要一致
+    //此处的printLog 可自己定义但是要跟上面的addScriptMessageHandler 的name保持一致
+    NSString *printContent = @"function jsInvokeOCMethod() { window.webkit.messageHandlers.jsInvokeOCMethod.postMessage(null);}";
+    WKUserScript *userScript = [[WKUserScript alloc] initWithSource:printContent injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
+    [self.WKView.configuration.userContentController addUserScript:userScript];
     //设置视频是否需要用户手动播放  设置为NO则会允许自动播放
     if (@available(iOS 11.0, *)) {
         config.mediaTypesRequiringUserActionForPlayback = YES;
@@ -215,8 +221,8 @@
     if (_toolBtn == nil)
     {
         _toolBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _toolBtn.frame = CGRectMake(100, 10, 44, 44);
-        [_toolBtn setTitle:@"点击" forState:(UIControlStateNormal)];
+        _toolBtn.frame = CGRectMake(100, 30, 100, 25);
+        [_toolBtn setTitle:@"JS方法注入" forState:(UIControlStateNormal)];
         [_toolBtn setTitleColor:[UIColor blackColor] forState:(UIControlStateNormal)];
         _toolBtn.layer.borderColor = [UIColor greenColor].CGColor;
         _toolBtn.layer.borderWidth = 1.0;
@@ -377,6 +383,12 @@
             NSLog(@"response: %@, \nerror: %@", response, error);
         }];
     }
+    if ([@"printLog" isEqualToString:message.name]) {
+        [self printLog:@"jjj"];
+    }
+}
+- (void)printLog:(NSString *)hhh {
+    NSLog(@"response:重新实现js方法");
 }
 /*
 #pragma mark - Navigation

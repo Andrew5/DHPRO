@@ -37,6 +37,9 @@ target "CollegePro" do
 #  #自动布局界面库
 #  pod 'Masonry'
 #  pod 'SDAutoLayout','~>2.2.1'
+# 七牛连麦
+#  pod "QNRTCKit",'<= 3.0.0'#, :podspec => 'https://raw.githubusercontent.com/pili-engineering/QNRTC-iOS/master/QNRTCKit-universal.podspec'
+  # pod install --repo-updata
   #网络加载转圈图标
   pod 'SVProgressHUD'
 #  pod 'MBProgressHUD'

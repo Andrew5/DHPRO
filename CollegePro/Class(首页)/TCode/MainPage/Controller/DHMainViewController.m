@@ -336,7 +336,7 @@
     [self addCell:@"美食菜单" class:@"FoodListViewController"];
     [self addCell:@"富文本" class:@"CViewController"];
     [self addCell:@"侧边栏" class:@"SlideMenuViewController"];
-    [self addCell:@"购物车" class:@"JPShopCarController"];
+    [self addCell:@"视频转音频" class:@"JPShopCarController"];
     [self addCell:@"图片找不同" class:@"FFKPViewController"];
     [self addCell:@"消消乐" class:@"IndexViewController"];
     [self addCell:@"抽奖" class:@"LuckyMainViewController"];

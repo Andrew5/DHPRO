@@ -206,7 +206,7 @@ static char *NSErrorStatusCodeKey = "NSErrorStatusCodeKey";
     NSString *fileName = cache.fileName;
     if (cache.result) return;
     LHWeakSelf
-    [sessionManager GET:urlStr parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
+    [sessionManager GET:urlStr parameters:params headers:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         LHLog(@"%lld", downloadProgress.totalUnitCount);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [LHHttpTool printObject:responseObject isReq:NO];
@@ -246,7 +246,7 @@ static char *NSErrorStatusCodeKey = "NSErrorStatusCodeKey";
     if (cache.result) return;
     
     LHWeakSelf
-    [sessionManager POST:url parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
+    [sessionManager POST:url parameters:params headers:nil progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
@@ -279,7 +279,7 @@ static char *NSErrorStatusCodeKey = "NSErrorStatusCodeKey";
     NSString *httpStr = [[@"" stringByAppendingString:@"pic/fileupload"] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]];
     
     LHWeakSelf
-    [sessionManager POST:httpStr parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    [sessionManager POST:httpStr parameters:nil headers:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         //upfile 是参数名 根据项目修改
         [formData appendPartWithFileData:image name:@"upfile" fileName:[NSString stringWithFormat:@"%.0f.jpg", [[NSDate date] timeIntervalSince1970]] mimeType:@"image/jpg"];
     } progress:^(NSProgress * _Nonnull uploadProgress) {
@@ -308,7 +308,7 @@ static char *NSErrorStatusCodeKey = "NSErrorStatusCodeKey";
      */
     
     LHWeakSelf
-    [sessionManager POST:httpStr parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    [sessionManager POST:httpStr parameters:nil headers:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         [images enumerateObjectsUsingBlock:^(NSData * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             //upfiles 是参数名 根据项目修改
             [formData appendPartWithFileData:obj name:@"upfiles" fileName:[NSString stringWithFormat:@"%.0f.jpg", [[NSDate date] timeIntervalSince1970]] mimeType:@"image/jpg"];
@@ -407,9 +407,9 @@ static char *NSErrorStatusCodeKey = "NSErrorStatusCodeKey";
     [manager.requestSerializer setQueryStringSerializationWithBlock:^NSString *(NSURLRequest *request, NSDictionary *parameters, NSError *__autoreleasing *error) {
         return soapStr;
     }];
-    
- 
-    [manager POST:soapUrl parameters:soapStr success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    [manager POST:soapUrl parameters:soapStr headers:nil progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         // 把返回的二进制数据转为字符串
         NSString *result = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
         

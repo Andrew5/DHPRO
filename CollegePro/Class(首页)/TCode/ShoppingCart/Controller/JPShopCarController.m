@@ -15,9 +15,15 @@
 #import "DHAttachmentViewController.h"
 #import "DHCollectFileViewController.h"
 
+#import "SBApplicationController.h"
+#import "SBApplication.h"
+
+#import <CollageProExtensionKit/DHTool.h>
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MPVolumeView.h>
 #import <Photos/Photos.h>
+#import <objc/runtime.h>
+#import <WebKit/WebKit.h>
 #define TopsHight 50
 #define segmentWide 130
 #define segmentHeight 30
@@ -45,6 +51,10 @@
 @property (nonatomic, strong) DHAttachmentViewController *attachmentVC;
 @property (nonatomic, strong) DHCollectFileViewController *collectionVC;
 
+
+
+@property (nonatomic, strong) UILabel *lblHelloWorld;
+
 @end
 
 @implementation JPShopCarController
@@ -57,8 +67,126 @@
 //    [self createAllBtn];
 //    NSString *path = [[NSBundle mainBundle] pathForResource:@"B206760E60639441A7876D27110082AC" ofType:@"MOV"];
 //    [JPShopCarController videoChangeGetBackgroundMiusicWithVideoUrl:[NSURL fileURLWithPath:path] completion:nil];
-    [self createUI];
+//    [self getAppPlist];
+//    [self createUI];
+//    [self futext];
+//    [self QNRTC];
+//    [self createHello];
+//    [self getLocalEquipmentAppList];
+    
 }
+- (void)getLocalEquipmentAppList{
+//    Class LSApplicationWorkspace_class = NSClassFromString(@"LSApplicationWorkspace");
+//    NSObject *workspace = [LSApplicationWorkspace_class performSelector:@selector(defaultWorkspace)];
+//    NSArray *arrAPP = [workspace performSelector:@selector(allApplications)];
+//    NSLog(@"arrAPP: %@",arrAPP);
+//    
+////    SBApplicationController *sbApplicationCtrl=[SBApplicationController sharedInstance];
+//    SBApplicationController *sbApplicationCtrl=%c(SBApplicationController) sharedInstance];
+//    NSArray *appArray=[sbApplicationCtrl allApplications];
+//    NSMutableDictionary *dic=[NSMutableDictionary dictionary];
+//    for(SBApplication *sbApp in appArray)
+//    {
+//        //根据提供的app的显示名称来查找其bundleindentity
+////        NSString *appName = [userinfo valueForKeyPath:@"appName"];
+////        NSString *displayName=[sbApp displayName];
+////        if ([displayName isEqualToString:appName])
+////        {
+////            NSString *bundleIdentifier=[sbApp bundleIdentifier];
+////            int dataUsage=[sbApp dataUsage];
+////            NSNumber *number=[NSNumber numberWithInt:dataUsage];
+////            [dic setObject:bundleIdentifier forKey:@"bundleIdentity"];
+////            [dic setObject:number forKey:@"dataUsage"];
+////            break;
+////        }
+//    }
+    
+}
+
+- (void)createHello{
+    self.lblHelloWorld = [[UILabel alloc]initWithFrame:CGRectMake(50, 10, 120, 50)];
+    [self.lblHelloWorld setText:@"Hello World"];
+    self.lblHelloWorld.backgroundColor = [UIColor orangeColor];
+    self.lblHelloWorld.textColor = [UIColor redColor];
+    self.lblHelloWorld.font = [UIFont systemFontOfSize:14];
+    [self.lblHelloWorld setTextColor:[UIColor redColor]];
+    [self.view addSubview:self.lblHelloWorld];
+    UIButton *button = [UIButton buttonWithType:(UIButtonTypeRoundedRect)];button.frame = CGRectMake(100, 100, 80, 30);
+    [button setTitle:self forState:(UIControlStateNormal)];
+    [button.titleLabel setText:@"Hide"];
+    [button addTarget:self action:@selector(doBtnHide) forControlEvents:(UIControlEventTouchUpInside)];
+    [self.view addSubview:button];
+}
+- (void)doBtnHide:(id)sender{
+    [self.lblHelloWorld setHidden:![self.lblHelloWorld isHidden]];
+    [sender setTitle:[self.lblHelloWorld isHidden]?@"show":@"Hide"forState:UIControlStateNormal];
+}
+
+- (void)futext{
+
+    //这个类主要用来做native与JavaScript的交互管理
+    WKUserContentController *wkUController = [[WKUserContentController alloc] init];
+    //自定义的WKScriptMessageHandler 是为了解决内存不释放的问题
+    //JS调用OC 添加处理脚本
+    [wkUController addScriptMessageHandler:self name:@"jsInvokeOCMethod"];
+    //创建网页配置对象
+    WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
+    config.userContentController = wkUController;
+    // 创建设置对象
+    WKPreferences *preference = [[WKPreferences alloc]init];
+    //最小字体大小 当将javaScriptEnabled属性设置为NO时，可以看到明显的效果
+    preference.minimumFontSize = 0;
+    //设置是否支持javaScript 默认是支持的
+    preference.javaScriptEnabled = YES;
+    // 在iOS上默认为NO，表示是否允许不经过用户交互由javaScript自动打开窗口
+    preference.javaScriptCanOpenWindowsAutomatically = YES;
+    config.processPool = [[WKProcessPool alloc] init];
+    // 设置偏好设置对象
+    config.preferences = preference;
+    // 是使用h5的视频播放器在线播放, 还是使用原生播放器全屏播放
+    config.allowsInlineMediaPlayback = YES;
+    
+    WKWebView *WKView = [[WKWebView alloc] initWithFrame:CGRectMake(10, 10, DH_DeviceWidth-20, 200) configuration:config];
+    // 是否允许手势左滑返回上一级, 类似导航控制的左滑返回
+    WKView.allowsBackForwardNavigationGestures = YES;
+    WKView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    WKView.autoresizesSubviews = YES;
+//    [self.view addSubview:WKView];
+   
+    
+    NSString *path = [[NSBundle mainBundle]pathForResource:@"testHtml" ofType:@"html"];
+    NSString *html = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    [WKView loadHTMLString:html baseURL:nil];
+
+    
+//    NSURL *baseURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]];
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"testHtml" ofType:@"html"];
+//    NSString *html = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+//    [WKView loadHTMLString:html baseURL:baseURL];
+    
+    //第三种方法： NSString类方法读取内容
+    NSString* content = [NSString stringWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"Text" ofType:@"txt"] encoding:NSUTF8StringEncoding error:nil];
+    NSLog(@"NSString类方法读取的内容是：\n%@",content);
+    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[content dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, DH_DeviceWidth-20, 200)];
+    label.attributedText = attributedString;
+    label.numberOfLines = 0;
+    [self.view addSubview:label];
+}
+
+//html  转 NSString
+-(NSString*)getStrFormHtml:(NSString *)htmStr
+{
+    
+    NSString * htmlString = htmStr;
+    NSAttributedString * attrStr = [[NSAttributedString alloc] initWithData:[htmlString dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+    UILabel *label = [[UILabel alloc] init];
+    label.attributedText = attrStr;
+    label.numberOfLines = 0;
+    label.font =[UIFont systemFontOfSize:11.0];
+    return label.text;
+}
+
 - (void)createUI{
     //分段控件
     [self addSysSegmentView];
@@ -302,7 +430,46 @@
 //    self.tableView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:self.tableView];
 }
+#pragma mark - getAppPlist 代理
+- (void)getAppPlist {
+    Class LSApplicationWorkspace_class = objc_getClass("LSApplicationWorkspace");
+    NSObject* workspace = [LSApplicationWorkspace_class performSelector:@selector(defaultWorkspace)];
+    NSLog(@"apps: %@", [workspace performSelector:@selector(allApplications)]);
+    NSArray*apps = [workspace performSelector:@selector(allApplications)];
+    NSMutableArray*appsIconArr = [NSMutableArray array];
+    NSMutableArray*appsNameArr = [NSMutableArray array];
+    NSLog(@"apps: %@",apps );
+//    [apps enumerateObjectsUsingBlock:^(id obj,NSUInteger idx,BOOL* stop) {
+//        NSDictionary *boundIconsDictionary = [obj performSelector:@selector(boundIconsDictionary)];
+//        NSString *iconPath = [NSString stringWithFormat:@"%@/%@.png", [[obj performSelector:@selector(resourcesDirectoryURL)]path], [[[boundIconsDictionary objectForKey:@"CFBundlePrimaryIcon"]objectForKey:@"CFBundleIconFiles"]lastObject]];
+//        UIImage *image = [[UIImage alloc]initWithContentsOfFile:iconPath];
+//        id name = [obj performSelector:@selector(localizedName)];
+//        if(image){
+//            [appsIconArr addObject:image];
+//            [appsNameArr addObject: name];
+//        }
+//        NSLog(@"iconPath = %@", iconPath);
+//        NSLog(@"name = %@", name);
+//        NSLog(@"%@",[self properties_aps:obj]);
+//        NSLog(@"_____________________________________________\n");
+//    }];
+}
 
+
+- (NSDictionary *)properties_aps:(id)objc {
+    NSMutableDictionary *props = [NSMutableDictionary dictionary];
+    unsigned int outCount, i;
+    objc_property_t *properties = class_copyPropertyList([objc class], &outCount);
+    for (i = 0; i<outCount; i++){
+        objc_property_t property = properties[i];
+        const char* char_f =property_getName(property);
+        NSString *propertyName = [NSString stringWithUTF8String:char_f];
+        id propertyValue = [objc valueForKey:(NSString *)propertyName];
+        if (propertyValue) [props setObject:propertyValue forKey:propertyName];
+    }
+    free(properties);
+    return props;
+}
 #pragma mark - JPShopCar 代理
 // 点击了加号按钮
 - (void)productCell:(JPShopCarCell *)cell didClickedPlusBtn:(UIButton *)plusBtn

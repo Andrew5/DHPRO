@@ -19,6 +19,7 @@
 #import "YTKNetworkAgent.h"
 #import "YTKNetworkConfig.h"
 #import "YTKRequest.h"
+#import "YTKRequestEventAccessory.h"
 
 FOUNDATION_EXPORT double YTKNetworkVersionNumber;
 FOUNDATION_EXPORT const unsigned char YTKNetworkVersionString[];

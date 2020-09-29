@@ -27,7 +27,7 @@
                 manager.requestSerializer.timeoutInterval = 30.0f;
                 manager.responseSerializer = [AFJSONResponseSerializer serializer];
                 manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/plain", nil];
-                [manager GET:url parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
+                [manager GET:url parameters:parameters headers:nil progress:^(NSProgress * _Nonnull downloadProgress) {
                     
                 } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                     if (responseObject) {
@@ -52,7 +52,7 @@
                 manager.responseSerializer = [AFJSONResponseSerializer serializer];
                 manager.requestSerializer.timeoutInterval = 30.0f;
                 manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/plain", nil];
-                [manager GET:url parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
+                [manager GET:url parameters:parameters headers:nil progress:^(NSProgress * _Nonnull downloadProgress) {
                     
                 } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                     
@@ -91,10 +91,12 @@
                 
                 AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
                 manager.responseSerializer = [AFJSONResponseSerializer serializer];
+                //AFNetworking是自动保持cookie的，我们不用去刻意处理它（获取与上传 当然您也可以设置不用保持cookie
+                [manager.requestSerializer setHTTPShouldHandleCookies:YES];//默认是yes
 //                manager.requestSerializer= [AFJSONRequestSerializer serializer];
                 manager.requestSerializer.timeoutInterval = 30.0f;
                 manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/plain", nil];
-                [manager POST:url parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
+                [manager POST:url parameters:parameters headers:nil progress:^(NSProgress * _Nonnull uploadProgress) {
                     
                 } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                     if (responseObject) {
@@ -119,7 +121,10 @@
                 manager.responseSerializer = [AFJSONResponseSerializer serializer];
                 manager.requestSerializer.timeoutInterval = 30.0f;
                 manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/plain", nil];
-                [manager POST:url parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
+                //AFNetworking是自动保持cookie的，我们不用去刻意处理它（获取与上传 当然您也可以设置不用保持cookie
+                [manager.requestSerializer setHTTPShouldHandleCookies:YES];//默认是yes
+//                NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL: [NSURL URLWithString:url]];//得到cookie
+                [manager POST:url parameters:parameters headers:nil progress:^(NSProgress * _Nonnull uploadProgress) {
                     
                 } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                     if (responseObject) {
