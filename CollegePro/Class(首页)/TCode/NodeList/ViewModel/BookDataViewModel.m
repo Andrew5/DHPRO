@@ -32,6 +32,18 @@
                    @"Value":@"?json=GetUserInfoAll&UserID=2"
     };
     [NetWork POSTWithUrl:@"https://www.homesoft.cn/WebInterface/HBInterface.ashx" parameters:parameters view:nil ifMBP:NO success:^(id responseObject) {
+//        NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL: [NSURL URLWithString:@"http://kaifa.homesoft.cn/WebService/jsonInterface.ashx"]];//得到cookie
+//        NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+//        NSArray *cookiess = [NSArray arrayWithArray:[cookieJar cookies]];
+//        for (NSHTTPCookie *cookie in cookiess) {
+//            if ([[cookie name] isEqualToString:@"HFSESSION"]) {
+//                
+//                NSLog(@"===%@",cookie);
+//            }
+//            if ([[cookie name] isEqualToString:key]) {
+//                [cookieJar deleteCookie:cookie];
+//            }
+//        }
         NSLog(@"请求-2-%@--",responseObject[@"UserInfo"]);
         if (completion) {
             completion(responseObject[@"UserInfo"]);
@@ -45,7 +57,7 @@
     manager = [AFHTTPSessionManager manager];
     NSString *url = [NSString stringWithFormat:@"https://api.thinkpage.cn/v3/weather/daily.json?key=osoydf7ademn8ybv&location=%@&language=zh-Hans&start=0&days=3",@"北京"];
     url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    [manager GET:url parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manager GET:url parameters:nil headers:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (completion) {

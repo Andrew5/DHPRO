@@ -93,7 +93,7 @@
     switch (type) {
         case HttpRequestTypeGet:
         {
-            [[SFNetWorkManager shareManager] GET:urlString parameters:paraments progress:^(NSProgress * _Nonnull downloadProgress) {
+            [[SFNetWorkManager shareManager] GET:urlString parameters:paraments  headers:nil progress:^(NSProgress * _Nonnull downloadProgress) {
                 progress(downloadProgress.completedUnitCount / downloadProgress.totalUnitCount);
             } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 successBlock(responseObject);
@@ -104,7 +104,7 @@
         }
         case HttpRequestTypePost:
         {
-            [[SFNetWorkManager shareManager] POST:urlString parameters:paraments progress:^(NSProgress * _Nonnull uploadProgress) {
+            [[SFNetWorkManager shareManager] POST:urlString parameters:paraments headers:nil progress:^(NSProgress * _Nonnull uploadProgress) {
                 progress(uploadProgress.completedUnitCount / uploadProgress.totalUnitCount);
             } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 successBlock(responseObject);
@@ -114,7 +114,7 @@
         }
     }
     if (type == HttpRequestTypeGet) {
-        [[SFNetWorkManager shareManager] GET:urlString parameters:paraments progress:^(NSProgress * _Nonnull downloadProgress) {
+        [[SFNetWorkManager shareManager] GET:urlString parameters:paraments headers:nil progress:^(NSProgress * _Nonnull downloadProgress) {
             progress(downloadProgress.completedUnitCount / downloadProgress.totalUnitCount);
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             successBlock(responseObject);
@@ -123,7 +123,7 @@
         }];
         
     }else {
-        [[SFNetWorkManager shareManager] POST:urlString parameters:paraments progress:^(NSProgress * _Nonnull uploadProgress) {
+        [[SFNetWorkManager shareManager] POST:urlString parameters:paraments headers:nil progress:^(NSProgress * _Nonnull uploadProgress) {
             progress(uploadProgress.completedUnitCount / uploadProgress.totalUnitCount);
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             successBlock(responseObject);
@@ -151,7 +151,7 @@
 {
     //1.创建管理者对象
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [manager POST:urlString parameters:operations constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    [manager POST:urlString parameters:operations headers:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         NSUInteger i = 0 ;
         /**出于性能考虑,将上传图片进行压缩*/
         for (UIImage * image in imageArray) {
@@ -207,7 +207,7 @@
             {
                                         AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
 
-                [manager POST:urlString parameters:operations constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+                [manager POST:urlString parameters:operations headers:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
                                 //获得沙盒中的视频内容
                                 [formData appendPartWithFileURL:[NSURL fileURLWithPath:videoWritePath] name:@"write you want to writre" fileName:videoWritePath mimeType:@"video/mpeg4" error:nil];
                             } progress:^(NSProgress * _Nonnull uploadProgress) {

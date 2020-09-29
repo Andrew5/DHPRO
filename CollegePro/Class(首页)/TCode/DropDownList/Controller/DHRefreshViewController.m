@@ -122,7 +122,7 @@
 //                manager.requestSerializer= [AFJSONRequestSerializer serializer];
     self.mgr.requestSerializer.timeoutInterval = 30.0f;
     self.mgr.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/plain", nil];
-    [self.mgr POST:@"https://www.homesoft.cn/WebInterface/HBInterface.ashx" parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
+    [self.mgr POST:@"https://www.homesoft.cn/WebInterface/HBInterface.ashx" parameters:parameters headers:nil progress:^(NSProgress * _Nonnull uploadProgress) {
         NSLog(@"请求进度 - %@", uploadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         // 存储maxtime
@@ -168,9 +168,11 @@
     parameters[@"c"] = @"data";
     parameters[@"type"] = @"1";
     parameters[@"maxtime"] = self.maxtime;
-    
+
     // 发送请求
-    [self.mgr GET:@"http://api.budejie.com/api/api_open.php" parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [self.mgr GET:@"http://api.budejie.com/api/api_open.php" parameters:parameters headers:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         // 存储maxtime
         self.maxtime = responseObject[@"info"][@"maxtime"];
         
@@ -191,6 +193,7 @@
         self.loadingMoreData = NO;
         self.footerLabel.text = @"上拉可以加载更多";
     }];
+    
 }
 
 #pragma mark - 代理方法

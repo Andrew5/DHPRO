@@ -94,7 +94,7 @@ static NSString *const kBLYUserAgentKey = @"kBLYUserAgentKey";
     NSURLSessionDataTask *sessionTask = nil;
        switch (requestMetnod) {
            case BLYHttpRequestMethodGET:{
-               sessionTask = [_sessionManager GET:URLString parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
+               sessionTask = [_sessionManager GET:URLString parameters:parameters headers:nil progress:^(NSProgress * _Nonnull downloadProgress) {
                    
                } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                    [self successOperarionWithUrl:URLString parameters:parameters responseObject:responseObject task:task  success:success];
@@ -105,7 +105,7 @@ static NSString *const kBLYUserAgentKey = @"kBLYUserAgentKey";
            }
                break;
            case BLYHttpRequestMethodHEAD:{
-               sessionTask = [_sessionManager HEAD:URLString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task) {
+               sessionTask = [_sessionManager HEAD:URLString parameters:parameters headers:nil success:^(NSURLSessionDataTask * _Nonnull task) {
                    [self successOperarionWithUrl:URLString parameters:parameters responseObject:nil task:task  success:success];
 
                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -115,7 +115,7 @@ static NSString *const kBLYUserAgentKey = @"kBLYUserAgentKey";
            }
                break;
            case BLYHttpRequestMethodPOST:{
-               sessionTask = [_sessionManager POST:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+               sessionTask = [_sessionManager POST:URLString parameters:parameters headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                    [self successOperarionWithUrl:URLString parameters:parameters responseObject:responseObject task:task  success:success];
                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                    [self failureOperarionWithUrl:URLString parameters:parameters error:error task:task failure:failure];
@@ -123,7 +123,7 @@ static NSString *const kBLYUserAgentKey = @"kBLYUserAgentKey";
            }
                break;
            case BLYHttpRequestMethodPUT:{
-               sessionTask = [_sessionManager PUT:URLString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+               sessionTask = [_sessionManager PUT:URLString parameters:parameters headers:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                    [self successOperarionWithUrl:URLString parameters:parameters responseObject:responseObject task:task  success:success];
                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                    [self failureOperarionWithUrl:URLString parameters:parameters error:error task:task failure:failure];
@@ -131,7 +131,7 @@ static NSString *const kBLYUserAgentKey = @"kBLYUserAgentKey";
            }
                break;
            case BLYHttpRequestMethodPATCH:{
-               sessionTask = [_sessionManager PATCH:URLString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+               sessionTask = [_sessionManager PATCH:URLString parameters:parameters headers:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                    [self successOperarionWithUrl:URLString parameters:parameters responseObject:responseObject task:task  success:success];
                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                    [self failureOperarionWithUrl:URLString parameters:parameters error:error task:task failure:failure];
@@ -139,7 +139,7 @@ static NSString *const kBLYUserAgentKey = @"kBLYUserAgentKey";
            }
                break;
            case BLYHttpRequestMethodDELETE:{
-               sessionTask = [_sessionManager DELETE:URLString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+               sessionTask = [_sessionManager DELETE:URLString parameters:parameters headers:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                    [self successOperarionWithUrl:URLString parameters:parameters responseObject:responseObject task:task  success:success];
                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                    [self failureOperarionWithUrl:URLString parameters:parameters error:error task:task failure:failure];
