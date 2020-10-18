@@ -18,7 +18,7 @@
 #import "SBApplicationController.h"
 #import "SBApplication.h"
 
-#import <CollageProExtensionKit/DHTool.h>
+#import <CollageProExtensionTool/DHTool.h>
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MPVolumeView.h>
 #import <Photos/Photos.h>
@@ -29,7 +29,7 @@
 #define segmentHeight 30
 #define SubVCFrameY (TopsHight+segmentHeight+20)
 
-@interface JPShopCarController ()<UITableViewDataSource,UITableViewDelegate,JPShopCarDelegate,ZCAssetsPickerViewControllerDelegate>
+@interface JPShopCarController ()<UITableViewDataSource,UITableViewDelegate,JPShopCarDelegate,ZCAssetsPickerViewControllerDelegate,WKNavigationDelegate,WKUIDelegate,WKScriptMessageHandler,NSURLSessionDelegate,NSURLSessionTaskDelegate>
 {
     AVAudioRecorder *recorder;
     NSTimer *levelTimer;
@@ -68,17 +68,13 @@
 //    NSString *path = [[NSBundle mainBundle] pathForResource:@"B206760E60639441A7876D27110082AC" ofType:@"MOV"];
 //    [JPShopCarController videoChangeGetBackgroundMiusicWithVideoUrl:[NSURL fileURLWithPath:path] completion:nil];
 //    [self getAppPlist];
-//    [self createUI];
+    [self createUI];
 //    [self futext];
 //    [self QNRTC];
 //    [self createHello];
 //    [self getLocalEquipmentAppList];
-//    [self getiphone];
 }
-- (void)getiphone{
-    NSMutableString *phoneNumber = [[NSMutableString alloc]initWithFormat:@"tel:%@",@"18510251335"];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
-}
+
 - (void)getLocalEquipmentAppList{
 //    Class LSApplicationWorkspace_class = NSClassFromString(@"LSApplicationWorkspace");
 //    NSObject *workspace = [LSApplicationWorkspace_class performSelector:@selector(defaultWorkspace)];
@@ -118,7 +114,7 @@
     UIButton *button = [UIButton buttonWithType:(UIButtonTypeRoundedRect)];button.frame = CGRectMake(100, 100, 80, 30);
     [button setTitle:self forState:(UIControlStateNormal)];
     [button.titleLabel setText:@"Hide"];
-    [button addTarget:self action:@selector(doBtnHide) forControlEvents:(UIControlEventTouchUpInside)];
+    [button addTarget:self action:@selector(doBtnHide:) forControlEvents:(UIControlEventTouchUpInside)];
     [self.view addSubview:button];
 }
 - (void)doBtnHide:(id)sender{
@@ -179,9 +175,7 @@
 }
 
 //html  转 NSString
--(NSString*)getStrFormHtml:(NSString *)htmStr
-{
-    
+-(NSString*)getStrFormHtml:(NSString *)htmStr{
     NSString * htmlString = htmStr;
     NSAttributedString * attrStr = [[NSAttributedString alloc] initWithData:[htmlString dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
     UILabel *label = [[UILabel alloc] init];
@@ -271,8 +265,7 @@
     [self.view addSubview:self.collectionVC.view];
 }
 //底部悬浮View高
-- (CGFloat)bottomViewHigt
-{
+- (CGFloat)bottomViewHigt{
     //兼容iphoneX
     CGFloat bottomHigt = 60 ;
 //    if (kDevice_Is_iPhoneX) {
@@ -292,8 +285,7 @@
 //    }
 //}
 //创建底部悬浮view
-- (void)createBottomView
-{
+- (void)createBottomView{
     UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, DH_DeviceHeight-[self bottomViewHigt], DH_DeviceWidth, [self bottomViewHigt])];
     bottomView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:bottomView];
@@ -306,7 +298,6 @@
     btn.frame = CGRectMake(DH_DeviceWidth-90, 10, 70, 40);
 //    btn.backgroundColor = [UIColor colorWithRed:85/255.0 green:143/255.0 blue:255/255 alpha:1.0];
     btn.backgroundColor = [UIColor lightGrayColor];
-
     btn.titleLabel.font = [UIFont systemFontOfSize:16];
     [btn setTitle:@"发送" forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -350,11 +341,8 @@
     return _allSelectedDataArray;
 }
 
-
-
 //取消按钮事件
-- (void)dissSelfVC
-{
+- (void)dissSelfVC{
     //清空删除文件上传的名字数组
     NSMutableArray *deleteWithLastArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"deleteWithLastArray"];
     if (deleteWithLastArray.count) {
@@ -391,8 +379,7 @@
 }
 
 // 全选按钮
-- (void)createAllBtn
-{
+- (void)createAllBtn{
     self.allBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     self.allBtn.frame = CGRectMake(0, self.view.frame.size.height-40, self.view.frame.size.width, 40);
     [self.allBtn setImage:[UIImage imageNamed:@"btn_address_W-1"] forState:UIControlStateNormal];
@@ -403,8 +390,7 @@
     [self.view addSubview:self.allBtn];
 }
 
-- (void)btnClick:(UIButton *)btn
-{
+- (void)btnClick:(UIButton *)btn{
     self.allBtn.selected = !self.allBtn.selected;
     [self.dataArray enumerateObjectsUsingBlock:^(JPCarModel * obj, NSUInteger idx, BOOL * _Nonnull stop) {
         obj.selected = self.allBtn.selected;
@@ -422,8 +408,7 @@
 /**
  *  setTableView
  */
-- (void)setupTableView
-{
+- (void)setupTableView{
     self.tableView = [[UITableView alloc] init];
     self.tableView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-40);
     self.tableView.delegate = self;
@@ -476,8 +461,7 @@
 }
 #pragma mark - JPShopCar 代理
 // 点击了加号按钮
-- (void)productCell:(JPShopCarCell *)cell didClickedPlusBtn:(UIButton *)plusBtn
-{
+- (void)productCell:(JPShopCarCell *)cell didClickedPlusBtn:(UIButton *)plusBtn{
     // 拿到点击的cell对应的indexpath
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     
@@ -493,8 +477,7 @@
     [self countingTotalPrice];
 }
 // 点击了减号按钮
-- (void)productCell:(JPShopCarCell *)cell didClickedMinusBtn:(UIButton *)minusBtn
-{
+- (void)productCell:(JPShopCarCell *)cell didClickedMinusBtn:(UIButton *)minusBtn{
     // 拿到点击的cell对应的indexpath
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     
@@ -515,8 +498,7 @@
  /**
  *  计算总价格
  */
-- (void)countingTotalPrice
-{
+- (void)countingTotalPrice{
     [self.dataArray enumerateObjectsUsingBlock:^(JPCarModel * obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [obj.numArray enumerateObjectsUsingBlock:^(JPCarModel *pro, NSUInteger idx, BOOL * _Nonnull stop) {
 //            NSLog(@"bbb:%@,%lu,%d",pro.price,(unsigned long)idx,pro.buyCount);
@@ -537,8 +519,7 @@
     return model.numArray.count + 1;
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return self.dataArray.count;
 }
 
@@ -554,8 +535,7 @@
         JPCarModel *product = self.dataArray[indexPath.section];
         cell.model = product;
         return cell;
-    }else
-    {
+    }else{
         static NSString *ID = @"shopCell2";
         JPShopCarCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
         if (cell==nil) {
@@ -569,13 +549,11 @@
     }
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 10;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 0) {
         return 44;
     }else
@@ -584,8 +562,7 @@
     }
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row == 0) {
         // 选中商店 全选商店对应的商品
@@ -647,19 +624,15 @@
                 [SVProgressHUD dismissWithDelay:5];
             });
         });
-
-
     }
     u = [UIButton buttonWithType:UIButtonTypeCustom];
     u.frame = CGRectMake(100, 200, 100, 100);
-        u.layer.borderColor = [UIColor redColor].CGColor;
-        u.layer.borderWidth = 1.0;
-        [u addTarget:self action:@selector(touchView:)
-    forControlEvents:(UIControlEventTouchUpInside)];
-        [self.view addSubview:u];
-        [u setTitle:@"开始点击" forState:(UIControlStateNormal)];
-        [u setTitle:@"结束点击" forState:(UIControlStateSelected)];
-
+    u.layer.borderColor = [UIColor redColor].CGColor;
+    u.layer.borderWidth = 1.0;
+    [u addTarget:self action:@selector(touchView:) forControlEvents:(UIControlEventTouchUpInside)];
+    [self.view addSubview:u];
+    [u setTitle:@"开始点击" forState:(UIControlStateNormal)];
+    [u setTitle:@"结束点击" forState:(UIControlStateSelected)];
 //    BOOL stateVolume = [self isMuted];//0:NO 1:YES
     BOOL ru = [self isHeadsetPluggedInIn];///
     if (ru) {

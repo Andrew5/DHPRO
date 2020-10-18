@@ -3,22 +3,8 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
-
-/* Begin PBXAggregateTarget section */
-		38A92BA8251C66B000AE9496 /* OCLint */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = 38A92BA9251C66B000AE9496 /* Build configuration list for PBXAggregateTarget "OCLint" */;
-			buildPhases = (
-				38A92BAC251C66BC00AE9496 /* ShellScript */,
-			);
-			dependencies = (
-			);
-			name = OCLint;
-			productName = OCLint;
-		};
-/* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
 		3807246622CDCC8C0035E5B1 /* CornerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3807246522CDCC8C0035E5B1 /* CornerViewController.m */; };
@@ -157,8 +143,6 @@
 		38560ACA22AF7C7300A68F5D /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38560AC922AF7C7200A68F5D /* AssetsLibrary.framework */; };
 		386070D325132AD800545ECB /* DHAttachmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 386070D225132AD800545ECB /* DHAttachmentViewController.m */; };
 		386070D625132FDE00545ECB /* DHAttachmentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 386070D525132FDE00545ECB /* DHAttachmentListViewController.m */; };
-		386070D72513378E00545ECB /* MeasurNetTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C846B7227827EF00BCAD87 /* MeasurNetTools.h */; platformFilter = ios; settings = {ATTRIBUTES = (Public, ); }; };
-		386070D825133B8000545ECB /* DHTool.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C84618227827EF00BCAD87 /* DHTool.h */; platformFilter = ios; settings = {ATTRIBUTES = (Public, ); }; };
 		386070DB251340AB00545ECB /* DHAttachmentListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 386070DA251340AB00545ECB /* DHAttachmentListCell.m */; };
 		386070DE2513460200545ECB /* DHCollectFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 386070DD2513460200545ECB /* DHCollectFileViewController.m */; };
 		386422CB228AC3F2006DB570 /* SliderMainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 386422CA228AC3F2006DB570 /* SliderMainStoryboard.storyboard */; };
@@ -454,6 +438,15 @@
 		38A92B212518B99700AE9496 /* Text.txt in Resources */ = {isa = PBXBuildFile; fileRef = 38A92B202518B99700AE9496 /* Text.txt */; };
 		38A9697024458E35003673E2 /* CustomerFootIdentificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A9696E24458E35003673E2 /* CustomerFootIdentificationView.m */; };
 		38AAD7F4253C612200532985 /* DHObserverManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AAD7F3253C612200532985 /* DHObserverManager.m */; };
+		38AAD809253EA65A00532985 /* CollageProExtensionTool.h in Headers */ = {isa = PBXBuildFile; fileRef = 38AAD807253EA65A00532985 /* CollageProExtensionTool.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		38AAD80C253EA65A00532985 /* CollageProExtensionTool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38AAD805253EA65900532985 /* CollageProExtensionTool.framework */; };
+		38AAD80D253EA65A00532985 /* CollageProExtensionTool.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38AAD805253EA65900532985 /* CollageProExtensionTool.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		38AAD811253FF0F100532985 /* DHTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C84615227827EF00BCAD87 /* DHTool.m */; };
+		38AAD812253FF10300532985 /* MeasurNetTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C846BA227827EF00BCAD87 /* MeasurNetTools.m */; };
+		38AAD813253FF13C00532985 /* CollageProExtensionTool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38AAD805253EA65900532985 /* CollageProExtensionTool.framework */; };
+		38AAD814253FF13C00532985 /* CollageProExtensionTool.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38AAD805253EA65900532985 /* CollageProExtensionTool.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		38AAD818253FF20900532985 /* DHTool.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C84618227827EF00BCAD87 /* DHTool.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		38AAD81A254128FF00532985 /* MeasurNetTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C846B7227827EF00BCAD87 /* MeasurNetTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		38B734542497BB2E00CC4384 /* 750x1334@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38B734532497BB2E00CC4384 /* 750x1334@2x.png */; };
 		38B94602243F48C10013170F /* DHBAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B94601243F48C10013170F /* DHBAlertView.m */; };
 		38C031422300553600B4B364 /* DHTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C031412300553600B4B364 /* DHTabbarViewController.m */; };
@@ -982,32 +975,33 @@
 		84B7FF30250B502A0051603C /* B206760E60639441A7876D27110082AC.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 84B7FF2F250B502A0051603C /* B206760E60639441A7876D27110082AC.MOV */; };
 		84B7FF33250B597A0051603C /* AudioPieceTogether.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B7FF32250B597A0051603C /* AudioPieceTogether.m */; };
 		84B7FF36250B59A20051603C /* AudioEdit.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B7FF35250B59A20051603C /* AudioEdit.m */; };
-		84B7FF40250B67E60051603C /* CollageProExtensionKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 84B7FF3E250B67E60051603C /* CollageProExtensionKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		84B7FF43250B67E60051603C /* CollageProExtensionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B7FF3C250B67E50051603C /* CollageProExtensionKit.framework */; };
-		84B7FF44250B67E60051603C /* CollageProExtensionKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84B7FF3C250B67E50051603C /* CollageProExtensionKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		84B7FF49250B683D0051603C /* DHTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C84615227827EF00BCAD87 /* DHTool.m */; platformFilter = ios; };
-		84B7FF4A250B68D00051603C /* CollageProExtensionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B7FF3C250B67E50051603C /* CollageProExtensionKit.framework */; };
 		84B7FF4C250B69220051603C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B7FF4B250B69220051603C /* UIKit.framework */; };
 		84B7FF4E250B69370051603C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B7FF4D250B69370051603C /* Foundation.framework */; };
-		84B7FF54250B90460051603C /* MeasurNetTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C846BA227827EF00BCAD87 /* MeasurNetTools.m */; platformFilter = ios; };
 		84E8AFB72503A6F300D2C426 /* DHHttpRequestOrdersOrders.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E8AFB62503A6F300D2C426 /* DHHttpRequestOrdersOrders.m */; };
 		8688670DA1111CB5B413FE49 /* Pods_CollegePro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40E2710DF49C3576F5AC7B3 /* Pods_CollegePro.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		38AAD80A253EA65A00532985 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 38C8452B2278249900BCAD87 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 38AAD804253EA65900532985;
+			remoteInfo = CollageProExtensionTool;
+		};
+		38AAD815253FF13C00532985 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 38C8452B2278249900BCAD87 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 38AAD804253EA65900532985;
+			remoteInfo = CollageProExtensionTool;
+		};
 		8462332624DAA4A500A1F60D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 38C8452B2278249900BCAD87 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 8462331B24DAA4A500A1F60D;
 			remoteInfo = CollegeProWidge;
-		};
-		84B7FF41250B67E60051603C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 38C8452B2278249900BCAD87 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 84B7FF3B250B67E50051603C;
-			remoteInfo = CollageProExtensionKit;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -1023,13 +1017,24 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		38AAD817253FF13C00532985 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				38AAD814253FF13C00532985 /* CollageProExtensionTool.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		84B7FF48250B67E60051603C /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				84B7FF44250B67E60051603C /* CollageProExtensionKit.framework in Embed Frameworks */,
+				38AAD80D253EA65A00532985 /* CollageProExtensionTool.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1802,24 +1807,14 @@
 		389AA05A24051202003361A7 /* File.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = File.xml; path = "CollegePro/Class(首页)/TTools/网络请求/File.xml"; sourceTree = SOURCE_ROOT; };
 		38A92B1E2518AC3B00AE9496 /* testHtml.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = testHtml.html; sourceTree = "<group>"; };
 		38A92B202518B99700AE9496 /* Text.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Text.txt; sourceTree = "<group>"; };
-		38A92B2C251C555D00AE9496 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
-		38A92B2D251C555D00AE9496 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		38A92B2E251C555D00AE9496 /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
-		38A92B2F251C555D00AE9496 /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
-		38A92B30251C555F00AE9496 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		38A92B37251C556000AE9496 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		38A92B38251C556000AE9496 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		38A92B3A251C556000AE9496 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
-		38A92B3B251C556000AE9496 /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
-		38A92B3E251C556000AE9496 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		38A92B41251C556000AE9496 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		38A92B43251C556000AE9496 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		38A92B44251C556000AE9496 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		38A9696B24458E34003673E2 /* CustomerFootIdentificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerFootIdentificationView.h; sourceTree = "<group>"; };
 		38A9696E24458E35003673E2 /* CustomerFootIdentificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerFootIdentificationView.m; sourceTree = "<group>"; };
 		38A99B3A229BD1C000D52230 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		38AAD7F2253C612200532985 /* DHObserverManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHObserverManager.h; sourceTree = "<group>"; };
 		38AAD7F3253C612200532985 /* DHObserverManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHObserverManager.m; sourceTree = "<group>"; };
+		38AAD805253EA65900532985 /* CollageProExtensionTool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CollageProExtensionTool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		38AAD807253EA65A00532985 /* CollageProExtensionTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollageProExtensionTool.h; sourceTree = "<group>"; };
+		38AAD808253EA65A00532985 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38B734532497BB2E00CC4384 /* 750x1334@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "750x1334@2x.png"; sourceTree = "<group>"; };
 		38B94600243F48C10013170F /* DHBAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHBAlertView.h; sourceTree = "<group>"; };
 		38B94601243F48C10013170F /* DHBAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHBAlertView.m; sourceTree = "<group>"; };
@@ -2713,9 +2708,6 @@
 		84B7FF32250B597A0051603C /* AudioPieceTogether.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioPieceTogether.m; sourceTree = "<group>"; };
 		84B7FF34250B59A20051603C /* AudioEdit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioEdit.h; sourceTree = "<group>"; };
 		84B7FF35250B59A20051603C /* AudioEdit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioEdit.m; sourceTree = "<group>"; };
-		84B7FF3C250B67E50051603C /* CollageProExtensionKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CollageProExtensionKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		84B7FF3E250B67E60051603C /* CollageProExtensionKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollageProExtensionKit.h; sourceTree = "<group>"; };
-		84B7FF3F250B67E60051603C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84B7FF4B250B69220051603C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84B7FF4D250B69370051603C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		84E8AFB52503A6F300D2C426 /* DHHttpRequestOrdersOrders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHHttpRequestOrdersOrders.h; sourceTree = "<group>"; };
@@ -2725,12 +2717,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		38AAD802253EA65900532985 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		38C845302278249900BCAD87 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				382B4E8024546346006FD956 /* StoreKit.framework in Frameworks */,
-				84B7FF43250B67E60051603C /* CollageProExtensionKit.framework in Frameworks */,
 				38862C4922BA009900231140 /* UserNotifications.framework in Frameworks */,
 				38862C4722BA007000231140 /* CoreTelephony.framework in Frameworks */,
 				38862C4522BA006A00231140 /* CoreFoundation.framework in Frameworks */,
@@ -2751,6 +2749,7 @@
 				380F9F84227839C700D515E3 /* CoreLocation.framework in Frameworks */,
 				380F9F82227839BD00D515E3 /* CoreGraphics.framework in Frameworks */,
 				380F9F80227835CD00D515E3 /* libc++.tbd in Frameworks */,
+				38AAD80C253EA65A00532985 /* CollageProExtensionTool.framework in Frameworks */,
 				8688670DA1111CB5B413FE49 /* Pods_CollegePro.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2759,17 +2758,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38AAD813253FF13C00532985 /* CollageProExtensionTool.framework in Frameworks */,
 				84B7FF4E250B69370051603C /* Foundation.framework in Frameworks */,
 				84B7FF4C250B69220051603C /* UIKit.framework in Frameworks */,
-				84B7FF4A250B68D00051603C /* CollageProExtensionKit.framework in Frameworks */,
 				8462331D24DAA4A500A1F60D /* NotificationCenter.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		84B7FF39250B67E50051603C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4159,31 +4151,13 @@
 			path = GLActionSheet;
 			sourceTree = "<group>";
 		};
-		38A92B2B251C555D00AE9496 /* OCLint Shared */ = {
+		38AAD806253EA65A00532985 /* CollageProExtensionTool */ = {
 			isa = PBXGroup;
 			children = (
-				38A92B2C251C555D00AE9496 /* Actions.sks */,
-				38A92B2D251C555D00AE9496 /* GameScene.sks */,
-				38A92B2E251C555D00AE9496 /* GameScene.h */,
-				38A92B2F251C555D00AE9496 /* GameScene.m */,
-				38A92B30251C555F00AE9496 /* Assets.xcassets */,
+				38AAD807253EA65A00532985 /* CollageProExtensionTool.h */,
+				38AAD808253EA65A00532985 /* Info.plist */,
 			);
-			path = "OCLint Shared";
-			sourceTree = "<group>";
-		};
-		38A92B36251C556000AE9496 /* OCLint iOS */ = {
-			isa = PBXGroup;
-			children = (
-				38A92B37251C556000AE9496 /* AppDelegate.h */,
-				38A92B38251C556000AE9496 /* AppDelegate.m */,
-				38A92B3A251C556000AE9496 /* GameViewController.h */,
-				38A92B3B251C556000AE9496 /* GameViewController.m */,
-				38A92B3D251C556000AE9496 /* Main.storyboard */,
-				38A92B40251C556000AE9496 /* LaunchScreen.storyboard */,
-				38A92B43251C556000AE9496 /* Info.plist */,
-				38A92B44251C556000AE9496 /* main.m */,
-			);
-			path = "OCLint iOS";
+			path = CollageProExtensionTool;
 			sourceTree = "<group>";
 		};
 		38C2D0B122D5E27600CF30CA /* ASIHttpRequest */ = {
@@ -4229,9 +4203,7 @@
 				38C845352278249900BCAD87 /* CollegePro */,
 				38546C7C23851F330050200C /* CollegeProShareExtension */,
 				8462331E24DAA4A500A1F60D /* CollegeProWidge */,
-				84B7FF3D250B67E50051603C /* CollageProExtensionKit */,
-				38A92B2B251C555D00AE9496 /* OCLint Shared */,
-				38A92B36251C556000AE9496 /* OCLint iOS */,
+				38AAD806253EA65A00532985 /* CollageProExtensionTool */,
 				38C845342278249900BCAD87 /* Products */,
 				DB7A53478EBF97A0FF9F1D0C /* Pods */,
 				F3734FE496F0FE515FCEE2E1 /* Frameworks */,
@@ -4243,7 +4215,7 @@
 			children = (
 				38C845332278249900BCAD87 /* CollegePro.app */,
 				8462331C24DAA4A500A1F60D /* CollegeProWidge.appex */,
-				84B7FF3C250B67E50051603C /* CollageProExtensionKit.framework */,
+				38AAD805253EA65900532985 /* CollageProExtensionTool.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -6519,15 +6491,6 @@
 			path = Request;
 			sourceTree = "<group>";
 		};
-		84B7FF3D250B67E50051603C /* CollageProExtensionKit */ = {
-			isa = PBXGroup;
-			children = (
-				84B7FF3E250B67E60051603C /* CollageProExtensionKit.h */,
-				84B7FF3F250B67E60051603C /* Info.plist */,
-			);
-			path = CollageProExtensionKit;
-			sourceTree = "<group>";
-		};
 		DB7A53478EBF97A0FF9F1D0C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -6575,19 +6538,37 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		84B7FF37250B67E50051603C /* Headers */ = {
+		38AAD800253EA65900532985 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84B7FF40250B67E60051603C /* CollageProExtensionKit.h in Headers */,
-				386070D72513378E00545ECB /* MeasurNetTools.h in Headers */,
-				386070D825133B8000545ECB /* DHTool.h in Headers */,
+				38AAD81A254128FF00532985 /* MeasurNetTools.h in Headers */,
+				38AAD809253EA65A00532985 /* CollageProExtensionTool.h in Headers */,
+				38AAD818253FF20900532985 /* DHTool.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		38AAD804253EA65900532985 /* CollageProExtensionTool */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 38AAD80E253EA65A00532985 /* Build configuration list for PBXNativeTarget "CollageProExtensionTool" */;
+			buildPhases = (
+				38AAD800253EA65900532985 /* Headers */,
+				38AAD801253EA65900532985 /* Sources */,
+				38AAD802253EA65900532985 /* Frameworks */,
+				38AAD803253EA65900532985 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CollageProExtensionTool;
+			productName = CollageProExtensionTool;
+			productReference = 38AAD805253EA65900532985 /* CollageProExtensionTool.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		38C845322278249900BCAD87 /* CollegePro */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 38C845492278249A00BCAD87 /* Build configuration list for PBXNativeTarget "CollegePro" */;
@@ -6606,7 +6587,7 @@
 			);
 			dependencies = (
 				8462332724DAA4A500A1F60D /* PBXTargetDependency */,
-				84B7FF42250B67E60051603C /* PBXTargetDependency */,
+				38AAD80B253EA65A00532985 /* PBXTargetDependency */,
 			);
 			name = CollegePro;
 			productName = CollegePro;
@@ -6620,33 +6601,17 @@
 				8462331824DAA4A500A1F60D /* Sources */,
 				8462331924DAA4A500A1F60D /* Frameworks */,
 				8462331A24DAA4A500A1F60D /* Resources */,
+				38AAD817253FF13C00532985 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				38AAD816253FF13C00532985 /* PBXTargetDependency */,
 			);
 			name = CollegeProWidge;
 			productName = CollegeProWidge;
 			productReference = 8462331C24DAA4A500A1F60D /* CollegeProWidge.appex */;
 			productType = "com.apple.product-type.app-extension";
-		};
-		84B7FF3B250B67E50051603C /* CollageProExtensionKit */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 84B7FF45250B67E60051603C /* Build configuration list for PBXNativeTarget "CollageProExtensionKit" */;
-			buildPhases = (
-				84B7FF37250B67E50051603C /* Headers */,
-				84B7FF38250B67E50051603C /* Sources */,
-				84B7FF39250B67E50051603C /* Frameworks */,
-				84B7FF3A250B67E50051603C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = CollageProExtensionKit;
-			productName = CollageProExtensionKit;
-			productReference = 84B7FF3C250B67E50051603C /* CollageProExtensionKit.framework */;
-			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -6657,7 +6622,7 @@
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = jabrknight;
 				TargetAttributes = {
-					38A92BA8251C66B000AE9496 = {
+					38AAD804253EA65900532985 = {
 						CreatedOnToolsVersion = 11.7;
 					};
 					38C845322278249900BCAD87 = {
@@ -6681,9 +6646,6 @@
 					8462331B24DAA4A500A1F60D = {
 						CreatedOnToolsVersion = 11.5;
 					};
-					84B7FF3B250B67E50051603C = {
-						CreatedOnToolsVersion = 11.5;
-					};
 				};
 			};
 			buildConfigurationList = 38C8452E2278249900BCAD87 /* Build configuration list for PBXProject "CollegePro" */;
@@ -6701,13 +6663,19 @@
 			targets = (
 				38C845322278249900BCAD87 /* CollegePro */,
 				8462331B24DAA4A500A1F60D /* CollegeProWidge */,
-				84B7FF3B250B67E50051603C /* CollageProExtensionKit */,
-				38A92BA8251C66B000AE9496 /* OCLint */,
+				38AAD804253EA65900532985 /* CollageProExtensionTool */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		38AAD803253EA65900532985 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		38C845312278249900BCAD87 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -7005,13 +6973,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		84B7FF3A250B67E50051603C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -7071,23 +7032,6 @@
 			shellPath = /bin/sh;
 			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n\n";
 		};
-		38A92BAC251C66BC00AE9496 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "source ~/.bash_profile\ncd ${SRCROOT}\nxcodebuild clean\nxcodebuild  -workspace demo.xcworkspace -scheme demo | xcpretty -r json-compilation-database --output compile_commands.json\noclint-json-compilation-database -v \\n-e Pods \\n-e MGLivenessDetection \\n-e MGBaseKit \\n-e MGIDCard \\noclint_args -- -report-type xcode \\n-disable-rule ObjCAssignIvarOutsideAccessors \\n-disable-rule ShortVariableName \\n-rc=MINIMUM_CASES_IN_SWITCH=3 \\n-rc=CYCLOMATIC_COMPLEXITY=10 \\n-rc=LONG_CLASS=700 \\n-rc=LONG_LINE=200 \\n-rc=NCSS_METHOD=40 \\n-rc=NESTED_BLOCK_DEPTH=5 \\n-rc=TOO_MANY_FIELDS=20 \\n-rc=TOO_MANY_METHODS=30 \\n-rc=TOO_MANY_PARAMETERS=6\nexit\n";
-		};
 		731C13F9B5FCB2BB74B4D708 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -7108,6 +7052,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		38AAD801253EA65900532985 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38AAD812253FF10300532985 /* MeasurNetTools.m in Sources */,
+				38AAD811253FF0F100532985 /* DHTool.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		38C8452F2278249900BCAD87 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -7776,27 +7729,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		84B7FF38250B67E50051603C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				84B7FF54250B90460051603C /* MeasurNetTools.m in Sources */,
-				84B7FF49250B683D0051603C /* DHTool.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		38AAD80B253EA65A00532985 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 38AAD804253EA65900532985 /* CollageProExtensionTool */;
+			targetProxy = 38AAD80A253EA65A00532985 /* PBXContainerItemProxy */;
+		};
+		38AAD816253FF13C00532985 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 38AAD804253EA65900532985 /* CollageProExtensionTool */;
+			targetProxy = 38AAD815253FF13C00532985 /* PBXContainerItemProxy */;
+		};
 		8462332724DAA4A500A1F60D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8462331B24DAA4A500A1F60D /* CollegeProWidge */;
 			targetProxy = 8462332624DAA4A500A1F60D /* PBXContainerItemProxy */;
-		};
-		84B7FF42250B67E60051603C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 84B7FF3B250B67E50051603C /* CollageProExtensionKit */;
-			targetProxy = 84B7FF41250B67E60051603C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -7807,22 +7756,6 @@
 				38546C8123851F330050200C /* Base */,
 			);
 			name = MainInterface.storyboard;
-			sourceTree = "<group>";
-		};
-		38A92B3D251C556000AE9496 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				38A92B3E251C556000AE9496 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		38A92B40251C556000AE9496 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				38A92B41251C556000AE9496 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 		38C8453C2278249900BCAD87 /* Main.storyboard */ = {
@@ -7852,21 +7785,61 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		38A92BAA251C66B000AE9496 /* Debug */ = {
+		38AAD80F253EA65A00532985 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 74W795UZRB;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = B9CK74J9J9;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = CollageProExtensionTool/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dhTool.CollageProExtensionTool;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		38A92BAB251C66B000AE9496 /* Release */ = {
+		38AAD810253EA65A00532985 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 74W795UZRB;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = B9CK74J9J9;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = CollageProExtensionTool/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dhTool.CollageProExtensionTool;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -8087,7 +8060,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "CollegePro/Class(首页)/TCode/Bluetooth/ViewController/CollegePro-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -8195,7 +8168,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "CollegePro/Class(首页)/TCode/Bluetooth/ViewController/CollegePro-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -8216,7 +8189,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dhPro.tool.CollegePro.CollegeProWidge;
 				PRODUCT_NAME = CollegeProWidge;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -8237,90 +8210,18 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dhPro.tool.CollegePro.CollegeProWidge;
 				PRODUCT_NAME = CollegeProWidge;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		84B7FF46250B67E60051603C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = (
-					arm64,
-					arm64e,
-					armv7,
-					armv7s,
-				);
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = B9CK74J9J9;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = CollageProExtensionKit/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				PRODUCT_BUNDLE_IDENTIFIER = DaHai.CollageProExtensionKit;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		84B7FF47250B67E60051603C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = (
-					arm64,
-					arm64e,
-					armv7,
-					armv7s,
-				);
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = B9CK74J9J9;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = CollageProExtensionKit/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				PRODUCT_BUNDLE_IDENTIFIER = DaHai.CollageProExtensionKit;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		38A92BA9251C66B000AE9496 /* Build configuration list for PBXAggregateTarget "OCLint" */ = {
+		38AAD80E253EA65A00532985 /* Build configuration list for PBXNativeTarget "CollageProExtensionTool" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				38A92BAA251C66B000AE9496 /* Debug */,
-				38A92BAB251C66B000AE9496 /* Release */,
+				38AAD80F253EA65A00532985 /* Debug */,
+				38AAD810253EA65A00532985 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -8348,15 +8249,6 @@
 			buildConfigurations = (
 				8462332A24DAA4A500A1F60D /* Debug */,
 				8462332B24DAA4A500A1F60D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		84B7FF45250B67E60051603C /* Build configuration list for PBXNativeTarget "CollageProExtensionKit" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				84B7FF46250B67E60051603C /* Debug */,
-				84B7FF47250B67E60051603C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

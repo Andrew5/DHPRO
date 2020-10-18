@@ -288,13 +288,15 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSLog(@"本地传值内容:%d",v);
     };
     MtTestBlock(10,20);
+    
     // 创建消息观察者集合
-    NSSet  *observers = [NSSet setWithObjects:[MyClass new],[MyClass new], nil];
-    // 创建 RNObserverManager 蹦床
-    self.observerManager = [[RNObserverManager alloc]
-                            initWithProtocol:@protocol(MyProtocol) observers:observers];
-    // 给 RNObserverManager 发送 doSomething 消息，实际上都会被转发到 MyClass 的 doSomething 方法
-    [self.observerManager doSomething];
+//    NSSet  *observers = [NSSet setWithObjects:[KYDog new],[KYDog new], nil];
+//    // 创建 RNObserverManager 蹦床
+//    NSString *className = @"DHObserverManager";
+//    self.observerManager = [[NSClassFromString(className) alloc]
+//                            initWithProtocol:@protocol(MyProtocol) observers:observers];
+//    // 给 RNObserverManager 发送 doSomething 消息，实际上都会被转发到 MyClass 的 doSomething 方法
+//    [self.observerManager doSomething];
 
 }
 

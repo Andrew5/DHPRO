@@ -181,6 +181,13 @@
 
 #pragma mark - NCWidgetProviding
 -(void)widgetActiveDisplayModeDidChange:(NCWidgetDisplayMode)activeDisplayMode withMaximumSize:(CGSize)maxSize  API_AVAILABLE(ios(10.0)){
+    //maxSize：
+    //虽说是最大的Size，但苹果还是把Widget的高度范围限制在了[110 ~ maxSize]之间
+    //如果设置高度小于110，那么default = 110;
+    //如果设置高度大于开发者设置的preferredContentSize.Heiget，那么default = maxSize;
+    //折叠状态下，苹果将高度固定为110，这个时候设置preferredContentSize属性无效。
+    NSLog(@"width = %lf-------height = %lf",maxSize.width,maxSize.height);
+    
     if (activeDisplayMode == NCWidgetDisplayModeExpanded) {
         // 设置展开的新高度
         self.preferredContentSize = CGSizeMake(0, 5*70.0+110.0);
