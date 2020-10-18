@@ -453,6 +453,7 @@
 		38A92B1F2518AC3B00AE9496 /* testHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = 38A92B1E2518AC3B00AE9496 /* testHtml.html */; };
 		38A92B212518B99700AE9496 /* Text.txt in Resources */ = {isa = PBXBuildFile; fileRef = 38A92B202518B99700AE9496 /* Text.txt */; };
 		38A9697024458E35003673E2 /* CustomerFootIdentificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A9696E24458E35003673E2 /* CustomerFootIdentificationView.m */; };
+		38AAD7F4253C612200532985 /* DHObserverManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AAD7F3253C612200532985 /* DHObserverManager.m */; };
 		38B734542497BB2E00CC4384 /* 750x1334@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38B734532497BB2E00CC4384 /* 750x1334@2x.png */; };
 		38B94602243F48C10013170F /* DHBAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B94601243F48C10013170F /* DHBAlertView.m */; };
 		38C031422300553600B4B364 /* DHTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C031412300553600B4B364 /* DHTabbarViewController.m */; };
@@ -1817,6 +1818,8 @@
 		38A9696B24458E34003673E2 /* CustomerFootIdentificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerFootIdentificationView.h; sourceTree = "<group>"; };
 		38A9696E24458E35003673E2 /* CustomerFootIdentificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerFootIdentificationView.m; sourceTree = "<group>"; };
 		38A99B3A229BD1C000D52230 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		38AAD7F2253C612200532985 /* DHObserverManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHObserverManager.h; sourceTree = "<group>"; };
+		38AAD7F3253C612200532985 /* DHObserverManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHObserverManager.m; sourceTree = "<group>"; };
 		38B734532497BB2E00CC4384 /* 750x1334@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "750x1334@2x.png"; sourceTree = "<group>"; };
 		38B94600243F48C10013170F /* DHBAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHBAlertView.h; sourceTree = "<group>"; };
 		38B94601243F48C10013170F /* DHBAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHBAlertView.m; sourceTree = "<group>"; };
@@ -4594,6 +4597,8 @@
 				38C84617227827EF00BCAD87 /* KeyBoardView.m */,
 				38C84616227827EF00BCAD87 /* LHKeyChain.h */,
 				38C8461B227827EF00BCAD87 /* LHKeyChain.m */,
+				38AAD7F2253C612200532985 /* DHObserverManager.h */,
+				38AAD7F3253C612200532985 /* DHObserverManager.m */,
 				38C84614227827EF00BCAD87 /* SDDrowNoticeView.h */,
 				38C84619227827EF00BCAD87 /* SDDrowNoticeView.m */,
 				382F838624C301E100B27799 /* DHWeakProxy.h */,
@@ -4818,8 +4823,8 @@
 		38C84656227827EF00BCAD87 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				38C84657227827EF00BCAD87 /* DHTestDropView.m */,
 				38C84658227827EF00BCAD87 /* DHTestDropView.h */,
+				38C84657227827EF00BCAD87 /* DHTestDropView.m */,
 				38C84659227827EF00BCAD87 /* WMDragView */,
 			);
 			path = View;
@@ -4828,9 +4833,9 @@
 		38C84659227827EF00BCAD87 /* WMDragView */ = {
 			isa = PBXGroup;
 			children = (
-				38C8465A227827EF00BCAD87 /* WMDragView.m */,
 				38C8465B227827EF00BCAD87 /* logo1024.jpg */,
 				38C8465C227827EF00BCAD87 /* WMDragView.h */,
+				38C8465A227827EF00BCAD87 /* WMDragView.m */,
 			);
 			path = WMDragView;
 			sourceTree = "<group>";
@@ -7570,6 +7575,7 @@
 				386BBDAE22DDA7FF005E6054 /* GPUImageGaussianBlurFilter.m in Sources */,
 				8487ADB124F8BE56004B41ED /* DemoTableViewController.m in Sources */,
 				386BBD8622DDA7FE005E6054 /* GPUImageOverlayBlendFilter.m in Sources */,
+				38AAD7F4253C612200532985 /* DHObserverManager.m in Sources */,
 				386BBDB322DDA7FF005E6054 /* GPUImageMaskFilter.m in Sources */,
 				382FFA4F231CBBD20062080E /* ZPCAshapelGradientView.m in Sources */,
 				386BBDB822DDA7FF005E6054 /* GPUImageRGBDilationFilter.m in Sources */,

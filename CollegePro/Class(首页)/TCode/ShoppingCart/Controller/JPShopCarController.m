@@ -73,7 +73,11 @@
 //    [self QNRTC];
 //    [self createHello];
 //    [self getLocalEquipmentAppList];
-    
+//    [self getiphone];
+}
+- (void)getiphone{
+    NSMutableString *phoneNumber = [[NSMutableString alloc]initWithFormat:@"tel:%@",@"18510251335"];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
 }
 - (void)getLocalEquipmentAppList{
 //    Class LSApplicationWorkspace_class = NSClassFromString(@"LSApplicationWorkspace");
