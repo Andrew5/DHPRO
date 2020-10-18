@@ -39,7 +39,7 @@
         //第一步生成方法信号，告诉系统我们找到了这个方法的处理方式了
         NSMethodSignature *methodSignature = [super methodSignatureForSelector:aSelector];
         if(!methodSignature) {
-            methodSignature = [NSMethodSignature signatureWithObjCTypes:"v@:*"];
+            methodSignature = [NSMethodSignature signatureWithObjCTypes:"v@:*"];//https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html
         }
         return methodSignature;
     }

@@ -236,7 +236,7 @@
     [_locationManager requestWhenInUseAuthorization];
 }
 - (void)setUPUI{
-    //网速显示
+    //提示语
     displayLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, DH_DeviceHeight, DH_DeviceWidth, 40)];
     displayLabel.backgroundColor = [UIColor colorWithRed:0.962 green:0.971 blue:1.000 alpha:1.000];
     displayLabel.layer.shadowColor = [UIColor lightGrayColor].CGColor;
@@ -370,12 +370,12 @@
     _lb_showinfo.layer.borderColor = [UIColor redColor].CGColor;
     _lb_showinfo.layer.borderWidth = 1.0;
 //    _lb_showinfo.frame = CGRectMake(0, DH_DeviceHeight, DH_DeviceWidth, 25);
-    [self.view addSubview:_lb_showinfo];
-    [_lb_showinfo mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.view);
-        make.left.with.right.equalTo(self.view);
-        make.height.offset(25);
-    }];
+//    [self.view addSubview:_lb_showinfo];
+//    [_lb_showinfo mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.bottom.equalTo(self.view);
+//        make.left.with.right.equalTo(self.view);
+//        make.height.offset(25);
+//    }];
 //    _lb_showinfo.text = [self getSignalStrength];
 }
 
