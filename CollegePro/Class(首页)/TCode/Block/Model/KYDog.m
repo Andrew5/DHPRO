@@ -96,7 +96,10 @@ typedef NS_ENUM(NSInteger, HLFontSize) {
 //    NSLog(@"name指针地址:%p,name指针指向的对象内存地址:%p",&na,na);
 //
 //}
-
+// 观测者实现协议方法
+- (void)doSomething{
+    NSLog(@"doSomething :%@", self);
+}
 
 - (void)getIvars
 {

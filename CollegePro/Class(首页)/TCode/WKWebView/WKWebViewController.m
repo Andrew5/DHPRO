@@ -9,7 +9,7 @@
 #import "WKWebViewController.h"
 #import "BaseTabBarViewController.h"
 
-@interface WKWebViewController ()<WKNavigationDelegate,WKUIDelegate,WKScriptMessageHandler>
+@interface WKWebViewController ()<WKNavigationDelegate,WKUIDelegate,WKScriptMessageHandler,NSURLSessionDelegate,NSURLSessionTaskDelegate>
 @property (strong, nonatomic) WKWebView *WKView;
 @property (strong, nonatomic) UIButton *toolBtn;
 
@@ -92,7 +92,7 @@
     WKUserContentController *wkUController = [[WKUserContentController alloc] init];
     //自定义的WKScriptMessageHandler 是为了解决内存不释放的问题
     //JS调用OC 添加处理脚本
-    [wkUController addScriptMessageHandler:self name:@"jsInvokeOCMethod"];
+    [wkUController addScriptMessageHandler:self name:@"jsInvokeOCMethod"];///js打印事件
     //创建网页配置对象
     WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
     config.userContentController = wkUController;
@@ -120,6 +120,12 @@
     self.WKView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.WKView.autoresizesSubviews = YES;
     [self.view addSubview:self.WKView];
+     //注入js的代码，就相当于重写了js的printLog方法，在printLog方法中去调用原生方法
+    // function 后面的方法名跟js代码中的方法名要一致
+    //此处的printLog 可自己定义但是要跟上面的addScriptMessageHandler 的name保持一致
+    NSString *printContent = @"function jsInvokeOCMethod() { window.webkit.messageHandlers.jsInvokeOCMethod.postMessage(null);}";
+    WKUserScript *userScript = [[WKUserScript alloc] initWithSource:printContent injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
+    [self.WKView.configuration.userContentController addUserScript:userScript];
     //设置视频是否需要用户手动播放  设置为NO则会允许自动播放
     if (@available(iOS 11.0, *)) {
         config.mediaTypesRequiringUserActionForPlayback = YES;
@@ -137,19 +143,41 @@
     }
     NSString *urlStr = [[NSBundle mainBundle] pathForResource:@"WKOCBridgeJS.html" ofType:nil];
     NSURL *fileURL = [NSURL fileURLWithPath:urlStr];
-    [self.WKView loadFileURL:fileURL allowingReadAccessToURL:fileURL];
+    if (@available(iOS 9.0, *)) {
+        [self.WKView loadFileURL:fileURL allowingReadAccessToURL:fileURL];
+    } else {
+        // Fallback on earlier versions
+    }
 
 //    NSURL *fileURL = [NSURL URLWithString:@"http://59.110.243.193:8080/xlby_wx/enjoyment/appCoupon?nsukey=yoKDJkj8%2BnO6kJuSgeuUsYjkn6TSCoC67Hy3JKp%2BQSar50yEpf3MhQQwqWRrWv%2FeymNQvyHifbbEsnSNVJzPxEO36iSLxAfZgZJYnmhnU6ScMlSkSnRBQUTR%2BEjUWtclKHMo9PP336SdifWEsUDFicGj9C1jT1fOQmQ3a6tqR9T9LJiRsEruIpqXw013C9kq9AOt5wd699CIyJcQeKkLZg%3D%3D"];
+//    NSURL *fileURL = [NSURL URLWithString:@"https://paveldogreat.github.io/WebGL-Fluid-Simulation/"];//https://github.com/PavelDoGreat/
 //    NSURLRequest *downloadRequest = [NSURLRequest requestWithURL:fileURL];
 //    [self.WKView loadRequest:downloadRequest];
     //WK用于正常加载
     //NSURLCache 实例化
     NSURLCache *cache = [NSURLCache sharedURLCache];
+    /*
+     //或者
+     NSURL *url = [NSURL URLWithString:@"http://www.connect.com/login"];
+     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+     request.HTTPMethod = @"POST";
+     request.HTTPBody = [@"username=admin&pwd=12344321123456" dataUsingEncoding:NSUTF8StringEncoding];
+     //使用全局的会话
+     NSURLSession *session = [NSURLSession sharedSession];
+     // 通过request初始化task
+     NSURLSessionTask *task = [session dataTaskWithRequest:request
+                                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+         NSLog(@"%@", [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil]);
+     }];
+     [task resume];
+     */
     NSURLRequest *request =  [NSURLRequest requestWithURL:fileURL cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:6];
+//    request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
     //得到NSData 数据
     NSData *dataContent = [NSData dataWithContentsOfURL:fileURL];
     //得到相应
     NSURLResponse *response = [[NSURLResponse alloc]initWithURL:fileURL MIMEType:@"text/html" expectedContentLength:0 textEncodingName:@"UTF-8"];
+
     //得到CacheURLResponse
     NSCachedURLResponse *cacheResponse = [[NSCachedURLResponse alloc]initWithResponse:response data:dataContent];
     //URL缓存设置
@@ -160,6 +188,16 @@
     [cache storeCachedResponse:cacheResponse forRequest:request];
     //缓存 在APP目录中，会在Caches目录下以Bundle Identifier为名创建缓存目录。缓存的资源图片，CSS、JS、html等都在这个目录下
 
+    //Session配置
+    //创建配置（决定要不要将数据和响应缓存在磁盘）
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    //configuration.requestCachePolicy = NSURLRequestReturnCacheDataElseLoad;
+    //创建会话
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:nil];
+    //生成任务
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request];
+    //创建的task是停止状态，需要我们去启动
+    [task resume];
     //离线加载
 //        NSCachedURLResponse  *current = [cache cachedResponseForRequest:request];
 //        [self.WKView loadData:current.data MIMEType:@"text/html" characterEncodingName:@"UTF-8" baseURL:self.request.URL];
@@ -187,6 +225,48 @@
     //添加测试按钮
     [self.view addSubview:self.toolBtn];
 }
+//1.接收到服务器响应的时候调用
+- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask
+didReceiveResponse:(NSURLResponse *)response
+ completionHandler:(void (^)(NSURLSessionResponseDisposition disposition))completionHandler{
+    NSLog(@"接收响应");
+    //必须告诉系统是否接收服务器返回的数据
+    //默认是completionHandler(NSURLSessionResponseAllow)
+    //可以再这边通过响应的statusCode来判断否接收服务器返回的数据
+    completionHandler(NSURLSessionResponseAllow);
+}
+//2.接受到服务器返回数据的时候调用,可能被调用多次
+- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data{
+    NSLog(@"接收到数据");
+    //一般在这边进行数据的拼接，在方法3才将完整数据回调
+//    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+}
+//3.请求完成或者是失败的时候调用
+- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task
+didCompleteWithError:(nullable NSError *)error{
+    NSLog(@"请求完成或者是失败");
+    //在这边进行完整数据的解析，回调
+}
+//4.将要缓存响应的时候调用（必须是默认会话模式，GET请求才可以）
+- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask
+ willCacheResponse:(NSCachedURLResponse *)proposedResponse
+ completionHandler:(void (^)(NSCachedURLResponse * _Nullable cachedResponse))completionHandler{
+    //可以在这边更改是否缓存，默认的话是completionHandler(proposedResponse)
+    //不想缓存的话可以设置completionHandler(nil)
+    completionHandler(proposedResponse);
+}
+/*=========代理方式===========*/
+//UploadTask继承自DataTask。因为UploadTask只不过在Http请求的时候，把数据放到Http Body中。所以，用UploadTask来做的事情，通常直接用DataTask也可以实现。
+//NSURLSessionUploadTask通过request创建，在上传时指定文件源或数据源，可以用代理或Block指定任务完成后的回调代码。
+//通过文件url来上传
+//- (NSURLSessionUploadTask *)uploadTaskWithRequest:(NSURLRequest *)request fromFile:(NSURL *)fileURL;
+////通过文件data来上传
+//- (NSURLSessionUploadTask *)uploadTaskWithRequest:(NSURLRequest *)request fromData:(NSData *)bodyData;
+////通过文件流来上传
+//- (NSURLSessionUploadTask *)uploadTaskWithStreamedRequest:(NSURLRequest *)request;
+///*=========Block方式===========*/
+//- (NSURLSessionUploadTask *)uploadTaskWithRequest:(NSURLRequest *)request fromFile:(NSURL *)fileURL completionHandler:(void (^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler;
+//- (NSURLSessionUploadTask *)uploadTaskWithRequest:(NSURLRequest *)request fromData:(NSData *)bodyData completionHandler:(void (^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler;
 
 - (void)toolPage{
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -215,8 +295,8 @@
     if (_toolBtn == nil)
     {
         _toolBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _toolBtn.frame = CGRectMake(100, 10, 44, 44);
-        [_toolBtn setTitle:@"点击" forState:(UIControlStateNormal)];
+        _toolBtn.frame = CGRectMake(100, 0, 100, 25);
+        [_toolBtn setTitle:@"JS方法注入" forState:(UIControlStateNormal)];
         [_toolBtn setTitleColor:[UIColor blackColor] forState:(UIControlStateNormal)];
         _toolBtn.layer.borderColor = [UIColor greenColor].CGColor;
         _toolBtn.layer.borderWidth = 1.0;
@@ -377,6 +457,12 @@
             NSLog(@"response: %@, \nerror: %@", response, error);
         }];
     }
+    if ([@"printLog" isEqualToString:message.name]) {
+        [self printLog:@"jjj"];
+    }
+}
+- (void)printLog:(NSString *)hhh {
+    NSLog(@"response:重新实现js方法");
 }
 /*
 #pragma mark - Navigation

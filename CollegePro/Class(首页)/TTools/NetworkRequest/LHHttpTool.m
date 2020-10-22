@@ -237,7 +237,7 @@ static char *NSErrorStatusCodeKey = "NSErrorStatusCodeKey";
 {
     AFHTTPSessionManager *sessionManager = [self sessionManager];
     
-    //    NSString *httpStr = [[LHAPI_URL stringByAppendingString:url] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]];
+//    NSString *httpStr = [[LHAPI_URL stringByAppendingString:url] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]];
     
     
     //缓存数据的文件名 data
@@ -257,11 +257,12 @@ static char *NSErrorStatusCodeKey = "NSErrorStatusCodeKey";
             if (responseObject != nil) {
                 NSData *data = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:nil];
                 [LHCacheTool cacheForData:data fileName:fileName];
-                
+
             }
             success(responseObject);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
         [weakSelf errorHandle:task error:error failure:failure];
     }];
 }
@@ -290,9 +291,7 @@ static char *NSErrorStatusCodeKey = "NSErrorStatusCodeKey";
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [weakSelf errorHandle:task error:error failure:failure];
-        
     }];
-    
 }
 
 + (void)uploadImageArrayWithImages:(NSArray<NSData *> *)images success:(void (^)(NSDictionary *obj))success failure:(void (^)(NSError *))failure
@@ -385,7 +384,7 @@ static char *NSErrorStatusCodeKey = "NSErrorStatusCodeKey";
           method:(NSString *)method
          success:(void (^)(id responseObject, id jsonStr))success
          failure:(void(^)(NSError *error))failure {
-    
+             
     NSString *soapUrl =  @"http://172.16.11.45:8204/Service/OAMobileService.asmx";
     NSDictionary *appsign = @{@"appSign": @"appSign"};
     NSDictionary *appcode = @{@"appCode": @"appCode"};
@@ -408,10 +407,7 @@ static char *NSErrorStatusCodeKey = "NSErrorStatusCodeKey";
     [manager.requestSerializer setQueryStringSerializationWithBlock:^NSString *(NSURLRequest *request, NSDictionary *parameters, NSError *__autoreleasing *error) {
         return soapStr;
     }];
-    
-    [manager POST:soapUrl parameters:soapStr headers:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-        
-    } progress:^(NSProgress * _Nonnull uploadProgress) {
+    [manager POST:soapUrl parameters:soapStr headers:nil progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         // 把返回的二进制数据转为字符串
@@ -427,7 +423,7 @@ static char *NSErrorStatusCodeKey = "NSErrorStatusCodeKey";
             // 得到字典
             dict = [NSJSONSerialization JSONObjectWithData:[[result substringWithRange:checkingResult.range] dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableLeaves error:nil];
         }
-        
+
         // 请求成功并且结果有值把结果传出去, 传Json出去的原因主要是因为个人习惯了用网页查看json, 不然觉得麻烦
         if (success && dict) {
             success(dict, [dict dictToJson]);

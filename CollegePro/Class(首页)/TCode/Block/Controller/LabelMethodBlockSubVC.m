@@ -68,7 +68,7 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     （还有NSStatckBlock位于栈内存）
      */
     int numC;
-    BOOL chooseState;
+    __block BOOL chooseState;
     NSString *_someString;
     BOOL gcdIsStope;
     UILabel *labelName;//显示名称
@@ -94,7 +94,8 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 //@property (nonatomic, weak) NSTimer *timer;
 //GCD解除timer循环引用
 @property (nonatomic, strong) dispatch_source_t timer;
-
+// 使用 id 类型可以避免编译器警告
+@property (nonatomic,strong) id observerManager;
 @end
 
 @implementation LabelMethodBlockSubVC
@@ -306,6 +307,15 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSLog(@"本地传值内容:%d",v);
     };
     MtTestBlock(10,20);
+    
+    // 创建消息观察者集合
+//    NSSet  *observers = [NSSet setWithObjects:[KYDog new],[KYDog new], nil];
+//    // 创建 RNObserverManager 蹦床
+//    NSString *className = @"DHObserverManager";
+//    self.observerManager = [[NSClassFromString(className) alloc]
+//                            initWithProtocol:@protocol(MyProtocol) observers:observers];
+//    // 给 RNObserverManager 发送 doSomething 消息，实际上都会被转发到 MyClass 的 doSomething 方法
+//    [self.observerManager doSomething];
 
 }
 
@@ -438,7 +448,7 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     
 }
 //GCD取消
-static BOOL gcdIsStope;
+//static BOOL gcdIsStope;
 - (void)baseBlock{
     numC = 100;
     //    [self testDataA];
@@ -820,7 +830,70 @@ void (^outFuncBlock)(void) = ^{
     
     [self getEqualStr:@"dczewfwef"];
     [self getEqualStr:@"dczewfwef"];
-    // Do any additional setup after loading the view.
+    
+    NSLog(@"1==================================");
+    // 2. (遵循了NSCopying和NSMutableCopying协议的)不可变的copy就是copy一个指针, 不可变的mutableCopy就是重新mutableCopy一份内存; 可变的copy和mutableCopy就是重新创建一个内存.
+    NSString* string = @"ABC";//NSCFConstantString
+    NSLog(@"%p, %p, %p", string, string.copy, string.mutableCopy);
+    NSString* string1 = [[NSString alloc] initWithFormat:@"ABCD"];//NSTaggedPointerString
+    NSLog(@"%p, %p, %p", string1, string1.copy, string1.mutableCopy);
+    
+    NSMutableString* mString = [[NSMutableString alloc] initWithFormat:@"ABCDE"];//NSCFString
+    NSLog(@"%p, %p, %p", mString, mString.copy, mString.mutableCopy);
+    
+    NSLog(@"2==================================");
+    /*
+     0x101d83198, 0x101d83198, 0x6000033e33c0
+     0x6000033e8780, 0x6000033e8780, 0x6000033e87e0
+     0x6000033f3300, 0x600001e93520, 0x6000033f39f0
+     
+    从上面的结果可以看出:
+
+    1. string的地址是在常量区的(先当成栈区,用做字面量，存放在文本区), 而string.copy指向的同样也是栈区, 而且和string的地址是同一个0x101d83198, 而string的mutableCopy指向的是一个堆区的地址0x6000033e33c0, 这是在堆区里面重新开辟了一块内存.
+
+    2. string1的地址是在堆区里面开辟出来的, 同样的string1也是inmutable类型的, 而string1.copy同样的也是和string1的地址是同一个0x6000033e8780, 同样的string1.mutableCopy指向了0x6000033e87e0也是在堆区里面重新开辟出一块内存.
+
+    不可变类型(inmutable)的copy指向的还是原来的地址(不论是在堆区还是在栈区), 而不可变类型(inmutable)的mutableCopy是在堆区里面重新开辟出一块新内存来拷贝.
+    
+    1. mString的地址是在堆区里面开辟出的一块内存, mString是mutable类型的, 但是mString.copy和mString.mutableCopy都是在堆区里面重新开辟出一块内存来拷贝.
+
+    可变类型(mutable)的copy和mutableCopy都是在堆区里面开辟出一块内存.
+    */
+    NSLog(@"2==================================");
+    NSArray* array = @[@"ABCDF", @"ABCDEFG"];
+    NSArray* array1 = array.copy;
+    NSArray* array2 = array.mutableCopy;
+    NSLog(@"%p, %p, %p", array, array1, array2);
+    for (NSString* string in array) {
+        NSLog(@"%p", string);
+    }
+    NSLog(@"3==================================");
+    for (NSString* string in array1) {
+        NSLog(@"%p", string);
+    }
+    NSLog(@"4==================================");
+    for (NSString* string in array2) {
+        NSLog(@"%p", string);
+    }
+    NSLog(@"5==================================");
+    NSLog(@"mutableCopy");
+    NSMutableArray* mutableArray = [NSMutableArray arrayWithObjects:@"ABCDEFGH", @"ABCDEFGHL", nil];
+    NSMutableArray* mutableArray1 = mutableArray.copy;
+    NSMutableArray* mutableArray2 = mutableArray.mutableCopy;
+    NSLog(@"%p, %p, %p", mutableArray, mutableArray1, mutableArray2);
+    for (NSString* string in mutableArray) {
+        NSLog(@"%p", string);
+    }
+    NSLog(@"6==================================");
+    for (NSString* string in mutableArray1) {
+        NSLog(@"%p", string);
+    }
+    NSLog(@"7==================================");
+    for (NSString* string in mutableArray2) {
+        NSLog(@"%p", string);
+    }
+    NSLog(@"8==================================");
+    //对于他们里面的元素就不是了, 元素指向的还是之前的内存地址
 }
 //多次调用只加载一次
 - (void)getEqualStr:(NSString *)str{
@@ -2710,6 +2783,9 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 - (void)returnText:(ReturnTextBlock)block {
 	self.returnTextBlock = block;
 }
+- (void)other{
+    
+}
 ///倒计时
 - (void)countDown
 {
@@ -2733,7 +2809,7 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 //                [self.timeCount setTitle:@"获取验证码" forState:UIControlStateNormal];
             });
         }else{
-            NSString *strTime = [NSString stringWithFormat:@"%.2d", timeout];
+//            NSString *strTime = [NSString stringWithFormat:@"%.2d", timeout];
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 //设置界面的按钮显示 根据自己需求设置

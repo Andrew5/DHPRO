@@ -98,13 +98,10 @@ static NSString *const kBLYUserAgentKey = @"kBLYUserAgentKey";
                    
                } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                    [self successOperarionWithUrl:URLString parameters:parameters responseObject:responseObject task:task  success:success];
-                   
                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                    [self failureOperarionWithUrl:URLString parameters:parameters error:error task:task failure:failure];
-                   
+
                }];
-               
-               
            }
                break;
            case BLYHttpRequestMethodHEAD:{

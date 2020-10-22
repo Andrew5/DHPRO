@@ -2,123 +2,9 @@
     <head>
         <meta http-equiv = "Content-Type" content = "text/html; charset=utf8">
         <title>WKWebView-Intercept</title>
-        <script language = "javascript">
-            
-        //! JS调用OC的登录功能
-        function login() {
-            var token = "js_tokenStringForIntercept";
-            loginSucceed(token);
-        }
-        //! JS登录成功后loadURL并传参token
-        function loginSucceed(token) {
-            var action = "loginSucceed";
-            jsToOc(action, token);
-        }
-        //! JS调用OC入口
-        function jsToOc(action, params) {
-            var url = "jsToOc://" + action + "?" + params;
-            alert(url)
-            loadURL(url);
-        }
-        //! 加载URL
-        function loadURL(url) {
-            window.location.href = url;
-        }
-        
-       
-        //! 调用alert(message)
-        function showAlert() {
-            alert("js_alertMessage");
-        }
-        //! 调用confirm(message)
-        function showConfirm() {
-            confirm("js_confirmMessage");
-        }
-        //! 调用prompt(prompt, defaultMessage)
-        function showPrompt() {
-            prompt("js_prompt", "js_prompt_defaultMessage");
-        }
-        //! OC调用JS入口
-        function ocToJs(action, params) {
-            for(var k in params ){//遍历packJson 对象的每个key/value对,k为key
-               alert(k + " " + params[k]);
-            }
-            document.getElementById("returnValue").innerHTML = action + '?' + params;
-            jsInvokeOC();
-        }
-        function jsInvokeOC() {
-<!--            window.webkit.messageHandlers.<方法名>.postMessage(<消息内容>);-->
-            window.webkit.messageHandlers.jsInvokeOCMethod.postMessage('我是Javascript消息内容');
-        }
-        function response2JS(response) {
-            document.getElementById('response').innerText = "resp: " + response;
-        }
-        function getCookie() {
-            var cookie = window.prompt("getCookie");
-            document.getElementById('cookie').innerText = "cookie: " + cookie;
-        }
-        
-        
-        /**
-         *返回处理后的 json字符串
-         */
-        function jsonParse(jsonObj) {
-              distinctJson(jsonObj);
-              var last=JSON.stringify(jsonObj, undefined, 2);
-              return last;
-        }
-         
-         
-        /**
-         * 去掉 json中数组多余的项
-         */
-        function distinctJson(obj) {
-              if(obj instanceof Array) {
-                     if(obj.length > 1) { //数组中有超过一个对象，删除第一个对象之后的所有对象
-                          obj.splice(1, (obj.length - 1));
-                    }
-                    distinctJson(obj[0]);
-              } else if(obj instanceof Object) {
-                     for( var index in obj){
-                           var jsonValue = obj[index];
-                          distinctJson(jsonValue);
-                    }
-              }
-        }
-        
-        function OCTOJSON(packJson){             
-            for(var k of packJson ){//遍历packJson 对象的每个key/value对,k为key
-               alert(k + " " + packJson[k]);
-            }
-           
-        }
-       
-        $(function (){
-          $("#btn").click(function ()  {
-            $.getJSON("js/userinfo.json", function (data){
-              var $jsontip = $("#jsonTip");
-              var strHtml = "123";
-              //存储数据的变量
-              $jsontip.empty();
-              //清空内容
-              $.each(data, function (infoIndex, info){
-                strHtml += "姓名：" + info["name"] + "<br>";
-                strHtml += "性别：" + info["sex"] + "<br>";
-                strHtml += "邮箱：" + info["email"] + "<br>";
-                strHtml += "<hr>"
-              })
-              $jsontip.html(strHtml);
-              //显示处理后的数据
-            })
-          })
-        })
-        function play() {
-            document.getElementById("videoid").play();
-        }
         <meta name='Keywords' content='旋转多边形'>
         <meta name='Description' content='效果为了谁'>
         <link rel='stylesheet' href='css/style.css'>
-
         <style>
         body{
             margin:0;
@@ -165,7 +51,6 @@
 
         }
         </style>
-        </script>
     </head>
     <body>
         <canvas id='canvas'></canvas>
@@ -202,5 +87,119 @@
         <br> </br>
         <div id ="returnValue" style = "font-size: 18px; border: 1px dotted; height: 50px;"> </div>
     </body>
+    <script language = "javascript">
+                
+            //! JS调用OC的登录功能
+            function login() {
+                var token = "js_tokenStringForIntercept";
+                loginSucceed(token);
+            }
+            //! JS登录成功后loadURL并传参token
+            function loginSucceed(token) {
+                var action = "loginSucceed";
+                jsToOc(action, token);
+            }
+            //! JS调用OC入口
+            function jsToOc(action, params) {
+                var url = "jsToOc://" + action + "?" + params;
+                alert(url)
+                loadURL(url);
+            }
+            //! 加载URL
+            function loadURL(url) {
+                window.location.href = url;
+            }
+            
+           
+            //! 调用alert(message)
+            function showAlert() {
+                alert("js_alertMessage");
+            }
+            //! 调用confirm(message)
+            function showConfirm() {
+                confirm("js_confirmMessage");
+            }
+            //! 调用prompt(prompt, defaultMessage)
+            function showPrompt() {
+                prompt("js_prompt", "js_prompt_defaultMessage");
+            }
+            //! OC调用JS入口
+            function ocToJs(action, params) {
+                for(var k in params ){//遍历packJson 对象的每个key/value对,k为key
+                   alert(k + " " + params[k]);
+                }
+                document.getElementById("returnValue").innerHTML = action + '?' + params;
+                jsInvokeOC();
+            }
+            function jsInvokeOC() {
+    <!--            window.webkit.messageHandlers.<方法名>.postMessage(<消息内容>);-->
+                window.webkit.messageHandlers.jsInvokeOCMethod.postMessage('我是Javascript消息内容');
+            }
+            function response2JS(response) {
+                document.getElementById('response').innerText = "resp: " + response;
+            }
+            function getCookie() {
+                var cookie = window.prompt("getCookie");
+                document.getElementById('cookie').innerText = "cookie: " + cookie;
+            }
+            
+            
+            /**
+             *返回处理后的 json字符串
+             */
+            function jsonParse(jsonObj) {
+                  distinctJson(jsonObj);
+                  var last=JSON.stringify(jsonObj, undefined, 2);
+                  return last;
+            }
+             
+             
+            /**
+             * 去掉 json中数组多余的项
+             */
+            function distinctJson(obj) {
+                  if(obj instanceof Array) {
+                         if(obj.length > 1) { //数组中有超过一个对象，删除第一个对象之后的所有对象
+                              obj.splice(1, (obj.length - 1));
+                        }
+                        distinctJson(obj[0]);
+                  } else if(obj instanceof Object) {
+                         for( var index in obj){
+                               var jsonValue = obj[index];
+                              distinctJson(jsonValue);
+                        }
+                  }
+            }
+            
+            function OCTOJSON(packJson){
+                for(var k in packJson ){//遍历packJson 对象的每个key/value对,k为key
+                   alert(k + " " + packJson[k]);
+                }
+               
+            }
+           
+            $(function (){
+              $("#btn").click(function ()  {
+                $.getJSON("js/userinfo.json", function (data){
+                  var $jsontip = $("#jsonTip");
+                  var strHtml = "123";
+                  //存储数据的变量
+                  $jsontip.empty();
+                  //清空内容
+                  $.each(data, function (infoIndex, info){
+                    strHtml += "姓名：" + info["name"] + "<br>";
+                    strHtml += "性别：" + info["sex"] + "<br>";
+                    strHtml += "邮箱：" + info["email"] + "<br>";
+                    strHtml += "<hr>"
+                  })
+                  $jsontip.html(strHtml);
+                  //显示处理后的数据
+                })
+              })
+            })
+            function play() {
+                document.getElementById("videoid").play();
+            }
+            </script>
 </html>
 

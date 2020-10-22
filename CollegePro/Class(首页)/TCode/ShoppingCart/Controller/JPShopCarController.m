@@ -10,10 +10,26 @@
 #import "JPShopCarCell.h"
 #import "JPShopHeaderCell.h"
 #import "JPCarModel.h"
+#import "ZCAssetsPickerViewController.h"
+#import "DHSystemFileViewController.h"
+#import "DHAttachmentViewController.h"
+#import "DHCollectFileViewController.h"
+
+#import "SBApplicationController.h"
+#import "SBApplication.h"
+
+#import <CollageProExtensionTool/DHTool.h>
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MPVolumeView.h>
+#import <Photos/Photos.h>
+#import <objc/runtime.h>
+#import <WebKit/WebKit.h>
+#define TopsHight 50
+#define segmentWide 130
+#define segmentHeight 30
+#define SubVCFrameY (TopsHight+segmentHeight+20)
 
-@interface JPShopCarController ()<UITableViewDataSource,UITableViewDelegate,JPShopCarDelegate>
+@interface JPShopCarController ()<UITableViewDataSource,UITableViewDelegate,JPShopCarDelegate,ZCAssetsPickerViewControllerDelegate,WKNavigationDelegate,WKUIDelegate,WKScriptMessageHandler,NSURLSessionDelegate,NSURLSessionTaskDelegate>
 {
     AVAudioRecorder *recorder;
     NSTimer *levelTimer;
@@ -28,6 +44,17 @@
 @property (nonatomic, assign) CGFloat totalPrice; // 所有选中的商品总价值
 @property (nonatomic, strong) UILabel *labelVoice;
 @property (nonatomic, strong) CALayer *layerVoice;
+///自定义照片选择
+@property (nonatomic, strong) UISegmentedControl *segmentedControl;
+@property (nonatomic, strong) PHCachingImageManager *imageManager;
+@property (nonatomic, strong) DHSystemFileViewController *systemFileVC;
+@property (nonatomic, strong) DHAttachmentViewController *attachmentVC;
+@property (nonatomic, strong) DHCollectFileViewController *collectionVC;
+
+
+
+@property (nonatomic, strong) UILabel *lblHelloWorld;
+
 @end
 
 @implementation JPShopCarController
@@ -35,13 +62,296 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"购物车";
-    [self setupTableView]; // tableView
-    [self createAllBtn];
+    self.title = @"视频转音频";
+//    [self setupTableView]; // tableView
+//    [self createAllBtn];
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"B206760E60639441A7876D27110082AC" ofType:@"MOV"];
+//    [JPShopCarController videoChangeGetBackgroundMiusicWithVideoUrl:[NSURL fileURLWithPath:path] completion:nil];
+//    [self getAppPlist];
+    [self createUI];
+//    [self futext];
+//    [self QNRTC];
+//    [self createHello];
+//    [self getLocalEquipmentAppList];
 }
 
-- (NSMutableArray *)dataArray
-{
+- (void)getLocalEquipmentAppList{
+//    Class LSApplicationWorkspace_class = NSClassFromString(@"LSApplicationWorkspace");
+//    NSObject *workspace = [LSApplicationWorkspace_class performSelector:@selector(defaultWorkspace)];
+//    NSArray *arrAPP = [workspace performSelector:@selector(allApplications)];
+//    NSLog(@"arrAPP: %@",arrAPP);
+//    
+////    SBApplicationController *sbApplicationCtrl=[SBApplicationController sharedInstance];
+//    SBApplicationController *sbApplicationCtrl=%c(SBApplicationController) sharedInstance];
+//    NSArray *appArray=[sbApplicationCtrl allApplications];
+//    NSMutableDictionary *dic=[NSMutableDictionary dictionary];
+//    for(SBApplication *sbApp in appArray)
+//    {
+//        //根据提供的app的显示名称来查找其bundleindentity
+////        NSString *appName = [userinfo valueForKeyPath:@"appName"];
+////        NSString *displayName=[sbApp displayName];
+////        if ([displayName isEqualToString:appName])
+////        {
+////            NSString *bundleIdentifier=[sbApp bundleIdentifier];
+////            int dataUsage=[sbApp dataUsage];
+////            NSNumber *number=[NSNumber numberWithInt:dataUsage];
+////            [dic setObject:bundleIdentifier forKey:@"bundleIdentity"];
+////            [dic setObject:number forKey:@"dataUsage"];
+////            break;
+////        }
+//    }
+    
+}
+
+- (void)createHello{
+    self.lblHelloWorld = [[UILabel alloc]initWithFrame:CGRectMake(50, 10, 120, 50)];
+    [self.lblHelloWorld setText:@"Hello World"];
+    self.lblHelloWorld.backgroundColor = [UIColor orangeColor];
+    self.lblHelloWorld.textColor = [UIColor redColor];
+    self.lblHelloWorld.font = [UIFont systemFontOfSize:14];
+    [self.lblHelloWorld setTextColor:[UIColor redColor]];
+    [self.view addSubview:self.lblHelloWorld];
+    UIButton *button = [UIButton buttonWithType:(UIButtonTypeRoundedRect)];button.frame = CGRectMake(100, 100, 80, 30);
+    [button setTitle:self forState:(UIControlStateNormal)];
+    [button.titleLabel setText:@"Hide"];
+    [button addTarget:self action:@selector(doBtnHide:) forControlEvents:(UIControlEventTouchUpInside)];
+    [self.view addSubview:button];
+}
+- (void)doBtnHide:(id)sender{
+    [self.lblHelloWorld setHidden:![self.lblHelloWorld isHidden]];
+    [sender setTitle:[self.lblHelloWorld isHidden]?@"show":@"Hide"forState:UIControlStateNormal];
+}
+
+- (void)futext{
+
+    //这个类主要用来做native与JavaScript的交互管理
+    WKUserContentController *wkUController = [[WKUserContentController alloc] init];
+    //自定义的WKScriptMessageHandler 是为了解决内存不释放的问题
+    //JS调用OC 添加处理脚本
+    [wkUController addScriptMessageHandler:self name:@"jsInvokeOCMethod"];
+    //创建网页配置对象
+    WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
+    config.userContentController = wkUController;
+    // 创建设置对象
+    WKPreferences *preference = [[WKPreferences alloc]init];
+    //最小字体大小 当将javaScriptEnabled属性设置为NO时，可以看到明显的效果
+    preference.minimumFontSize = 0;
+    //设置是否支持javaScript 默认是支持的
+    preference.javaScriptEnabled = YES;
+    // 在iOS上默认为NO，表示是否允许不经过用户交互由javaScript自动打开窗口
+    preference.javaScriptCanOpenWindowsAutomatically = YES;
+    config.processPool = [[WKProcessPool alloc] init];
+    // 设置偏好设置对象
+    config.preferences = preference;
+    // 是使用h5的视频播放器在线播放, 还是使用原生播放器全屏播放
+    config.allowsInlineMediaPlayback = YES;
+    
+    WKWebView *WKView = [[WKWebView alloc] initWithFrame:CGRectMake(10, 10, DH_DeviceWidth-20, 200) configuration:config];
+    // 是否允许手势左滑返回上一级, 类似导航控制的左滑返回
+    WKView.allowsBackForwardNavigationGestures = YES;
+    WKView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    WKView.autoresizesSubviews = YES;
+//    [self.view addSubview:WKView];
+   
+    
+    NSString *path = [[NSBundle mainBundle]pathForResource:@"testHtml" ofType:@"html"];
+    NSString *html = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    [WKView loadHTMLString:html baseURL:nil];
+
+    
+//    NSURL *baseURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]];
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"testHtml" ofType:@"html"];
+//    NSString *html = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+//    [WKView loadHTMLString:html baseURL:baseURL];
+    
+    //第三种方法： NSString类方法读取内容
+    NSString* content = [NSString stringWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"Text" ofType:@"txt"] encoding:NSUTF8StringEncoding error:nil];
+    NSLog(@"NSString类方法读取的内容是：\n%@",content);
+    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[content dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, DH_DeviceWidth-20, 200)];
+    label.attributedText = attributedString;
+    label.numberOfLines = 0;
+    [self.view addSubview:label];
+}
+
+//html  转 NSString
+-(NSString*)getStrFormHtml:(NSString *)htmStr{
+    NSString * htmlString = htmStr;
+    NSAttributedString * attrStr = [[NSAttributedString alloc] initWithData:[htmlString dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+    UILabel *label = [[UILabel alloc] init];
+    label.attributedText = attrStr;
+    label.numberOfLines = 0;
+    label.font =[UIFont systemFontOfSize:11.0];
+    return label.text;
+}
+
+- (void)createUI{
+    //分段控件
+    [self addSysSegmentView];
+    //创建底部悬浮View
+    [self createBottomView];
+    //取消按钮
+    [self addLeftBtn];
+    //默认显示本机
+    [self addSegmentChangeVCLocal];
+
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"B206760E60639441A7876D27110082AC" ofType:@"MOV"];
+//    [JPShopCarController videoChangeGetBackgroundMiusicWithVideoUrl:[NSURL fileURLWithPath:path] completion:nil];
+}
+- (void)addSysSegmentView{
+    NSArray *segmentedArray = @[@"本机",@"附件",@"收藏"];//@"收藏"
+    //初始化UISegmentedControl
+    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc]initWithItems:segmentedArray];
+    segmentedControl.frame = CGRectMake(0, 0, segmentWide, segmentHeight);
+    segmentedControl.centerX = [UIScreen mainScreen].bounds.size.width/2;
+    
+    // 设置默认选择项索引
+    segmentedControl.selectedSegmentIndex = 0;
+    segmentedControl.tintColor = [UIColor blackColor];
+    [segmentedControl addTarget:self action:@selector(didSegmentAction:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:segmentedControl];
+    self.segmentedControl = segmentedControl;
+    
+    self.selectMax = @"6";
+    self.selectMaxSize = @"100";
+
+}
+- (void)didSegmentAction:(UISegmentedControl *)Seg{
+    NSInteger Index = Seg.selectedSegmentIndex;
+    NSLog(@"Index %ld", (long)Index);
+        switch (Index)
+        {
+            case 0:
+                [self addSegmentChangeVCLocal];
+                self.systemFileVC.view.hidden = NO;
+                self.attachmentVC.view.hidden = YES;
+//                
+                break;
+            case 1:
+                [self addSegmentChangeVCVideo];
+                self.attachmentVC.view.hidden = NO;
+                self.systemFileVC.view.hidden = YES;
+                break;
+            case 2:
+                [self addSegmentChangeVC];
+                self.collectionVC.view.hidden = YES;
+                self.systemFileVC.view.hidden = YES;
+                self.attachmentVC.view.hidden = NO;
+                break;
+            default:
+                break;
+        }
+}
+- (void)addSegmentChangeVCLocal{
+    if (!self.systemFileVC) {
+        self.systemFileVC = [[DHSystemFileViewController alloc] init];
+        [self addChildViewController:self.systemFileVC];
+        self.systemFileVC.view.frame = CGRectMake(0, SubVCFrameY, DH_DeviceWidth,DH_DeviceHeight-SubVCFrameY-[self bottomViewHigt]);
+        [self.view addSubview:self.systemFileVC.view];
+    }
+}
+- (void)addSegmentChangeVCVideo {
+  if (!self.attachmentVC) {
+        self.attachmentVC = [[DHAttachmentViewController alloc] init];
+        [self addChildViewController:self.attachmentVC];
+        self.attachmentVC.view.frame = CGRectMake(0, SubVCFrameY, DH_DeviceWidth,DH_DeviceHeight-SubVCFrameY-[self bottomViewHigt]);
+        [self.view addSubview:self.attachmentVC.view];
+    }
+}
+- (void)addSegmentChangeVC{
+    self.collectionVC = [[DHCollectFileViewController alloc] init];
+    [self addChildViewController:self.collectionVC];
+        self.collectionVC.view.frame = CGRectMake(0, 0, DH_DeviceHeight,(DH_DeviceHeight-TopsHight)-[self bottomViewHigt]);
+    [self.view addSubview:self.collectionVC.view];
+}
+//底部悬浮View高
+- (CGFloat)bottomViewHigt{
+    //兼容iphoneX
+    CGFloat bottomHigt = 60 ;
+//    if (kDevice_Is_iPhoneX) {
+//        bottomHigt = 94;
+//    }
+    return bottomHigt;
+}
+//更新选中数据
+- (void)updateSendData{}
+//{
+//    if (self.allSelectedDataArray.count) {
+//        [self.sendBtn setTitle:[NSString stringWithFormat:@"发送%ld",self.allSelectedDataArray.count] forState:UIControlStateNormal];
+//        self.sendBtn.backgroundColor = [UIColor colorWithRed:85/255.0 green:143/255.0 blue:255/255 alpha:1.0];
+//    }else{
+//        [self.sendBtn setTitle:[NSString stringWithFormat:@"发送"] forState:UIControlStateNormal];
+//        self.sendBtn.backgroundColor = [UIColor lightGrayColor];
+//    }
+//}
+//创建底部悬浮view
+- (void)createBottomView{
+    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, DH_DeviceHeight-[self bottomViewHigt], DH_DeviceWidth, [self bottomViewHigt])];
+    bottomView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:bottomView];
+    //顶部线
+    UIView *lineViewT = [[UIView alloc] initWithFrame:CGRectMake(0, 0, DH_DeviceWidth, 1)];
+    lineViewT.backgroundColor = [UIColor lightGrayColor];
+    [bottomView addSubview:lineViewT];
+    //发送按钮
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(DH_DeviceWidth-90, 10, 70, 40);
+//    btn.backgroundColor = [UIColor colorWithRed:85/255.0 green:143/255.0 blue:255/255 alpha:1.0];
+    btn.backgroundColor = [UIColor lightGrayColor];
+    btn.titleLabel.font = [UIFont systemFontOfSize:16];
+    [btn setTitle:@"发送" forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(sendBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    btn.layer.cornerRadius = 3;
+    btn.layer.masksToBounds = YES;
+    [bottomView addSubview:btn];
+
+    //底部线
+    UIView *lineViewB = [[UIView alloc] initWithFrame:CGRectMake(0, 58, DH_DeviceWidth, 1)];
+    lineViewB.backgroundColor = [UIColor lightGrayColor];
+    [bottomView addSubview:lineViewB];
+}
+//发送按钮事件
+- (void)sendBtnAction:(UIButton *)sender {
+    if (self.allSelectedDataArray.count) {
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }else
+    {
+
+    }
+}
+//取消按钮
+- (void)addLeftBtn{
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
+    btn.frame = CGRectMake(CGRectGetMaxX(self.view.frame)-80, TopsHight, 80, 30);
+    //    btn.backgroundColor = [UIColor lightGrayColor];
+    btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;//文字靠右
+    btn.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 10);
+    btn.titleLabel.font = [UIFont systemFontOfSize:16];
+    [btn setTitle:@"取消" forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(dissSelfVC) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn];
+}
+- (NSMutableArray *)allSelectedDataArray {
+    if (!_allSelectedDataArray) {
+        _allSelectedDataArray = [NSMutableArray array];
+    }
+    return _allSelectedDataArray;
+}
+
+//取消按钮事件
+- (void)dissSelfVC{
+    //清空删除文件上传的名字数组
+    NSMutableArray *deleteWithLastArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"deleteWithLastArray"];
+    if (deleteWithLastArray.count) {
+        [[deleteWithLastArray mutableCopy] removeAllObjects];
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (NSMutableArray *)dataArray{
     if (!_dataArray) {
         _dataArray = [[NSMutableArray alloc]init];
         for (int i = 0; i < 10; i++) {
@@ -69,8 +379,7 @@
 }
 
 // 全选按钮
-- (void)createAllBtn
-{
+- (void)createAllBtn{
     self.allBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     self.allBtn.frame = CGRectMake(0, self.view.frame.size.height-40, self.view.frame.size.width, 40);
     [self.allBtn setImage:[UIImage imageNamed:@"btn_address_W-1"] forState:UIControlStateNormal];
@@ -81,8 +390,7 @@
     [self.view addSubview:self.allBtn];
 }
 
-- (void)btnClick:(UIButton *)btn
-{
+- (void)btnClick:(UIButton *)btn{
     self.allBtn.selected = !self.allBtn.selected;
     [self.dataArray enumerateObjectsUsingBlock:^(JPCarModel * obj, NSUInteger idx, BOOL * _Nonnull stop) {
         obj.selected = self.allBtn.selected;
@@ -100,8 +408,7 @@
 /**
  *  setTableView
  */
-- (void)setupTableView
-{
+- (void)setupTableView{
     self.tableView = [[UITableView alloc] init];
     self.tableView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-40);
     self.tableView.delegate = self;
@@ -112,11 +419,49 @@
 //    self.tableView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:self.tableView];
 }
+#pragma mark - getAppPlist 代理
+- (void)getAppPlist {
+    Class LSApplicationWorkspace_class = objc_getClass("LSApplicationWorkspace");
+    NSObject* workspace = [LSApplicationWorkspace_class performSelector:@selector(defaultWorkspace)];
+    NSLog(@"apps: %@", [workspace performSelector:@selector(allApplications)]);
+    NSArray*apps = [workspace performSelector:@selector(allApplications)];
+    NSMutableArray*appsIconArr = [NSMutableArray array];
+    NSMutableArray*appsNameArr = [NSMutableArray array];
+    NSLog(@"apps: %@",apps );
+//    [apps enumerateObjectsUsingBlock:^(id obj,NSUInteger idx,BOOL* stop) {
+//        NSDictionary *boundIconsDictionary = [obj performSelector:@selector(boundIconsDictionary)];
+//        NSString *iconPath = [NSString stringWithFormat:@"%@/%@.png", [[obj performSelector:@selector(resourcesDirectoryURL)]path], [[[boundIconsDictionary objectForKey:@"CFBundlePrimaryIcon"]objectForKey:@"CFBundleIconFiles"]lastObject]];
+//        UIImage *image = [[UIImage alloc]initWithContentsOfFile:iconPath];
+//        id name = [obj performSelector:@selector(localizedName)];
+//        if(image){
+//            [appsIconArr addObject:image];
+//            [appsNameArr addObject: name];
+//        }
+//        NSLog(@"iconPath = %@", iconPath);
+//        NSLog(@"name = %@", name);
+//        NSLog(@"%@",[self properties_aps:obj]);
+//        NSLog(@"_____________________________________________\n");
+//    }];
+}
 
+
+- (NSDictionary *)properties_aps:(id)objc {
+    NSMutableDictionary *props = [NSMutableDictionary dictionary];
+    unsigned int outCount, i;
+    objc_property_t *properties = class_copyPropertyList([objc class], &outCount);
+    for (i = 0; i<outCount; i++){
+        objc_property_t property = properties[i];
+        const char* char_f =property_getName(property);
+        NSString *propertyName = [NSString stringWithUTF8String:char_f];
+        id propertyValue = [objc valueForKey:(NSString *)propertyName];
+        if (propertyValue) [props setObject:propertyValue forKey:propertyName];
+    }
+    free(properties);
+    return props;
+}
 #pragma mark - JPShopCar 代理
 // 点击了加号按钮
-- (void)productCell:(JPShopCarCell *)cell didClickedPlusBtn:(UIButton *)plusBtn
-{
+- (void)productCell:(JPShopCarCell *)cell didClickedPlusBtn:(UIButton *)plusBtn{
     // 拿到点击的cell对应的indexpath
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     
@@ -132,8 +477,7 @@
     [self countingTotalPrice];
 }
 // 点击了减号按钮
-- (void)productCell:(JPShopCarCell *)cell didClickedMinusBtn:(UIButton *)minusBtn
-{
+- (void)productCell:(JPShopCarCell *)cell didClickedMinusBtn:(UIButton *)minusBtn{
     // 拿到点击的cell对应的indexpath
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     
@@ -154,8 +498,7 @@
  /**
  *  计算总价格
  */
-- (void)countingTotalPrice
-{
+- (void)countingTotalPrice{
     [self.dataArray enumerateObjectsUsingBlock:^(JPCarModel * obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [obj.numArray enumerateObjectsUsingBlock:^(JPCarModel *pro, NSUInteger idx, BOOL * _Nonnull stop) {
 //            NSLog(@"bbb:%@,%lu,%d",pro.price,(unsigned long)idx,pro.buyCount);
@@ -176,8 +519,7 @@
     return model.numArray.count + 1;
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return self.dataArray.count;
 }
 
@@ -193,8 +535,7 @@
         JPCarModel *product = self.dataArray[indexPath.section];
         cell.model = product;
         return cell;
-    }else
-    {
+    }else{
         static NSString *ID = @"shopCell2";
         JPShopCarCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
         if (cell==nil) {
@@ -208,13 +549,11 @@
     }
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 10;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 0) {
         return 44;
     }else
@@ -223,8 +562,7 @@
     }
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row == 0) {
         // 选中商店 全选商店对应的商品
@@ -286,19 +624,15 @@
                 [SVProgressHUD dismissWithDelay:5];
             });
         });
-
-
     }
     u = [UIButton buttonWithType:UIButtonTypeCustom];
     u.frame = CGRectMake(100, 200, 100, 100);
-        u.layer.borderColor = [UIColor redColor].CGColor;
-        u.layer.borderWidth = 1.0;
-        [u addTarget:self action:@selector(touchView:)
-    forControlEvents:(UIControlEventTouchUpInside)];
-        [self.view addSubview:u];
-        [u setTitle:@"开始点击" forState:(UIControlStateNormal)];
-        [u setTitle:@"结束点击" forState:(UIControlStateSelected)];
-
+    u.layer.borderColor = [UIColor redColor].CGColor;
+    u.layer.borderWidth = 1.0;
+    [u addTarget:self action:@selector(touchView:) forControlEvents:(UIControlEventTouchUpInside)];
+    [self.view addSubview:u];
+    [u setTitle:@"开始点击" forState:(UIControlStateNormal)];
+    [u setTitle:@"结束点击" forState:(UIControlStateSelected)];
 //    BOOL stateVolume = [self isMuted];//0:NO 1:YES
     BOOL ru = [self isHeadsetPluggedInIn];///
     if (ru) {
@@ -622,6 +956,44 @@ void audioRouteChangeListenerCallback (void *inUserData, AudioSessionPropertyID 
             return TRUE;
     }
     return FALSE;
+}
+/**
+
+ 截取视频的背景音乐
+
+ */
++ (void)videoChangeGetBackgroundMiusicWithVideoUrl:(NSURL*)videoUrl completion:(void(^)(NSString*data))completionHandle{
+    AVURLAsset* videoAsset = [[AVURLAsset alloc] initWithURL:videoUrl options:nil];
+    NSArray *keys = @[@"duration",@"tracks"];
+    [videoAsset loadValuesAsynchronouslyForKeys:keys completionHandler:^{
+        NSError*error =nil;
+        AVKeyValueStatus status = [videoAsset statusOfValueForKey:@"tracks"error:&error];
+        if(status ==AVKeyValueStatusLoaded) {//数据加载完成
+            AVMutableComposition *mixComposition = [[AVMutableComposition alloc] init];
+            // 2 - Video track
+            //Audio Recorder
+            //创建一个轨道,类型是AVMediaTypeAudio
+            AVMutableCompositionTrack *firstTrack = [mixComposition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid];
+            //获取videoAsset中的音频,插入轨道
+            [firstTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, videoAsset.duration) ofTrack:[[videoAsset tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0] atTime:kCMTimeZero error:nil];
+            AVAssetExportSession *exporter = [[AVAssetExportSession alloc] initWithAsset:mixComposition presetName:AVAssetExportPresetAppleM4A];//输出为M4A音频
+            NSString *documentsDirPath = [NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"Library/%@.m4a",@"music"]];
+            NSURL *documentsDirUrl = [NSURL fileURLWithPath:documentsDirPath isDirectory:YES];
+            exporter.outputURL = documentsDirUrl;
+            exporter.outputFileType=@"com.apple.m4a-audio";//类型和输出类型一致
+            exporter.shouldOptimizeForNetworkUse = YES;
+            [exporter exportAsynchronouslyWithCompletionHandler:^{
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if (exporter.status == AVAssetExportSessionStatusCompleted) {
+                        completionHandle(exporter.outputURL.path);
+                    }else{
+                        NSLog(@"失败了，原因是：%@,%@",exporter.error,exporter.error.userInfo.description);
+                        completionHandle([exporter.error.userInfo.description description]);
+                    }
+                });
+            }];
+        }
+    }];
 }
 - (UILabel *)labelVoice{
     if (!_labelVoice){

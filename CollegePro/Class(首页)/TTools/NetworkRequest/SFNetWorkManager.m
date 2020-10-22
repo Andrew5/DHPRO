@@ -88,23 +88,22 @@
  *  @param progress 进度
  */
 
-- (void)requestWithType:(HttpRequestType)type withUrlString:(NSString *)urlString withParaments:(id)paraments withSuccessBlock:(requestSuccess)successBlock withFailureBlock:(requestFailure)failureBlock progress:(downloadProgress)progress
+-(void)requestWithType:(HttpRequestType)type withUrlString:(NSString *)urlString withParaments:(id)paraments withSuccessBlock:(requestSuccess)successBlock withFailureBlock:(requestFailure)failureBlock progress:(downloadProgress)progress
 {
     switch (type) {
-        case HttpRequestTypeGet:{
-            [[SFNetWorkManager shareManager] GET:urlString parameters:paraments headers:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+        case HttpRequestTypeGet:
+        {
+            [[SFNetWorkManager shareManager] GET:urlString parameters:paraments  headers:nil progress:^(NSProgress * _Nonnull downloadProgress) {
                 progress(downloadProgress.completedUnitCount / downloadProgress.totalUnitCount);
-                
             } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 successBlock(responseObject);
-                
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                 failureBlock(error);
-                
             }];
             break;
         }
-        case HttpRequestTypePost:{
+        case HttpRequestTypePost:
+        {
             [[SFNetWorkManager shareManager] POST:urlString parameters:paraments headers:nil progress:^(NSProgress * _Nonnull uploadProgress) {
                 progress(uploadProgress.completedUnitCount / uploadProgress.totalUnitCount);
             } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -112,25 +111,25 @@
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                 failureBlock(error);
             }];
-            break;
         }
-//    if (type == HttpRequestTypeGet) {
-//        [[SFNetWorkManager shareManager] GET:urlString parameters:paraments progress:^(NSProgress * _Nonnull downloadProgress) {
-//                progress(downloadProgress.completedUnitCount / downloadProgress.totalUnitCount);
-//            } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//                successBlock(responseObject);
-//            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//                failureBlock(error);
-//        }];
-//
-//    }else {
-//        [[SFNetWorkManager shareManager] POST:urlString parameters:paraments progress:^(NSProgress * _Nonnull uploadProgress) {
-//                progress(uploadProgress.completedUnitCount / uploadProgress.totalUnitCount);
-//                } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//                successBlock(responseObject);
-//            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//                failureBlock(error);
-//            }];
+    }
+    if (type == HttpRequestTypeGet) {
+        [[SFNetWorkManager shareManager] GET:urlString parameters:paraments headers:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+            progress(downloadProgress.completedUnitCount / downloadProgress.totalUnitCount);
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            successBlock(responseObject);
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            failureBlock(error);
+        }];
+        
+    }else {
+        [[SFNetWorkManager shareManager] POST:urlString parameters:paraments headers:nil progress:^(NSProgress * _Nonnull uploadProgress) {
+            progress(uploadProgress.completedUnitCount / uploadProgress.totalUnitCount);
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            successBlock(responseObject);
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            failureBlock(error);
+        }];
     }
 }
 
@@ -156,22 +155,19 @@
         NSUInteger i = 0 ;
         /**出于性能考虑,将上传图片进行压缩*/
         for (UIImage * image in imageArray) {
-            //image的分类方法
+                //image的分类方法
             UIImage *  resizedImage =  [UIImage IMGCompressed:image targetWidth:width];
-            NSData * imgData = UIImageJPEGRepresentation(resizedImage, .5);
-            //拼接data
+                NSData * imgData = UIImageJPEGRepresentation(resizedImage, .5);
+                //拼接data
             [formData appendPartWithFileData:imgData name:[NSString stringWithFormat:@"picflie%ld",(long)i] fileName:@"image.png" mimeType:@" image/jpeg"];
-            i++;
+                i++;
         }
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         progress(uploadProgress.completedUnitCount / uploadProgress.totalUnitCount);
-        
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    } success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable responseObject) {
         successBlock(responseObject);
-        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failureBlock(error);
-        
     }];
 }
 
@@ -209,20 +205,19 @@
         switch ([avAssetExport status]) {
                             case AVAssetExportSessionStatusCompleted:
             {
-                AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
-                
+                                        AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
+
                 [manager POST:urlString parameters:operations headers:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-                    //获得沙盒中的视频内容
-                    [formData appendPartWithFileURL:[NSURL fileURLWithPath:videoWritePath] name:@"write you want to writre" fileName:videoWritePath mimeType:@"video/mpeg4" error:nil];
-                } progress:^(NSProgress * _Nonnull uploadProgress) {
-                    progress(uploadProgress.completedUnitCount / uploadProgress.totalUnitCount);
-                    
-                } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                    successBlock(responseObject);
-                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                    failureBlock(error);
-                }];
-                break;
+                                //获得沙盒中的视频内容
+                                [formData appendPartWithFileURL:[NSURL fileURLWithPath:videoWritePath] name:@"write you want to writre" fileName:videoWritePath mimeType:@"video/mpeg4" error:nil];
+                            } progress:^(NSProgress * _Nonnull uploadProgress) {
+                                progress(uploadProgress.completedUnitCount / uploadProgress.totalUnitCount);
+                            } success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable responseObject) {
+                                successBlock(responseObject);
+                            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                failureBlock(error);
+                            }];
+                        break;
             }
             default:
                 break;

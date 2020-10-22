@@ -51,14 +51,14 @@
 	i.layer.borderWidth = 0.3;
 	i.layer.cornerRadius = 3;
 	[self.view addSubview:i];
-	[self getHttpRequestImage:i.image];
+	[self bbbb:i.image];
+	
 }
 
-- (void)getHttpRequestImage: (UIImage*)im{
+- (void)bbbb : (UIImage*)im{
 	NSString *API_URL_ = @"http://kaifa.homesoft.cn/WebService/jsonInterface.ashx?json=RepairCommit";
 	AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
 	manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-    
     [manager POST:API_URL_ parameters:nil headers:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         NSInteger imgCount = 0;
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -68,13 +68,12 @@
         [formData appendPartWithFileData:UIImagePNGRepresentation(im) name:@"file" fileName:fileName mimeType:@"image/png"];
         imgCount++;
     } progress:^(NSProgress * _Nonnull uploadProgress) {
-        NSLog(@"进度-%.2f",uploadProgress.fractionCompleted);
+    
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"responseObject%@",responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"获取数据失败原因%@",error.localizedFailureReason);
     }];
-    
 }
 
 - (void)didReceiveMemoryWarning {

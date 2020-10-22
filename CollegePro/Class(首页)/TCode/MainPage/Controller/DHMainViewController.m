@@ -167,7 +167,8 @@
     [family addTommy];
     [family addLily];
     [family everyBodySayHello];
-//    [self createMap];
+
+    //    [self createMap];
     //    applicationWillEnterForeground
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveHMethod:) name:@"applicationWillEnterForeground" object:nil];
     //    [self playVoiceBackground];
@@ -178,7 +179,7 @@
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(proximityStateDidChange) name:UIDeviceProximityStateDidChangeNotification object:nil];
 //    [UIDevice currentDevice].proximityMonitoringEnabled = YES;
     //网络测速
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(getinternet) userInfo:nil repeats:YES];
+    timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(getinternet) userInfo:nil repeats:YES];
     [timer fireDate];
     //方法一
     CFAbsoluteTime endTime = (CFAbsoluteTimeGetCurrent() - startTime);
@@ -194,6 +195,8 @@
     [super viewDidDisappear:animated];
     //移除距离感应通知
     //    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceProximityStateDidChangeNotification object:nil];
+    [timer invalidate];
+    timer = nil;
 }
 - (void)createMap{
     //请求定位服务
@@ -233,7 +236,7 @@
     [_locationManager requestWhenInUseAuthorization];
 }
 - (void)setUPUI{
-    //网速显示
+    //提示语
     displayLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, DH_DeviceHeight, DH_DeviceWidth, 40)];
     displayLabel.backgroundColor = [UIColor colorWithRed:0.962 green:0.971 blue:1.000 alpha:1.000];
     displayLabel.layer.shadowColor = [UIColor lightGrayColor].CGColor;
@@ -292,7 +295,7 @@
     [self addCell:@"菜单栏" class:@"SubparagraphRootViewController"];
     [self addCell:@"键盘" class:@"CustomKeyBoardViewController"];
     [self addCell:@"拖拽" class:@"DropViewController"];
-    [self addCell:@"滚动视图" class:@"ScrollViewController"];
+    [self addCell:@"小游戏" class:@"ScrollViewController"];
     [self addCell:@"微信气泡聊天" class:@"WXPaoPaoViewController"];
     [self addCell:@"通讯录" class:@"BaseAdressBookViewController"];
     [self addCell:@"弹出框" class:@"ShowViewController"];
@@ -333,7 +336,7 @@
     [self addCell:@"美食菜单" class:@"FoodListViewController"];
     [self addCell:@"富文本" class:@"CViewController"];
     [self addCell:@"侧边栏" class:@"SlideMenuViewController"];
-    [self addCell:@"购物车" class:@"JPShopCarController"];
+    [self addCell:@"视频转音频" class:@"JPShopCarController"];
     [self addCell:@"图片找不同" class:@"FFKPViewController"];
     [self addCell:@"消消乐" class:@"IndexViewController"];
     [self addCell:@"抽奖" class:@"LuckyMainViewController"];
@@ -367,12 +370,12 @@
     _lb_showinfo.layer.borderColor = [UIColor redColor].CGColor;
     _lb_showinfo.layer.borderWidth = 1.0;
 //    _lb_showinfo.frame = CGRectMake(0, DH_DeviceHeight, DH_DeviceWidth, 25);
-    [self.view addSubview:_lb_showinfo];
-    [_lb_showinfo mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.view);
-        make.left.with.right.equalTo(self.view);
-        make.height.offset(25);
-    }];
+//    [self.view addSubview:_lb_showinfo];
+//    [_lb_showinfo mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.bottom.equalTo(self.view);
+//        make.left.with.right.equalTo(self.view);
+//        make.height.offset(25);
+//    }];
 //    _lb_showinfo.text = [self getSignalStrength];
 }
 

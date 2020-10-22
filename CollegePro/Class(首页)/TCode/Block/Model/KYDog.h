@@ -9,8 +9,14 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
+
+// 观察者需要实现的协议
+@protocol MyProtocol <NSObject>
+- (void)doSomething;
+@end
+
 @class KYUser;
-@interface KYDog : NSObject
+@interface KYDog : NSObject<MyProtocol>
 /** 狗的名字 */
 @property (nonatomic, strong) NSString *name;
 /** 狗的年龄 */

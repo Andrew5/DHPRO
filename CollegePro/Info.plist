@@ -44,7 +44,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>47</string>
+	<string>240</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>Identification</string>
@@ -58,7 +58,7 @@
 	<key>MPMediaItemPropertyAlbumTitle</key>
 	<string>专辑的标题</string>
 	<key>MPMediaItemPropertyArtist</key>
-	<string> media item的创作者</string>
+	<string>media item的创作者</string>
 	<key>MPMediaItemPropertyArtwork</key>
 	<string>media item的插图</string>
 	<key>MPMediaItemPropertyPlaybackDuration</key>
@@ -89,7 +89,7 @@
 	<key>NSCalendarsUsageDescription</key>
 	<string>App需要您的同意,才能访问日历</string>
 	<key>NSCameraUsageDescription</key>
-	<string>Camera Usage Description</string>
+	<string>App需要您的同意,才能访问相机权限</string>
 	<key>NSContactsUsageDescription</key>
 	<string>Contacts Usage Description</string>
 	<key>NSHealthShareUsageDescription</key>
@@ -101,7 +101,7 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<true/>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Microphone Usage Description</string>
+	<string>App需要您的同意,才能访问麦克风权限</string>
 	<key>NSMotionUsageDescription</key>
 	<string>允许</string>
 	<key>NSMotionUsageDescription - 2</key>

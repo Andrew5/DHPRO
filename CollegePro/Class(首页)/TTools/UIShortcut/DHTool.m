@@ -7,7 +7,7 @@
 //
 
 #import "DHTool.h"
-#import "WKWebViewController.h"
+//#import "WKWebViewController.h"
 #import <SystemConfiguration/CaptiveNetwork.h>
 #import <CoreText/CoreText.h>
 #import <AdSupport/AdSupport.h>
@@ -20,6 +20,8 @@
 #import <dlfcn.h>
 #import <netinet/in.h>
 #import <mach/mach.h>
+#define DH_FontSize(fontSize) [UIFont systemFontOfSize:fontSize]
+#define DH_DeviceWidth  [UIScreen mainScreen].bounds.size.width
 
 @implementation DHTool
 
@@ -308,12 +310,6 @@
         // 删除缓存数据
         [[NSFileManager defaultManager] removeItemAtPath:cachesPath error:nil];
     }
-}
-
-+ (NSNumber *) freeDiskSpace
-{
-    NSDictionary *fattributes = [[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:nil];
-    return [fattributes objectForKey:NSFileSystemFreeSize];
 }
 
 + (double)freeMemory
@@ -805,8 +801,8 @@
 //    if (kUserInfo.userModel.markType == 0) {
 //        url = kChatUrl_Normal;
 //    }
-    WKWebViewController *chatController = [[WKWebViewController alloc] initWithUrl:url navTitle:@"客服"];
-    [controller.navigationController pushViewController:chatController animated:YES];
+//    WKWebViewController *chatController = [[WKWebViewController alloc] initWithUrl:url navTitle:@"客服"];
+//    [controller.navigationController pushViewController:chatController animated:YES];
     
 }
 /// IDFA编号
@@ -821,8 +817,23 @@
 /// 手机总容量
 + (NSNumber *)totalDiskSpace
 {
+    /*
+     {
+         NSFileSystemFreeNodes = 624404130;
+         NSFileSystemFreeSize = 1465380864;//所剩空间
+         NSFileSystemNodes = 624794760;
+         NSFileSystemNumber = 16777218;
+         NSFileSystemSize = 63978983424;//总空间
+     }
+     */
     NSDictionary *fattributes = [[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:nil];
     return [fattributes objectForKey:NSFileSystemSize];
+}
+/// 手机使用容量
++ (NSNumber *) freeDiskSpace
+{
+    NSDictionary *fattributes = [[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:nil];
+    return [fattributes objectForKey:NSFileSystemFreeSize];
 }
 /// 手机容量
 + (NSString *)diskSpaceType

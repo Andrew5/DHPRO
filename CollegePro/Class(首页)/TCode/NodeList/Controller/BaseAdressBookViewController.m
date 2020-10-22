@@ -81,11 +81,21 @@
 				   @"Value":@"?json=GetUserInfoAll&UserID=2"
 				   };
     
-	[NetWork POSTWithUrl:@"https://www.homesoft.cn/WebInterface/HBInterface.ashx" parameters:parameters view:self.view ifMBP:YES success:^(id responseObject) {
+    [NetWork POSTWithUrl:@"https://www.homesoft.cn/WebInterface/HBInterface.ashx" parameters:parameters view:self.view ifMBP:YES success:^(id responseObject) {
+        NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL: [NSURL URLWithString:@"http://kaifa.homesoft.cn/WebService/jsonInterface.ashx"]];//得到cookie
+        
+        NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+        NSArray *cookiess = [NSArray arrayWithArray:[cookieJar cookies]];
+        for (NSHTTPCookie *cookie in cookiess) {
+            if ([[cookie name] isEqualToString:@"HFSESSION"]) {
+                
+                NSLog(@"===%@",cookie);
+            }
+        }
         self->_arr_ListContact = [ContactModel mj_objectArrayWithKeyValuesArray:responseObject[@"UserInfo"]];
-		[self handleLettersArray];
+        [self handleLettersArray];
         [self->_tableViewMy reloadData];
-	} fail:^(NSError * _Nonnull error) {
+    } fail:^(NSError * _Nonnull error) {
 		
 	}];
 	

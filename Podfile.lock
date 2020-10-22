@@ -63,9 +63,9 @@ PODS:
     - ReactiveSwift (~> 6.2)
   - ReactiveSwift (6.3.0)
   - SDAutoLayout (2.2.1)
-  - SDWebImage (5.9.0):
-    - SDWebImage/Core (= 5.9.0)
-  - SDWebImage/Core (5.9.0)
+  - SDWebImage (5.9.1):
+    - SDWebImage/Core (= 5.9.1)
+  - SDWebImage/Core (5.9.1)
   - SocketRocket (0.5.1)
   - SVProgressHUD (2.2.5)
   - TZImagePickerController (3.4.2)
@@ -76,7 +76,7 @@ PODS:
   - YYCache (1.0.4)
 
 DEPENDENCIES:
-  - AFNetworking (~> 4.0.1)
+  - AFNetworking
   - AliPaySDK (~> 1.0)
   - AvoidCrash
   - BaiduMapKit (~> 5.4.0)
@@ -144,7 +144,7 @@ SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   AliPaySDK: 126275e58119c000cfc2d67a950eb354d3e28ab3
   AvoidCrash: 28c6916fe19bd2b84126b8dec7cbe61c9a12741d
-  BaiduMapKit: 81380395e5cc7e66f13e97de3a670b6f9ea31eb7
+  BaiduMapKit: 40a4382633859bd569d40da9f9a2e98a277dd28b
   CocoaSecurity: d288a6f87e0f363823d2cb83e753814a6944f71a
   DKNightVersion: eaa80cc4014b4bae7d4b535fd87ecc6a3c2767b3
   FBRetainCycleDetector: 46f8179bbb1c587deee3ea838a1a3ee02acf5015
@@ -165,7 +165,7 @@ SPEC CHECKSUMS:
   ReactiveCocoa: 189fcea9c5af7e394dd8a4cfc1c6f77af9ff3598
   ReactiveSwift: 7937f26ec18d555e2a99352bd0a8b2817d1f042d
   SDAutoLayout: 8bf6b3bbc8b01f775d4defbb4fda2ace805461be
-  SDWebImage: 62ae4a18473520c67b79e9724c31a63599cc9423
+  SDWebImage: a990c053fff71e388a10f3357edb0be17929c9c5
   SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TZImagePickerController: cc0b74d5f01ab4cddcc24dcdfc3c7d68e6261056
@@ -174,6 +174,6 @@ SPEC CHECKSUMS:
   YTKNetwork: a096f80c18c7e7cc0e623a0fbea0a1bfd3f5bcf2
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: 8df998a57dc4a35baa1add81fe1a0ab56ef1a88a
+PODFILE CHECKSUM: 6e9fc31b04781c6c054e5225d851b1801aa76d55
 
-COCOAPODS: 1.10.0.beta.2
+COCOAPODS: 1.10.0.rc.1
