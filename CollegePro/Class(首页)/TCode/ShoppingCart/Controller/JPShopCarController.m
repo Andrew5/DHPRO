@@ -18,7 +18,7 @@
 #import "SBApplicationController.h"
 #import "SBApplication.h"
 
-#import <CollageProExtensionKit/DHTool.h>
+#import <CollageProExtensionTool/DHTool.h>
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MPVolumeView.h>
 #import <Photos/Photos.h>
@@ -68,17 +68,13 @@
 //    NSString *path = [[NSBundle mainBundle] pathForResource:@"B206760E60639441A7876D27110082AC" ofType:@"MOV"];
 //    [JPShopCarController videoChangeGetBackgroundMiusicWithVideoUrl:[NSURL fileURLWithPath:path] completion:nil];
 //    [self getAppPlist];
-//    [self createUI];
+    [self createUI];
 //    [self futext];
 //    [self QNRTC];
 //    [self createHello];
 //    [self getLocalEquipmentAppList];
-//    [self getiphone];
 }
-- (void)getiphone{
-    NSMutableString *phoneNumber = [[NSMutableString alloc]initWithFormat:@"tel:%@",@"18510251335"];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
-}
+
 - (void)getLocalEquipmentAppList{
 //    Class LSApplicationWorkspace_class = NSClassFromString(@"LSApplicationWorkspace");
 //    NSObject *workspace = [LSApplicationWorkspace_class performSelector:@selector(defaultWorkspace)];
