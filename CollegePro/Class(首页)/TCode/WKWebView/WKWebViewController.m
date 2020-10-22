@@ -151,6 +151,7 @@
 
 //    NSURL *fileURL = [NSURL URLWithString:@"http://59.110.243.193:8080/xlby_wx/enjoyment/appCoupon?nsukey=yoKDJkj8%2BnO6kJuSgeuUsYjkn6TSCoC67Hy3JKp%2BQSar50yEpf3MhQQwqWRrWv%2FeymNQvyHifbbEsnSNVJzPxEO36iSLxAfZgZJYnmhnU6ScMlSkSnRBQUTR%2BEjUWtclKHMo9PP336SdifWEsUDFicGj9C1jT1fOQmQ3a6tqR9T9LJiRsEruIpqXw013C9kq9AOt5wd699CIyJcQeKkLZg%3D%3D"];
 //    NSURL *fileURL = [NSURL URLWithString:@"https://paveldogreat.github.io/WebGL-Fluid-Simulation/"];//https://github.com/PavelDoGreat/
+    //https://developer.nvidia.com/gpugems/gpugems/part-vi-beyond-triangles/chapter-38-fast-fluid-dynamics-simulation-gpu
 //    NSURLRequest *downloadRequest = [NSURLRequest requestWithURL:fileURL];
 //    [self.WKView loadRequest:downloadRequest];
     //WK用于正常加载

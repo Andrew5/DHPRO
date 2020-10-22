@@ -447,6 +447,7 @@
 		38AAD814253FF13C00532985 /* CollageProExtensionTool.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38AAD805253EA65900532985 /* CollageProExtensionTool.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		38AAD818253FF20900532985 /* DHTool.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C84618227827EF00BCAD87 /* DHTool.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		38AAD81A254128FF00532985 /* MeasurNetTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 38C846B7227827EF00BCAD87 /* MeasurNetTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		38AAD81D25414FFC00532985 /* SearchistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AAD81C25414FFC00532985 /* SearchistoryTableViewCell.m */; };
 		38B734542497BB2E00CC4384 /* 750x1334@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38B734532497BB2E00CC4384 /* 750x1334@2x.png */; };
 		38B94602243F48C10013170F /* DHBAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B94601243F48C10013170F /* DHBAlertView.m */; };
 		38C031422300553600B4B364 /* DHTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C031412300553600B4B364 /* DHTabbarViewController.m */; };
@@ -1815,6 +1816,8 @@
 		38AAD805253EA65900532985 /* CollageProExtensionTool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CollageProExtensionTool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38AAD807253EA65A00532985 /* CollageProExtensionTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollageProExtensionTool.h; sourceTree = "<group>"; };
 		38AAD808253EA65A00532985 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38AAD81B25414FFC00532985 /* SearchistoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchistoryTableViewCell.h; sourceTree = "<group>"; };
+		38AAD81C25414FFC00532985 /* SearchistoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchistoryTableViewCell.m; sourceTree = "<group>"; };
 		38B734532497BB2E00CC4384 /* 750x1334@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "750x1334@2x.png"; sourceTree = "<group>"; };
 		38B94600243F48C10013170F /* DHBAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHBAlertView.h; sourceTree = "<group>"; };
 		38B94601243F48C10013170F /* DHBAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHBAlertView.m; sourceTree = "<group>"; };
@@ -5239,6 +5242,8 @@
 		38C84753227827F000BCAD87 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				38AAD81B25414FFC00532985 /* SearchistoryTableViewCell.h */,
+				38AAD81C25414FFC00532985 /* SearchistoryTableViewCell.m */,
 				38C84754227827F000BCAD87 /* NaView.m */,
 				38C84755227827F000BCAD87 /* UserCell.h */,
 				38C84756227827F000BCAD87 /* UserCell.xib */,
@@ -7468,6 +7473,7 @@
 				38C2D0CC22D5E27700CF30CA /* ASIDataDecompressor.m in Sources */,
 				384C3FEA22888DBF00F01586 /* ZQVariableMenuCell.m in Sources */,
 				38C849CC227827F200BCAD87 /* NaView.m in Sources */,
+				38AAD81D25414FFC00532985 /* SearchistoryTableViewCell.m in Sources */,
 				386BBDCE22DDA7FF005E6054 /* GPUImageTextureOutput.m in Sources */,
 				386BBDCC22DDA7FF005E6054 /* GPUImageVideoCamera.m in Sources */,
 				386BBD6F22DDA7FE005E6054 /* GPUImageColorPackingFilter.m in Sources */,
