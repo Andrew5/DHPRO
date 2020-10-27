@@ -468,7 +468,26 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [self asyncGroup];
     });
 }
+- (void)getIMPFromSelector:(SEL)aSelector {
+    NSLog(@"第一种 IMP class_getMethodImplementation(Class cls, SEL name)")
+    NSLog(@"实例方法")
+    IMP insttanceIMP1 = class_getMethodImplementation(objc_getClass("LabelMethodBlockSubVC"), aSelector);
+    NSLog(@"类方法")
+    IMP classIMP1 = class_getMethodImplementation(objc_getMetaClass("LabelMethodBlockSubVC"), aSelector);
 
+    NSLog(@"第二种 IMP method_getImplementation(Method m)")
+    NSLog(@"实例方法")
+    Method insttanceMethod = class_getInstanceMethod(objc_getClass("LabelMethodBlockSubVC"), aSelector);
+    IMP insttanceIMP2 = method_getImplementation(insttanceMethod);
+    NSLog(@"类方法")
+    Method classMethod1 = class_getClassMethod(objc_getClass("LabelMethodBlockSubVC"), aSelector);
+    IMP classIMP2 = method_getImplementation(classMethod1);
+    NSLog(@"类方法")
+    Method classMethod2 = class_getClassMethod(objc_getMetaClass("LabelMethodBlockSubVC"), aSelector);
+    IMP classIMP3 = method_getImplementation(classMethod2);
+    
+    NSLog(@"insttanceIMP1:%p insttanceIMP2:%p classIMP1:%p classIMP2:%p classIMP3:%p", insttanceIMP1, insttanceIMP2, classIMP1, classIMP2, classIMP3);
+}
 
 /*
  内存管理语义
