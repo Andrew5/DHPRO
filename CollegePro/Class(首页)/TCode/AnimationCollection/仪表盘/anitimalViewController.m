@@ -17,7 +17,7 @@
 {
     UIBezierPath *_trackPath,*_progressPath;
     CAShapeLayer *_trackLayer,*_progressLayer;
-    NSTimer *timemwe
+    NSTimer *timemwe;
 }
 @property (nonatomic, weak) GradualColor_View *gradualView;
 @property (nonatomic, weak) CAShapeLayer *firstCircleShapeLayer;
