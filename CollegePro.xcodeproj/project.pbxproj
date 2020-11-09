@@ -434,6 +434,9 @@
 		3893F3A822CDF080005C30AE /* HDCollectionMonthDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3893F3A422CDF07E005C30AE /* HDCollectionMonthDetailHeaderView.m */; };
 		3893F3A922CDF080005C30AE /* HDMonthDetailCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3893F3A722CDF07F005C30AE /* HDMonthDetailCollectionViewCell.m */; };
 		3893F3AC22CDF549005C30AE /* NSDate+HDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3893F3AB22CDF548005C30AE /* NSDate+HDExtension.m */; };
+		38A246F325586CBD00993807 /* DHLearnRacViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A246F225586CBD00993807 /* DHLearnRacViewController.m */; };
+		38A246F925586DF000993807 /* ReadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A246F825586DF000993807 /* ReadView.m */; };
+		38A246FC25586DFC00993807 /* FlageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A246FA25586DFC00993807 /* FlageModel.m */; };
 		38A92B1F2518AC3B00AE9496 /* testHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = 38A92B1E2518AC3B00AE9496 /* testHtml.html */; };
 		38A92B212518B99700AE9496 /* Text.txt in Resources */ = {isa = PBXBuildFile; fileRef = 38A92B202518B99700AE9496 /* Text.txt */; };
 		38A9697024458E35003673E2 /* CustomerFootIdentificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A9696E24458E35003673E2 /* CustomerFootIdentificationView.m */; };
@@ -1805,6 +1808,12 @@
 		3893F3AA22CDF547005C30AE /* NSDate+HDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+HDExtension.h"; sourceTree = "<group>"; };
 		3893F3AB22CDF548005C30AE /* NSDate+HDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+HDExtension.m"; sourceTree = "<group>"; };
 		389AA05A24051202003361A7 /* File.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = File.xml; path = "CollegePro/Class(首页)/TTools/网络请求/File.xml"; sourceTree = SOURCE_ROOT; };
+		38A246F125586CBD00993807 /* DHLearnRacViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHLearnRacViewController.h; sourceTree = "<group>"; };
+		38A246F225586CBD00993807 /* DHLearnRacViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHLearnRacViewController.m; sourceTree = "<group>"; };
+		38A246F725586DEF00993807 /* ReadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadView.h; sourceTree = "<group>"; };
+		38A246F825586DF000993807 /* ReadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadView.m; sourceTree = "<group>"; };
+		38A246FA25586DFC00993807 /* FlageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlageModel.m; sourceTree = "<group>"; };
+		38A246FB25586DFC00993807 /* FlageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlageModel.h; sourceTree = "<group>"; };
 		38A92B1E2518AC3B00AE9496 /* testHtml.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = testHtml.html; sourceTree = "<group>"; };
 		38A92B202518B99700AE9496 /* Text.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Text.txt; sourceTree = "<group>"; };
 		38A9696B24458E34003673E2 /* CustomerFootIdentificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerFootIdentificationView.h; sourceTree = "<group>"; };
@@ -4151,6 +4160,43 @@
 			path = GLActionSheet;
 			sourceTree = "<group>";
 		};
+		38A246F025586C8300993807 /* LearnRACCode */ = {
+			isa = PBXGroup;
+			children = (
+				38A246F625586CE000993807 /* Model */,
+				38A246F525586CCC00993807 /* ViewController */,
+				38A246F425586CC300993807 /* View */,
+			);
+			path = LearnRACCode;
+			sourceTree = "<group>";
+		};
+		38A246F425586CC300993807 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				38A246F725586DEF00993807 /* ReadView.h */,
+				38A246F825586DF000993807 /* ReadView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		38A246F525586CCC00993807 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				38A246F125586CBD00993807 /* DHLearnRacViewController.h */,
+				38A246F225586CBD00993807 /* DHLearnRacViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		38A246F625586CE000993807 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				38A246FB25586DFC00993807 /* FlageModel.h */,
+				38A246FA25586DFC00993807 /* FlageModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		38AAD806253EA65A00532985 /* CollageProExtensionTool */ = {
 			isa = PBXGroup;
 			children = (
@@ -4617,6 +4663,7 @@
 		38C84631227827EF00BCAD87 /* TCode */ = {
 			isa = PBXGroup;
 			children = (
+				38A246F025586C8300993807 /* LearnRACCode */,
 				38D0FB30243B054C0028967E /* WKWebView */,
 				3817211C23EE8E8100F8A9A0 /* DrawLine */,
 				385483C7234F4A440053AB46 /* Bluetooth */,
@@ -7381,6 +7428,7 @@
 				381D6470243F163F00EA86D8 /* DDYNetworkSpeedTool.m in Sources */,
 				38C84920227827F100BCAD87 /* UIButton+EnlargeTouchArea.m in Sources */,
 				3893F3A922CDF080005C30AE /* HDMonthDetailCollectionViewCell.m in Sources */,
+				38A246F925586DF000993807 /* ReadView.m in Sources */,
 				38C848EF227827F100BCAD87 /* PJRSignatureView.m in Sources */,
 				386BBF6922DDA8AF005E6054 /* ShowcaseFilterViewController.m in Sources */,
 				386BC0B422DDB5AB005E6054 /* circleView.m in Sources */,
@@ -7430,6 +7478,7 @@
 				386BBDB522DDA7FF005E6054 /* GPUImageSoftLightBlendFilter.m in Sources */,
 				38CC865022D8A0F70057405C /* SpeedController.m in Sources */,
 				386BBDCA22DDA7FF005E6054 /* GPUImageGlassSphereFilter.m in Sources */,
+				38A246F325586CBD00993807 /* DHLearnRacViewController.m in Sources */,
 				38EBA07D22CF24F400AAD44F /* FoodListViewController.m in Sources */,
 				386BBC5822DD9C18005E6054 /* LHSelectWatermarkView.m in Sources */,
 				386BBD7B22DDA7FE005E6054 /* GPUImageVignetteFilter.m in Sources */,
@@ -7651,6 +7700,7 @@
 				386BBDBA22DDA7FF005E6054 /* GPUImageHazeFilter.m in Sources */,
 				386BC05022DDABA7005E6054 /* DGActivityIndicatorLineScalePartyAnimation.m in Sources */,
 				38C84A46227827F200BCAD87 /* MLSelectPhotoBrowserViewController.m in Sources */,
+				38A246FC25586DFC00993807 /* FlageModel.m in Sources */,
 				38C8495B227827F100BCAD87 /* ESMTabBarVC.m in Sources */,
 				386BBD8722DDA7FE005E6054 /* GPUImageOpenGLESContext.m in Sources */,
 				386BC05E22DDABA7005E6054 /* DGActivityIndicatorBallZigZagDeflectAnimation.m in Sources */,

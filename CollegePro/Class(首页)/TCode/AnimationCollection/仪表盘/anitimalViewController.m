@@ -109,7 +109,31 @@
     [self.view addSubview:yhCircle];
     [self drawyuan];
 }
-
+//画两个圆形
+-(void)createBezierPath:(CGRect)mybound{
+    //外圆
+    _trackPath = [UIBezierPath bezierPathWithArcCenter:self.view.center radius:(mybound.size.width - 0.7)/ 2 startAngle:0 endAngle:M_PI * 2 clockwise:YES];;
+    
+    _trackLayer = [CAShapeLayer new];
+    [self.view.layer addSublayer:_trackLayer];
+    _trackLayer.fillColor = nil;
+    _trackLayer.strokeColor=[UIColor grayColor].CGColor;
+    _trackLayer.path = _trackPath.CGPath;
+    _trackLayer.lineWidth=5;
+    _trackLayer.frame = mybound;
+    
+    //内圆
+    _progressPath = [UIBezierPath bezierPathWithArcCenter:self.view.center radius:(mybound.size.width - 0.7)/ 2+10 startAngle:- M_PI_2 endAngle:(M_PI * 2) * 0.7 - M_PI_2 clockwise:YES];
+    
+    _progressLayer = [CAShapeLayer new];
+    [self.view.layer addSublayer:_progressLayer];
+    _progressLayer.fillColor = nil;
+    _progressLayer.strokeColor=[UIColor redColor].CGColor;
+    _progressLayer.lineCap = kCALineCapRound;
+    _progressLayer.path = _progressPath.CGPath;
+    _progressLayer.lineWidth=5;
+    _progressLayer.frame = mybound;
+}
 - (void)drawyuan{
 //   [self drawlayer];
     //画两个圆，其中一个圆表示进度
@@ -210,7 +234,7 @@
     [self.view.layer addSublayer:self.shapeLayer];
 }
 //画两个圆形
--(void)createBezierPath:(CGRect)mybound{
+-(void)createBezierPathX:(CGRect)mybound{
     //外圆
     _trackPath = [UIBezierPath bezierPathWithArcCenter:self.view.center radius:(mybound.size.width - 0.7)/ 2 startAngle:0 endAngle:M_PI * 2 clockwise:YES];;
     
