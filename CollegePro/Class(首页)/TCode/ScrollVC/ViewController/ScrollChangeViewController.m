@@ -14,7 +14,7 @@
 #import "DHMyInfoViewController.h"
 #import "DHWorkViewController.h"
 #import "InternetViewController.h"
-#import "DHCustomScrollView.h"
+#import "GLPageScrollView.h"
 
 @interface ScrollChangeViewController ()<UIScrollViewDelegate>
 
@@ -24,7 +24,7 @@
 @property (nonatomic, strong) UIScrollView *themeScrollView;
 @property (nonatomic, strong) UIScrollView *contentScrollView;
 @property (nonatomic, strong) UIButton *selectedBtn;
-@property (nonatomic, strong) DHCustomScrollView *pageScrollView;
+@property (nonatomic, strong) GLPageScrollView *pageScrollView;
 
 @end
 
@@ -38,10 +38,27 @@
     
     [self.view addSubview:self.themeScrollView];
     [self.view addSubview:self.contentScrollView];
-    
+    [self.view addSubview:self.pageScrollView];
+
     [self setupChildViewControllers];
     [self themeBtnClicked:self.themeBtns[0]];
     
+    NSMutableArray *images = [[NSMutableArray alloc] init];
+        for (int i = 0; i < 5; i++) {
+            [images addObject:[UIImage imageNamed:[NSString stringWithFormat:@"0%d.png",i + 1]]];
+        }
+        
+    self.pageScrollView.images = images;
+    //    [pageScrollView setTimeinterval:2];
+    self.pageScrollView.didSelectIndexBlock = ^(NSInteger index)
+    {
+        NSLog(@" 打印信息 点击:%ld",(long)index);
+    };
+    
+    self.pageScrollView.didScrollToIndexBlock = ^(NSInteger index)
+    {
+        NSLog(@" 打印信息 滚动:%ld",(long)index);
+    };
     
 }
 - (NSArray *)themeArr
@@ -109,9 +126,12 @@
     return _contentScrollView;
 }
 
-- (DHCustomScrollView *)pageScrollView{
+- (GLPageScrollView *)pageScrollView{
     if (!_pageScrollView) {
-        _pageScrollView = [[DHCustomScrollView alloc] initWithFrame:CGRectMake(0, 100, [UIScreen mainScreen].bounds.size.width, TITLEVIEW_HEIGHT)];
+        _pageScrollView = [[GLPageScrollView alloc] initWithFrame:CGRectMake(0, 100, [UIScreen mainScreen].bounds.size.width, TITLEVIEW_HEIGHT)];
+        _pageScrollView.layer.borderColor = [UIColor greenColor].CGColor;
+        _pageScrollView.layer.borderWidth = 1.0;
+        
     }
         
     return _pageScrollView;
