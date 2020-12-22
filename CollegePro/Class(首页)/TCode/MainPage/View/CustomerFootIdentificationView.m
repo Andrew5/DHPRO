@@ -26,7 +26,7 @@
     [self addSubview:lb_left];
     
     //文字
-    UILabel *lb_space = [[UILabel alloc]initWithFrame:CGRectMake(lb_left.tz_right+10, Y-titleHeight/2, titleWidth, 20)];
+    UILabel *lb_space = [[UILabel alloc]initWithFrame:CGRectMake(lb_left.hb_right+10, Y-titleHeight/2, titleWidth, 20)];
     lb_space.text = title;
     lb_space.font = kFont(12);
     lb_space.textAlignment = NSTextAlignmentCenter;
@@ -37,7 +37,7 @@
     UILabel *lb_right = [[UILabel alloc]init];
     lb_right.backgroundColor = [UIColor lightGrayColor];
     lb_right.alpha = 0.7;
-    lb_right.frame = CGRectMake(lb_space.tz_right+10, lb_left.tz_top+1, width, 0.5);
+    lb_right.frame = CGRectMake(lb_space.hb_right+10, lb_left.hb_top+1, width, 0.5);
     [self addSubview:lb_right];
 }
 - (CGSize)autoSizeWithText:(NSString *)str Font:(UIFont *)font{

@@ -14,6 +14,7 @@
 #import "DHMyInfoViewController.h"
 #import "DHWorkViewController.h"
 #import "InternetViewController.h"
+#import "DHCustomScrollView.h"
 
 @interface ScrollChangeViewController ()<UIScrollViewDelegate>
 
@@ -23,6 +24,7 @@
 @property (nonatomic, strong) UIScrollView *themeScrollView;
 @property (nonatomic, strong) UIScrollView *contentScrollView;
 @property (nonatomic, strong) UIButton *selectedBtn;
+@property (nonatomic, strong) DHCustomScrollView *pageScrollView;
 
 @end
 
@@ -39,6 +41,7 @@
     
     [self setupChildViewControllers];
     [self themeBtnClicked:self.themeBtns[0]];
+    
     
 }
 - (NSArray *)themeArr
@@ -97,7 +100,7 @@
     if (!_contentScrollView) {
         _contentScrollView = [[UIScrollView alloc]init];
         CGFloat originY = CGRectGetMaxY(self.themeScrollView.frame);
-        _contentScrollView.frame = CGRectMake(0, originY, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - originY);
+        _contentScrollView.frame = CGRectMake(0, originY, [UIScreen mainScreen].bounds.size.width, TITLEVIEW_HEIGHT);
         _contentScrollView.contentSize = CGSizeMake(self.themeArr.count * [UIScreen mainScreen].bounds.size.width, 0);
         _contentScrollView.pagingEnabled = YES;
         _contentScrollView.delegate = self;
@@ -106,6 +109,13 @@
     return _contentScrollView;
 }
 
+- (DHCustomScrollView *)pageScrollView{
+    if (!_pageScrollView) {
+        _pageScrollView = [[DHCustomScrollView alloc] initWithFrame:CGRectMake(0, 100, [UIScreen mainScreen].bounds.size.width, TITLEVIEW_HEIGHT)];
+    }
+        
+    return _pageScrollView;
+}
 - (NSArray *)childControllerNames
 {
     if (!_childControllerNames) {

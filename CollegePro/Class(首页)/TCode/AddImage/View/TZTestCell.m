@@ -33,7 +33,7 @@
 		
 		_deleteBtn = [UIButton buttonWithType:UIButtonTypeCustom];
 		[_deleteBtn setImage:[UIImage imageNamed:@"photo_delete"] forState:UIControlStateNormal];
-		_deleteBtn.frame = CGRectMake(self.tz_width - 36, 0, 36, 36);
+        _deleteBtn.frame = CGRectMake(self.hb_width - 36, 0, 36, 36);
 		_deleteBtn.imageEdgeInsets = UIEdgeInsetsMake(-10, 0, 0, -10);
 		_deleteBtn.alpha = 0.6;
 		[self addSubview:_deleteBtn];
@@ -44,7 +44,7 @@
 		_gifLable.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.8];
 		_gifLable.textAlignment = NSTextAlignmentCenter;
 		_gifLable.font = [UIFont systemFontOfSize:10];
-		_gifLable.frame = CGRectMake(self.tz_width - 25, self.tz_height - 14, 25, 14);
+        _gifLable.frame = CGRectMake(self.hb_width - 25, self.hb_height - 14, 25, 14);
 		[self addSubview:_gifLable];
     }
     return self;
@@ -53,7 +53,7 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     _imageView.frame = self.bounds;
-    CGFloat width = self.tz_width / 3.0;
+    CGFloat width = self.hb_width / 3.0;
     _videoImageView.frame = CGRectMake(width, width, width, width);
 }
 

@@ -277,6 +277,8 @@
     self.titles = @[].mutableCopy;
     self.classNames = @[].mutableCopy;
 #pragma mark -跳转页面
+    
+    [self addCell:@"轮播图" class:@"DHTScrollviewTeachingVC"];
     [self addCell:@"上下滑动" class:@"ContentOffSetVC"];
     [self addCell:@"二维码" class:@"GKHScanQCodeViewController"];
     [self addCell:@"凸起菜单栏" class:@"LBTabBarTextController"];

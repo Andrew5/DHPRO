@@ -194,8 +194,8 @@ CG_INLINE CGPoint CGPointOffset(CGPoint point, CGFloat dx, CGFloat dy)
             TZTestCell *sourceCell = (TZTestCell *)sourceCollectionViewCell;
             
             _beingMovedPromptView = [[UIView alloc]initWithFrame:CGRectOffset(sourceCollectionViewCell.frame, -10, -10)];
-            _beingMovedPromptView.tz_width += 20;
-            _beingMovedPromptView.tz_height += 20;
+            _beingMovedPromptView.hb_width += 20;
+            _beingMovedPromptView.hb_height += 20;
             
             sourceCollectionViewCell.highlighted = YES;
             UIView * highlightedSnapshotView = [sourceCell snapshotView];

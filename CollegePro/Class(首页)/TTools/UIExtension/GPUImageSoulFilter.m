@@ -58,7 +58,7 @@ varying highp vec2 textureCoordinate;
 - (void)setupFilterForSize:(CGSize)filterFrameSize
 {
     runSynchronouslyOnVideoProcessingQueue(^{
-        [GPUImageContext setActiveShaderProgram:filterProgram];
+//        [GPUImageContext setActiveShaderProgram:filterProgram];
         [self setFloat:self.mix forUniformName:@"mixturePercent"];
         [self setFloat:self.scale forUniformName:@"scalePercent"];
     });

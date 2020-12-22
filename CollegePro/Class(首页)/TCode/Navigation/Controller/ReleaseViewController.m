@@ -96,11 +96,11 @@
     if (!_collectionView) {
         _layout = [[LxGridViewFlowLayout alloc] init];
         _margin = 12;
-        _itemWH = (self.view.tz_width - 2 * _margin - 4) / 4 - _margin;
+        _itemWH = (self.view.hb_width - 2 * _margin - 4) / 4 - _margin;
         _layout.itemSize = CGSizeMake(_itemWH, _itemWH);
         _layout.minimumInteritemSpacing = _margin;
         _layout.minimumLineSpacing = _margin;
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(_margin, 64, (self.view.tz_width-2*_margin)/4*MaxCount, _itemWH+5) collectionViewLayout:_layout];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(_margin, 64, (self.view.hb_width-2*_margin)/4*MaxCount, _itemWH+5) collectionViewLayout:_layout];
 		
 		_collectionView.layer.borderColor = [UIColor redColor].CGColor;
 		_collectionView.layer.borderWidth = 1.0;
