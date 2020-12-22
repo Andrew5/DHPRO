@@ -64,12 +64,12 @@ PODS:
   - ReactiveObjC (3.1.1)
   - ReactiveSwift (6.5.0)
   - SDAutoLayout (2.2.1)
-  - SDWebImage (5.9.4):
-    - SDWebImage/Core (= 5.9.4)
-  - SDWebImage/Core (5.9.4)
+  - SDWebImage (5.10.0):
+    - SDWebImage/Core (= 5.10.0)
+  - SDWebImage/Core (5.10.0)
   - SocketRocket (0.5.1)
   - SVProgressHUD (2.2.5)
-  - TZImagePickerController (3.5.2)
+  - TZImagePickerController (3.5.7)
   - WKVCDeallocMonitor (0.1.7)
   - YHPopupView (0.3.0)
   - YTKNetwork (3.0.4):
@@ -169,10 +169,10 @@ SPEC CHECKSUMS:
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   ReactiveSwift: 8d159904084e908856cde90b2e28823f3c7e485f
   SDAutoLayout: 8bf6b3bbc8b01f775d4defbb4fda2ace805461be
-  SDWebImage: b69257f4ab14e9b6a2ef53e910fdf914d8f757c1
+  SDWebImage: 9169792e9eec3e45bba2a0c02f74bf8bd922d1ee
   SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  TZImagePickerController: f1e4ed5ca1ddfc7e48d20867ff6a5c1e41a4b579
+  TZImagePickerController: aff4b62eacce0194d2494ee4f42934bcff577cec
   WKVCDeallocMonitor: be8973246aabdfa9b05504ae0a4ad83d18e6ebbf
   YHPopupView: 96d9c05c79a2a17cf69c3def09e5305cfae9e8e8
   YTKNetwork: a096f80c18c7e7cc0e623a0fbea0a1bfd3f5bcf2

@@ -49,7 +49,7 @@ NSString *const kGPUImageScaleFragmentShaderString = SHADER_STRING
 - (void)setupFilterForSize:(CGSize)filterFrameSize
 {
     runSynchronouslyOnVideoProcessingQueue(^{
-        [GPUImageContext setActiveShaderProgram:filterProgram];
+//        [GPUImageContext setActiveShaderProgram:filterProgram];
         
         [self setFloat:self.scale forUniformName:@"scale"];
     });

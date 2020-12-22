@@ -78,6 +78,20 @@ target "CollegePro" do
   pod 'YYCache'
   pod 'ReactiveCocoa'
   pod 'ReactiveObjC'
+  
+  # AIIM
+  pod 'WCDB'
+  pod 'CocoaAsyncSocket'
+  
+  # 支付内购
+  pod 'AIStore'
+  
+  pod 'BlocksKit'
+
+  pod 'Aspects'
+  
+  pod 'CYLTabBarController'
+
   #injectionIII iOS代码注入工具
 #pod 'ReactiveCocoa', '2.3.1'
 #pod 'ReactiveCocoa', '~> 4.0.2-alpha-1'

@@ -6,7 +6,7 @@
 //  Copyright © 2017年 zhuyongqing. All rights reserved.
 //
 
-#import <GPUImage/GPUImage.h>
+#import "GPUImage.h"
 
 @interface GPUImageSoulFilter : GPUImageTwoInputFilter
 

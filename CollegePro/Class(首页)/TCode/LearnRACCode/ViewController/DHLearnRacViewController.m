@@ -170,9 +170,9 @@
         NSLog(@"btnClick调用了");
     }];
     //代理KVO
-    [_readView rac_observeKeyPath:@"frame" options:(NSKeyValueObservingOptionNew) observer:nil block:^(id value, NSDictionary *change, BOOL causedByDealloc, BOOL affectedOnlyLastComponent) {
-        NSLog(@"代理KVO");
-    }];
+//    [_readView rac_observeKeyPath:@"frame" options:(NSKeyValueObservingOptionNew) observer:nil block:^(id value, NSDictionary *change, BOOL causedByDealloc, BOOL affectedOnlyLastComponent) {
+//        NSLog(@"代理KVO");
+//    }];
     [[_readView rac_valuesForKeyPath:@"frame" observer:nil] subscribeNext:^(id  _Nullable x) {
         NSLog(@"ValueForKey %@",x);
     }];
