@@ -8,8 +8,12 @@
 
 #import "ThreeDimensionalSphericalLayout.h"
 #import "SphericaLayout.h"
-@interface ThreeDimensionalSphericalLayout ()<UICollectionViewDelegate,UICollectionViewDataSource>
+#import "UIView+Layout.h"
+#import "DHCABasicAnimationView.h"
 
+@interface ThreeDimensionalSphericalLayout ()<UICollectionViewDelegate,UICollectionViewDataSource> {
+    DHCABasicAnimationView *animationView;
+}
 @end
 
 @implementation ThreeDimensionalSphericalLayout
@@ -21,13 +25,18 @@
 }
 - (void)createUI{
     SphericaLayout *sphericalLayout = [SphericaLayout alloc];
-    UICollectionView * collect  = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, DH_DeviceWidth, DH_DeviceHeight) collectionViewLayout:sphericalLayout];
+    UICollectionView * collect  = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, 350, 350) collectionViewLayout:sphericalLayout];
     collect.delegate=self;
     collect.dataSource=self;
     //这里设置的偏移量是为了无缝进行循环的滚动，具体在上一篇博客中有解释
-    collect.contentOffset = CGPointMake(DH_DeviceWidth, DH_DeviceHeight);
+    collect.contentOffset = CGPointMake(collect.size.width, collect.size.height);
     [collect registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cellid"];
     [self.view addSubview:collect];
+    
+    animationView = [[DHCABasicAnimationView alloc]init];
+    animationView.frame = CGRectMake(0, collect.hb_bottom, 50, 20);
+    animationView.backgroundColor = [UIColor lightGrayColor];
+    [self.view addSubview:animationView];
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{

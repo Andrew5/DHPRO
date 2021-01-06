@@ -414,6 +414,9 @@
 		387AE6422321103B00EADE4B /* MyCreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 387AE6412321103B00EADE4B /* MyCreView.m */; };
 		387AE6452321109900EADE4B /* MyRectangleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 387AE6442321109900EADE4B /* MyRectangleViewController.m */; };
 		387F18F4233C674100C25F63 /* DHRadianLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 387F18F3233C674000C25F63 /* DHRadianLayerView.m */; };
+		3883777D25A5671F0025BB85 /* AutoScrollerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3883777B25A5671E0025BB85 /* AutoScrollerViewController.m */; };
+		3883778025A5672B0025BB85 /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3883777E25A5672B0025BB85 /* GradientView.m */; };
+		3883778525A56ED00025BB85 /* DHCABasicAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3883778425A56ED00025BB85 /* DHCABasicAnimationView.m */; };
 		38862C4322BA004800231140 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38862C4222BA004800231140 /* CFNetwork.framework */; };
 		38862C4522BA006A00231140 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38862C4422BA006A00231140 /* CoreFoundation.framework */; };
 		38862C4722BA007000231140 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38862C4622BA007000231140 /* CoreTelephony.framework */; };
@@ -1783,6 +1786,12 @@
 		387AE6442321109900EADE4B /* MyRectangleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyRectangleViewController.m; sourceTree = "<group>"; };
 		387F18F2233C674000C25F63 /* DHRadianLayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHRadianLayerView.h; sourceTree = "<group>"; };
 		387F18F3233C674000C25F63 /* DHRadianLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHRadianLayerView.m; sourceTree = "<group>"; };
+		3883777B25A5671E0025BB85 /* AutoScrollerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoScrollerViewController.m; sourceTree = "<group>"; };
+		3883777C25A5671F0025BB85 /* AutoScrollerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoScrollerViewController.h; sourceTree = "<group>"; };
+		3883777E25A5672B0025BB85 /* GradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientView.m; sourceTree = "<group>"; };
+		3883777F25A5672B0025BB85 /* GradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientView.h; sourceTree = "<group>"; };
+		3883778325A56ED00025BB85 /* DHCABasicAnimationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHCABasicAnimationView.h; sourceTree = "<group>"; };
+		3883778425A56ED00025BB85 /* DHCABasicAnimationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHCABasicAnimationView.m; sourceTree = "<group>"; };
 		38862C4222BA004800231140 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		38862C4422BA006A00231140 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		38862C4622BA007000231140 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -3409,6 +3418,8 @@
 		386BBBD022DD7441005E6054 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3883777F25A5672B0025BB85 /* GradientView.h */,
+				3883777E25A5672B0025BB85 /* GradientView.m */,
 				38A48C79257363C200293669 /* DHScrollerTView.h */,
 				38A48C7A257363C200293669 /* DHScrollerTView.m */,
 				38FC2D5325924C2500E5FCCD /* GLPageScrollView.h */,
@@ -3426,6 +3437,8 @@
 				38A48C7725734C5800293669 /* DHTScrollviewTeachingVC.m */,
 				386BBBD822DD7460005E6054 /* ScrollChangeViewController.h */,
 				386BBBD922DD7460005E6054 /* ScrollChangeViewController.m */,
+				3883777C25A5671F0025BB85 /* AutoScrollerViewController.h */,
+				3883777B25A5671E0025BB85 /* AutoScrollerViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -4112,6 +4125,15 @@
 				387AE6442321109900EADE4B /* MyRectangleViewController.m */,
 			);
 			path = "仪表哦盘";
+			sourceTree = "<group>";
+		};
+		3883778225A56EA70025BB85 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3883778325A56ED00025BB85 /* DHCABasicAnimationView.h */,
+				3883778425A56ED00025BB85 /* DHCABasicAnimationView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		38862C6522BA5BFB00231140 /* DHLeak */ = {
@@ -6478,6 +6500,7 @@
 		69231650234E31B400A92110 /* ThreeDimensional */ = {
 			isa = PBXGroup;
 			children = (
+				3883778225A56EA70025BB85 /* View */,
 				69231651234E31B400A92110 /* Model */,
 				69231654234E31B400A92110 /* ViewController */,
 			);
@@ -7497,6 +7520,7 @@
 				38C849E0227827F200BCAD87 /* ScrollViewController.m in Sources */,
 				38F459D6251314C700F368EF /* ZCAssetsPickerViewController.m in Sources */,
 				38C84A72227827F200BCAD87 /* LabelMethodBlockSubVC.m in Sources */,
+				3883777D25A5671F0025BB85 /* AutoScrollerViewController.m in Sources */,
 				38C84928227827F100BCAD87 /* LHKeyChain.m in Sources */,
 				38C2D0CA22D5E27700CF30CA /* ASIHTTPRequest.m in Sources */,
 				38C84A33227827F200BCAD87 /* ScrollImageViewViewController.m in Sources */,
@@ -7625,6 +7649,7 @@
 				386BBDC222DDA7FF005E6054 /* GPUImageRGBErosionFilter.m in Sources */,
 				386BBD8122DDA7FE005E6054 /* GPUImageBilateralFilter.m in Sources */,
 				38C848F9227827F100BCAD87 /* SGSegmentedControl.m in Sources */,
+				3883778525A56ED00025BB85 /* DHCABasicAnimationView.m in Sources */,
 				38C849CE227827F200BCAD87 /* UserCell.m in Sources */,
 				386BBD7522DDA7FE005E6054 /* GPUImageColorInvertFilter.m in Sources */,
 				3886DD4224162314004CCA21 /* TempTarget.m in Sources */,
@@ -7704,6 +7729,7 @@
 				386BBDB022DDA7FF005E6054 /* GPUImageSharpenFilter.m in Sources */,
 				386BBDA022DDA7FF005E6054 /* GPUImageStretchDistortionFilter.m in Sources */,
 				845010F724F9221500FE4321 /* DHHttpRequestLogin.m in Sources */,
+				3883778025A5672B0025BB85 /* GradientView.m in Sources */,
 				38C8490E227827F100BCAD87 /* HKHealthStore+AAPLExtensions.m in Sources */,
 				38EA8533228D57F300A28136 /* SFTextView.m in Sources */,
 				386BBDE222DDA7FF005E6054 /* GPUImageCGAColorspaceFilter.m in Sources */,

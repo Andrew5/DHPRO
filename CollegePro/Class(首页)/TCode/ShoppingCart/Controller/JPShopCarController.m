@@ -152,21 +152,26 @@
     WKView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     WKView.autoresizesSubviews = YES;
 //    [self.view addSubview:WKView];
-   
     
     NSString *path = [[NSBundle mainBundle]pathForResource:@"testHtml" ofType:@"html"];
     NSString *html = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     [WKView loadHTMLString:html baseURL:nil];
-
-    
 //    NSURL *baseURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]];
-//    NSString *path = [[NSBundle mainBundle] pathForResource:@"testHtml" ofType:@"html"];
-//    NSString *html = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
 //    [WKView loadHTMLString:html baseURL:baseURL];
     
-    //第三种方法： NSString类方法读取内容
+    
+    // 指定路径读
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"testHtml" ofType:@"html"];
+//    NSString *html = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    
+    //第三种方法： NSString类方法读取内容，通过指定的路径读取文本内容
     NSString* content = [NSString stringWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"Text" ofType:@"txt"] encoding:NSUTF8StringEncoding error:nil];
     NSLog(@"NSString类方法读取的内容是：\n%@",content);
+    
+    NSData *turnData = [content dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *turnDic = [NSJSONSerialization JSONObjectWithData:turnData options:NSJSONReadingMutableLeaves error:nil];
+    NSLog(@"我要的数据 %@",turnDic[@"result"]);
+    
     NSAttributedString *attributedString = [[NSAttributedString alloc] initWithData:[content dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType } documentAttributes:nil error:nil];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, DH_DeviceWidth-20, 200)];
     label.attributedText = attributedString;
