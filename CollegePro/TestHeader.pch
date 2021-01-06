@@ -24,6 +24,10 @@
 
 #define kUserSwitchState @"USER_SWITCH_STATE"
 
+#define kRadianToDegrees(radian) (radian*180.0)/(M_PI)
+
+#define kDegreesToRadian(x) (M_PI * (x) / 180.0)
+
 ///MARK:字体
 #define DH_FontSize(fontSize) [UIFont systemFontOfSize:fontSize]
 #define kFont(x)    [UIFont systemFontOfSize:x]
