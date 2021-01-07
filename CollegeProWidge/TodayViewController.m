@@ -96,7 +96,7 @@
         [self.dataArray addObject:manageModel];
     }
     [self.tableView reloadData];
-    //        NSUserDefaults *userDefault = [[NSUserDefaults standardUserDefaults] initWithSuiteName:@"group.com.dhPro.tool.CollegeProExtension"];
+    //        NSUserDefaults *userDefault = [[NSUserDefaults standardUserDefaults] initWithSuiteName:@"group.com.dhTool.selfpro.CollegeProExtension"];
     //        NSString *t = [userDefault valueForKey:@"network"];
     //        self.labelNet.text = [NSString stringWithFormat:@"当前网速是：%@",t];
     [self getInternetSpeet];
@@ -204,7 +204,7 @@
     // If there's an update, use NCUpdateResultNewData
     
     // 取出数据
-    NSString * myData = [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.dhPro.tool.CollegeProExtension"] valueForKey:@"myShareData"];
+    NSString * myData = [[[NSUserDefaults alloc] initWithSuiteName:@"group.com.dhTool.selfpro.CollegeProExtension"] valueForKey:@"myShareData"];
     NSLog(@"草泥马的数据呢？ %@",myData);
     [self.tableView reloadData];
     completionHandler(NCUpdateResultNewData);

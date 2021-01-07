@@ -42,6 +42,9 @@
 #import "QDExceptionHandler.h"
 #define UUID_IDFA @"IdentifierUUIDIDFA"
 #define kUseScreenShotGesture 1
+#ifdef DEBUG
+#import <DoraemonKit/DoraemonManager.h>
+#endif
 extern CFAbsoluteTime StartTime;
 @interface AppDelegate ()<JPUSHRegisterDelegate,UNUserNotificationCenterDelegate>
 {
@@ -68,12 +71,14 @@ extern CFAbsoluteTime StartTime;
     dispatch_async(dispatch_get_main_queue(), ^{
         NSLog(@"App启动时间--%f",(CFAbsoluteTimeGetCurrent()-StartTime));
     });
+
 #if DEBUG && SHOW_STATISTICS_DEBUG
     [[HAMLogOutputWindow sharedInstance] setHidden:NO];
+           
 #endif
     
 #if DEBUG
-    
+    [[DoraemonManager shareInstance] installWithPid:@"0c36333519d88b833ceb950543d3c5e9"];//productId为在“平台端操作指南”中申请的产品id
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
     
     id overlayClass = NSClassFromString(@"UIDebuggingInformationOverlay");

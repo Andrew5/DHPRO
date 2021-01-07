@@ -84,14 +84,21 @@ target "CollegePro" do
   pod 'CocoaAsyncSocket'
   
   # 支付内购
-  pod 'AIStore'
+#  pod 'AIStore'
   
   pod 'BlocksKit'
 
   pod 'Aspects'
   
   pod 'CYLTabBarController'
-
+  # 测试使用
+  pod 'DoraemonKit/Core', '~> 3.0.4', :configurations => ['Debug'] #必选
+  pod 'DoraemonKit/WithGPS', '~> 3.0.4', :configurations => ['Debug'] #可选
+  pod 'DoraemonKit/WithLoad', '~> 3.0.4', :configurations => ['Debug'] #可选
+  pod 'DoraemonKit/WithLogger', '~> 3.0.4', :configurations => ['Debug'] #可选
+  pod 'DoraemonKit/WithDatabase', '~> 3.0.4', :configurations => ['Debug'] #可选
+  pod 'DoraemonKit/WithMLeaksFinder', '~> 3.0.4', :configurations => ['Debug'] #可选
+  pod 'DoraemonKit/WithWeex', '~> 3.0.4', :configurations => ['Debug'] #可选
   #injectionIII iOS代码注入工具
 #pod 'ReactiveCocoa', '2.3.1'
 #pod 'ReactiveCocoa', '~> 4.0.2-alpha-1'
