@@ -2,20 +2,9 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>aps-environment</key>
-	<string>development</string>
-	<key>com.apple.developer.associated-domains</key>
-	<array>
-		<string>applinks:baidu.com</string>
-	</array>
-	<key>com.apple.developer.nfc.readersession.formats</key>
-	<array>
-		<string>NDEF</string>
-		<string>TAG</string>
-	</array>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.com.dhPro.tool.CollegeProExtension</string>
+		<string>group.com.dhTool.selfpro.CollegeProShareExtension</string>
 	</array>
 </dict>
 </plist>

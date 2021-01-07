@@ -35,7 +35,9 @@
 //    [self.view addSubview:self.customerService];
 //    [self.view addSubview:self.visitorLabel];
     [self.view addSubview:self.bottomADView];
-    [self addAnimation];
+//    [self addAnimation];
+//    [self addScaleAnimationOnView:self.bottomADView];
+
     // Do any additional setup after loading the view.
 }
 
@@ -59,6 +61,15 @@
     [UIView commitAnimations];
     _bottomAdLB.layer.borderColor = [UIColor redColor].CGColor;
     _bottomAdLB.layer.borderWidth = 1.0;
+}
+//缩放动画
+- (void)addScaleAnimationOnView:(UIView *)animationView {
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animation];
+    animation.keyPath = @"transform.scale";
+    animation.values = @[@1.0, @1.3, @0.9, @1.02, @1.0];
+    animation.duration = 0.5;
+    animation.calculationMode = kCAAnimationCubic;
+    [animationView.layer addAnimation:animation forKey:nil];
 }
 - (void)myTabbar
 {  

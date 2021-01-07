@@ -66,6 +66,7 @@ static inline NSString* cachePathForKey(NSString* directory, NSString* key) {
         //将 methodB的实现 添加到系统方法中 也就是说 将 methodA方法指针添加成 方法methodB的  返回值表示是否添加成功
         BOOL isAdd = class_addMethod(self, selA, method_getImplementation(methodB), method_getTypeEncoding(methodB));
         //添加成功了 说明 本类中不存在methodB 所以此时必须将方法b的实现指针换成方法A的，否则 b方法将没有实现。
+        class_isMetaClass([UIButton class]);
         if (isAdd) {
             class_replaceMethod(self, selB, method_getImplementation(methodA), method_getTypeEncoding(methodA));
         }else{

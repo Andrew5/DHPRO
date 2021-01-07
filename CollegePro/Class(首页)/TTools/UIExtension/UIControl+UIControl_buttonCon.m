@@ -37,6 +37,7 @@
         //将methodB的实现添加到系统方法中也就是说将methodA方法指针添加成方法methodB的返回值表示是否添加成功
         BOOL isAdd =class_addMethod(self, selA,method_getImplementation(methodB),method_getTypeEncoding(methodB));
         //添加成功了说明本类中不存在methodB所以此时必须将方法b的实现指针换成方法A的，否则b方法将没有实现。
+        class_isMetaClass([UIControl class]);
         if(isAdd) {
             class_replaceMethod(self, selB,method_getImplementation(methodA),method_getTypeEncoding(methodA));
         }else{
@@ -48,7 +49,12 @@
 #define AfterOneceTimer(AfterTimerTime) static BOOL onece = NO; dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(AfterTimerTime * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{onece = NO;});if (onece) {    return;} onece = YES;
 
 - (void)mySendAction:(SEL)action to:(id)target forEvent:(UIEvent*)event{
-    
+    NSLog(@"%@,%@,%@",target,event,NSStringFromClass(self.class));
+    if (self.isIgnoreEvent) {
+        //不需要被hook
+        [self mySendAction:action to:target forEvent:event];
+        return;
+    }
     if([NSStringFromClass(self.class) isEqualToString:@"NTButton"]) {
         self.timeInterval=self.timeInterval==0?defaultInterval:self.timeInterval;
         if(self.isIgnoreEvent){

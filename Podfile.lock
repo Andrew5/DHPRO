@@ -15,9 +15,32 @@ PODS:
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
   - AliPaySDK (1.0)
+  - Aspects (1.4.1)
   - AvoidCrash (2.5.2)
   - BaiduMapKit (5.4.0)
+  - BlocksKit (2.2.5):
+    - BlocksKit/All (= 2.2.5)
+  - BlocksKit/All (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+    - BlocksKit/MessageUI
+    - BlocksKit/UIKit
+  - BlocksKit/Core (2.2.5)
+  - BlocksKit/DynamicDelegate (2.2.5)
+  - BlocksKit/MessageUI (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - BlocksKit/UIKit (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - CocoaAsyncSocket (7.6.5)
+  - CocoaLumberjack (3.7.0):
+    - CocoaLumberjack/Core (= 3.7.0)
+  - CocoaLumberjack/Core (3.7.0)
   - CocoaSecurity (1.2.4)
+  - CYLTabBarController (1.29.0):
+    - CYLTabBarController/Core (= 1.29.0)
+  - CYLTabBarController/Core (1.29.0)
   - DKNightVersion (2.4.3):
     - DKNightVersion/Core (= 2.4.3)
     - DKNightVersion/CoreAnimation (= 2.4.3)
@@ -31,9 +54,41 @@ PODS:
     - DKNightVersion/Core
   - DKNightVersion/UIKit (2.4.3):
     - DKNightVersion/Core
+  - DoraemonKit/Core (3.0.6):
+    - FMDB
+    - GCDWebServer
+    - GCDWebServer/WebDAV
+    - GCDWebServer/WebUploader
+  - DoraemonKit/WithDatabase (3.0.6):
+    - DoraemonKit/Core
+    - YYDebugDatabase
+  - DoraemonKit/WithGPS (3.0.6):
+    - DoraemonKit/Core
+  - DoraemonKit/WithLoad (3.0.6):
+    - DoraemonKit/Core
+  - DoraemonKit/WithLogger (3.0.6):
+    - CocoaLumberjack
+    - DoraemonKit/Core
+  - DoraemonKit/WithMLeaksFinder (3.0.6):
+    - DoraemonKit/Core
+    - FBRetainCycleDetector
+  - DoraemonKit/WithWeex (3.0.6):
+    - DoraemonKit/Core
+    - WeexSDK
+    - WXDevtool
   - FBRetainCycleDetector (0.1.4)
   - FDFullscreenPopGesture (1.1)
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
   - FSCalendar (2.6.0)
+  - GCDWebServer (3.5.4):
+    - GCDWebServer/Core (= 3.5.4)
+  - GCDWebServer/Core (3.5.4)
+  - GCDWebServer/WebDAV (3.5.4):
+    - GCDWebServer/Core
+  - GCDWebServer/WebUploader (3.5.4):
+    - GCDWebServer/Core
   - IQKeyboardManager (6.5.6)
   - JCore (1.2.6)
   - JPush (3.1.0):
@@ -64,25 +119,49 @@ PODS:
   - ReactiveObjC (3.1.1)
   - ReactiveSwift (6.5.0)
   - SDAutoLayout (2.2.1)
-  - SDWebImage (5.10.0):
-    - SDWebImage/Core (= 5.10.0)
-  - SDWebImage/Core (5.10.0)
+  - SDWebImage (5.10.2):
+    - SDWebImage/Core (= 5.10.2)
+  - SDWebImage/Core (5.10.2)
   - SocketRocket (0.5.1)
+  - SQLiteRepairKit (1.2.2):
+    - WCDBOptimizedSQLCipher (~> 1.2.0)
   - SVProgressHUD (2.2.5)
-  - TZImagePickerController (3.5.7)
+  - TZImagePickerController (3.5.8)
+  - WCDB (1.0.7.5):
+    - SQLiteRepairKit (~> 1.2.0)
+    - WCDBOptimizedSQLCipher (~> 1.2.0)
+  - WCDBOptimizedSQLCipher (1.2.1)
+  - WeexSDK (0.28.0)
   - WKVCDeallocMonitor (0.1.7)
+  - WXDevtool (0.24.0):
+    - SocketRocket
+    - WeexSDK
   - YHPopupView (0.3.0)
   - YTKNetwork (3.0.4):
     - AFNetworking/NSURLSession (~> 4.0)
   - YYCache (1.0.4)
+  - YYDebugDatabase (2.1.0):
+    - FMDB
+    - GCDWebServer
 
 DEPENDENCIES:
   - AFNetworking
   - AliPaySDK (~> 1.0)
+  - Aspects
   - AvoidCrash
   - BaiduMapKit (~> 5.4.0)
+  - BlocksKit
+  - CocoaAsyncSocket
   - CocoaSecurity
+  - CYLTabBarController
   - DKNightVersion
+  - DoraemonKit/Core (~> 3.0.4)
+  - DoraemonKit/WithDatabase (~> 3.0.4)
+  - DoraemonKit/WithGPS (~> 3.0.4)
+  - DoraemonKit/WithLoad (~> 3.0.4)
+  - DoraemonKit/WithLogger (~> 3.0.4)
+  - DoraemonKit/WithMLeaksFinder (~> 3.0.4)
+  - DoraemonKit/WithWeex (~> 3.0.4)
   - FBRetainCycleDetector
   - FDFullscreenPopGesture
   - FSCalendar (~> 2.6.0)
@@ -102,6 +181,7 @@ DEPENDENCIES:
   - SocketRocket
   - SVProgressHUD
   - TZImagePickerController
+  - WCDB
   - WKVCDeallocMonitor
   - YHPopupView
   - YTKNetwork
@@ -111,13 +191,21 @@ SPEC REPOS:
   trunk:
     - AFNetworking
     - AliPaySDK
+    - Aspects
     - AvoidCrash
     - BaiduMapKit
+    - BlocksKit
+    - CocoaAsyncSocket
+    - CocoaLumberjack
     - CocoaSecurity
+    - CYLTabBarController
     - DKNightVersion
+    - DoraemonKit
     - FBRetainCycleDetector
     - FDFullscreenPopGesture
+    - FMDB
     - FSCalendar
+    - GCDWebServer
     - IQKeyboardManager
     - JCore
     - JPush
@@ -136,23 +224,37 @@ SPEC REPOS:
     - SDAutoLayout
     - SDWebImage
     - SocketRocket
+    - SQLiteRepairKit
     - SVProgressHUD
     - TZImagePickerController
+    - WCDB
+    - WCDBOptimizedSQLCipher
+    - WeexSDK
     - WKVCDeallocMonitor
+    - WXDevtool
     - YHPopupView
     - YTKNetwork
     - YYCache
+    - YYDebugDatabase
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   AliPaySDK: 126275e58119c000cfc2d67a950eb354d3e28ab3
+  Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
   AvoidCrash: 28c6916fe19bd2b84126b8dec7cbe61c9a12741d
   BaiduMapKit: 40a4382633859bd569d40da9f9a2e98a277dd28b
+  BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
+  CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
+  CocoaLumberjack: e8955b9d337ac307103b0a34fd141c32f27e53c5
   CocoaSecurity: d288a6f87e0f363823d2cb83e753814a6944f71a
+  CYLTabBarController: f5460b8446f82d016945d4d53895a1ef185b79e3
   DKNightVersion: eaa80cc4014b4bae7d4b535fd87ecc6a3c2767b3
+  DoraemonKit: 919709427c30af94e265532a879ac41797d296d1
   FBRetainCycleDetector: 46f8179bbb1c587deee3ea838a1a3ee02acf5015
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   FSCalendar: c00fa5f4c3ec343ee6f7b804ae19322e9898bb84
+  GCDWebServer: 2c156a56c8226e2d5c0c3f208a3621ccffbe3ce4
   IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
   JCore: cae516dd2bf1a73b578ce6e1065abd49e709e0f7
   JPush: 5921e25ad13e0386351079217b009f2039084eac
@@ -169,15 +271,21 @@ SPEC CHECKSUMS:
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   ReactiveSwift: 8d159904084e908856cde90b2e28823f3c7e485f
   SDAutoLayout: 8bf6b3bbc8b01f775d4defbb4fda2ace805461be
-  SDWebImage: 9169792e9eec3e45bba2a0c02f74bf8bd922d1ee
+  SDWebImage: b969dcfc02c40a5da71eac0b03b8f1a0c794a86f
   SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
+  SQLiteRepairKit: 35aaae5a8838adb85f5b1eb4d796055be6060a4b
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  TZImagePickerController: aff4b62eacce0194d2494ee4f42934bcff577cec
+  TZImagePickerController: 7fd9702897ef8c0b7c951e5463f4bcf398296f9e
+  WCDB: 8e90babdeb7784c569353a4bd22a66c0a175a882
+  WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
+  WeexSDK: 78861d2f8b78f67e30580c15a54f5b420456db39
   WKVCDeallocMonitor: be8973246aabdfa9b05504ae0a4ad83d18e6ebbf
+  WXDevtool: 95b70c73c06fc3299d65bd53ba4b3e0b0087f3cb
   YHPopupView: 96d9c05c79a2a17cf69c3def09e5305cfae9e8e8
   YTKNetwork: a096f80c18c7e7cc0e623a0fbea0a1bfd3f5bcf2
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
+  YYDebugDatabase: e684a7f79fca2e3673a23347cefb822f911f3124
 
-PODFILE CHECKSUM: 182e210573d41e507d939904d9980d018167a1ba
+PODFILE CHECKSUM: 8aad4f8d7066d25006c5c0bd07e4059d56f070e8
 
-COCOAPODS: 1.10.0.rc.1
+COCOAPODS: 1.10.0
