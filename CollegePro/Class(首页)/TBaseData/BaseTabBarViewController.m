@@ -35,7 +35,7 @@
 //    [self.view addSubview:self.customerService];
 //    [self.view addSubview:self.visitorLabel];
     [self.view addSubview:self.bottomADView];
-//    [self addAnimation];
+    [self addAnimation];
 //    [self addScaleAnimationOnView:self.bottomADView];
 
     // Do any additional setup after loading the view.

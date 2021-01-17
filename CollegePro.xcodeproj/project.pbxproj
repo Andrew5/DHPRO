@@ -482,6 +482,12 @@
 		38C2D0ED22D5E36B00CF30CA /* 012.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 38C2D0E922D5E36A00CF30CA /* 012.jpg */; };
 		38C2D0EE22D5E36B00CF30CA /* 010.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 38C2D0EA22D5E36B00CF30CA /* 010.jpg */; };
 		38C2D0EF22D5E36B00CF30CA /* 013.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 38C2D0EB22D5E36B00CF30CA /* 013.jpg */; };
+		38C4E34F25B41896002D6F65 /* PlayAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C4E34E25B41896002D6F65 /* PlayAudioViewController.m */; };
+		38C4E35F25B419A1002D6F65 /* AudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C4E35425B4199E002D6F65 /* AudioPlayer.m */; };
+		38C4E36025B419A1002D6F65 /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C4E35525B4199E002D6F65 /* AudioStreamer.m */; };
+		38C4E36125B419A1002D6F65 /* AudioTrim.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C4E35B25B419A0002D6F65 /* AudioTrim.m */; };
+		38C4E36225B419A1002D6F65 /* PlayLocal.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C4E35C25B419A0002D6F65 /* PlayLocal.m */; };
+		38C4E36325B419A1002D6F65 /* AudioParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C4E35E25B419A1002D6F65 /* AudioParam.m */; };
 		38C845382278249900BCAD87 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C845372278249900BCAD87 /* AppDelegate.m */; };
 		38C8453B2278249900BCAD87 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 38C8453A2278249900BCAD87 /* ViewController.mm */; };
 		38C8453E2278249900BCAD87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38C8453C2278249900BCAD87 /* Main.storyboard */; };
@@ -1872,6 +1878,19 @@
 		38C2D0E922D5E36A00CF30CA /* 012.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 012.jpg; sourceTree = "<group>"; };
 		38C2D0EA22D5E36B00CF30CA /* 010.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 010.jpg; sourceTree = "<group>"; };
 		38C2D0EB22D5E36B00CF30CA /* 013.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 013.jpg; sourceTree = "<group>"; };
+		38C4E34D25B41896002D6F65 /* PlayAudioViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayAudioViewController.h; sourceTree = "<group>"; };
+		38C4E34E25B41896002D6F65 /* PlayAudioViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayAudioViewController.m; sourceTree = "<group>"; };
+		38C4E35425B4199E002D6F65 /* AudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayer.m; sourceTree = "<group>"; };
+		38C4E35525B4199E002D6F65 /* AudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioStreamer.m; sourceTree = "<group>"; };
+		38C4E35625B4199E002D6F65 /* AudioParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioParam.h; sourceTree = "<group>"; };
+		38C4E35725B4199E002D6F65 /* AudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayer.h; sourceTree = "<group>"; };
+		38C4E35825B4199F002D6F65 /* PlayAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayAudio.h; sourceTree = "<group>"; };
+		38C4E35925B4199F002D6F65 /* PlayLocal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayLocal.h; sourceTree = "<group>"; };
+		38C4E35A25B4199F002D6F65 /* AudioTrim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioTrim.h; sourceTree = "<group>"; };
+		38C4E35B25B419A0002D6F65 /* AudioTrim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioTrim.m; sourceTree = "<group>"; };
+		38C4E35C25B419A0002D6F65 /* PlayLocal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayLocal.m; sourceTree = "<group>"; };
+		38C4E35D25B419A0002D6F65 /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStreamer.h; sourceTree = "<group>"; };
+		38C4E35E25B419A1002D6F65 /* AudioParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioParam.m; sourceTree = "<group>"; };
 		38C845332278249900BCAD87 /* CollegePro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollegePro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38C845362278249900BCAD87 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		38C845372278249900BCAD87 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -4290,6 +4309,50 @@
 			path = Reachability;
 			sourceTree = "<group>";
 		};
+		38C4E35025B4189F002D6F65 /* PlayAudio */ = {
+			isa = PBXGroup;
+			children = (
+				38C4E35325B4196E002D6F65 /* View */,
+				38C4E35225B4195C002D6F65 /* ViewController */,
+				38C4E35125B41955002D6F65 /* Model */,
+			);
+			path = PlayAudio;
+			sourceTree = "<group>";
+		};
+		38C4E35125B41955002D6F65 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				38C4E35A25B4199F002D6F65 /* AudioTrim.h */,
+				38C4E35B25B419A0002D6F65 /* AudioTrim.m */,
+				38C4E35725B4199E002D6F65 /* AudioPlayer.h */,
+				38C4E35425B4199E002D6F65 /* AudioPlayer.m */,
+				38C4E35625B4199E002D6F65 /* AudioParam.h */,
+				38C4E35E25B419A1002D6F65 /* AudioParam.m */,
+				38C4E35825B4199F002D6F65 /* PlayAudio.h */,
+				38C4E35925B4199F002D6F65 /* PlayLocal.h */,
+				38C4E35C25B419A0002D6F65 /* PlayLocal.m */,
+				38C4E35D25B419A0002D6F65 /* AudioStreamer.h */,
+				38C4E35525B4199E002D6F65 /* AudioStreamer.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		38C4E35225B4195C002D6F65 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				38C4E34D25B41896002D6F65 /* PlayAudioViewController.h */,
+				38C4E34E25B41896002D6F65 /* PlayAudioViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		38C4E35325B4196E002D6F65 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		38C8452A2278249900BCAD87 = {
 			isa = PBXGroup;
 			children = (
@@ -4789,6 +4852,7 @@
 				38C848B9227827F100BCAD87 /* AdaptiveList */,
 				38C846D5227827EF00BCAD87 /* NetWorkTest */,
 				38C848C6227827F100BCAD87 /* Block */,
+				38C4E35025B4189F002D6F65 /* PlayAudio */,
 			);
 			path = TCode;
 			sourceTree = "<group>";
@@ -7195,6 +7259,7 @@
 				38C84A32227827F200BCAD87 /* DHImagePickerViewController.m in Sources */,
 				38FC2D2A259229D500E5FCCD /* UIImageView+DHSDSetURLImage.m in Sources */,
 				38C84973227827F100BCAD87 /* ScreenBlurry.m in Sources */,
+				38C4E36225B419A1002D6F65 /* PlayLocal.m in Sources */,
 				38C849E7227827F200BCAD87 /* SmoothLineView.m in Sources */,
 				383F16DE23169B76005F085F /* IndicatorCrViewController.m in Sources */,
 				38C84940227827F100BCAD87 /* WMDragView.m in Sources */,
@@ -7272,6 +7337,7 @@
 				38C84950227827F100BCAD87 /* XHMenu.m in Sources */,
 				386BC05322DDABA7005E6054 /* DGActivityIndicatorBallClipRotateMultipleAnimation.m in Sources */,
 				386BC05A22DDABA7005E6054 /* DGActivityIndicatorBallScaleRippleMultipleAnimation.m in Sources */,
+				38C4E36025B419A1002D6F65 /* AudioStreamer.m in Sources */,
 				38C8497E227827F100BCAD87 /* CommentsModel.m in Sources */,
 				38C84A05227827F200BCAD87 /* DHNoteJoyViewController.m in Sources */,
 				38C8490D227827F100BCAD87 /* BaseNavigationController.m in Sources */,
@@ -7660,7 +7726,10 @@
 				386AECEA24C14EED004C243F /* LilyChangeServerTypeVC.m in Sources */,
 				386BBDBB22DDA7FF005E6054 /* GPUImageRawDataOutput.m in Sources */,
 				386BC04922DDABA7005E6054 /* DGActivityIndicatorBallScaleRippleAnimation.m in Sources */,
+				38C4E36125B419A1002D6F65 /* AudioTrim.m in Sources */,
+				38C4E34F25B41896002D6F65 /* PlayAudioViewController.m in Sources */,
 				38C8494F227827F100BCAD87 /* UIScrollView+XHVisibleCenterScroll.m in Sources */,
+				38C4E36325B419A1002D6F65 /* AudioParam.m in Sources */,
 				8487ADB424F8BE56004B41ED /* WaveProgressViewController.m in Sources */,
 				3868BF7B22B9C7CC003B643C /* GLActionSheet.m in Sources */,
 				38C84924227827F100BCAD87 /* NSArray+Log.m in Sources */,
@@ -7761,6 +7830,7 @@
 				3874F5CD245EC0E80038E7DE /* NSArray+CrashCustom.m in Sources */,
 				38C84957227827F100BCAD87 /* ESMTabBarViewController.m in Sources */,
 				38C84A39227827F200BCAD87 /* ScrollImageView.m in Sources */,
+				38C4E35F25B419A1002D6F65 /* AudioPlayer.m in Sources */,
 				386BBDA522DDA7FF005E6054 /* GPUImageLanczosResamplingFilter.m in Sources */,
 				38C8490B227827F100BCAD87 /* BaseTabBarViewController.m in Sources */,
 				38F459E0251315C900F368EF /* UIApplication+scanLocalVideo.m in Sources */,
