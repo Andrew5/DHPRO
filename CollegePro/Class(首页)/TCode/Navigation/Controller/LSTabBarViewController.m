@@ -66,7 +66,6 @@
     childVC.tabBarItem.image = [UIImage imageNamed:imageName];
     childVC.tabBarItem.selectedImage = [[UIImage imageNamed:selectedImageName]  imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UINavigationController *Nav = [[UINavigationController alloc] initWithRootViewController:childVC];
-    
 //    [[UINavigationBar appearance] setBarTintColor:[UIColor greenColor]];
 //    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
 //    // 设置标题属性

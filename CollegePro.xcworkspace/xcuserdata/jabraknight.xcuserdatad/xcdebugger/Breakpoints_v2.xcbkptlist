@@ -493,38 +493,6 @@
             endingLineNumber = "163"
             landmarkName = "-confirmSelectTabBar:"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "019BF9BC-68AE-41A3-9E50-AD3A98063894 - b57cfce3800c7817"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[LBTabBarTextController confirmSelectTabBar:]"
-                  moduleName = "CollegePro"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/SSK%20Media/Code/ColligateDHPro/DHPRO/CollegePro/Class(%E9%A6%96%E9%A1%B5)/TCode/Navigation/Controller/LBTabBarTextController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "163"
-                  endingLineNumber = "163"
-                  offsetFromSymbolStart = "72">
-               </Location>
-               <Location
-                  uuid = "019BF9BC-68AE-41A3-9E50-AD3A98063894 - b57cfce3800c7817"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[LBTabBarTextController confirmSelectTabBar:]"
-                  moduleName = "CollegePro"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/SSK%20Media/Code/ColligateDHPro/DHPRO/CollegePro/Class(%E9%A6%96%E9%A1%B5)/TCode/Navigation/Controller/LBTabBarTextController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "163"
-                  endingLineNumber = "163"
-                  offsetFromSymbolStart = "116">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -556,38 +524,6 @@
             startingLineNumber = "65"
             endingLineNumber = "65"
             landmarkName = "-setupChildViewController:title:imageName:selectedImageName:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6F9E892A-44BD-465A-8F14-C53A76AD7475"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CollegePro/Class(&#x9996;&#x9875;)/TCode/Navigation/Controller/LBTabBarTextController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
-            landmarkName = "-centerClick"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "746C4342-8EBF-4D45-8797-16A3C87CFCCD"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CollegePro/Class(&#x9996;&#x9875;)/TCode/Navigation/Controller/LBTabBarTextController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
-            landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -626,16 +562,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "670C078E-735B-4BA1-ACC0-DE1ADB65381B"
+            uuid = "0F831188-728E-43DE-9080-93E3B9E911A5"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pods/DoraemonKit/iOS/DoraemonKit/Src/Core/Category/Foundation+Doraemon.m"
+            filePath = "CollegePro/Class(&#x9996;&#x9875;)/TCode/NoteBook/Controller/DHNoteJoyViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
-            landmarkName = "-descriptionWithLocale:indent:"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "-nextViewToVisible"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "16D88458-6D48-4097-ADB0-B10F8A931B82"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CollegePro/Class(&#x9996;&#x9875;)/TLib/YPTabBarController/YPTabItem.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "-doubleTapped:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9A1ECFF3-F050-4BF4-AB1D-E183B3BA7035"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CollegePro/Class(&#x9996;&#x9875;)/TLib/YPTabBarController/YPTabItem.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "-setDoubleTapHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
