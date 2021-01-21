@@ -142,7 +142,7 @@
 @end
 
 @implementation DHMainViewController
--(void)viewWillAppear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
 
 }
@@ -369,7 +369,7 @@
 #pragma mark- 底部网络状态显示
     _lb_showinfo = [[UILabel alloc]init];
     _lb_showinfo.backgroundColor = [UIColor brownColor];
-    _lb_showinfo.textColor = [UIColor redColor];
+    _lb_showinfo.textColor = [UIColor blackColor];
     _lb_showinfo.font = DH_FontSize(12);
     _lb_showinfo.layer.borderColor = [UIColor redColor].CGColor;
     _lb_showinfo.layer.borderWidth = 1.0;
@@ -468,7 +468,7 @@
     // 获取当前网络类型
     NSString *currentNetWorkState = [[YBMonitorNetWorkState shareMonitorNetWorkState] getCurrentNetWorkType];
     // 显示当前网络类型
-    _lb_showinfo.text = currentNetWorkState;
+    _lb_showinfo.text = [NSString stringWithFormat:@"当前网络状态为：%@",currentNetWorkState];
 }
 
 - (void)addCell:(NSString *)title class:(NSString *)className {

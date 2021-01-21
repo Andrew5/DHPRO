@@ -9,6 +9,8 @@
 
 #import "DHZanViewController.h"
 #import "MBProgressHUD.h"
+#import "DHBlueButton.h"
+
 @interface DHZanViewController ()
 
 @end
@@ -30,6 +32,30 @@
 	[praiseView setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
 	praiseView.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
 	[self.view addSubview:praiseView];
+    
+    ///TODO:两个view操作
+    UIButton *redBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    redBtn.frame = CGRectMake(20, 150, 200, 200);
+    [redBtn setTitle:@"1" forState:UIControlStateNormal];
+    [redBtn setTitleColor:[UIColor blackColor] forState:(UIControlStateNormal)];
+    redBtn.backgroundColor = [UIColor redColor];
+    [self.view addSubview:redBtn];
+    
+    DHBlueButton *blueBtn = [[DHBlueButton alloc] initWithFrame:CGRectMake(170, 300, 200, 200)];
+    [blueBtn setTitle:@"2" forState:UIControlStateNormal];
+    [blueBtn setTitleColor:[UIColor blackColor] forState:(UIControlStateNormal)];
+    blueBtn.backgroundColor = [UIColor blueColor];
+    [self.view addSubview:blueBtn];
+    blueBtn.redButton = redBtn;
+    
+    [redBtn addTarget:self action:@selector(abc) forControlEvents:(UIControlEventTouchUpInside)];
+    [blueBtn addTarget:self action:@selector(def) forControlEvents:(UIControlEventTouchUpInside)];
+}
+- (void)abc{
+    NSLog(@"点击 %s",__func__);
+}
+- (void)def{
+    NSLog(@"点击 %s",__func__);
 }
 - (void)praiseTopic:(UIButton *)sender{
 	if (sender.selected == YES) {

@@ -219,8 +219,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "485"
             endingLineNumber = "485"
-            landmarkName = "WKWebViewController"
-            landmarkType = "3">
+            landmarkName = "-printLog:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -493,6 +493,38 @@
             endingLineNumber = "163"
             landmarkName = "-confirmSelectTabBar:"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "019BF9BC-68AE-41A3-9E50-AD3A98063894 - b57cfce3800c7817"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[LBTabBarTextController confirmSelectTabBar:]"
+                  moduleName = "CollegePro"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/SSK%20Media/Code/ColligateDHPro/DHPRO/CollegePro/Class(%E9%A6%96%E9%A1%B5)/TCode/Navigation/Controller/LBTabBarTextController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "163"
+                  endingLineNumber = "163"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "019BF9BC-68AE-41A3-9E50-AD3A98063894 - b57cfce3800c7817"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[LBTabBarTextController confirmSelectTabBar:]"
+                  moduleName = "CollegePro"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/SSK%20Media/Code/ColligateDHPro/DHPRO/CollegePro/Class(%E9%A6%96%E9%A1%B5)/TCode/Navigation/Controller/LBTabBarTextController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "163"
+                  endingLineNumber = "163"
+                  offsetFromSymbolStart = "77">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -604,6 +636,38 @@
             startingLineNumber = "116"
             endingLineNumber = "116"
             landmarkName = "-setDoubleTapHandler:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8FB1C3FD-38B4-4820-A1B7-3FA13F71F9B2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CollegePro/Class(&#x9996;&#x9875;)/TCode/MainPage/Controller/DHMainViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "730"
+            endingLineNumber = "730"
+            landmarkName = "-getinternet"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2E95CED0-77A9-4E04-A690-5AD92AE0D670"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CollegePro/Class(&#x9996;&#x9875;)/TCode/MainPage/Controller/DHMainViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "843"
+            endingLineNumber = "843"
+            landmarkName = "-developer"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

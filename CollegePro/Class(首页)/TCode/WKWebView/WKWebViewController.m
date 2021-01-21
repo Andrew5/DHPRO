@@ -262,7 +262,7 @@ didCompleteWithError:(nullable NSError *)error{
  */
 - (void)injectJSBridge {
     // 获取JSContext
-    JSContext *context = [_webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+    JSContext *context = [self.WKView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
     // 给JS注入方法callNative
     context[@"callNative"] = ^(JSValue *action, JSValue *data) {
         NSString *actionStr = [action toString];
