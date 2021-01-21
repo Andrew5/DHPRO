@@ -971,6 +971,7 @@
 		38F540FB25B9718D00B50573 /* ZLaunchAdWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F540F025B9718D00B50573 /* ZLaunchAdWindow.swift */; };
 		38F540FC25B9718D00B50573 /* ZLaunchImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F540F125B9718D00B50573 /* ZLaunchImageView.swift */; };
 		38F540FD25B9718D00B50573 /* ZLaunchLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F540F225B9718D00B50573 /* ZLaunchLog.swift */; };
+		38F5410125B9739100B50573 /* DHBlueButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F5410025B9739100B50573 /* DHBlueButton.m */; };
 		38FC2D2A259229D500E5FCCD /* UIImageView+DHSDSetURLImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC2D29259229D500E5FCCD /* UIImageView+DHSDSetURLImage.m */; };
 		38FC2D42259233BF00E5FCCD /* GPUImageSoulFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC2D31259233BD00E5FCCD /* GPUImageSoulFilter.m */; };
 		38FC2D43259233BF00E5FCCD /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC2D32259233BD00E5FCCD /* UIImage+Resize.m */; };
@@ -2717,6 +2718,8 @@
 		38F540F025B9718D00B50573 /* ZLaunchAdWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZLaunchAdWindow.swift; sourceTree = "<group>"; };
 		38F540F125B9718D00B50573 /* ZLaunchImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZLaunchImageView.swift; sourceTree = "<group>"; };
 		38F540F225B9718D00B50573 /* ZLaunchLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZLaunchLog.swift; sourceTree = "<group>"; };
+		38F540FF25B9739100B50573 /* DHBlueButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHBlueButton.h; sourceTree = "<group>"; };
+		38F5410025B9739100B50573 /* DHBlueButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHBlueButton.m; sourceTree = "<group>"; };
 		38FC2D28259229D500E5FCCD /* UIImageView+DHSDSetURLImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+DHSDSetURLImage.h"; sourceTree = "<group>"; };
 		38FC2D29259229D500E5FCCD /* UIImageView+DHSDSetURLImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+DHSDSetURLImage.m"; sourceTree = "<group>"; };
 		38FC2D2E259233BD00E5FCCD /* NSString+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hex.h"; sourceTree = "<group>"; };
@@ -6173,6 +6176,7 @@
 		38C84871227827F000BCAD87 /* LikeButton */ = {
 			isa = PBXGroup;
 			children = (
+				38F540FE25B9735300B50573 /* View */,
 				38C84872227827F000BCAD87 /* Controller */,
 			);
 			path = LikeButton;
@@ -6597,6 +6601,15 @@
 				38F540F225B9718D00B50573 /* ZLaunchLog.swift */,
 			);
 			path = ZLaunchAd;
+			sourceTree = "<group>";
+		};
+		38F540FE25B9735300B50573 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				38F540FF25B9739100B50573 /* DHBlueButton.h */,
+				38F5410025B9739100B50573 /* DHBlueButton.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		69231650234E31B400A92110 /* ThreeDimensional */ = {
@@ -7915,6 +7928,7 @@
 				38C4E35F25B419A1002D6F65 /* AudioPlayer.m in Sources */,
 				386BBDA522DDA7FF005E6054 /* GPUImageLanczosResamplingFilter.m in Sources */,
 				38C8490B227827F100BCAD87 /* BaseTabBarViewController.m in Sources */,
+				38F5410125B9739100B50573 /* DHBlueButton.m in Sources */,
 				38F459E0251315C900F368EF /* UIApplication+scanLocalVideo.m in Sources */,
 				38FC2D4A259233BF00E5FCCD /* GpUImageScaleFilter.m in Sources */,
 				38C849D4227827F200BCAD87 /* ContactModel.m in Sources */,
