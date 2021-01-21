@@ -488,6 +488,11 @@
 		38C4E36125B419A1002D6F65 /* AudioTrim.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C4E35B25B419A0002D6F65 /* AudioTrim.m */; };
 		38C4E36225B419A1002D6F65 /* PlayLocal.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C4E35C25B419A0002D6F65 /* PlayLocal.m */; };
 		38C4E36325B419A1002D6F65 /* AudioParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C4E35E25B419A1002D6F65 /* AudioParam.m */; };
+		38C4E38525B57ADD002D6F65 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 38C4E38425B57ADD002D6F65 /* data.json */; };
+		38C4E38725B57AF3002D6F65 /* AdModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C4E38625B57AF3002D6F65 /* AdModel.swift */; };
+		38C4E38C25B58024002D6F65 /* YBMonitorNetWorkState.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C4E38825B58023002D6F65 /* YBMonitorNetWorkState.m */; };
+		38C4E38D25B58024002D6F65 /* DHReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C4E38B25B58024002D6F65 /* DHReachability.m */; };
+		38C4E38F25B5DB8C002D6F65 /* IGWebImage.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 38C4E38E25B5DB8C002D6F65 /* IGWebImage.podspec */; };
 		38C845382278249900BCAD87 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C845372278249900BCAD87 /* AppDelegate.m */; };
 		38C8453B2278249900BCAD87 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 38C8453A2278249900BCAD87 /* ViewController.mm */; };
 		38C8453E2278249900BCAD87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38C8453C2278249900BCAD87 /* Main.storyboard */; };
@@ -954,6 +959,18 @@
 		38F459E62513186C00F368EF /* DHSegmentCommenMannager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F459E52513186C00F368EF /* DHSegmentCommenMannager.m */; };
 		38F459E9251319D300F368EF /* DHVideoFileListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F459E8251319D300F368EF /* DHVideoFileListViewController.m */; };
 		38F459EC25131ABA00F368EF /* DHTFVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F459EB25131ABA00F368EF /* DHTFVideoCell.m */; };
+		38F540E625B96CF500B50573 /* CollegeBlEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F540E525B96CF500B50573 /* CollegeBlEViewController.m */; };
+		38F540F325B9718D00B50573 /* ZLaunchAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F540E825B9718D00B50573 /* ZLaunchAd.swift */; };
+		38F540F425B9718D00B50573 /* ZLaunchAdAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F540E925B9718D00B50573 /* ZLaunchAdAnimation.swift */; };
+		38F540F525B9718D00B50573 /* ZLaunchAdButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F540EA25B9718D00B50573 /* ZLaunchAdButton.swift */; };
+		38F540F625B9718D00B50573 /* ZLaunchAdCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F540EB25B9718D00B50573 /* ZLaunchAdCache.swift */; };
+		38F540F725B9718D00B50573 /* ZLaunchAdConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F540EC25B9718D00B50573 /* ZLaunchAdConfig.swift */; };
+		38F540F825B9718D00B50573 /* ZLaunchAdImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F540ED25B9718D00B50573 /* ZLaunchAdImageView.swift */; };
+		38F540F925B9718D00B50573 /* ZLaunchAdMD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F540EE25B9718D00B50573 /* ZLaunchAdMD5.swift */; };
+		38F540FA25B9718D00B50573 /* ZLaunchAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F540EF25B9718D00B50573 /* ZLaunchAdView.swift */; };
+		38F540FB25B9718D00B50573 /* ZLaunchAdWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F540F025B9718D00B50573 /* ZLaunchAdWindow.swift */; };
+		38F540FC25B9718D00B50573 /* ZLaunchImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F540F125B9718D00B50573 /* ZLaunchImageView.swift */; };
+		38F540FD25B9718D00B50573 /* ZLaunchLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F540F225B9718D00B50573 /* ZLaunchLog.swift */; };
 		38FC2D2A259229D500E5FCCD /* UIImageView+DHSDSetURLImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC2D29259229D500E5FCCD /* UIImageView+DHSDSetURLImage.m */; };
 		38FC2D42259233BF00E5FCCD /* GPUImageSoulFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC2D31259233BD00E5FCCD /* GPUImageSoulFilter.m */; };
 		38FC2D43259233BF00E5FCCD /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FC2D32259233BD00E5FCCD /* UIImage+Resize.m */; };
@@ -1891,6 +1908,13 @@
 		38C4E35C25B419A0002D6F65 /* PlayLocal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayLocal.m; sourceTree = "<group>"; };
 		38C4E35D25B419A0002D6F65 /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStreamer.h; sourceTree = "<group>"; };
 		38C4E35E25B419A1002D6F65 /* AudioParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioParam.m; sourceTree = "<group>"; };
+		38C4E38425B57ADD002D6F65 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		38C4E38625B57AF3002D6F65 /* AdModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdModel.swift; sourceTree = "<group>"; };
+		38C4E38825B58023002D6F65 /* YBMonitorNetWorkState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBMonitorNetWorkState.m; sourceTree = "<group>"; };
+		38C4E38925B58023002D6F65 /* DHReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHReachability.h; sourceTree = "<group>"; };
+		38C4E38A25B58023002D6F65 /* YBMonitorNetWorkState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBMonitorNetWorkState.h; sourceTree = "<group>"; };
+		38C4E38B25B58024002D6F65 /* DHReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHReachability.m; sourceTree = "<group>"; };
+		38C4E38E25B5DB8C002D6F65 /* IGWebImage.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IGWebImage.podspec; sourceTree = "<group>"; };
 		38C845332278249900BCAD87 /* CollegePro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollegePro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38C845362278249900BCAD87 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		38C845372278249900BCAD87 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -2680,6 +2704,19 @@
 		38F459E8251319D300F368EF /* DHVideoFileListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHVideoFileListViewController.m; sourceTree = "<group>"; };
 		38F459EA25131ABA00F368EF /* DHTFVideoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHTFVideoCell.h; sourceTree = "<group>"; };
 		38F459EB25131ABA00F368EF /* DHTFVideoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHTFVideoCell.m; sourceTree = "<group>"; };
+		38F540E425B96CF500B50573 /* CollegeBlEViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollegeBlEViewController.h; sourceTree = "<group>"; };
+		38F540E525B96CF500B50573 /* CollegeBlEViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollegeBlEViewController.m; sourceTree = "<group>"; };
+		38F540E825B9718D00B50573 /* ZLaunchAd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZLaunchAd.swift; sourceTree = "<group>"; };
+		38F540E925B9718D00B50573 /* ZLaunchAdAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZLaunchAdAnimation.swift; sourceTree = "<group>"; };
+		38F540EA25B9718D00B50573 /* ZLaunchAdButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZLaunchAdButton.swift; sourceTree = "<group>"; };
+		38F540EB25B9718D00B50573 /* ZLaunchAdCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZLaunchAdCache.swift; sourceTree = "<group>"; };
+		38F540EC25B9718D00B50573 /* ZLaunchAdConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZLaunchAdConfig.swift; sourceTree = "<group>"; };
+		38F540ED25B9718D00B50573 /* ZLaunchAdImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZLaunchAdImageView.swift; sourceTree = "<group>"; };
+		38F540EE25B9718D00B50573 /* ZLaunchAdMD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZLaunchAdMD5.swift; sourceTree = "<group>"; };
+		38F540EF25B9718D00B50573 /* ZLaunchAdView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZLaunchAdView.swift; sourceTree = "<group>"; };
+		38F540F025B9718D00B50573 /* ZLaunchAdWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZLaunchAdWindow.swift; sourceTree = "<group>"; };
+		38F540F125B9718D00B50573 /* ZLaunchImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZLaunchImageView.swift; sourceTree = "<group>"; };
+		38F540F225B9718D00B50573 /* ZLaunchLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZLaunchLog.swift; sourceTree = "<group>"; };
 		38FC2D28259229D500E5FCCD /* UIImageView+DHSDSetURLImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+DHSDSetURLImage.h"; sourceTree = "<group>"; };
 		38FC2D29259229D500E5FCCD /* UIImageView+DHSDSetURLImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+DHSDSetURLImage.m"; sourceTree = "<group>"; };
 		38FC2D2E259233BD00E5FCCD /* NSString+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hex.h"; sourceTree = "<group>"; };
@@ -3222,6 +3259,7 @@
 		385483C7234F4A440053AB46 /* Bluetooth */ = {
 			isa = PBXGroup;
 			children = (
+				38F540E725B9718D00B50573 /* ZLaunchAd */,
 				385483C8234F4A440053AB46 /* BlueToolthCore */,
 				385483D7234F4A440053AB46 /* ViewController */,
 			);
@@ -3273,8 +3311,12 @@
 		385483D7234F4A440053AB46 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				38C4E38425B57ADD002D6F65 /* data.json */,
+				38C4E38625B57AF3002D6F65 /* AdModel.swift */,
 				385483E1234F4B5C0053AB46 /* BlueToothViewController.swift */,
 				385483E0234F4B5B0053AB46 /* CollegePro-Bridging-Header.h */,
+				38F540E425B96CF500B50573 /* CollegeBlEViewController.h */,
+				38F540E525B96CF500B50573 /* CollegeBlEViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -4572,6 +4614,7 @@
 		38C845BC227827EF00BCAD87 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				38C4E38E25B5DB8C002D6F65 /* IGWebImage.podspec */,
 				38B075EA2592262D004408BF /* KSTester.h */,
 				38B075EB2592262D004408BF /* KSTester.m */,
 				3839212A2509205E00D1F3A0 /* test.m4a */,
@@ -5113,6 +5156,10 @@
 		38C846A0227827EF00BCAD87 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				38C4E38A25B58023002D6F65 /* YBMonitorNetWorkState.h */,
+				38C4E38825B58023002D6F65 /* YBMonitorNetWorkState.m */,
+				38C4E38925B58023002D6F65 /* DHReachability.h */,
+				38C4E38B25B58024002D6F65 /* DHReachability.m */,
 				38C846B3227827EF00BCAD87 /* DHAdressViewController.h */,
 				38C846AF227827EF00BCAD87 /* DHAdressViewController.m */,
 				38C846B4227827EF00BCAD87 /* DHGuidepageViewController.h */,
@@ -6534,6 +6581,24 @@
 			path = PickerImageVideo;
 			sourceTree = "<group>";
 		};
+		38F540E725B9718D00B50573 /* ZLaunchAd */ = {
+			isa = PBXGroup;
+			children = (
+				38F540E825B9718D00B50573 /* ZLaunchAd.swift */,
+				38F540E925B9718D00B50573 /* ZLaunchAdAnimation.swift */,
+				38F540EA25B9718D00B50573 /* ZLaunchAdButton.swift */,
+				38F540EB25B9718D00B50573 /* ZLaunchAdCache.swift */,
+				38F540EC25B9718D00B50573 /* ZLaunchAdConfig.swift */,
+				38F540ED25B9718D00B50573 /* ZLaunchAdImageView.swift */,
+				38F540EE25B9718D00B50573 /* ZLaunchAdMD5.swift */,
+				38F540EF25B9718D00B50573 /* ZLaunchAdView.swift */,
+				38F540F025B9718D00B50573 /* ZLaunchAdWindow.swift */,
+				38F540F125B9718D00B50573 /* ZLaunchImageView.swift */,
+				38F540F225B9718D00B50573 /* ZLaunchLog.swift */,
+			);
+			path = ZLaunchAd;
+			sourceTree = "<group>";
+		};
 		69231650234E31B400A92110 /* ThreeDimensional */ = {
 			isa = PBXGroup;
 			children = (
@@ -6968,6 +7033,7 @@
 				38C977C422AE02D300F978C1 /* night hockey.png in Resources */,
 				386BBC5A22DD9C18005E6054 /* group_default@3x.png in Resources */,
 				38C8499E227827F100BCAD87 /* Setting_@2x.png in Resources */,
+				38C4E38F25B5DB8C002D6F65 /* IGWebImage.podspec in Resources */,
 				38C977DF22AE02D300F978C1 /* blueYellow.png in Resources */,
 				38C849EB227827F200BCAD87 /* JPShopHeaderCell.xib in Resources */,
 				386BBC6122DD9C18005E6054 /* gallery_chs_seleceted@3x.png in Resources */,
@@ -7088,6 +7154,7 @@
 				38C84999227827F100BCAD87 /* soul44@3x.png in Resources */,
 				38C977C622AE02D300F978C1 /* air hokey menu.png in Resources */,
 				38C2D0ED22D5E36B00CF30CA /* 012.jpg in Resources */,
+				38C4E38525B57ADD002D6F65 /* data.json in Resources */,
 				38C849A0227827F100BCAD87 /* soul3.png in Resources */,
 				38C977D522AE02D300F978C1 /* purple paddle.png in Resources */,
 				384C409422888DFA00F01586 /* 创建文稿@2x.png in Resources */,
@@ -7278,12 +7345,14 @@
 				386BC04722DDABA7005E6054 /* DGActivityIndicatorRotatingSquaresAnimation.m in Sources */,
 				38FC2D48259233BF00E5FCCD /* NSString+Hex.m in Sources */,
 				38C8498B227827F100BCAD87 /* HXTagsView.m in Sources */,
+				38F540F825B9718D00B50573 /* ZLaunchAdImageView.swift in Sources */,
 				38C031422300553600B4B364 /* DHTabbarViewController.m in Sources */,
 				84B2642925024D01009B9E4B /* DHHttpRequestSecret.m in Sources */,
 				38C84947227827F100BCAD87 /* NTButton.m in Sources */,
 				386BC0B522DDB5AB005E6054 /* cardView.m in Sources */,
 				386BC04B22DDABA7005E6054 /* DGActivityIndicatorBallZigZagAnimation.m in Sources */,
 				386BBBDA22DD7460005E6054 /* ScrollChangeViewController.m in Sources */,
+				38F540F525B9718D00B50573 /* ZLaunchAdButton.swift in Sources */,
 				38C849EC227827F200BCAD87 /* JPShopCarCell.m in Sources */,
 				38C84A6A227827F200BCAD87 /* ActionViewController.m in Sources */,
 				84B2642625024B73009B9E4B /* DHHttpRequestLoginLogin.m in Sources */,
@@ -7333,12 +7402,14 @@
 				38C8492C227827F100BCAD87 /* SM3Tool.mm in Sources */,
 				84B7FF33250B597A0051603C /* AudioPieceTogether.m in Sources */,
 				386BBDAD22DDA7FF005E6054 /* GPUImageToneCurveFilter.m in Sources */,
+				38F540F325B9718D00B50573 /* ZLaunchAd.swift in Sources */,
 				383EAFE322981D1E00A2AA1E /* JHDownButton.m in Sources */,
 				38C84950227827F100BCAD87 /* XHMenu.m in Sources */,
 				386BC05322DDABA7005E6054 /* DGActivityIndicatorBallClipRotateMultipleAnimation.m in Sources */,
 				386BC05A22DDABA7005E6054 /* DGActivityIndicatorBallScaleRippleMultipleAnimation.m in Sources */,
 				38C4E36025B419A1002D6F65 /* AudioStreamer.m in Sources */,
 				38C8497E227827F100BCAD87 /* CommentsModel.m in Sources */,
+				38F540FA25B9718D00B50573 /* ZLaunchAdView.swift in Sources */,
 				38C84A05227827F200BCAD87 /* DHNoteJoyViewController.m in Sources */,
 				38C8490D227827F100BCAD87 /* BaseNavigationController.m in Sources */,
 				38C8492A227827F100BCAD87 /* NetWork.m in Sources */,
@@ -7386,6 +7457,7 @@
 				38FC2D44259233BF00E5FCCD /* PHAsset+Method.m in Sources */,
 				84B2642C25024F68009B9E4B /* DHHttpRequestUserInfoUserInfo.m in Sources */,
 				38C8498D227827F100BCAD87 /* HXTagAttribute.m in Sources */,
+				38C4E38D25B58024002D6F65 /* DHReachability.m in Sources */,
 				38C849E3227827F200BCAD87 /* TGuideMViewController.m in Sources */,
 				38C8497D227827F100BCAD87 /* TRViewController.m in Sources */,
 				386BBD7122DDA7FE005E6054 /* GPUImageUIElement.m in Sources */,
@@ -7398,6 +7470,7 @@
 				38C2D0CD22D5E27700CF30CA /* ASIAuthenticationDialog.m in Sources */,
 				38C84959227827F100BCAD87 /* ESMMeViewController.m in Sources */,
 				84B2641C2500F12C009B9E4B /* DHHttpRequestImageFile.m in Sources */,
+				38C4E38725B57AF3002D6F65 /* AdModel.swift in Sources */,
 				38C849DD227827F200BCAD87 /* SKGraphicView.m in Sources */,
 				38C849DA227827F200BCAD87 /* PinyinFormatter.m in Sources */,
 				386BC05522DDABA7005E6054 /* DGActivityIndicatorRotatingSandglassAnimation.m in Sources */,
@@ -7453,6 +7526,7 @@
 				38C84A40227827F200BCAD87 /* MLSelectPhotoAssets.m in Sources */,
 				381D6471243F163F00EA86D8 /* NetworkSpeedViewController.m in Sources */,
 				38C84A25227827F200BCAD87 /* InputVertifyView.m in Sources */,
+				38F540FB25B9718D00B50573 /* ZLaunchAdWindow.swift in Sources */,
 				38C848D4227827F100BCAD87 /* InfiniteRollScrollView.m in Sources */,
 				386BBD9A22DDA7FE005E6054 /* GPUImageRGBClosingFilter.m in Sources */,
 				386BC06222DDABA7005E6054 /* DGActivityIndicatorLineScalePulseOutRapidAnimation.m in Sources */,
@@ -7487,6 +7561,7 @@
 				38C8492E227827F100BCAD87 /* RequestPostUploadHelper.m in Sources */,
 				38C8493A227827F100BCAD87 /* SidebarViewController.m in Sources */,
 				38C84A21227827F200BCAD87 /* ZSDSetPasswordView.m in Sources */,
+				38F540F425B9718D00B50573 /* ZLaunchAdAnimation.swift in Sources */,
 				3807246622CDCC8C0035E5B1 /* CornerViewController.m in Sources */,
 				38C84A3D227827F200BCAD87 /* UIImage+MLTint.m in Sources */,
 				3874F5C7245E9BF10038E7DE /* CustomFlowLayout.m in Sources */,
@@ -7515,6 +7590,7 @@
 				38C8491F227827F100BCAD87 /* UIButton+touch.m in Sources */,
 				38C84A4A227827F200BCAD87 /* MLSelectPhotoPickerBrowserPhotoScrollView.m in Sources */,
 				386BBBDF22DD7D2A005E6054 /* SYSafeCategory.m in Sources */,
+				38F540F925B9718D00B50573 /* ZLaunchAdMD5.swift in Sources */,
 				38C84A5B227827F200BCAD87 /* qrencode.c in Sources */,
 				382FFA55231CC0750062080E /* GradualColor_View.m in Sources */,
 				38C84958227827F100BCAD87 /* ESMOneViewController.m in Sources */,
@@ -7533,6 +7609,7 @@
 				386BBDD622DDA7FF005E6054 /* GPUImageKuwaharaFilter.m in Sources */,
 				384C3FEB22888DBF00F01586 /* ZQVariableMenuControl.m in Sources */,
 				84B7FF25250B17ED0051603C /* BLYGetEquipmentInfo.m in Sources */,
+				38C4E38C25B58024002D6F65 /* YBMonitorNetWorkState.m in Sources */,
 				38C9779B22AE02D200F978C1 /* Air_HockeyViewController.m in Sources */,
 				38D0FB2E243AD9560028967E /* UIView+EmptyPage.m in Sources */,
 				38080AF6232D37150073EFAC /* RippleView.m in Sources */,
@@ -7590,11 +7667,13 @@
 				8487ADBE24F8BEC1004B41ED /* WTTestt.cpp in Sources */,
 				38C848EC227827F100BCAD87 /* SoapUtil.m in Sources */,
 				386BBD6D22DDA7FE005E6054 /* GPUImageSoftEleganceFilter.m in Sources */,
+				38F540E625B96CF500B50573 /* CollegeBlEViewController.m in Sources */,
 				386BC06022DDABA7005E6054 /* DGActivityIndicatorRotatingTrigonAnimation.m in Sources */,
 				38C84A51227827F200BCAD87 /* GKHScanQCodeViewController.m in Sources */,
 				38C84970227827F100BCAD87 /* DHMainViewController.m in Sources */,
 				38C8498E227827F100BCAD87 /* HXTagCollectionViewFlowLayout.m in Sources */,
 				38C849C7227827F200BCAD87 /* ZLShowBigImage.m in Sources */,
+				38F540FD25B9718D00B50573 /* ZLaunchLog.swift in Sources */,
 				386BBD9722DDA7FE005E6054 /* GPUImageTextureInput.m in Sources */,
 				382BB5602428A928000A9CB7 /* CancelableObject.m in Sources */,
 				386BC05C22DDABA7005E6054 /* DGActivityIndicatorTwoDotsAnimation.m in Sources */,
@@ -7684,7 +7763,9 @@
 				38C8490F227827F100BCAD87 /* AppDelegate+DHCategory.m in Sources */,
 				386BBDC222DDA7FF005E6054 /* GPUImageRGBErosionFilter.m in Sources */,
 				386BBD8122DDA7FE005E6054 /* GPUImageBilateralFilter.m in Sources */,
+				38F540FC25B9718D00B50573 /* ZLaunchImageView.swift in Sources */,
 				38C848F9227827F100BCAD87 /* SGSegmentedControl.m in Sources */,
+				38F540F625B9718D00B50573 /* ZLaunchAdCache.swift in Sources */,
 				3883778525A56ED00025BB85 /* DHCABasicAnimationView.m in Sources */,
 				38C849CE227827F200BCAD87 /* UserCell.m in Sources */,
 				386BBD7522DDA7FE005E6054 /* GPUImageColorInvertFilter.m in Sources */,
@@ -7809,6 +7890,7 @@
 				38345BDA22B1207C00FBE78B /* SFHttpSessionReq.m in Sources */,
 				386BBC4F22DD9C18005E6054 /* UIView+AAToolkit.m in Sources */,
 				38C84A1E227827F200BCAD87 /* CountdownViewController.m in Sources */,
+				38F540F725B9718D00B50573 /* ZLaunchAdConfig.swift in Sources */,
 				38FC2D4B259233BF00E5FCCD /* UIImage+Filter.m in Sources */,
 				386BC08022DDB18C005E6054 /* CCDraggableContainer.m in Sources */,
 				386BBD6922DDA7FE005E6054 /* GPUImageJFAVoroniFilter.m in Sources */,

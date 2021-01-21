@@ -14,11 +14,18 @@ def commonPods
   pod 'SDAutoLayout','~>2.2.1'
   pod 'SDWebImage'
   pod 'MJExtension'
+  
+  pod 'IGSearch', :path => 'Lib/IGSearch'
+  pod 'IGWebImage'
+  pod 'IGNetworking'
+  pod 'IGRefresh'
 end
 
 target "CollegePro" do
 #source 'https://github.com/CocoaPods/Specs.git'
 	use_frameworks!
+  inherit! :search_paths
+
 #使用数字比较符号指定版本
 #'> 0.1'   // tag 0.1以上
 #'>= 0.1'   // tag  0.1以上，包括0.1
@@ -32,6 +39,7 @@ target "CollegePro" do
   pod 'YTKNetwork'#, '~> 3.0.3'
   #YTKNetwork结合PromiseKit，添加链式调用方法
   pod 'PromiseYTKNetwork'#, '~> 0.1.2'
+
 #  pod 'AFNetworking', (~> 4.0.1)
   commonPods
 #  #自动布局界面库

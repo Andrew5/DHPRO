@@ -8,6 +8,7 @@
 
 #import "WKWebViewController.h"
 #import "BaseTabBarViewController.h"
+#import <JavaScriptCore/JavaScriptCore.h>
 
 @interface WKWebViewController ()<WKNavigationDelegate,WKUIDelegate,WKScriptMessageHandler,NSURLSessionDelegate,NSURLSessionTaskDelegate>
 @property (strong, nonatomic) WKWebView *WKView;
@@ -254,6 +255,24 @@ didCompleteWithError:(nullable NSError *)error{
     //可以在这边更改是否缓存，默认的话是completionHandler(proposedResponse)
     //不想缓存的话可以设置completionHandler(nil)
     completionHandler(proposedResponse);
+}
+/**
+ JSCore方案的核心代码
+ 注入JSBridge代码
+ */
+- (void)injectJSBridge {
+    // 获取JSContext
+    JSContext *context = [_webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+    // 给JS注入方法callNative
+    context[@"callNative"] = ^(JSValue *action, JSValue *data) {
+        NSString *actionStr = [action toString];
+        NSString *dataStr = [data toString];
+        if ([actionStr isEqualToString:@"alertMessage"]) {
+            return dataStr;
+        } else {
+            return @"Unkown action";
+        }
+    };
 }
 /*=========代理方式===========*/
 //UploadTask继承自DataTask。因为UploadTask只不过在Http请求的时候，把数据放到Http Body中。所以，用UploadTask来做的事情，通常直接用DataTask也可以实现。
