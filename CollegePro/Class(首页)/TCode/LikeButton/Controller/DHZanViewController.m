@@ -61,6 +61,13 @@
 	if (sender.selected == YES) {
 		NSLog(@"点赞");
 		[sender setImage:[UIImage imageNamed:@"dianzan"] forState:UIControlStateNormal];
+        CAKeyframeAnimation *animation = [CAKeyframeAnimation animation];
+        animation.keyPath = @"transform.scale";
+        animation.values = @[@1.0, @1.3, @0.9, @1.02, @1.0];
+        animation.duration = 0.5;
+        animation.calculationMode = kCAAnimationCubic;
+        [sender.layer addAnimation:animation forKey:nil];
+        
          MBProgressHUD *hub=[[MBProgressHUD alloc] initWithView:self.view];
 
         hub.mode=MBProgressHUDModeIndeterminate;
