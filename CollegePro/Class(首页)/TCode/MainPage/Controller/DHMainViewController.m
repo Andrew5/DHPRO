@@ -24,6 +24,8 @@
 #import <AVFoundation/AVFoundation.h>//音视频
 #import "ViewController.h"//主页
 #import "THomeCollectionViewCell.h"//主页列表样式
+#import "YBMonitorNetWorkState.h"
+
 //#import "GKHScanQCodeViewController.h"//二维码
 //功能展示
 //#import "T3DTouchViewController.h"//3DTouch
@@ -101,7 +103,7 @@
 //#import "DocumentViewController.h"//文档
 //#import "AliRTCViewController.h"
 
-@interface DHMainViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIAccelerometerDelegate,AVAudioPlayerDelegate,MKMapViewDelegate,CLLocationManagerDelegate,UISearchBarDelegate>{
+@interface DHMainViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIAccelerometerDelegate,AVAudioPlayerDelegate,MKMapViewDelegate,CLLocationManagerDelegate,UISearchBarDelegate,YBMonitorNetWorkStateDelegate>{
     NSMutableArray *valueArr;
     UICollectionView *_collectionView;
     UILabel *_lb_showinfo;
@@ -371,13 +373,14 @@
     _lb_showinfo.font = DH_FontSize(12);
     _lb_showinfo.layer.borderColor = [UIColor redColor].CGColor;
     _lb_showinfo.layer.borderWidth = 1.0;
-//    _lb_showinfo.frame = CGRectMake(0, DH_DeviceHeight, DH_DeviceWidth, 25);
-//    [self.view addSubview:_lb_showinfo];
-//    [_lb_showinfo mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.bottom.equalTo(self.view);
-//        make.left.with.right.equalTo(self.view);
-//        make.height.offset(25);
-//    }];
+    [self networkClick];
+    _lb_showinfo.frame = CGRectMake(0, DH_DeviceHeight, DH_DeviceWidth, 25);
+    [self.view addSubview:_lb_showinfo];
+    [_lb_showinfo mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.view);
+        make.left.with.right.equalTo(self.view);
+        make.height.offset(25);
+    }];
 //    _lb_showinfo.text = [self getSignalStrength];
 }
 
@@ -434,6 +437,39 @@
 }
 
 
+- (void)networkClick{
+    // 设置Label显示当前网络状态
+//    self.showCurrentNetWorkState = [[UILabel alloc] initWithFrame:(CGRectMake(0, 200, [UIScreen mainScreen].bounds.size.width, 50))];
+//    [self.showCurrentNetWorkState setTextAlignment:(NSTextAlignmentCenter)];
+//    [self.view addSubview:self.showCurrentNetWorkState];
+    // 设置代理
+    [YBMonitorNetWorkState shareMonitorNetWorkState].delegate = self;
+    // 添加网络监听
+    [[YBMonitorNetWorkState shareMonitorNetWorkState] addMonitorNetWorkState];
+    
+    //    [self netWorkStateChanged];
+    
+    NSTimer *timer = [NSTimer timerWithTimeInterval:2.0 target:self selector:@selector(netWorkStateChanged) userInfo:nil repeats:YES];
+    
+    // 在默认模式下添加的 timer 当我们拖拽 textView 的时候，不会运行 run 方法
+    
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+    
+    // 在 UI 跟踪模式下添加 timer 当我们拖拽 textView 的时候，run 方法才会运行
+    
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:UITrackingRunLoopMode];
+    
+    // timer 可以运行在两种模式下，相当于上面两句代码写在一起
+    
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+}
+#pragma mark 网络监听的代理方法，当网络状态发生改变的时候触发
+- (void)netWorkStateChanged{
+    // 获取当前网络类型
+    NSString *currentNetWorkState = [[YBMonitorNetWorkState shareMonitorNetWorkState] getCurrentNetWorkType];
+    // 显示当前网络类型
+    _lb_showinfo.text = currentNetWorkState;
+}
 
 - (void)addCell:(NSString *)title class:(NSString *)className {
     [self.titles addObject:title];

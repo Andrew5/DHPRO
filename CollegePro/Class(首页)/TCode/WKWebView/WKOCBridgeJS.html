@@ -111,7 +111,16 @@
             function loadURL(url) {
                 window.location.href = url;
             }
-            
+    
+            // 调用demo
+            ; (function () {
+                var callbackButton = document.getElementById('buttons').appendChild(document.createElement('button'));
+                callbackButton.innerHTML = 'CallNative';
+                
+                callbackButton.onclick = function (e) {
+                    alert(callNative("alertMessage", "Hello world!"));
+                };
+            })()
            
             //! 调用alert(message)
             function showAlert() {
