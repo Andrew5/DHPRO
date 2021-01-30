@@ -4586,9 +4586,9 @@
 		38C845AD227827EF00BCAD87 /* WLMotionView */ = {
 			isa = PBXGroup;
 			children = (
+				38C845B0227827EF00BCAD87 /* WLBallTool.h */,
 				38C845AE227827EF00BCAD87 /* WLBallTool.m */,
 				38C845AF227827EF00BCAD87 /* WLBallView.h */,
-				38C845B0227827EF00BCAD87 /* WLBallTool.h */,
 				38C845B1227827EF00BCAD87 /* WLBallView.m */,
 			);
 			path = WLMotionView;
