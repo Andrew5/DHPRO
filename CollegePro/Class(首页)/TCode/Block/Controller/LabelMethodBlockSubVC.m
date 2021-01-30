@@ -1864,7 +1864,7 @@ static UILabel *myLabel;
     self.run(10);//有没有发现这个调用和block作为属性时是一样的，下面会继续分析
     
     //链式调用
-    self.travel(@"重庆").travel(@"北京");
+    self.travel(@"重庆").travel(@"北京").travel(@"上海");
     
     int (^myBlock)(void);
     int x;
@@ -1954,6 +1954,8 @@ void logBlock(int(^theBlock)(void))
     /*最普通的用法了吧，和lambda一样了*/
     void (^NormalBlock1)(NSInteger) = ^(NSInteger avalue)
     {
+        sn += avalue;
+        bn += avalue;
         NSLog(@"%ld", avalue);
     };
     NormalBlock1(n);
