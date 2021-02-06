@@ -342,7 +342,41 @@ typedef void (^CustomEvent)(NSString* str);//本类测试
 //        IMP imp = [person methodForSelector:selector];
 //        void (*func)(id, SEL,NSString *) = (void *)imp;
 //        func(person, selector,@"namamam");
+    ///TODO:动态调用方法(模仿组件、动态路由配置等)
+    //    [[ViewController alloc]abc];
+        NSString *className = NSStringFromClass([self class]);
+        NSString *mth = @"setExpressionFormula:";///实例方法
+        SEL methFunc = NSSelectorFromString(mth);
+        Class _Nullable class = NSClassFromString(className);
+    //    objc_msgSend([class alloc], methFunc);///无参调用
+    /* 之所以会崩溃
+    - (int) doSomething:(int) x { ... }
+    - (void) doSomethingElse {
+        int (*action)(id, SEL, int) = (int (*)(id, SEL, int)) objc_msgSend;
+        action(self, @selector(doSomething:), 0);
+    }
+    所以必须先定义原型才可以使用，这样才不会发生崩溃，调用的时候则如下：
+     void (*glt_msgsend)(id, SEL, NSString *, NSString *) = (void (*)(id, SEL, NSString *, NSString *))objc_msgSend;
+    glt_msgsend(cls, @selector(eat:say:), @"123", @"456");
+        */
+        ((void(*)(id,SEL,id))objc_msgSend)([class alloc], methFunc,@"我是参数");///多参调用
+        NSLog(@"侧喝牛奶");
+    /*
+     [self test:arg1 arg2:arg2];
+     objc_msgSend(self, @selector(test), arg1, arg2);
+     或者(因为selector找不到对应的方法，所以要用下面这种)：
 
+     SEL testFunc = NSSelectorFromString(@"test:arg2:");
+
+     objc_msgSend(self, testFunc, arg1, arg2);
+     最近在ios8时，发现如下报错：
+
+     Too many arguments to function call, expected 0, have 3
+     解决方法：
+
+     ((void(*)(id,SEL, id,id))objc_msgSend)(self, testFunc, arg1, arg2);
+     */
+    
         Class XYClass = objc_allocateClassPair([NSObject class], "XYClass", 0);
         NSString*namename =@"namename";
         class_addIvar(XYClass, namename.UTF8String,sizeof(id),log2(sizeof(id)),@encode(id));
