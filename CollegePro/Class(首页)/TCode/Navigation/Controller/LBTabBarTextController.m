@@ -143,6 +143,26 @@ static LBTabBarTextController *sharedBaseTabBar;
 	
     // Do any additional setup after loading the view.
 }
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+    
+//    if (self.isHidden == NO) {
+        
+        CGPoint newPoint = [self.view convertPoint:point toView:centerBtn];
+        
+        if ( [centerBtn pointInside:newPoint withEvent:event]) {
+            return centerBtn;
+        }else{
+            
+            return [self hitTest:point withEvent:event];
+        }
+//    }
+//
+//    else {
+//        return [super hitTest:point withEvent:event];
+//    }
+    
+    
+}
 -(void)centerClick{
 	YSYPreviewViewController * vc4 = [[YSYPreviewViewController alloc] init];
 	//发起预约

@@ -39,4 +39,24 @@
     return CGRectMake(0, titleY +4, titleW, titleH);
     
 }
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+    
+    if (self.isHidden == NO) {
+        
+        CGPoint newPoint = [self convertPoint:point toView:self];
+        
+        if ( [self pointInside:newPoint withEvent:event]) {
+            return self;
+        }else{
+            
+            return [super hitTest:point withEvent:event];
+        }
+    }
+    
+    else {
+        return [super hitTest:point withEvent:event];
+    }
+    
+    
+}
 @end

@@ -8,7 +8,6 @@
 
 #import "UIViewController+DHLeak.h"
 #import "UIViewController+RTCSampleAlert.h"
-#import "MBProgressHUD+JDragon.h"
 #import "SwizzManager.h"
 const char* deallocKey = "isDeallocDisAppear";
 @implementation UIViewController (DHLeak)
@@ -73,7 +72,9 @@ const char* deallocKey = "isDeallocDisAppear";
 //                                                  otherButtonTitles: nil];
 //    [alertView show];
     
-    [MBProgressHUD showInfoMessage:msg];
+//    [MBProgressHUD showInfoMessage:msg];
+//    [MBProgressHUD showWarnMessage:msg];
+
 }
 
 @end
