@@ -698,7 +698,11 @@
     NSString*str_data= [dict valueForKey:@"dict"];
     NSLog(@"str_data %@",str_data);
     //    [self showHint:[NSString stringWithFormat:@"后台执行时间 %@",str_data] yOffset:10];
-    [MBProgressHUD showWarnMessage:[NSString stringWithFormat:@"后台执行时间 %@",str_data]];
+//    [MBProgressHUD showWarnMessage:[NSString stringWithFormat:@"后台执行时间 %@",str_data]];
+    MBProgressHUD *mb1 = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    mb1.mode = MBProgressHUDModeText;
+    mb1.labelText = [NSString stringWithFormat:@"后台执行时间 %@",str_data];
+    [mb1 hide:YES afterDelay:1];
 }
 //- (id)transformedValue:(id)value﻿
 //{﻿

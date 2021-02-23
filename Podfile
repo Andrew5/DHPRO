@@ -15,10 +15,10 @@ def commonPods
   pod 'SDWebImage'
   pod 'MJExtension'
   
-  pod 'IGSearch', :path => 'Lib/IGSearch'
-  pod 'IGWebImage'
-  pod 'IGNetworking'
-  pod 'IGRefresh'
+#  pod 'IGSearch', :path => 'Lib/IGSearch'
+#  pod 'IGWebImage'
+#  pod 'IGNetworking'
+#  pod 'IGRefresh'
 end
 
 target "CollegePro" do
@@ -50,8 +50,8 @@ target "CollegePro" do
   # pod install --repo-updata
   #网络加载转圈图标
   pod 'SVProgressHUD'
-#  pod 'MBProgressHUD'
-  pod 'MBProgressHUD+JDragon'
+  pod 'MBProgressHUD'
+#  pod 'MBProgressHUD+JDragon'
   #图片处理
   pod 'TZImagePickerController'
 #  pod 'SDWebImage'

@@ -46,8 +46,8 @@
     _arr_Results = [[NSMutableArray alloc]init];
 
     [self setUPUI];
-//    [self getData];
-    [self setMVVM];
+    [self getData];
+//    [self setMVVM];
 }
 - (void)setMVVM{
     dispatch_group_t group = dispatch_group_create();
