@@ -66,7 +66,8 @@
 //关闭
 -(IBAction)closeView:(id)sender
 {
-    objc_msgSend(self.superview,@selector(dismiss));
+    ((void (*)(id,SEL))objc_msgSend)(self.superview,@selector(dismiss));
+//    objc_msgSend(self.superview,@selector(dismiss));
 }
 
 -(void)setTitle:(NSString *)title
