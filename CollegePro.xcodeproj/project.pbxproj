@@ -436,6 +436,7 @@
 		3893F3A822CDF080005C30AE /* HDCollectionMonthDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3893F3A422CDF07E005C30AE /* HDCollectionMonthDetailHeaderView.m */; };
 		3893F3A922CDF080005C30AE /* HDMonthDetailCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3893F3A722CDF07F005C30AE /* HDMonthDetailCollectionViewCell.m */; };
 		3893F3AC22CDF549005C30AE /* NSDate+HDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3893F3AB22CDF548005C30AE /* NSDate+HDExtension.m */; };
+		38A0B45925E7B60800DAB7F7 /* GZBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A0B45825E7B60800DAB7F7 /* GZBottomView.m */; };
 		38A246F325586CBD00993807 /* DHLearnRacViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A246F225586CBD00993807 /* DHLearnRacViewController.m */; };
 		38A246F925586DF000993807 /* ReadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A246F825586DF000993807 /* ReadView.m */; };
 		38A246FC25586DFC00993807 /* FlageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A246FA25586DFC00993807 /* FlageModel.m */; };
@@ -1833,6 +1834,8 @@
 		3893F3A722CDF07F005C30AE /* HDMonthDetailCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDMonthDetailCollectionViewCell.m; sourceTree = "<group>"; };
 		3893F3AA22CDF547005C30AE /* NSDate+HDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+HDExtension.h"; sourceTree = "<group>"; };
 		3893F3AB22CDF548005C30AE /* NSDate+HDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+HDExtension.m"; sourceTree = "<group>"; };
+		38A0B45725E7B60700DAB7F7 /* GZBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZBottomView.h; sourceTree = "<group>"; };
+		38A0B45825E7B60800DAB7F7 /* GZBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZBottomView.m; sourceTree = "<group>"; };
 		38A246F125586CBD00993807 /* DHLearnRacViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHLearnRacViewController.h; sourceTree = "<group>"; };
 		38A246F225586CBD00993807 /* DHLearnRacViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHLearnRacViewController.m; sourceTree = "<group>"; };
 		38A246F725586DEF00993807 /* ReadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadView.h; sourceTree = "<group>"; };
@@ -5083,6 +5086,8 @@
 				382BB5652434E3BD000A9CB7 /* TableViewAnimationList */,
 				382BB5622434C3DA000A9CB7 /* TkTabBar.h */,
 				382BB5632434C3DC000A9CB7 /* TkTabBar.m */,
+				38A0B45725E7B60700DAB7F7 /* GZBottomView.h */,
+				38A0B45825E7B60800DAB7F7 /* GZBottomView.m */,
 				38C84678227827EF00BCAD87 /* XHSource */,
 			);
 			path = View;
@@ -7605,6 +7610,7 @@
 				386BBBDF22DD7D2A005E6054 /* SYSafeCategory.m in Sources */,
 				38F540F925B9718D00B50573 /* ZLaunchAdMD5.swift in Sources */,
 				38C84A5B227827F200BCAD87 /* qrencode.c in Sources */,
+				38A0B45925E7B60800DAB7F7 /* GZBottomView.m in Sources */,
 				382FFA55231CC0750062080E /* GradualColor_View.m in Sources */,
 				38C84958227827F100BCAD87 /* ESMOneViewController.m in Sources */,
 				386BBDDF22DDA7FF005E6054 /* GPUImageFilter.m in Sources */,
