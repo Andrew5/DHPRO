@@ -450,70 +450,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "019BF9BC-68AE-41A3-9E50-AD3A98063894"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CollegePro/Class(&#x9996;&#x9875;)/TCode/Navigation/Controller/LBTabBarTextController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
-            landmarkName = "LBTabBarTextController"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  uuid = "019BF9BC-68AE-41A3-9E50-AD3A98063894 - 8177ad7742bf527e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[LBTabBarTextController confirmSelectTabBar:]"
-                  moduleName = "CollegePro"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/SSK%20Media/Code/ColligateDHPro/DHPRO/CollegePro/Class(%E9%A6%96%E9%A1%B5)/TCode/Navigation/Controller/LBTabBarTextController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "183"
-                  endingLineNumber = "183"
-                  offsetFromSymbolStart = "48">
-               </Location>
-               <Location
-                  uuid = "019BF9BC-68AE-41A3-9E50-AD3A98063894 - 8177ad7742bf527e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[LBTabBarTextController confirmSelectTabBar:]"
-                  moduleName = "CollegePro"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/SSK%20Media/Code/ColligateDHPro/DHPRO/CollegePro/Class(%E9%A6%96%E9%A1%B5)/TCode/Navigation/Controller/LBTabBarTextController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "183"
-                  endingLineNumber = "183"
-                  offsetFromSymbolStart = "84">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "81A61E66-E435-4F24-B1EA-D1846E049BCE"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CollegePro/Class(&#x9996;&#x9875;)/TCode/Navigation/Controller/LBTabBarTextController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
-            landmarkName = "LBTabBarTextController"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "522B5429-E989-422A-A3C0-1D94DEA33064"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -716,6 +652,54 @@
             startingLineNumber = "88"
             endingLineNumber = "88"
             landmarkName = "-getData"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EF877BF9-89B9-4D51-AC4C-286BF28BF50A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CollegePro/Class(&#x9996;&#x9875;)/TCode/Navigation/Controller/LBTabBarTextController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
+            landmarkName = "-chooseTabBar:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ED27FB68-FA4B-4DA9-9F64-D3B136DFC26A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CollegePro/Class(&#x9996;&#x9875;)/TCode/Navigation/Controller/LBTabBarTextController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
+            landmarkName = "-centerClick"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B31E1E96-EB7A-4FE6-AB5B-C367033887B4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CollegePro/Class(&#x9996;&#x9875;)/TCode/Navigation/View/GZBottomView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "-hitTest:withEvent:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -19,7 +19,7 @@
 
 +(LBTabBarTextController *)destoryShared;
 
-@property (nonatomic,strong)UIView * bgView;
+//@property (nonatomic,strong)UIView * bgView;
 @property (nonatomic,assign)NSInteger beforeIndex;
 @property (nonatomic,assign)NSInteger presentIndex;
 

@@ -24,7 +24,11 @@
 #import "YSYPreviewViewController.h"
 #import "PostTableViewController.h"
 //
+
+#import "GZBottomView.h"
+
 @interface LBTabBarTextController ()
+@property (nonatomic,strong)GZBottomView *bgView;
 
 @end
 
@@ -57,7 +61,7 @@ static LBTabBarTextController *sharedBaseTabBar;
 	self.viewControllers = @[vc1,vc2,vc3,vc5];
 	titleArr =@[@"",@"首页",@"发现",@"",@"消息",@"我的"];
 	
-	self.bgView = [[UIView alloc] initWithFrame:CGRectMake(0,0, UI_SCREEN_WIDTH, UI_TAB_BAR_HEIGHT)];
+	self.bgView = [[GZBottomView alloc] initWithFrame:CGRectMake(0,0, UI_SCREEN_WIDTH, UI_TAB_BAR_HEIGHT)];
 	_bgView.backgroundColor = [UIColor whiteColor];
 	_bgView.userInteractionEnabled = YES;
 	//去掉顶部的黑线
@@ -134,11 +138,12 @@ static LBTabBarTextController *sharedBaseTabBar;
 //	[centerBtn setTitle:@"" forState:UIControlStateNormal];
 //	[centerBtn setTitleColor:APPMAINCOLOR forState:UIControlStateDisabled];
 	centerBtn.titleLabel.font =[UIFont systemFontOfSize:10];
-	[centerBtn setTitleEdgeInsets:UIEdgeInsetsMake(70,-50,0, 0)];
+	[centerBtn setTitleEdgeInsets:UIEdgeInsetsMake(70,0,0, 0)];
 	[centerBtn setImageEdgeInsets:UIEdgeInsetsMake(0,(WIDTH(centerBtn)-50)/2.0,0, 0)];
 	[centerBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
 	
 	[centerBtn addTarget:self action:@selector(centerClick) forControlEvents:UIControlEventTouchUpInside];
+    _bgView.selectedView = centerBtn;
 	[_bgView addSubview:centerBtn];
 	
     // Do any additional setup after loading the view.

@@ -78,6 +78,10 @@ target "CollegePro" do
   pod 'SocketRocket'#socket
 
   pod "DKNightVersion"##暗黑模式
+  pod 'LEETheme'
+
+  pod 'SwiftTheme'
+
   pod 'FDFullscreenPopGesture'
 #pod 'WechatOpenSDK'
   pod 'FBRetainCycleDetector'
