@@ -25,8 +25,8 @@
             filePath = "CollegePro/AppDelegate.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "711"
-            endingLineNumber = "711"
+            startingLineNumber = "740"
+            endingLineNumber = "740"
             landmarkName = "AppDelegate"
             landmarkType = "3">
          </BreakpointContent>
@@ -233,8 +233,8 @@
             filePath = "CollegePro/AppDelegate.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "409"
-            endingLineNumber = "409"
+            startingLineNumber = "438"
+            endingLineNumber = "438"
             landmarkName = "-application:openURL:options:"
             landmarkType = "7">
          </BreakpointContent>
@@ -700,6 +700,22 @@
             startingLineNumber = "13"
             endingLineNumber = "13"
             landmarkName = "-hitTest:withEvent:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "63D98C83-4659-41EA-BD80-3348B6807389"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CollegePro/Class(&#x9996;&#x9875;)/TCode/Sidebar/Controller/New Group/SlideMenuViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

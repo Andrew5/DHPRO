@@ -142,7 +142,7 @@
     } else {
         // Fallback on earlier versions
     }
-    NSString *urlStr = [[NSBundle mainBundle] pathForResource:@"WKOCBridgeJS.html" ofType:nil];
+    NSString *urlStr = [[NSBundle mainBundle] pathForResource:@"创建页面.html" ofType:nil];
     NSURL *fileURL = [NSURL fileURLWithPath:urlStr];
     if (@available(iOS 9.0, *)) {
         [self.WKView loadFileURL:fileURL allowingReadAccessToURL:fileURL];

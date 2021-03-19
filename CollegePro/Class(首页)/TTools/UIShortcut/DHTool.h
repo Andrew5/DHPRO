@@ -103,7 +103,6 @@
 
 +(NSString *)dataInMyCollectionData:(NSString *)dateStr;
 
-+ (NSNumber *) freeDiskSpace;
 + (double)freeMemory;
 + (double)appUsedMemory;
 + (void)pushChatController:(UIViewController *)controller;
