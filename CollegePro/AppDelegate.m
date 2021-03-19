@@ -38,6 +38,11 @@
 #import "ViewController.h"
 #import "BaseTabBarViewController.h"
 #import "BaseNavigationController.h"
+//启动gif效果
+#import "UIImage+GIF.h"
+#import "KKSequenceImageView.h"
+#import "FLAnimatedImage.h"
+
 
 #import "QDExceptionHandler.h"
 #define UUID_IDFA @"IdentifierUUIDIDFA"
@@ -46,11 +51,13 @@
 #import <DoraemonKit/DoraemonManager.h>
 #endif
 extern CFAbsoluteTime StartTime;
-@interface AppDelegate ()<JPUSHRegisterDelegate,UNUserNotificationCenterDelegate>
+@interface AppDelegate ()<KKSequenceImageDelegate,JPUSHRegisterDelegate,UNUserNotificationCenterDelegate>
 {
 //    BMKMapManager* _mapManager;//实例变量
    __block int num;//成员变量
     UIView *launchView;
+    KKSequenceImageView* imageView;
+
 }
 //@property(nonatomic,strong) UIMutableUserNotificationCategory* categorys;
 @property (strong, nonatomic)UIVisualEffectView *visualEffectView;
@@ -85,6 +92,28 @@ extern CFAbsoluteTime StartTime;
     [overlayClass performSelector:NSSelectorFromString(@"prepareDebuggingOverlay")];
     
 #endif
+//    /** 初始化imageView */
+//    imageView = [[KKSequenceImageView alloc] initWithFrame:CGRectMake(0, 0, self.window.screen.bounds.size.width,self.window.screen.bounds.size.height)];
+//    NSMutableArray* images = [NSMutableArray array];
+//
+//    /** 加载图片 */
+//    for (int i = 1; i <= 90; i++)
+//    {
+//        NSString *path = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"图层 %d",i] ofType:@"png"];
+//        if (path.length) {
+//            [images addObject:path];
+//        }
+//    }
+//    /** 设置参数 */
+//    imageView.imagePathss = images;
+//    imageView.durationMS = images.count * 60;
+//    imageView.repeatCount = 1;
+//    imageView.delegate = self;
+//
+//    /** 添加到window */
+//    [_window addSubview:imageView];
+//    [imageView begin];
+    
     //测试
 //    [self remoteControlEventHandler];
 //    [self updatelockScreenInfo];
@@ -1123,5 +1152,16 @@ extern CFAbsoluteTime StartTime;
     [launchView removeFromSuperview];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[DHGuidepageViewController alloc] init]];
+}
+#pragma mark -- 代理方法
+
+- (void)sequenceImageDidPlayCompeletion:(KKSequenceImageView *)imageView {
+    /** 运行完成--clean */
+    [imageView removeFromSuperview];
+    imageView = nil;
+}
+
+- (void)removerView {
+    
 }
 @end

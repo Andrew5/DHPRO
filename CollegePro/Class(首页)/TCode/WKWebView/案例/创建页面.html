@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <!--  -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我利用VSCode创建的第一个网页</title>
+    <link rel="stylesheet" href="iconfont/iconfont.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .nd {
+            width: 400px;
+            height: 400px;
+            border-radius: 400px 400px 400px 400px/ 400px 400px 350px 350px;
+            border: 2px solid #303435;
+            background: #0facd5;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .lian {
+            width: 300px;
+            height: 300px;
+            border-radius: 300px;
+            border: 2px solid #303435;
+            position: absolute;
+            bottom: 0;
+            left: 50px;
+            background: white;
+        }
+
+        .lian .eye1 {
+            width: 90px;
+            height: 120px;
+            border-radius: 100px;
+            border: 2px solid #303435;
+            background: white;
+            position: absolute;
+            top: -50px;
+            right: 164px;
+        }
+
+        .lian .eye2 {
+            width: 90px;
+            height: 120px;
+            border-radius: 100px;
+            border: 2px solid #303435;
+            background: white;
+            position: absolute;
+            top: -50px;
+            right: 70px;
+        }
+
+        .eye1 .yz1 {
+            width: 30px;
+            height: 30px;
+            border-radius: 30px;
+            background: #333;
+            position: absolute;
+            bottom: 13px;
+            left: 30px;
+        }
+
+        .eye2 .yz2 {
+            width: 30px;
+            height: 30px;
+            border-radius: 30px;
+            background: #333;
+            position: absolute;
+            bottom: 13px;
+            left: 30px;
+        }
+
+        .lian .bizi {
+            width: 60px;
+            height: 60px;
+            background: #ca3e01;
+            border-radius: 60px;
+            border: 2px solid #303435;
+            position: absolute;
+            top: 58px;
+            left: 104px;
+        }
+
+        .bizi .xtt {
+            width: 3px;
+            height: 100px;
+            background: #333;
+            position: absolute;
+            bottom: -100px;
+            left: 30px;
+        }
+
+        .lian .zui {
+            width: 200px;
+            height: 200px;
+            border-bottom: 2px solid #333;
+            border-radius: 200px;
+            position: absolute;
+            bottom: 77px;
+            left: 42px;
+        }
+
+        .nd .bozi {
+            height: 30px;
+            width: 300px;
+            background: #a82300;
+            border: 2px solid #333;
+            border-radius: 30px;
+            position: absolute;
+            bottom: -2px;
+            left: 50px;
+        }
+
+        .lian .huzi1 {
+            height: 2px;
+            width: 70px;
+            background: #333;
+            position: absolute;
+            bottom: 131px;
+            left: 20px;
+        }
+
+        .lian .huzi2 {
+            height: 2px;
+            width: 70px;
+            background: #333;
+            position: absolute;
+            bottom: 133px;
+            left: 186px;
+        }
+
+        .lian .huzi3 {
+            height: 2px;
+            width: 70px;
+            background: #333;
+            position: absolute;
+            bottom: 154px;
+            left: 20px;
+            transform: skewY(20deg)
+        }
+
+        .lian .huzi4 {
+            height: 2px;
+            width: 70px;
+            background: #333;
+            position: absolute;
+            bottom: 104px;
+            left: 20px;
+            transform: skewY(-20deg)
+        }
+
+        .lian .huzi5 {
+            height: 2px;
+            width: 70px;
+            background: #333;
+            position: absolute;
+            bottom: 108px;
+            left: 186px;
+            transform: skewY(20deg)
+        }
+
+        .lian .huzi6 {
+            height: 2px;
+            width: 70px;
+            background: #333;
+            position: absolute;
+            bottom: 158px;
+            left: 186px;
+            transform: skewY(160deg)
+        }
+
+        .shenti {
+            width: 280px;
+            height: 250px;
+            background: #0ab5e0;
+            border: 2px solid #333;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .shenti {
+            border-top: 0;
+        }
+
+        .shenti .gebo1 {
+            width: 80px;
+            height: 90px;
+            background: #0ab5e0;
+            border: 2px solid #333;
+            transform: skewY(140deg);
+            position: absolute;
+            top: 31px;
+            left: -79px;
+        }
+
+        .shenti .gebo1 {
+            border-right: 0;
+            border-left: 0;
+        }
+
+        .shenti .gebo2 {
+            width: 80px;
+            height: 90px;
+            background: #0ab5e0;
+            border: 2px solid #333;
+            transform: skewY(40deg);
+            position: absolute;
+            top: 31px;
+            right: -79px;
+        }
+
+        .shenti .gebo2 {
+            border-left: 0;
+            border-right: 0;
+        }
+
+        ;
+
+        .shenti .gebo1 {
+            border-right: 0;
+        }
+
+        .shenti .shou1 {
+            width: 100px;
+            height: 100px;
+            border-radius: 100px;
+            border: 2px solid #333;
+            background: white;
+            position: absolute;
+            top: 64px;
+            left: -147px;
+        }
+
+        .shenti .shou2 {
+            width: 100px;
+            height: 100px;
+            border-radius: 100px;
+            border: 2px solid #333;
+            background: white;
+            position: absolute;
+            top: 64px;
+            right: -147px;
+        }
+
+        .shenti .duzi {
+            width: 250px;
+            height: 200px;
+            background: white;
+            border-radius: 20px 20px 300px 300px;
+            margin: 0 auto;
+            border: 2px solid #333;
+            position: relative
+        }
+
+        .shenti .duzi .dudou {
+            width: 150px;
+            height: 80px;
+            border-radius: 0px 0px 600px 600px;
+            border: 2px solid #333;
+            margin: 0 auto;
+            position: absolute;
+            bottom: 39px;
+            left: 51px;
+        }
+
+        .duzi .lingdang {
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            background: #f3eb24;
+            border: 2px solid #333;
+            position: absolute;
+            top: -25px;
+            left: 100px;
+        }
+
+        .lingdang .heng {
+            width: 48px;
+            height: 2px;
+            border: 2px solid #333;
+            position: absolute;
+            top: 14px;
+        }
+
+        .lingdang .heidian {
+            width: 16px;
+            height: 16px;
+            background: #333;
+            border-radius: 16px;
+            position: absolute;
+            bottom: 12px;
+            left: 17px;
+        }
+
+        .lingdang .shu {
+            width: 4px;
+            height: 15px;
+            background: #333;
+            position: absolute;
+            top: 35px;
+            left: 23px;
+        }
+
+        .shenti .kong {
+            width: 30px;
+            height: 25px;
+            border: 2px solid #333;
+            background: white;
+            border-radius: 30px 30px 10px 10px;
+            position: absolute;
+            bottom: -2px;
+            left: 117px;
+        }
+
+        .shenti .kong {
+            border-bottom: 0;
+        }
+
+        .shenti .jiao1 {
+            width: 160px;
+            height: 45px;
+            border: 2px solid #333;
+            background: white;
+            border-radius: 46px 34px 10px 10px;
+            position: absolute;
+            bottom: -41px;
+            left: -33px;
+        }
+
+        .shenti .jiao2 {
+            width: 160px;
+            height: 45px;
+            border: 2px solid #333;
+            background: white;
+            border-radius: 34px 46px 10px 10px;
+            position: absolute;
+            bottom: -41px;
+            right: -24px;
+        }
+
+        #kuang .tu {
+            width: 600px;
+            height: 600px;
+            margin: 0 auto;
+        }
+
+        #kuang:hover .tu {
+            background: url(images/timg.jpg)no-repeat center;
+        }
+    </style>
+
+</head>
+<!-- <script type="text/javascript" src="attack.js" ></script> -->
+
+<body>
+    <h1>圣诞节的那些事</h1>
+    <div><a href="#oldman">1.页面左上角的小三角标记展开会显示页面所包含的图层</a></div>
+    <a href="#three">2.通过图层我们可以在页中更好的组织管理内容</a><br>
+    <a href="#four">3.例如平面图中墙体的建筑部分放在一个图层、尺寸标注放在另一个图层</a> <br>
+    <script type="text/javascript" src="chunk-646de3d9.a3442d01.js">
+    </script>
+
+    <h4>文件引入</h4>
+    <div id="app"></div>
+    <script type="text/typescript"
+        src="/Users/jabraknight/Documents/zkty/gome-business/gm-modules/x-engine-module-min/model.ts"></script>
+    <script type="text/javascript" src="js/other.js"></script>
+    <a>
+        <script type="text/javascript" src="attack.js"></script>引入JS文件
+    </a>
+
+    <script>
+        function func(dd) {
+            alert(dd);
+        }
+    </script>
+    <script>
+        function submit()
+
+        {
+
+            var input1 = document.getElementById("inputid");
+
+            window.open("/Users/jabraknight/Downloads/HtmlVue/案例/创建页面.html?inputStr=" + input1.value); //传入参数
+
+        }
+    </script>
+    <script>
+        //获得参数的方法
+
+        var request = {
+
+            QueryString: function (val) {
+
+                var uri = window.location.search;
+
+                var re = new RegExp("" + val + "=([^&?]*)", "ig");
+
+                return ((uri.match(re)) ? (uri.match(re)[0].substr(val.length + 1)) : null);
+
+            }
+
+        }
+    </script>
+
+
+    <p id="pp">这是一段测试内容</p>
+
+    <button onclick="attackEnemy()">获取内容</button>
+    <!--  传参 第二种 -->
+
+    <input id="ddd" name="ddd" type="hidden" value="123">
+    <button onclick="func(ddd.value)">传参</button>
+    <!--  传参 第3种 -->
+    <p id="ss">内容</p> <input type="button" name="Submit" value="显示" οnclick="s()" />
+
+    <!-- <script src="greeter.js"></script> -->
+    <!-- <script src="model.js"></script> -->
+    <!--  传参 第4 种 -->
+    <input type="text" id="inputid">
+    <input type="button" onclick="submit()" value="提交">
+
+
+
+    <script>
+        //调用方法获得参数
+
+        var rt = request.QueryString("inputStr");
+
+        alert(rt);
+    </script>
+
+    <div id="mainDiv">
+        <!-- <span action="10004">Quick Task</span> -->
+        <span action=" 10004" #spanRef（click）=" callAMethod（$ event）">快速任务</span>
+    </div>
+    <!-- <link rel="stylesheet" href="css.css" type ="text/css" -->
+    <!-- <link rel="stylesheet" href="css.css" type="text/css" <h2>通过锁定图层，可以避免误操作</h2> -->
+    辅助线是 OmniGraffle 6 新增的功能，辅助线的设置面板中可以定义辅助线的颜色，精确的用像素来控制辅助线的位置。按住辅助线图标可以将当前页的所有辅助线设定拖拽复制到其他页面。
+    <h2>对象控制和样式托盘</h2>
+    <p><a href="10-demo.html">工具栏</a> 上的前移后移用的机会并不多，多数时候快捷键的方式更便捷，前移对象「⌥⌘F」，后移对象「⌥⌘B」。还可以多记一组经常会用到的移到最前「⇧⌘F」和置于最后「⇧⌘B」，F
+        和 B 取的是英文单词的 Front和 Back 的首字母，用这类助记单词可以自己推算出其他快捷方式。
+        锁定/解锁同样有对应的快捷键，锁定「⌘L」（Lock），解锁「⌥⌘L」。群组和解散群组的快捷键分别是「⇧⌘G」（Group）和「⇧⌘U」（ungroup）。
+        检查器底栏的「样式托盘」是 OmniGraffle
+        中一个非常值得称道的设计，当你选中对象时，「样式托盘」中会分解出当前对象采用的各种格式，和工具栏中的「格式刷」作用一样，不过操作交互上，「样式托盘」更直观和方便，你可以按住托盘中的某一个格式拖拽到其他对象，也可以按住第一个图标拖拽将当前对象的所有格式应用到其他对象。
+        按住 command 键，你可以在「样式托盘」中选择多个格式然后拖拽到其他对象，被选中的格式项背景会显示为浅灰色。
+        <img
+            src="https://cdn.sspai.com/2017/11/22/90656b48f4a6a7f6962c256c5e92955f.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1" />
+
+    </p>
+    <h2>编辑区的控制</h2>
+    <h3 id="three">选择对象</h3>
+    单击选择对象，按住 Shift 键或 Command 键可以将对象添加到选择或者从选择集合去掉<a href="01-表格基本用法.html">表格</a>
+    <h3 id="oldman">圈选对象</h3>
+    从画布空白处三指滑动可以圈选对象，如果按住 Option 键，只有完全被圈选的<a href="https://www.cnblogs.com/6b7b5fc3/p/14400061.html">对象</a>才会被<a
+        href="动画.html">选中</a>。
+    <img src="https://cdn.sspai.com/2017/11/22/464007f4167096a15a758a6b0baa4abc.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1"
+        height="100" />
+    <h3 id="four">移动对象或页面</h3>
+    三指从页面空白的地方开始推移是圈选模式，如果在已经选择的对象上保持并推移则是移动对象，放大页面后可以用两指推移来移动页面。
+    <br>
+
+    我是<strong>加粗</strong>的<b>文字</b>
+    我是<em>倾斜</em>的<i>文字</i>
+    我是<del>删除</del>文字
+    我是<s>删除</s>文字
+    我是<ins>下划线</ins>的<u>文字</u>
+    <p>激活「共享图层」图标（呈黄色显示），可以将共享图层的内容显示在其他页面，从而实现特定内容的共用，例如页面的页眉页脚和边框等元素可以通过共享图层显示在所有采用同一个共享图层的页中。</p>
+    <a href="#two">第2集</a>锚点链接设置
+    <p></p>
+    <!-- action="https://cn.pornhub.com/video/search" -->
+    <form id="bdfm" target="_blank" name="bdfm" method="get" action="https://www.baidu.com">
+        <table>
+            <tr>
+                <td>
+                    <a href="http://www.baidu.com">
+                        <img src="https://www.baidu.com/img/flexible/logo/pc/result@2.png" width="75" />
+                    </a>
+                </td>
+                <td><br /><input type="text" id="search1" name="s?word=" /></td>
+                <td><br /><input type="submit" value="搜索" /></td>
+            </tr>
+        </table>
+    </form>
+
+    <div>我是DIV，独占一行</div>123
+    <span>百度</span>
+    <span>新浪</span>
+    <h4>图像标签</h4>
+    <img src="https://avatar-static.segmentfault.com/264/956/2649561051-58f1d07d52aba_big64">
+    <h4>alt 替换文本 图像显示不出来的时候 用文字作提示</h4>
+    <img src="https://avatar-static.segmentfault.com/264/956/2649561051-58f1d07d52aba_big64" alt="我是提示语" />
+    <h4>title 光标放在图像上，用文字作提示</h4>
+    <img src="https://avatar-static.segmentfault.com/264/956/2649561051-58f1d07d52aba_big64" title="XXX Teacher"
+        height="80" />
+    <h4>border 设定图片边框</h4>
+    <img src="https://avatar-static.segmentfault.com/264/956/2649561051-58f1d07d52aba_big64" title="XXX Teacher"
+        height="80" border="15" />
+    <h4>本地图片</h4>
+    <img src="123.png" height="100" />
+    <img src="../案例/images/border_12pro_Pacific_Blue.png" height="80" />
+    <div>绝对路劲\\\</div>
+    <div>相对路劲///</div>
+    <h4>可以播放的本地视频</h4>
+    <video id="video" controls="controls" width="300px" height="140" onChange="play()"> -->
+        你的浏览器貌似不支持video 元素 %>_<%
+            <!-- <source src="../案例/images/1080P_4000K_281474431.mp4" type="video/mp4"> -->
+                <source src="1080P_8000K_313399301.mp4" type="video/mp4">
+            </video> 
+            <h4>外部链接地址</h4>
+            <a href="https://www.baidu.com" target="_self" >百度</a>本页面
+            <a href="https://www.baidu.com" target="_blank" >腾讯</a>新页面
+            <a href="#" target="_blank" >首页</a>空页面
+            <a href="img.zip">Download</a>下载文件
+            <a href="https://www.baidu.com"><img src="border_12pro_Pacific_Blue.png"/></a>网页元素链接
+            <h3 id="two">第2集</h3>锚点链接设置
+            <br />
+            特殊字符  描述    字符代码
+            <       小于号  &nbsp;
+            >       大于号  &lt;
+            &       和号    &amp;
+            ￥      人民币   &yen;
+            ©       版权    &copy;
+            ®️       注册商标 &reg;
+            °       摄氏度  &deg;
+            ±       正负号  &plusmn;
+            ✖️       乘号    &times;
+            ÷       除号    &divide;
+            ²       平方    &sup2;
+            ³       立方    &sup3;
+            &lt;开&nbsp;&nbsp;&nbsp;&nbsp;始 &gt;
+
+    <br />
+    图层和页一样，通过拖移可以调整顺序，按住Option可以复制，按住Command可以选择多个页面或图层。
+    
+    <p>「目录」面板中提供了三种显示对象的方式：对象列表、大纲层级、近似对象。在页面对象很多的情况下，目录面板能帮助我们迅速的选择和定位到对象。</p>
+    
+    「对象列表」视图按扁平方式列出所有的对象、群组及其层叠顺序，便于快速找到某个具体的对象，通过拖动或点击底部的箭头可以调整对象的层叠顺序，针对复杂的组合形状从列表视图中选择会更方便；
+    「大纲层级」按对象之间隶属关系来显示，大纲视窗中不包含线条，只包含形状或图片等元素。大纲视图中输入对象包含的文字内容会很方便，例如，创建组织结构图或者思维导图时直接在大纲视图中输入内容，最后选择自动排版，马上就能获得一个漂亮的结果；
+    「近似对象」中更可以一次选中所有相似的对象，对于批量的修改和调整非常有帮助。
+    <br />
+    辅助线是 OmniGraffle 6 新增的功能，辅助线的设置面板中可以定义辅助线的颜色，精确的用像素来控制辅助线的位置。按住辅助线图标可以将当前页的所有辅助线设定拖拽复制到其他页面。
+    <p>更多内容 <a href="https://www.baidu.com" target="_blank">百度一下</a></p>
+    </body>
+<body>
+    写代码是一件快乐的事
+    <!-- <script src="greeter.ts"></script> -->
+    <h1>标题一共六级选</h1>
+    <h2>文字加粗一行显</h2>
+    <h3>由大到小依次减</h3>
+    <h4>从重到轻随之变</h4>
+    <h5>语法规范</h5>
+    <h6>最小</h6>
+
+    <div id="my_test" style="width: 100px; height: 100px; align-items: center;">
+        <div style="width: 50px; height: 50px;"></div>
+      </div>
+
+
+    <div id="kuang">
+        <div class="tu"></div>
+    <div class="nd">
+        <div class="lian">
+            <div class="eye1">
+                <div class="yz1"></div>
+            </div>
+            <div class="eye2">
+                <div class="yz2"></div>
+            </div>
+            <div class="bizi">
+                <div class="xtt">
+                </div>
+            </div>
+            <div class="zui"></div>
+            <div class="huzi1"></div>
+            <div class="huzi2"></div>
+            <div class="huzi3"></div>
+            <div class="huzi4"></div>
+            <div class="huzi5"></div>
+            <div class="huzi6"></div>
+        </div>
+        <div class="bozi"></div>
+    </div>
+    <div class="shenti">
+    
+        <div class="duzi">
+        <div class="lingdang">
+            <div class="heng"></div>
+            <div class="heidian"></div>
+            <div class="shu"></div>
+        </div>
+            <div class="dudou"></div>
+        </div>
+        <div class="gebo1">
+        
+    </div>
+    <div class="gebo2">
+        
+    </div>
+    <div class="shou1"></div>
+    <div class="shou2"></div>
+    <div class="kong"></div>
+        <div class="jiao1"></div>
+        <div class="jiao2"></div>
+    </div>
+</div>
+
+</body>
+
+
+</html>
