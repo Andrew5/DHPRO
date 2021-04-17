@@ -1,5 +1,8 @@
 platform :ios, "9.0"
 
+def shared_pods
+  
+end
 ##循环target 添加pod
 #inhibit_all_warnings!
 #targetArray = ['CollegePro','CollegeProWidge']
@@ -22,7 +25,7 @@ def commonPods
 end
 
 target "CollegePro" do
-#source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/CocoaPods/Specs.git'
 	use_frameworks!
   inherit! :search_paths
 
@@ -42,6 +45,7 @@ target "CollegePro" do
 
 #  pod 'AFNetworking', (~> 4.0.1)
   commonPods
+  shared_pods
 #  #自动布局界面库
 #  pod 'Masonry'
 #  pod 'SDAutoLayout','~>2.2.1'
@@ -72,9 +76,10 @@ target "CollegePro" do
   pod 'YHPopupView'
 #  pod 'YYKit'
 #  
-  pod 'WKVCDeallocMonitor'##内寸检测
-  pod 'MLeaksFinder'
-  pod 'AvoidCrash'
+#  pod 'WKVCDeallocMonitor'##内寸检测
+#  pod 'MLeaksFinder'
+#  pod 'AvoidCrash'
+
   pod 'SocketRocket'#socket
 
   pod "DKNightVersion"##暗黑模式
@@ -82,6 +87,8 @@ target "CollegePro" do
 
   pod 'SwiftTheme'
 
+  pod 'LeftSwipeCell' ##实现左滑之后出现的按钮
+  pod 'HZPhotoBrowser' ##实现对书籍页面的大图预览
   pod 'FDFullscreenPopGesture'
 #pod 'WechatOpenSDK'
   pod 'FBRetainCycleDetector'
@@ -110,7 +117,7 @@ target "CollegePro" do
   pod 'DoraemonKit/WithLogger', '~> 3.0.4', :configurations => ['Debug'] #可选
   pod 'DoraemonKit/WithDatabase', '~> 3.0.4', :configurations => ['Debug'] #可选
   pod 'DoraemonKit/WithMLeaksFinder', '~> 3.0.4', :configurations => ['Debug'] #可选
-  pod 'DoraemonKit/WithWeex', '~> 3.0.4', :configurations => ['Debug'] #可选
+#  pod 'DoraemonKit/WithWeex', '~> 3.0.4', :configurations => ['Debug'] #可选
   #injectionIII iOS代码注入工具
 #pod 'ReactiveCocoa', '2.3.1'
 #pod 'ReactiveCocoa', '~> 4.0.2-alpha-1'

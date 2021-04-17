@@ -431,6 +431,8 @@
 		387AE6422321103B00EADE4B /* MyCreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 387AE6412321103B00EADE4B /* MyCreView.m */; };
 		387AE6452321109900EADE4B /* MyRectangleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 387AE6442321109900EADE4B /* MyRectangleViewController.m */; };
 		387F18F4233C674100C25F63 /* DHRadianLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 387F18F3233C674000C25F63 /* DHRadianLayerView.m */; };
+		387F594E2611EEC100C80AD9 /* Silence.wav in Resources */ = {isa = PBXBuildFile; fileRef = 387F594B2611EEC000C80AD9 /* Silence.wav */; };
+		387F594F2611EEC100C80AD9 /* BIYDeepSleepPreventer.m in Sources */ = {isa = PBXBuildFile; fileRef = 387F594D2611EEC000C80AD9 /* BIYDeepSleepPreventer.m */; };
 		3883777D25A5671F0025BB85 /* AutoScrollerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3883777B25A5671E0025BB85 /* AutoScrollerViewController.m */; };
 		3883778025A5672B0025BB85 /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3883777E25A5672B0025BB85 /* GradientView.m */; };
 		3883778525A56ED00025BB85 /* DHCABasicAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3883778425A56ED00025BB85 /* DHCABasicAnimationView.m */; };
@@ -1831,6 +1833,9 @@
 		387AE6442321109900EADE4B /* MyRectangleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyRectangleViewController.m; sourceTree = "<group>"; };
 		387F18F2233C674000C25F63 /* DHRadianLayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHRadianLayerView.h; sourceTree = "<group>"; };
 		387F18F3233C674000C25F63 /* DHRadianLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHRadianLayerView.m; sourceTree = "<group>"; };
+		387F594B2611EEC000C80AD9 /* Silence.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Silence.wav; sourceTree = "<group>"; };
+		387F594C2611EEC000C80AD9 /* BIYDeepSleepPreventer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIYDeepSleepPreventer.h; sourceTree = "<group>"; };
+		387F594D2611EEC000C80AD9 /* BIYDeepSleepPreventer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BIYDeepSleepPreventer.m; sourceTree = "<group>"; };
 		3883777B25A5671E0025BB85 /* AutoScrollerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoScrollerViewController.m; sourceTree = "<group>"; };
 		3883777C25A5671F0025BB85 /* AutoScrollerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoScrollerViewController.h; sourceTree = "<group>"; };
 		3883777E25A5672B0025BB85 /* GradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientView.m; sourceTree = "<group>"; };
@@ -4557,6 +4562,9 @@
 		38C8454E227827EF00BCAD87 /* TLib */ = {
 			isa = PBXGroup;
 			children = (
+				387F594C2611EEC000C80AD9 /* BIYDeepSleepPreventer.h */,
+				387F594D2611EEC000C80AD9 /* BIYDeepSleepPreventer.m */,
+				387F594B2611EEC000C80AD9 /* Silence.wav */,
 				38C84589227827EF00BCAD87 /* ALiAlertView.h */,
 				38C845B5227827EF00BCAD87 /* ALiAlertView.m */,
 				38C2D0B122D5E27600CF30CA /* ASIHttpRequest */,
@@ -7183,6 +7191,7 @@
 				384C406F22888DFA00F01586 /* 消息@2x.png in Resources */,
 				84B7FF30250B502A0051603C /* B206760E60639441A7876D27110082AC.MOV in Resources */,
 				38C977DC22AE02D300F978C1 /* play_button.png in Resources */,
+				387F594E2611EEC100C80AD9 /* Silence.wav in Resources */,
 				384C409622888DFA00F01586 /* 线索.png in Resources */,
 				38C84A02227827F200BCAD87 /* 3.jpg in Resources */,
 				384C407B22888DFA00F01586 /* 快速发稿.png in Resources */,
@@ -7554,6 +7563,7 @@
 				386BBD6C22DDA7FE005E6054 /* GPUImageSobelEdgeDetectionFilter.m in Sources */,
 				38C8495D227827F100BCAD87 /* ESMNavigationViewController.m in Sources */,
 				38C848D6227827F100BCAD87 /* YPTabBarController.m in Sources */,
+				387F594F2611EEC100C80AD9 /* BIYDeepSleepPreventer.m in Sources */,
 				38C84A27227827F200BCAD87 /* NSString+Category.m in Sources */,
 				384C3FCE22887D7A00F01586 /* LMDataSource.m in Sources */,
 				38C84932227827F100BCAD87 /* SM3.cpp in Sources */,
