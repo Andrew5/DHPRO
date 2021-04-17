@@ -47,6 +47,10 @@
     examp_Attrb_LB6.backgroundColor = [UIColor colorWithRed:0.5 green:1 blue:0 alpha:0.2f];
     [self.view addSubview:examp_Attrb_LB6];
     
+    UILabel * examp_Attrb_LB7 = [[UILabel alloc] initWithFrame:CGRectMake(0, 535, self.view.frame.size.width, 50)];
+    examp_Attrb_LB7.backgroundColor = [UIColor colorWithRed:0.5 green:1 blue:0 alpha:0.2f];
+    [self.view addSubview:examp_Attrb_LB7];
+    
     
     
     
@@ -130,6 +134,29 @@
     // 自动换行
     examp_Attrb_LB6.numberOfLines = 0;
     examp_Attrb_LB6.lineBreakMode = NSLineBreakByCharWrapping;
+    
+    //=======================================================
+    // 可变 富文本7
+    NSString *doingString = @"878天健身状态查询";
+    ///提取数字和汉字
+    NSCharacterSet *nonDigits =[[NSCharacterSet decimalDigitCharacterSet] invertedSet];
+    NSString *numString =[doingString stringByTrimmingCharactersInSet:nonDigits] ;
+    NSString *string = [doingString substringWithRange:NSMakeRange(numString.length, doingString.length-numString.length)];
+    ///设置文本展示风格
+    NSMutableAttributedString *attrStr71 = [[NSMutableAttributedString alloc] initWithString:numString];
+    NSDictionary *attr_Dict71 = @{NSForegroundColorAttributeName:[UIColor blackColor],
+                                  NSFontAttributeName:[UIFont boldSystemFontOfSize:24]};
+    [attrStr71 setAttributes:attr_Dict71 range:NSMakeRange(0, numString.length)];
+    
+    ///设置汉字
+    NSMutableAttributedString *attrStr72 = [[NSMutableAttributedString alloc] initWithString:string];
+    NSDictionary *attr_Dict72 = @{NSForegroundColorAttributeName:[UIColor blackColor],
+                                 NSFontAttributeName:[UIFont boldSystemFontOfSize:14]};
+    [attrStr72 setAttributes:attr_Dict72 range:NSMakeRange(0, string.length)];
+    
+    [attrStr71 appendAttributedString:attrStr72];
+    examp_Attrb_LB7.attributedText = attrStr71;
+
     // Do any additional setup after loading the view.
 }
 
