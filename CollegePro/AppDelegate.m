@@ -42,7 +42,7 @@
 #import "UIImage+GIF.h"
 #import "KKSequenceImageView.h"
 #import "FLAnimatedImage.h"
-
+#import "BIYDeepSleepPreventer.h"
 
 #import "QDExceptionHandler.h"
 #define UUID_IDFA @"IdentifierUUIDIDFA"
@@ -261,6 +261,9 @@ extern CFAbsoluteTime StartTime;
     //    }
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    ///TODO:保活
+    NSLog(@"保活结束");
+    [[BIYDeepSleepPreventer shared]stopPreventSleep];
 }
 ///MARK: -取消激活状态
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -299,6 +302,9 @@ extern CFAbsoluteTime StartTime;
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     //方法四
     [self newMethod];
+    ///TODO：保活
+    NSLog(@"保活开始");
+    [[BIYDeepSleepPreventer shared]startPreventSleep];
 }
 ///MARK: -程序从后台回到前台
 - (void)applicationWillEnterForeground:(UIApplication *)application {
