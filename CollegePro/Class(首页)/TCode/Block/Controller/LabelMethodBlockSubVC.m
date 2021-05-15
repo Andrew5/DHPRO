@@ -38,6 +38,19 @@ struct StructTwo {
     int c;         //4字节
 } MyStruct2;
 
+// 结构体类型名为 MyDate1
+struct MyDate1{
+    int year;
+    int month;
+    int day;
+}; // 定义结构体类型变量
+//结构体类型名为 MyDate2
+typedef struct _MyDate{
+    int year;
+    int month;
+    int day;
+} MyDate2;
+
 //define this constant if you want to use Masonry without the 'mas_' prefix
 #define MAS_SHORTHAND
 //define this constant if you want to enable auto-boxing for default syntax
@@ -1090,6 +1103,126 @@ void (^outFuncBlock)(void) = ^{
         }
     }
     return num1;
+}
+- (void)testDataW{
+        /*
+         1、结构体只能封装属性，类却不仅可以封装属性也可以封装方法。如果一个封装的数据有属性也有行为，就只能用类了。
+
+         2、结构体变量分配在栈，而OC对象分配在堆，栈的空间相对于堆来说是比较小的，但是存储在栈中的数据访问效率相对于堆而言是比较高
+
+         3、堆的存储空间比较大，存储在堆中的数据访问效率相对于栈而言是比较低的
+
+         4、如果定义一个结构体，这个结构体中有很多属性，那么这个时候结构体变量在栈中会占据很多空间，这样的话就会降低效率
+
+         5、我们使用结构体的时候最好是属性比较少的结构体对象,如果属性较多的话就要使用类了。
+
+         6、结构体赋值的话是直接赋值，对象的指针，赋值的是对象的地址。
+         */
+        struct MyDate1 d1= {2016, 1, 6};
+        NSLog(@"d1: %d/%d/%d", d1.year, d1.month, d1.day);
+        MyDate2 d2 = {2016, 5, 24};
+        NSLog(@"d2: %d/%d/%d", d2.year, d2.month, d2.day);
+        /*
+        __block int a = 20;//注意block前面是两个下划线
+
+            void (^myblock)() = ^{
+
+            NSLog(@"a = %d",a);
+
+            a =10; //外部变量有__block声明，所以在block里面可以修改block的值
+
+            NSLog(@"a = %d",a);
+
+            };
+
+            myblock(a);
+        ///3、
+            int (^sumBlock)(int,int);
+
+            void (^myBlock)();
+            
+        //    （4）block实现封装代码的3种写法：
+        //
+        //    第一种：
+
+            ^(int a,int b){
+
+                return a + b;
+
+             };
+
+        //     第二种：
+
+             ^(){
+
+                NSLog(@"a+b");
+
+             };
+
+        //     第三种：
+
+            ^{
+                NSLog(@"a+b");
+            };
+        
+        
+        //利用typedef定义block类型
+
+        typedef int (^MyBlock)(int,int);
+
+        // 这样就可以利用MyBlock这种类型来定义block变量
+
+        //写法一：利用宏定义去写一个block
+
+        void test(){
+
+        MyBlock block;
+
+        block=^(int a, int b){
+
+             return a - b;
+
+          };
+
+        NSLog(@"%i",block(10,10));//调用block
+
+        }
+
+         //写法2：跟写法一一样，利用宏定义去定义一个block
+
+        void test2(){
+
+        MyBlock b3 = ^(int a,int b){
+
+        return a - b;
+
+        }
+
+        NSLog(@"%i",b3(10,10));//调用block
+
+         };
+
+        //或者写法3：不用宏定义，直接用block的写法，原始用法
+
+        void test3(){
+
+        //定义了一个block，这个block返回值是int类型，接收两个int类型的参数
+
+        int  (^sum) (int,int) = ^(int a,int b){
+
+        return a+b;//该return返回的是block的返回值
+
+        }
+
+        NSLog(@"%i",sum(10,10));//调用block
+
+        }
+         */
+
+//        NSLog(@"sizeof:  %zd--%zd", sizeof(staticString),sizeof(defineString));
+//        NSLog(@"%lu--%lu",malloc_size((__bridge const void*)staticString),malloc_size((__bridge const void*)defineString));
+//        self.staticString = @"结束";
+//        NSLog(@"sizeof:%@-静态：%@-%@",self.staticString,staticString,defineString);
 }
 - (void)testDataO{
     int x = 42;
