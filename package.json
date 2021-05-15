@@ -9,9 +9,6 @@
   },
   "author": "xx",
   "license": "ISC",
-  "gitHooks": {
-    "commit-msg": "node scripts/verifyCommit.js"
-  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
