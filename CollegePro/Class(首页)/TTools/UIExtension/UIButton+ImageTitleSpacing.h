@@ -31,4 +31,19 @@ typedef NS_ENUM(NSUInteger, MKButtonEdgeInsetsStyle) {
 - (void)verifedCodeButtonWithTitle:(NSString *)title andNewTitle:(NSString *)newTitle bgImageName:(NSString *)imageName newBgImageName:(NSString *)newImageName;
 
 - (void)relaseTimer;
+///颜色设置
+- (void)setMulColor:(NSArray <UIColor *>*)colors startPoint:(NSArray <NSNumber *>*)points;
+//@property (nonatomic,assign) CGFloat enlargeEdge;
+/**
+ 增大点击区域
+ @param size 上左下右的增大量
+ */
+- (void)be_setEnlargeEdge:(CGFloat)size;
+
+/**
+ 增大点击区域
+ @param size 上左下右的增大量
+ */
+- (void)be_setEnlargeEdgeWithTop:(CGFloat)top right:(CGFloat)right bottom:(CGFloat)bottom left:(CGFloat)left;
+
 @end
