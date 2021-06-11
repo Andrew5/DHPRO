@@ -7,7 +7,12 @@
 		<key>CollageProExtensionTool.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>49</integer>
+			<integer>51</integer>
+		</dict>
+		<key>CollegePro copy.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>CollegePro.xcscheme_^#shared#^_</key>
 		<dict>
@@ -32,6 +37,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>3880C32C265378B70097328E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>38A99B38229BD1C000D52230</key>
 		<dict>
 			<key>primary</key>

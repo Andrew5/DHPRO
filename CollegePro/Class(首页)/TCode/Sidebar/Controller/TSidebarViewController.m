@@ -68,6 +68,14 @@
 {
 	CGPoint translatedPoint = [recoginzer translationInView:self.view];
 	NSLog(@"translatedPoint %f",translatedPoint.x);
+    CGPoint point1 = [recoginzer locationInView:self.view];
+    CGPoint point2 = [self.sidebarVC.view.layer.presentationLayer frame].origin;
+    CGPoint point3 = [recoginzer translationInView:self.view];///点相对于上一个点的位置
+    CGPoint point4 = [recoginzer velocityInView:self.view];///点的速度(正负可判断滑动趋势)
+    NSLog(@"locationInView:%.2f",point1.y);
+    NSLog(@"实时坐标 :%.2f",point2.y);
+    NSLog(@"translationInView:%.2f",point3.y);
+    NSLog(@"velocityInView:%.2f",point4.y);
 	//向右
 	if (translatedPoint.x>0) {
 		[self.sidebarVC panDetected:recoginzer];

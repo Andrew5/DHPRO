@@ -347,6 +347,30 @@
     [label sizeToFit];
     [self.view addSubview:label];
 }
+
+- (NSString*)SPAUrl2StandardUrl:(NSString*)raw {
+    int questionMark = -1;
+    int hashtagMark = -1;
+
+    for (int i=0;i< raw.length;i++){
+        char cc= [raw characterAtIndex:i];
+
+        if(cc == '#' && hashtagMark == -1){
+            hashtagMark=i;
+        }
+        // 仅当找到 hashtag 后才再找?, 不然不是 SPA url
+        if(hashtagMark != -1 && cc == '?' && questionMark == -1){
+            questionMark=i;
+        }
+    }
+    if(questionMark != -1 && hashtagMark != -1){
+        NSString* sub1= [raw substringToIndex:hashtagMark];
+        NSString* sub2= [raw substringWithRange:NSMakeRange(hashtagMark, questionMark-hashtagMark)];
+        NSString* sub3=[ [raw substringFromIndex:questionMark]stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+        return [NSString stringWithFormat:@"%@%@%@",sub1,sub3,sub2] ;
+    }
+    return raw;
+}
 /*
 #pragma mark - Navigation
 

@@ -10,11 +10,13 @@
 #import "BaseViewController.h"
 
 typedef void (^ReturnTextBlock)(NSString * _Nonnull showText);
+typedef BOOL(^ReturnCustomValicationBlock)(NSString *originContent, NSString *customContent);
 
 @interface LabelMethodBlockSubVC : BaseViewController
 @property (nonatomic, copy) ReturnTextBlock _Nullable returnTextBlock;
 
 - (void)returnText:(ReturnTextBlock _Nonnull )block;
+- (void)returnContent:(ReturnCustomValicationBlock _Nonnull )block;
 
 + (void)getMyBestMethod:(void (^_Nullable)(NSDictionary * _Nonnull))then;
 - (void)getMyBestMethod:(void (^_Nonnull)(NSString * _Nonnull))then;

@@ -65,7 +65,9 @@
     main.visitorLabel.hidden = YES;
 
 }
-
+- (void)backClick{
+    
+}
 - (void)ReloadBtnClick{
     [self.WKView reload];
 

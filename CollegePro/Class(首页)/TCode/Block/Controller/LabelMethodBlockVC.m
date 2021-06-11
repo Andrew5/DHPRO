@@ -12,6 +12,7 @@
 #import <objc/message.h>
 #import "DHRadianLayerView.h"
 #import "UIImage+compressIMG.h"
+#import "TestGestureRecognizer.h"
 
 typedef void(^MyBlock)(void);
 @interface LabelMethodBlockVC ()<UIGestureRecognizerDelegate,UITableViewDelegate,UITableViewDataSource,UITextViewDelegate>{
@@ -43,6 +44,10 @@ typedef void (^CustomEvent)(NSString* str);//本类测试
      //    RadianLayerView.alpha = 0.8;
      [self.view addSubview:RadianLayerView];
 
+    
+    TestGestureRecognizer *gesture = [[TestGestureRecognizer alloc]init];
+    NSDictionary *dict = [gesture cf_KeysWithValues];
+    NSLog(@"dict %@",dict);
     
     NSString *url = [NSString stringWithFormat:@"%@:(%@)",@"https://www.jianshu.com/p/8b0d06bd5a01",NSStringFromClass([self class])];
     NSMutableString * urlStr = [[NSMutableString alloc] initWithString:url];
@@ -140,6 +145,31 @@ typedef void (^CustomEvent)(NSString* str);//本类测试
 //    }];
              
 //    [url systemLayoutSizeFittingSize:UILayoutFittingExpandedSize]
+    
+    UITextView *agreementTextView = [[UITextView alloc] init];
+    agreementTextView.frame = CGRectMake(100, 0, 1000, 30);
+    [self.view addSubview:agreementTextView];
+//        [agreementTextView autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.agreementBtn];
+//        [agreementTextView autoAlignAxisToSuperviewMarginAxis:ALAxisHorizontal];
+        agreementTextView.font = [UIFont systemFontOfSize:14];
+        agreementTextView.text = @"登录代表同意《用户协议》和《隐私政策》";
+        agreementTextView.backgroundColor = [UIColor clearColor];
+        agreementTextView.delegate=self;
+        //必须禁止输入，否则点击将弹出输入键
+        agreementTextView.editable=NO;
+        agreementTextView.scrollEnabled=NO;
+
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        paragraphStyle.lineSpacing= 1;
+        NSDictionary*attributes = @{NSFontAttributeName:[UIFont systemFontOfSize:14],
+                                    NSParagraphStyleAttributeName:paragraphStyle};
+        NSMutableAttributedString *attributedString1 = [[NSMutableAttributedString alloc] initWithString:agreementTextView.text attributes:attributes];
+        [attributedString1 addAttribute:NSLinkAttributeName value:@"yonghuxieyi://" range:NSMakeRange(6,6)];
+        [attributedString1 addAttribute:NSLinkAttributeName value:@"yisizhengce://" range:NSMakeRange(13,6)];
+        [attributedString1 addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0,agreementTextView.text.length)];
+        agreementTextView.attributedText= attributedString1;
+        //设置被点击字体颜色
+        agreementTextView.linkTextAttributes = @{NSForegroundColorAttributeName:[UIColor blueColor]};
 }
 - (BOOL)textView:(UITextView *)textView shouldInteractWithURL:(nonnull NSURL *)URL inRange:(NSRange)characterRange interaction:(UITextItemInteraction)interaction API_AVAILABLE(ios(10.0)){
     if (characterRange.location == 7 && characterRange.length == 7) {
@@ -147,8 +177,17 @@ typedef void (^CustomEvent)(NSString* str);//本类测试
        }else if (characterRange.location == 15 && characterRange.length == 7){
         [self runtimeBlockMethod];
        }
-    return NO;
+    if ([[URL scheme] isEqualToString:@"yonghuxieyi"]) {
+        NSLog(@"富文本点击 用户协议");
+        
+    }
+    else if ([[URL scheme] isEqualToString:@"yisizhengce"]) {
+        NSLog(@"富文本点击 隐私政策");
+        
+    }
+    return YES;
 }
+///block带参数
 - (void)blockMethod {
     LabelMethodBlockSubVC *subVC = [[LabelMethodBlockSubVC alloc]init];
     [subVC returnText:^(NSString *showText) {

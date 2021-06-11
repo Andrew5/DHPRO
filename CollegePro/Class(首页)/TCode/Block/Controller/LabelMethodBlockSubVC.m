@@ -109,7 +109,13 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 @end
 
 @implementation LabelMethodBlockSubVC
-
+struct ListNode
+{
+   char  title[50];
+   char  author[50];
+   char  subject[100];
+   int   book_id;
+} book;
 /*
  1. + (id)alloc 分配内存；
  
@@ -802,11 +808,94 @@ void (^outFuncBlock)(void) = ^{
      
      只要我们抓住循环引用的本质，就不难理解这些东西。
      */
-    #pragma mark - MallocBlock
     
+    #pragma mark - MallocBlock
+    /*
+    NSGlobalBlock：类似函数，位于text段；
+    NSStackBlock：位于栈内存，函数返回后Block将无效；
+    NSMallocBlock：位于堆内存。
+     */
 
     
 }
+///TODO:全局block
+NSString *__globalString = nil;
+- (void)testGlobalObj
+{
+    __globalString = @"1";
+    void (^TestBlock)(void) = ^{
+        NSLog(@"string is :%@", __globalString);
+    };
+    __globalString = nil;
+    TestBlock();
+}
+///TODO:静态block
+- (void)testStaticObj
+{
+    static NSString *__staticString = nil;
+    __staticString = @"1";
+    printf("static address: %p\n", &__staticString);    //static address: 0x6a8c
+    void (^TestBlock)(void) = ^{
+        printf("static address: %p\n", &__staticString); //static address: 0x6a8c
+        NSLog(@"string is : %@", __staticString);
+    };
+    __staticString = nil;
+    TestBlock();
+}
+///TODO:局部blcock
+- (void)testLocalObj
+{
+    NSString *__localString = nil;
+    __localString = @"1";
+    printf("local address: %p\n", &__localString); //local address: 0xbfffd9c0
+    void (^TestBlock)(void) = ^{
+        printf("local address: %p\n", &__localString); //local address: 0x71723e4
+        NSLog(@"string is : %@", __localString); //string is : 1
+    };
+    __localString = nil;
+    TestBlock();
+}
+ 
+- (void)testBlockObj
+ 
+{
+    __block NSString *_blockString = @"1";
+ 
+    void (^TestBlock)(void) = ^{
+ 
+        NSLog(@"string is : %@", _blockString);
+    };
+ 
+    _blockString = nil;
+ 
+    TestBlock();
+}
+ 
+- (void)testWeakObj
+{
+    NSString *__localString = @"1";
+ 
+    __weak NSString *weakString = __localString;
+ 
+    printf("weak address: %p\n", &weakString);  //weak address: 0xbfffd9c4
+ 
+    printf("weak str address: %p\n", weakString); //weak str address: 0x684c
+ 
+    void (^TestBlock)(void) = ^{
+ 
+        printf("weak address: %p\n", &weakString); //weak address: 0x7144324
+ 
+        printf("weak str address: %p\n", weakString); //weak str address: 0x684c
+ 
+        NSLog(@"string is : %@", weakString); //string is :1
+    };
+ 
+    __localString = nil;
+ 
+    TestBlock();
+ 
+}
+
 
 - (void)testDataE{
     
@@ -2917,6 +3006,11 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 }
 - (void)returnText:(ReturnTextBlock)block {
 	self.returnTextBlock = block;
+}
+- (void)returnContent:(ReturnCustomValicationBlock _Nonnull )block{
+    BOOL result = YES;
+    result = block(@"systemContent", @"customContent");
+
 }
 - (void)other{
     

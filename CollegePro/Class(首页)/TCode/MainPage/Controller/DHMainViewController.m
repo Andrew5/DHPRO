@@ -154,6 +154,11 @@
 //}
 - (void)viewDidLoad {
     [super viewDidLoad];
+#if isDev
+    NSLog(@"dec");
+#else
+    NSLog(@"111");
+#endif
 //    [[DKNightVersionManager dk_manager] dawnComing];
     [[DKNightVersionManager dk_manager] nightFalling];
     //方法二
