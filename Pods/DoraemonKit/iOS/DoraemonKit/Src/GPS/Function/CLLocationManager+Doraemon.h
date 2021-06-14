@@ -2,7 +2,7 @@
 //  CLLocationManager+Doraemon.h
 //  DoraemonKit-DoraemonKit
 //
-//  Created by yixiang on 2018/7/4.
+//  Created by yixiang on 2021/1/2.
 //
 
 #import <CoreLocation/CoreLocation.h>

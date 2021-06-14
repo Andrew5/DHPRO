@@ -11,10 +11,18 @@
 #import "AudioPlayer.h"
 #import "AudioTrim.h"
 #import "AudioParam.h"
-@class AudioPlayer;
-@interface PlayAudioViewController ()
-@property (nonatomic,retain) AudioPlayer *audioPlayer;
+///引用三方实现库
+#import "RecordHUD.h"
+#import "D3RecordButton.h"
 
+@class AudioPlayer;
+@interface PlayAudioViewController ()<D3RecordDelegate>{
+    AVAudioPlayer *play;
+
+}
+@property (nonatomic,retain) AudioPlayer *audioPlayer;
+@property (strong,nonatomic) IBOutlet D3RecordButton *btn;
+@property (weak, nonatomic) IBOutlet D3RecordButton *centerBtn;
 @end
 static NSString *audioUrl = @"http://infinitinb.net/COFFdD0xMzUwOTc1NzQ3Jmk9MTI1Ljc3LjIwMi4yNDYmdT1Tb25ncy92MS9mYWludFFDLzk0LzczOWIyNGFjZTZkM2FiMTllZmE0Yzc0MDE5MzI1Yzk0Lm1wMyZtPTlkMjAxY2Y5YzQ4OGQyOGQ1NjA5YzBiMTE4MjY0M2NiJnY9bGlzdGVuJm49v8nE3MTju7mwrs7SJnM90dfRx8LaJnA9cw==.mp3";
 
@@ -22,7 +30,28 @@ static NSString *audioUrl = @"http://infinitinb.net/COFFdD0xMzUwOTc1NzQ3Jmk9MTI1
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [_btn initRecord:self maxtime:10 title:@"上滑取消录音"];
+    [_centerBtn initRecord:self maxtime:5];
     // Do any additional setup after loading the view.
+}
+-(void)endRecord:(NSData *)voiceData{
+    NSError *error;
+    play = [[AVAudioPlayer alloc]initWithData:voiceData error:&error];
+    NSLog(@"%@",error);
+    play.volume = 1.0f;
+    [play play];
+    NSLog(@"yesssssssssss..........%f",play.duration);
+    [_btn setTitle:@"按住录音" forState:UIControlStateNormal];
+}
+
+//不改btn的话这些就不要了
+-(void)dragExit{
+    [_btn setTitle:@"按住录音" forState:UIControlStateNormal];
+}
+
+
+-(void)dragEnter{
+    [_btn setTitle:@"松开发送" forState:UIControlStateNormal];
 }
 - (void)buttonClick:(UIButton *)button {
     int tag = 1001;

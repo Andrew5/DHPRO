@@ -1528,7 +1528,52 @@
 		38C2D0ED22D5E36B00CF30CA /* 012.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 38C2D0E922D5E36A00CF30CA /* 012.jpg */; };
 		38C2D0EE22D5E36B00CF30CA /* 010.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 38C2D0EA22D5E36B00CF30CA /* 010.jpg */; };
 		38C2D0EF22D5E36B00CF30CA /* 013.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 38C2D0EB22D5E36B00CF30CA /* 013.jpg */; };
+		38C31A0C267741400015A794 /* D3RecordButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C319FD267741400015A794 /* D3RecordButton.m */; };
+		38C31A0D267741400015A794 /* mic_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 38C319FF267741400015A794 /* mic_0.png */; };
+		38C31A0E267741400015A794 /* mic_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 38C31A00267741400015A794 /* mic_1.png */; };
+		38C31A0F267741400015A794 /* mic_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 38C31A01267741400015A794 /* mic_2.png */; };
+		38C31A10267741400015A794 /* mic_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 38C31A02267741400015A794 /* mic_3.png */; };
+		38C31A11267741400015A794 /* mic_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 38C31A03267741400015A794 /* mic_4.png */; };
+		38C31A12267741400015A794 /* mic_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 38C31A04267741400015A794 /* mic_5.png */; };
+		38C31A13267741400015A794 /* mic_cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 38C31A05267741400015A794 /* mic_cancel.png */; };
+		38C31A14267741400015A794 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C31A07267741400015A794 /* libmp3lame.a */; };
+		38C31A15267741400015A794 /* Mp3Recorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C31A09267741400015A794 /* Mp3Recorder.m */; };
+		38C31A16267741400015A794 /* RecordHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C31A0B267741400015A794 /* RecordHUD.m */; };
+		38C31A202677458D0015A794 /* AESCrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C31A182677458A0015A794 /* AESCrypt.m */; };
+		38C31A212677458D0015A794 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C31A1A2677458B0015A794 /* NSData+Base64.m */; };
+		38C31A222677458D0015A794 /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C31A1B2677458B0015A794 /* NSString+Base64.m */; };
+		38C31A232677458D0015A794 /* NSData+CommonCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C31A1D2677458C0015A794 /* NSData+CommonCrypto.m */; };
+		38C31A26267769F50015A794 /* NSDate+HB.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C31A25267769F50015A794 /* NSDate+HB.m */; };
+		38C31A3126776A520015A794 /* UIImage+Cut.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C31A2726776A4F0015A794 /* UIImage+Cut.m */; };
+		38C31A3226776A520015A794 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C31A2926776A4F0015A794 /* UIImage+Alpha.m */; };
+		38C31A3326776A520015A794 /* UIImage+SplitImageIntoTwoParts.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C31A2A26776A500015A794 /* UIImage+SplitImageIntoTwoParts.m */; };
+		38C31A3526776A520015A794 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C31A2D26776A510015A794 /* UIImage+RoundedCorner.m */; };
+		38C31A3826776A720015A794 /* ImageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C31A3726776A720015A794 /* ImageUtil.m */; };
+		38C31A3B26776A800015A794 /* ImageFilterProcessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C31A3926776A800015A794 /* ImageFilterProcessViewController.m */; };
+		38C31A3E26776A8B0015A794 /* CustomImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C31A3C26776A8B0015A794 /* CustomImagePickerController.m */; };
+		38C31A4626776E130015A794 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C31A4026776E110015A794 /* NSString+MD5.m */; };
+		38C31A4726776E130015A794 /* NSDateFormatter+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C31A4126776E110015A794 /* NSDateFormatter+Category.m */; };
+		38C31A4826776E130015A794 /* NSDate+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C31A4326776E120015A794 /* NSDate+Category.m */; };
+		38C31A4B267770180015A794 /* UIImage+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C31A49267770170015A794 /* UIImage+MJ.m */; };
+		38C31AA92677843A0015A794 /* UIScrollView+PullBig.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C31AA7267784390015A794 /* UIScrollView+PullBig.m */; };
+		38C31AB12677AC160015A794 /* GCTurnBasedMatchHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C31AB02677AC150015A794 /* GCTurnBasedMatchHelper.m */; };
+		38C31AB32677AC330015A794 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C31AB22677AC320015A794 /* GameKit.framework */; };
+		38C31AB72677ADC80015A794 /* CGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C31AB52677ADC80015A794 /* CGameViewController.m */; };
+		38C31AB82677ADC80015A794 /* CGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38C31AB62677ADC80015A794 /* CGameViewController.xib */; };
+		38C31AC32677BD8D0015A794 /* UICollectionView+Analysis.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C31AB92677BD880015A794 /* UICollectionView+Analysis.m */; };
+		38C31AC42677BD8D0015A794 /* UIControl+Analysis.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C31ABB2677BD890015A794 /* UIControl+Analysis.m */; };
+		38C31AC52677BD8D0015A794 /* UITableView+Analysis.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C31ABD2677BD8B0015A794 /* UITableView+Analysis.m */; };
+		38C31AC62677BD8D0015A794 /* UIGestureRecognizer+Analysis.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C31ABE2677BD8B0015A794 /* UIGestureRecognizer+Analysis.m */; };
+		38C31AC72677BD8D0015A794 /* UIViewController+Analysis.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C31AC12677BD8C0015A794 /* UIViewController+Analysis.m */; };
+		38C31ACC2677BDCF0015A794 /* NSObject+avoid.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C31AC82677BDCE0015A794 /* NSObject+avoid.m */; };
+		38C31ACD2677BDCF0015A794 /* NSArray+safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C31ACA2677BDCF0015A794 /* NSArray+safe.m */; };
+		38C31AD12677BDF50015A794 /* CrashAvoidManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C31AD02677BDF50015A794 /* CrashAvoidManager.m */; };
+		38C31AD42677BE4C0015A794 /* MethodSwizzingTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C31AD32677BE4C0015A794 /* MethodSwizzingTool.m */; };
+		38C31AD72677BE620015A794 /* DataContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C31AD62677BE620015A794 /* DataContainer.m */; };
+		38C31ADA2677BE830015A794 /* CaptureTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C31AD92677BE830015A794 /* CaptureTool.m */; };
+		38C31ADD2677BEEB0015A794 /* UIGestureRecognizer+gesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C31ADC2677BEEB0015A794 /* UIGestureRecognizer+gesture.m */; };
 		38C3C7802673AA2800EFE764 /* TestGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C3C77F2673AA2800EFE764 /* TestGestureRecognizer.m */; };
+		38C3C7AF26766EDD00EFE764 /* LeftContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C3C7AE26766EDD00EFE764 /* LeftContainerView.m */; };
 		38C4E34F25B41896002D6F65 /* PlayAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C4E34E25B41896002D6F65 /* PlayAudioViewController.m */; };
 		38C4E35F25B419A1002D6F65 /* AudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C4E35425B4199E002D6F65 /* AudioPlayer.m */; };
 		38C4E36025B419A1002D6F65 /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C4E35525B4199E002D6F65 /* AudioStreamer.m */; };
@@ -3004,8 +3049,91 @@
 		38C2D0E922D5E36A00CF30CA /* 012.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 012.jpg; sourceTree = "<group>"; };
 		38C2D0EA22D5E36B00CF30CA /* 010.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 010.jpg; sourceTree = "<group>"; };
 		38C2D0EB22D5E36B00CF30CA /* 013.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 013.jpg; sourceTree = "<group>"; };
+		38C319FC267741400015A794 /* D3RecordButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D3RecordButton.h; sourceTree = "<group>"; };
+		38C319FD267741400015A794 /* D3RecordButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D3RecordButton.m; sourceTree = "<group>"; };
+		38C319FF267741400015A794 /* mic_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mic_0.png; sourceTree = "<group>"; };
+		38C31A00267741400015A794 /* mic_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mic_1.png; sourceTree = "<group>"; };
+		38C31A01267741400015A794 /* mic_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mic_2.png; sourceTree = "<group>"; };
+		38C31A02267741400015A794 /* mic_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mic_3.png; sourceTree = "<group>"; };
+		38C31A03267741400015A794 /* mic_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mic_4.png; sourceTree = "<group>"; };
+		38C31A04267741400015A794 /* mic_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mic_5.png; sourceTree = "<group>"; };
+		38C31A05267741400015A794 /* mic_cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mic_cancel.png; sourceTree = "<group>"; };
+		38C31A06267741400015A794 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
+		38C31A07267741400015A794 /* libmp3lame.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmp3lame.a; sourceTree = "<group>"; };
+		38C31A08267741400015A794 /* Mp3Recorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mp3Recorder.h; sourceTree = "<group>"; };
+		38C31A09267741400015A794 /* Mp3Recorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mp3Recorder.m; sourceTree = "<group>"; };
+		38C31A0A267741400015A794 /* RecordHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordHUD.h; sourceTree = "<group>"; };
+		38C31A0B267741400015A794 /* RecordHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordHUD.m; sourceTree = "<group>"; };
+		38C31A182677458A0015A794 /* AESCrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AESCrypt.m; sourceTree = "<group>"; };
+		38C31A192677458B0015A794 /* NSData+CommonCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+CommonCrypto.h"; sourceTree = "<group>"; };
+		38C31A1A2677458B0015A794 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		38C31A1B2677458B0015A794 /* NSString+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Base64.m"; sourceTree = "<group>"; };
+		38C31A1C2677458C0015A794 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		38C31A1D2677458C0015A794 /* NSData+CommonCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+CommonCrypto.m"; sourceTree = "<group>"; };
+		38C31A1E2677458D0015A794 /* NSString+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Base64.h"; sourceTree = "<group>"; };
+		38C31A1F2677458D0015A794 /* AESCrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AESCrypt.h; sourceTree = "<group>"; };
+		38C31A24267769F50015A794 /* NSDate+HB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+HB.h"; sourceTree = "<group>"; };
+		38C31A25267769F50015A794 /* NSDate+HB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+HB.m"; sourceTree = "<group>"; };
+		38C31A2726776A4F0015A794 /* UIImage+Cut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Cut.m"; sourceTree = "<group>"; };
+		38C31A2926776A4F0015A794 /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
+		38C31A2A26776A500015A794 /* UIImage+SplitImageIntoTwoParts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SplitImageIntoTwoParts.m"; sourceTree = "<group>"; };
+		38C31A2B26776A500015A794 /* UIImage+Cut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Cut.h"; sourceTree = "<group>"; };
+		38C31A2D26776A510015A794 /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
+		38C31A2E26776A510015A794 /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
+		38C31A2F26776A510015A794 /* UIImage+SplitImageIntoTwoParts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SplitImageIntoTwoParts.h"; sourceTree = "<group>"; };
+		38C31A3026776A520015A794 /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
+		38C31A3626776A720015A794 /* ImageUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageUtil.h; sourceTree = "<group>"; };
+		38C31A3726776A720015A794 /* ImageUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageUtil.m; sourceTree = "<group>"; };
+		38C31A3926776A800015A794 /* ImageFilterProcessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageFilterProcessViewController.m; sourceTree = "<group>"; };
+		38C31A3A26776A800015A794 /* ImageFilterProcessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageFilterProcessViewController.h; sourceTree = "<group>"; };
+		38C31A3C26776A8B0015A794 /* CustomImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomImagePickerController.m; sourceTree = "<group>"; };
+		38C31A3D26776A8B0015A794 /* CustomImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomImagePickerController.h; sourceTree = "<group>"; };
+		38C31A3F26776A920015A794 /* ColorMatrix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorMatrix.h; sourceTree = "<group>"; };
+		38C31A4026776E110015A794 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
+		38C31A4126776E110015A794 /* NSDateFormatter+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+Category.m"; sourceTree = "<group>"; };
+		38C31A4226776E120015A794 /* NSDate+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Category.h"; sourceTree = "<group>"; };
+		38C31A4326776E120015A794 /* NSDate+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Category.m"; sourceTree = "<group>"; };
+		38C31A4426776E120015A794 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		38C31A4526776E130015A794 /* NSDateFormatter+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+Category.h"; sourceTree = "<group>"; };
+		38C31A49267770170015A794 /* UIImage+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MJ.m"; sourceTree = "<group>"; };
+		38C31A4A267770180015A794 /* UIImage+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MJ.h"; sourceTree = "<group>"; };
+		38C31AA7267784390015A794 /* UIScrollView+PullBig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+PullBig.m"; sourceTree = "<group>"; };
+		38C31AA82677843A0015A794 /* UIScrollView+PullBig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+PullBig.h"; sourceTree = "<group>"; };
+		38C31AAF2677AC150015A794 /* GCTurnBasedMatchHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCTurnBasedMatchHelper.h; sourceTree = "<group>"; };
+		38C31AB02677AC150015A794 /* GCTurnBasedMatchHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCTurnBasedMatchHelper.m; sourceTree = "<group>"; };
+		38C31AB22677AC320015A794 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		38C31AB42677ADC80015A794 /* CGameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGameViewController.h; sourceTree = "<group>"; };
+		38C31AB52677ADC80015A794 /* CGameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGameViewController.m; sourceTree = "<group>"; };
+		38C31AB62677ADC80015A794 /* CGameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CGameViewController.xib; sourceTree = "<group>"; };
+		38C31AB92677BD880015A794 /* UICollectionView+Analysis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+Analysis.m"; sourceTree = "<group>"; };
+		38C31ABA2677BD890015A794 /* UICollectionView+Analysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+Analysis.h"; sourceTree = "<group>"; };
+		38C31ABB2677BD890015A794 /* UIControl+Analysis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+Analysis.m"; sourceTree = "<group>"; };
+		38C31ABC2677BD8A0015A794 /* UITableView+Analysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Analysis.h"; sourceTree = "<group>"; };
+		38C31ABD2677BD8B0015A794 /* UITableView+Analysis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Analysis.m"; sourceTree = "<group>"; };
+		38C31ABE2677BD8B0015A794 /* UIGestureRecognizer+Analysis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIGestureRecognizer+Analysis.m"; sourceTree = "<group>"; };
+		38C31ABF2677BD8C0015A794 /* UIViewController+Analysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Analysis.h"; sourceTree = "<group>"; };
+		38C31AC02677BD8C0015A794 /* UIControl+Analysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+Analysis.h"; sourceTree = "<group>"; };
+		38C31AC12677BD8C0015A794 /* UIViewController+Analysis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Analysis.m"; sourceTree = "<group>"; };
+		38C31AC22677BD8D0015A794 /* UIGestureRecognizer+Analysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+Analysis.h"; sourceTree = "<group>"; };
+		38C31AC82677BDCE0015A794 /* NSObject+avoid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+avoid.m"; sourceTree = "<group>"; };
+		38C31AC92677BDCE0015A794 /* NSArray+safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+safe.h"; sourceTree = "<group>"; };
+		38C31ACA2677BDCF0015A794 /* NSArray+safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+safe.m"; sourceTree = "<group>"; };
+		38C31ACB2677BDCF0015A794 /* NSObject+avoid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+avoid.h"; sourceTree = "<group>"; };
+		38C31ACE2677BDF40015A794 /* CrashAvoidConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrashAvoidConst.h; sourceTree = "<group>"; };
+		38C31ACF2677BDF40015A794 /* CrashAvoidManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrashAvoidManager.h; sourceTree = "<group>"; };
+		38C31AD02677BDF50015A794 /* CrashAvoidManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrashAvoidManager.m; sourceTree = "<group>"; };
+		38C31AD22677BE4B0015A794 /* MethodSwizzingTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MethodSwizzingTool.h; sourceTree = "<group>"; };
+		38C31AD32677BE4C0015A794 /* MethodSwizzingTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MethodSwizzingTool.m; sourceTree = "<group>"; };
+		38C31AD52677BE610015A794 /* DataContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataContainer.h; sourceTree = "<group>"; };
+		38C31AD62677BE620015A794 /* DataContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataContainer.m; sourceTree = "<group>"; };
+		38C31AD82677BE820015A794 /* CaptureTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureTool.h; sourceTree = "<group>"; };
+		38C31AD92677BE830015A794 /* CaptureTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureTool.m; sourceTree = "<group>"; };
+		38C31ADB2677BEEA0015A794 /* UIGestureRecognizer+gesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+gesture.h"; sourceTree = "<group>"; };
+		38C31ADC2677BEEB0015A794 /* UIGestureRecognizer+gesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIGestureRecognizer+gesture.m"; sourceTree = "<group>"; };
 		38C3C77F2673AA2800EFE764 /* TestGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestGestureRecognizer.m; sourceTree = "<group>"; };
 		38C3C7812673AA2E00EFE764 /* TestGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestGestureRecognizer.h; sourceTree = "<group>"; };
+		38C3C7AD26766EDD00EFE764 /* LeftContainerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftContainerView.h; sourceTree = "<group>"; };
+		38C3C7AE26766EDD00EFE764 /* LeftContainerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeftContainerView.m; sourceTree = "<group>"; };
 		38C4E34D25B41896002D6F65 /* PlayAudioViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayAudioViewController.h; sourceTree = "<group>"; };
 		38C4E34E25B41896002D6F65 /* PlayAudioViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayAudioViewController.m; sourceTree = "<group>"; };
 		38C4E35425B4199E002D6F65 /* AudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayer.m; sourceTree = "<group>"; };
@@ -3947,6 +4075,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38C31AB32677AC330015A794 /* GameKit.framework in Frameworks */,
 				3880C5EE265378B70097328E /* UserNotifications.framework in Frameworks */,
 				3880C5EF265378B70097328E /* CoreTelephony.framework in Frameworks */,
 				3880C5F0265378B70097328E /* CoreFoundation.framework in Frameworks */,
@@ -3984,6 +4113,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38862C4922BA009900231140 /* UserNotifications.framework in Frameworks */,
+				38C31A14267741400015A794 /* libmp3lame.a in Frameworks */,
 				38862C4722BA007000231140 /* CoreTelephony.framework in Frameworks */,
 				38862C4522BA006A00231140 /* CoreFoundation.framework in Frameworks */,
 				38862C4322BA004800231140 /* CFNetwork.framework in Frameworks */,
@@ -5562,6 +5692,36 @@
 			path = Reachability;
 			sourceTree = "<group>";
 		};
+		38C319FB267741400015A794 /* D3RecordBtutton */ = {
+			isa = PBXGroup;
+			children = (
+				38C319FC267741400015A794 /* D3RecordButton.h */,
+				38C319FD267741400015A794 /* D3RecordButton.m */,
+				38C319FE267741400015A794 /* imgs */,
+				38C31A06267741400015A794 /* lame.h */,
+				38C31A07267741400015A794 /* libmp3lame.a */,
+				38C31A08267741400015A794 /* Mp3Recorder.h */,
+				38C31A09267741400015A794 /* Mp3Recorder.m */,
+				38C31A0A267741400015A794 /* RecordHUD.h */,
+				38C31A0B267741400015A794 /* RecordHUD.m */,
+			);
+			path = D3RecordBtutton;
+			sourceTree = "<group>";
+		};
+		38C319FE267741400015A794 /* imgs */ = {
+			isa = PBXGroup;
+			children = (
+				38C319FF267741400015A794 /* mic_0.png */,
+				38C31A00267741400015A794 /* mic_1.png */,
+				38C31A01267741400015A794 /* mic_2.png */,
+				38C31A02267741400015A794 /* mic_3.png */,
+				38C31A03267741400015A794 /* mic_4.png */,
+				38C31A04267741400015A794 /* mic_5.png */,
+				38C31A05267741400015A794 /* mic_cancel.png */,
+			);
+			path = imgs;
+			sourceTree = "<group>";
+		};
 		38C4E35025B4189F002D6F65 /* PlayAudio */ = {
 			isa = PBXGroup;
 			children = (
@@ -5671,6 +5831,7 @@
 		38C8454E227827EF00BCAD87 /* TLib */ = {
 			isa = PBXGroup;
 			children = (
+				38C319FB267741400015A794 /* D3RecordBtutton */,
 				387F594C2611EEC000C80AD9 /* BIYDeepSleepPreventer.h */,
 				387F594D2611EEC000C80AD9 /* BIYDeepSleepPreventer.m */,
 				387F594B2611EEC000C80AD9 /* Silence.wav */,
@@ -5696,6 +5857,8 @@
 				38E97EDF22D5CEC100A70112 /* HCWProgressHUD */,
 				38C84593227827EF00BCAD87 /* iCarousel.h */,
 				38C8454F227827EF00BCAD87 /* iCarousel.m */,
+				38C31AAF2677AC150015A794 /* GCTurnBasedMatchHelper.h */,
+				38C31AB02677AC150015A794 /* GCTurnBasedMatchHelper.m */,
 				38C845A0227827EF00BCAD87 /* InfiniteRollScrollView.h */,
 				38C84558227827EF00BCAD87 /* InfiniteRollScrollView.m */,
 				38C845A4227827EF00BCAD87 /* JSTextView.h */,
@@ -5916,8 +6079,28 @@
 				3874F5CC245EC0E80038E7DE /* NSArray+CrashCustom.m */,
 				38C845F5227827EF00BCAD87 /* NSArray+Log.h */,
 				38C84612227827EF00BCAD87 /* NSArray+Log.m */,
+				38C31A1F2677458D0015A794 /* AESCrypt.h */,
+				38C31A182677458A0015A794 /* AESCrypt.m */,
+				38C31A1C2677458C0015A794 /* NSData+Base64.h */,
+				38C31A1A2677458B0015A794 /* NSData+Base64.m */,
+				38C31A24267769F50015A794 /* NSDate+HB.h */,
+				38C31A25267769F50015A794 /* NSDate+HB.m */,
+				38C31A192677458B0015A794 /* NSData+CommonCrypto.h */,
+				38C31A1D2677458C0015A794 /* NSData+CommonCrypto.m */,
+				38C31A4226776E120015A794 /* NSDate+Category.h */,
+				38C31A4326776E120015A794 /* NSDate+Category.m */,
+				38C31A4526776E130015A794 /* NSDateFormatter+Category.h */,
+				38C31A4126776E110015A794 /* NSDateFormatter+Category.m */,
+				38C31A4426776E120015A794 /* NSString+MD5.h */,
+				38C31A4026776E110015A794 /* NSString+MD5.m */,
+				38C31A1E2677458D0015A794 /* NSString+Base64.h */,
+				38C31A1B2677458B0015A794 /* NSString+Base64.m */,
 				3828B65E23ADE5CB008E4D04 /* NSDictionary+Safe.h */,
 				3828B65F23ADE5CB008E4D04 /* NSDictionary+Safe.m */,
+				38C31AC92677BDCE0015A794 /* NSArray+safe.h */,
+				38C31ACA2677BDCF0015A794 /* NSArray+safe.m */,
+				38C31ACB2677BDCF0015A794 /* NSObject+avoid.h */,
+				38C31AC82677BDCE0015A794 /* NSObject+avoid.m */,
 				38C8460D227827EF00BCAD87 /* NSMutableArray+Util.h */,
 				38C845F0227827EF00BCAD87 /* NSMutableArray+Util.m */,
 				385483FF23505AB90053AB46 /* NSObject+Runtime.h */,
@@ -5951,6 +6134,16 @@
 				38D9ACA926044D0400975698 /* UIImageView+AnimationImage.m */,
 				38C845E9227827EF00BCAD87 /* UIImage+compressIMG.h */,
 				38C84603227827EF00BCAD87 /* UIImage+compressIMG.m */,
+				38C31A2E26776A510015A794 /* UIImage+Alpha.h */,
+				38C31A2926776A4F0015A794 /* UIImage+Alpha.m */,
+				38C31A2B26776A500015A794 /* UIImage+Cut.h */,
+				38C31A2726776A4F0015A794 /* UIImage+Cut.m */,
+				38C31A4A267770180015A794 /* UIImage+MJ.h */,
+				38C31A49267770170015A794 /* UIImage+MJ.m */,
+				38C31A3026776A520015A794 /* UIImage+RoundedCorner.h */,
+				38C31A2D26776A510015A794 /* UIImage+RoundedCorner.m */,
+				38C31A2F26776A510015A794 /* UIImage+SplitImageIntoTwoParts.h */,
+				38C31A2A26776A500015A794 /* UIImage+SplitImageIntoTwoParts.m */,
 				38C845EB227827EF00BCAD87 /* UIImage+Extend.h */,
 				38C84600227827EF00BCAD87 /* UIImage+Extend.m */,
 				38FC2D3F259233BF00E5FCCD /* UIImage+Filter.h */,
@@ -5979,8 +6172,22 @@
 				3807246822CDCCCC0035E5B1 /* UIView+RandomCorner.m */,
 				38862C7622BB1A0400231140 /* UIViewController+RTCSampleAlert.h */,
 				38862C7522BB1A0400231140 /* UIViewController+RTCSampleAlert.m */,
+				38C31ABA2677BD890015A794 /* UICollectionView+Analysis.h */,
+				38C31AB92677BD880015A794 /* UICollectionView+Analysis.m */,
+				38C31AC02677BD8C0015A794 /* UIControl+Analysis.h */,
+				38C31ABB2677BD890015A794 /* UIControl+Analysis.m */,
+				38C31AC22677BD8D0015A794 /* UIGestureRecognizer+Analysis.h */,
+				38C31ABE2677BD8B0015A794 /* UIGestureRecognizer+Analysis.m */,
+				38C31ADB2677BEEA0015A794 /* UIGestureRecognizer+gesture.h */,
+				38C31ADC2677BEEB0015A794 /* UIGestureRecognizer+gesture.m */,
+				38C31ABC2677BD8A0015A794 /* UITableView+Analysis.h */,
+				38C31ABD2677BD8B0015A794 /* UITableView+Analysis.m */,
+				38C31ABF2677BD8C0015A794 /* UIViewController+Analysis.h */,
+				38C31AC12677BD8C0015A794 /* UIViewController+Analysis.m */,
 				38862D3822BB522300231140 /* UIViewController+topmost.h */,
 				38862D3922BB522300231140 /* UIViewController+topmost.m */,
+				38C31AA82677843A0015A794 /* UIScrollView+PullBig.h */,
+				38C31AA7267784390015A794 /* UIScrollView+PullBig.m */,
 			);
 			path = UIExtension;
 			sourceTree = "<group>";
@@ -5999,10 +6206,26 @@
 		38C84613227827EF00BCAD87 /* UIShortcut */ = {
 			isa = PBXGroup;
 			children = (
+				38C31AD82677BE820015A794 /* CaptureTool.h */,
+				38C31AD92677BE830015A794 /* CaptureTool.m */,
+				38C31AD52677BE610015A794 /* DataContainer.h */,
+				38C31AD62677BE620015A794 /* DataContainer.m */,
+				38C31ACE2677BDF40015A794 /* CrashAvoidConst.h */,
+				38C31ACF2677BDF40015A794 /* CrashAvoidManager.h */,
+				38C31AD02677BDF50015A794 /* CrashAvoidManager.m */,
+				38C31AD22677BE4B0015A794 /* MethodSwizzingTool.h */,
+				38C31AD32677BE4C0015A794 /* MethodSwizzingTool.m */,
+				38C31A3F26776A920015A794 /* ColorMatrix.h */,
+				38C31A3D26776A8B0015A794 /* CustomImagePickerController.h */,
+				38C31A3C26776A8B0015A794 /* CustomImagePickerController.m */,
+				38C31A3A26776A800015A794 /* ImageFilterProcessViewController.h */,
+				38C31A3926776A800015A794 /* ImageFilterProcessViewController.m */,
 				38C84618227827EF00BCAD87 /* DHTool.h */,
 				38C84615227827EF00BCAD87 /* DHTool.m */,
 				386BBBDE22DD7D29005E6054 /* JRSwizzle.h */,
 				386BBBDC22DD7D19005E6054 /* JRSwizzle.m */,
+				38C31A3626776A720015A794 /* ImageUtil.h */,
+				38C31A3726776A720015A794 /* ImageUtil.m */,
 				381D6472243F173D00EA86D8 /* SafeSetObject.h */,
 				381D6473243F173D00EA86D8 /* SafeSetObject.m */,
 				386BBBDD22DD7D20005E6054 /* SYSafeCategory.h */,
@@ -7677,10 +7900,15 @@
 				38C848CC227827F100BCAD87 /* LabelNilMethodBlockViewController.m */,
 				38EA8531228D57F300A28136 /* SFTextView.h */,
 				38EA8532228D57F300A28136 /* SFTextView.m */,
+				38C3C7AD26766EDD00EFE764 /* LeftContainerView.h */,
+				38C3C7AE26766EDD00EFE764 /* LeftContainerView.m */,
 				386BBBB822DD6DE1005E6054 /* CustomerAlertController.h */,
 				386BBBB922DD6DE1005E6054 /* CustomerAlertController.m */,
 				3874BB412331CB1300C05C90 /* CViewController.h */,
 				3874BB402331CB1200C05C90 /* CViewController.m */,
+				38C31AB42677ADC80015A794 /* CGameViewController.h */,
+				38C31AB52677ADC80015A794 /* CGameViewController.m */,
+				38C31AB62677ADC80015A794 /* CGameViewController.xib */,
 				38C3C7812673AA2E00EFE764 /* TestGestureRecognizer.h */,
 				38C3C77F2673AA2800EFE764 /* TestGestureRecognizer.m */,
 			);
@@ -8035,6 +8263,7 @@
 		F3734FE496F0FE515FCEE2E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				38C31AB22677AC320015A794 /* GameKit.framework */,
 				84B7FF4D250B69370051603C /* Foundation.framework */,
 				84B7FF4B250B69220051603C /* UIKit.framework */,
 				3828B875240CF57F00C79AC9 /* AFNetworking.framework */,
@@ -8574,6 +8803,7 @@
 			files = (
 				3874A59425EDE05B00CE992F /* model.ts in Resources */,
 				384C409522888DFA00F01586 /* 回传管理.png in Resources */,
+				38C31A0F267741400015A794 /* mic_2.png in Resources */,
 				38C977CD22AE02D300F978C1 /* black puck.png in Resources */,
 				38C977D922AE02D300F978C1 /* credits_button.png in Resources */,
 				38C977D422AE02D300F978C1 /* air hokey small.png in Resources */,
@@ -8586,6 +8816,7 @@
 				38C84993227827F100BCAD87 /* soul3@3x.png in Resources */,
 				38C84A15227827F200BCAD87 /* SenderVoiceNodeDownloading.png in Resources */,
 				384C408922888DFA00F01586 /* UGC@3x.png in Resources */,
+				38C31A13267741400015A794 /* mic_cancel.png in Resources */,
 				386422CB228AC3F2006DB570 /* SliderMainStoryboard.storyboard in Resources */,
 				38C2D0E222D5E31D00CF30CA /* 03.jpg in Resources */,
 				384C407922888DFA00F01586 /* 快速发稿@3x.png in Resources */,
@@ -8600,6 +8831,7 @@
 				38C84A17227827F200BCAD87 /* ReceiverVoiceNodeDownloading.png in Resources */,
 				38C849A6227827F100BCAD87 /* soul33.png in Resources */,
 				38C849FD227827F200BCAD87 /* 4.jpg in Resources */,
+				38C31A12267741400015A794 /* mic_5.png in Resources */,
 				386BC09122DDB19F005E6054 /* image_9.jpg in Resources */,
 				38C977D822AE02D300F978C1 /* logoA.png in Resources */,
 				38C84998227827F100BCAD87 /* soul11@3x.png in Resources */,
@@ -8705,6 +8937,7 @@
 				38C2D0E122D5E31D00CF30CA /* 01.jpg in Resources */,
 				386BBB5122DC8F42005E6054 /* h8.jpg in Resources */,
 				384C407D22888DFA00F01586 /* 移动审片@3x.png in Resources */,
+				38C31AB82677ADC80015A794 /* CGameViewController.xib in Resources */,
 				386BBF8422DDA99A005E6054 /* abc.png in Resources */,
 				386BBB4822DC8F42005E6054 /* h2.jpg in Resources */,
 				38C8498F227827F100BCAD87 /* soul3@2x.png in Resources */,
@@ -8727,6 +8960,7 @@
 				38C84908227827F100BCAD87 /* no_my@2x.png in Resources */,
 				38C849BE227827F200BCAD87 /* btn_original_circle.png in Resources */,
 				384C407822888DFA00F01586 /* 选题管理.png in Resources */,
+				38C31A0E267741400015A794 /* mic_1.png in Resources */,
 				38B734542497BB2E00CC4384 /* 750x1334@2x.png in Resources */,
 				38C84A14227827F200BCAD87 /* photo.png in Resources */,
 				8487ADB224F8BE56004B41ED /* DemoTableViewController.xib in Resources */,
@@ -8784,6 +9018,7 @@
 				384C406D22888DFA00F01586 /* 快速发稿@2x.png in Resources */,
 				386BBF8322DDA99A005E6054 /* checked.png in Resources */,
 				38C8499D227827F100BCAD87 /* soul2@3x.png in Resources */,
+				38C31A0D267741400015A794 /* mic_0.png in Resources */,
 				38C977DB22AE02D300F978C1 /* A_room_broom_guy_and_a_mirror.mp3 in Resources */,
 				38C84990227827F100BCAD87 /* soul11.png in Resources */,
 				38C977D022AE02D300F978C1 /* green paddle.png in Resources */,
@@ -8853,6 +9088,7 @@
 				38C849F3227827F200BCAD87 /* 4.mp3 in Resources */,
 				38C977CC22AE02D300F978C1 /* air hokey.png in Resources */,
 				3874A58B25EDE05B00CE992F /* chunk-646de3d9.a3442d01.js in Resources */,
+				38C31A11267741400015A794 /* mic_4.png in Resources */,
 				38C84A1A227827F200BCAD87 /* SenderVoiceNodePlaying@2x.png in Resources */,
 				386BBB2322DC68F2005E6054 /* Detail.plist in Resources */,
 				38C849BC227827F200BCAD87 /* ZLNoAuthorityViewController.xib in Resources */,
@@ -8875,6 +9111,7 @@
 				38C84A3B227827F200BCAD87 /* MLSelectPhoto.bundle in Resources */,
 				38C849A1227827F100BCAD87 /* soul44@2x.png in Resources */,
 				38C2D0DD22D5E31D00CF30CA /* 07.jpg in Resources */,
+				38C31A10267741400015A794 /* mic_3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -9776,6 +10013,8 @@
 				38C848FF227827F100BCAD87 /* NobodyNibTableViewController.m in Sources */,
 				386BBB6322DC9F45005E6054 /* PhotoTweaksViewController.m in Sources */,
 				38C84A37227827F200BCAD87 /* CollectionImageCell.m in Sources */,
+				38C31AB72677ADC80015A794 /* CGameViewController.m in Sources */,
+				38C31A3E26776A8B0015A794 /* CustomImagePickerController.m in Sources */,
 				386BC0A322DDB1CA005E6054 /* XibViewController.m in Sources */,
 				38C84A50227827F200BCAD87 /* QRCodeVC.m in Sources */,
 				38B075EC2592262E004408BF /* KSTester.m in Sources */,
@@ -9792,8 +10031,10 @@
 				386BBB0922DB76ED005E6054 /* SlideMenuViewController.m in Sources */,
 				38C84A43227827F200BCAD87 /* MLSelectPhotoNavigationViewController.m in Sources */,
 				38C84927227827F100BCAD87 /* SDDrowNoticeView.m in Sources */,
+				38C31A212677458D0015A794 /* NSData+Base64.m in Sources */,
 				386BBDB922DDA7FF005E6054 /* GPUImageContrastFilter.m in Sources */,
 				38C849D7227827F200BCAD87 /* PinyinHelper.m in Sources */,
+				38C31A3826776A720015A794 /* ImageUtil.m in Sources */,
 				386BC04E22DDABA7005E6054 /* DGActivityIndicatorDoubleBounceAnimation.m in Sources */,
 				38C84A2B227827F200BCAD87 /* SubparagraphViewController.m in Sources */,
 				38C848D5227827F100BCAD87 /* YPTabItem.m in Sources */,
@@ -9836,6 +10077,7 @@
 				38C84A42227827F200BCAD87 /* MLSelectPhotoPickerGroupViewController.m in Sources */,
 				386BBDC922DDA7FF005E6054 /* GPUImageScreenBlendFilter.m in Sources */,
 				38C84948227827F100BCAD87 /* DetailsDrawViewController.m in Sources */,
+				38C31A16267741400015A794 /* RecordHUD.m in Sources */,
 				386BBDDB22DDA7FF005E6054 /* GPUImageFalseColorFilter.m in Sources */,
 				386BC05622DDABA7005E6054 /* DGActivityIndicatorBallPulseAnimation.m in Sources */,
 				38C8496D227827F100BCAD87 /* DHAdressViewController.m in Sources */,
@@ -9873,6 +10115,7 @@
 				38F540FA25B9718D00B50573 /* ZLaunchAdView.swift in Sources */,
 				38C84A05227827F200BCAD87 /* DHNoteJoyViewController.m in Sources */,
 				38C8490D227827F100BCAD87 /* BaseNavigationController.m in Sources */,
+				38C31A232677458D0015A794 /* NSData+CommonCrypto.m in Sources */,
 				38C8492A227827F100BCAD87 /* NetWork.m in Sources */,
 				382BB5642434C3DC000A9CB7 /* TkTabBar.m in Sources */,
 				38C849EA227827F200BCAD87 /* JPCarModel.m in Sources */,
@@ -9900,6 +10143,7 @@
 				384C3FCA22887D7A00F01586 /* Present.m in Sources */,
 				386BBD6B22DDA7FE005E6054 /* GPUImageFilterGroup.m in Sources */,
 				386BBD8822DDA7FE005E6054 /* GPUImageColorMatrixFilter.m in Sources */,
+				38C31A3B26776A800015A794 /* ImageFilterProcessViewController.m in Sources */,
 				38C977E422AE02D300F978C1 /* Themes.m in Sources */,
 				38E97EE322D5CEC100A70112 /* HCWProgressHUD.m in Sources */,
 				386BBD7A22DDA7FE005E6054 /* GPUImageMissEtikateFilter.m in Sources */,
@@ -9916,6 +10160,7 @@
 				384C3FDF228881F800F01586 /* KYDog.m in Sources */,
 				38A48C7825734C5800293669 /* DHTScrollviewTeachingVC.m in Sources */,
 				38C84A5E227827F200BCAD87 /* mask.c in Sources */,
+				38C31AC42677BD8D0015A794 /* UIControl+Analysis.m in Sources */,
 				38FC2D44259233BF00E5FCCD /* PHAsset+Method.m in Sources */,
 				84B2642C25024F68009B9E4B /* DHHttpRequestUserInfoUserInfo.m in Sources */,
 				38C8498D227827F100BCAD87 /* HXTagAttribute.m in Sources */,
@@ -9940,6 +10185,7 @@
 				386BC05D22DDABA7005E6054 /* DGActivityIndicatorBallSpinFadeLoader.m in Sources */,
 				38C84A38227827F200BCAD87 /* CollectionImageView.m in Sources */,
 				38C8492B227827F100BCAD87 /* RSA.m in Sources */,
+				38C31AD42677BE4C0015A794 /* MethodSwizzingTool.m in Sources */,
 				386070D325132AD800545ECB /* DHAttachmentViewController.m in Sources */,
 				38C84A5F227827F200BCAD87 /* qrspec.c in Sources */,
 				382BB56C2434E5AA000A9CB7 /* UITableView+DHAnimationA.m in Sources */,
@@ -9991,8 +10237,10 @@
 				38F540FB25B9718D00B50573 /* ZLaunchAdWindow.swift in Sources */,
 				38C848D4227827F100BCAD87 /* InfiniteRollScrollView.m in Sources */,
 				386BBD9A22DDA7FE005E6054 /* GPUImageRGBClosingFilter.m in Sources */,
+				38C31A4626776E130015A794 /* NSString+MD5.m in Sources */,
 				386BC06222DDABA7005E6054 /* DGActivityIndicatorLineScalePulseOutRapidAnimation.m in Sources */,
 				386BBDC422DDA7FF005E6054 /* GPUImageClosingFilter.m in Sources */,
+				38C31AC32677BD8D0015A794 /* UICollectionView+Analysis.m in Sources */,
 				38C84A24227827F200BCAD87 /* ZSDPaymentView.m in Sources */,
 				386BBDA122DDA7FF005E6054 /* GPUImageDivideBlendFilter.m in Sources */,
 				38C848D9227827F100BCAD87 /* KeychainItemWrapper.m in Sources */,
@@ -10006,6 +10254,7 @@
 				38230153245E675C0096DB42 /* BookDataViewModel.m in Sources */,
 				38D9ACA826044CEA00975698 /* FLAnimatedImageView.m in Sources */,
 				386BBDD722DDA7FF005E6054 /* GPUImageSingleComponentGaussianBlurFilter.m in Sources */,
+				38C31A3326776A520015A794 /* UIImage+SplitImageIntoTwoParts.m in Sources */,
 				38C848D7227827F100BCAD87 /* YPTabBar.m in Sources */,
 				386BBDA222DDA7FF005E6054 /* GPUImageOutput.m in Sources */,
 				386BC04F22DDABA7005E6054 /* DGActivityIndicatorCookieTerminatorAnimation.m in Sources */,
@@ -10019,6 +10268,7 @@
 				386BBC5022DD9C18005E6054 /* PHAsset+Method.m in Sources */,
 				38862C6C22BA5BFB00231140 /* SwizzManager.m in Sources */,
 				386BBC5722DD9C18005E6054 /* LHWatermarkDataModel.m in Sources */,
+				38C3C7AF26766EDD00EFE764 /* LeftContainerView.m in Sources */,
 				38C84A23227827F200BCAD87 /* ZSDPaymentForm.m in Sources */,
 				38C84A0B227827F200BCAD87 /* Message.m in Sources */,
 				38C8492E227827F100BCAD87 /* RequestPostUploadHelper.m in Sources */,
@@ -10034,6 +10284,7 @@
 				382B6F7B23347D0200CD2497 /* DBSphereView.m in Sources */,
 				386BBD6722DDA7FE005E6054 /* GPUImageTwoPassTextureSamplingFilter.m in Sources */,
 				386BBD8F22DDA7FE005E6054 /* GPUImageOpeningFilter.m in Sources */,
+				38C31AA92677843A0015A794 /* UIScrollView+PullBig.m in Sources */,
 				38C849C8227827F200BCAD87 /* ZLShowBigImgViewController.m in Sources */,
 				386BBDB222DDA7FF005E6054 /* GPUImageThresholdEdgeDetection.m in Sources */,
 				38C84A3C227827F200BCAD87 /* UIView+MLExtension.m in Sources */,
@@ -10056,6 +10307,7 @@
 				38F540F925B9718D00B50573 /* ZLaunchAdMD5.swift in Sources */,
 				38C84A5B227827F200BCAD87 /* qrencode.c in Sources */,
 				38A0B45925E7B60800DAB7F7 /* GZBottomView.m in Sources */,
+				38C31A202677458D0015A794 /* AESCrypt.m in Sources */,
 				382FFA55231CC0750062080E /* GradualColor_View.m in Sources */,
 				38C84958227827F100BCAD87 /* ESMOneViewController.m in Sources */,
 				386BBDDF22DDA7FF005E6054 /* GPUImageFilter.m in Sources */,
@@ -10063,6 +10315,7 @@
 				38C84946227827F100BCAD87 /* LSTabBarViewController.m in Sources */,
 				38C84A73227827F200BCAD87 /* LabelMethodBlockVC.m in Sources */,
 				38C84A07227827F200BCAD87 /* DisplayNoteViewController.m in Sources */,
+				38C31AD12677BDF50015A794 /* CrashAvoidManager.m in Sources */,
 				38C2D0CF22D5E27700CF30CA /* Reachability.m in Sources */,
 				38C849D2227827F200BCAD87 /* DHNoteViewController.m in Sources */,
 				386BBD9F22DDA7FF005E6054 /* GPUImageDifferenceBlendFilter.m in Sources */,
@@ -10087,7 +10340,9 @@
 				69231658234E31B400A92110 /* ThreeDimensionalSphericalLayout.m in Sources */,
 				38C8492F227827F100BCAD87 /* LHCacheTool.m in Sources */,
 				38C848D3227827F100BCAD87 /* DHGuidePageHUD.m in Sources */,
+				38C31AB12677AC160015A794 /* GCTurnBasedMatchHelper.m in Sources */,
 				386BBDD422DDA7FF005E6054 /* GPUImageCrosshatchFilter.m in Sources */,
+				38C31A4826776E130015A794 /* NSDate+Category.m in Sources */,
 				386BBD7322DDA7FE005E6054 /* GPUImageTwoInputFilter.m in Sources */,
 				38C849AC227827F100BCAD87 /* ZLSelectPhotoModel.m in Sources */,
 				386BBDDC22DDA7FF005E6054 /* GPUImagePolkaDotFilter.m in Sources */,
@@ -10101,16 +10356,19 @@
 				3883777D25A5671F0025BB85 /* AutoScrollerViewController.m in Sources */,
 				38C84928227827F100BCAD87 /* LHKeyChain.m in Sources */,
 				38D9ACAD26044D0500975698 /* UIImageView+AnimationImage.m in Sources */,
+				38C31A15267741400015A794 /* Mp3Recorder.m in Sources */,
 				38C2D0CA22D5E27700CF30CA /* ASIHTTPRequest.m in Sources */,
 				38C84A33227827F200BCAD87 /* ScrollImageViewViewController.m in Sources */,
 				38C84923227827F100BCAD87 /* UIColor+expanded.m in Sources */,
 				384C3FC822887D7A00F01586 /* CustomCell.m in Sources */,
 				38E97EDE22D5CD9B00A70112 /* PopoverView.m in Sources */,
+				38C31A3526776A520015A794 /* UIImage+RoundedCorner.m in Sources */,
 				84B7FF2C250B19410051603C /* CustomWebViewPool.m in Sources */,
 				381D6470243F163F00EA86D8 /* DDYNetworkSpeedTool.m in Sources */,
 				38C84920227827F100BCAD87 /* UIButton+EnlargeTouchArea.m in Sources */,
 				3893F3A922CDF080005C30AE /* HDMonthDetailCollectionViewCell.m in Sources */,
 				38A246F925586DF000993807 /* ReadView.m in Sources */,
+				38C31ADA2677BE830015A794 /* CaptureTool.m in Sources */,
 				38C848EF227827F100BCAD87 /* PJRSignatureView.m in Sources */,
 				386BBF6922DDA8AF005E6054 /* ShowcaseFilterViewController.m in Sources */,
 				386BC0B422DDB5AB005E6054 /* circleView.m in Sources */,
@@ -10147,16 +10405,19 @@
 				38C848F0227827F100BCAD87 /* pinyin.c in Sources */,
 				38C8491D227827F100BCAD87 /* UIImage+compressIMG.m in Sources */,
 				38C848F1227827F100BCAD87 /* KSGuideManager.m in Sources */,
+				38C31AC62677BD8D0015A794 /* UIGestureRecognizer+Analysis.m in Sources */,
 				38C8497F227827F100BCAD87 /* UserModel.m in Sources */,
 				386BC05922DDABA7005E6054 /* DGActivityIndicatorFiveDotsAnimation.m in Sources */,
 				384C3FC922887D7A00F01586 /* TurntableViewController.m in Sources */,
 				38C8494A227827F100BCAD87 /* TestThreeVC.m in Sources */,
 				38EE05B123853D8200718397 /* YHView.m in Sources */,
+				38C31A4B267770180015A794 /* UIImage+MJ.m in Sources */,
 				386BBB5722DC9BE3005E6054 /* LuckyMainViewController.m in Sources */,
 				3874BB422331CB1400C05C90 /* CViewController.m in Sources */,
 				3874F5C0245E9A0C0038E7DE /* KeyBoardCell.m in Sources */,
 				38C84A66227827F200BCAD87 /* ZLDashboardViewController.m in Sources */,
 				384C3FD122887D7A00F01586 /* MVVMViewController.m in Sources */,
+				38C31ACD2677BDCF0015A794 /* NSArray+safe.m in Sources */,
 				386BC0A722DDB1CC005E6054 /* CodeViewController.m in Sources */,
 				38FC2D42259233BF00E5FCCD /* GPUImageSoulFilter.m in Sources */,
 				38F459EC25131ABA00F368EF /* DHTFVideoCell.m in Sources */,
@@ -10207,6 +10468,7 @@
 				386BBD6F22DDA7FE005E6054 /* GPUImageColorPackingFilter.m in Sources */,
 				386BBD8E22DDA7FE005E6054 /* GPUImageAdaptiveThresholdFilter.m in Sources */,
 				386BBB6122DC9F45005E6054 /* UIColor+Tweak.m in Sources */,
+				38C31A222677458D0015A794 /* NSString+Base64.m in Sources */,
 				38C84971227827F100BCAD87 /* QBTools.m in Sources */,
 				38C84956227827F100BCAD87 /* XHScrollMenu.m in Sources */,
 				386BBDD222DDA7FF005E6054 /* GPUImage3x3ConvolutionFilter.m in Sources */,
@@ -10230,6 +10492,7 @@
 				386BBD8122DDA7FE005E6054 /* GPUImageBilateralFilter.m in Sources */,
 				38F540FC25B9718D00B50573 /* ZLaunchImageView.swift in Sources */,
 				38C848F9227827F100BCAD87 /* SGSegmentedControl.m in Sources */,
+				38C31ACC2677BDCF0015A794 /* NSObject+avoid.m in Sources */,
 				38F540F625B9718D00B50573 /* ZLaunchAdCache.swift in Sources */,
 				3883778525A56ED00025BB85 /* DHCABasicAnimationView.m in Sources */,
 				38C849CE227827F200BCAD87 /* UserCell.m in Sources */,
@@ -10241,6 +10504,7 @@
 				386BC07F22DDB18C005E6054 /* CCDraggableCardView.m in Sources */,
 				38C84A2C227827F200BCAD87 /* DynamicItemWidthTabController.m in Sources */,
 				38D5CEF222965C6000323648 /* backgroundView.m in Sources */,
+				38C31A3126776A520015A794 /* UIImage+Cut.m in Sources */,
 				38C8493C227827F100BCAD87 /* DisassemblyViewController.m in Sources */,
 				384C3FC622887D7900F01586 /* CustomCollectionViewController.m in Sources */,
 				386BBD8C22DDA7FE005E6054 /* GPUImagePicture.m in Sources */,
@@ -10307,6 +10571,7 @@
 				38C84A63227827F200BCAD87 /* QRCodeAreaView.m in Sources */,
 				386BBD6E22DDA7FE005E6054 /* GPUImageTwoPassFilter.m in Sources */,
 				38C849DE227827F200BCAD87 /* GZBaseViewController.m in Sources */,
+				38C31A26267769F50015A794 /* NSDate+HB.m in Sources */,
 				38C84921227827F100BCAD87 /* UIImage+ImageEffects.m in Sources */,
 				38274D56229EB80000185C09 /* DHTimeoutAppDelegate.m in Sources */,
 				386BBDE322DDA7FF005E6054 /* GPUImageDarkenBlendFilter.m in Sources */,
@@ -10320,6 +10585,7 @@
 				38C8490E227827F100BCAD87 /* HKHealthStore+AAPLExtensions.m in Sources */,
 				38EA8533228D57F300A28136 /* SFTextView.m in Sources */,
 				386BBDE222DDA7FF005E6054 /* GPUImageCGAColorspaceFilter.m in Sources */,
+				38C31AD72677BE620015A794 /* DataContainer.m in Sources */,
 				38A48C7B257363C200293669 /* DHScrollerTView.m in Sources */,
 				38C84961227827F100BCAD87 /* ESMMoneyViewController.m in Sources */,
 				38C849D0227827F200BCAD87 /* HealthViewController.m in Sources */,
@@ -10329,6 +10595,7 @@
 				386BBD9522DDA7FE005E6054 /* GPUImageCropFilter.m in Sources */,
 				386BBDA322DDA7FF005E6054 /* GPUimageDirectionalSobelEdgeDetectionFilter.m in Sources */,
 				386BC05122DDABA7005E6054 /* DGActivityIndicatorLineScaleAnimation.m in Sources */,
+				38C31A4726776E130015A794 /* NSDateFormatter+Category.m in Sources */,
 				38C84944227827F100BCAD87 /* YSYPreviewViewController.m in Sources */,
 				3828B66023ADE5CB008E4D04 /* NSDictionary+Safe.m in Sources */,
 				386BC04622DDABA7005E6054 /* DGActivityIndicatorAnimation.m in Sources */,
@@ -10381,6 +10648,7 @@
 				38C84A39227827F200BCAD87 /* ScrollImageView.m in Sources */,
 				38C4E35F25B419A1002D6F65 /* AudioPlayer.m in Sources */,
 				386BBDA522DDA7FF005E6054 /* GPUImageLanczosResamplingFilter.m in Sources */,
+				38C31AC52677BD8D0015A794 /* UITableView+Analysis.m in Sources */,
 				38C8490B227827F100BCAD87 /* BaseTabBarViewController.m in Sources */,
 				38F5410125B9739100B50573 /* DHBlueButton.m in Sources */,
 				38F459E0251315C900F368EF /* UIApplication+scanLocalVideo.m in Sources */,
@@ -10391,6 +10659,7 @@
 				8487ADBD24F8BEC1004B41ED /* WTTestObject.mm in Sources */,
 				38F459D7251314C700F368EF /* ZCBrowserCollectionViewCell.m in Sources */,
 				386BBC2422DD9ADC005E6054 /* HWSlider.m in Sources */,
+				38C31A0C267741400015A794 /* D3RecordButton.m in Sources */,
 				38FC2D47259233BF00E5FCCD /* CIFilter+LUT.m in Sources */,
 				38C84906227827F100BCAD87 /* ListContentViewController.m in Sources */,
 				386BBDB722DDA7FF005E6054 /* GPUImageCrosshairGenerator.m in Sources */,
@@ -10405,6 +10674,7 @@
 				38C84A46227827F200BCAD87 /* MLSelectPhotoBrowserViewController.m in Sources */,
 				38A246FC25586DFC00993807 /* FlageModel.m in Sources */,
 				38C8495B227827F100BCAD87 /* ESMTabBarVC.m in Sources */,
+				38C31AC72677BD8D0015A794 /* UIViewController+Analysis.m in Sources */,
 				386BBD8722DDA7FE005E6054 /* GPUImageOpenGLESContext.m in Sources */,
 				386BC05E22DDABA7005E6054 /* DGActivityIndicatorBallZigZagDeflectAnimation.m in Sources */,
 				386BBD9022DDA7FE005E6054 /* GPUImageErosionFilter.m in Sources */,
@@ -10462,10 +10732,12 @@
 				386BBD8222DDA7FE005E6054 /* GPUImageHistogramGenerator.m in Sources */,
 				3817212123EE8EBA00F8A9A0 /* DrawBezierPathView.m in Sources */,
 				386BBD9D22DDA7FF005E6054 /* GLProgram.m in Sources */,
+				38C31ADD2677BEEB0015A794 /* UIGestureRecognizer+gesture.m in Sources */,
 				386BBBE022DD7D2A005E6054 /* JRSwizzle.m in Sources */,
 				386BBDAB22DDA7FF005E6054 /* GPUImageRGBFilter.m in Sources */,
 				8487ADC224F8E111004B41ED /* TopicItem.m in Sources */,
 				38D0FB2F243AD9560028967E /* UIView+ActivityIndicator.m in Sources */,
+				38C31A3226776A520015A794 /* UIImage+Alpha.m in Sources */,
 				38274D53229EB00F00185C09 /* DHSendRunObject.m in Sources */,
 				386BC04222DDABA7005E6054 /* DGActivityIndicatorTripleRingsAnimation.m in Sources */,
 				38FC2D5225924C1C00E5FCCD /* GLPageScrollView.m in Sources */,
@@ -11018,6 +11290,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/CollegePro/Class(首页)/TLib/D3RecordBtutton",
 				);
 				MACH_O_TYPE = mh_execute;
 				ONLY_ACTIVE_ARCH = YES;
@@ -11131,6 +11404,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/CollegePro/Class(首页)/TLib/D3RecordBtutton",
 				);
 				MACH_O_TYPE = mh_execute;
 				ONLY_ACTIVE_ARCH = NO;

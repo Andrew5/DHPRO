@@ -366,6 +366,8 @@
     [self addCell:@"变换矩阵" class:@"DBSphereViewController"];
     [self addCell:@"蓝牙" class:@"BlueToothViewController"];
     [self addCell:@"WK交互" class:@"WKWebViewController"];
+//    [self addCell:@"GameKit" class:@"CGameViewController"];
+
     [_collectionView reloadData];
     //它的本质就是建立了CATransaction这个事务上
 //    [_collectionView beginUpdates];
@@ -543,7 +545,13 @@
     if ([className isEqualToString:@"BlueToothViewController"]) {
         // 使用Swift的类
         present(controller);
+    }else{
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+        navController.navigationBarHidden = YES;
+        [UIApplication sharedApplication].keyWindow.rootViewController = navController;
     }
+    
+
     /*
      NSURL *appBUrl = [NSURL URLWithString:@"mqqOpensdkSSoLogin://"];
      // 2.判断手机中是否安装了对应程序 参考 http://www.cnblogs.com/isItOk/p/4869499.html

@@ -94,6 +94,10 @@
 	<string>Contacts Usage Description</string>
 	<key>NSHealthShareUsageDescription</key>
 	<string>访问健康分享</string>
+	<key>UIRequiredDeviceCapabilities - 2</key>
+	<array>
+		<string>armv7</string>
+	</array>
 	<key>NSHealthUpdateUsageDescription</key>
 	<string>访问健康更新</string>
 	<key>NSInternalInconsistencyException</key>
