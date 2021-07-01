@@ -10,6 +10,7 @@
 #include <net/if.h>//配置ip地址,激活接口,配置MTU等接口信息
 #import <mach/mach_time.h>
 #import <DKNightVersion/DKNightVersion.h>
+#include "WTTestFirstC.h"
 #include "WTTestC.h"
 #import "WTTestObject.h"
 #import "DHMainViewController.h"
@@ -159,6 +160,7 @@
 #else
     NSLog(@"111");
 #endif
+    
 //    [[DKNightVersionManager dk_manager] dawnComing];
     [[DKNightVersionManager dk_manager] nightFalling];
     //方法二
@@ -174,6 +176,7 @@
     [family addTommy];
     [family addLily];
     [family everyBodySayHello];
+    write_extern01(4);
 
     //    [self createMap];
     //    applicationWillEnterForeground
@@ -204,6 +207,9 @@
     //    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceProximityStateDidChangeNotification object:nil];
     [timer invalidate];
     timer = nil;
+}
+- (void)CLanguage{
+//    DHConstCast *
 }
 - (void)createMap{
     //请求定位服务
@@ -545,12 +551,7 @@
     if ([className isEqualToString:@"BlueToothViewController"]) {
         // 使用Swift的类
         present(controller);
-    }else{
-        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
-        navController.navigationBarHidden = YES;
-        [UIApplication sharedApplication].keyWindow.rootViewController = navController;
     }
-    
 
     /*
      NSURL *appBUrl = [NSURL URLWithString:@"mqqOpensdkSSoLogin://"];
@@ -567,6 +568,11 @@
         UIViewController *ctrl = class.new;
         ctrl.title = _titles[indexPath.row];
         pushVC(ctrl);
+        return;
+    } else {
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+        navController.navigationBarHidden = YES;
+        [UIApplication sharedApplication].keyWindow.rootViewController = navController;
     }
     /* //ios 13
      [AppDelegate sharedAppDelegate].rootTabbar = [[RootViewController alloc]init];
