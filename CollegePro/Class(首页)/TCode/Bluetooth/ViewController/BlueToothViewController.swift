@@ -13,6 +13,15 @@ class BlueToothViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        // 1. 定义圆角
+//        myView.layer.cornerRadius = 10.0
+//        // 2. 选择需要实现圆角的角
+//        myView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+//        // 左上角 - .layerMinXMinYCorner
+//        // 右上角 - .layerMaxXMinYCorner
+//        // 左下角 - .layerMinXMaxYCorner
+//        // 右下角 - .layerMaxXMaxYCorner
+
         BLECentralManager.shareInstance()?.startScan()
         BLECentralManager.shareInstance()?.setDeviceScanBlock({ (device) in
             
