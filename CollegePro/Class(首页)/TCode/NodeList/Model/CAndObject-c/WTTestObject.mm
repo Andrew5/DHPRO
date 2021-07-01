@@ -1,11 +1,10 @@
 //
-//  WTTestObject.m
-//  TestProgress
+//  WTTestObject.mm
+//  CollegePro
 //
-//  Created by admin on 2020/7/7.
-//  Copyright © 2020 happyness. All rights reserved.
+//  Created by jabraknight on 2021/6/19.
+//  Copyright © 2021 jabrknight. All rights reserved.
 //
-
 #import "WTTestObject.h"
 #import "WTTestt.hpp"
 

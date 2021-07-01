@@ -1,9 +1,9 @@
 //
 //  WTTestC.c
-//  TestProgress
+//  CollegePro
 //
-//  Created by admin on 2020/7/5.
-//  Copyright © 2020 happyness. All rights reserved.
+//  Created by jabraknight on 2021/6/19.
+//  Copyright © 2021 jabrknight. All rights reserved.
 //
 
 #include "WTTestC.h"
@@ -12,6 +12,8 @@
 #include <stdlib.h>
 #include <stddef.h>
 #include <stdio.h>
+
+extern int count;
 
 void printfHelloWord(void)
 {
@@ -42,6 +44,12 @@ PNode BuySListNode(SDataType data){
     
     return 3;
 }
+
+void write_extern(void)
+{
+   printf("count is %d\n", count);
+}
+
 ///初始化部分，我们只需要将链表的头结点置为NULL即可
 void SListInit(SList*s) {
     assert(s);

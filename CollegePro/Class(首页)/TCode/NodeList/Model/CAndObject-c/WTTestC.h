@@ -1,15 +1,16 @@
 //
 //  WTTestC.h
-//  TestProgress
+//  CollegePro
 //
-//  Created by admin on 2020/7/5.
-//  Copyright © 2020 happyness. All rights reserved.
+//  Created by jabraknight on 2021/6/19.
+//  Copyright © 2021 jabrknight. All rights reserved.
 //
 
 #ifndef WTTestC_h
 #define WTTestC_h
 
 #include <stdio.h>
+#include "WTTestC.h"
 void printfHelloWord(void);
 char shuchu(char a);
 
