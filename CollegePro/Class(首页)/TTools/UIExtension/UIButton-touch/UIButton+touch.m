@@ -21,40 +21,7 @@ static inline NSString* cachePathForKey(NSString* directory, NSString* key) {
 @property (nonatomic, assign) BOOL isIgnoreEvent;
 @end
 @implementation UIButton (touch)
-/**
-	只执行一次  (多用于单例模式)
 
-	dispatch_once(dispatch_once_t *predicate, dispatch_block_t block);
-
-	dispatch_once_t *predicate：一个全局的变量      dispatch_block_t block：block函数块
-
-	多次执行
-
-	dispatch_apply(size_t iterations, dispatch_queue_t queue,void (^block)(size_t));
-
-	size_t iterations：执行次数      dispatch_queue_t queue：队列      void (^block)(size_t)：block函数块
- 
-	//定义block
-	typedef void (^BLOCK)(void);
- 
-	//将执行代码封装到block中
-	BLOCK myBlock = ^(){
- 		static int count = 0;
- 		NSLog(@"count=%d",count++);
-	};
-	//只会执行一次，GCD once
-	static dispatch_once_t predicate;
-	dispatch_once(&predicate, myBlock);
-	dispatch_once(&predicate, myBlock);
- 
-	//GCD多次执行任务
-	dispatch_apply(5, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), myBlock);
-	//运行结果如下：执行了5次,有5个输出
- 
-
- 
- 
-*/
 
 + (void)load{
     static dispatch_once_t onceToken;

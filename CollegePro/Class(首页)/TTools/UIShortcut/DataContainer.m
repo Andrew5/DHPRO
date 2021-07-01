@@ -20,7 +20,8 @@
         
         NSString * path = [[NSBundle mainBundle] pathForResource:@"20180719090759" ofType:@"json"];
         NSData * JSONData = [NSData dataWithContentsOfFile:path];
-        instacne.data = [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingAllowFragments error:nil];
+        
+        instacne.data = JSONData.length>0? [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingAllowFragments error:nil]:nil;
     });
     return instacne;
 }

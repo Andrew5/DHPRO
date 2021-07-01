@@ -1956,6 +1956,37 @@ static UILabel *myLabel;
 
     NSLog(@"GCDFunction end");
 }
+/**
+    只执行一次  (多用于单例模式)
+
+    dispatch_once(dispatch_once_t *predicate, dispatch_block_t block);
+
+    dispatch_once_t *predicate：一个全局的变量      dispatch_block_t block：block函数块
+
+    多次执行
+
+    dispatch_apply(size_t iterations, dispatch_queue_t queue,void (^block)(size_t));
+
+    size_t iterations：执行次数      dispatch_queue_t queue：队列      void (^block)(size_t)：block函数块
+ 
+    //定义block
+    typedef void (^BLOCK)(void);
+ 
+    //将执行代码封装到block中
+    BLOCK myBlock = ^(){
+         static int count = 0;
+         NSLog(@"count=%d",count++);
+    };
+    //只会执行一次，GCD once
+    static dispatch_once_t predicate;
+    dispatch_once(&predicate, myBlock);
+    dispatch_once(&predicate, myBlock);
+ 
+    //GCD多次执行任务
+    dispatch_apply(5, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), myBlock);
+    //运行结果如下：执行了5次,有5个输出
+ 
+*/
 - (void)asyncGlobalQueue
 {
     // 获得全局的并发队列
@@ -2011,6 +2042,32 @@ static UILabel *myLabel;
         NSLog(@"-----下载图片50---%@", [NSThread currentThread]);
     });
     
+}
+//串行队列+同步执行//同步执行。不开启新的线程
+- (void) asyncSerialQueueSync {
+    NSLog(@"test start");
+    
+    dispatch_queue_t serialQueue = dispatch_queue_create("com.ks.serialQueue", NULL);
+    
+    dispatch_sync(serialQueue, ^{
+        for (int i = 0; i < 2; i++) {
+            NSLog(@"block1 %@", [NSThread currentThread]);
+        }
+    });
+    
+    dispatch_sync(serialQueue, ^{
+        for (int i = 0; i < 2; i++) {
+            NSLog(@"block2 %@", [NSThread currentThread]);
+        }
+    });
+    
+    dispatch_sync(serialQueue, ^{
+        for (int i = 0; i < 2; i++) {
+            NSLog(@"block3 %@", [NSThread currentThread]);
+        }
+    });
+    
+    NSLog(@"test over");
 }
 - (void)getPrivateVarWithClass:(KYDog *)object{
     unsigned int count = 0;
@@ -2315,8 +2372,8 @@ static  BOOL y;
 }
 #pragma mark GCD 演练
 /*
- 串行队列：顺序，一个一个执行。
- 同步：在当前线程执行，不会开辟新线程。
+ 串行队列：顺序，因为是串行队列,一个一个执行。
+ 同步执行：在当前线程执行，不会开辟新线程。
  dispatch：调度，GCD里面的函数都是以dispatch开头的。
  */
 -(void)gcdTest1
@@ -2336,7 +2393,7 @@ static  BOOL y;
 /**
  串行队列：任务必须要一个一个先后执行。
  异步执行：肯定会开新线程，在新线程执行。
- 结果：只会开辟一个线程，而且所有任务都在这个新的线程里面执行。
+ 结果：只会开辟一个线程，而且所有任务都在这个新的线程里面执行，当所有任务添加到队列之后再执行
  */
 -(void)gcdTest2
 {
@@ -2353,9 +2410,9 @@ static  BOOL y;
 }
 
 /**
- 并发队列：可以同时执行多个任务，
+ 并发队列：可以同时执行多个任务；因为并发队列，异步执行时体现其并发性，任务之间交替着同时执行。
  异步执行：肯定会开新线程，在新线程执行。
- 结果：会开很多个线程，同时执行。
+ 结果：会开很多个线程，同时执行；当所有任务添加到队列之后再执行。
  */
 -(void)gcdTest3
 {
@@ -2375,7 +2432,7 @@ static  BOOL y;
 
 /**
  并发队列：可以同时执行多个任务
- 同步执行：不会开辟新线程，是在当前线程执行。
+ 同步执行：不会开辟新线程，是在当前线程执行；因为是同步执行，没有体现出并发性，任务还是一个接一个执行；任务一加入队列就立马执行
  结果：不开新线程，顺序执行。
  */
 -(void)gcdTest4

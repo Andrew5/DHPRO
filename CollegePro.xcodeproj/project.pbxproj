@@ -59,6 +59,8 @@
 		383AEB4222970F03002F3A22 /* MaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 383AEB4122970F03002F3A22 /* MaskView.m */; };
 		383DC22D23E4326B00B362EF /* DHRefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 383DC22C23E4326B00B362EF /* DHRefreshViewController.m */; };
 		383EAFE322981D1E00A2AA1E /* JHDownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 383EAFE222981D1D00A2AA1E /* JHDownButton.m */; };
+		383EE400267D9C4F0036FFB4 /* WTTestFirstC.c in Sources */ = {isa = PBXBuildFile; fileRef = 383EE3FF267D9C4F0036FFB4 /* WTTestFirstC.c */; };
+		383EE403267DB4030036FFB4 /* WTTestFirstCPlus.mm in Sources */ = {isa = PBXBuildFile; fileRef = 383EE401267DB4030036FFB4 /* WTTestFirstCPlus.mm */; };
 		383F11F823155966005F085F /* CreditNumView.m in Sources */ = {isa = PBXBuildFile; fileRef = 383F11F723155966005F085F /* CreditNumView.m */; };
 		383F11FC23155A37005F085F /* CreditNumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 383F11FB23155A37005F085F /* CreditNumViewController.m */; };
 		383F16DE23169B76005F085F /* IndicatorCrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 383F16DD23169B76005F085F /* IndicatorCrViewController.m */; };
@@ -2292,6 +2294,10 @@
 		383DC22C23E4326B00B362EF /* DHRefreshViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHRefreshViewController.m; sourceTree = "<group>"; };
 		383EAFE122981D1D00A2AA1E /* JHDownButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHDownButton.h; sourceTree = "<group>"; };
 		383EAFE222981D1D00A2AA1E /* JHDownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHDownButton.m; sourceTree = "<group>"; };
+		383EE3FE267D9C4F0036FFB4 /* WTTestFirstC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WTTestFirstC.h; sourceTree = "<group>"; };
+		383EE3FF267D9C4F0036FFB4 /* WTTestFirstC.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = WTTestFirstC.c; sourceTree = "<group>"; };
+		383EE401267DB4030036FFB4 /* WTTestFirstCPlus.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WTTestFirstCPlus.mm; sourceTree = "<group>"; };
+		383EE402267DB4030036FFB4 /* WTTestFirstCPlus.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = WTTestFirstCPlus.hpp; sourceTree = "<group>"; };
 		383F11F623155966005F085F /* CreditNumView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreditNumView.h; sourceTree = "<group>"; };
 		383F11F723155966005F085F /* CreditNumView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreditNumView.m; sourceTree = "<group>"; };
 		383F11FA23155A37005F085F /* CreditNumViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreditNumViewController.h; sourceTree = "<group>"; };
@@ -8193,6 +8199,10 @@
 		8487ADB524F8BEC1004B41ED /* CAndObject-c */ = {
 			isa = PBXGroup;
 			children = (
+				383EE3FE267D9C4F0036FFB4 /* WTTestFirstC.h */,
+				383EE3FF267D9C4F0036FFB4 /* WTTestFirstC.c */,
+				383EE401267DB4030036FFB4 /* WTTestFirstCPlus.mm */,
+				383EE402267DB4030036FFB4 /* WTTestFirstCPlus.hpp */,
 				8487ADB624F8BEC1004B41ED /* WTTestC.c */,
 				8487ADB724F8BEC1004B41ED /* WTTestC.h */,
 				8487ADB824F8BEC1004B41ED /* WTTestObject.h */,
@@ -10032,6 +10042,7 @@
 				38C84A43227827F200BCAD87 /* MLSelectPhotoNavigationViewController.m in Sources */,
 				38C84927227827F100BCAD87 /* SDDrowNoticeView.m in Sources */,
 				38C31A212677458D0015A794 /* NSData+Base64.m in Sources */,
+				383EE400267D9C4F0036FFB4 /* WTTestFirstC.c in Sources */,
 				386BBDB922DDA7FF005E6054 /* GPUImageContrastFilter.m in Sources */,
 				38C849D7227827F200BCAD87 /* PinyinHelper.m in Sources */,
 				38C31A3826776A720015A794 /* ImageUtil.m in Sources */,
@@ -10219,6 +10230,7 @@
 				38C848DC227827F100BCAD87 /* LXWaveProgressView.m in Sources */,
 				38C84A09227827F200BCAD87 /* DHNoteListViewController.m in Sources */,
 				384017BA23545C8E002A2FB4 /* DHUncaughtExceptionHandle.m in Sources */,
+				383EE403267DB4030036FFB4 /* WTTestFirstCPlus.mm in Sources */,
 				386BBDAC22DDA7FF005E6054 /* GPUImageTiltShiftFilter.m in Sources */,
 				386BBD8B22DDA7FE005E6054 /* GPUImageHardLightBlendFilter.m in Sources */,
 				384C3FCD22887D7A00F01586 /* MVPTableViewCell.m in Sources */,
