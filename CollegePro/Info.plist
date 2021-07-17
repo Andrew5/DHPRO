@@ -51,7 +51,7 @@
 		<string>mqq</string>
 		<string>sinaweibo</string>
 		<string>mqqOpensdkSSoLogin</string>
-		<string>mqzoneshare</string>
+		<real>0</real>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
@@ -92,12 +92,10 @@
 	<string>App需要相机权限以启用图片编辑、访问。仅在图片选择时才会激活相机，不会保存或传输视频。</string>
 	<key>NSContactsUsageDescription</key>
 	<string>Contacts Usage Description</string>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>请允许我们获取您的IDFA权限，以为您提供个性化活动服务。未经过您的允许，您的信息将不作其他用途</string>
 	<key>NSHealthShareUsageDescription</key>
 	<string>访问健康分享</string>
-	<key>UIRequiredDeviceCapabilities - 2</key>
-	<array>
-		<string>armv7</string>
-	</array>
 	<key>NSHealthUpdateUsageDescription</key>
 	<string>访问健康更新</string>
 	<key>NSInternalInconsistencyException</key>
@@ -140,13 +138,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-	</array>
-	<key>UISupportedInterfaceOrientations~ipad</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>UIUserInterfaceStyleLight</string>

@@ -97,10 +97,10 @@
         [currentMatch endTurnWithNextParticipant:nextParticipant matchData:data completionHandler:^(NSError *error) {
             if (error) {
                 NSLog(@"%@", error);
-                statusLabel.text = @"Oops, there was a problem.  Try that again.";
+                self->statusLabel.text = @"Oops, there was a problem.  Try that again.";
             } else {
-                statusLabel.text = @"Your turn is over.";
-                textInputField.enabled = NO;
+                self->statusLabel.text = @"Your turn is over.";
+                self->textInputField.enabled = NO;
             }
         }];
     }
@@ -113,7 +113,7 @@
 
 - (void)checkForEnding:(NSData *)matchData {
     if ([matchData length] > 3000) {
-        statusLabel.text = [NSString stringWithFormat:@"%@, only about %lu letter left", statusLabel.text, 4000 - [matchData length]];
+        statusLabel.text = [NSString stringWithFormat:@"%@, only about %u letter left", statusLabel.text, 4000 - [matchData length]];
     }
 }
 
@@ -183,8 +183,10 @@
 }
 
 - (void)sendNotice:(NSString *)notice forMatch:(GKTurnBasedMatch *)match {
-    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Another game needs your attention!" message:notice delegate:self cancelButtonTitle:@"Sweet!" otherButtonTitles:nil];
-    [av show];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Another game needs your attention!" message:notice preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *enter = [UIAlertAction actionWithTitle:@"Sweet!" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {}];
+    [alert addAction:enter];
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)takeTurn:(GKTurnBasedMatch *)match {

@@ -431,6 +431,9 @@
 		3874F5C7245E9BF10038E7DE /* CustomFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3874F5C6245E9BF10038E7DE /* CustomFlowLayout.m */; };
 		3874F5CA245E9C600038E7DE /* KeyBoardVView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3874F5C9245E9C600038E7DE /* KeyBoardVView.m */; };
 		3874F5CD245EC0E80038E7DE /* NSArray+CrashCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = 3874F5CC245EC0E80038E7DE /* NSArray+CrashCustom.m */; };
+		38786334269AFC3800880484 /* AutoRecScrollerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38786333269AFC3800880484 /* AutoRecScrollerViewController.m */; };
+		38786337269AFCB100880484 /* RecFifTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38786336269AFCB100880484 /* RecFifTableViewCell.m */; };
+		38786384269B0A8100880484 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38786382269B0A8000880484 /* SceneDelegate.m */; };
 		387AE6422321103B00EADE4B /* MyCreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 387AE6412321103B00EADE4B /* MyCreView.m */; };
 		387AE6452321109900EADE4B /* MyRectangleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 387AE6442321109900EADE4B /* MyRectangleViewController.m */; };
 		387F18F4233C674100C25F63 /* DHRadianLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 387F18F3233C674000C25F63 /* DHRadianLayerView.m */; };
@@ -1485,6 +1488,7 @@
 		3893F3A822CDF080005C30AE /* HDCollectionMonthDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3893F3A422CDF07E005C30AE /* HDCollectionMonthDetailHeaderView.m */; };
 		3893F3A922CDF080005C30AE /* HDMonthDetailCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3893F3A722CDF07F005C30AE /* HDMonthDetailCollectionViewCell.m */; };
 		3893F3AC22CDF549005C30AE /* NSDate+HDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3893F3AB22CDF548005C30AE /* NSDate+HDExtension.m */; };
+		3895CA5226A37F9800609AB3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38C845442278249A00BCAD87 /* Info.plist */; };
 		38A0B45925E7B60800DAB7F7 /* GZBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A0B45825E7B60800DAB7F7 /* GZBottomView.m */; };
 		38A246F325586CBD00993807 /* DHLearnRacViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A246F225586CBD00993807 /* DHLearnRacViewController.m */; };
 		38A246F925586DF000993807 /* ReadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A246F825586DF000993807 /* ReadView.m */; };
@@ -2934,6 +2938,12 @@
 		3874F5C9245E9C600038E7DE /* KeyBoardVView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyBoardVView.m; sourceTree = "<group>"; };
 		3874F5CB245EC0E80038E7DE /* NSArray+CrashCustom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+CrashCustom.h"; sourceTree = "<group>"; };
 		3874F5CC245EC0E80038E7DE /* NSArray+CrashCustom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+CrashCustom.m"; sourceTree = "<group>"; };
+		38786332269AFC3800880484 /* AutoRecScrollerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutoRecScrollerViewController.h; sourceTree = "<group>"; };
+		38786333269AFC3800880484 /* AutoRecScrollerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutoRecScrollerViewController.m; sourceTree = "<group>"; };
+		38786335269AFCB100880484 /* RecFifTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecFifTableViewCell.h; sourceTree = "<group>"; };
+		38786336269AFCB100880484 /* RecFifTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecFifTableViewCell.m; sourceTree = "<group>"; };
+		38786382269B0A8000880484 /* SceneDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		38786383269B0A8100880484 /* SceneDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		387AE6402321103B00EADE4B /* MyCreView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCreView.h; sourceTree = "<group>"; };
 		387AE6412321103B00EADE4B /* MyCreView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCreView.m; sourceTree = "<group>"; };
 		387AE6432321109900EADE4B /* MyRectangleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyRectangleViewController.h; sourceTree = "<group>"; };
@@ -5499,6 +5509,33 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		3878632F269AFBCF00880484 /* AutoScroller */ = {
+			isa = PBXGroup;
+			children = (
+				38786331269AFC0500880484 /* View */,
+				38786330269AFBE900880484 /* ViewController */,
+			);
+			path = AutoScroller;
+			sourceTree = "<group>";
+		};
+		38786330269AFBE900880484 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				38786332269AFC3800880484 /* AutoRecScrollerViewController.h */,
+				38786333269AFC3800880484 /* AutoRecScrollerViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		38786331269AFC0500880484 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				38786335269AFCB100880484 /* RecFifTableViewCell.h */,
+				38786336269AFCB100880484 /* RecFifTableViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		387AE63F2321101C00EADE4B /* 仪表哦盘 */ = {
 			isa = PBXGroup;
 			children = (
@@ -5807,6 +5844,8 @@
 				38C8454D227827EF00BCAD87 /* Class(首页) */,
 				38C845362278249900BCAD87 /* AppDelegate.h */,
 				38C845372278249900BCAD87 /* AppDelegate.m */,
+				38786383269B0A8100880484 /* SceneDelegate.h */,
+				38786382269B0A8000880484 /* SceneDelegate.m */,
 				38B734532497BB2E00CC4384 /* 750x1334@2x.png */,
 				388C55CA244E8AD900FF5CAF /* apple-app-site-association */,
 				38C845392278249900BCAD87 /* ViewController.h */,
@@ -6288,6 +6327,7 @@
 		38C84631227827EF00BCAD87 /* TCode */ = {
 			isa = PBXGroup;
 			children = (
+				3878632F269AFBCF00880484 /* AutoScroller */,
 				38D9AC9826044C8500975698 /* GifLaunch */,
 				38A246F025586C8300993807 /* LearnRACCode */,
 				38D0FB30243B054C0028967E /* WKWebView */,
@@ -6314,9 +6354,9 @@
 				384C3FAC22887D7900F01586 /* MVP&MVVM */,
 				38C84632227827EF00BCAD87 /* Elimination */,
 				38C84636227827EF00BCAD87 /* ShrinkList */,
-				38C8463F227827EF00BCAD87 /* Sidebar */,
 				38C84649227827EF00BCAD87 /* GestureUnlocking */,
 				38C84650227827EF00BCAD87 /* Duag */,
+				38C8463F227827EF00BCAD87 /* Sidebar */,
 				38C8465D227827EF00BCAD87 /* Navigation */,
 				38C84688227827EF00BCAD87 /* HomeKit */,
 				38C8469F227827EF00BCAD87 /* MainPage */,
@@ -9083,6 +9123,7 @@
 				38C84A1F227827F200BCAD87 /* CountdownViewController.xib in Resources */,
 				38C8499B227827F100BCAD87 /* soul4.png in Resources */,
 				38C84965227827F100BCAD87 /* guideImage4.jpg in Resources */,
+				3895CA5226A37F9800609AB3 /* Info.plist in Resources */,
 				38C84A55227827F200BCAD87 /* scanLine@3x.png in Resources */,
 				38C849A2227827F100BCAD87 /* soul11@2x.png in Resources */,
 				38C8499F227827F100BCAD87 /* soul1.png in Resources */,
@@ -9190,8 +9231,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "
-";
+			shellScript = "#!/bin/bash \nbuildNumber=$CURRENT_PROJECT_VERSION\nbuildNumber=$(($buildNumber + 1)) \n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\" \n\n";
 		};
 		3880C32F265378B70097328E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -10285,6 +10325,7 @@
 				38C84A0B227827F200BCAD87 /* Message.m in Sources */,
 				38C8492E227827F100BCAD87 /* RequestPostUploadHelper.m in Sources */,
 				38C8493A227827F100BCAD87 /* SidebarViewController.m in Sources */,
+				38786337269AFCB100880484 /* RecFifTableViewCell.m in Sources */,
 				38C84A21227827F200BCAD87 /* ZSDSetPasswordView.m in Sources */,
 				38F540F425B9718D00B50573 /* ZLaunchAdAnimation.swift in Sources */,
 				3807246622CDCC8C0035E5B1 /* CornerViewController.m in Sources */,
@@ -10343,6 +10384,7 @@
 				38D0FB2E243AD9560028967E /* UIView+EmptyPage.m in Sources */,
 				38080AF6232D37150073EFAC /* RippleView.m in Sources */,
 				38C84A74227827F200BCAD87 /* LabelNilMethodBlockViewController.m in Sources */,
+				38786334269AFC3800880484 /* AutoRecScrollerViewController.m in Sources */,
 				38C84A26227827F200BCAD87 /* CodeView.m in Sources */,
 				386BBD7022DDA7FE005E6054 /* GPUImageWeakPixelInclusionFilter.m in Sources */,
 				38C848FE227827F100BCAD87 /* IncludeNibTableViewCell.m in Sources */,
@@ -10353,6 +10395,7 @@
 				38C8492F227827F100BCAD87 /* LHCacheTool.m in Sources */,
 				38C848D3227827F100BCAD87 /* DHGuidePageHUD.m in Sources */,
 				38C31AB12677AC160015A794 /* GCTurnBasedMatchHelper.m in Sources */,
+				38786384269B0A8100880484 /* SceneDelegate.m in Sources */,
 				386BBDD422DDA7FF005E6054 /* GPUImageCrosshatchFilter.m in Sources */,
 				38C31A4826776E130015A794 /* NSDate+Category.m in Sources */,
 				386BBD7322DDA7FE005E6054 /* GPUImageTwoInputFilter.m in Sources */,

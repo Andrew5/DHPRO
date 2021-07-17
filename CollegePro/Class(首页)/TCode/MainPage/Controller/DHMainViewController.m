@@ -347,6 +347,7 @@
     [self addCell:@"iCloud文件" class:@"iCloudViewController"];
     [self addCell:@"获取健康信息" class:@"HealthViewController"];
     [self addCell:@"圆角设置" class:@"CornerViewController"];
+    [self addCell:@"自动滚动" class:@"AutoRecScrollerViewController"];
     [self addCell:@"日历" class:@"DHMonthListlinkViewController"];
     [self addCell:@"美食菜单" class:@"FoodListViewController"];
     [self addCell:@"富文本" class:@"CViewController"];
