@@ -114,7 +114,7 @@ NSString *const kGPUImageColorSwizzlingFragmentShaderString = SHADER_STRING
             }
         }        
         
-        self->colorSwizzlingPositionAttribute = [colorSwizzlingProgram attributeIndex:@"position"];
+        self->colorSwizzlingPositionAttribute = [self->colorSwizzlingProgram attributeIndex:@"position"];
         self->colorSwizzlingTextureCoordinateAttribute = [colorSwizzlingProgram attributeIndex:@"inputTextureCoordinate"];
         self->colorSwizzlingInputTextureUniform = [colorSwizzlingProgram uniformIndex:@"inputImageTexture"];
         

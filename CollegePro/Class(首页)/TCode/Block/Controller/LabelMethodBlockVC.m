@@ -15,7 +15,7 @@
 #import "TestGestureRecognizer.h"
 
 typedef void(^MyBlock)(void);
-@interface LabelMethodBlockVC ()<UIGestureRecognizerDelegate,UITableViewDelegate,UITableViewDataSource,UITextViewDelegate>{
+@interface LabelMethodBlockVC ()<UIGestureRecognizerDelegate,UITextViewDelegate>{
 	NSString *u;
 	BOOL snState;
     DHRadianLayerView *RadianLayerView;
@@ -492,5 +492,53 @@ typedef void (^CustomEvent)(NSString* str);//本类测试
     // Pass the selected object to the new view controller.
 }
 */
+//用归档保存的对象，其子对象必须也支持归档包括自定义的对象。及实现initWithCoder和encodeWithCoder方
+- (void)encodeWithCoder:(nonnull NSCoder *)coder {
+    
+}
+
+- (void)traitCollectionDidChange:(nullable UITraitCollection *)previousTraitCollection {
+    [super traitCollectionDidChange: previousTraitCollection];
+    if ((self.traitCollection.verticalSizeClass != previousTraitCollection.verticalSizeClass)
+        || (self.traitCollection.horizontalSizeClass != previousTraitCollection.horizontalSizeClass)) {
+        printf("Orientation Change!\n");
+    }
+}
+//设置我们期望的childViewController的界面的大小
+- (void)preferredContentSizeDidChangeForChildContentContainer:(nonnull id<UIContentContainer>)container {
+    
+}
+//在这些情况下该方法会被调用，当前viewController没有使用auto layout布局，childrenViewController的view使用了autoLayout布局
+- (CGSize)sizeForChildContentContainer:(nonnull id<UIContentContainer>)container withParentContainerSize:(CGSize)parentSize {
+    return  CGSizeZero;
+}
+//通知当前VC，根据新的size调整UI
+- (void)systemLayoutFittingSizeDidChangeForChildContentContainer:(nonnull id<UIContentContainer>)container {
+    
+}
+//当容器viewControllerViewWillTransitionTosize：withTransitionCoordinator：被调用时（我们重写这个方法时要调用super），sizeForChildContentContainer方法将被调用
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(nonnull id<UIViewControllerTransitionCoordinator>)coordinator {
+    
+}
+//viewController的view的size被他的parent Controller改变时，会触发这个方法
+- (void)willTransitionToTraitCollection:(nonnull UITraitCollection *)newCollection withTransitionCoordinator:(nonnull id<UIViewControllerTransitionCoordinator>)coordinator {
+    
+}
+
+//- (void)didUpdateFocusInContext:(nonnull UIFocusUpdateContext *)context withAnimationCoordinator:(nonnull UIFocusAnimationCoordinator *)coordinator {
+//    <#code#>
+//}
+//
+//- (void)setNeedsFocusUpdate {
+//    <#code#>
+//}
+//
+//- (BOOL)shouldUpdateFocusInContext:(nonnull UIFocusUpdateContext *)context {
+//    <#code#>
+//}
+//
+//- (void)updateFocusIfNeeded {
+//    <#code#>
+//}
 
 @end

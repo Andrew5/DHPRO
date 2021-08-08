@@ -11,7 +11,8 @@
 
 typedef void (^ReturnTextBlock)(NSString * _Nonnull showText);
 typedef BOOL(^ReturnCustomValicationBlock)(NSString *originContent, NSString *customContent);
-
+static NSString * const SD_PLT              = @"iPhone";
+extern NSString * const ABC;
 @interface LabelMethodBlockSubVC : BaseViewController
 @property (nonatomic, copy) ReturnTextBlock _Nullable returnTextBlock;
 

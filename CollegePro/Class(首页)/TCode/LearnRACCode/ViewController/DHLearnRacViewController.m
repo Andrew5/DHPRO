@@ -234,7 +234,7 @@
         NSLog(@"信号被调用");
         //强引用
         //只要订阅者还在，就不会自动取消信号订阅
-        _subscriber = subscriber;
+        self->_subscriber = subscriber;
         //3、发送
         [subscriber sendNext:@"发送"];
         return  [RACDisposable disposableWithBlock:^{

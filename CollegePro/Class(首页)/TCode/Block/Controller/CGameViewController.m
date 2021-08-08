@@ -43,9 +43,9 @@
 */
 - (IBAction)updateCount:(id)sender {
     UITextField *tf = (UITextField *)sender;
-    int len = [tf.text length];
-    int remain = 250 - len;
-    characterCountLabel.text = [NSString stringWithFormat:@"%d", remain];
+    NSUInteger len = tf.text.length;//[tf.text length];
+    NSUInteger remain = 250 - len;
+    characterCountLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)remain];
     if (remain < 0) {
         characterCountLabel.textColor = [UIColor redColor];
     } else {

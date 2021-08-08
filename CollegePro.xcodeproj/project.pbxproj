@@ -55,6 +55,10 @@
 		382FFA55231CC0750062080E /* GradualColor_View.m in Sources */ = {isa = PBXBuildFile; fileRef = 382FFA54231CC0750062080E /* GradualColor_View.m */; };
 		382FFA58231CDDAA0062080E /* CricleScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 382FFA57231CDDAA0062080E /* CricleScrollViewController.m */; };
 		38345BDA22B1207C00FBE78B /* SFHttpSessionReq.m in Sources */ = {isa = PBXBuildFile; fileRef = 38345BD922B1207C00FBE78B /* SFHttpSessionReq.m */; };
+		38345E1D26B584D50010BAB9 /* BlockREADME.md in Resources */ = {isa = PBXBuildFile; fileRef = 38345E1C26B584D50010BAB9 /* BlockREADME.md */; };
+		38345E2026B585F70010BAB9 /* DHLearnGCDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38345E1F26B585F70010BAB9 /* DHLearnGCDViewController.m */; };
+		38345E2326B586110010BAB9 /* DHLearnBlockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38345E2226B586110010BAB9 /* DHLearnBlockViewController.m */; };
+		38345E2626B58E5E0010BAB9 /* DHLearnTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38345E2526B58E5E0010BAB9 /* DHLearnTimerViewController.m */; };
 		3839212B2509205E00D1F3A0 /* test.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3839212A2509205E00D1F3A0 /* test.m4a */; };
 		383AEB4222970F03002F3A22 /* MaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 383AEB4122970F03002F3A22 /* MaskView.m */; };
 		383DC22D23E4326B00B362EF /* DHRefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 383DC22C23E4326B00B362EF /* DHRefreshViewController.m */; };
@@ -1488,7 +1492,6 @@
 		3893F3A822CDF080005C30AE /* HDCollectionMonthDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3893F3A422CDF07E005C30AE /* HDCollectionMonthDetailHeaderView.m */; };
 		3893F3A922CDF080005C30AE /* HDMonthDetailCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3893F3A722CDF07F005C30AE /* HDMonthDetailCollectionViewCell.m */; };
 		3893F3AC22CDF549005C30AE /* NSDate+HDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3893F3AB22CDF548005C30AE /* NSDate+HDExtension.m */; };
-		3895CA5226A37F9800609AB3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38C845442278249A00BCAD87 /* Info.plist */; };
 		38A0B45925E7B60800DAB7F7 /* GZBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A0B45825E7B60800DAB7F7 /* GZBottomView.m */; };
 		38A246F325586CBD00993807 /* DHLearnRacViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A246F225586CBD00993807 /* DHLearnRacViewController.m */; };
 		38A246F925586DF000993807 /* ReadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A246F825586DF000993807 /* ReadView.m */; };
@@ -2291,6 +2294,13 @@
 		382FFA57231CDDAA0062080E /* CricleScrollViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CricleScrollViewController.m; sourceTree = "<group>"; };
 		38345BD822B1207C00FBE78B /* SFHttpSessionReq.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFHttpSessionReq.h; sourceTree = "<group>"; };
 		38345BD922B1207C00FBE78B /* SFHttpSessionReq.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFHttpSessionReq.m; sourceTree = "<group>"; };
+		38345E1C26B584D50010BAB9 /* BlockREADME.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = BlockREADME.md; sourceTree = "<group>"; };
+		38345E1E26B585F70010BAB9 /* DHLearnGCDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHLearnGCDViewController.h; sourceTree = "<group>"; };
+		38345E1F26B585F70010BAB9 /* DHLearnGCDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHLearnGCDViewController.m; sourceTree = "<group>"; };
+		38345E2126B586100010BAB9 /* DHLearnBlockViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHLearnBlockViewController.h; sourceTree = "<group>"; };
+		38345E2226B586110010BAB9 /* DHLearnBlockViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHLearnBlockViewController.m; sourceTree = "<group>"; };
+		38345E2426B58E5E0010BAB9 /* DHLearnTimerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DHLearnTimerViewController.h; sourceTree = "<group>"; };
+		38345E2526B58E5E0010BAB9 /* DHLearnTimerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHLearnTimerViewController.m; sourceTree = "<group>"; };
 		3839212A2509205E00D1F3A0 /* test.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.m4a; sourceTree = "<group>"; };
 		383AEB4022970F03002F3A22 /* MaskView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaskView.h; sourceTree = "<group>"; };
 		383AEB4122970F03002F3A22 /* MaskView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaskView.m; sourceTree = "<group>"; };
@@ -2953,7 +2963,6 @@
 		387F594B2611EEC000C80AD9 /* Silence.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Silence.wav; sourceTree = "<group>"; };
 		387F594C2611EEC000C80AD9 /* BIYDeepSleepPreventer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIYDeepSleepPreventer.h; sourceTree = "<group>"; };
 		387F594D2611EEC000C80AD9 /* BIYDeepSleepPreventer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BIYDeepSleepPreventer.m; sourceTree = "<group>"; };
-		3880C2F9265378A80097328E /* CollegePro copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CollegePro copy-Info.plist"; path = "/Volumes/SSK Media/Code/ColligateDHPro/DHPRO/CollegePro copy-Info.plist"; sourceTree = "<absolute>"; };
 		3880C73C265378B70097328E /* CollegePro_Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollegePro_Dev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3883777B25A5671E0025BB85 /* AutoScrollerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoScrollerViewController.m; sourceTree = "<group>"; };
 		3883777C25A5671F0025BB85 /* AutoScrollerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoScrollerViewController.h; sourceTree = "<group>"; };
@@ -5820,7 +5829,6 @@
 				38C845342278249900BCAD87 /* Products */,
 				DB7A53478EBF97A0FF9F1D0C /* Pods */,
 				F3734FE496F0FE515FCEE2E1 /* Frameworks */,
-				3880C2F9265378A80097328E /* CollegePro copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -7931,6 +7939,7 @@
 			children = (
 				384C3FD9228881F700F01586 /* Model */,
 				38C848C7227827F100BCAD87 /* Controller */,
+				38345E1C26B584D50010BAB9 /* BlockREADME.md */,
 			);
 			path = Block;
 			sourceTree = "<group>";
@@ -7940,6 +7949,12 @@
 			children = (
 				38C848C9227827F100BCAD87 /* LabelMethodBlockVC.h */,
 				38C848CB227827F100BCAD87 /* LabelMethodBlockVC.m */,
+				38345E1E26B585F70010BAB9 /* DHLearnGCDViewController.h */,
+				38345E1F26B585F70010BAB9 /* DHLearnGCDViewController.m */,
+				38345E2126B586100010BAB9 /* DHLearnBlockViewController.h */,
+				38345E2226B586110010BAB9 /* DHLearnBlockViewController.m */,
+				38345E2426B58E5E0010BAB9 /* DHLearnTimerViewController.h */,
+				38345E2526B58E5E0010BAB9 /* DHLearnTimerViewController.m */,
 				38C848CD227827F100BCAD87 /* LabelMethodBlockSubVC.h */,
 				38C848CA227827F100BCAD87 /* LabelMethodBlockSubVC.m */,
 				38C848C8227827F100BCAD87 /* LabelNilMethodBlockViewController.h */,
@@ -8467,7 +8482,7 @@
 			isa = PBXProject;
 			attributes = {
 				DefaultBuildSystemTypeForWorkspace = Original;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = jabrknight;
 				TargetAttributes = {
 					38544A3C267218BB00E35B39 = {
@@ -8871,6 +8886,7 @@
 				38C2D0E222D5E31D00CF30CA /* 03.jpg in Resources */,
 				384C407922888DFA00F01586 /* 快速发稿@3x.png in Resources */,
 				386BBF8622DDA99A005E6054 /* voroni_points2.png in Resources */,
+				38345E1D26B584D50010BAB9 /* BlockREADME.md in Resources */,
 				386BBC5F22DD9C18005E6054 /* nav_back@2x.png in Resources */,
 				384C408722888DFA00F01586 /* 回传管理@3x.png in Resources */,
 				38C849A3227827F100BCAD87 /* soul2.png in Resources */,
@@ -9123,7 +9139,6 @@
 				38C84A1F227827F200BCAD87 /* CountdownViewController.xib in Resources */,
 				38C8499B227827F100BCAD87 /* soul4.png in Resources */,
 				38C84965227827F100BCAD87 /* guideImage4.jpg in Resources */,
-				3895CA5226A37F9800609AB3 /* Info.plist in Resources */,
 				38C84A55227827F200BCAD87 /* scanLine@3x.png in Resources */,
 				38C849A2227827F100BCAD87 /* soul11@2x.png in Resources */,
 				38C8499F227827F100BCAD87 /* soul1.png in Resources */,
@@ -10380,6 +10395,7 @@
 				384C3FEB22888DBF00F01586 /* ZQVariableMenuControl.m in Sources */,
 				84B7FF25250B17ED0051603C /* BLYGetEquipmentInfo.m in Sources */,
 				38C4E38C25B58024002D6F65 /* YBMonitorNetWorkState.m in Sources */,
+				38345E2626B58E5E0010BAB9 /* DHLearnTimerViewController.m in Sources */,
 				38C9779B22AE02D200F978C1 /* Air_HockeyViewController.m in Sources */,
 				38D0FB2E243AD9560028967E /* UIView+EmptyPage.m in Sources */,
 				38080AF6232D37150073EFAC /* RippleView.m in Sources */,
@@ -10431,6 +10447,7 @@
 				38C8493B227827F100BCAD87 /* DisassemblyView.m in Sources */,
 				384C3FCF22887D7A00F01586 /* MVVMViewModel.m in Sources */,
 				383F11F823155966005F085F /* CreditNumView.m in Sources */,
+				38345E2026B585F70010BAB9 /* DHLearnGCDViewController.m in Sources */,
 				382FFA39231CAEE30062080E /* YoungSphere.m in Sources */,
 				3886DD4524162639004CCA21 /* NSTimer+UnretainCycle.m in Sources */,
 				38C9779922AE02D200F978C1 /* Credits.m in Sources */,
@@ -10655,6 +10672,7 @@
 				3828B66023ADE5CB008E4D04 /* NSDictionary+Safe.m in Sources */,
 				386BC04622DDABA7005E6054 /* DGActivityIndicatorAnimation.m in Sources */,
 				386BC04522DDABA7005E6054 /* DGActivityIndicatorTriplePulseAnimation.m in Sources */,
+				38345E2326B586110010BAB9 /* DHLearnBlockViewController.m in Sources */,
 				38C84A4F227827F200BCAD87 /* DHZanViewController.m in Sources */,
 				38F459D9251314C700F368EF /* ZCPhotoManager.m in Sources */,
 				386BBD9E22DDA7FF005E6054 /* GPUImageBrightnessFilter.m in Sources */,
@@ -10942,7 +10960,7 @@
 					"isDev=1",
 				);
 				INFOPLIST_FILE = "CollegePro copy2-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -11055,7 +11073,7 @@
 					"isDev=0",
 				);
 				INFOPLIST_FILE = "CollegePro copy2-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -11141,7 +11159,7 @@
 		38AAD80F253EA65A00532985 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -11170,7 +11188,7 @@
 		38AAD810253EA65A00532985 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -11222,6 +11240,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -11247,7 +11266,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -11281,6 +11300,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -11300,10 +11320,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -11317,11 +11338,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_ENTITLEMENTS = CollegePro/CollegeProDebug.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 74W795UZRB;
+				DEVELOPMENT_TEAM = XFZ38U4TMY;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -11337,7 +11358,7 @@
 					"isDev=0",
 				);
 				INFOPLIST_FILE = CollegePro/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -11412,9 +11433,9 @@
 					"-weak_framework",
 					"\"UserNotifications\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dhTool.selfpro.CollegePro;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lohashow.appc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "appC-Adhoc-pp";
 				SWIFT_OBJC_BRIDGING_HEADER = "CollegePro/Class(首页)/TCode/Bluetooth/ViewController/CollegePro-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -11431,11 +11452,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_ENTITLEMENTS = CollegePro/CollegePro.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 74W795UZRB;
+				DEVELOPMENT_TEAM = XFZ38U4TMY;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -11451,7 +11472,7 @@
 					"isDev=0",
 				);
 				INFOPLIST_FILE = CollegePro/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -11526,9 +11547,9 @@
 					"-weak_framework",
 					"\"UserNotifications\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dhTool.selfpro.CollegePro;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lohashow.appc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "appC-Adhoc-pp";
 				SWIFT_OBJC_BRIDGING_HEADER = "CollegePro/Class(首页)/TCode/Bluetooth/ViewController/CollegePro-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

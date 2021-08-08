@@ -147,8 +147,9 @@
         shouldPrevent = NO;
     });
 }
-
-
+- (void)pay:(NSDictionary*)param complete:(void(^)(enum PAYType resultCode,NSString* resultMessage)) completionHandler{
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

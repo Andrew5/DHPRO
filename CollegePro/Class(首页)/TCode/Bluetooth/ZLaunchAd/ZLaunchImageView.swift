@@ -38,16 +38,16 @@ extension ZLaunchImageView {
         return nil
     }
     private func assetsLaunchImage(_ orientation: String) -> UIImage? {
-        let size = UIScreen.main.bounds.size
-        guard let launchImages = Bundle.main.infoDictionary?["UILaunchImages"] as? [[String: Any]] else { return nil }
-        for dict in launchImages {
+//        let size = UIScreen.main.bounds.size
+//        guard let launchImages = Bundle.main.infoDictionary?["UILaunchImages"] as? [[String: Any]] else { return nil }
+//        for dict in launchImages {
 //            let imageSize = NSCoder.CGSizeFromString(dict["UILaunchImageSize"] as! String)
 //            if __CGSizeEqualToSize(imageSize, size) && orientation == (dict["UILaunchImageOrientation"] as! String) {
 //                let launchImageName = dict["UILaunchImageName"] as! String
 //                let image = UIImage(named: launchImageName)
 //                return image
 //            }
-        }
+//        }
         return nil
     }
     /// Form LaunchScreen.Storyboard
